@@ -1,0 +1,16 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+    $message
+<p>Klik <a href="$host/Hrms.html?link=$link" title="Review assessment" target="_blank">hier</a> om de beoordeling in te
+    vullen.</p>
+
+<p>* Indien u niet op de link kunt klikken, kopieer dan de volgende regel naar uw web browser:</p>
+
+<p><a href="$host/Hrms.html?link=$link" title="Review assessment" target="_blank">$host/Hrms.html?link=$link</a></p>
+</body>
+</html>

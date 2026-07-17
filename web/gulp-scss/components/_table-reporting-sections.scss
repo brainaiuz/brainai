@@ -1,0 +1,472 @@
+
+.table_report {
+  ///min-width: 1437px !important; PNL report table 12 + Month - http://prntscr.com/jxha0t
+  > thead {
+    &.point_affix_top {
+      //overflow: visible !important; //point_affix_top redefine
+      z-index: 3; // to overlap the .plusMinus icon http://prntscr.com/npur02
+      > tr > *:first-child {
+        padding-left: $frameContentPadding;
+      }
+    }
+  }
+
+  > tbody {
+    //position: relative;
+    > tr {
+      //border-top: 1px solid $body-bg;
+      > td {
+        height: $tableCellHeight;
+        padding-left: $tableCellPadding-x; //https://prnt.sc/soh45w
+        padding-right: $tableCellPadding-x;
+      }
+    }
+  }
+
+  //https://prnt.sc/sp8m1r
+  > thead + tbody {
+    > .set_head_row:first-child {
+      > td {
+        padding-top: 10px;
+      }
+    }
+  }
+
+  &.table > tbody > tr > td {
+    overflow: visible; /*Accounting->Statements->report-tables (due to calculate true width 'or developer whould set true min-width for table')*/
+  }
+
+  td small {
+    display: inline-block;
+    margin-left: 5px;
+  }
+
+  .row-head > *:first-child
+    //,.category_set > tr:first-child > *:first-child,
+    //.category_set > tr.total_row > *:first-child
+  {
+    font-size: 1.15385rem;
+  }
+
+  > thead > tr > th:first-child,
+  .category_set > tr.total_row.double > *:first-child {
+    padding-left: 15px;
+  }
+
+  .delimit_top {
+    background: none;
+  }
+
+  .table-responsive {
+    margin-bottom: 40px;
+  }
+
+  .total_row-double-margin td {
+    padding: 0;
+    height: 4px;
+  }
+}
+
+.category_set {
+  .plusMinus {
+    position: absolute;
+    z-index: 2; //the higher value will lead to problem
+    top: 4px;
+    left: ($frameContentPadding);
+    margin-left: -($plusMinusSize / 1.5);
+    transition: background-color .25s ease;
+    padding: 4px !important;
+    background-clip: content-box;
+
+    .category_set table & {
+      top: -1px;
+      left: ($frameContentPadding + $treeIndendQuotient);
+    }
+
+    .category_set table table & {
+      left: ($frameContentPadding + $treeIndendQuotient * 2);
+    }
+  }
+
+  &:hover .plusMinus {
+    background-color: rgba(#000, .02);
+  }
+
+  //common tr, td
+  > tr {
+    > td {
+      height: $tableCellHeight;
+    }
+
+    > * {
+      //transform: scaleY(1);
+      transition: height .3s ease, line-height .3s ease, transform .3s ease, padding-top .3s ease, padding-bottom .3s ease, opacity .3s ease;
+    }
+
+    a[title^="ID"] { //https://prnt.sc/rdorz8
+      display: inline-block;
+      vertical-align: middle;
+
+      ~ span {
+        display: inline-block;
+        vertical-align: middle;
+        padding-left: 10px;
+      }
+    }
+
+    span {
+      display: inline-block;
+      max-width: 100%;
+      @include txtTruncate();
+    }
+
+    .btn-small {
+      margin-left: 5px;
+      transform: scale(0);
+    }
+
+    &:hover .btn-small {
+      transform: scale(0.8);
+    }
+  }
+
+  //Middle rows Paddings
+  > tr + tr:not(.total_row) > *:first-child {
+    :not(.budget-manager):not(.cash-flow-table) > & {
+      padding-left: 35px;
+    }
+
+    .table_tree table.tm > & {
+      &:not(.tm__cat-cell) {
+        padding: 0 !important;
+      }
+    }
+
+    .table_tree & {
+      padding-left: $treeIndent-2 !important;
+    }
+
+    .table_tree table.tm > .category_set table & {
+      &:not(.tm__cat-cell) {
+        padding: 0 !important;
+      }
+    }
+
+    .table_tree .category_set table & {
+      padding-left: ($treeIndent-2 + $treeIndendQuotient) !important;
+    }
+
+    .table_tree .category_set table table & {
+      padding-left: $treeIndent-2 + $treeIndendQuotient * 2 !important;
+    }
+  }
+
+  // \Middle rows Paddings
+
+  &.collapsed {
+    > tr + tr {
+      &:not(.total_row) * {
+        @include collapse-els;
+      }
+    }
+  }
+
+  &.expanded {
+    > tr + tr {
+      > td {
+        border-top: 1px solid $color-base-contrast;
+      }
+
+      &:not(.total_row) > td {
+        font-size: 11px;
+        animation: hideRows .4s ease;
+      }
+    }
+  }
+
+  .second_level {
+    background-color: #fff;
+
+    > div {
+      margin-left: -($treeIndent-2);
+      margin-right: -($tableCellPadding-x);
+      padding-top: 0;
+
+      table.tm & {
+        margin: 0;
+      }
+
+      .point_affix_top:not(.childTableHeader) {
+        display: none;
+      }
+
+      .second_level & {
+        margin-left: -($treeIndent-2 + $treeIndendQuotient);
+      }
+    }
+  }
+}
+
+//HEAD AND TOTAL Paddings and Background
+.category_set > tr:first-child, .heading_row,
+.total_row {
+  > * {
+    font-weight: 500;
+    font-size: rem(12px);
+
+    .category_set table & {
+      font-size: 11px;
+    }
+  }
+}
+
+.category_set:not(.expanded) > tr:first-child {
+  background-color: $theadBg;
+
+  .category_set table & {
+    background-color: inherit;
+    box-shadow: none;
+  }
+}
+
+.category_set > tr:first-child,
+  //.gross_total_row > tr,
+.total_row {
+  > * {
+    height: $treeThikRow;
+
+    .category_set table & {
+      height: $tableCellHeight;
+    }
+
+    &:first-child {
+      padding-left: 20px;
+      //padding-left: $treeIndent-1;
+
+      .table_tree & {
+        padding-left: $treeIndent-1;
+      }
+
+      .table_tree .category_set table & {
+        padding-left: $treeIndent-1 + $treeIndendQuotient;
+      }
+
+      .table_tree .category_set table table & {
+        padding-left: $treeIndent-1 + $treeIndendQuotient * 2;
+
+        &.standartStr-placeholder {
+          /*padding-left: 20px;*/
+        }
+      }
+    }
+  }
+}
+
+// \HEAD AND TOTAL Paddings and Background
+.heading_row {
+  position: relative;
+
+  td > span {
+    vertical-align: middle; // to be aligned with the next "add invoice" button - budget sheet
+  }
+
+  &:not(.category_set.expanded) & > {
+
+  }
+
+  .gross_total_row + .category_set & {
+    box-shadow: none;
+  }
+
+  .category_set.collapsed:not(.category_set--noTotal) > & {
+    > td {
+      &:first-child {
+        position: absolute;
+        line-height: $treeThikRow;
+        z-index: 1;
+      }
+
+      &:not(:first-child) {
+        display: none;
+      }
+    }
+  }
+
+  .category_set.collapsed > & {
+    @include theadShadowInset;
+
+    > td {
+      &:first-child {
+        .category_set table & {
+          line-height: $tableCellHeight;
+        }
+      }
+    }
+  }
+
+  .category_set.expanded > & {
+    box-shadow: $theadShadowInset;
+
+    .category_set table & {
+      box-shadow: none;
+    }
+  }
+}
+
+.total_row,
+.gross_total_row {
+  background-color: $color-base-contrast;
+}
+
+.total_row,
+.gross_total_row > tr:not(.row-spacing) {
+}
+
+.total_row {
+  .category_set.collapsed & {
+    @include theadShadowInset;
+
+    .category_set table & {
+      background-color: inherit;
+      box-shadow: none;
+    }
+
+    > * {
+      position: relative;
+
+      &:first-child {
+        transition: opacity .15s ease;
+        opacity: 0;
+      }
+    }
+
+    .gross_total_row + & {
+      box-shadow: none;
+    }
+  }
+
+  > td {
+    height: $treeThikRow !important;
+
+    .category_set table & {
+      height: $tableCellHeight !important;
+    }
+  }
+}
+
+.table_tree .gross_total_row {
+  box-shadow: $theadShadowInset;
+}
+
+.gross_total_row,
+.gross_total_row > tr {
+  > td {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: rem(13px);
+  }
+
+  &:not(.row-spacing) > td {
+    height: $treegrossRow !important;
+  }
+
+  &.row-spacing > td {
+    height: 15px;
+    line-height: 15px;
+    background-color: $body-bg;
+  }
+}
+
+@keyframes hideRows {
+  0%, 50%, 75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/*TOTAL and HEAD ROWS*/
+.table_report .row-head,
+.category_set .total_row {
+  font-weight: normal;
+}
+
+///*STOCK VALUATION TABLE*/
+.table_tree {
+  .category_set {
+    //width: auto; //http://prntscr.com/n5teid
+    //min-width: 100%;
+  }
+}
+
+
+
+.kpi-thead .tr .t_regname-sort {
+  padding-left: 0;
+}
+
+t_regname-sort span {
+  margin-left: 2px;
+}
+
+.pageContent_reporting .reporting-table-container .table-wrapper {
+  overflow-x: auto;
+}
+
+.plusMinus:before {
+  transform: rotate(0deg);
+}
+
+.plusMinus:after {
+  transform: rotate(90deg);
+}
+
+.plusMinus.expanded:after {
+  transform: rotate(180deg);
+}
+
+.plusMinus.expanded:before {
+  transform: rotate(180deg);
+}
+
+.scroll-offset .dragdrop-dropTarget .drag-tile .dragable-group {
+  //height: 55px; //removed due to the next fix https://prnt.sc/zLwdmomEFugj
+}
+
+.drag-tiles .slideDown-box .collapsible-header {
+  width: 100%;
+}
+
+.quick-add:not(.user-menu-settings) .collapsible-body {
+  //margin-right: 6px; // lead to side effects
+}
+
+.drag-tiles .slideDown-box .collapsible-body .drag-tile__grip {
+  align-items: center !important;
+  margin-top: 0 !important;
+}
+
+.drag-tiles .collapsible-header.grid-row {
+  margin-right: 0;
+  margin-left: 2px;
+}
+
+
+.drag-tiles .slideDown-box .collapsible-header {
+  width: 96.8%;
+}
+
+.dragdrop-draggable.dragdrop-draggable.drag-tile.state-on table tr td .drag-tiles {
+  min-height: 0;
+}
+
+.drag-tiles .slideDown-box .collapsible-header {
+  background: transparent;
+  border: 0 solid transparent;
+  padding-left: 0;
+}
+
+.collapsible-header .panel-w-switch {
+  //margin: auto; //Reporting select columns fix
+}

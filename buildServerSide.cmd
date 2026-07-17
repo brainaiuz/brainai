@@ -1,0 +1,1 @@
+ant z1_compileServerSide -f ./web/AutoCompile.xml

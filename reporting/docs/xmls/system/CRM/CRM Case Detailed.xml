@@ -1,0 +1,84 @@
+<report>
+    <view>
+        <title>CRM Case Detailed</title>
+        <name>Cases Report</name>
+        <category>cases</category>
+        <sqlquery>
+            <select agregateFunc="distinct">
+
+                <table name="Case">
+                    <column name="ccasecrmcasedetails_id" title="id" type="number" formattype="hidden"/>
+                    <column name="ccasecaseNumberString" title="Case ID" type="string"/>
+                    <column name="ccasesubject" title="Subject" type="string"/>
+                    <column name="caseoriginname" title="Case Origin" type="string"/>
+                    <column name="casereasonname" title="Case Reason" type="string"/>
+                    <column name="typename" title="Type" type="string"/>
+                    <column name="statusname" title="Status" type="string"/>
+                    <column name="priorityname" title="Priority" type="string"/>
+                    <column name="assignee" title="Assignee" type="string"/>
+                    <column name="resolver" title="Resolver" type="string"/>
+                    <column name="receiveddate" title="Received Date" type="string"/>
+                    <column name="updateddate" title="Last Updated" type="string"/>
+                </table>
+
+                <table name="Lead">
+                    <column name="leadname" title="Lead Name" type="string"/>
+                </table>
+
+                <table name="Account">
+                    <column name="accname" title="Account Name" type="string"/>
+                </table>
+
+                <table name="Contact">
+                    <column name="contactname" title="Contact Name" type="string"/>
+                </table>
+
+                <table name="Opportunity">
+                    <column name="oppname" title="Opportunity Name" type="string"/>
+                </table>
+
+                <table name="Email">
+                    <column name="emailssubject" title="Email Subject" type="string"/>
+                    <column name="emailstoemail" title="Recipient" type="string"/>
+                    <column name="emailsfromemail" title="Sender" type="string"/>
+                    <column name="emailTypename" title="Email Type" type="string"/>
+                </table>
+            </select>
+
+            <from> (select ccase.crmcasedetails_id ccasecrmcasedetails_id, ccase.caseNumberString ccasecaseNumberString, ccase.subject ccasesubject, 
+			caseorigin.name caseoriginname, casereason.name casereasonname, type.name typename, status.name statusname,
+			 priority.name priorityname, assignee.firstname||' '||assignee.lastname assignee, resolver.firstname||' '||resolver.lastname resolver, 
+			 to_char(ccase.createdDate, 'YYYY-MM-DD') receiveddate, to_char(ccase.lastUpdatedDate, 'YYYY-MM-DD') updateddate,
+			  l.firstname||' '||l.lastname leadname, acc.name accname, contact.firstname||' '||contact.lastname contactname, 
+			  opp.name oppname, emails.subject emailssubject, emails.toemail emailstoemail, emails.fromemail emailsfromemail, emailType.name emailTypename, 
+			  ccase.deleted, ccase.intrash		
+			
+			from "$".crmcase ccase
+                left join "$".crmcasedetails casedetails on casedetails.id = ccase.crmcasedetails_id 
+                left join "$".myuser assignee on ccase.owner = assignee.id
+                left join "$".reference caseorigin on ccase.caseorigion = caseorigin.id
+                left join "$".reference status on ccase.status = status.id
+                left join "$".reference type on ccase.type = type.id
+                left join "$".crmcontact l on ccase.lead_id = l.id
+                left join "$".crmcontact contact on ccase.releatedto = contact.id
+                left join "$".crmaccount acc on (ccase.crmaccount = acc.id or l.crmaccount=acc.id or contact.crmaccount=acc.id)
+                left join "$".opportunity opp on ccase.opportunity = opp.id
+                left join "$".reference priority on ccase.priority = priority.id
+                left join "$".reference casereason on ccase.casereason = casereason.id
+                left join "$".myuser resolver on ccase.resolver = resolver.id
+                left join "$".caseemails emails on ccase.id = emails.crmcase
+                left join "$".crmCaseDetails caseemaildetails on caseemaildetails.id = emails.crmcaseemaildetails_id
+                left join "$".reference emailType on emails.type = emailType.id where ccase.deleted is not true and ccase.intrash is not true ) cases
+            </from>
+
+            <where>
+                <terms id="base" value="1=1"/>
+              <!--  	<terms id="userid" userid="" company="ccase.company_id" />
+                    <terms id="managerid" userid="" company="ccase.company_id" />
+                    <terms id="leaderid" userid="" company="ccase.company_id" />
+                    <terms id="admin" company="ccase.company_id" />-->
+            </where>
+
+        </sqlquery>
+    </view>
+</report>

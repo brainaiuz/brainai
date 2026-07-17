@@ -1,0 +1,14 @@
+<module>
+    <inherits name='com.edatasite.workforce.gwt.invoice.Invoice'/>
+    <inherits name='com.edatasite.workforce.gwt.expenses.ExpensesMain'/>
+    <inherits name="com.edatasite.workforce.gwt.client.ClientEmpty"/>
+    <!--<inherits name='com.edatasite.workforce.gwt.website.WebsiteEmpty'/>
+    <inherits name="com.finnetlimited.reportservice.core.CoreEmpty"/>-->
+    <inherits name='com.edatasite.workforce.gwt.crm.CRMMain'/>
+    <inherits name='com.edatasite.workforce.gwt.submodule.todo.TodoEmpty'/>
+    <inherits name='com.edatasite.workforce.gwt.dashboardwidget.DashboardWidget'/>
+<!--    <inherits name="com.googlecode.gwt.charts.Charts"/>-->
+    <!--<inherits name="com.edatasite.workforce.gwt.workspace.WorkspaceEmpty"/>
+    <inherits name="com.edatasite.workforce.gwt.reportingsystem.ReportingSystemEmpty"/>
+    <inherits name='com.edatasite.workforce.gwt.importfile.ImportFile'/>-->
+</module>

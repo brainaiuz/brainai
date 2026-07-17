@@ -1,0 +1,48 @@
+<report>
+    <view>
+        <title>Daily Master</title> <name>Daily Master</name> <category>Daily Master</category>
+        <sqlquery>
+            <select agregateFunc="distinct">
+                <table name="Daily Master">
+                    <column name="id" title="ID" type="number"  formattype="hidden"/>
+                    <column name="number" title="Number" type="string" />
+                    <column name="transactiondate" title="Transaction Date" type="date" formattype="date"  customdateformat="DD-MM-YYYY" />
+                    <column name="itemname" title="Item Name" type="string" formattype="string" />
+                    <column name="quantity" title="Quantity" type="number" formattype="number" />
+                    <column name="unitprice" title="Unit Price" type="number" formattype="money" />
+                    <column name="creditnote" title="Is Credit Note" type="string" formattype="string" />
+                    <column name="description" title="Description" type="string" formattype="string" />
+                    <column name="type" title="Type" type="string" formattype="string" />
+                    <column name="points" title="Points" type="number" formattype="number" />
+                    <column name="accountname" title="Account Name" type="string"  formattype="string" />
+                </table>
+            </select>
+            <from>
+                (select
+                (ii.id*ii.invoice_id) as id, 'Sales' as type, (CASE WHEN inv.iscreditnote=true THEN 'yes' ELSE 'no' END) creditnote, inv.number as number,
+                COALESCE(ii.itemname, it.name) itemname, ii.unitprice unitprice, tr.journalDate as transactiondate,  ii.qty quantity,a.name as accountname , ii.description as description
+                , cast(coalesce(icf.string_value1, '1') as float) as points
+                from  "$".transaction tr
+                left join "$".invoice inv on (tr.invoiceid = inv.id and inv.type='RECEIVABLE')
+                left join "$".invoiceitem ii on inv.id = ii.invoice_id
+                left join "$".item it on ii.item_id = it.id
+                left join "$".itemcustomfields icf on it.customfieldsid=icf.id
+                left join "$".account a on ii.account_id = a.id
+                join "$".reference r on (inv.status_id = r.id and r.code in ('APPROVE', 'OPEN', 'PAID', 'OVER_DUE') )
+                left join "public".accounttype acc on (a.accounttypeid = acc.id and acc.code = 'REVENUE')
+                where tr.invoiceid is not null and tr.deleted is not true
+                union all
+                select (ex.id*100) as  id, 'Expense' as type, 'no' as creditnote, ex.number as number, 'expense' as itemname,  (eitem.costperunit+(eitem.taxamount/eitem.units)) as unitprice,
+                tr.journalDate as transactiondate  , eitem.units as quantity, a.name as accountname ,ex.description as description, 0 as points
+                from "$".transaction tr
+                left join "$".expenseReport ex on tr.expenseReportid = ex.id
+                left join "$".expense eitem on ex.id = eitem.reportId
+                left join "$".account a on eitem.accountId = a.id
+                where tr.expenseReportid is not null and tr.deleted is not true) as t
+
+            </from>
+            <where> <terms id="base" value="1=1"/>
+            </where>
+        </sqlquery>
+    </view>
+</report>

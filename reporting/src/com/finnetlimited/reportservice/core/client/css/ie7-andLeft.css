@@ -1,0 +1,44 @@
+﻿/*CSS Document for IE-7 and left*/
+
+/* .operPanel>*, */
+.btn, .key, .fieldKey,
+.optBtn2, /* .optBtn, */
+.exportAs, .exportAs dt, .exportAs dd,
+.import-to,
+.sortBar>li,
+.tabsPanel>span,
+.rangeLine>div,
+.titleStrip dt, .titleStrip dd,
+.rowItems *,
+.rateLine dd,
+.slideBtn, .slideBtn span,
+.keyOptArrow,
+.labelLine .row>label,
+.labelLine .row>.field,
+.labelLine .row>.fieldKey,
+.noteTable .notesFooter .gwt-HTML {
+    display: inline;
+    zoom: 1;
+}
+
+.dd-menu ul ul {
+    border: 1px solid #dbdbdb;
+}
+
+#search {
+    max-width: 251px;
+}
+
+button, input[type="button"] {
+    overflow: visible;
+}
+
+button.slideBtn {
+    line-height: 15px;
+}
+
+/* Add new button Popup */
+.dropBtn-popup table {
+    /* width:auto; */
+}
+

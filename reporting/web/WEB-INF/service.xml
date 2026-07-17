@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans default-lazy-init="true"
+       xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:annotation-config/>
+    <context:component-scan base-package="com.edatasite.workforce.core.config.datasource"/>
+
+    <bean name="reportingCoreService" class="com.finnetlimited.reportservice.core.server.CoreServiceImpl">
+        <property name="dataSourceWFM" ref="dataSource"/>
+        <property name="dataSourceXLS" ref="reportingDataSource"/>
+    </bean>
+
+    <bean name="telegramReportingRecurrenceService"
+          class="com.finnetlimited.reportservice.core.server.telegram.recurrence.service.TelegramReportingRecurrenceServiceImpl">
+    </bean>
+</beans>

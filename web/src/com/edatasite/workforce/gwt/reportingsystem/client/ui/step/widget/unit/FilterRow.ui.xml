@@ -1,0 +1,97 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:w='urn:import:com.edatasite.workforce.gwt.core.client.ui'
+             xmlns:d='urn:import:com.edatasite.workforce.gwt.reportingsystem.client.ui.step.widget.unit'>
+    <g:HTMLPanel styleName="workarea_head_controls_panel padd_box clearfix">
+        <div class="short_controls row">
+            <div class="col-md-11">
+                <div class="row inputs_sm">
+                    <div class="col-md-3">
+                        <div class="form-group">
+
+                            <label for="gwt-debug-closeWonOpportunity_1" class="control-label">
+                                Column:
+                            </label>
+                            <div class="control_cell">
+                                <w:DataListBox ui:field="columnSelectBox" debugId="closeWonOpportunity_1" styleName="form-control"></w:DataListBox>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="gwt-debug-closeWonOpportunity_2" class="control-label" ui:field="criteria">Criteria:</label>
+
+                            <div class="control_cell">
+                                <w:DataListBox debugId="closeWonOpportunity_2" ui:field="operation"
+                                               withoutNullLabel="true" styleName="form-control"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2" ui:field="fromDatePanel" name="filter">
+                        <div class="form-group">
+                            <label ui:field="fromDateField" for="closeWonOpportunity_3" class="control-label">From:
+                            </label>
+
+                            <div class="control_cell">
+                                <d:DRSDateBox ui:field="fromDate"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2" ui:field="toDatePanel" name="filter">
+                        <div class="form-group">
+                            <label ui:field="toDateField" for="closeWonOpportunity_4" class="control-label">To:
+                            </label>
+
+                            <div class="control_cell">
+                                <d:DRSDateBox ui:field="toDate"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3" ui:field="textBoxPanel" name="filter">
+                        <div class="form-group">
+                            <label ui:field="textBoxField" for="closeWonOpportunity_5" class="control-label">Text:
+                            </label>
+
+                            <div class="control_cell">
+                                <g:TextBox ui:field="textBox" styleName="form-control"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3" ui:field="lookupPanel" name="filter">
+                        <div class="form-group">
+                            <label for="closeWonOpportunity_6" class="control-label" ui:field="textLabel">Text:
+                            </label>
+
+                            <div class="control_cell">
+                                <d:ReportingLookUp ui:field="lookUp"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3" ui:field="listBoxPanel" name="filter">
+                        <div class="form-group">
+
+                            <div class="control_cell">
+                                <w:DataListBox ui:field="listBox" styleName="form-control"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3" ui:field="checkListBoxPanel" name="filter">
+                        <div class="form-group">
+
+                            <div class="control_cell">
+                                <w:CheckListBox ui:field="checkListBox" styleName="form-control"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <button ui:field="updateButton" type="button" class="btn btn-sm btn-default">Update</button>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="col-md-1">
+                <button ui:field="updateButton" type="button" class="btn btn-sm btn-default">Update</button>
+            </div>-->
+        </div>
+    </g:HTMLPanel>
+</ui:UiBinder>

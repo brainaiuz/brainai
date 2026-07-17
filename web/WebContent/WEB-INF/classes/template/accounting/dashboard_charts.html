@@ -1,0 +1,402 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<!--  <link rel="stylesheet" href="../../../../mainStyles/js/grid/css/gridstack.min.css" type="text/css"/>-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.3.0/gridstack.min.css">
+  <style type="text/css">
+    body {
+      font-family: 'Arial', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    /* GRID STACH */
+    .grid-stack {
+      /*padding-top: 20px;*/
+      /*font-size: 0;*/
+    }
+
+    .grid-stack > .grid-stack-item {
+      /*display: inline-block;*/
+      page-break-inside: avoid !important;
+    }
+
+    .grid-stack > .grid-stack-item:last-child {
+      /*margin-right: 0;*/
+    }
+
+    .grid-stack-item {
+      /*font-size: 12px;*/
+      padding: 0 5px 5px !important;
+    }
+
+    [data-gs-width]:after,
+    [data-gs-height]:before,
+    [data-gs-x]:before,
+    [data-gs-y]:after {
+      /*position: absolute;*/
+      /*top: -10px;*/
+      /*color: blue;*/
+      /*background: yellow;*/
+      /*font-size: 9px;*/
+    }
+
+    [data-gs-x]:before {
+      /*content: "data-gs-x = " attr(data-gs-x);*/
+      /*right: 5px;*/
+    }
+
+    [data-gs-y]:after {
+      /*content: "data-gs-y = " attr(data-gs-y);*/
+      /*left: 5px;*/
+    }
+
+    [data-gs-width]:after {
+      /*content: "data-gs-width = " attr(data-gs-width);*/
+      /*right: 5px;*/
+    }
+
+    [data-gs-height]:before {
+      /*content: "data-gs-height = " attr(data-gs-height);*/
+      /*left: 5px;*/
+    }
+
+    /* \ GRID STACH*/
+
+
+    /*PDF*/
+    .pdf-item__inner {
+      overflow: hidden;
+      height: 100%;
+      box-shadow: inset 0 0 1px #ddd;
+
+    }
+    .pdf-item h2 {
+      min-height: 30px;
+      font-size: 12px;
+      padding-left: 5px;
+      padding-right: 5px;
+      font-weight: bold;
+      word-wrap: break-word;
+      overflow-wrap: break-all;
+      page-break-before: always !important;
+    }
+    .pdf-item h2,
+    .pdf-item__body {
+      padding-top: 5px;
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+
+    .pdf-item--chart > div {
+      overflow: hidden;
+      border: 1px solid #fbfbfc;
+      text-align: center;
+    }
+
+    .pdf-item--chart + .pdf-item--chart {}
+    .pdf-item--chart .pdf-item__body {}
+    .pdf-item--chart svg {
+      /*position: relative;*/
+      /*z-index: 9999;*/
+      /*top: -5%;*/
+      /*left: -5%;*/
+      /*right: -5%;*/
+      /*width: 110%;*/
+    }
+    .pdf-item--chart svg * {}
+
+    .pdf-item--num,
+    .pdf-item--table {
+      padding-left: 25px;
+    }
+
+    .pdf-item--num {
+    }
+
+    .pdf-item--table {
+    }
+
+    .pdf-item__body th {
+      font-weight: bold;
+      font-size: 11px;
+      text-align: left;
+    }
+
+    .pdf-item__body td {
+      text-align: right;
+      font-size: 12px;
+    }
+
+    .pdf-item__body:last-child {
+      margin-top: 5px;
+      border-top: 1px solid #ced5db;
+    }
+
+    .pdf-item__body:last-child * {
+      font-weight: bold;
+    }
+
+    @media print {
+      div.pdf-item--chart {
+        page-break-inside: avoid;
+      }
+    }
+
+    /*COMMON ORIENTATION*/
+    .grid-stack-item[data-gs-height="1"] {
+      height: 80px;
+    }
+
+    .grid-stack-item[data-gs-height="2"] {
+      height: 180px;
+    }
+
+    .grid-stack-item[data-gs-height="3"] {
+      height: 280px;
+    }
+
+    .grid-stack-item[data-gs-height="4"] {
+      height: 380px;
+    }
+
+    .grid-stack-item[data-gs-height="5"] {
+      height: 480px;
+    }
+
+    /*TOP POSITIONS*/
+    .grid-stack-item[data-gs-y="0"] {
+      top: 0px;
+    }
+
+    .grid-stack-item[data-gs-y="1"] {
+      top: 100px;
+    }
+
+    .grid-stack-item[data-gs-y="2"] {
+      top: 200px;
+    }
+
+    .grid-stack-item[data-gs-y="3"] {
+      top: 300px;
+    }
+
+    .grid-stack-item[data-gs-y="4"] {
+      top: 400px;
+    }
+
+    .grid-stack-item[data-gs-y="5"] {
+      top: 500px;
+    }
+
+    .grid-stack-item[data-gs-y="6"] {
+      top: 600px;
+    }
+
+    .grid-stack-item[data-gs-y="7"] {
+      top: 700px;
+    }
+
+    .grid-stack-item[data-gs-y="8"] {
+      top: 800px;
+    }
+
+    .grid-stack-item[data-gs-y="9"] {
+      top: 900px;
+    }
+
+    .grid-stack-item[data-gs-y="10"] {
+      top: 1000px;
+    }
+
+    .grid-stack-item[data-gs-y="11"] {
+      top: 1100px;
+    }
+
+    .grid-stack-item[data-gs-y="12"] {
+      top: 1200px;
+    }
+
+    .grid-stack-item[data-gs-y="13"] {
+      top: 1300px;
+    }
+
+    .grid-stack-item[data-gs-y="14"] {
+      top: 1400px;
+    }
+
+    .grid-stack-item[data-gs-y="15"] {
+      top: 1500px;
+    }
+
+    .grid-stack-item[data-gs-y="16"] {
+      top: 1600px;
+    }
+
+    .grid-stack-item[data-gs-y="17"] {
+      top: 1700px;
+    }
+
+    .grid-stack-item[data-gs-y="18"] {
+      top: 1800px;
+    }
+
+    .grid-stack-item[data-gs-y="19"] {
+      top: 1900px;
+    }
+
+    .grid-stack-item[data-gs-y="20"] {
+      top: 2000px;
+    }
+
+    .grid-stack-item[data-gs-y="21"] {
+      top: 2100px;
+    }
+
+    /*TOP POSITIONS*/
+
+
+    /*
+    .grid-stack-item:not(.pdf-item--chart)[data-gs-width='1'] {
+    width: 8.3333333333%
+    }
+
+    .grid-stack-item[data-gs-width='2'] {
+    width: 16.6666666667%;
+    }
+
+    .grid-stack-item.pdf-item--chart[data-gs-width='1'] {
+    width: 16.6666%;
+    }
+
+    .grid-stack-item.pdf-item--chart[data-gs-width='2'] {
+    width: 33.2222%;
+    }
+    */
+
+    /*.grid-stack-item[data-gs-height='3'],*/
+    .grid-stack-item[data-gs-height='4'],
+    .grid-stack-item[data-gs-height='6'],
+    .grid-stack-item[data-gs-height='8'] {
+      /*float: right;*/
+    }
+
+    /*LANDSCAPE STYLES*/
+
+
+    /*    .grid-stack-item[data-gs-width='3'] {
+    width: 25%
+    }
+
+    .grid-stack-item[data-gs-width='4'] {
+    width: 33.3333333333%
+    }
+
+    .grid-stack-item[data-gs-width='5'] {
+    width: 41.6666666667%
+    }
+
+    .grid-stack-item[data-gs-width='6'] {
+    width: 50%
+    }
+
+    .grid-stack-item[data-gs-width='7'] {
+    width: 58.3333333333%
+    }
+
+    .grid-stack-item[data-gs-width='8'] {
+    width: 66.6666666667%
+    }
+
+    .grid-stack-item[data-gs-width='9'] {
+    width: 75%
+    }
+
+
+    .grid-stack-item[data-gs-width='10'] {
+    width: 83.3333333333%
+    }
+
+    .grid-stack-item[data-gs-width='11'] {
+    width: 91.6666666667%
+    }
+
+    .grid-stack-item[data-gs-width='12'] {
+    width: 100%
+    }*/
+  </style>
+</head>
+
+#if($itextGenericPdfData.landscape == true)
+<body class="page__landscape">
+#else
+<body class="page__portrait">
+#end
+<div id="sales-invoice__tmp">
+  <img alt="images"
+       src="https://workforcetrack.s3.amazonaws.com/000000000000/public/65159/a2113e82-397f-49fd-a58a-cdf4f4b93dff?AWSAccessKeyId=AKIAIROQMC77E5UKWBWQ"
+       style="display: none;"/>
+  #if($itextGenericPdfData.companyData.companyName == 'KPI Software Inc' or
+  $itextGenericPdfData.companyData.companyLogoUrl == 'https://apps.kpi.com/customisation/kpi.com/images/kpilogo.png')
+  <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="width: 88px;display: none;"/>
+  #else
+  <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl"
+       style="max-width: 100%; max-height: 100%; display: none;"/>
+  #end
+
+  #set($charts = $itextGenericPdfData.charts)
+
+  <div class="pdf grid-stack">
+    #foreach ($mapEntry in $charts)
+    #set($type = $mapEntry.type)
+    #if($type == 'CHART')
+
+    <div class="pdf-item pdf-item--chart grid-stack-item" data-gs-height="$mapEntry.height"
+         data-gs-width="$mapEntry.width" data-gs-x="$mapEntry.x" data-gs-y="$mapEntry.y"
+         style="page-break-inside: avoid">
+      <div class="pdf-item__inner">
+        <h2>$mapEntry.title</h2>
+        <div class="pdf-item__body">$mapEntry.value</div>
+      </div>
+    </div>
+
+    #elseif($type == 'NUMERIC')
+    #set($color = $mapEntry.color)
+    <div class="pdf-item pdf-item--num grid-stack-item" data-gs-height="$mapEntry.height"
+         data-gs-width="$mapEntry.width" data-gs-x="$mapEntry.x" data-gs-y="$mapEntry.y"
+         style="page-break-inside: avoid">
+      <div class="pdf-item__inner">
+        <h2>$mapEntry.title</h2>
+        <div class="pdf-item__body">$mapEntry.value</div>
+      </div>
+    </div>
+
+    #elseif($type == 'TABLE')
+
+    <div class="pdf-item pdf-item--table grid-stack-item" data-gs-height="$mapEntry.height"
+         data-gs-width="$mapEntry.width" data-gs-x="$mapEntry.x" data-gs-y="$mapEntry.y"
+         style="page-break-inside: avoid">
+      <div class="pdf-item__inner">
+        <h2>$mapEntry.title</h2>
+        #foreach ($itemEntry in $mapEntry.tableItems.entrySet())
+        <table class="pdf-item__body" width="100%" cellpadding="0" cellspacing="0">
+          <tr>
+            <th>
+              $itemEntry.key
+            </th>
+            <td>
+              $itemEntry.value
+            </td>
+          </tr>
+        </table>
+        #end
+      </div>
+    </div>
+    #end
+    #end
+  </div>
+</div>
+</body>
+</html>

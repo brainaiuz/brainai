@@ -1,0 +1,37 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<p>
+
+<h3>Niet verwerkte activiteiten</h3>
+
+<table cellpadding=3 border=1>
+    <tr>
+        <td>EventProcessorName</td>
+        <td>EntityID</td>
+        <td>SourceID</td>
+        <td>Event Type</td>
+        <td>Event Time</td>
+    </tr>
+
+    #foreach($event in $eventlist)
+        <tr>
+            <td>$event.getProcessorName()</td>
+            <td>$event.getEntityID()</td>
+            <td>$event.getSourceID()</td>
+            <td>$event.getEventType()</td>
+            <td>$event.getTime()</td>
+        </tr>
+    #end
+
+</table>
+
+
+
+</body>
+</html>

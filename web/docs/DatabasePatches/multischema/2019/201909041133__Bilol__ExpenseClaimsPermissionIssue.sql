@@ -1,0 +1,1 @@
+update permission set modulecode = 'EXPENSE_REPORTING' where code = 'ACCOUNTING_COMPANY_EXPENSE_LIST'

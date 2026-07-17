@@ -1,0 +1,75 @@
+<report>
+    <view>
+        <title>CRM Opportunity Report</title>
+        <name>Opportunity Report</name>
+        <category>opportunity</category>
+        <sqlquery>
+            <select agregateFunc="distinct">
+                <table name="Opportunity">
+                    <column name="t.id" title="id" type="number" formattype="hidden"/>
+                    <column name="t.assignee" title="Assignee" type="string"
+                            formattype="string"/>
+                    <column name="t.opportunityname" title="Opportunity Name" type="string" formattype="string"/>
+                    <column name="t.amount" title="Amount" type="number" formattype="number"/>
+                    <column name="t.stage" title="Stage" type="string" formattype="string"/>
+                    <column name="t.nextstep" title="Next Step" type="string" formattype="string"/>
+                    <column name="t.closingdate" title="Closing Date" type="date" formattype="string"/>
+                    <column name="t.accountname" title="Account Name" type="string" formattype="string"/>
+                    <column name="t.leadsource" title="Lead Source" type="string" formattype="string"/>
+                    <column name="t.campaignname" title="Campaign" type="string" formattype="string"/>
+                    <column name="t.typename" title="Type" type="string" formattype="string"/>
+                    <column name="t.contact" title="Contact" type="string"
+                            formattype="string"/>
+                    <column name="t.probability" title="Probability(%)" type="number" formattype="percent"/>
+                    <column name="t.expectedrevenue" title="Expected Revenue" type="string" formattype="string"/>
+                    <column name="t.countryname" title="Country" type="string" formattype="string"/>
+
+                </table>
+                <table name="Sub Opportunity">
+                    <column name="t.opitemname" title="Sub opportunity name" type="string" formattype="string"/>
+                    <column name="t.opitemqty" title="Sub opportunity quantity" type="number" formattype="number"/>
+                    <column name="t.opitemprice" title="Sub opportunity price" type="number" formattype="number"/>
+                </table>
+            </select>
+            <from>
+                (SELECT
+                op.id,
+                (mu.firstname || ' ' || mu.lastname) as assignee,
+                op.name as opportunityname,
+                op.amount as amount,
+                stg.name as stage,
+                op.nextstep as nextstep ,
+                op.closingdate as closingdate,
+                cac.name as accountname,
+                lds.name as leadsource,
+                cgn.name as campaignname ,
+                typ.name as typename ,
+                (cco.firstName||' '||cco.lastname) as contact,
+                op.probability as probability,
+                op.expectedrevenue as expectedrevenue,
+                opitem.itemname as opitemname,
+                opitem.qty as opitemqty,
+                opitem.price as opitemprice ,
+                (select c.name from "$".address addr left join "public".country c on c.id = addr.countryid where addr.countryid is not null and addr.accountid = cac.id order by addr.relationtype limit 1) as countryname,
+                op.deleted as deleted
+
+                from "$".opportunity AS op
+                LEFT JOIN "$".myuser mu ON mu.id = op.owner
+                LEFT JOIN "$".crmaccount cac ON cac.id = op.crmaccount
+                LEFT JOIN "public".reference lds on lds.id = op.leadsource
+                LEFT JOIN "$".campaign cgn on cgn.id = op.campaign
+                LEFT JOIN "public".reference typ on typ.id = op.type
+                LEFT JOIN "$".crmcontact cco ON cco.id = op.crmcontact
+                LEFT JOIN "public".reference stg on stg.id = op.stage
+                LEFT JOIN "$".opportunity_item opitem on op.id=opitem.opportunity_id
+               ) t
+            </from>
+            <where>
+                <terms id="base" value="t.deleted != true"/>
+                <!--<terms id="managerid" userid="" company="op.company_id" />
+             <terms id="leaderid" userid="" company="op.company_id" />
+             <terms id="admin" company="op.company_id" />-->
+            </where>
+        </sqlquery>
+    </view>
+</report>

@@ -1,0 +1,1 @@
+update "anv".item set sold_to_customer = true where 1 = 1;

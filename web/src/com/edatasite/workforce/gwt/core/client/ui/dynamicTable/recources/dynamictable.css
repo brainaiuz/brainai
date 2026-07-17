@@ -1,0 +1,195 @@
+.dynamictable>tbody>tr:first-child>td{
+    background:none !important;
+    border:none !important;
+}
+.dynamictable {
+    border-collapse:separate;
+    border-spacing:0 5px;
+}
+.dynamictable>tbody>tr>td{
+    background-color: white;
+}
+/*--*/
+.dynamictable{
+    width:auto !important;
+}
+.dynamictable--full-width {
+    width: 100% !important;
+}
+
+.dynamictable td{
+    min-height: 40px;
+    border-radius:0;
+}
+.dynamictable>tbody>tr:not(:first-child)>td:first-child{
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-left: 1px solid #e8e8e8;
+}
+.dynamictable>tbody>tr:not(:first-child)>td:last-child{
+    border-right: 1px solid #e8e8e8;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.dynamictable>tbody>tr:not(:first-child)>td{
+    background-color: white;
+    position: relative;
+    border-top: 1px solid #e8e8e8;
+    border-bottom: 1px solid #e8e8e8;
+    padding-right:1px !important;
+}
+.dynamictable>tbody>tr>td,
+.dynamictable>tbody>tr>td>table>tbody>tr>td{
+    line-height: 40px;
+    padding:0px !important;
+}
+tbody tr:not(:first-child)>td:first-child
+.dynamictable>tbody>tr:not(:first-child)>td:last-child{
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.dynamictable tbody tr:not(:first-child) td:not(:last-child):after{
+    content: '';
+    display: block;
+
+    border-right: 1px solid #e8e8e8;
+    position: absolute;
+    right: 0;
+    top: 5px;
+    bottom:5px;
+    z-index:2;
+}
+
+.dynamictable__add--row .ficon--plus{
+    color: #85CA40;
+    font-weight: bold;
+}
+
+.dynamictable__action-item{
+    display:inline-block;
+    padding: 0 12px;
+    -webkit-transition: background-color 0.2s ease-out 0s;
+    -moz-transition: background-color 0.2s ease-out 0s;
+    -ms-transition: background-color 0.2s ease-out 0s;
+    -o-transition: background-color 0.2s ease-out 0s;
+    transition: background-color 0.2s ease-out 0s;
+}
+
+.dynamictable td input{
+    padding: 0 5px;
+}
+.dynamictable td input, .dynamictable .simpleGwt-ComboBox{
+    border:none;
+    width:100% !important;
+    text-align: left !important;
+}
+.dynamictable select {
+    border: none;
+}
+.dynamictable .gwt-RadioButton {
+    margin: 0 5px;
+}
+
+.dynamictable td .gwt-RadioButton {
+    /* margin: auto; */
+    display: block;
+    width: 17px;
+    height: 17px;
+    /* line-height: 22px; */
+    margin: 0 auto 0;
+}
+.dynamictable-header{
+    text-transform: uppercase;
+    color:#8D9BAB;
+    padding:0 5px 10px;
+    font-weight: normal;
+    font-size:11px;
+    line-height: normal;
+    overflow:hidden;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.dynamictable td .gwt-HTML , .dynamictable td .gwt-Label{
+    padding: 0 5px;
+    color: #536677;
+    line-height: 1.4;
+}
+.dynamictable .input-field{
+    margin-top:0;
+    position: relative;
+    margin-right: 5px;
+    display: block;
+    height:40px;
+}
+.dynamictable .input-field textarea,
+.dynamictable .gwt-TextArea {
+    position: absolute;
+    top: 0px;
+    left: 1px;
+    right: 1px;
+    bottom: 0px;
+    z-index: 2;
+    padding:5px;
+    border-radius: 0;
+    width: 100% !important;
+    white-space: nowrap;
+    overflow: hidden;
+    line-height: 30px;
+    height: 40px !important;
+    max-height: 100px;
+    resize:none;
+    -webkit-transition: 0.1s all ease-out 0s;
+    -moz-transition: 0.1s all ease-out 0s;
+    -ms-transition: 0.1s all ease-out 0s;
+    -o-transition: 0.1s all ease-out 0s;
+    transition: 0.1s all ease-out 0s;
+}
+.dynamictable .input-field textarea:not(:focus),
+.dynamictable .gwt-TextArea:not(:focus) {
+    border-width: 0;
+}
+.dynamictable .input-field textarea:focus,
+.dynamictable .gwt-TextArea:focus {
+    height:100px !important;
+    width: 250px !important;
+    max-width: none;
+    z-index:3;
+    white-space: normal !important;
+    line-height: 1.5 !important;
+    padding-top:5px !important;
+    overflow: auto !important;
+}
+.dynamictable>tbody>tr>td>input.gwt-TextBox:focus{
+    position: absolute;
+    width:99% !important;
+    z-index:3;
+    top:0;
+    left:0;
+}
+.dynamictable .gwt-CheckBox {
+    margin: 0 5px;
+}
+
+.dynamictable .select2-container{
+    border:none;
+}
+.dynamictable textarea {
+    display:block;
+    line-height: 1.4;
+    padding-left:5px;
+    padding-right:5px;
+}
+.dynamictable textarea:not(:focus) {
+    border:none;
+}
+.dynamictable input[type='text']{
+    min-width: 50px;
+}
+.dynamictable .productstable-header{
+    padding-left: 5px;
+    text-transform:uppercase;
+    font-size:11px;
+    color:#8D9BAB;
+}
+/*--*/

@@ -1,0 +1,37 @@
+#* @vtlvariable name="timesheetapprovalsession" type="com.edatasite.workforce.core.domain.EdsTimeSheetApprovalSession" *#
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+Dear $managername,<br/>
+
+<p>
+    Please, be advised that the $timesheetapprovalsession.employee.getName() has submitted $startdate to $enddate period
+    time-sheet for your approval.
+</p>
+
+<p>You can view time-sheets waiting for your approval on the "Project management" section >>"Time-sheets waiting for
+    your approval" subsection</p>
+
+<p>OR</p>
+
+<p>By clicking on the following URL:$host/ProjectManagement.html?link=$link</p>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

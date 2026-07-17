@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <title>
+        OrgBoard Test Horizontal
+    </title>
+    <link rel="stylesheet" href="../WebContent/googlegadget/select2.min.css">
+    <link rel="stylesheet" href="../WebContent/mainStyles/new-ui/css/materialize.css">
+    <!--    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />-->
+    <!--    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>-->
+
+    <style>
+        .col > h6 {
+        }
+
+        .depCard__headingTitle kbd {
+            font-size: .8em;
+            text-transform: none;
+            /*background-color: #edf1f5;*/
+            /*background-color: #bfe8ff;*/
+            /*color: #174da6;*/
+            font-family: system-ui, math;
+        }
+
+        code {
+            color: #930c53;
+            font-size: .9em;
+        }
+    </style>
+    <style>
+        /*
+        Для тестирования локально вам потребуются базовые стили
+        из вашего SCSS (например, $orgBoardPadding-x, $orgBoardPadding-y,
+        min-height, display: flex и т.д.)
+        */
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .frame__content__body {
+            height: 100vh; /* Имитация родительского контейнера, дающего высоту */
+            padding: 0;
+        }
+
+        /* ОСНОВНАЯ ЛОГИКА ИЗ _orgChartNew-board.scss */
+        .orgBoard {
+        }
+
+        /* ЗАКРЕПЛЕНИЕ ВЕРХНИХ ЭЛЕМЕНТОВ */
+        .orgBoard__top {
+        }
+
+        .descriptRow {
+        }
+
+        /* ОБЛАСТЬ С КАРТОЧКАМИ */
+        .orgBoard__main {
+        }
+
+        .orgBoard-scrollX {
+        }
+
+        /* СТИЛИ КАРТОЧЕК И ЛИНИЙ */
+        .depTree {
+        }
+
+        .depNode {
+            /*outline: 1px solid crimson;*/
+        }
+
+        .depCard {
+            background-color: #bbffe8;
+            /*background-color: mediumaquamarine;*/
+        }
+
+        .depChildren {
+            /*outline: 1px solid #0da88c;*/
+        }
+
+        .depCard::before {
+        }
+    </style>
+</head>
+<body class="frame__body" style="overflow: auto;" data-new-gr-c-s-check-loaded="14.1264.0" data-gr-ext-installed="">
+
+<div class="frame__content__body">
+    <div class="orgBoard">
+        <div class="orgBoard__top orgBoard-header">
+            <div class="orgBoardCompany">
+                <div class="orgBoardCompany__name">Test Horizontal OrgChart New</div>
+            </div>
+            <div class="orgBoard-controls">
+                <div class="zoomSlider">
+                    <input id="zoom" type="range" step="10" class="zoomSlider__line active" min="10" max="200"
+                           value="100">
+                    <span class="thumb active">
+                        <span class="value">60</span>
+                    </span>
+                    <div id="zoomValue" class="zoomSlider__text">60%</div>
+                </div>
+                <div class="btn btn--lightgrey viewButton">
+                    <div class="viewButton__icon">
+                        <svg class=" icon--verticalchart2">
+                            <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg?v=3.1.0#verticalchart2"></use>
+                        </svg>
+                    </div>
+                    <span class="viewButton__text">Вид</span>
+                    <div class="viewButton__caret">
+                        <svg class=" icon--chevronDown">
+                            <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg?v=3.1.0#chevronDown"></use>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="orgBoard__main" id="mainScroll">
+            <div class="descriptRow">
+                <div class="descriptRow__field">
+                    <div class="form-control descriptRow-textDiv">Test OrgChart Horizontal Description</div>
+                </div>
+                <div class="descriptRow__fieldAct" title="Редактировать описание">
+                    <svg class="editIcon" height="20" viewBox="0 0 24 24" width="20">
+                        <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+                              fill="currentColor"></path>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="orgBoard-scrollX" id="scrollX">
+                <div class="depTree" id="depTree">
+                    <div class="depNode depRoot">
+                        <div class="depCard">
+                            <div class="depCard__heading">
+                                <div class="depCard__headingTitle">0 <kbd>.depNode</kbd>.depRoot</div>
+                                <div tabindex="0" class="dropdown-button btn-small btn--icon depCard__actBtn"><input
+                                        type="text" tabindex="-1" aria-hidden="true"
+                                        style="opacity: 0; height: 1px; width: 1px; z-index: -1; overflow: hidden; position: absolute;">
+                                    <svg class=" icon--settings">
+                                        <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg?v=3.1.0#settings"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="depCard__sect depEmployees">
+                                <div class="depCard__sectTitle">Департамент раҳбари / Ходимлар</div>
+                                <div class="depEmployeesList">
+                                    <div class="depEmployeeRow">
+                                        <div class="avatar">
+                                            <img src="https://picsum.photos/200/300"
+                                                 class="depEmployeeAvatar responsive-img" alt="testimage"/>
+                                        </div>
+                                        <div class="depEmployeeInf">
+                                            <div class="depEmployeeInf__position">Лавозими</div>
+                                            <a class="depEmployeeInf__name" href="javascript:void(0);">Stanislav
+                                                Matsko</a>
+                                        </div>
+                                    </div>
+                                    <div class="depEmployeeRow">
+                                        <div class="avatar">
+                                            <img src="http://placekitten.com/200/300"
+                                                 class="depEmployeeAvatar responsive-img" alt="testimage"/>
+                                        </div>
+                                        <div class="depEmployeeInf">
+                                            <div class="depEmployeeInf__position">Лавозими</div>
+                                            <a class="depEmployeeInf__name" href="javascript:void(0);">Tawney Kruger</a>
+                                        </div>
+                                    </div>
+                                    <div class="depEmployeeRow">
+                                        <div class="avatar">
+                                            <img src="https://placehold.co/600x400"
+                                                 class="depEmployeeAvatar responsive-img" alt="testimage"/>
+                                        </div>
+                                        <div class="depEmployeeInf">
+                                            <div class="depEmployeeInf__position">Лавозими</div>
+                                            <a class="depEmployeeInf__name" href="javascript:void(0);">Zumrad
+                                                Mamajanova</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="depCard__sect depShortDesc" aria-hidden="true" style="display: none;">
+                                <div class="depCard__sectTitle">Қисқача тавсиф:</div>
+                                <div class="depShortDescText"></div>
+                            </div>
+                            <div class="depCard__sect depFullDesc" aria-hidden="true" style="display: none;">
+                                <div class="depCard__sectTitle">ЯКМ:</div>
+                                <div class="depFullDescText"></div>
+                            </div>
+                            <div class="depCard__sect depMetrics" aria-hidden="true">
+                                <div class="depCard__sectTitle">Метрики:</div>
+                                <div class="depMetricsList">
+                                    <a class="depMetricItem" href="#">* Metricst title</a>
+                                    <a class="depMetricItem" href="#">* a asdf asdf asdfas</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="depChildren children-horizontal">
+                            <div class="depNode">
+                                <div class="depCard">
+                                    <div class="depCard__heading">
+                                        <div class="depCard__headingTitle">1 <kbd>.depChildren &gt; .depNode</kbd></div>
+                                        <div tabindex="0" class="dropdown-button btn-small btn--icon depCard__actBtn">
+                                            <input type="text" tabindex="-1" aria-hidden="true"
+                                                   style="opacity: 0; height: 1px; width: 1px; z-index: -1; overflow: hidden; position: absolute;">
+                                            <svg class=" icon--settings">
+                                                <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg?v=3.1.0#settings"></use>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="depCard__sect depEmployees" aria-hidden="true" style="display: none;">
+                                        <div class="depCard__sectTitle">Департамент раҳбари / Ходимлар</div>
+                                        <div class="depEmployeesList"></div>
+                                    </div>
+                                    <div class="depCard__sect depShortDesc">
+                                        <div class="depCard__sectTitle">Қисқача тавсиф:</div>
+                                        <div class="depShortDescText">Eh bla bla bla bla</div>
+                                    </div>
+                                    <div class="depCard__sect depFullDesc">
+                                        <div class="depCard__sectTitle">ЯКМ:</div>
+                                        <div class="depFullDescText">Test Product Subfunction2</div>
+                                    </div>
+                                    <div class="depCard__sect depMetrics" aria-hidden="true">
+                                        <div class="depCard__sectTitle">Метрики:</div>
+                                        <div class="depMetricsList">
+                                            <a class="depMetricItem" href="#">* Metricst title</a>
+                                            <a class="depMetricItem" href="#">* a asdf asdf asdfas</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="depChildren children-horizontal">
+                                    <div class="depNode">
+                                        <div class="depCard">
+                                            <div class="depCard__heading">
+                                                <div class="depCard__headingTitle">2 <kbd>.depChildren &gt; .depNode
+                                                    &gt; .depCard</kbd></div>
+                                                <div tabindex="0"
+                                                     class="dropdown-button btn-small btn--icon depCard__actBtn">
+                                                    <input type="text" tabindex="-1" aria-hidden="true"
+                                                           style="opacity: 0; height: 1px; width: 1px; z-index: -1; overflow: hidden; position: absolute;">
+                                                    <svg class=" icon--settings">
+                                                        <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg?v=3.1.0#settings"></use>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <div class="depCard__sect depEmployees">
+                                                <div class="depCard__sectTitle">Департамент раҳбари / Ходимлар</div>
+                                                <div class="depEmployeesList">
+                                                    <div class="depEmployeeRow">
+                                                        <div class="avatar"
+                                                             style="background-image: url(https://wfmtest.s3.amazonaws.com/c65159/u74/480a0420-156c-41e6-b176-12b950c96e38?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1770972309&amp;Signature=EYFXy8wFiZjgr3yi5e8E%2BANVu8Y%3D)">
+                                                            <img src="https://wfmtest.s3.amazonaws.com/c65159/u74/480a0420-156c-41e6-b176-12b950c96e38?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1770972309&amp;Signature=EYFXy8wFiZjgr3yi5e8E%2BANVu8Y%3D"
+                                                                 class="avatar__img responsive-img"></div>
+                                                        <div class="depEmployeeInf">
+                                                            <div class="depEmployeeInf__position">
+                                                                <div>Position</div>
+                                                            </div>
+                                                            <a class="depEmployeeInf__name" href="javascript:void(0);">Azamjon
+                                                                Ahmadjonov</a></div>
+                                                    </div>
+                                                    <div class="depEmployeeRow">
+                                                        <div class="avatar"
+                                                             style="background-image: url(https://wfmtest.s3.amazonaws.com/c65159/u366/7db686ca-7eac-4895-aead-5647dff381b6?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1770972309&amp;Signature=zueFVLvcAsUvg9RYf2pdn3QEVRU%3D)">
+                                                            <img src="https://wfmtest.s3.amazonaws.com/c65159/u366/7db686ca-7eac-4895-aead-5647dff381b6?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1770972309&amp;Signature=zueFVLvcAsUvg9RYf2pdn3QEVRU%3D"
+                                                                 class="avatar__img responsive-img"></div>
+                                                        <div class="depEmployeeInf">
+                                                            <div class="depEmployeeInf__position">
+                                                                <div>Position</div>
+                                                            </div>
+                                                            <a class="depEmployeeInf__name" href="javascript:void(0);">Shaxriyor
+                                                                Jabborov</a></div>
+                                                    </div>
+                                                    <div class="depEmployeeRow">
+                                                        <div class="avatar"
+                                                             style="background-image: url(https://wfmtest.s3.amazonaws.com/c65159/u35/19bcbc5e-0d95-473f-8832-729282bd001c?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1770972309&amp;Signature=Etq0hLNWGAirtnctbAsByQ8SkEE%3D)">
+                                                            <img src="https://wfmtest.s3.amazonaws.com/c65159/u35/19bcbc5e-0d95-473f-8832-729282bd001c?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1770972309&amp;Signature=Etq0hLNWGAirtnctbAsByQ8SkEE%3D"
+                                                                 class="avatar__img responsive-img"></div>
+                                                        <div class="depEmployeeInf">
+                                                            <div class="depEmployeeInf__position">
+                                                                <div>Position</div>
+                                                            </div>
+                                                            <a class="depEmployeeInf__name" href="javascript:void(0);">Bahriddin
+                                                                Muhammad</a></div>
+                                                    </div>
+                                                    <div class="depEmployeeRow">
+                                                        <div class="avatar"
+                                                             style="background-image: url(https://wfmtest.s3.amazonaws.com/c65159/u35/d288f87a-825a-430e-86df-b56c6575f15a?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1770972309&amp;Signature=j2FZ%2B69kxN71YNJ32crBk%2FMBqCA%3D)">
+                                                            <img src="https://wfmtest.s3.amazonaws.com/c65159/u35/d288f87a-825a-430e-86df-b56c6575f15a?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1770972309&amp;Signature=j2FZ%2B69kxN71YNJ32crBk%2FMBqCA%3D"
+                                                                 class="avatar__img responsive-img"></div>
+                                                        <div class="depEmployeeInf">
+                                                            <div class="depEmployeeInf__position">
+                                                                <div>Position</div>
+                                                            </div>
+                                                            <a class="depEmployeeInf__name" href="javascript:void(0);">Iqboliddin
+                                                                Elchiboyev</a></div>
+                                                    </div>
+                                                    <div class="depEmployeeRow">
+                                                        <div class="avatar"
+                                                             style="background-image: url(https://wfmtest.s3.amazonaws.com/c65159/u35/1ab452dd-bfcd-4b3c-be5c-800dffbe6d91?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1770972309&amp;Signature=%2F45NVo3GP5708Wz1HosvWsN7uC0%3D)">
+                                                            <img src="https://wfmtest.s3.amazonaws.com/c65159/u35/1ab452dd-bfcd-4b3c-be5c-800dffbe6d91?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1770972309&amp;Signature=%2F45NVo3GP5708Wz1HosvWsN7uC0%3D"
+                                                                 class="avatar__img responsive-img"></div>
+                                                        <div class="depEmployeeInf">
+                                                            <div class="depEmployeeInf__position">
+                                                                <div>Position</div>
+                                                            </div>
+                                                            <a class="depEmployeeInf__name" href="javascript:void(0);">Sardorbek
+                                                                Jo'raboyev</a></div>
+                                                    </div>
+                                                    <div class="depEmployeeRow">
+                                                        <div class="avatar"
+                                                             style="background-image: url(https://wfmtest.s3.amazonaws.com/c65159/u283/9a470b37-4135-44c4-a230-f2afdf1341f7?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1770972309&amp;Signature=CZwbRQ4L%2BtBgTW9Y42oN6hqFc9k%3D)">
+                                                            <img src="https://wfmtest.s3.amazonaws.com/c65159/u283/9a470b37-4135-44c4-a230-f2afdf1341f7?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1770972309&amp;Signature=CZwbRQ4L%2BtBgTW9Y42oN6hqFc9k%3D"
+                                                                 class="avatar__img responsive-img"></div>
+                                                        <div class="depEmployeeInf">
+                                                            <div class="depEmployeeInf__position">
+                                                                <div>Junior Dev</div>
+                                                            </div>
+                                                            <a class="depEmployeeInf__name" href="javascript:void(0);">Abdurrauf
+                                                                Abdurakhmanov</a></div>
+                                                    </div>
+                                                    <div class="depEmployeeRow">
+                                                        <div class="avatar"
+                                                             style="background-image: url(https://wfmtest.s3.amazonaws.com/c65159/u35/49d160a0-7f7c-496b-9145-f74b79bab0fd?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1770972309&amp;Signature=vMDMb69VJwrhpLxc%2BWRRJ93BZBo%3D)">
+                                                            <img src="https://wfmtest.s3.amazonaws.com/c65159/u35/49d160a0-7f7c-496b-9145-f74b79bab0fd?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1770972309&amp;Signature=vMDMb69VJwrhpLxc%2BWRRJ93BZBo%3D"
+                                                                 class="avatar__img responsive-img"></div>
+                                                        <div class="depEmployeeInf">
+                                                            <div class="depEmployeeInf__position">
+                                                                <div>Position</div>
+                                                            </div>
+                                                            <a class="depEmployeeInf__name" href="javascript:void(0);">Abdulkhamidkhon
+                                                                Majidov</a></div>
+                                                    </div>
+                                                    <div class="depEmployeeRow">
+                                                        <div class="avatar"
+                                                             style="background-image: url(https://wfmtest.s3.amazonaws.com/c65159/u411/17785029-006c-4bf5-9070-4e113840454c?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1770972309&amp;Signature=NHy4C0XtwoDIQ4JLDmvn9C4Pu9k%3D)">
+                                                            <img src="https://wfmtest.s3.amazonaws.com/c65159/u411/17785029-006c-4bf5-9070-4e113840454c?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1770972309&amp;Signature=NHy4C0XtwoDIQ4JLDmvn9C4Pu9k%3D"
+                                                                 class="avatar__img responsive-img"></div>
+                                                        <div class="depEmployeeInf">
+                                                            <div class="depEmployeeInf__position">
+                                                                <div>Junior Dev</div>
+                                                            </div>
+                                                            <a class="depEmployeeInf__name" href="javascript:void(0);">Sharof
+                                                                Mukhtorov</a></div>
+                                                    </div>
+                                                    <div class="depEmployeeRow">
+                                                        <div class="avatar"
+                                                             style="background-image: url(https://wfmtest.s3.amazonaws.com/c65159/u395/708b05dc-c5a3-4d78-bd5d-f11727e57a60?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1770972309&amp;Signature=F8kdbmdVLBHwNoKMUFZpDUy2t9w%3D)">
+                                                            <img src="https://wfmtest.s3.amazonaws.com/c65159/u395/708b05dc-c5a3-4d78-bd5d-f11727e57a60?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1770972309&amp;Signature=F8kdbmdVLBHwNoKMUFZpDUy2t9w%3D"
+                                                                 class="avatar__img responsive-img"></div>
+                                                        <div class="depEmployeeInf">
+                                                            <div class="depEmployeeInf__position">
+                                                                <div>Position</div>
+                                                            </div>
+                                                            <a class="depEmployeeInf__name" href="javascript:void(0);">Ne'matjon
+                                                                Satimbaev</a></div>
+                                                    </div>
+                                                    <div class="depEmployeeRow">
+                                                        <div class="avatar"
+                                                             style="background-image: url(https://wfmtest.s3.amazonaws.com/c65159/u355/794d3fa0-00ac-4783-b11f-26ad227ed473?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1770972309&amp;Signature=LqwOJwVJnKXsFFENyRi5v558THk%3D)">
+                                                            <img src="https://wfmtest.s3.amazonaws.com/c65159/u355/794d3fa0-00ac-4783-b11f-26ad227ed473?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1770972309&amp;Signature=LqwOJwVJnKXsFFENyRi5v558THk%3D"
+                                                                 class="avatar__img responsive-img"></div>
+                                                        <div class="depEmployeeInf">
+                                                            <div class="depEmployeeInf__position">
+                                                                <div>Junior Dev</div>
+                                                            </div>
+                                                            <a class="depEmployeeInf__name" href="javascript:void(0);">Murodjon
+                                                                Rahimberdiyev</a></div>
+                                                    </div>
+                                                    <div class="depEmployeeRow">
+                                                        <div class="avatar"><span>MM</span></div>
+                                                        <div class="depEmployeeInf">
+                                                            <div class="depEmployeeInf__position">
+                                                                <div>Position</div>
+                                                            </div>
+                                                            <a class="depEmployeeInf__name" href="javascript:void(0);">Mubosher
+                                                                Muydinov</a></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="depCard__sect depShortDesc">
+                                                <div class="depCard__sectTitle">Қисқача тавсиф:</div>
+                                                <div class="depShortDescText">3 level SubFunction Description ba;lkj
+                                                    a';wuokcnm,z a;slkdj[wiunkjasjkdhfl;kasdkfh we
+                                                </div>
+                                            </div>
+                                            <div class="depCard__sect depFullDesc">
+                                                <div class="depCard__sectTitle">ЯКМ:</div>
+                                                <div class="depFullDescText">
+                                                    Test as;dlkfj asdp[c,md[asdTest as;dlkfj
+                                                    asdp[c,md[asdTest as;dlkfj asdp[c,md[asdTest as;dlkfj asdp[c,md[asd
+                                                    Test as;dlkfj asdp[c,md[asdTest as;dlkfj asdp[c,md[asdTest as;dlkfj
+                                                    asdp[c,md[asdTest as;dlkfj asdp[c,md[asdTest as;dlkfj
+                                                    asdp[c,md[asdTest as;dlkfj asdp[c,md[asdTest as;dlkfj
+                                                    asdp[c,md[asdTest as;dlkfj asdp[c,md[asdTest asad;dlkfj
+                                                    asdp[c,md[asdTest as;dlkfj asdp[c,md[asdTest as;dlkfj asdp[c,md[as
+                                                    asd
+                                                </div>
+                                            </div>
+                                            <div class="depCard__sect depMetrics" aria-hidden="true">
+                                                <div class="depCard__sectTitle">Метрики:</div>
+                                                <div class="depMetricsList">
+                                                    <a class="depMetricItem" href="javascript:void(0);">* Metricst title</a>
+                                                    <a class="depMetricItem" href="javascript:void(0);">* a asdf asdf asdfas</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="depChildren" aria-hidden="true" style="display: none;"></div>
+                                    </div>
+                                    <div class="depNode">
+                                        <div class="depCard">
+                                            <div class="depCard__heading">
+                                                <div class="depCard__headingTitle">2 <kbd>.depChildren &gt; .depNode
+                                                    &gt; .depCard</kbd></div>
+                                                <div tabindex="0"
+                                                     class="dropdown-button btn-small btn--icon depCard__actBtn">
+                                                    <input type="text" tabindex="-1" aria-hidden="true"
+                                                           style="opacity: 0; height: 1px; width: 1px; z-index: -1; overflow: hidden; position: absolute;">
+                                                    <svg class=" icon--settings">
+                                                        <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg?v=3.1.0#settings"></use>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <div class="depCard__sect depEmployees" aria-hidden="true"
+                                                 style="display: none;">
+                                                <div class="depCard__sectTitle">Департамент раҳбари / Ходимлар</div>
+                                                <div class="depEmployeesList"></div>
+                                            </div>
+                                            <div class="depCard__sect depShortDesc">
+                                                <div class="depCard__sectTitle">Қисқача тавсиф:</div>
+                                                <div class="depShortDescText">3 level SubFunction2 Product Descriprion
+                                                    for example
+                                                </div>
+                                            </div>
+                                            <div class="depCard__sect depFullDesc">
+                                                <div class="depCard__sectTitle">ЯКМ:</div>
+                                                <div class="depFullDescText">3 level SubFunction2 Product</div>
+                                            </div>
+                                            <div class="depCard__sect depMetrics" aria-hidden="true"
+                                                 style="display: none;">
+                                                <div class="depCard__sectTitle">Метрики:</div>
+                                                <div class="depMetricsList">
+                                                    <a class="depMetricItem" href="#">* Metricst title</a>
+                                                    <a class="depMetricItem" href="#">* a asdf asdf asdfas</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="depChildren children-horizontal">
+                                            <div class="depNode">
+                                                <div class="depCard">
+                                                    <div class="depCard__heading">
+                                                        <div class="depCard__headingTitle"> 3 <kbd>.depChildren &gt;
+                                                            .depNode &gt; .depCard</kbd></div>
+                                                        <div tabindex="0"
+                                                             class="dropdown-button btn-small btn--icon depCard__actBtn">
+                                                            <input type="text" tabindex="-1" aria-hidden="true"
+                                                                   style="opacity: 0; height: 1px; width: 1px; z-index: -1; overflow: hidden; position: absolute;">
+                                                            <svg class=" icon--settings">
+                                                                <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg?v=3.1.0#settings"></use>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                    <div class="depCard__sect depEmployees" aria-hidden="true"
+                                                         style="display: none;">
+                                                        <div class="depCard__sectTitle">Департамент раҳбари / Ходимлар
+                                                        </div>
+                                                        <div class="depEmployeesList"></div>
+                                                    </div>
+                                                    <div class="depCard__sect depShortDesc">
+                                                        <div class="depCard__sectTitle">Қисқача тавсиф:</div>
+                                                        <div class="depShortDescText">4 level SubFunction2 Product
+                                                            Описание функций
+                                                        </div>
+                                                    </div>
+                                                    <div class="depCard__sect depFullDesc">
+                                                        <div class="depCard__sectTitle">ЯКМ:</div>
+                                                        <div class="depFullDescText">4 level SubFunction2 Product</div>
+                                                    </div>
+                                                    <div class="depCard__sect depMetrics" aria-hidden="true"
+                                                         style="display: none;">
+                                                        <div class="depCard__sectTitle">Метрики:</div>
+                                                        <div class="depMetricsList">
+                                                            <a class="depMetricItem" href="#">* Metricst title</a>
+                                                            <a class="depMetricItem" href="#">* a asdf asdf asdfas</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="depChildren" aria-hidden="true"
+                                                     style="display: none;"></div>
+                                            </div>
+                                            <div class="depNode">
+                                                <div class="depCard">
+                                                    <div class="depCard__heading">
+                                                        <div class="depCard__headingTitle">3 <kbd>.depChildren &gt;
+                                                            .depNode + .depNode &gt; .depCard</kbd></div>
+                                                        <div tabindex="0"
+                                                             class="dropdown-button btn-small btn--icon depCard__actBtn">
+                                                            <input type="text" tabindex="-1" aria-hidden="true"
+                                                                   style="opacity: 0; height: 1px; width: 1px; z-index: -1; overflow: hidden; position: absolute;">
+                                                            <svg class=" icon--settings">
+                                                                <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg?v=3.1.0#settings"></use>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                    <div class="depCard__sect depEmployees" aria-hidden="true"
+                                                         style="display: none;">
+                                                        <div class="depCard__sectTitle">Департамент раҳбари / Ходимлар
+                                                        </div>
+                                                        <div class="depEmployeesList"></div>
+                                                    </div>
+                                                    <div class="depCard__sect depShortDesc">
+                                                        <div class="depCard__sectTitle">Қисқача тавсиф:</div>
+                                                        <div class="depShortDescText">4 level SubFunction2 Product
+                                                            Описание функций
+                                                        </div>
+                                                    </div>
+                                                    <div class="depCard__sect depFullDesc">
+                                                        <div class="depCard__sectTitle">ЯКМ:</div>
+                                                        <div class="depFullDescText">4 level SubFunction2 Product</div>
+                                                    </div>
+                                                    <div class="depCard__sect depMetrics" aria-hidden="true"
+                                                         style="display: none;">
+                                                        <div class="depCard__sectTitle">Метрики:</div>
+                                                        <div class="depMetricsList">
+                                                            <a class="depMetricItem" href="#">* Metricst title</a>
+                                                            <a class="depMetricItem" href="#">* a asdf asdf asdfas</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="depChildren">
+                                                    <div class="depNode">
+                                                        <div class="depCard">
+                                                            <div class="depCard__heading">
+                                                                <div class="depCard__headingTitle"> 4 <kbd>.depChildren
+                                                                    &gt; .depNode &gt; .depCard</kbd></div>
+                                                                <div tabindex="0"
+                                                                     class="dropdown-button btn-small btn--icon depCard__actBtn">
+                                                                    <input type="text" tabindex="-1" aria-hidden="true"
+                                                                           style="opacity: 0; height: 1px; width: 1px; z-index: -1; overflow: hidden; position: absolute;">
+                                                                    <svg class=" icon--settings">
+                                                                        <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg?v=3.1.0#settings"></use>
+                                                                    </svg>
+                                                                </div>
+                                                            </div>
+                                                            <div class="depCard__sect depEmployees" aria-hidden="true"
+                                                                 style="display: none;">
+                                                                <div class="depCard__sectTitle">Департамент раҳбари /
+                                                                    Ходимлар
+                                                                </div>
+                                                                <div class="depEmployeesList"></div>
+                                                            </div>
+                                                            <div class="depCard__sect depShortDesc">
+                                                                <div class="depCard__sectTitle">Қисқача тавсиф:</div>
+                                                                <div class="depShortDescText">5 level SubFunction2
+                                                                    Product
+                                                                    Описание функций
+                                                                </div>
+                                                            </div>
+                                                            <div class="depCard__sect depFullDesc">
+                                                                <div class="depCard__sectTitle">ЯКМ:</div>
+                                                                <div class="depFullDescText">5 level SubFunction2
+                                                                    Product
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="depChildren" aria-hidden="true"
+                                                             style="display: none;"></div>
+                                                    </div>
+                                                    <div class="depNode">
+                                                        <div class="depCard">
+                                                            <div class="depCard__heading">
+                                                                <div class="depCard__headingTitle"> 4 <kbd>.depChildren
+                                                                    &gt; <b>.depNode + .depNode</b> &gt; .depCard</kbd>
+                                                                </div>
+                                                                <div tabindex="0"
+                                                                     class="dropdown-button btn-small btn--icon depCard__actBtn">
+                                                                    <input type="text" tabindex="-1" aria-hidden="true"
+                                                                           style="opacity: 0; height: 1px; width: 1px; z-index: -1; overflow: hidden; position: absolute;">
+                                                                    <svg class=" icon--settings">
+                                                                        <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg?v=3.1.0#settings"></use>
+                                                                    </svg>
+                                                                </div>
+                                                            </div>
+                                                            <div class="depCard__sect depEmployees" aria-hidden="true"
+                                                                 style="display: none;">
+                                                                <div class="depCard__sectTitle">Департамент раҳбари /
+                                                                    Ходимлар
+                                                                </div>
+                                                                <div class="depEmployeesList"></div>
+                                                            </div>
+                                                            <div class="depCard__sect depShortDesc">
+                                                                <div class="depCard__sectTitle">Қисқача тавсиф:</div>
+                                                                <div class="depShortDescText">5 level SubFunction2
+                                                                    Product
+                                                                    Описание функций
+                                                                </div>
+                                                            </div>
+                                                            <div class="depCard__sect depFullDesc">
+                                                                <div class="depCard__sectTitle">ЯКМ:</div>
+                                                                <div class="depFullDescText">5 level SubFunction2
+                                                                    Product
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="depChildren">
+                                                            <div class="depNode">
+                                                                <div class="depCard">
+                                                                    <div class="depCard__heading">
+                                                                        <div class="depCard__headingTitle"> 5 <kbd>.depChildren
+                                                                            &gt; .depNode &gt; .depCard</kbd></div>
+                                                                        <div tabindex="0"
+                                                                             class="dropdown-button btn-small btn--icon depCard__actBtn">
+                                                                            <input type="text" tabindex="-1"
+                                                                                   aria-hidden="true"
+                                                                                   style="opacity: 0; height: 1px; width: 1px; z-index: -1; overflow: hidden; position: absolute;">
+                                                                            <svg class=" icon--settings">
+                                                                                <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg?v=3.1.0#settings"></use>
+                                                                            </svg>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="depCard__sect depEmployees"
+                                                                         aria-hidden="true"
+                                                                         style="display: none;">
+                                                                        <div class="depCard__sectTitle">Департамент
+                                                                            раҳбари / Ходимлар
+                                                                        </div>
+                                                                        <div class="depEmployeesList"></div>
+                                                                    </div>
+                                                                    <div class="depCard__sect depShortDesc">
+                                                                        <div class="depCard__sectTitle">Қисқача
+                                                                            тавсиф:
+                                                                        </div>
+                                                                        <div class="depShortDescText">6 level
+                                                                            SubFunction2 Product
+                                                                            Описание функций
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="depCard__sect depFullDesc">
+                                                                        <div class="depCard__sectTitle">ЯКМ:</div>
+                                                                        <div class="depFullDescText">6 level
+                                                                            SubFunction2 Product
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="depNode">
+                                                        <div class="depCard">
+                                                            <div class="depCard__heading">
+                                                                <div class="depCard__headingTitle"> 4 <kbd>.depChildren
+                                                                    &gt; <b>.depNode + .depNode + .depNode</b> &gt;
+                                                                    .depCard</kbd></div>
+                                                                <div tabindex="0"
+                                                                     class="dropdown-button btn-small btn--icon depCard__actBtn">
+                                                                    <input type="text" tabindex="-1" aria-hidden="true"
+                                                                           style="opacity: 0; height: 1px; width: 1px; z-index: -1; overflow: hidden; position: absolute;">
+                                                                    <svg class=" icon--settings">
+                                                                        <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg?v=3.1.0#settings"></use>
+                                                                    </svg>
+                                                                </div>
+                                                            </div>
+                                                            <div class="depCard__sect depEmployees" aria-hidden="true"
+                                                                 style="display: none;">
+                                                                <div class="depCard__sectTitle">Департамент раҳбари /
+                                                                    Ходимлар
+                                                                </div>
+                                                                <div class="depEmployeesList"></div>
+                                                            </div>
+                                                            <div class="depCard__sect depShortDesc">
+                                                                <div class="depCard__sectTitle">Қисқача тавсиф:</div>
+                                                                <div class="depShortDescText">5 level SubFunction2
+                                                                    Product
+                                                                    Описание функций
+                                                                </div>
+                                                            </div>
+                                                            <div class="depCard__sect depFullDesc">
+                                                                <div class="depCard__sectTitle">ЯКМ:</div>
+                                                                <div class="depFullDescText">5 level SubFunction2
+                                                                    Product
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="depChildren" aria-hidden="true"
+                                                             style="display: none;"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="depNode">
+                                <div class="depCard">
+                                    <div class="depCard__heading">
+                                        <div class="depCard__headingTitle">1 <kbd>.depChildren &gt; .depNode +
+                                            .depNode</kbd></div>
+                                        <div tabindex="0" class="dropdown-button btn-small btn--icon depCard__actBtn">
+                                            <input type="text" tabindex="-1" aria-hidden="true"
+                                                   style="opacity: 0; height: 1px; width: 1px; z-index: -1; overflow: hidden; position: absolute;">
+                                            <svg class=" icon--settings">
+                                                <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg?v=3.1.0#settings"></use>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="depCard__sect depEmployees" aria-hidden="true" style="display: none;">
+                                        <div class="depCard__sectTitle">Департамент раҳбари / Ходимлар</div>
+                                        <div class="depEmployeesList"></div>
+                                    </div>
+                                    <div class="depCard__sect depShortDesc">
+                                        <div class="depCard__sectTitle">Қисқача тавсиф:</div>
+                                        <div class="depShortDescText">Test Product Description</div>
+                                    </div>
+                                    <div class="depCard__sect depFullDesc">
+                                        <div class="depCard__sectTitle">ЯКМ:</div>
+                                        <div class="depFullDescText">Test Product</div>
+                                    </div>
+                                    <div class="depCard__sect depMetrics" aria-hidden="true">
+                                        <div class="depCard__sectTitle">Метрики:</div>
+                                        <div class="depMetricsList">
+                                            <a class="depMetricItem" href="#">* Metricst title</a>
+                                            <a class="depMetricItem" href="#">* a asdf asdf asdfas</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="depChildren children-horizontal">
+                                    <div class="depNode">
+                                        <div class="depCard">
+                                            <div class="depCard__heading">
+                                                <div class="depCard__headingTitle">1 <kbd>.depChildren &gt; .depNode +
+                                                    .depNode &gt;</kbd> 2 <kbd>.depChildren</kbd>
+                                                </div>
+                                                <div tabindex="0"
+                                                     class="dropdown-button btn-small btn--icon depCard__actBtn">
+                                                    <input type="text" tabindex="-1" aria-hidden="true"
+                                                           style="opacity: 0; height: 1px; width: 1px; z-index: -1; overflow: hidden; position: absolute;">
+                                                    <svg class=" icon--settings">
+                                                        <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg?v=3.1.0#settings"></use>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <div class="depCard__sect depEmployees" aria-hidden="true"
+                                                 style="display: none;">
+                                                <div class="depCard__sectTitle">Департамент раҳбари / Ходимлар</div>
+                                                <div class="depEmployeesList"></div>
+                                            </div>
+                                            <div class="depCard__sect depShortDesc">
+                                                <div class="depCard__sectTitle">Қисқача тавсиф:</div>
+                                                <div class="depShortDescText">3 level SubFunction1 Product Описание
+                                                    функций
+                                                </div>
+                                            </div>
+                                            <div class="depCard__sect depFullDesc">
+                                                <div class="depCard__sectTitle">ЯКМ:</div>
+                                                <div class="depFullDescText">3 level SubFunction1 Product</div>
+                                            </div>
+                                            <div class="depCard__sect depMetrics" aria-hidden="true">
+                                                <div class="depCard__sectTitle">Метрики:</div>
+                                                <div class="depMetricsList">
+                                                    <a class="depMetricItem" href="#">* Metricst title</a>
+                                                    <a class="depMetricItem" href="#">* a asdf asdf asdfas</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="depChildren" aria-hidden="true" style="display: none;"></div>
+                                    </div>
+                                    <div class="depNode">
+                                        <div class="depCard">
+                                            <div class="depCard__heading">
+                                                <div class="depCard__headingTitle">1 <kbd>.depChildren &gt; .depNode +
+                                                    .depNode &gt;</kbd> 2 <kbd>.depChildren</kbd>
+                                                </div>
+                                                <div tabindex="0"
+                                                     class="dropdown-button btn-small btn--icon depCard__actBtn">
+                                                    <input type="text" tabindex="-1" aria-hidden="true"
+                                                           style="opacity: 0; height: 1px; width: 1px; z-index: -1; overflow: hidden; position: absolute;">
+                                                    <svg class=" icon--settings">
+                                                        <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg?v=3.1.0#settings"></use>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <div class="depCard__sect depEmployees" aria-hidden="true"
+                                                 style="display: none;">
+                                                <div class="depCard__sectTitle">Департамент раҳбари / Ходимлар</div>
+                                                <div class="depEmployeesList"></div>
+                                            </div>
+                                            <div class="depCard__sect depShortDesc">
+                                                <div class="depCard__sectTitle">Қисқача тавсиф:</div>
+                                                <div class="depShortDescText">3 level SubFunction1 Product Описание
+                                                    функций
+                                                </div>
+                                            </div>
+                                            <div class="depCard__sect depFullDesc">
+                                                <div class="depCard__sectTitle">ЯКМ:</div>
+                                                <div class="depFullDescText">3 level SubFunction1 Product Grssd</div>
+                                            </div>
+                                            <div class="depCard__sect depMetrics" aria-hidden="true"
+                                                 style="display: none;">
+                                                <div class="depCard__sectTitle">Метрики:</div>
+                                                <div class="depMetricsList">
+                                                    <a class="depMetricItem" href="#">* Metricst title</a>
+                                                    <a class="depMetricItem" href="#">* a asdf asdf asdfas</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="depChildren" aria-hidden="true" style="display: none;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--JS LIBS-->
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>-->
+<script type="text/javascript" src="../WebContent/mainStyles/new-ui/js/jquery.min.js"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>-->
+<script type="text/javascript" src="../WebContent/mainStyles/new-ui/js/materialize-1.0.0.min.js"></script>
+<script type="text/javascript" src="../WebContent/googlegadget/select2.min.js"></script>
+<!--\ JS LIBS-->
+<!--CUSTOM SCRIPTS-->
+<script src="static-html-examples.js" defer>
+    //see content to find colorPicker, tree-foldable, customModal... scripts
+</script>
+<script src="static-orgchart-assets.js" defer>
+    //see content to find colorPicker, tree-foldable, customModal... scripts
+</script>
+<!--\ CUSTOM SCRIPTS-->
+
+<!--CURRENT PAGE SCRIPT-->
+<script>
+    // =========================================================================
+    // Zoom logic (static page)
+    // =========================================================================
+
+    const zoomInput = document.getElementById('zoom');
+    const zoomValue = document.getElementById('zoomValue');
+    const depTree = document.getElementById('depTree');
+    const scrollX = document.getElementById('scrollX');
+
+    if (!zoomInput || !zoomValue || !depTree || !scrollX) {
+        console.warn('[OrgBoard static] Required elements not found', {
+            zoomInput, zoomValue, depTree, scrollX
+        });
+    }
+
+    function measureBaseSize(el) {
+        // Save inline styles we will touch
+        const prevTransform = el.style.transform;
+        const prevOrigin = el.style.transformOrigin;
+        const prevW = el.style.width;
+        const prevH = el.style.height;
+
+        // Reset to measure true (unscaled) content size
+        el.style.transform = 'none';
+        el.style.transformOrigin = '';
+        el.style.width = 'auto';
+        el.style.height = 'auto';
+
+        const baseW = Math.ceil(el.scrollWidth);
+        const baseH = Math.ceil(el.scrollHeight);
+
+        // Restore (applyZoom will set final values right after)
+        el.style.transform = prevTransform;
+        el.style.transformOrigin = prevOrigin;
+        el.style.width = prevW;
+        el.style.height = prevH;
+
+        return {baseW, baseH};
+    }
+
+    function applyZoom() {
+        if (!zoomInput || !zoomValue || !depTree || !scrollX) return;
+
+        const z = Number(zoomInput.value) / 100;
+        zoomValue.textContent = Math.round(z * 100) + '%';
+
+        const {baseW, baseH} = measureBaseSize(depTree);
+
+        depTree.style.transformOrigin = '0 0';
+        depTree.style.transform = `scale(${z})`;
+        depTree.style.width = Math.ceil(baseW * z) + 'px';
+        depTree.style.height = Math.ceil(baseH * z) + 'px';
+
+        // Keep scrollLeft within valid range after resizing content
+        const maxLeft = Math.max(0, scrollX.scrollWidth - scrollX.clientWidth);
+        if (scrollX.scrollLeft > maxLeft) scrollX.scrollLeft = maxLeft;
+    }
+
+    function applyZoomDeferred() {
+        requestAnimationFrame(applyZoom);
+    }
+
+    // Slider handler (range emits 'input' continuously)
+    if (zoomInput) zoomInput.addEventListener('input', applyZoomDeferred);
+
+    // Recalc after images load (your cards have avatars)
+    window.addEventListener('load', applyZoomDeferred);
+
+    // Optional: resize
+    window.addEventListener('resize', applyZoomDeferred);
+
+    // Initial
+    applyZoomDeferred();
+</script>
+
+<!--\CURRENT PAGE SCRIPT-->
+</body>
+</html>

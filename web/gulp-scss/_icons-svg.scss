@@ -1,0 +1,213 @@
+//SVG ICONS
+// SVG ICONS STYLE
+svg {
+  fill: none;
+
+  &[class*="icon--"],
+  //svg sizes
+  .frame__help &,
+  .gwt-ScrollTable &,
+  .btn &,
+  .btn-small &,
+  .btn-medium &,
+  .operPanel &,
+  //.frame__modules &,
+  .frame__nav &,
+  .page-opers &,
+  .frame__info & {
+    width: $svgSizeBase;
+    //height: $svgSizeBase;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    max-height: 100%;
+    flex-shrink: 0; // for flex containers
+  }
+  .btn-large & {
+    width: $svgSizeBase * 1.33;
+    //height: $svgSizeBase * 1.33;
+    max-height: 100%;
+  }
+
+  .input-group & {
+    width: 16px;
+    height: 16px;
+  }
+  .frame__header & {
+    width: 22px;
+    height: 22px;
+  }
+  &.icon--sliders {
+    .operPanel--header & {
+      height: 23px;
+    }
+  }
+  &.icon--barChart { // for operPanel Kanban icon
+    width: ($svgSizeBase + 2px);
+    height: ($svgSizeBase + 2px);
+  }
+  &.icon--more {
+    width: 25px;
+    aspect-ratio: auto;
+  }
+
+  //svg colors
+  &[class*="icon--"],
+  .input-group &,
+  .frame__help &,
+  .gwt-ScrollTable &,
+  .btn &,
+  .btn-small &,
+  .btn-medium &,
+  .btn-large &,
+  .operPanel .searchForm &,
+  .operPanel .btn:not(.btn--circle) &,
+  .frame__header &,
+  .frame__modules &,
+  .frame__nav &,
+  .page-opers &,
+  .frame__info & {
+    stroke: currentColor;
+    color: currentColor;
+    &.checked {
+      stroke: $success-color;
+      color: $success-color;
+    }
+  }
+
+
+  .rowActionCell &,
+  //.gwt-ScrollTable &, // Need to clarify (we don't need it everywere)
+  .operPanel .searchForm &,
+  .operPanel .btn:not(.btn--circle) &,
+  .user-menu-item__icon &,
+  .main-directories__sublink & {
+    stroke: $text-color-base;
+    color: $text-color-base;
+    @include iconActionHover;
+  }
+    //.gwt-ScrollTable:hover &,
+  //.operPanel .searchForm:hover &,
+  //.operPanel .btn:hover &,
+  //.user-menu-item:hover &, .user-menu-item:focus & {
+  //  opacity: 1;
+  //}
+
+  .btn & {
+    //height: 60%;
+  }
+  .btn--icon & {
+    &.icon--plus {
+      margin-top: -1px;
+      margin-left: -1px;
+    }
+  }
+
+  .btn--feedback &,
+  .btn--chat & {
+    fill: currentColor;
+  }
+
+
+  //add new widget icons
+  &.icon--autoNumber,
+  &.icon--multiline,
+  &.icon--pickList,
+  &.icon--number,
+  //reporting chart icons
+  &.icon--nochart,
+  &.icon--verticalchart,
+  &.icon--horizontalchart,
+  &.icon--linechart,
+  &.icon--areachart,
+  &.icon--piechart,
+  &.icon--donutchart,
+  &.icon--semichart,
+  &.icon--gaugechart,
+  &.icon--funnelchart,
+  &.icon--basicchart,
+  &.icon--standartchart,
+  &.icon--growthchart,
+  &.icon--rankingchart {
+    stroke:none;
+  }
+
+  &.icon--semichart {
+    transform: scale(1.3);
+  }
+  &.icon--gaugechart {
+    transform: scale(1.2);
+  }
+  &.icon--growthchart {
+    transform: scale(.8);
+  }
+  &.icon--funnelchart {
+    transform: scale(.9);
+  }
+}
+
+.icon--aiChat {
+  stroke: #2BBF57;
+}
+
+.icon--microphone-2 {
+  stroke: #747E88;
+}
+// \ SVG ICONS STYLE
+
+// SVG Backgrounds
+.features-aside,
+.frame__modules { //ToDo Need to change to #use svg
+  [class^="ficon--"], [class*=" ficon--"] {
+    display: inline-block;
+    background-image: url('../icons/frame-modules.svg');
+    background-repeat: no-repeat;
+    flex-shrink: 0;
+
+    &:before {
+      display: none !important;
+    }
+  }
+}
+.features-aside,
+.frame__modules { //ToDo Need to change to #use svg
+  .ficon--bar-chart-bold {
+    width: 18px;
+    height: 17px;
+    background-position: 0 0;
+  }
+  .ficon--calc {
+    width: 18px;
+    height: 17px;
+    background-position: 0 -17px;
+  }
+  .ficon--chevron-right {
+    width: 24px;
+    height: 24px;
+    background-position: 0 -34px;
+  }
+  .ficon--flag-bold {
+    width: 15px;
+    height: 21px;
+    background-position: 0 -58px;
+  }
+  .ficon--folder-bold {
+    width: 18px;
+    height: 16px;
+    background-position: 0 -79px;
+  }
+  .ficon--server-bold {
+    width: 18px;
+    height: 12px;
+    background-position: 0 -95px;
+  }
+  .ficon--users-bold {
+    width: 15px;
+    height: 18px;
+    background-position: 0 -107px;
+  }
+  .ficon--wallet-bold {
+    width: 18px;
+    height: 17px;
+    background-position: 0 -125px;
+  }
+}

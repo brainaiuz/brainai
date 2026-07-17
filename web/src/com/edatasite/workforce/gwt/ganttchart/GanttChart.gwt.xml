@@ -1,0 +1,4 @@
+<module rename-to="ganttchart">
+    <inherits name='com.google.gwt.user.User'/>
+    <inherits name="com.allen_sauer.gwt.dnd.gwt-dnd"/>
+</module>

@@ -1,0 +1,3 @@
+insert into myupdatetype (code, description, parentid) values('CUSTOM_FORM_ITEM_SUBMITTED_TO_MANAGER', 'Records when user has submitted custom form to manager', (select id from myupdatetype mu where mu.code='CUSTOM_FORM_ITEM'));
+insert into myupdatetype (code, description, parentid) values('CUSTOM_FORM_ITEM_MANAGER_APPROVE', 'Records when user has approved custom form', (select id from myupdatetype mu where mu.code='CUSTOM_FORM_ITEM'));
+insert into myupdatetype (code, description, parentid) values('CUSTOM_FORM_ITEM_MANAGER_REJECT', 'Records when user has rejected custom form', (select id from myupdatetype mu where mu.code='CUSTOM_FORM_ITEM'));

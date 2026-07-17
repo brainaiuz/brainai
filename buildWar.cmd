@@ -1,0 +1,1 @@
+ant z3_CreateWar -f ./web/AutoCompile.xml

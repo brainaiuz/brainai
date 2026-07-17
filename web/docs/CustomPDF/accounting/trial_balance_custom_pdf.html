@@ -1,0 +1,363 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style type="text/css">
+        body {
+            font-family:Calibri;
+            font-size: 10.5pt;
+            color: #232020;
+        }
+
+        @page {
+            size: A4 landscape;
+            margin:140px 30px 40px 30px;
+            padding:0;
+            @top-center {
+                content: element(header);
+            }
+            @bottom-left {
+                content: element(footer);
+            }
+        }
+        #header {
+            margin:20px 10px;
+            display: block;
+            position: running(header);
+        }
+        #footer{
+            margin:20px 10px;
+            display: block;
+            position: running(footer);
+        }
+        #pagenumber:before {
+            content: counter(page);
+        }
+
+        #pagecount:before {
+            content: counter(pages);
+        }
+
+
+        #footer td {
+            vertical-alin: middle;
+        }
+
+        /**End Layout**/
+
+
+        #content>table {
+            margin: 5pt 0;
+        }
+
+        .c {
+            text-align: center !important;
+        }
+
+        .subject {
+            font-family: bold;
+            color: #0000ff;
+        }
+        .left {
+            text-align: left !important;
+        }
+        .right {
+            text-align: right !important;
+            margin-right: 2px !important;
+        }
+
+        .page-break {
+            page-break-after: always;
+        }
+
+        table {
+            max-width: 100%;
+            background-color: transparent;
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        table {
+            -fs-table-paginate: paginate;
+        }
+
+        .listing>thead>tr>th, .listing>tbody>tr>td {
+            padding: 2mm 3mm 1mm;
+            vertical-align: middle;
+            /*border: 1px solid #000;*/
+        }
+
+       /* .listing>thead>tr>th:first-child {
+            border-left: 1px solid #000 !important;
+        }
+        .listing>thead>tr:last-child>th {
+            border-bottom: 1px solid #000 !important;
+        }
+
+        .listing>thead>tr>th {
+            border-top: 1px solid #000 !important;
+            border-right: 1px solid #000 !important;
+        }
+
+        .listing>tbody>tr>td:first-child {
+            border-left: 1px solid #000 !important;
+        }
+        .listing>tbody>tr>td {
+            border-bottom: 1px solid #000 !important;
+            border-right: 1px solid #000 !important;
+        }*/
+        .listing>thead>tr>th, .listing>tbody>tr>th {
+            background: #c0c0c0;
+        }
+
+        .listing>tbody>tr>th {
+            text-align: left;
+        }
+
+        .section {
+            background: #eceaeb
+        }
+
+    </style>
+</head>
+<body>
+#macro(calculation $category, $items)
+    #if ($items)
+        #set($tbdv = 0.0)
+        #set($tbcv = 0.0)
+        #set($tdv = 0.0)
+        #set($tcv = 0.0)
+        #set($tedv = 0.0)
+        #set($tecv = 0.0)
+
+        #foreach($item in $items)
+            #set($key = $category + "_" + $item.get('CATEGORY_CODE'))
+
+            #if ($calcItems.get($key))
+
+                #set($citem = $calcItems.get($key))
+                #set($bdv = $itextGenericPdfData.getValueAsDouble($citem.get('BEGINNET_DEBIT')) + $itextGenericPdfData.getValueAsDouble($item.get('BEGINNET_DEBIT')))
+                #set($bcv = $itextGenericPdfData.getValueAsDouble($citem.get('BEGINNET_CREDIT')) + $itextGenericPdfData.getValueAsDouble($item.get('BEGINNET_CREDIT')))
+                #set($dv = $itextGenericPdfData.getValueAsDouble($citem.get('DEBIT')) + $itextGenericPdfData.getValueAsDouble($item.get('DEBIT')))
+                #set($cv = $itextGenericPdfData.getValueAsDouble($citem.get('CREDIT')) + $itextGenericPdfData.getValueAsDouble($item.get('CREDIT')))
+                #set($edv = $itextGenericPdfData.getValueAsDouble($citem.get('ENDING_DEBIT')) + $itextGenericPdfData.getValueAsDouble($item.get('ENDING_DEBIT')))
+                #set($ecv = $itextGenericPdfData.getValueAsDouble($citem.get('ENDING_CREDIT')) + $itextGenericPdfData.getValueAsDouble($item.get('ENDING_CREDIT')))
+            #else
+
+                #set($bdv = $itextGenericPdfData.getValueAsDouble($item.get('BEGINNET_DEBIT')))
+                #set($bcv = $itextGenericPdfData.getValueAsDouble($item.get('BEGINNET_CREDIT')))
+                #set($dv = $itextGenericPdfData.getValueAsDouble($item.get('DEBIT')))
+                #set($cv = $itextGenericPdfData.getValueAsDouble($item.get('CREDIT')))
+                #set($edv = $itextGenericPdfData.getValueAsDouble($item.get('ENDING_DEBIT')))
+                #set($ecv = $itextGenericPdfData.getValueAsDouble($item.get('ENDING_CREDIT')))
+
+                #set($ti = $item.clone())
+                #set($temp = $calcItems.put($key, $ti))
+            #end
+
+            #set($temp = $calcItems.get($key).put('ACCOUNT_NAME', $item.get('CATEGORY_CODE').replaceAll('_',' ')))
+            #set($temp = $calcItems.get($key).put('BEGINNET_DEBIT', $itextGenericPdfData.getAsFormatted($bdv)))
+            #set($temp = $calcItems.get($key).put('BEGINNET_CREDIT', $itextGenericPdfData.getAsFormatted($bcv)))
+            #set($temp = $calcItems.get($key).put('DEBIT', $itextGenericPdfData.getAsFormatted($dv)))
+            #set($temp = $calcItems.get($key).put('CREDIT', $itextGenericPdfData.getAsFormatted($cv)))
+            #set($temp = $calcItems.get($key).put('ENDING_DEBIT', $itextGenericPdfData.getAsFormatted($edv)))
+            #set($temp = $calcItems.get($key).put('ENDING_CREDIT', $itextGenericPdfData.getAsFormatted($ecv)))
+
+            #set($tbdv = $tbdv + $itextGenericPdfData.getValueAsDouble($item.get('BEGINNET_DEBIT')))
+            #set($tbcv = $tbcv + $itextGenericPdfData.getValueAsDouble($item.get('BEGINNET_CREDIT')))
+            #set($tdv = $tdv + $itextGenericPdfData.getValueAsDouble($item.get('DEBIT')))
+            #set($tcv = $tcv + $itextGenericPdfData.getValueAsDouble($item.get('CREDIT')))
+            #set($tedv = $tedv + $itextGenericPdfData.getValueAsDouble($item.get('ENDING_DEBIT')))
+            #set($tecv = $tecv + $itextGenericPdfData.getValueAsDouble($item.get('ENDING_CREDIT')))
+        #end
+
+        #set($ti = $items.get('0').clone())
+        #set($temp = $calcItems.put($category, $ti))
+        #set($temp = $calcItems.get($category).put('BEGINNET_DEBIT', $itextGenericPdfData.getAsFormatted($tbdv)))
+        #set($temp = $calcItems.get($category).put('BEGINNET_CREDIT', $itextGenericPdfData.getAsFormatted($tbcv)))
+        #set($temp = $calcItems.get($category).put('DEBIT', $itextGenericPdfData.getAsFormatted($tdv)))
+        #set($temp = $calcItems.get($category).put('CREDIT', $itextGenericPdfData.getAsFormatted($tcv)))
+        #set($temp = $calcItems.get($category).put('ENDING_DEBIT', $itextGenericPdfData.getAsFormatted($tedv)))
+        #set($temp = $calcItems.get($category).put('ENDING_CREDIT', $itextGenericPdfData.getAsFormatted($tecv)))
+    #end
+#end
+
+
+#macro(drawAccountTransactions, $category, $items)
+    #if ($items)
+        <tr style="page-break-inside: avoid;" class="section subject">
+            <td colspan="2" class="left"><b>$category</b></td>
+            <td class="right"><b>$calcItems.get($category).get('BEGINNET_DEBIT')</b></td>
+            <td class="right"><b>$calcItems.get($category).get('BEGINNET_CREDIT')</b></td>
+            <td class="right"><b>$calcItems.get($category).get('DEBIT')</b></td>
+            <td class="right"><b>$calcItems.get($category).get('CREDIT')</b></td>
+            <td class="right"><b>$calcItems.get($category).get('ENDING_DEBIT')</b></td>
+            <td class="right"><b>$calcItems.get($category).get('ENDING_CREDIT')</b></td>
+        </tr>
+
+        #foreach($subjectKey in $calcItems.keySet())
+            #set($categoryAsKey = $category + '_')
+            #if ($subjectKey.contains($categoryAsKey))
+                #set($sitem = $calcItems.get($subjectKey))
+                <tr style="page-break-inside: avoid;" class="subject">
+                    <td class="left" colspan="2"><b>$sitem.get('ACCOUNT_NAME')</b></td>
+                    <td class="right"><b>$sitem.get('BEGINNET_DEBIT')</b></td>
+                    <td class="right"><b>$sitem.get('BEGINNET_CREDIT')</b></td>
+                    <td class="right"><b>$sitem.get('DEBIT')</b></td>
+                    <td class="right"><b>$sitem.get('CREDIT')</b></td>
+                    <td class="right"><b>$sitem.get('ENDING_DEBIT')</b></td>
+                    <td class="right"><b>$sitem.get('ENDING_CREDIT')</b></td>
+                </tr>
+
+                #foreach($item in $items)
+                    #if ($item.get('CATEGORY_CODE').replaceAll('_',' ') == $sitem.get('ACCOUNT_NAME'))
+                        #if ($itextGenericPdfData.getCustomData().get($item.get('ACCOUNT_ID')) and !$itextGenericPdfData.getCustomData().get($item.get('ACCOUNT_ID')).getRows().isEmpty())
+                            <tr style="page-break-inside: avoid;" class="subject">
+                        #else
+                            <tr style="page-break-inside: avoid;">
+                        #end
+                            <td class="c">$item.get('ACCOUNT_CODE')</td>
+                            <td class="left">$item.get('ACCOUNT_NAME')</td>
+                            <td class="right">$item.get('BEGINNET_DEBIT')</td>
+                            <td class="right">$item.get('BEGINNET_CREDIT')</td>
+                            <td class="right">$item.get('DEBIT')</td>
+                            <td class="right">$item.get('CREDIT')</td>
+                            <td class="right">$item.get('ENDING_DEBIT')</td>
+                            <td class="right">$item.get('ENDING_CREDIT')</td>
+                        </tr>
+
+                        #if ($itextGenericPdfData.getCustomData().get($item.get('ACCOUNT_ID')) and !$itextGenericPdfData.getCustomData().get($item.get('ACCOUNT_ID')).getRows().isEmpty())
+                            #foreach($cusSupp in $itextGenericPdfData.getCustomData().get($item.get('ACCOUNT_ID')).getRows())
+                                <tr style="page-break-inside: avoid;">
+                                    <td class="c">$item.get('ACCOUNT_CODE')$cusSupp.get('ACCOUNT_CODE')</td>
+                                    <td class="left">$cusSupp.get('ACCOUNT_NAME')</td>
+                                    <td class="right">$cusSupp.get('BEGINNET_DEBIT')</td>
+                                    <td class="right">$cusSupp.get('BEGINNET_CREDIT')</td>
+                                    <td class="right">$cusSupp.get('DEBIT')</td>
+                                    <td class="right">$cusSupp.get('CREDIT')</td>
+                                    <td class="right">$cusSupp.get('ENDING_DEBIT')</td>
+                                    <td class="right">$cusSupp.get('ENDING_CREDIT')</td>
+                                </tr>
+                            #end
+                        #end
+                    #end
+                #end
+            #end
+        #end
+    #end
+
+#end
+
+#set($cAssets = 'ASSETS')
+#set($cLiabilities = 'LIABILITIES')
+#set($cRevenue = 'REVENUE')
+#set($cExpenses = 'EXPENSES')
+#set($cEquity = 'EQUITY')
+
+#set($assets = $itextGenericPdfData.getCustomData().get($cAssets).getRows())
+#set($liabilities = $itextGenericPdfData.getCustomData().get($cLiabilities).getRows())
+#set($revenue = $itextGenericPdfData.getCustomData().get($cRevenue).getRows())
+#set($expenses = $itextGenericPdfData.getCustomData().get($cExpenses).getRows())
+#set($equity = $itextGenericPdfData.getCustomData().get($cEquity).getRows())
+#set($totalItems = $itextGenericPdfData.getCustomData().get('TOTAL').getRows())
+#set($calcItems = $itextGenericPdfData.getCustomData().get('EMPTY_DATA').getRows())
+
+#calculation($cAssets, $assets)
+#calculation($cLiabilities, $liabilities)
+#calculation($cRevenue, $revenue)
+#calculation($cExpenses, $expenses)
+#calculation($cEquity, $equity)
+
+
+<div id="header">
+    <table width="100%" style="border-bottom: 1px solid #000000;">
+        <tr>
+            <td align="left" width="50%" style="font-size:11px;padding:0">
+                <table width="100%" cellpadding="0" cellspacing="0">
+                    <tr><td><span style="color:#0000ff;font-weight:bold;font-size:13px">$itextGenericPdfData.companyData.companyName</span></td></tr>
+                    <tr><td style="padding-top:1px">$itextGenericPdfData.companyData.address</td></tr>
+                    <tr><td style="padding-top:1px">$itextGenericPdfData.companyData.city, $itextGenericPdfData.companyData.postCode</td></tr>
+                    <tr><td style="padding-top:1px">$itextGenericPdfData.companyData.country</td></tr>
+                    #if($itextGenericPdfData.companyData.companyPhone!='')
+                    <tr><td style="padding-top:1px">Phone: $itextGenericPdfData.companyData.companyPhone</td></tr>
+                    #end
+                    #if($itextGenericPdfData.companyData.companyEmail!='')
+                    <tr><td style="padding-top:1px">Email: $itextGenericPdfData.companyData.companyEmail</td></tr>
+                    #end
+                </table>
+            </td>
+            <td width="50%" align="right" >
+                <img src="$itextGenericPdfData.companyData.companyLogoUrl"/>
+            </td>
+
+        </tr>
+    </table>
+</div>
+
+<div id="footer">
+    <table width="100%" style="font-size:11px">
+        <tr>
+            <td colspan="2" align="center">
+                #foreach($row in $itextGenericPdfData.baseInvoice.customFooterData.rows.values())
+                $row.get('COLUMN_VALUE') <br/>
+                #end
+            </td>
+        </tr>
+        <tr>
+            <td align="left"></td>
+            <td width="10%" align="right">
+                Page <span id="pagenumber"/>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div id="content">
+    <table class="listing" width="100%">
+        <thead>
+            <tr>
+                <th class="c" colspan="8" style="background-color: #ffffff">Trial Balance Figures in SAR (SAR)</th>
+            </tr>
+            <tr>
+                <th class="c" rowspan="2">Code</th>
+                <th class="c" rowspan="2">Account</th>
+                <th class="c" colspan="2">Beginning Balance</th>
+                <th class="c" colspan="2">Period Balance</th>
+                <th class="c" colspan="2">Ending Balance</th>
+            </tr>
+            <tr>
+                <th class="right">Debit</th>
+                <th class="right">Credit</th>
+                <th class="right">Debit</th>
+                <th class="right">Credit</th>
+                <th class="right">Debit</th>
+                <th class="right">Credit</th>
+            </tr>
+        </thead>
+        <tbody>
+            #drawAccountTransactions($cAssets, $assets)
+            #drawAccountTransactions($cLiabilities, $liabilities)
+            #drawAccountTransactions($cRevenue, $revenue)
+            #drawAccountTransactions($cExpenses, $expenses)
+            #drawAccountTransactions($cEquity, $equity)
+
+            #if ($totalItems)
+                #foreach($item in $totalItems)
+                    <tr style="page-break-inside: avoid;" class="section">
+                        <td class="c"><b>$item.get('ACCOUNT_CODE')</b></td>
+                        <td class="left">$item.get('ACCOUNT_NAME')</td>
+                        <td class="right"><b>$item.get('BEGINNET_DEBIT')</b></td>
+                        <td class="right"><b>$item.get('BEGINNET_CREDIT')</b></td>
+                        <td class="right"><b>$item.get('DEBIT')</b></td>
+                        <td class="right"><b>$item.get('CREDIT')</b></td>
+                        <td class="right"><b>$item.get('ENDING_DEBIT')</b></td>
+                        <td class="right"><b>$item.get('ENDING_CREDIT')</b></td>
+                    </tr>
+                #end
+            #end
+        </tbody>
+    </table>
+
+</div>
+<!-- End #content -->
+</body>
+</html>

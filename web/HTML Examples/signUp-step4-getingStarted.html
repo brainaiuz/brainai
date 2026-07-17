@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <title>Welcome to kpi.com!</title>
+    <link rel="shortcut icon" href="../WebContent/mainStyles/new-ui/login/img/favicon2.svg" type="image/svg">
+    <link rel="stylesheet" href="../WebContent/mainStyles/new-ui/login/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="../WebContent/mainStyles/new-ui/login/slick/slick.css">
+    <link rel="stylesheet" href="../WebContent/mainStyles/new-ui/css/pass-validation.css">
+    <link rel="stylesheet" href="../WebContent/mainStyles/new-ui/css/materialize.css">
+    <script>
+        var adPassEnabled = null;
+
+        function checkForPassEnter(value) {
+            console.log("======= here it comes =======")
+            document.getElementById('error').style.display = 'none';
+            if (value.length === 0) {
+                document.getElementById('step1').innerHTML = '';
+                // удаляем все классы, кроме "pass-validation"
+                document.getElementById('passStrength').className = 'pass-validation';
+                document.getElementById('step1').className = '';
+            }
+            if (value.length > 0) {
+                if (adPassEnabled) {
+                    code2word(passStrength(value, 15, 20, 1, 1, 1, 1, 11))
+                } else {
+                    code2word(passStrength(value, 8, 12, 1, 1, 1, 1, 4))
+                }
+            }
+        }
+
+        function checkForPassMatch(value) {
+            passwordsMatch(document.getElementById('pass1').value, value) ? document.getElementById('error2').style.display = 'none' : "";
+        }
+
+        function submitnewPassword() {
+            var error = 0;
+
+            var passwordStrength = document.getElementById('step1').textContent;
+
+            if (passwordStrength === 'Weak') {
+                document.getElementById('error').style.display = '';
+                document.getElementById('error').style.color = 'red';
+                document.getElementById('error').innerHTML = "Password is weak or too short (Min. " + (adPassEnabled ? 15 : 8) + " characters and must contain at least one uppercase, " +
+                    "lowercase letters, numbers, and special symbols such as $ % & ( @ # § = ')' , : ; - _ + ^ )";
+                error++;
+            }
+
+            var passwordMatches = passwordsMatch(document.getElementById('pass1').value, document.getElementById('pass2').value);
+            if (!passwordMatches) {
+                document.getElementById('error').innerHTML = "Make sure that the password matches!";
+                document.getElementById('error2').style.display = '';
+                error++;
+            }
+
+            if (error === 0) {
+                document.getElementById('formSubmit').submit();
+            }
+        }
+    </script>
+</head>
+<body class="signUpStep signUpStep--3">
+<div class="modal-holder active">
+    <div class="modal modal--md sign-up-step sign-up-step--4" style="width: 823px;">
+        <div class="modal-wrapper">
+            <div class="modal-header">
+                <div class="hgroup">
+                    <h1 class="fs-4">
+                        What would you like to do in kpi.com?<br>This Is Just To Get You Started
+                    </h1>
+                </div>
+            </div>
+            <form id="gettingStartedForm" action="/gettingStarted.html" method="post">
+                <div class="modal-content">
+
+                    <div id="cp_modules-switch__error" hidden style="color:red;">Please select at least one app</div>
+                    <div class="sign-up-step__section">
+                        <div class="cp_modules-switch cp_modules-switch--content">
+                            <div class="cp_modules-switch__item">
+                                <div class="cp_modules-switch__item-content">
+                                    <div class="cp_modules-switch__logo"><i class="ficon--calc"></i></div>
+                                    <div class="cp_modules-switch__title">Accounts</div>
+                                    <div class="cp_modules-switch__switcher">
+                                        <div class="switch">
+                                            <label>
+                                                <span></span>
+                                                <input type="checkbox" name="modules" value="accounts" onchange="onChange()">
+                                                <span class="lever"></span><span></span>
+                                            </label>
+                                            <span class="material-label" style="margin-top: 16px;"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cp_modules-switch__notes">Accounts module description</div>
+                            </div>
+                            <div class="cp_modules-switch__item">
+                                <div class="cp_modules-switch__item-content">
+                                    <div class="cp_modules-switch__logo"><i class="ficon--bar-chart-bold"></i></div>
+                                    <div class="cp_modules-switch__title">Sales</div>
+                                    <div class="cp_modules-switch__switcher">
+                                        <div class="switch">
+                                            <label>
+                                                <span></span>
+
+
+
+<!--JS LIBS-->
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>-->
+<script type="text/javascript" src="../WebContent/mainStyles/new-ui/js/jquery.min.js"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>-->
+<script type="text/javascript" src="../WebContent/mainStyles/new-ui/js/materialize-1.0.0.min.js"></script>
+<script type="text/javascript" src="../WebContent/passwordStrength.js"></script>
+<!--\ JS LIBS-->
+<!--CUSTOM SCRIPTS-->
+<!--<script src="static-html-examples.js" defer></script>-->
+<!--\ CUSTOM SCRIPTS-->
+<!--CURRENT PAGE SCRIPT-->
+<!--<script>-->
+<!--    jQuery(document).ready(function () {-->
+<!--        $('select').material_select();-->
+<!--    });-->
+<!--</script>-->
+<script type="text/javascript">
+    function code2word(code) {
+        document.querySelector('#strength').value = code;
+        console.log(code);
+        if (code === 'WEAK') {
+            document.getElementById('step1').innerHTML = 'Weak';
+        }
+        if (code === 'MEDIUM') {
+            document.getElementById('step1').innerHTML = 'Medium';
+        }
+        if (code === 'STRONG') {
+            document.getElementById('step1').innerHTML = 'Strong';
+        }
+        // удаляем все классы, кроме "pass-validation"
+        document.getElementById('passStrength').className = 'pass-validation';
+        document.getElementById('step1').className = '';
+        // добавляем класс в зависимости от силы пароля
+        switch (code) {
+            case 'WEAK':
+                document.getElementById('passStrength').classList.add('pass-validation--state-1');
+                document.getElementById('step1').classList.add('pass-validation__text__step-1');
+                break;
+            case 'MEDIUM':
+                document.getElementById('passStrength').classList.add('pass-validation--state-2');
+                document.getElementById('step1').classList.add('pass-validation__text__step-2');
+                break;
+            case 'STRONG':
+                document.getElementById('passStrength').classList.add('pass-validation--state-3');
+                document.getElementById('step1').classList.add('pass-validation__text__step-3');
+                break;
+            default:
+            // если code не равен ни одному из этих значений, ничего не делаем
+        }
+    }
+</script>
+
+<!--\CURRENT PAGE SCRIPT-->
+</body>
+</html>

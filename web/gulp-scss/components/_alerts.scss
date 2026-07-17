@@ -1,0 +1,210 @@
+$alertLeftIcon: ($button-height-small * .8);
+$alertLeftIcon-rightSpace: 15px;
+
+.alert-block {
+  max-height: 214px;
+  //border: 1px solid #e8e8e8;
+  //border-radius: $radius-basePlus;
+  text-align: left;
+  cursor: pointer;
+
+  &--link {
+  }
+
+  & + .alert-block {
+    margin-top: 10px;
+  }
+
+  &__heading, &__body {
+    //padding-left: 18px;
+  }
+  &__heading {
+    overflow: hidden; // to hide scaledX close button
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 10px;
+    padding-top: ($panel-padding * .8);
+    padding-bottom: ($panel-padding / 3);
+    clear: left;
+  }
+
+  &__body {
+  }
+  &__title {
+    position: relative;
+    display: block;
+    margin-bottom: 2px;
+    font-size: 1em !important;
+    line-height: 1.8;
+    @include txtTruncate();
+  }
+  &__note {
+    color: $color-accent-2;
+    &:hover {
+      color: $black-base;
+    }
+  }
+  &__author {
+    padding-top: 10px;
+    font-size: 11px;
+    font-size: 0.85em;
+    color: $color-base-2;
+
+    figure {
+      margin: 0;
+    }
+    figcaption {
+      font-size: (11px);
+    }
+  }
+
+  &.ldt-power-off {
+    overflow: hidden;
+    max-height: 0 !important;
+    transition: max-height .8s ease;
+    animation: ldt-power-off .8s forwards;
+    //animation: ldt-blur-out .8s forwards;
+  }
+
+  &:focus,
+  &:hover {
+    box-shadow: 0 4px 21px 0 rgba(83, 102, 119, 0.1);
+
+    .alert-block__heading {
+      .btn--close {
+
+      }
+    }
+  }
+}
+.alert-block__cat {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  &-text {
+    @include txtTruncate();
+    font-weight: 500;
+
+    > a {
+      color: inherit;
+    }
+  }
+}
+.alert-block__date {
+  flex: 0 0 80px;
+  font-size: 0.9em;
+  font-weight: 300;
+  line-height: 1;
+  text-align: right;
+  transition: transform 0.3s ease .15s, opacity .3s ease .15s;
+  .alert-block:hover & {
+    transition: transform 0.3s ease, opacity .3s ease;
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+.alert-block__close {
+  border-color: $color-base-0;
+  border-radius: ($button-height-small / 2);
+  position: absolute;
+  right: $panel-padding;
+  opacity: 0;
+  transform: scale(0);
+  transition: transform .2s ease .15s, opacity .01s ease;
+  .alert-block:hover & {
+    opacity: 1;
+    transform: scale(1);
+  }
+  &:hover {
+    background-color: $color-base-contrast;
+    transition: transform .2s ease .15s, opacity .4s ease .25s;
+  }
+}
+.alert-block__icon {
+  flex: 0 0 auto;
+  overflow: hidden;
+  width: $alertLeftIcon;
+  height: $alertLeftIcon;
+  margin-right: $alertLeftIcon-rightSpace !important;
+
+  .alert-block__cat & {
+
+  }
+  
+  &.circle {
+    border: 1px solid $sidenav-bg-color;
+  }
+}
+
+.avatar {
+  &__initials {}
+}
+
+.alert-block__cat {
+  .avatar {
+    height: 30px;
+    width: 30px;
+
+    .avatar__initials {
+      font-size: .8em;
+    }
+  }
+  .brandFigure {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: $button-height-small;
+    color: #fff;
+
+    .alert-block--sales & {
+      background-color: $color-sales;
+    }
+    .alert-block--humans & {
+      background-color: $color-humans;
+    }
+    .alert-block--projects & {
+      background-color: $color-projects;
+    }
+    .alert-block--reports & {
+      background-color: $color-reports;
+    }
+    .alert-block--accounts & {
+      background-color: $color-accounts;
+    }
+    .alert-block--payroll & {
+      background-color: $color-payroll;
+    }
+    .alert-block--documents & {
+      background-color: $color-docs;
+    }
+    svg {
+      height: 45%;
+      &.icon--projects {
+        height: 40%;
+      }
+      &.icon--folderBold {
+        height: 40%;
+      }
+      &.icon--barChartBold {
+        height: 41%;
+      }
+      &.icon--accounting {
+        height: 40%;
+      }
+    }
+  }
+}
+.no-new-notifications {
+ p.fs-3 {
+   padding-top: 20px;
+ }
+}
+//.alert-block__no-new-notifications {
+//  font-size: 1.2em;
+//  font-weight: 500;
+//  padding: 0 20px;
+//  text-align: center;
+//}

@@ -1,0 +1,1 @@
+UPDATE "anv".opportunity SET amount_base_currency=(amount/exchangeRate);

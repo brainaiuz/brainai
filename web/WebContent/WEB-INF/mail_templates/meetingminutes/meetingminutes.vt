@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<p>$EMPLOYEE</p>
+
+<p>$DESCRIPTION</p>
+
+<p><b>Meeting details:</b></p>
+
+<div style="background-color:lightblue; width:100%;">
+
+    <p>Meeting ID: $MEETING_ID</p>
+
+    <p>Title: $TITLE</p>
+
+    <p>Purpose: $MEETING_PURPOSE</p>
+
+    <p>Location: $LOCATION</p>
+
+    <p>Start: $START_DATE</p>
+
+    <p>End: $END_DATE</p>
+</div>
+
+<p>Click <a href="$LINK">here</a> to view the Meeting minutes.<br/>
+    * If you are not able to click on the link, you can copy and paste the following address into your web browser:
+
+    <span style="color: #0033FF">$LINK</span></p>
+
+</body>
+</html>

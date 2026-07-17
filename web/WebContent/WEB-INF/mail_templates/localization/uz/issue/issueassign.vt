@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body><p>Уважаемый (ая) $recipientName,</p>
+
+<p>Обратите внимание, что $userName назначил вас $issueName проблему в $date.</p>
+
+  <table width="705" border="0" cellspacing="0" cellpadding="0" bgcolor="#ffffff">
+      <tr>
+          <td width="368" valign="top">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                      <td width="368" valign="top">
+                          <table cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff" width="100%"
+                                 style="vertical-align:top;">
+                              <tr>
+                                  <td height="20" bgcolor="#1c5b94" valign="middle" style="color:rgb(255,255,255);
+                      font-size:12px;font-weight:bolder;padding-left:5px;text-align:left;font-family:Verdana,Arial,Helvetica,sans-serif;"
+                                      colspan="2">
+                                      Обзор
+                                  </td>
+                              </tr>
+  							<tr>
+                                  <td height="17" bgcolor="#dce5ea" width="132" valign="top" style="color:rgb(0,0,0);
+                      font-size:11px; padding-left:5px;text-align:left;font-weight:bold;font-family:Verdana,sans-serif;">
+                                      Проект:
+                                  </td>
+                                  <td width="236" valign="top" bgcolor="#dce5ea" style="color:rgb(0,0,0);
+                      font-size:11px;padding-left:1px;text-align:left;font-weight:normal;font-family:Verdana,sans-serif;">
+                                      $projectName</td>
+                              </tr>
+                              <tr>
+                                  <td height="17" bgcolor="#dce5ea" width="132" valign="top" style="color:rgb(0,0,0);
+                      font-size:11px; padding-left:5px;text-align:left;font-weight:bold;font-family:Verdana,sans-serif;">
+                                      Название проблемы:
+                                  </td>
+                                  <td width="236" valign="top" bgcolor="#dce5ea" style="color:rgb(0,0,0);
+                      font-size:11px;padding-left:1px;text-align:left;font-weight:normal;font-family:Verdana,sans-serif;">
+                                      $issueName</td>
+                              </tr>
+                              <tr>
+                                  <td height="17" bgcolor="#dce5ea" width="132" valign="top" style="color:rgb(0,0,0);
+                      font-size:11px; padding-left:5px;text-align:left;font-weight:bold;font-family:Verdana,sans-serif;">
+                                      Номер:
+                                  </td>
+                                  <td width="236" valign="top" bgcolor="#dce5ea" style="color:rgb(0,0,0);
+                      font-size:11px;padding-left:1px;text-align:left;font-weight:normal;font-family:Verdana,sans-serif;">
+                                      $issueNumber</td>
+                              </tr>
+                              <tr>
+                                  <td height="17" bgcolor="#dce5ea" width="132" valign="top" style="color:rgb(0,0,0);
+                      font-size:11px; padding-left:5px;text-align:left;font-weight:bold;font-family:Verdana,sans-serif;">
+                                      Описание:
+                                  </td>
+                                  <td width="236" valign="top" bgcolor="#dce5ea" style="color:rgb(0,0,0);
+                      font-size:11px;padding-left:1px;text-align:left;font-weight:normal;font-family:Verdana,sans-serif;">
+                                      $description</td>
+                              </tr>
+
+
+                          </table>
+                      </td>
+                  </tr>
+              </table>
+          </td>
+          <td width="9">&nbsp;</td>
+          <td width="328" valign="top">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                      <td height="70" width="328" valign="top">
+                          <table cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff" width="100%">
+                              <tr>
+                                  <td height="20" bgcolor="#1c5b94" valign="middle" style="color:rgb(255,255,255);
+                      font-size:12px;font-weight:bolder;padding-left:5px;text-align:left;font-family:Verdana,Arial,Helvetica,sans-serif;"
+                                      colspan="2">
+                                     Детали
+                                  </td>
+                              </tr>
+  							<tr>
+                                  <td height="17" bgcolor="#dce5ea" width="117" valign="top" style="color:rgb(0,0,0);
+                      font-size:11px; padding-left:5px;text-align:left;font-weight:bold;font-family:Verdana,sans-serif;">
+                                      Visibility:
+                                  </td>
+                                  <td width="211" valign="top" bgcolor="#dce5ea" style="color:rgb(0,0,0);
+                      font-size:11px;padding-left:1px;text-align:left;font-weight:normal;font-family:Verdana,sans-serif;">
+                                      $visibility</td>
+                              </tr>
+  							<tr>
+                                  <td height="17" bgcolor="#dce5ea" width="117" valign="top" style="color:rgb(0,0,0);
+                      font-size:11px; padding-left:5px;text-align:left;font-weight:bold;font-family:Verdana,sans-serif;">
+                                      Период:
+                                  </td>
+                                  <td width="211" valign="top" bgcolor="#dce5ea" style="color:rgb(0,0,0);
+                      font-size:11px;padding-left:1px;text-align:left;font-weight:normal;font-family:Verdana,sans-serif;">
+                                      $period</td>
+                              </tr>
+  							<tr>
+                                  <td height="17" bgcolor="#dce5ea" width="132" valign="top" style="color:rgb(0,0,0);
+                      font-size:11px; padding-left:5px;text-align:left;font-weight:bold;font-family:Verdana,sans-serif;">
+                                      Приоритет:
+                                  </td>
+                                  <td width="236" valign="top" bgcolor="#dce5ea" style="color:rgb(0,0,0);
+                      font-size:11px;padding-left:1px;text-align:left;font-weight:normal;font-family:Verdana,sans-serif;">
+                                      $priority</td>
+                              </tr>
+                              <tr>
+                                  <td height="17" bgcolor="#dce5ea" width="132" valign="top" style="color:rgb(0,0,0);
+                      font-size:11px; padding-left:5px;text-align:left;font-weight:bold;font-family:Verdana,sans-serif;">
+                                      Статус:
+                                  </td>
+                                  <td width="236" valign="top" bgcolor="#dce5ea" style="color:rgb(0,0,0);
+                      font-size:11px;padding-left:1px;text-align:left;font-weight:normal;font-family:Verdana,sans-serif;">
+                                      $status</td>
+                              </tr>
+  							<tr>
+                                  <td height="17" bgcolor="#dce5ea" width="132" valign="top" style="color:rgb(0,0,0);
+                      font-size:11px; padding-left:5px;text-align:left;font-weight:bold;font-family:Verdana,sans-serif;">
+                                      Сообщает об этом:
+                                  </td>
+                                  <td width="236" valign="top" bgcolor="#dce5ea" style="color:rgb(0,0,0);
+                      font-size:11px;padding-left:1px;text-align:left;font-weight:normal;font-family:Verdana,sans-serif;">
+                                      $reportedBy</td>
+                              </tr>
+  							<tr>
+                                  <td height="17" bgcolor="#dce5ea" width="132" valign="top" style="color:rgb(0,0,0);
+                      font-size:11px; padding-left:5px;text-align:left;font-weight:bold;font-family:Verdana,sans-serif;">
+                                      Утвердитель:
+                                  </td>
+                                  <td width="236" valign="top" bgcolor="#dce5ea" style="color:rgb(0,0,0);
+                      font-size:11px;padding-left:1px;text-align:left;font-weight:normal;font-family:Verdana,sans-serif;">
+                                      $resolver</td>
+                              </tr>
+  							<tr>
+                                  <td height="17" bgcolor="#dce5ea" width="132" valign="top" style="color:rgb(0,0,0);
+                      font-size:11px; padding-left:5px;text-align:left;font-weight:bold;font-family:Verdana,sans-serif;">
+                                      Табель:
+                                  </td>
+                                  <td width="236" valign="top" bgcolor="#dce5ea" style="color:rgb(0,0,0);
+                      font-size:11px;padding-left:1px;text-align:left;font-weight:normal;font-family:Verdana,sans-serif;">
+                                      $timesheet</td>
+                              </tr>
+
+  						     <tr>
+                                  <td height="17" bgcolor="#dce5ea" width="117" valign="top" style="color:rgb(0,0,0);
+                      font-size:11px; padding-left:5px;text-align:left;font-weight:bold;font-family:Verdana,sans-serif;">
+                                      Создатель:
+                                  </td>
+                                  <td width="211" valign="top" bgcolor="#dce5ea" style="color:rgb(0,0,0);
+                      font-size:11px;padding-left:1px;text-align:left;font-weight:normal;font-family:Verdana,sans-serif;">
+                                      $creator</td>
+                              </tr>
+                              <tr>
+                                  <td height="17" bgcolor="#dce5ea" width="117" valign="top" style="color:rgb(0,0,0);
+                      font-size:11px; padding-left:5px;text-align:left;font-weight:bold;font-family:Verdana,sans-serif;">
+                                      Назначенные:
+                                  </td>
+                                  <td width="211" valign="top" bgcolor="#dce5ea" style="color:rgb(0,0,0);
+                      font-size:11px;padding-left:1px;text-align:left;font-weight:normal;font-family:Verdana,sans-serif;">
+                                      $assignees</td>
+                              </tr>
+                              <tr>
+                                  <td height="9"></td>
+                              </tr>
+                          </table>
+                      </td>
+                  </tr>
+
+              </table>
+          </td>
+      </tr>
+  </table>
+<p>Щелкните <a href="$host/ProjectManagement.html?link=$link" title="View issue">здесь,</a> чтобы рассмотреть проблему
+</p>
+
+<p>* Если вы не в состоянии нажать на ссылку, вы можете вместо этого скопировать и вставить следующий адрес в свой
+    веб-браузер:</p>
+
+<p><span style="color: #0033FF">$host/ProjectManagement.html?link=$link</span></p>
+</body>
+</html>
+

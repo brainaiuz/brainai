@@ -1,0 +1,433 @@
+/**** ### START TRIAL PAGE CONTENT
+* Web Site:    kpi.com:
+* Created by:  Babayev Xushnud
+* Email:       babayev.xushnud@gmail.com
+========================================================================= ### ****/
+.noWrapp {
+    white-space: nowrap;
+}
+
+#trailPage {
+    width: 916px;
+    margin: 0 auto;
+}
+
+#trailPage .pre-title {
+    /*font-size:16px;*/
+    font: bold 16px sans-serif; /*after delete*/
+    color: #016eb7;
+}
+
+/* START #appTrialForm */
+#appTrialForm {
+    float: left;
+    width: 420px;
+    margin: 0 44px 40px 0;
+}
+
+#appTrialForm .trialFormFildset {
+    padding: 10px 20px;
+    border: 1px solid #c9c9c9;
+    margin-bottom: 0
+}
+
+#appTrialForm .shadowTrialFieldset {
+    width: 423px;
+    height: 16px;
+    margin: 0 0 20px;
+    background: url(/loginpage/images/bg_shadow_trial.png) no-repeat 0 0;
+}
+
+#appTrialForm .trialFormFildset .form-item label {
+    float: left;
+    width: 120px;
+}
+
+#appTrialForm .marker, #appTrialForm .form-required {
+    color: #1978bf;
+}
+
+#appTrialForm .trialFormFildset .form-text {
+    width: 252px;
+}
+
+#appTrialForm label.right {
+    margin: 0 4px 10px 0;
+}
+
+#appTrialForm label.right input {
+    float: left;
+}
+
+#appTrialForm .form-submit {
+    clear: both;
+    float: right;
+    width: 201px;
+    height: 40px;
+    padding: 0;
+    margin-top: 20px;
+    border: 0;
+    cursor: pointer;
+    font: bold 24px/44px "Arial Narrow", Arial, sans-serif;
+    text-transform: uppercase;
+    color: #fff;
+    text-align: center;
+    /*text-indent:-9999px;*/
+    background: url(/loginpage/images/bg_btn_SignUp_trial.png) no-repeat 0 0;
+}
+
+/* END #appTrialForm */
+
+/* START .trialNotice */
+.trialNotice, .trialNotice .BoxIn-1 {
+    background-image: url(/loginpage/images/bg_trialNotice_bg.png);
+    background-repeat: no-repeat;
+    width: 452px;
+    float: left;
+}
+
+.trialNotice {
+    /*width:390px; height:79px;
+        margin:0 0 20px;
+        padding:8px 10px 8px 52px;
+        font-style:italic;
+        background:url(/loginpage/images/bg_trialNotice.png) no-repeat 0 0;*/
+    background-position: 0 0;
+    padding: 4px 0 0;
+    margin: 0 0 20px;
+    font-style: italic;
+}
+
+.trialNotice .BoxIn-1 {
+    background-position: -455px 100%;
+    padding: 0 0 4px;
+}
+
+.trialNotice .BoxIn-2 {
+    background: url(/loginpage/images/bg_trialNotice_lamp.png) no-repeat 19px 50%;
+    background-color: #DFE9B7;
+    border-right: 1px solid #99B916;
+    border-left: 1px solid #99B916;
+    min-height: 79px;
+    padding: 8px 10px 8px 52px;
+}
+
+.trialNotice p {
+    line-height: 1.4em;
+}
+
+/* END .trialNotice */
+
+.m-userNumber, .m-emptyPlace {
+    display: inline-block;
+    line-height: 24px;
+    margin: 18px 40px 16px 0;
+    padding: 0 0 0 30px;
+    color: #686868;
+    background-image: url(/loginpage/images/mark_free_limits.png);
+    background-repeat: no-repeat;
+}
+
+.m-userNumber {
+    background-position: 0 0;
+}
+
+.m-emptyPlace {
+    background-position: 0 -39px;
+}
+
+/* START .limitsBox */
+.limitsBox {
+    width: 434px;
+    padding: 6px 8px;
+    -webkit-box-shadow: 0 0 3px #ccc;
+    -moz-box-shadow: 0 0 3px #ccc;
+    -ms-box-shadow: 0 0 3px #ccc;
+    -o-box-shadow: 0 0 3px #ccc;
+    box-shadow: 0 0 3px #ccc;
+
+    background-color: #e9e9e9;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#e9e9e9));
+    background-image: -webkit-linear-gradient(top, #f5f5f5, #e9e9e9);
+    background-image: -moz-linear-gradient(top, #f5f5f5, #e9e9e9);
+    background-image: -ms-linear-gradient(top, #f5f5f5, #e9e9e9);
+    background-image: -o-linear-gradient(top, #f5f5f5, #e9e9e9);
+    background-image: linear-gradient(top, #f5f5f5, #e9e9e9);
+}
+
+/* END .limitsBox */
+
+/* START .mark-list */
+.mark-list {
+}
+
+.mark-list li {
+    float: left;
+    width: 80px;
+    margin: 8px 14px;
+    text-align: center;
+}
+
+.mark-list li a {
+    display: block;
+    float: none;
+    color: #434343;
+    /*--------after delete-----------*/
+    text-decoration: none;
+    cursor: default;
+    /*-------------------*/
+}
+
+.markBig {
+    float: left;
+    min-width: 50px;
+    padding: 48px 0 0;
+    background-image: url(/loginpage/images/bg_marks_big-3.png);
+    background-repeat: no-repeat;
+}
+
+.markBig-Projects {
+    background-position: 50% 0;
+}
+
+.markBig-CRM {
+    background-position: 50% -63px;
+}
+
+.markBig-Dashboards {
+    background-position: 50% -126px;
+}
+
+.markBig-Attendance {
+    background-position: 50% -193px;
+}
+
+.markBig-Invoices {
+    background-position: 50% -265px;
+}
+
+.markBig-Appraisals {
+    background-position: 50% -330px;
+}
+
+.markBig-Alerts {
+    background-position: 50% -399px;
+}
+
+.markBig-Time {
+    background-position: 50% -473px;
+}
+
+/* END .mark-list */
+
+#main .form-item {
+    margin-bottom: 1em !important;
+    margin-top: 1.95em !important;
+}
+
+/**** ### END TRIAL PAGE CONTENT
+========================================================================= ### ****/
+
+/*body{
+margin:0px;
+padding:0px;
+font-family: Arial, Helvetica, sans-serif;
+font-size:13px;
+color:#4c4c4c;
+min-height:100%;
+height:auto !important;
+}
+
+#title{
+}
+
+#foottext{
+color:#FFFFFF;
+width:850px;
+margin:0 auto;
+}
+
+#toptext{
+color:#FFFFFF;
+float:right;
+padding:15px 9px 0px 0px;
+}*/
+
+/*a {*/
+/*font-family:Verdana, Arial, Helvetica, sans-serif;*/
+/*font-size:12px;*/
+/*color:#fff;*/
+/*text-decoration:none;*/
+/*}*/
+/*a:hover {*/
+/*font-family:Verdana, Arial, Helvetica, sans-serif;*/
+/*font-size:12px;*/
+/*color:#fff;*/
+/*text-decoration:underlined;*/
+/*}*/
+/*b{
+color:#1f4f8f;
+font-size:13px;
+}
+.red{
+color:#FF0000;
+}
+.bold{
+color:#4c4c4c;
+line-height:15px;
+}
+span{
+line-height:25px;
+}
+.yelink{
+font-family:Arial, Helvetica, sans-serif;
+color:#cb7700;
+text-decoration:underline;
+}
+.yelink:hover{
+font-family:Arial, Helvetica, sans-serif;
+color:#cb7700;
+text-decoration:underline;
+}
+.formsize{
+ height:16px;
+ width:185px;
+}
+
+.formsizeselect{
+ height:20px;
+ width:185px;
+}*/
+
+/*.td  {*/
+/*display:table-cell;*/
+/*padding:1px;*/
+/*text-align:inherit;*/
+/*vertical-align:inherit;*/
+/*}*/
+
+/***greybox***/
+/*#topl{
+background:url(images/topl.gif) no-repeat;
+width:6px;
+height:6px;
+}
+#top{
+background:url(images/topc.gif) repeat-x;
+height:6px;
+width:688px;
+}
+#topr{
+background:url(images/topr.gif) no-repeat;
+width:6px;
+height:6px;
+}
+#botl{
+background:url(images/botl.gif) no-repeat;
+width:6px;
+height:6px;
+}
+#bot{
+background:url(images/botc.gif) repeat-x;
+height:6px;
+width:688px;
+}
+#botr{
+background:url(images/botr.gif) no-repeat;
+width:6px;
+height:6px;
+}
+#center{
+*//*background:url(images/center.gif) repeat-x;*//*
+height:200px;
+*//*border-left:1px solid #eee;*//*
+*//*border-right:1px solid #eee;*//*
+}*/
+
+/***roundcorners*****/
+/*.spiffy{display:block}
+.spiffy *{
+  display:block;
+  height:1px;
+  overflow:hidden;
+  font-size:.01em;
+  background:#FFFFFF}
+.spiffy1{
+  margin-left:3px;
+  margin-right:3px;
+  padding-left:1px;
+  padding-right:1px;
+  border-left:1px solid #79a7c1;
+  border-right:1px solid #79a7c1;
+  background:#c4d8e4}
+.spiffy2{
+  margin-left:1px;
+  margin-right:1px;
+  padding-right:1px;
+  padding-left:1px;
+  border-left:1px solid #2b749d;
+  border-right:1px solid #2b749d;
+  background:#d2e1ea}
+.spiffy3{
+  margin-left:1px;
+  margin-right:1px;
+  border-left:1px solid #d2e1ea;
+  border-right:1px solid #d2e1ea;}
+.spiffy4{
+  border-left:1px solid #79a7c1;
+  border-right:1px solid #79a7c1}
+.spiffy5{
+  border-left:1px solid #c4d8e4;
+  border-right:1px solid #c4d8e4}
+.spiffyfg{
+  overflow:hidden; zoom:1;
+  padding:25px;
+  background:#FFFFFF}*/
+.error {
+    color: red;
+}
+
+.valid {
+    color: green;
+}
+
+b {
+    font-size: 13px;
+}
+
+/*
+.logintable {
+
+    -moz-box-sizing: border-box;
+    border-collapse: separate;
+    border-color: red;
+    border-spacing: 8px;
+    border-width: 3px;
+    display: table;
+    margin-bottom: 0;
+    margin-top: 0;
+    text-indent: 0;
+
+}
+
+.signUp_but {
+    color: #ffffff;
+	margin-top:0px;
+    margin-left: 150px;
+    margin-top:-1px;
+	text-align:center;
+    width: 96px;
+	height: 34px;
+}
+
+.signUp_but_text {
+    font-family: Arial, Verdana, sans-serif;
+    font-weight:bold;
+    border: none;
+    color: #FFFFFF;
+    font-size: 16px;
+    height: 34px;
+    width: 123px;
+    background:url("/i/signup/images/signupbutton_image.gif") no-repeat;
+    cursor:pointer;
+}*/

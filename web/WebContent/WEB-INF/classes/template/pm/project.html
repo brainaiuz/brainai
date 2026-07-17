@@ -1,0 +1,377 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style type="text/css">
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+        th {
+            padding: 3px;
+        }
+        #otherTable td {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 3px;
+            padding-right: 3px;
+        }
+        #firstTable td {
+            padding: 3px;
+        }
+        .product-head th{
+            border-bottom: 1px solid #000;
+            font-size: 7pt;
+            font-weight: bold;
+        }
+        .product-head td{
+            border-bottom: 1px solid #ced5db;
+            font-size: 8pt;
+        }
+        .title {
+            font-size: 9pt;
+            margin-top: 25px;
+        }
+        .product-head {
+            margin-top: 10px;
+        }
+        .name {
+            font-size: 7pt;
+        }
+        .value {
+            font-size: 8pt;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <img alt="images" src="https://workforcetrack.s3.amazonaws.com/000000000000/public/65159/a2113e82-397f-49fd-a58a-cdf4f4b93dff?AWSAccessKeyId=AKIAIROQMC77E5UKWBWQ" style="display: none;"/>
+    #if($itextGenericPdfData.companyData.companyName == 'KPI Software Inc' or $itextGenericPdfData.companyData.companyLogoUrl == 'https://apps.kpi.com/customisation/kpi.com/images/kpilogo.png')
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="width: 88px;display: none;"/>
+    #else
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="max-width: 100%; max-height: 100%; display: none;"/>
+    #end
+
+    #set($projectContentTable = $itextGenericPdfData.customData.get("PROJECT_CONTENT_TABLE").rows)
+    #set($issueTable=$itextGenericPdfData.customData.get('ISSUE_DETAILS'))
+    #set($noteTable=$itextGenericPdfData.customData.get('NOTE_DETAILS'))
+    #set($attachments=$itextGenericPdfData.customData.get('ATTACHMENTS'))
+
+    #set($projectNoLabel = $projectContentTable.get("PROJECT_NUMBER").get("COLUMN_NAME"))
+    #set($projectNameLabel = $projectContentTable.get("PROJECT_NAME").get("COLUMN_NAME"))
+    #set($descriptionLabel = $projectContentTable.get("DESCRIPTION").get("COLUMN_NAME"))
+    #set($projectManagerLabel = $projectContentTable.get("PROJECT_MANAGER").get("COLUMN_NAME"))
+    #set($projectClientLabel = $projectContentTable.get("PROJECT_CLIENT").get("COLUMN_NAME"))
+    #set($projectStatusLabel = $projectContentTable.get("PROJECT_STATUS").get("COLUMN_NAME"))
+    #set($startDateLabel = $projectContentTable.get("START_DATE").get("COLUMN_NAME"))
+    #set($dueDateLabel = $projectContentTable.get("DUE_DATE").get("COLUMN_NAME"))
+    #set($estimatedTimeLabel = $projectContentTable.get("ESTIMATED_TIME").get("COLUMN_NAME"))
+    #set($timeSpentLabel = $projectContentTable.get("TIME_SPENT").get("COLUMN_NAME"))
+    #set($actualTimeSpentLabel = $projectContentTable.get("ACTUAL_TIME_SPENT").get("COLUMN_NAME"))
+
+    #set($projectNoValue = $projectContentTable.get("PROJECT_NUMBER").get("COLUMN_VALUE"))
+    #set($projectNameValue = $projectContentTable.get("PROJECT_NAME").get("COLUMN_VALUE"))
+    #set($descriptionValue = $projectContentTable.get("DESCRIPTION").get("COLUMN_VALUE"))
+    #set($projectManagerValue = $projectContentTable.get("PROJECT_MANAGER").get("COLUMN_VALUE"))
+    #set($projectClientValue = $projectContentTable.get("PROJECT_CLIENT").get("COLUMN_VALUE"))
+    #set($projectStatusValue = $projectContentTable.get("PROJECT_STATUS").get("COLUMN_VALUE"))
+    #set($startDateValue = $projectContentTable.get("START_DATE").get("COLUMN_VALUE"))
+    #set($dueDateValue = $projectContentTable.get("DUE_DATE").get("COLUMN_VALUE"))
+    #set($estimatedTimeValue = $projectContentTable.get("ESTIMATED_TIME").get("COLUMN_VALUE"))
+    #set($timeSpentValue = $projectContentTable.get("TIME_SPENT").get("COLUMN_VALUE"))
+    #set($actualTimeSpentValue = $projectContentTable.get("ACTUAL_TIME_SPENT").get("COLUMN_VALUE"))
+
+    #set($projectTitle = $itextGenericPdfData.customData.get("PROJECT_CONTENT_TABLE").name)
+
+    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+            <th width="100%" align="left" style="font-size: 9pt; font-weight: bold;">$projectTitle</th>
+        </tr>
+    </table>
+
+    <table width="100%" cellspacing="0" cellpadding="0" style="margin-top: 10px;" border="0" id="firstTable">
+        <tr>
+            <td width="50%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital">$projectClientLabel</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            $projectClientValue
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="30%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital">$startDateLabel</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            $startDateValue
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="20%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital">$estimatedTimeLabel</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            $estimatedTimeValue
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td style="padding: 0; margin: 0; padding-top: 12px;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital">$projectManagerLabel</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            $projectManagerValue
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td style="padding: 0; margin: 0; padding-top: 12px;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital">$dueDateLabel</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            $dueDateValue
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td style="padding: 0; margin: 0; padding-top: 12px;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital">$timeSpentLabel</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            $timeSpentValue
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td style="padding: 0; margin: 0; padding-top: 12px;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital">$descriptionLabel</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            $descriptionValue
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td style="padding: 0; margin: 0; padding-top: 12px;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital">$projectStatusLabel</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            $projectStatusValue
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td style="padding: 0; margin: 0; padding-top: 12px;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital">$actualTimeSpentLabel</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            $actualTimeSpentValue
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <div id="otherTable">
+    #if($itextGenericPdfData.customListData.get('MEMBERS_INVOLVED').size()>0)
+        #foreach($membersList in $itextGenericPdfData.customListData.get('MEMBERS_INVOLVED'))
+            #foreach($members in $membersList.entrySet())
+            <table width="100%" cellpadding="0" cellspacing="0" border="0" class="title">
+                <tr>
+                    <th width="100%" align="left">$members.key</th>
+                </tr>
+            </table>
+            <table width="100%" cellpadding="0" cellspacing="0" border="0" class="product-head">
+                <tr>
+                    <th width="20%" align="left">$members.value.header.get('MEMBERS')</th>
+                    <th width="10%" align="left">$members.value.header.get('NOT_STARTED')</th>
+                    <th width="10%" align="left">$members.value.header.get('IN_PROGRESS')</th>
+                    <th width="10%" align="left">$members.value.header.get('WAITING_FOR_SOMEONE')</th>
+                    <th width="10%" align="left">$members.value.header.get('COMPLETED')</th>
+                    <th width="10%" align="left">$members.value.header.get('CLOSED')</th>
+                    <th width="10%" align="left">$members.value.header.get('ESTIMATED_TIME')</th>
+                    <th width="10%" align="left">$members.value.header.get('TIME_SPENT')</th>
+                    <th width="10%" align="left">$members.value.header.get('ACTUAL_TIME_SPENT')</th>
+                </tr>
+                #foreach($m in $members.value.rows)
+                <tr>
+                    <td> $m.get('MEMBERS')</td>
+                    <td> $m.get('NOT_STARTED')</td>
+                    <td> $m.get('IN_PROGRESS')</td>
+                    <td> $m.get('WAITING_FOR_SOMEONE')</td>
+                    <td> $m.get('COMPLETED')</td>
+                    <td> $m.get('CLOSED')</td>
+                    <td> $m.get('ESTIMATED_TIME')</td>
+                    <td> $m.get('TIME_SPENT')</td>
+                    <td> $m.get('ACTUAL_TIME_SPENT')</td>
+                </tr>
+                #end
+            #end
+            </table>
+        #end
+    #end
+
+    #if($itextGenericPdfData.customListData.get('PROJECT_TASKS').size()>0)
+        #foreach($taskList in $itextGenericPdfData.customListData.get('PROJECT_TASKS'))
+            #foreach($tasks in $taskList.entrySet())
+            <table width="100%" cellpadding="0" cellspacing="0" border="0" class="title">
+                <tr>
+                    <th width="100%" align="left">$tasks.key</th>
+                </tr>
+            </table>
+            <table width="100%" cellpadding="0" cellspacing="0" border="0" class="product-head">
+                <tr>
+                    <th width="15%" align="left">$tasks.value.header.get('TASK_NAME')</th>
+                    <th width="30%" align="left">$tasks.value.header.get('DESCRIPTION')</th>
+                    <th width="15%" align="left">$tasks.value.header.get('ASSIGNES')</th>
+                    <th width="10%" align="left">$tasks.value.header.get('START_DATE')</th>
+                    <th width="10%" align="left">$tasks.value.header.get('DUE_DATE')</th>
+                    <th width="10%" align="left">$tasks.value.header.get('ESTIMATED_TIME')</th>
+                    <th width="10%" align="left">$tasks.value.header.get('TIME_SPENT')</th>
+                </tr>
+                #foreach($t in $tasks.value.rows)
+                <tr>
+                    <td> $t.get('TASK_NAME')</td>
+                    <td> $t.get('DESCRIPTION')</td>
+                    <td> $t.get('ASSIGNES')</td>
+                    <td> $t.get('START_DATE')</td>
+                    <td> $t.get('DUE_DATE')</td>
+                    <td> $t.get('ESTIMATED_TIME')</td>
+                    <td> $t.get('TIME_SPENT')</td>
+                </tr>
+                #end
+            #end
+            </table>
+        #end
+    #end
+
+    #if($issueTable.rows.size()>0)
+        <table width="100%" cellpadding="0" cellspacing="0" border="0" class="title">
+            <tr>
+                <th width="100%" align="left">$issueTable.name</th>
+            </tr>
+        </table>
+        <table width="100%" cellpadding="0" cellspacing="0" border="0" class="product-head">
+            <tr>
+                <th width="20%" align="left">$issueTable.header.get('ISSUE_NAME')</th>
+                <th width="40%" align="left">$issueTable.header.get('ISSUE_DESCRIPTION')</th>
+                <th width="25%" align="left">$issueTable.header.get('ISSUE_PERIOD')</th>
+                <th width="15%" align="left">$issueTable.header.get('ISSUE_STATUS')</th>
+            </tr>
+            #foreach($issue in $issueTable.rows.values())
+            <tr>
+                <td> $issue.get('ISSUE_NAME')</td>
+                <td> $issue.get('ISSUE_DESCRIPTION').replaceAll('\n', '<br/>')</td>
+                <td> $issue.get('ISSUE_PERIOD')</td>
+                <td> $issue.get('ISSUE_STATUS')</td>
+            </tr>
+            #end
+        </table>
+    #end
+
+    #if($noteTable.rows.size()>0)
+        <table width="100%" cellpadding="0" cellspacing="0" border="0" class="title">
+            <tr>
+                <th width="100%" align="left">$noteTable.name</th>
+            </tr>
+        </table>
+        <table width="100%" cellpadding="0" cellspacing="0" border="0" class="product-head">
+            <tr>
+                <th width="60%" align="left">$noteTable.header.get('NOTE_DESCRIPTION')</th>
+                <th width="20%" align="left">$noteTable.header.get('EMLPOYEE')</th>
+                <th width="20%" align="left">$noteTable.header.get('DATE')</th>
+            </tr>
+            #foreach($note in $noteTable.rows.values())
+            <tr>
+                <td> $note.get('NOTE_DESCRIPTION').replaceAll('\n', '<br/>')</td>
+                <td>$note.get('EMLPOYEE')</td>
+                <td> $note.get('DATE')</td>
+            </tr>
+            #end
+        </table>
+    #end
+
+    #if($attachments.rows.size()>0)
+        <table width="100%" cellpadding="0" cellspacing="0" border="0" class="title">
+            <tr>
+                <th width="100%" align="left">$attachments.name</th>
+            </tr>
+        </table>
+        <table width="100%" cellpadding="0" cellspacing="0" border="0" class="product-head">
+            <tr>
+                <th width="20%" align="left">$attachments.header.get('NAME')</th>
+                <th width="45%" align="left">$attachments.header.get('DESCRIPTION')</th>
+                <th width="20%" align="left">$attachments.header.get('SIZE')</th>
+                <th width="15%" align="left">$attachments.header.get('Date')</th>
+            </tr>
+            #foreach($attachment in $attachments.rows.values())
+            <tr>
+                <td> $attachment.get('NAME')</td>
+                <td> $attachment.get('DESCRIPTION')</td>
+                <td> $attachment.get('SIZE')</td>
+                <td> $attachment.get('Date')</td>
+            </tr>
+            #end
+        </table>
+    #end
+
+    #set($customFieldTable = $itextGenericPdfData.customData.get("PROJECT_CUSTOM_FIELD").customFields)
+
+    #if($customFieldTable.size() > 0)
+
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" class="title" style="margin-bottom: 10px;">
+        <tr>
+            <th width="100%" align="left"> $itextGenericPdfData.customData.get("PROJECT_CUSTOM_FIELD").name </th>
+        </tr>
+    </table>
+
+    <div>
+        #foreach($row in $customFieldTable.get("PROJECT").values())
+        <div style="width: 25%; float: left;">
+            <div style="padding-bottom: 3px; padding-left: 3px; text-transform: capitalize; font-size: 7pt;">
+                $row.get('COLUMN_NAME')
+            </div>
+            <div style="font-weight: bold; padding-top: 3px; padding-left: 3px; padding-bottom: 15px; font-size: 8pt;">
+                $row.get('COLUMN_VALUE')
+            </div>
+        </div>
+        #end
+    </div>
+
+    #end
+    </div>
+</div>
+</body>
+</html>

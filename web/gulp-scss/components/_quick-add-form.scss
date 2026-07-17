@@ -1,0 +1,45 @@
+.form-group__label {
+ @extend .form-label;
+}
+
+.drawer .form-group__label,
+.quick-add .form-group__label,
+.quick-add .form-group .input-field label {
+}
+
+.quick-add:not(.user-menu-settings) {
+  .collapsible + .collapsible,
+  .collapsible > li + li {
+    margin-top: 10px;
+  }
+
+  .collapsible-header {
+    padding-left: 20px;
+    background: #dfe3e8;
+    border: 1px solid $color-base-1;
+
+    &:hover, &:focus {
+      background-color: $color-base-contrast;
+    }
+
+    &.active {
+    }
+  }
+  .collapsible-body {
+    padding-top: $padding-y-base;
+  }
+
+  .form-group {
+    .input-field {
+      label {
+      }
+    }
+  }
+}
+
+table.WfmCustomFieldsForm {
+  display: table !important;
+  + .btn--primary {
+    margin-bottom: rem(15px);
+  }
+}

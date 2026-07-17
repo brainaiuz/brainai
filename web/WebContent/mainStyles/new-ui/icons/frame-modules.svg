@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!--Icons from directory ""-->
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="142" viewBox="0 0 24 142">
+    <svg id="bar-chart-bold" y="0">
+        <g fill="#FFF" fill-rule="evenodd">
+            <path d="M8.609 0c.864 0 1.565.7 1.565 1.565V14.87a1.565 1.565 0 0 1-3.13 0V1.565C7.043.701 7.743 0 8.608 0zM16.435 4.696c.864 0 1.565.7 1.565 1.565v8.609a1.565 1.565 0 0 1-3.13 0V6.26c0-.864.7-1.564 1.565-1.564z"/>
+            <rect y="8.609" width="3.13" height="7.826" rx="1.565"/>
+        </g>
+    </svg>
+    <svg id="calc" y="17">
+        <g fill="#FFF" fill-rule="evenodd">
+            <circle cx="2.877" cy="2.468" r="2.059"/>
+            <circle cx="2.877" cy="9.014" r="2.059"/>
+            <circle cx="8.604" cy="2.468" r="2.059"/>
+            <circle cx="8.604" cy="9.014" r="2.059"/>
+            <circle cx="15.15" cy="2.468" r="2.059"/>
+            <circle cx="15.15" cy="9.014" r="2.059"/>
+            <circle cx="15.15" cy="14.741" r="2.059"/>
+            <rect x=".818" y="12.682" width="10.295" height="4.118" rx="2.059"/>
+        </g>
+    </svg>
+    <svg fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"
+         stroke-linejoin="round" class="feather feather-chevron-right" id="chevron-right" y="34">
+        <path d="M9 18l6-6-6-6"/>
+    </svg>
+    <svg id="flag-bold" y="58">
+        <g fill="none" fill-rule="evenodd">
+            <path d="M0 12.536s.938-.965 3.75-.965c2.813 0 4.688 1.929 7.5 1.929 2.813 0 3.75-.964 3.75-.964V.964s-.938.965-3.75.965C8.437 1.929 6.562 0 3.75 0 .937 0 0 .964 0 .964v11.572z"
+                  fill="#FFF"/>
+            <path d="M1.071 19.286v-6.75" stroke="#FFF" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round"/>
+        </g>
+    </svg>
+    <svg id="folder-bold" y="79">
+        <path d="M18 14.222c0 .982-.806 1.778-1.8 1.778H1.8C.806 16 0 15.204 0 14.222V1.778C0 .796.806 0 1.8 0h4.5l1.8 2.667h8.1c.994 0 1.8.796 1.8 1.777v9.778z"
+              fill="#FFF" fill-rule="evenodd"/>
+    </svg>
+    <svg id="server-bold" y="95">
+        <g fill="#FFF" fill-rule="evenodd">
+            <path d="M1.8 0h14.4a1.8 1.8 0 0 1 0 3.6H1.8a1.8 1.8 0 1 1 0-3.6zM1.8 8.1h14.4a1.8 1.8 0 0 1 0 3.6H1.8a1.8 1.8 0 1 1 0-3.6z"/>
+        </g>
+    </svg>
+    <svg id="users-bold" y="107">
+        <g fill="#FFF" fill-rule="evenodd">
+            <path d="M15 15.098c0-2.209-1.679-4-3.75-4-1.661 1.333-2.911 2-3.75 2-.828 0-2.078-.667-3.75-2-2.071 0-3.75 1.791-3.75 4v2h13a2 2 0 0 0 2-2z"/>
+            <ellipse cx="7.615" cy="5.698" rx="4.615" ry="5.1"/>
+        </g>
+    </svg>
+    <svg id="wallet-bold" y="125">
+        <g fill="none" fill-rule="evenodd">
+            <path d="M-2-2h21.667v21.667H-2z"/>
+            <path d="M16.958 14.25v.903c0 .997-.808 1.805-1.805 1.805H2.513a1.805 1.805 0 0 1-1.805-1.805V2.513c0-.997.808-1.805 1.806-1.805h12.639c.997 0 1.805.808 1.805 1.806v.903H8.833c-.997 0-1.805.808-1.805 1.805v7.222c0 .998.808 1.806 1.805 1.806h8.125zm-8.125-1.806h9.028V5.222H8.833v7.222zm3.611-2.257c-.749 0-1.354-.604-1.354-1.354 0-.749.605-1.354 1.354-1.354.75 0 1.355.605 1.355 1.354 0 .75-.605 1.354-1.355 1.354z"
+                  fill="#FFF" fill-rule="nonzero"/>
+        </g>
+    </svg>
+</svg>

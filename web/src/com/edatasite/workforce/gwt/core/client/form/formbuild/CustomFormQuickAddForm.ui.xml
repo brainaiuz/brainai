@@ -1,0 +1,104 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:kpi='urn:import:com.edatasite.workforce.gwt.core.client.ui'
+             xmlns:mhtml='urn:import:gwt.material.design.client.ui.html'
+>
+
+    <g:HTMLPanel ui:field="panel">
+        <g:HTMLPanel styleName="form-group">
+            <mhtml:Label ui:field="nameLabel"/>
+            <g:TextBox ui:field="name"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group">
+            <mhtml:Label ui:field="pluralLabel"/>
+            <g:TextBox ui:field="plural"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group">
+            <mhtml:Label ui:field="shortLabel"/>
+            <g:TextBox ui:field="shortName"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group" ui:field="moduleDiv">
+            <mhtml:Label ui:field="moduleLabel" />
+            <kpi:DataListBox ui:field="module"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group">
+            <mhtml:Label ui:field="sectionLabel" visible="false"/>
+            <kpi:DataListBox ui:field="section" visible="false"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group">
+            <mhtml:Label ui:field="typeLabel"/>
+            <kpi:DataListBox ui:field="type"/>
+        </g:HTMLPanel>
+        <g:HTMLPanel styleName="form-group">
+            <g:FlowPanel ui:field="availabilityPanel"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group">
+            <mhtml:Label ui:field="filterBy" />
+            <kpi:DataListBox ui:field="filterList"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group">
+            <mhtml:Label ui:field="condition" />
+            <kpi:DataListBox ui:field="conditionList"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group">
+            <mhtml:Div ui:field="conditionWidgetFormPanel" visible="false"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group">
+            <g:FlowPanel ui:field="convertField"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group">
+            <mhtml:Div ui:field="convertFormPanel" visible="false"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group">
+            <g:FlowPanel ui:field="quotaPanel"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group">
+            <mhtml:Label ui:field="quotaPerUserLabel" />
+            <g:TextBox ui:field="quotaPerUser"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group">
+            <mhtml:Label ui:field="quotaPerFormLabel" />
+            <g:TextBox ui:field="quotaPerForm"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group">
+            <g:FlowPanel ui:field="timerPanel"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group">
+            <mhtml:Div ui:field="timerFormPanel" visible="false"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group">
+            <mhtml:Label ui:field="welcomeMessageLabel" />
+            <g:TextArea ui:field="welcomeMessage"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group">
+            <mhtml:Label ui:field="endTimeMessageLabel" />
+            <g:TextArea ui:field="endTimeMessage"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group">
+            <g:FlowPanel ui:field="quizForm" visible="true"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group">
+            <g:FlowPanel ui:field="anonymousForm" visible="true"/>
+        </g:HTMLPanel>
+
+    </g:HTMLPanel>
+</ui:UiBinder>

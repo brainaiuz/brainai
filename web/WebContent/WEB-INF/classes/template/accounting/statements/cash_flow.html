@@ -1,0 +1,645 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style type="text/css">
+        body {
+            font-family: 'Arial', "Helvetica Neue", Helvetica, sans-serif;
+            font-weight: 300;
+            font-size: 9pt;
+            line-height: 1.4;
+        }
+
+        .table-header {
+            font-size: 9pt;
+            padding: 8px 6px;
+            border-bottom: 1px solid black;
+            font-weight: bold;
+            vertical-align: top;
+
+        }
+
+        .profit-and-loss__rowhead {
+            text-transform: uppercase;
+            padding: 6px 4px;
+            font-size: 10pt;
+            font-weight: bold;
+
+        }
+
+        .profit-and-loss__rowhead2 {
+            /*text-transform: uppercase;*/
+            padding: 6px 4px 6px 10px;
+            font-size: 10pt;
+            font-weight: bold;
+
+        }
+
+        .profit-and-loss__subtotalrow td {
+            border-bottom: 1px solid #ced5db;
+            border-top: 1px solid #ced5db;
+            font-weight: bold;
+            font-size: 10pt;
+            margin-top: 6px;
+            margin-bottom: 6px;
+        }
+
+        .profit-and-loss__table td > div:not(.profit-and-loss__rowhead) {
+            margin-left: 12px;
+        }
+
+        .profit-and-loss__totalrow td {
+            border-bottom: 5px double #ced5db;
+            border-top: 1px solid #ced5db;
+            font-weight: bold;
+            font-size: 10pt;
+            margin-top: 6px;
+            margin-bottom: 6px;
+        }
+
+        .vertical-gap {
+            line-height: 10px;
+        }
+
+    </style>
+</head>
+
+<body>
+#set($operAct = $itextGenericPdfData.customData.get('OPERATING_ACTIVITIES'))
+#set($netProfit = $itextGenericPdfData.customData.get('NET_PROFIT'))
+#set($currentAsset = $itextGenericPdfData.customData.get('CURRENT_ASSET'))
+#set($prepayment = $itextGenericPdfData.customData.get('PREPAYMENT'))
+#set($currentLiab = $itextGenericPdfData.customData.get('CURRENT_LIABILITY'))
+#set($totalOperAct = $itextGenericPdfData.customData.get('TOTAL_OPERATING_ACTIVITIES'))
+
+#set($investAct = $itextGenericPdfData.customData.get('INVESTING_ACTIVITIES'))
+#set($accumDepr = $itextGenericPdfData.customData.get('ACCUMULATED_DEPRECIATION'))
+#set($fixedAsset = $itextGenericPdfData.customData.get('FIXED_ASSET'))
+#set($liabilities = $itextGenericPdfData.customData.get('LIABILITIES'))
+#set($nonCurrentAsset = $itextGenericPdfData.customData.get('NON_CURRENT_ASSET'))
+#set($totalInvestAct = $itextGenericPdfData.customData.get('TOTAL_INVESTING_ACTIVITIES'))
+
+#set($financeAct = $itextGenericPdfData.customData.get('FINANCING_ACTIVITIES'))
+#set($longTermLiab = $itextGenericPdfData.customData.get('LONG_TERM_LIABILITY'))
+#set($equiy = $itextGenericPdfData.customData.get('EQUITY'))
+#set($totalFinanceAct = $itextGenericPdfData.customData.get('TOTAL_FINANCING_ACTIVITIES'))
+
+#set($incDecForPeriod = $itextGenericPdfData.customData.get('INCREASE_DECREASE_FOR_PERIOD'))
+#set($beginCash = $itextGenericPdfData.customData.get('BEGINNING_CASH'))
+#set($endCash = $itextGenericPdfData.customData.get('ENDING_CASH'))
+
+<div class="trial-balance__tmp">
+    <img alt="images"
+         src="https://workforcetrack.s3.amazonaws.com/000000000000/public/65159/a2113e82-397f-49fd-a58a-cdf4f4b93dff?AWSAccessKeyId=AKIAIROQMC77E5UKWBWQ"
+         style="display: none;"/>
+    #if($itextGenericPdfData.companyData.companyName == 'KPI Software Inc' or $itextGenericPdfData.companyData.companyLogoUrl == 'https://apps.kpi.com/customisation/kpi.com/images/kpilogo.png')
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="width: 88px;display: none;"/>
+    #else
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="max-width: 100%; max-height: 100%; display: none;"/>
+    #end
+
+    <table cellspacing="0" cellpadding="0" width="100%" style="font-weight: bold; font-size: 9pt;">
+        <tr>
+            <td width="100%" align="center">$itextGenericPdfData.currentDate</td>
+        </tr>
+        <tr>
+            <td align="center">$itextGenericPdfData.extraData</td>
+        </tr>
+    </table>
+    <br/>
+
+    <table class="profit-and-loss__table" cellspacing="0" cellpadding="0" style="width:100%;">
+        <tr class="thead-tr">
+            #set($i = 0)
+            #foreach($header in $itextGenericPdfData.getListTable().getTableHeader())
+            #if($i == 0)
+            <th style=" font-size: 9pt; padding:8px 6px; border-bottom:1px solid black;font-weight: bold;vertical-align: top; text-align: left">$header.getText()</th>
+            #else
+            <th style=" font-size: 9pt; padding:8px 6px; border-bottom:1px solid black;font-weight: bold;vertical-align: top; text-align: right">$header.getText()</th>
+            #end
+            #set($i = $i + 1)
+            #end
+        </tr>
+
+        <tr>
+            <td class="vertical-gap" colspan="2">&nbsp;</td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <div class="profit-and-loss__rowhead">$operAct.name</div>
+            </td>
+        </tr>
+
+        #if($netProfit != '')
+        <tr>
+            <td class="vertical-gap" colspan="2">&nbsp;</td>
+        </tr>
+        <tr class="profit-and-loss__subtotalrow">
+            <td>
+                <div class="profit-and-loss__rowhead2" style="text-align: left; ">$netProfit.name</div>
+            </td>
+            <td>
+                <div style="text-align: right; font-size:10pt; padding:4px 4px;">$netProfit.header.get('AMOUNT')</div>
+            </td>
+        </tr>
+        #end
+
+        #if($currentAsset != '')
+        <tr>
+            <td class="vertical-gap" colspan="2">&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <div class="profit-and-loss__rowhead2">$currentAsset.name</div>
+            </td>
+        </tr>
+        #foreach($value in $currentAsset.rows.values())
+        <tr>
+            <td>
+                <div style="text-align: left;font-size: 8pt; padding:4px 4px 4px 20px;">
+                    #if($value.get('HAS_CHILD') == 'YES')
+                    <b>$value.get('COLUMN_NAME')</b>
+                    #else
+                    $value.get('COLUMN_NAME')
+                    #end
+                </div>
+            </td>
+            <td>
+                <div style="text-align: right;font-size: 8pt; padding:4px 4px;">
+                    #if($value.get('HAS_CHILD') == 'YES')
+                    <b>$value.get('COLUMN_VALUE')</b>
+                    #else
+                    $value.get('COLUMN_VALUE')
+                    #end
+                </div>
+            </td>
+        </tr>
+        #end
+        <tr class="profit-and-loss__subtotalrow">
+            <td>
+                <div class="profit-and-loss__rowhead2" style="text-align: left; ">$currentAsset.header.get('COLUMN_NAME')</div>
+            </td>
+            <td>
+                <div style="text-align: right; font-size:10pt; padding:4px 4px;">$currentAsset.header.get('COLUMN_VALUE')</div>
+            </td>
+        </tr>
+        #end
+
+        #if($prepayment != '')
+        <tr>
+            <td class="vertical-gap" colspan="2">&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <div class="profit-and-loss__rowhead2">$prepayment.name</div>
+            </td>
+        </tr>
+        #foreach($value in $prepayment.rows.values())
+        <tr>
+            <td>
+                <div style="text-align: left;font-size: 8pt; padding:4px 4px 4px 20px;">
+                    #if($value.get('HAS_CHILD') == 'YES')
+                    <b>$value.get('COLUMN_NAME')</b>
+                    #else
+                    $value.get('COLUMN_NAME')
+                    #end
+                </div>
+            </td>
+            <td>
+                <div style="text-align: right;font-size: 8pt; padding:4px 4px;">
+                    #if($value.get('HAS_CHILD') == 'YES')
+                    <b>$value.get('COLUMN_VALUE')</b>
+                    #else
+                    $value.get('COLUMN_VALUE')
+                    #end
+                </div>
+            </td>
+        </tr>
+        #end
+        <tr class="profit-and-loss__subtotalrow">
+            <td>
+                <div class="profit-and-loss__rowhead2" style="text-align: left; ">
+                    $prepayment.header.get('COLUMN_NAME')
+                </div>
+            </td>
+            <td>
+                <div style="text-align: right; font-size:10pt; padding:4px 4px;">
+                    $prepayment.header.get('COLUMN_VALUE')
+                </div>
+            </td>
+        </tr>
+        #end
+
+        #if($currentLiab != '')
+        <tr>
+            <td class="vertical-gap" colspan="2">&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <div class="profit-and-loss__rowhead2">$currentLiab.name</div>
+            </td>
+        </tr>
+        #foreach($value in $currentLiab.rows.values())
+        <tr>
+            <td>
+                <div style="text-align: left;font-size: 8pt; padding:4px 4px 4px 20px;">
+                    #if($value.get('HAS_CHILD') == 'YES')
+                        <b>$value.get('COLUMN_NAME')</b>
+                    #else
+                        $value.get('COLUMN_NAME')
+                    #end
+                </div>
+            </td>
+            <td>
+                <div style="text-align: right;font-size: 8pt; padding:4px 4px;">
+                    #if($value.get('HAS_CHILD') == 'YES')
+                        <b>$value.get('COLUMN_VALUE')</b>
+                    #else
+                        $value.get('COLUMN_VALUE')
+                    #end
+                </div>
+            </td>
+        </tr>
+        #end
+        <tr class="profit-and-loss__subtotalrow">
+            <td>
+                <div class="profit-and-loss__rowhead2" style="text-align: left; ">$currentLiab.header.get('COLUMN_NAME')</div>
+            </td>
+            <td>
+                <div style="text-align: right; font-size:10pt; padding:4px 4px;">$currentLiab.header.get('COLUMN_VALUE')</div>
+            </td>
+        </tr>
+        #end
+
+        #if($totalOperAct != '')
+        <tr>
+            <td class="vertical-gap" colspan="2">&nbsp;</td>
+        </tr>
+        <tr class="profit-and-loss__totalrow">
+            <td>
+                <div class="profit-and-loss__rowhead" style="text-align: left; ">$totalOperAct.name</div>
+            </td>
+            <td>
+                <div style="text-align: right; font-size:10pt; padding:4px 4px;">$totalOperAct.header.get('AMOUNT')</div>
+            </td>
+        </tr>
+        <tr>
+            <td class="vertical-gap" colspan="2">&nbsp;</td>
+        </tr>
+        #end
+
+        <tr>
+            <td colspan="2">
+                <div class="profit-and-loss__rowhead">$investAct.name</div>
+            </td>
+        </tr>
+
+        #if($accumDepr != '')
+        <tr>
+            <td class="vertical-gap" colspan="2">&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <div class="profit-and-loss__rowhead2">$accumDepr.name</div>
+            </td>
+        </tr>
+        #foreach($value in $accumDepr.rows.values())
+        <tr>
+            <td>
+                <div style="text-align: left;font-size: 8pt; padding:4px 4px 4px 20px;">
+                    #if($value.get('HAS_CHILD') == 'YES')
+                        <b>$value.get('COLUMN_NAME')</b>
+                    #else
+                        $value.get('COLUMN_NAME')
+                    #end
+                </div>
+            </td>
+            <td>
+                <div style="text-align: right;font-size: 8pt; padding:4px 4px;">
+                    #if($value.get('HAS_CHILD') == 'YES')
+                        <b>$value.get('COLUMN_VALUE')</b>
+                    #else
+                        $value.get('COLUMN_VALUE')
+                    #end
+                </div>
+            </td>
+        </tr>
+        #end
+        <tr class="profit-and-loss__subtotalrow">
+            <td>
+                <div class="profit-and-loss__rowhead2" style="text-align: left; ">$accumDepr.header.get('COLUMN_NAME')</div>
+            </td>
+            <td>
+                <div style="text-align: right; font-size:10pt; padding:4px 4px;">$accumDepr.header.get('COLUMN_VALUE')</div>
+            </td>
+        </tr>
+        #end
+
+        #if($fixedAsset != '')
+        <tr>
+            <td class="vertical-gap" colspan="2">&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <div class="profit-and-loss__rowhead2">$fixedAsset.name</div>
+            </td>
+        </tr>
+        #foreach($value in $fixedAsset.rows.values())
+        <tr>
+            <td>
+                <div style="text-align: left;font-size: 8pt; padding:4px 4px 4px 20px;">
+                    #if($value.get('HAS_CHILD') == 'YES')
+                        <b>$value.get('COLUMN_NAME')</b>
+                    #else
+                        $value.get('COLUMN_NAME')
+                    #end
+                </div>
+            </td>
+            <td>
+                <div style="text-align: right;font-size: 8pt; padding:4px 4px;">
+                    #if($value.get('HAS_CHILD') == 'YES')
+                        <b>$value.get('COLUMN_VALUE')</b>
+                    #else
+                        $value.get('COLUMN_VALUE')
+                    #end
+                </div>
+            </td>
+        </tr>
+        #end
+        <tr class="profit-and-loss__subtotalrow">
+            <td>
+                <div class="profit-and-loss__rowhead2" style="text-align: left; ">$fixedAsset.header.get('COLUMN_NAME')</div>
+            </td>
+            <td>
+                <div style="text-align: right; font-size:10pt; padding:4px 4px;">$fixedAsset.header.get('COLUMN_VALUE')</div>
+            </td>
+        </tr>
+        #end
+
+        #if($liabilities != '')
+        <tr>
+            <td class="vertical-gap" colspan="2">&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <div class="profit-and-loss__rowhead2">$liabilities.name</div>
+            </td>
+        </tr>
+        #foreach($value in $liabilities.rows.values())
+        <tr>
+            <td>
+                <div style="text-align: left;font-size: 8pt; padding:4px 4px 4px 20px;">
+                    #if($value.get('HAS_CHILD') == 'YES')
+                    <b>$value.get('COLUMN_NAME')</b>
+                    #else
+                    $value.get('COLUMN_NAME')
+                    #end
+                </div>
+            </td>
+            <td>
+                <div style="text-align: right;font-size: 8pt; padding:4px 4px;">
+                    #if($value.get('HAS_CHILD') == 'YES')
+                    <b>$value.get('COLUMN_VALUE')</b>
+                    #else
+                    $value.get('COLUMN_VALUE')
+                    #end
+                </div>
+            </td>
+        </tr>
+        #end
+        <tr class="profit-and-loss__subtotalrow">
+            <td>
+                <div class="profit-and-loss__rowhead2" style="text-align: left; ">
+                    $liabilities.header.get('COLUMN_NAME')
+                </div>
+            </td>
+            <td>
+                <div style="text-align: right; font-size:10pt; padding:4px 4px;">
+                    $liabilities.header.get('COLUMN_VALUE')
+                </div>
+            </td>
+        </tr>
+        #end
+
+        #if($nonCurrentAsset != '')
+        <tr>
+            <td class="vertical-gap" colspan="2">&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <div class="profit-and-loss__rowhead2">$nonCurrentAsset.name</div>
+            </td>
+        </tr>
+        #foreach($value in $nonCurrentAsset.rows.values())
+        <tr>
+            <td>
+                <div style="text-align: left;font-size: 8pt; padding:4px 4px 4px 20px;">
+                    #if($value.get('HAS_CHILD') == 'YES')
+                    <b>$value.get('COLUMN_NAME')</b>
+                    #else
+                    $value.get('COLUMN_NAME')
+                    #end
+                </div>
+            </td>
+            <td>
+                <div style="text-align: right;font-size: 8pt; padding:4px 4px;">
+                    #if($value.get('HAS_CHILD') == 'YES')
+                    <b>$value.get('COLUMN_VALUE')</b>
+                    #else
+                    $value.get('COLUMN_VALUE')
+                    #end
+                </div>
+            </td>
+        </tr>
+        #end
+        <tr class="profit-and-loss__subtotalrow">
+            <td>
+                <div class="profit-and-loss__rowhead2" style="text-align: left; ">
+                    $nonCurrentAsset.header.get('COLUMN_NAME')
+                </div>
+            </td>
+            <td>
+                <div style="text-align: right; font-size:10pt; padding:4px 4px;">
+                    $nonCurrentAsset.header.get('COLUMN_VALUE')
+                </div>
+            </td>
+        </tr>
+        #end
+
+        #if($totalInvestAct != '')
+        <tr>
+            <td class="vertical-gap" colspan="2">&nbsp;</td>
+        </tr>
+        <tr class="profit-and-loss__totalrow">
+            <td>
+                <div class="profit-and-loss__rowhead" style="text-align: left; ">$totalInvestAct.name</div>
+            </td>
+            <td>
+                <div style="text-align: right; font-size:10pt; padding:4px 4px;">$totalInvestAct.header.get('AMOUNT')</div>
+            </td>
+        </tr>
+        <tr>
+            <td class="vertical-gap" colspan="2">&nbsp;</td>
+        </tr>
+        #end
+
+        <tr>
+            <td colspan="2">
+                <div class="profit-and-loss__rowhead">$financeAct.name</div>
+            </td>
+        </tr>
+
+        #if($longTermLiab != '')
+        <tr>
+            <td class="vertical-gap" colspan="2">&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <div class="profit-and-loss__rowhead2">$longTermLiab.name</div>
+            </td>
+        </tr>
+        #foreach($value in $longTermLiab.rows.values())
+        <tr>
+            <td>
+                <div style="text-align: left;font-size: 8pt; padding:4px 4px 4px 20px;">
+                    #if($value.get('HAS_CHILD') == 'YES')
+                        <b>$value.get('COLUMN_NAME')</b>
+                    #else
+                        $value.get('COLUMN_NAME')
+                    #end
+                </div>
+            </td>
+            <td>
+                <div style="text-align: right;font-size: 8pt; padding:4px 4px;">
+                    #if($value.get('HAS_CHILD') == 'YES')
+                        <b>$value.get('COLUMN_VALUE')</b>
+                    #else
+                        $value.get('COLUMN_VALUE')
+                    #end
+                </div>
+            </td>
+        </tr>
+        #end
+        <tr class="profit-and-loss__subtotalrow">
+            <td>
+                <div class="profit-and-loss__rowhead2" style="text-align: left; ">$longTermLiab.header.get('COLUMN_NAME')</div>
+            </td>
+            <td>
+                <div style="text-align: right; font-size:10pt; padding:4px 4px;">$longTermLiab.header.get('COLUMN_VALUE')</div>
+            </td>
+        </tr>
+        #end
+
+        #if($equiy != '')
+        <tr>
+            <td class="vertical-gap" colspan="2">&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <div class="profit-and-loss__rowhead2">$equiy.name</div>
+            </td>
+        </tr>
+        #foreach($value in $equiy.rows.values())
+        <tr>
+            <td>
+                <div style="text-align: left;font-size: 8pt; padding:4px 4px 4px 20px;">
+                    #if($value.get('HAS_CHILD') == 'YES')
+                        <b>$value.get('COLUMN_NAME')</b>
+                    #else
+                        $value.get('COLUMN_NAME')
+                    #end
+                </div>
+            </td>
+            <td>
+                <div style="text-align: right;font-size: 8pt; padding:4px 4px;">
+                    #if($value.get('HAS_CHILD') == 'YES')
+                        <b>$value.get('COLUMN_VALUE')</b>
+                    #else
+                        $value.get('COLUMN_VALUE')
+                    #end
+                </div>
+            </td>
+        </tr>
+        #end
+        <tr class="profit-and-loss__subtotalrow">
+            <td>
+                <div class="profit-and-loss__rowhead2" style="text-align: left; ">$equiy.header.get('COLUMN_NAME')</div>
+            </td>
+            <td>
+                <div style="text-align: right; font-size:10pt; padding:4px 4px;">$equiy.header.get('COLUMN_VALUE')</div>
+            </td>
+        </tr>
+        #end
+
+        #if($totalFinanceAct != '')
+        <tr>
+            <td class="vertical-gap" colspan="2">&nbsp;</td>
+        </tr>
+        <tr class="profit-and-loss__totalrow">
+            <td>
+                <div class="profit-and-loss__rowhead" style="text-align: left; ">$totalFinanceAct.name</div>
+            </td>
+            <td>
+                <div style="text-align: right; font-size:10pt; padding:4px 4px;">$totalFinanceAct.header.get('AMOUNT')</div>
+            </td>
+        </tr>
+        <tr>
+            <td class="vertical-gap" colspan="2">&nbsp;</td>
+        </tr>
+        #end
+
+        #if($incDecForPeriod != '')
+        <tr>
+            <td class="vertical-gap" colspan="2">&nbsp;</td>
+        </tr>
+        <tr class="profit-and-loss__totalrow">
+            <td>
+                <div class="profit-and-loss__rowhead" style="text-align: left; ">$incDecForPeriod.name</div>
+            </td>
+            <td>
+                <div style="text-align: right; font-size:10pt; padding:4px 4px;">$incDecForPeriod.header.get('AMOUNT')</div>
+            </td>
+        </tr>
+        <tr>
+            <td class="vertical-gap" colspan="2">&nbsp;</td>
+        </tr>
+        #end
+
+        #if($beginCash != '')
+        <tr>
+            <td class="vertical-gap" colspan="2">&nbsp;</td>
+        </tr>
+        <tr class="profit-and-loss__totalrow">
+            <td>
+                <div class="profit-and-loss__rowhead" style="text-align: left; ">$beginCash.name</div>
+            </td>
+            <td>
+                <div style="text-align: right; font-size:10pt; padding:4px 4px;">$beginCash.header.get('AMOUNT')</div>
+            </td>
+        </tr>
+        <tr>
+            <td class="vertical-gap" colspan="2">&nbsp;</td>
+        </tr>
+        #end
+
+        #if($endCash != '')
+        <tr>
+            <td class="vertical-gap" colspan="2">&nbsp;</td>
+        </tr>
+        <tr class="profit-and-loss__totalrow">
+            <td>
+                <div class="profit-and-loss__rowhead" style="text-align: left; ">$endCash.name</div>
+            </td>
+            <td>
+                <div style="text-align: right; font-size:10pt; padding:4px 4px;">$endCash.header.get('AMOUNT')</div>
+            </td>
+        </tr>
+        <tr>
+            <td class="vertical-gap" colspan="2">&nbsp;</td>
+        </tr>
+        #end
+
+    </table>
+</div>
+</body>
+</html>

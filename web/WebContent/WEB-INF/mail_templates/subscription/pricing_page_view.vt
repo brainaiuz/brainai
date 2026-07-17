@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+
+<p> ${user} has been visited to pricing order confirm page</p>
+
+#if(${userName}!='')
+<p><b>User Name:</b> ${userName} </p>
+#end
+
+#if(${userPhone}!='')
+<p><b>Phone:</b> ${userPhone} </p>
+#end
+
+#if(${userEmail}!='')
+<p><b>E-mail:</b> ${userEmail} </p>
+#end
+
+#if(${country}!='')
+<p><b>Country:</b> ${country} </p>
+#end
+
+#if(${currentDate}!='')
+<p><b>Current Date:</b> ${currentDate} </p>
+#end
+
+<p><i>Sincerely yours,</i></p>
+<p><i>Accounting Department</i></p>
+</body>
+</html>

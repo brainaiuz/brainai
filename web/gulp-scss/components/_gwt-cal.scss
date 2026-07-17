@@ -1,0 +1,2221 @@
+$calendarHeightOffset: ($spaceHolder-operPanel + $frameContentPadding * 2);
+$gwt-cal-headerSize: $theadHeight;
+$dayCellLabel-Paddings: 4px;
+$dayCellLabel-сolor: $gray-mutted;
+$dayCellLabel-borderColor: $body-bg;
+$dayCellLabel-bgDisabled: $color-base-contrast;
+$daySeparatorColor: #ddd;
+$gwtCalScrollArea-topSpace: 10px;
+$weekDayLabelBg: $color-base-2; //header of calendar
+@mixin mxn-gwtCalHeader {
+  background-color: $weekDayLabelBg;
+  color: #fff;
+}
+
+$appointment-blue: #00a9ea;
+$appointment-aqua: #61e2ea;
+$appointment-red: #f4436d;
+$appointment-pink: #fa7fb6;
+$appointment-purple: #b373b3;
+//$appointment-darkpurple: ;
+//$appointment-steelblue: ;
+//$appointment-lightblue: ;
+//$appointment-teal: ;
+$appointment-green: #86ca40;
+//$appointment-lightgreen: ;
+//$appointment-yellowgreen: ;
+//$appointment-yellow: ;
+$appointment-orange: #f5a523;
+//$appointment-redorange: ;
+//$appointment-lightbrown: ;
+//$appointment-lightpurple: ;
+//$appointment-grey: ;
+//$appointment-bluegrey: ;
+//$appointment-lightteal: ;
+//$appointment-yellowgrey: ;
+//$appointment-brown: ;
+//$appointment-blue-appointment: ;
+//$appointment-green-appointment: ;
+
+.cal-MonthView__wrapper {
+  tr.top,
+  tr.bottom,
+  .middleLeft,
+  .middleRight {
+    display: none;
+  }
+}
+
+//GWT CALENDAR ITEMS COMMON STYLES
+.moreAppointments,
+.multiDayAppointment,
+.appointment,
+.gwt-cal [class*="gwt-appointment-"]:not(.gwt-appointment-panel),
+  //.gwt-appointment-selected,
+.appointment-list-item {
+  border-radius: $radius-base;
+  height: 20px;
+  padding: 3px 8px;
+  min-height: 20px; // fix when there are not data
+  line-height: 1.4;
+  cursor: pointer;
+  overflow: hidden;
+
+  .gwt-Label {
+    @include txtTruncate();
+  }
+
+  .appointment-hour {
+    padding-right: 4px;
+    font-size: .8em;
+    vertical-align: top;
+    text-transform: uppercase;
+  }
+
+  &.dragdrop-dragging {
+    cursor: move !important;
+  }
+}
+
+.gwt-cal .dragdrop-dropTarget > .dragdrop-draggable.dragdrop-handle {
+  display: none;
+}
+
+.gwt-appointment-selected {
+  -webkit-box-shadow: 3px 3px 5px #B7B7B7;
+  -moz-box-shadow: 3px 3px 5px #B7B7B7;
+  //filter: alpha(opacity=100) progid:DXImageTransform.Microsoft.dropshadow(OffX=3, OffY=3, Color='#C7C7C7', Positive='true');
+  opacity: 1;
+  -moz-opacity: 1;
+
+  .gwt-appointment-blue {
+    .header {
+      background: #2952A3;
+      color: #FFF;
+    }
+
+    .footer {
+      border-bottom: 3px double white;
+    }
+  }
+
+  .gwt-appointment-red {
+    .header {
+      background: #A32929;
+      color: #FFF;
+    }
+
+    .footer {
+      border-bottom: 3px double white;
+    }
+  }
+
+  .gwt-appointment-pink {
+    .header {
+      background: #B1365F;
+      color: #FFF;
+    }
+
+    .footer {
+      border-bottom: 3px double white;
+    }
+  }
+
+  .gwt-appointment-purple {
+    .header {
+      background: #7A367A;
+      color: #FFF;
+    }
+
+    .footer {
+      border-bottom: 3px double white;
+    }
+  }
+
+  .gwt-appointment-darkpurple {
+    .header {
+      background: #5229A3;
+      color: #FFF;
+    }
+
+    .footer {
+      border-bottom: 3px double white;
+    }
+  }
+
+  .gwt-appointment-steelblue {
+    .header {
+      background: #29527A;
+      color: #FFF;
+    }
+
+    .footer {
+      border-bottom: 3px double white;
+    }
+  }
+
+  .gwt-appointment-lightblue {
+    .header {
+      background: #1B887A;
+      color: #FFF;
+    }
+
+    .footer {
+      border-bottom: 3px double white;
+    }
+  }
+
+  .gwt-appointment-teal {
+    .header {
+      background: #28754E;
+      color: #FFF;
+    }
+
+    .footer {
+      border-bottom: 3px double white;
+    }
+  }
+
+  .gwt-appointment-green {
+    .footer {
+      border-bottom: 3px double white;
+    }
+  }
+
+  .gwt-appointment-lightgreen {
+    .header {
+      background: #528800;
+      color: #FFF;
+    }
+
+    .footer {
+      border-bottom: 3px double white;
+    }
+  }
+
+  .gwt-appointment-yellowgreen {
+    .header {
+      background: #88880E;
+      color: #FFF;
+    }
+
+    .footer {
+      border-bottom: 3px double white;
+    }
+  }
+
+  .gwt-appointment-yellow {
+    .header {
+      background: #AB8B00;
+      color: #FFF;
+    }
+
+    .footer {
+      border-bottom: 3px double white;
+    }
+  }
+
+  .gwt-appointment-orange {
+    .header {
+      background: #BE6D00;
+      color: #FFF;
+    }
+
+    .footer {
+      border-bottom: 3px double white;
+    }
+  }
+
+  .gwt-appointment-redorange {
+    .header {
+      background: #B1440E;
+      color: #FFF;
+    }
+
+    .footer {
+      border-bottom: 3px double white;
+    }
+  }
+
+  .gwt-appointment-lightbrown {
+    .header {
+      background: #865A5A;
+      color: #FFF;
+    }
+
+    .footer {
+      border-bottom: 3px double white;
+    }
+  }
+
+  .gwt-appointment-lightpurple {
+    .header {
+      background: #705770;
+      color: #FFF;
+    }
+
+    .footer {
+      border-bottom: 3px double white;
+    }
+  }
+
+  .gwt-appointment-grey {
+    .header {
+      background: #4E5D6C;
+      color: #FFF;
+    }
+
+    .footer {
+      border-bottom: 3px double white;
+    }
+  }
+
+  .gwt-appointment-bluegrey {
+    .header {
+      background: #5A6986;
+      color: #FFF;
+    }
+
+    .footer {
+      border-bottom: 3px double white;
+    }
+  }
+
+  .gwt-appointment-lightteal {
+    .header {
+      background: #4A716C;
+      color: #FFF;
+    }
+
+    .footer {
+      border-bottom: 3px double white;
+    }
+  }
+
+  .gwt-appointment-yellowgrey {
+    .header {
+      background: #6E6E41;
+      color: #FFF;
+    }
+
+    .footer {
+      border-bottom: 3px double white;
+    }
+  }
+
+  .gwt-appointment-brown {
+    .header {
+      background: #8D6F47;
+      color: #FFF;
+    }
+
+    .footer {
+      border-bottom: 3px double white;
+    }
+  }
+}
+
+// \ GWT CALENDAR ITEMS COMMON STYLES
+
+.appointment,
+.multiDayAppointment {
+  margin-top: 4px;
+
+  .gwt-Label {
+    line-height: 1.2;
+    @include txtTruncate();
+  }
+}
+
+.appointment {
+  overflow: hidden;
+  text-decoration: none;
+  height: auto;
+
+  &.selected {
+    text-decoration: underline;
+  }
+}
+
+//GWT CALENDAR ITEMS COLORS
+//for .appointment, .multiDayAppointment, and .appointment-list-item
+[class*="gwt-appointment-"] {
+  //color: #fff; // don't use this color. It lead to the following problem -> //https://prnt.sc/qxurlj
+}
+
+.gwt-appointment-blue {
+  background-color: $appointment-blue;
+  color: #fff;
+
+  .header {
+    //background: #2952A3;
+  }
+
+  .timeline-fill {
+    //background-color: #668CD9;
+  }
+
+  &:hover {
+    background-color: darken($appointment-blue, 4%);
+  }
+}
+
+.gwt-appointment-aqua {
+  background-color: $appointment-aqua;
+  color: #fff;
+
+  .header {
+    //background: #2952A3;
+  }
+
+  .timeline-fill {
+    //background-color: #668CD9;
+  }
+
+  &:hover {
+    background-color: darken($appointment-aqua, 4%);
+  }
+}
+
+.gwt-appointment-red {
+  //background: #D96666;
+  background: $appointment-red;
+  color: #fff;
+
+  .header {
+    //background: #A32929;
+    //color: #FFF;
+  }
+
+  .timeline-fill {
+    //background-color: #D96666;
+  }
+
+  &:hover {
+    background-color: darken($appointment-red, 4%);
+  }
+}
+
+.gwt-appointment-pink {
+  //background: #E67399;]
+  background: $appointment-pink;
+  color: #fff;
+
+  .header {
+    //background: #B1365F;
+  }
+
+  .timeline-fill {
+    //background-color: #E67399;
+  }
+
+  &:hover {
+    background-color: darken($appointment-pink, 4%);
+  }
+}
+
+.gwt-appointment-purple {
+  //background: #B373B3;
+  background: $appointment-purple;
+  color: #fff;
+
+  .header {
+    //background: #7A367A;
+  }
+
+  .timeline-fill {
+    //background-color: #B373B3;
+  }
+
+  &:hover {
+    background-color: darken($appointment-purple, 4%);
+  }
+}
+
+.gwt-appointment-darkpurple {
+  background: #8C66D9;
+  color: #fff;
+
+  .header {
+    //background: #5229A3;
+  }
+
+  .timeline-fill {
+    //background-color: #8C66D9;
+  }
+
+  &:hover {
+    background-color: darken(#8C66D9, 4%);
+  }
+}
+
+.gwt-appointment-steelblue {
+  background: #668CB3;
+  color: #fff;
+
+  .header {
+    //background: #29527A;
+  }
+
+  .timeline-fill {
+    background-color: #668CB3;
+  }
+
+  &:hover {
+    background-color: darken(#668CB3, 4%);
+  }
+}
+
+.gwt-appointment-lightblue {
+  background: #59BFB3;
+  color: #fff;
+
+  .header {
+    //background: #1B887A;
+  }
+
+  .timeline-fill {
+    //background-color: #59BFB3;
+  }
+
+  &:hover {
+    background-color: darken(#59BFB3, 4%);
+  }
+}
+
+.gwt-appointment-teal {
+  background: #65AD89;
+  color: #fff;
+
+  .header {
+    //background: #28754E;
+  }
+
+  .timeline-fill {
+    //background-color: #65AD89;
+  }
+
+  &:hover {
+    background-color: darken(#65AD89, 4%);
+  }
+}
+
+.gwt-appointment-green {
+  //background: #4CB052;
+  background: $appointment-green;
+  color: #fff;
+
+  .header {
+    //background: #0D7813;
+  }
+
+  &:hover {
+    background-color: darken($appointment-green, 4%);
+  }
+}
+
+.gwt-appointment-lightgreen {
+  background: #8CBF40;
+  color: #fff;
+
+  .header {
+    //background: #528800;
+  }
+
+  .timeline-fill {
+    //background-color: #8CBF40;
+  }
+
+  &:hover {
+    background-color: darken(#8CBF40, 4%);
+  }
+}
+
+.gwt-appointment-yellowgreen {
+  background: #BFBF4D;
+  color: #fff;
+
+  .header {
+    //background: #88880E;
+  }
+
+  .timeline-fill {
+    //background-color: #BFBF4D;
+  }
+
+  &:hover {
+    background-color: darken(#BFBF4D, 4%);
+  }
+}
+
+.gwt-appointment-yellow {
+  background: #E0C240;
+  color: #fff;
+
+  .header {
+    //background: #AB8B00;
+  }
+
+  .timeline-fill {
+    //background-color: #E0C240;
+  }
+
+  &:hover {
+    background-color: darken(#E0C240, 4%);
+  }
+}
+
+.gwt-appointment-orange {
+  //background: #F2A640;
+  background: $appointment-orange;
+  color: #fff;
+
+  .header {
+    //background: #BE6D00;
+  }
+
+  .timeline-fill {
+    //background-color: #F2A640;
+  }
+
+  &:hover {
+    background-color: darken($appointment-orange, 4%);
+  }
+}
+
+.gwt-appointment-redorange {
+  background: #E6804D;
+  color: #fff;
+
+  .header {
+    //background: #B1440E;
+  }
+
+  .timeline-fill {
+    //background-color: #E6804D;
+  }
+
+  &:hover {
+    background-color: darken(#E6804D, 4%);
+  }
+}
+
+.gwt-appointment-lightbrown {
+  background: #BE9494;
+  color: #fff;
+
+  .header {
+    //background: #865A5A;
+  }
+
+  .timeline-fill {
+    //background-color: #BE9494;
+  }
+
+  &:hover {
+    background-color: darken(#BE9494, 4%);
+  }
+}
+
+.gwt-appointment-lightpurple {
+  background: #A992A9;
+  color: #fff;
+
+  .header {
+    //background: #705770;
+  }
+
+  .timeline-fill {
+    //background-color: #A992A9;
+  }
+
+  &:hover {
+    background-color: darken(#A992A9, 4%);
+  }
+}
+
+.gwt-appointment-grey {
+  background: #8997A5;
+  color: #fff;
+
+  .header {
+    //background: #4E5D6C;
+  }
+
+  .timeline-fill {
+    //background-color: #8997A5;
+  }
+
+  &:hover {
+    background-color: darken(#8997A5, 4%);
+  }
+}
+
+.gwt-appointment-bluegrey {
+  //border: 1px solid #5A6986;
+  background: #94A2bE;
+  color: #fff;
+
+  .header {
+    //background: #5A6986;
+  }
+
+  .timeline-fill {
+    //background-color: #94A2bE;
+  }
+
+  &:hover {
+    background-color: darken(#94A2bE, 4%);
+  }
+}
+
+.gwt-appointment-lightteal {
+  background: #85AAA5;
+  color: #fff;
+
+  .header {
+    //background: #4A716C;
+  }
+
+  .timeline-fill {
+    //background-color: #85AAA5;
+  }
+
+  &:hover {
+    background-color: darken(#85AAA5, 4%);
+  }
+}
+
+.gwt-appointment-yellowgrey {
+  background: #A7A77D;
+  color: #fff;
+
+  .header {
+    //background: #6E6E41;
+  }
+
+  .timeline-fill {
+    //background-color: #A7A77D;
+  }
+
+  &:hover {
+    background-color: darken(#A7A77D, 4%);
+  }
+}
+
+.gwt-appointment-brown {
+  //border: 1px solid #8D6F47;
+  background: #C4A883;
+  color: #fff;
+
+  .header {
+    //background: #8D6F47;
+  }
+
+  .timeline-fill {
+    //background-color: #C4A883;
+  }
+
+  &:hover {
+    background-color: darken(#C4A883, 4%);
+  }
+}
+
+.gwt-appointment-blue-appointment {
+  background: #668CD9;
+  color: #fff;
+
+  &:hover {
+    background-color: darken(#668CD9, 4%);
+  }
+}
+
+.gwt-appointment-aqua-appointment {
+  background: #61e2ea;
+  color: #fff;
+
+  &:hover {
+    background-color: darken(#61e2ea, 4%);
+  }
+}
+
+.gwt-appointment-green-appointment {
+  background: transparent;
+  color: #4CB052;
+
+  &:hover {
+    background-color: darken(#4CB052, 4%);
+  }
+}
+
+//summary details popup
+.event-det-table__wrapper > [class*="gwt-appointment-"] {
+  background-color: #fff;
+  color: $text-color-base;
+}
+
+// \ GWT CALENDAR ITEMS COLORS
+
+
+// MULTIDAYAPPOINTMENT COLORS
+.multiDayAppointment {
+  //  &.gwt-appointment-blue {
+  //    background: #668CD9;
+  //  }
+  //
+  //  &.gwt-appointment-red {
+  //    background: #D96666;
+  //  }
+  //
+  //  &.gwt-appointment-pink {
+  //    border: 1px solid transparent;
+  //    background: #D96666;
+  //  }
+  //
+  //  &.gwt-appointment-purple {
+  //    background: #B373B3;
+  //  }
+  //
+  //  &.gwt-appointment-darkpurple {
+  //    background: #8C66D9;
+  //  }
+  //
+  //  &.gwt-appointment-steelblue {
+  //    background: #668CB3;
+  //  }
+  //
+  //  &.gwt-appointment-lightblue {
+  //    background: #59BFB3;
+  //  }
+  //
+  //  &.gwt-appointment-teal {
+  //    background: #65AD89;
+  //  }
+  //
+  //  &.gwt-appointment-green {
+  //    background: #4CB052;
+  //  }
+  //
+  //  &.gwt-appointment-lightgreen {
+  //    background: #528800;
+  //  }
+  //
+  //  &.gwt-appointment-yellowgreen {
+  //    background: #BFBF4D;
+  //  }
+  //
+  //  &.gwt-appointment-yellow {
+  //    background: #E0C240;
+  //  }
+  //
+  //  &.gwt-appointment-orange {
+  //    background: #BE6D00;
+  //  }
+  //
+  //  &.gwt-appointment-redorange {
+  //    background: #E6804D;
+  //
+  //    &.selected {
+  //      //border: 1px solid #B1440E;
+  //    }
+  //  }
+  //
+  //  &.gwt-appointment-lightbrown {
+  //    background: #BE9494;
+  //
+  //    &.selected {
+  //      //border: 1px solid #865A5A;
+  //    }
+  //  }
+  //
+  //  &.gwt-appointment-lightpurple {
+  //    background: #A992A9;
+  //
+  //    &.selected {
+  //      //border: 1px solid #705770;
+  //    }
+  //  }
+  //
+  //  &.gwt-appointment-grey {
+  //    background: #8997A5;
+  //
+  //    &.selected {
+  //      //border: 1px solid #4E5D6C;
+  //    }
+  //  }
+  //
+  //  &.gwt-appointment-bluegrey {
+  //    background: #94A2bE;
+  //
+  //    &.selected {
+  //      //border: 1px solid #5A6986;
+  //    }
+  //  }
+  //
+  //  &.gwt-appointment-lightteal {
+  //    background: #85AAA5;
+  //
+  //    &.selected {
+  //      //border: 1px solid #4A716C;
+  //    }
+  //  }
+  //
+  //  &.gwt-appointment-yellowgrey {
+  //    background: #A7A77D;
+  //
+  //    &.selected {
+  //      //border: 1px solid #6E6E41;
+  //    }
+  //  }
+  //
+  //  &.gwt-appointment-brown {
+  //    background: #C4A883;
+  //
+  //    &.selected {
+  //      //border: 1px solid #8D6F47;
+  //    }
+  //  }
+}
+
+//MULTIDAYAPPOINTMENT COLORS
+
+
+// APPOINTMENT COLORS
+//.gwt-appointment-blue {
+//  &.appointment {
+//    background: transparent;
+//    color: #668CD9;
+//  }
+//}
+//.gwt-appointment-red {
+//  &.appointment {
+//    background: transparent;
+//    color: #D96666;
+//  }
+//}
+//.gwt-appointment-pink {
+//  &.appointment {
+//    background: transparent;
+//    color: #D96666;
+//  }
+//}
+//.gwt-appointment-purple {
+//  &.appointment {
+//    background: transparent;
+//    color: #B373B3;
+//  }
+//}
+//.gwt-appointment-darkpurple {
+//  &.appointment {
+//    background: transparent;
+//    color: #8C66D9;
+//  }
+//}
+//.gwt-appointment-steelblue {
+//  &.appointment {
+//    background: transparent;
+//    color: #668CB3;
+//  }
+//}
+//.gwt-appointment-lightblue {
+//  &.appointment {
+//    background: transparent;
+//    color: #1B887A;
+//  }
+//}
+//.gwt-appointment-lteal {
+//  &.appointment {
+//    background: transparent;
+//    color: #28754E;
+//  }
+//}
+//.gwt-appointment-green {
+//  &.appointment {
+//    background: transparent;
+//    color: #4CB052;
+//  }
+//}
+//.gwt-appointment-lightgreen {
+//  &.appointment {
+//    background: transparent;
+//    color: #528800;
+//  }
+//}
+//.gwt-appointment-yellowgreen {
+//  &.appointment {
+//    background: transparent;
+//    color: #88880E;
+//  }
+//}
+//.gwt-appointment-yellow {
+//  &.appointment {
+//    background: transparent;
+//    color: #E0C240;
+//  }
+//}
+//.gwt-appointment-orange {
+//  &.appointment {
+//    background: transparent;
+//    color: #BE6D00;
+//  }
+//}
+//.gwt-appointment-redorange {
+//  &.appointment {
+//    background: transparent;
+//    color: #B1440E;
+//  }
+//}
+//.gwt-appointment-lightbrown {
+//  &.appointment {
+//    background: transparent;
+//    color: #865A5A;
+//  }
+//}
+//.gwt-appointment-lightpurple {
+//  &.appointment {
+//    background: transparent;
+//    color: #705770;
+//  }
+//}
+//.gwt-appointment-grey {
+//  &.appointment {
+//    background: transparent;
+//    color: #4E5D6C;
+//  }
+//}
+//.gwt-appointment-bluegrey {
+//  &.appointment {
+//    background: transparent;
+//    color: #5A6986;
+//  }
+//}
+//.gwt-appointment-lightteal {
+//  &.appointment {
+//    background: transparent;
+//    color: #4A716C;
+//  }
+//}
+//.gwt-appointment-yellowgrey {
+//  &.appointment {
+//    background: transparent;
+//    color: #6E6E41;
+//  }
+//}
+//.gwt-appointment-brown {
+//  &.appointment {
+//    background: transparent;
+//    color: #8D6F47;
+//  }
+//}
+// \ APPOINTMENT COLORS
+
+.selected {
+  &.multiDayAppointment {
+    //-webkit-box-shadow: 3px 3px 5px #B7B7B7;
+    //-moz-box-shadow: 3px 3px 5px #B7B7B7;
+    //text-decoration: none;
+  }
+}
+
+
+//CALENDAR SIDENAV SWITCHERS
+.project-check-style {
+  //background-color: #f4a523;
+  background-color: $appointment-orange;
+
+  .gwt-CheckBox {
+    //color: black;
+    //font-size: 11px;
+    //text-transform: uppercase;
+  }
+}
+
+.task-check-style {
+  //background-color: #03A840;
+  background-color: $appointment-green;
+
+  .gwt-CheckBox {
+    //color: black;
+    //font-size: 11px;
+    //text-transform: uppercase;
+  }
+}
+
+.google-event-check-style {
+  //background-color: #00a8ea;
+  background-color: $appointment-blue;
+
+  .gwt-CheckBox {
+    //color: white;
+    //font-size: 11px;
+    //text-transform: uppercase;
+  }
+}
+
+.google-call-check-style {
+  //background-color: #00a8ea;
+  background-color: $appointment-aqua;
+
+  .gwt-CheckBox {
+    //color: white;
+    //font-size: 11px;
+    //text-transform: uppercase;
+  }
+}
+
+.issue-check-style {
+  //background-color: #b373b3;
+  background-color: $appointment-purple;
+
+  .gwt-CheckBox {
+    //color: white;
+    //font-size: 11px;
+    //text-transform: uppercase;
+  }
+}
+
+.leave-request-check-style {
+  //background-color: #d2011a;
+  background-color: $appointment-red;
+
+  .gwt-CheckBox {
+    //color: white;
+    //font-size: 11px;
+    //text-transform: uppercase;
+  }
+}
+
+.holiday-check-style {
+  //background-color: rgb(38, 14, 236);
+  background-color: $appointment-pink;
+
+  .gwt-CheckBox {
+    //color: white;
+    //font-size: 11px;
+    //text-transform: uppercase;
+  }
+}
+
+// \ CALENDAR SIDENAV SWITCHERS
+
+
+// MODAL WITH ALL EVENTS OF A DAY - "+ 1more" link
+.gwt-PopupPanel.cal-day-events {
+  padding-top: 0;
+  border: 1px solid $color-base-1;
+}
+
+// \ MODAL WITH ALL EVENTS OF A DAY
+
+
+//WEEK/DAY sections wrapper
+.gwt-cal {
+  $timeStrip-width: 60px;
+
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  @include border-top-radius($radius-base);
+  background-color: #fff;
+
+  display: flex;
+  flex-direction: column;
+
+  .gwt-calendar-header,
+  .gwt-calendar-header + div {
+    flex: 0 0 auto;
+  }
+
+  .multiDayBody {
+    &__wrapper {
+      position: relative;
+      //z-index: 1;
+      overflow: visible !important;
+      height: auto !important;
+
+      > div {
+        height: 100%;
+      }
+    }
+
+    width: 100%;
+    table-layout: fixed;
+
+    .centerDayContainerCell {
+      padding-right: 4px; // .scroll-area right scroll space, due to the same separator position
+    }
+
+    .splitter {
+      position: absolute !important;
+      z-index: 1;
+      top: 100%;
+      width: 100%;
+      height: 10px;
+      border-top: 1px solid $color-base-1;
+      //background-image: linear-gradient(to top, rgba(255, 255, 255, 0) 10%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 1));
+      background-image: linear-gradient(to top, rgba(236, 239, 243, 0) 5%, rgba(236, 239, 243, 0.5) 50%, rgba(236, 239, 243, 1));
+      //background: $color-leave;
+      //border-bottom: 0 solid $color-leave;
+      //background: $color-leave;
+      //background-color: $color-base-1;
+    }
+  }
+
+
+  .scroll-area {
+    //z-index: 0; // to prevent be above the .multiDayBody__wrapper
+    //overflow: hidden auto; // is being inline
+    padding-top: $gwtCalScrollArea-topSpace; // time-strip abs positioned data place
+
+    .day-separator {
+      margin-top: -$gwtCalScrollArea-topSpace;
+    }
+  }
+
+  .working-hours {
+    background: #FFF;
+  }
+
+  .hour-label {
+    position: relative;
+    //width: 50px;
+    display: block;
+    //border-top: 1px solid #DDDDDD;
+    //height: 88px;
+    background-color: white;
+
+    .hour-layout {
+      position: absolute;
+      top: -3px;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      line-height: 1;
+      font-weight: 500;
+
+      > * {
+        padding: 0 2px;
+      }
+    }
+  }
+
+  .hour-text {
+    //display: inline;
+    //font-size: 11px;
+    //text-transform: lowercase;
+    //font-size: 11px;
+    //color: #446688;
+  }
+
+  .ampm-text {
+    //display: inline;
+    //color: #446688;
+    //font-size: 11px;
+    //text-transform: lowercase;
+    //font-weight: normal;
+  }
+
+  .gwt-appointment-panel { //week section
+    position: relative;
+    //height: 1200px;
+    //height: 2110px;
+  }
+
+  .gwt-appointment-cell {
+    //width: 99%;
+  }
+
+  .scroll-area {
+    &::-webkit-scrollbar {
+      display: block;
+    }
+  }
+
+  .dragdrop-dropTarget.dragdrop-boundary {
+    overflow: visible !important;
+  }
+
+  .day-separator {
+    position: absolute;
+    width: 1px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background-color: $daySeparatorColor;
+  }
+
+  .time-strip {
+    overflow: visible !important; // time-strip abs positioned data placed above
+    white-space: nowrap;
+  }
+
+  .gwt-calendar-header {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    //color: #112ABB;
+    //border: none;
+    //background: $color-leave;
+
+    .year-cell {
+      width: $timeStrip-width;
+      font-size: 12px;
+      text-align: center;
+      font-weight: normal;
+    }
+
+    .day-cell-container {
+      //height: 20px;
+      position: relative;
+      overflow: hidden;
+      height: $gwt-cal-headerSize;
+      @include mxn-gwtCalHeader;
+
+      > * {
+        border-left: 1px solid #fff;
+      }
+    }
+
+    .day-cell {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      line-height: $gwt-cal-headerSize;
+      padding-top: 2px;
+      text-align: center;
+      font-weight: normal;
+      font-size: 12px;
+      //background: $color-leave;
+    }
+
+    .day-cell-today {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      text-align: center;
+      font-size: 12px;
+      padding-top: 2px;
+      font-weight: bold;
+      line-height: $gwt-cal-headerSize;
+    }
+
+    .splitter {
+      height: 1px;
+      _height: 1px;
+      border-top: 0 solid $color-leave;
+      background: $color-leave;
+      border-bottom: 0 solid $color-leave;
+    }
+
+    td {
+      @include mxn-gwtCalHeader;
+
+      &:last-child {
+        border-radius: 0 5px 0 0;
+      }
+
+      &:first-child {
+        border-radius: 5px 0 0 0;
+      }
+    }
+  }
+
+  .gwt-calendar-header + div {
+    //margin-bottom: 20px; //commented deu to the -> https://prnt.sc/prhpc5
+  }
+
+  .gwt-appointment {
+    position: absolute;
+    font-size: 11px;
+    overflow: hidden;
+    filter: alpha(opacity=80);
+    opacity: .8;
+    -moz-opacity: .8;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+
+    .header {
+      white-space: nowrap;
+      overflow: hidden;
+      color: #FFF;
+      padding: 1px;
+      padding-left: 8px;
+      -webkit-border-top-left-radius: 5px;
+      -webkit-border-top-right-radius: 5px;
+      -moz-border-radius-topleft: 5px;
+      -moz-border-radius-topright: 5px;
+    }
+
+    .body {
+      padding-left: 8px;
+      padding-top: 1px;
+      white-space: pre-wrap;
+    }
+
+    .footer {
+      border-bottom: 3px double #FFF;
+      position: absolute;
+      bottom: 2px;
+      left: 48%;
+      height: 4px;
+      width: 8px;
+    }
+
+    .icons {
+      white-space: nowrap;
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: transparent;
+      width: 55px;
+      height: 12px;
+      color: #FFF;
+    }
+
+    .timeline {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      background: #FFF;
+      border-right: 1px solid #000;
+      width: 5px;
+      display: none;
+      -webkit-border-top-left-radius: 5px;
+      -webkit-border-bottom-left-radius: 5px;
+      -moz-border-radius-topleft: 5px;
+      -moz-border-radius-bottomleft: 5px;
+    }
+
+    .timeline-fill {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      -webkit-border-top-left-radius: 5px;
+      -webkit-border-bottom-left-radius: 5px;
+      -moz-border-radius-topleft: 5px;
+      -moz-border-radius-bottomleft: 5px;
+    }
+
+    .monthly {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      -webkit-border-top-left-radius: 5px;
+      -webkit-border-bottom-left-radius: 5px;
+      -moz-border-radius-topleft: 5px;
+      -moz-border-radius-bottomleft: 5px;
+    }
+  }
+
+  .leftEmptyCell {
+    //background: $color-leave;
+    width: $timeStrip-width;
+    //background-color: white;
+  }
+
+  .rightEmptyCell {
+    background: $color-leave;
+    background-color: white;
+  }
+
+  ::-webkit-scrollbar {
+    //display: block;
+  }
+}
+
+.major-time-interval,
+.minor-time-interval {
+  position: relative;
+  //overflow: hidden;
+  //display: block;
+  //height: 24px;
+  width: 100%;
+  border-top: 1px dotted $daySeparatorColor;
+  //white-space: nowrap;
+  height: 22px;
+  //background: #FFFFCC;
+  background-color: #F7F9FA;
+
+  .working-hours {
+    background-color: white;
+  }
+}
+
+.major-time-interval {
+  //border-color: #eceff3;
+  border-color: $daySeparatorColor;
+}
+
+.minor-time-interval {
+  border-top: none;
+}
+
+.gwt-cal .multiDayBody .gwt-appointment .footer,
+.gwt-cal .multiDayBody .gwt-appointment-selected .footer {
+  //display: none;
+}
+
+.gwt-cal .multiDayBody .gwt-appointment .header,
+.gwt-cal .multiDayBody .gwt-appointment-selected .header {
+  //-webkit-border-radius: 6px;
+  //-moz-border-radius: 6px;
+  //height: 100%;
+}
+
+.gwt-cal-ListView {
+  //overflow-y: scroll;
+  //font-size: 11px;
+  //font-weight: bold;
+
+  .dateCell {
+    //white-space: nowrap;
+    //padding-left: 20px;
+    //padding-right: 20px;
+    //color: #3366CC;
+    //font-size: 11px;
+    //font-weight: bold;
+  }
+
+  .timeCell {
+    //white-space: nowrap;
+    //padding-left: 30px;
+    //padding-right: 30px;
+    //font-size: 11px;
+    //font-weight: bold;
+  }
+
+  .timeCell-on-mouse-over {
+    //white-space: nowrap;
+    //padding-left: 30px;
+    //padding-right: 30px;
+    //font-size: 11px;
+    //font-weight: bold;
+    //cursor: pointer;
+    //text-decoration: underline;
+  }
+
+  .no-appointmets {
+    //white-space: nowrap;
+    //padding-left: 30px;
+    //padding-right: 30px;
+    //color: #3366CC;
+    //font-size: 11px;
+  }
+
+  .titleCell {
+    //width: 99%;
+    //font-size: 11px;
+    //font-weight: bold;
+    //cursor: pointer;
+    //font-size: 13px;
+    //font-weight: normal;
+    //border-top: 1px solid white;
+  }
+
+  .row {
+    //background: white;
+  }
+
+  .row-alt {
+    //background: #FFF;
+  }
+
+  .descriptionLabel {
+    //color: #333333;
+    //font-weight: normal;
+    //font-size: 11px;
+  }
+
+  .detailDecorator {
+    //border-left: 2px solid #BBCCDC;
+    //margin: 3px 0 5px 20px;
+    //padding: 0 8px 4px 10px;
+    //margin: 0;
+    //padding: 10px 0 15px;
+    //border-left: 0;
+  }
+
+  .detailContainer {
+    //font-weight: normal;
+    //color: #333;
+    //background-color: white;
+    //color: $color-accent-2;
+    //font-size: 13px;
+  }
+
+  .detailHeader {
+    font-weight: bold;
+  }
+
+  .moreDetailsButton {
+    //border-top: 1px solid #eceff3;
+    //padding-top: 0.25em;
+    //margin-top: 0.5em;
+    //font-weight: normal;
+    //font-color: #112ABB;
+    //text-decoration: underline;
+    //cursor: pointer;
+  }
+
+  .gwt-appointment-blue {
+    //color: #2952A3;
+  }
+
+  .gwt-appointment-red {
+    //color: #A32929;
+  }
+
+  .gwt-appointment-pink {
+    //color: #B1365F;
+  }
+
+  .gwt-appointment-purple {
+    //color: #7A367A;
+  }
+
+  .gwt-appointment-darkpurple {
+    //color: #5229A3;
+  }
+
+  .gwt-appointment-steelblue {
+    //color: #29527A;
+  }
+
+  .gwt-appointment-lightblue {
+    //color: #1B887A;
+  }
+
+  .gwt-appointment-teal {
+    //color: #28754E;
+  }
+
+  .gwt-appointment-green {
+    //color: #0D7813;
+  }
+
+  .gwt-appointment-lightgreen {
+    //color: #528800;
+  }
+
+  .gwt-appointment-yellowgreen {
+    //color: #88880E;
+  }
+
+  .gwt-appointment-yellow {
+    //color: #AB8B00;
+  }
+
+  .gwt-appointment-orange {
+    //color: #BE6D00;
+  }
+
+  .gwt-appointment-redorange {
+    //color: #B1440E;
+  }
+
+  .gwt-appointment-lightbrown {
+    //color: #865A5A;
+  }
+
+  .gwt-appointment-lightpurple {
+    //color: #705770;
+  }
+
+  .gwt-appointment-grey {
+    //color: #4E5D6C;
+  }
+
+  .gwt-appointment-bluegrey {
+    //color: #5A6986;
+  }
+
+  .gwt-appointment-lightteal {
+    //color: #4A716C;
+  }
+
+  .gwt-appointment-yellowgrey {
+    //color: #6E6E41;
+  }
+
+  .gwt-appointment-brown {
+    //color: #8D6F47;
+  }
+
+  .row-today,
+  .row-alt-today {
+    //background: white;
+  }
+
+  .row-today .dateCell,
+  .row-alt-today .dateCell {
+    //background: #BBCCDD;
+    //border-color: #8899AA #DDEEFF #DDEEFF #8899AA;
+    //border-width: 1px 1px 0 0;
+    //color: #112ABB;
+  }
+}
+
+
+// GWT CALLENDAR CELLS
+// \ GWT CALLENDAR CELLS
+//.gwt-cal,
+.gwt-cal-MonthView {
+  .weekDayLabel, .weekDayLabel-today, .gwt-calendar-header .day-cell, .gwt-calendar-header .day-cell-today {
+    //height: $gwt-cal-headerSize;
+    //vertical-align: middle !important;
+    //padding: 0 10px;
+    //font-size: 11px;
+    //text-transform: uppercase;
+    //color: white;
+    //background-color: $color-base-2;
+  }
+}
+
+.gwt-cal,
+.gwt-cal-MonthView {
+  height: calc(100vh - #{$calendarHeightOffset});
+}
+
+// MONTH VIEW Multiple Styles
+.gwt-cal-MonthView {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  border: 1px solid $dayCellLabel-borderColor;
+  @include border-top-radius($radius-base);
+  white-space: nowrap;
+
+  .grid {
+    table-layout: fixed;
+    height: 100%;
+    //width: 100%; // is bieng applied for all <table>
+    //background: #FFF;
+    > tbody > tr > td {
+      //border-style: solid;
+      //border-width: 1px;
+    }
+  }
+
+  .dayCell, .dayCell-today {
+    border-bottom: 1px solid $dayCellLabel-borderColor;
+
+    + td {
+      border-left: 1px solid $dayCellLabel-borderColor;
+    }
+  }
+
+  .weekDayLabel {
+    height: $gwt-cal-headerSize;
+    vertical-align: middle !important;
+
+    &:first-child {
+      border-top-color: $weekDayLabelBg;
+      border-top-left-radius: $radius-base;
+      border-left-color: $weekDayLabelBg;
+    }
+
+    &:last-child {
+      border-top-right-radius: $radius-base;
+      border-right-color: $dayCellLabel-borderColor;
+    }
+
+    &:not(:last-child) {
+      border-right: 1px solid #fff;
+    }
+
+    + .weekDayLabel {
+      border-left: 1px solid #fff;
+    }
+  }
+
+  .weekDayLabel, .weekDayLabel-today {
+    //height: 20px;
+    text-align: center;
+    //background-color: rgb(195, 217, 255);
+    @include mxn-gwtCalHeader;
+  }
+
+  .dayCell {
+    text-align: right;
+    background-color: #fff;
+
+    &-disabled {
+      background-color: $dayCellLabel-bgDisabled;
+
+      .dayCellLabel {
+        color: $dayCellLabel-сolor;
+      }
+    }
+
+    &-today {
+      background-color: $color-currentDay;
+
+      .dayCellLabel {
+        background-color: $link-color;
+        color: #fff;
+      }
+    }
+  }
+
+  .dayCellLabel {
+    display: inline-block;
+    height: auto;
+    min-width: 24px;
+    margin: $dayCellLabel-Paddings;
+    padding: 3px 6px;
+    border-radius: 3px;
+    text-align: center;
+    font-weight: 500;
+    color: #000;
+  }
+
+
+  .dayCellLabel-today-disabled, .dayCellLabel-disabled {
+    //background-color: rgb(238, 238, 238);
+    //display: block;
+    //height: 15px;
+    //font-size: 11px;
+    //text-align: right;
+    //padding-right: 5px;
+    //color: #999;
+  }
+
+  .dayCellLabel-today {
+
+  }
+
+  .dayCellLabel-today, .dayCellLabel-today-disabled {
+    //background-color: rgb(187, 204, 221);
+  }
+
+  .canvas {
+    white-space: nowrap;
+    //overflow: hidden;
+    //position: absolute; // is being inline
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    //font-size: 12px;
+    //background: transparent;
+    &.dragdrop-dropTarget-engage {
+    }
+  }
+
+  .dragdrop-movable-panel, .dragdrop-movable-panel .dragdrop-proxy, .dragdrop-positioner {
+    border-radius: $radius-base;
+    cursor: move !important;
+  }
+
+  .dragdrop-positioner {
+    background: #ffffc1;
+  }
+
+
+  .moreAppointments {
+    margin-top: 3px;
+    width: auto !important;
+    color: $link-color;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+// \ MONTH VIEW Multiple Styles
+
+// Modal content to add event
+.event-det-table {
+  table-layout: fixed;
+
+  > colgroup > col:first-child {
+    width: 95px;
+  }
+
+  > tbody > tr + tr {
+    > td {
+      &:not(.event-det-table__footer) {
+        padding-bottom: 10px;
+      }
+
+      &:first-child {
+        &:not(.event-det-table__footer) {
+          //width: 1%;
+          font-weight: 500;
+          padding-right: 15px;
+          vertical-align: top;
+          text-align: right;
+        }
+      }
+
+      &:last-child {
+        //width: 99%; // to make first-child shorter
+      }
+
+      + td > div {
+        table + table {
+          margin-top: 5px;
+        }
+      }
+    }
+  }
+
+  &__heading {
+    font-weight: 500;
+    color: $weekDayLabelBg;
+    color: $color-base-2;
+
+    > span {
+      display: block;
+      padding: 0 20px 10px 0;
+      @include txtTruncate();
+    }
+  }
+}
+
+//Common POPUP for ADD EVENT and EVENT DETAIS
+.cal-popup {
+  &-table {
+    margin-top: 20px; // space for close button
+    font-size: .9em;
+    //color: #053850;
+    > tbody {
+      > tr {
+        &:first-child {
+          td {
+            font-weight: 500;
+          }
+        }
+
+        &:nth-child(2) {
+          table > tbody > tr > td:first-child {
+            font-weight: 500;
+          }
+        }
+
+        &:last-child {
+          > td > table {
+            //margin-top: 10px;
+            > tbody > tr > td + td {
+              padding-left: 10px; //https://prnt.sc/pl1ia3
+            }
+          }
+        }
+      }
+    }
+
+    .enevt-date {
+      > td + td {
+        padding-left: 10px;
+      }
+
+      .form-control {
+        &[disabled],
+        :not(:focus) {
+          border-color: transparent !important;
+
+          &:not([disabled]) {
+            &:hover {
+              background-color: $input-disabled-bg;
+              border-color: $control-border-color;
+            }
+          }
+        }
+      }
+    }
+
+    .enevt-date-end {
+      position: relative;
+
+      &:before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        width: 8px;
+        margin-top: -1px;
+        margin-left: -9px;
+        border-bottom: 1px solid $text-color-base;
+        opacity: .6;
+        //height: $input-height;
+        //line-height: $input-btn-line-height;
+      }
+    }
+
+    .event-name {
+      width: 100%;
+    }
+  }
+}
+
+.share-panel {
+  bottom: 268px;
+  float: right;
+  position: relative;
+  width: 406px;
+}
+
+.reccurence-view b, .reccurence-view div, .reminder div, .reminder div {
+  white-space: nowrap;
+}
+
+.gwt-cal-MonthView .dayCell, .gwt-cal-MonthView .dayCell-today {
+  //border-color: white;
+}
+
+.gwt-calendar-header {
+  .day-cell-today {
+    //background-color: #536676;
+  }
+}
+
+.gwt-cal-MonthView .dayCellLabel-today, .gwt-cal-MonthView .dayCellLabel-today-disabled {
+  //background-color: #f7f9fa;
+  //text-align: left;
+  //padding: 4px 10px;
+  //height: 25px;
+}
+
+
+// Modal with all events of a day .cal-day-events
+.appointment-list-background {
+  border: none;
+  background: none;
+
+  .on-cell-clicked {
+    margin: 10px 0;
+    text-transform: uppercase;
+    color: $black-base;
+
+    b {
+      font-weight: normal;
+    }
+
+    td {
+      text-align: center;
+
+      > .gwt-HTML {
+        display: inline-block;
+      }
+    }
+  }
+
+  .close-button {
+    line-height: 38px;
+  }
+}
+
+.appointment-list {
+  //display: block;
+  //width: 100%;
+  td {
+    padding: 2px 0;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+}
+
+//https://prnt.sc/pl633z
+.event-det-table__footer {
+  position: relative;
+  padding-top: 15px;
+  margin-top: 0.5em;
+  text-align: right;
+
+  > table {
+    width: auto;
+    margin-left: auto;
+
+    > tbody > tr > td + td {
+      padding-left: 10px;
+    }
+
+    .btn--circle {
+      border: 1px solid $color-base-1;
+      opacity: .7;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+// \ Modal with all events of a day
+
+
+/*  Google Calendar View   */
+.cell-with-hour {
+  background-color: #E8EEF7;
+}
+
+.cell-background-color-today {
+  background-color: khaki;
+}
+
+.cell-background-color-gray {
+  background-color: #F3F8FC;
+}
+
+.cell-background-color-white {
+  background-color: white;
+}
+
+.cell-background-color-on-click {
+  background-color: gainsboro;
+}
+
+.calendar-table-style {
+  background-color: gainsboro;
+}
+
+
+.has-agends .cal-MonthView__wrapper {
+  height: 100%;
+}
+
+.agenda {
+  .scrollable-table {
+    overflow-y: auto;
+    background-color: lavender;
+  }
+
+  .day-cell-container {
+    //position: relative;
+    //padding-top: $gwt-cal-headerSize;
+  }
+
+  &__header {
+    //position: fixed;
+    //z-index: 9;
+    //left: ($frameModulesSize + $frameContentPadding);
+    //right: $frameContentPadding;
+    //margin-top: - $gwt-cal-headerSize;
+
+    @include border-top-radius(5px);
+    @include mxn-gwtCalHeader;
+    line-height: $gwt-cal-headerSize;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: normal;
+
+    .left-menu-open & {
+      //left: ($frameNavSize + $frameModulesSizeOpen + $frameContentPadding);
+      //transition: left $leftBar-transition;
+    }
+  }
+
+  &__footer {
+    @include border-bottom-radius(5px);
+    background-color: #fff;
+
+    .btn {
+      text-transform: uppercase;
+    }
+  }
+
+  .updates-list {
+    margin-bottom: 0;
+  }
+}
+
+.agenda-style {
+  background-color: gainsboro;
+  border-color: darkgray;
+  border-style: solid none;
+  border-width: 1px;
+}
+
+.month-value-background {
+  display: block;
+  background: gainsboro;
+}
+
+/* google calendar event detail popup width */
+
+
+.agenda-style {
+  background-color: gainsboro;
+  border-color: darkgray;
+  border-style: solid none;
+  border-width: 1px;
+}
+
+.month-value-background {
+  display: block;
+  background: gainsboro;
+}
+
+/* google calendar event detail popup width */
+.event-details--width {
+  width: 100px;
+}
+
+
+.gwt-cal-ListView .row-today .dateCell, .gwt-cal-ListView .row-alt-today .dateCell, .gwt-cal-ListView .dateCell {
+  //background-color: $color-base-2;
+  //vertical-align: top;
+  //color: white;
+  //font-weight: normal;
+  //text-transform: uppercase;
+  //padding: 10px 5px;
+  //text-align: center;
+  //border-top: 1px solid white;
+}
+
+.gwt-cal-ListView .row-today, .gwt-cal-ListView .row-alt-today {
+  //background-color: white;
+}
+
+//DISABLED COLOR STYLES
+.gwt-cal-MonthView .multiDayAppointment.gwt-appointment-orange,
+.gwt-cal .gwt-appointment-orange,
+.gwt-cal-ListView .gwt-appointment-orange {
+  //background-color: rgba(244, 165, 35, 0.3);
+  //color: #7d530c;
+}
+
+.gwt-cal-MonthView .multiDayAppointment.gwt-appointment-green,
+.gwt-cal .gwt-appointment-green,
+.gwt-cal-ListView .gwt-appointment-green {
+  //background-color: rgba(134, 202, 64, 0.3);
+  //color: #3a670c;
+}
+
+.gwt-cal-MonthView .gwt-appointment-blue.appointment, .gwt-cal .gwt-appointment-blue-appointment, .gwt-cal .gwt-appointment-blue,
+.gwt-cal-MonthView .multiDayAppointment.gwt-appointment-blue,
+.gwt-cal-ListView .gwt-appointment-blue {
+  //background-color: rgba(0, 168, 234, 0.2);
+  //color: #05384c;
+  //border-left: 5px solid #00a8ea;
+}
+
+.gwt-cal-MonthView .gwt-appointment-blue.appointment .gwt-Label, .gwt-cal .gwt-appointment-blue-appointment .gwt-Label, .gwt-cal .gwt-appointment-blue .gwt-Label,
+.gwt-cal-MonthView .multiDayAppointment.gwt-appointment-purple, .gwt-cal .gwt-appointment-purple,
+.gwt-cal-ListView .gwt-appointment-purple {
+  //background-color: rgba(179, 115, 179, 0.3);
+  //color: #6b076b;
+  //border-left: 5px solid #b373b3;
+}
+
+.gwt-cal-MonthView .multiDayAppointment.gwt-appointment-red,
+.gwt-cal .gwt-appointment-red,
+.gwt-cal-ListView .gwt-appointment-red {
+  //background-color: rgba(210, 1, 26, 0.2);
+  //color: #730c18;
+  //border-left: 5px solid #d2011a;
+}
+
+.gwt-cal-MonthView .multiDayAppointment.gwt-appointment-pink, .gwt-cal .gwt-appointment-pink,
+.gwt-cal-ListView .gwt-appointment-pink {
+  //background-color: rgba(38, 14, 236, 0.3);
+  //color: #12095f;
+  //border-left: 5px solid #260eec;
+}
+
+//DISABLED COLOR STYLES
+

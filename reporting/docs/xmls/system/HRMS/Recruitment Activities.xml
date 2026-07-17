@@ -1,0 +1,51 @@
+<report>
+    <view>
+        <title>Recruitment Activities</title>
+        <name>Recruitment Activities</name>
+        <category>hrms</category>
+        <sqlquery>
+            <select agregateFunc="distinct">
+                <table name="Recruitment Activities">
+                    <column name="id" title="id" type="number" formattype="hidden"/>
+                    <column name="subject" title="Subject" type="string" formattype="string"/>
+                    <column name="description" title="Description" type="string" formattype="string"/>
+                    <column name="candidateName" title="Candidate Name" type="string" formattype="string"/>
+                    <column name="startdate" title="Start Date" type="date" formattype="date"
+                            customdateformat="Month DD, YYYY"/>
+                    <column name="enddate" title="End Date" type="date" formattype="date"
+                            customdateformat="Month DD, YYYY"/>
+                    <column name="creationdate" title="Creation Date" type="date" formattype="date"
+                            customdateformat="Month DD, YYYY"/>
+                    <column name="assignees" title="Assignees" type="string" formattype="string"/>
+                    <column name="owner" title="Owner" type="string" formattype="string"/>
+                    <column name="type" title="Type" type="number" formattype="number"/>
+                </table>
+            </select>
+            <from>
+                (
+                SELECT e.id as eid, max(e.subject) as subject, max(e.description) as description, max(r.toname) as
+                candidateName, max(e.startDate) as startDate, max(e.endDate) as endDate,
+                array_to_string(array_agg(coalesce(mu.firstname,'')||' '||coalesce(mu.lastname,'')), ', ') as assignees,
+                max(e.activitytype) as type,
+                max(coalesce(m.firstname,'')||' '||coalesce(m.lastname,'')) as owner, max(e.creationtime) as
+                creationdate
+                FROM "$".relation r
+                LEFT JOIN "$".event e ON (e.id = r.fromID)
+                LEFT JOIN "$".myuser m ON (m.id = e.owner)
+                LEFT JOIN "$".employeeevent ee ON (ee.event_id = e.id)
+                LEFT JOIN "$".myuser mu ON (mu.id = ee.employee_id)
+                WHERE r.toType = 'candidate' and r.fromType = 'event'
+                AND (ee.shared is true OR ee.edit is true)
+                AND (e.deleted is not true)
+                AND (ee.deleted is not true)
+                AND (mu.deleted is not true)
+                GROUP BY eid
+                ORDER BY e.startDate
+                ) t
+            </from>
+            <where>
+                <terms id="base" value="1=1"/>
+            </where>
+        </sqlquery>
+    </view>
+</report>

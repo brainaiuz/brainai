@@ -1,0 +1,26 @@
+delete from modelfield where field_id = 'COPY_CRMACCOUNT_ADDRESS' and form_id in ('LEAD_FORM', 'CONTACT_FORM');
+update modelfield set fieldsetstyle = 'slideDown-content group nobrd' where form_id in('LEAD_FORM', 'CONTACT_FORM') and field_id in('ADDRESS', 'PARENT_ADDRESSES');
+update modelfield set sorder = (select max(sorder) + 1 from modelfield where form_id = 'CONTACT_FORM'), section = 'WORKFLOW_FIELDS', isEntityField = true where form_id in('LEAD_FORM', 'CONTACT_FORM') and field_id = 'STREET_ADDRESS1';
+update modelfield set sorder = (select max(sorder) + 2 from modelfield where form_id = 'CONTACT_FORM'), section = 'WORKFLOW_FIELDS', isEntityField = true where form_id in('LEAD_FORM', 'CONTACT_FORM') and field_id = 'STREET_ADDRESS2';
+update modelfield set sorder = (select max(sorder) + 3 from modelfield where form_id = 'CONTACT_FORM'), section = 'WORKFLOW_FIELDS', isEntityField = true where form_id in('LEAD_FORM', 'CONTACT_FORM') and field_id = 'CITY';
+update modelfield set sorder = (select max(sorder) + 4 from modelfield where form_id = 'CONTACT_FORM'), section = 'WORKFLOW_FIELDS', isEntityField = true where form_id in('LEAD_FORM', 'CONTACT_FORM') and field_id = 'STATE';
+update modelfield set sorder = (select max(sorder) + 5 from modelfield where form_id = 'CONTACT_FORM'), section = 'WORKFLOW_FIELDS', isEntityField = true where form_id in('LEAD_FORM', 'CONTACT_FORM') and field_id = 'COUNTRY';
+update modelfield set sorder = (select max(sorder) + 6 from modelfield where form_id = 'CONTACT_FORM'), section = 'WORKFLOW_FIELDS', isEntityField = true where form_id in('LEAD_FORM', 'CONTACT_FORM') and field_id = 'POST_CODE';
+
+delete from "0".modelfield where field_id = 'COPY_CRMACCOUNT_ADDRESS' and form_id in ('LEAD_FORM', 'CONTACT_FORM');
+update "0".modelfield set fieldsetstyle = 'slideDown-content group nobrd' where form_id in('LEAD_FORM', 'CONTACT_FORM') and field_id in('ADDRESS', 'PARENT_ADDRESSES');
+update "0".modelfield set sorder = (select max(sorder) + 1 from modelfield where form_id = 'CONTACT_FORM'), section = 'WORKFLOW_FIELDS', isEntityField = true where form_id in('LEAD_FORM', 'CONTACT_FORM') and field_id = 'STREET_ADDRESS1';
+update "0".modelfield set sorder = (select max(sorder) + 2 from modelfield where form_id = 'CONTACT_FORM'), section = 'WORKFLOW_FIELDS', isEntityField = true where form_id in('LEAD_FORM', 'CONTACT_FORM') and field_id = 'STREET_ADDRESS2';
+update "0".modelfield set sorder = (select max(sorder) + 3 from modelfield where form_id = 'CONTACT_FORM'), section = 'WORKFLOW_FIELDS', isEntityField = true where form_id in('LEAD_FORM', 'CONTACT_FORM') and field_id = 'CITY';
+update "0".modelfield set sorder = (select max(sorder) + 4 from modelfield where form_id = 'CONTACT_FORM'), section = 'WORKFLOW_FIELDS', isEntityField = true where form_id in('LEAD_FORM', 'CONTACT_FORM') and field_id = 'STATE';
+update "0".modelfield set sorder = (select max(sorder) + 5 from modelfield where form_id = 'CONTACT_FORM'), section = 'WORKFLOW_FIELDS', isEntityField = true where form_id in('LEAD_FORM', 'CONTACT_FORM') and field_id = 'COUNTRY';
+update "0".modelfield set sorder = (select max(sorder) + 6 from modelfield where form_id = 'CONTACT_FORM'), section = 'WORKFLOW_FIELDS', isEntityField = true where form_id in('LEAD_FORM', 'CONTACT_FORM') and field_id = 'POST_CODE';
+
+delete from "anv".modelfield where field_id = 'COPY_CRMACCOUNT_ADDRESS' and form_id in ('LEAD_FORM', 'CONTACT_FORM');
+update "anv".modelfield set fieldsetstyle = 'slideDown-content group nobrd' where form_id in('LEAD_FORM', 'CONTACT_FORM') and field_id in('ADDRESS', 'PARENT_ADDRESSES');
+update "anv".modelfield set sorder = (select max(sorder) + 1 from modelfield where form_id = 'CONTACT_FORM'), section = 'WORKFLOW_FIELDS', isEntityField = true where form_id in('LEAD_FORM', 'CONTACT_FORM') and field_id = 'STREET_ADDRESS1';
+update "anv".modelfield set sorder = (select max(sorder) + 2 from modelfield where form_id = 'CONTACT_FORM'), section = 'WORKFLOW_FIELDS', isEntityField = true where form_id in('LEAD_FORM', 'CONTACT_FORM') and field_id = 'STREET_ADDRESS2';
+update "anv".modelfield set sorder = (select max(sorder) + 3 from modelfield where form_id = 'CONTACT_FORM'), section = 'WORKFLOW_FIELDS', isEntityField = true where form_id in('LEAD_FORM', 'CONTACT_FORM') and field_id = 'CITY';
+update "anv".modelfield set sorder = (select max(sorder) + 4 from modelfield where form_id = 'CONTACT_FORM'), section = 'WORKFLOW_FIELDS', isEntityField = true where form_id in('LEAD_FORM', 'CONTACT_FORM') and field_id = 'STATE';
+update "anv".modelfield set sorder = (select max(sorder) + 5 from modelfield where form_id = 'CONTACT_FORM'), section = 'WORKFLOW_FIELDS', isEntityField = true where form_id in('LEAD_FORM', 'CONTACT_FORM') and field_id = 'COUNTRY';
+update "anv".modelfield set sorder = (select max(sorder) + 6 from modelfield where form_id = 'CONTACT_FORM'), section = 'WORKFLOW_FIELDS', isEntityField = true where form_id in('LEAD_FORM', 'CONTACT_FORM') and field_id = 'POST_CODE';

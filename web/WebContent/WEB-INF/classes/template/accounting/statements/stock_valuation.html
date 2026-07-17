@@ -1,0 +1,169 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style type="text/css">
+        body {
+            font-family: 'Arial', "Helvetica Neue", Helvetica, sans-serif;
+            font-weight: 300;
+            font-size: 9pt;
+            line-height: 1.4;
+        }
+
+        .align_0 {
+            text-align: left;
+        }
+        .align_1 {
+            text-align: center;
+        }
+        .align_2 {
+            text-align: right;
+        }
+
+        .profit-and-loss__rowhead {
+            text-transform: uppercase;
+            padding: 6px 4px;
+            font-size: 10pt;
+            font-weight: bold;
+        }
+
+        .profit-and-loss__rowhead2 {
+            /*text-transform: uppercase;*/
+            padding: 6px 4px 6px 10px;
+            font-size: 10pt;
+            font-weight: bold;
+        }
+
+        .profit-and-loss__subtotalrow td {
+            border-bottom: 1px solid #ced5db;
+            border-top: 1px solid #ced5db;
+            font-weight: bold;
+            font-size: 10pt;
+            margin-top: 6px;
+            margin-bottom: 6px;
+        }
+
+        .profit-and-loss__table td > div:not(.profit-and-loss__rowhead) {
+            margin-left: 12px;
+        }
+
+        .profit-and-loss__totalrow td {
+            border-bottom: 5px double #ced5db;
+            border-top: 1px solid #ced5db;
+            font-weight: bold;
+            font-size: 10pt;
+            margin-top: 6px;
+            margin-bottom: 6px;
+        }
+
+        .vertical-gap {
+            line-height: 10px;
+        }
+
+    </style>
+</head>
+
+<body>
+#set($customData = $itextGenericPdfData.customData)
+
+<div class="trial-balance__tmp">
+    <img alt="images"
+         src="https://workforcetrack.s3.amazonaws.com/000000000000/public/65159/a2113e82-397f-49fd-a58a-cdf4f4b93dff?AWSAccessKeyId=AKIAIROQMC77E5UKWBWQ"
+         style="display: none;"/>
+    #if($itextGenericPdfData.companyData.companyName == 'KPI Software Inc' or $itextGenericPdfData.companyData.companyLogoUrl == 'https://apps.kpi.com/customisation/kpi.com/images/kpilogo.png')
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="width: 88px;display: none;"/>
+    #else
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="max-width: 100%; max-height: 100%; display: none;"/>
+    #end
+
+    <table cellspacing="0" cellpadding="0" width="100%" style="font-weight: bold; font-size: 9pt;">
+        <tr>
+            <td width="100%" align="center">$itextGenericPdfData.currentDate</td>
+        </tr>
+        <tr>
+            <td align="center">$itextGenericPdfData.extraData</td>
+        </tr>
+    </table>
+    <br/>
+
+    <table class="profit-and-loss__table" cellspacing="0" cellpadding="0" style="width:100%;">
+        <tr class="thead-tr">
+            #foreach($header in $itextGenericPdfData.getListTable().getTableHeader())
+            #set($st='align_' + $header.alignment)
+            <th class="$st"  style=" font-size: 9pt; padding:8px 6px 8px 12px; white-space: nowrap; border-bottom:1px solid black;font-weight: bold;vertical-align: top;">
+                $header.getText()
+            </th>
+            #end
+        </tr>
+        <tr>
+            <td class="vertical-gap" colspan="10">&nbsp;</td>
+        </tr>
+
+        #foreach($customKey in $customData.keySet())
+        #set($customTable = $customData.get($customKey))
+        #if($customKey == 'BEGINNING_BALANCE')
+        <tr class="profit-and-loss__subtotalrow">
+            <td colspan="9">
+                <div class="profit-and-loss__rowhead2" style="text-align: left; ">$customTable.name</div>
+            </td>
+            <td>
+                <div style="text-align: right; font-size:10pt; padding:4px 4px;">$customTable.header.get('AMOUNT')</div>
+            </td>
+        </tr>
+        #elseif($customKey != 'ENDING_BALANCE')
+
+        <tr>
+            <td colspan="10">
+                <div class="profit-and-loss__rowhead2">$customTable.name</div>
+            </td>
+        </tr>
+        #foreach($value in $customTable.rows.values())
+        <tr>
+            <td>
+                <div style="text-align: left;font-size: 8pt; padding:4px 4px 4px 20px;">$value.get('NAME')</div>
+            </td>
+            <td>
+                <div style="text-align: left;font-size: 8pt; padding:4px 4px;">$value.get('ENTRY_DATE')</div>
+            </td>
+            <td>
+                <div style="text-align: left;font-size: 8pt; padding:4px 4px;">$value.get('TRANSACTION_DATE')</div>
+            </td>
+            <td>
+                <div style="text-align: left;font-size: 8pt; padding:4px 4px;">$value.get('CLIENT_NAME')</div>
+            </td>
+            <td>
+                <div style="text-align: right;font-size: 8pt; padding:4px 4px;">$value.get('NUMBER')</div>
+            </td>
+            <td>
+                <div style="text-align: right;font-size: 8pt; padding:4px 4px;">$value.get('QTY')</div>
+            </td>
+            <td>
+                <div style="text-align: right;font-size: 8pt; padding:4px 4px;">$value.get('TRANSACTION_VALUE')</div>
+            </td>
+            <td>
+                <div style="text-align: right;font-size: 8pt; padding:4px 4px;">$value.get('COST_PER_QTY')</div>
+            </td>
+            <td>
+                <div style="text-align: right;font-size: 8pt; padding:4px 4px;">$value.get('QTY_ON_HAND')</div>
+            </td>
+            <td>
+                <div style="text-align: right;font-size: 8pt; padding:4px 4px;">$value.get('BALANCE')</div>
+            </td>
+        </tr>
+        #end
+
+        #else
+        <tr class="profit-and-loss__subtotalrow">
+            <td colspan="9">
+                <div class="profit-and-loss__rowhead2" style="text-align: left; ">$customTable.name</div>
+            </td>
+            <td>
+                <div style="text-align: right; font-size:10pt; padding:4px 4px;">$customTable.header.get('AMOUNT')</div>
+            </td>
+        </tr>
+        #end
+        #end
+
+    </table>
+</div>
+</body>
+</html>

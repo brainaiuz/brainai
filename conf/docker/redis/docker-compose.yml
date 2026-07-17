@@ -1,0 +1,19 @@
+services:
+  kpi-redis:
+    extends:
+      file: compose.yml
+      service: redis
+    volumes:
+      - kpi-redis-data:/data
+    networks:
+      - kpi-network
+
+volumes:
+  kpi-redis-data:
+    name: kpi-redis-data
+
+networks:
+  kpi-network:
+    name: kpi-network
+    driver: bridge
+    external: true

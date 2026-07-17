@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head><body>
+
+<p>Дорогой $USER.firstName $USER.lastName,</a><br />
+
+<p>Пожалуйста, примите к сведению что $REPORTER.firstName $REPORTER.lastName переотправил Вам требование к расходу $RESUBMIT_DATE.
+Этот отчет был отклонен Вами $DECLINE_DATE. Детали переотправленного требования к расходу приведены ниже:</p>
+
+<p>Название отчета: $REPORT_TITLE<br />
+Дата отчета: $REPORT_START_DATE <br />
+Количество: $REPORT_AMOUNT</p>
+
+<p>PDF версия Требования к Расходу прикреплена.</p>
+
+<p>Нажмите <a href="$HOST/Accounting.html?link=$LINK&uid=$uid&cid=$companyid" title="Edit Expense Claim" target="_blank">здесь </a>
+ для просмотра Требования к Расходу где Вы также можете утвердить или отклонить его.</p>
+
+<p>Как только Вы утвердите или отклоните Требование к Расходу $REPORTER.firstName $REPORTER.lastName получит уведомление по электронной почте о статусе.</p>
+
+<p><font color='red'>* </font>Если Вы не можете нажать на ссылку, Вы можете скопировать и вставить следующий адрес в ВАш веб браузер:<br />
+$HOST/Accounting.html?link=$LINK&uid=$uid&cid=$companyid</p>
+
+<p></p>
+
+</body></html>

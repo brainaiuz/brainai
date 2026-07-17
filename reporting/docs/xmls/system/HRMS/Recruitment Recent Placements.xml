@@ -1,0 +1,33 @@
+<report>
+    <view>
+        <title>Recruitment Recent Placements</title>
+        <name>Recruitment Recent Placements</name>
+        <category>hrms</category>
+        <sqlquery>
+            <select agregateFunc="distinct">
+                <table name="Recruitment Recent Placements">
+                    <column name="id" title="id" type="number" formattype="hidden"/>
+                    <column name="candidateName" title="Candidate Name" type="string" formattype="string"/>
+                    <column name="position" title="Position" type="string" formattype="string"/>
+                    <column name="offerDate" title="Date Offered" type="date" formattype="date"
+                            customdateformat="Month DD, YYYY"/>
+                    <column name="offerStatus" title="Offer Status" type="string" formattype="string"/>
+                </table>
+            </select>
+            <from>
+                (
+                SELECT pl.id, coalesce(candid.firstName||' '||candid.lastName) candidateName, po.name as position,
+                pl.offer_date offerDate, st.name offerStatus
+                FROM "$".placement pl
+                LEFT OUTER JOIN "$".crmContact candid ON (candid.id = pl.candidate_id)
+                LEFT OUTER JOIN "$".position po ON (po.id = pl.position_id)
+                LEFT OUTER JOIN "$".reference st ON (st.id = pl.status_id)
+                WHERE pl.deleted is not true
+                ) t
+            </from>
+            <where>
+                <terms id="base" value="1=1"/>
+            </where>
+        </sqlquery>
+    </view>
+</report>

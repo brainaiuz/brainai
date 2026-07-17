@@ -1,0 +1,317 @@
+
+
+.widget--updates .widget-heading {
+  //margin-bottom: 25px;
+}
+
+.updates-list {
+  background-color: $color-base-contrast; // for gwt-cal > agenda section
+
+  .collapsible-body {
+    padding-bottom: 0;
+    border: none;
+  }
+  .collapsible-header {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    min-height: $height-widget-finder;
+    @include panel-heading-box-shadow;
+    background-color: #fff;
+
+    &.active {
+      background-color: transparent;
+      box-shadow: none;
+    }
+
+    h3 {
+      @include collapsible-arrow();
+      position: static;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-top: rem(10px);
+      padding-bottom: rem(10px);
+      margin: 0 !important;
+      font-size: rem(11px);
+      text-align: right;
+      text-transform: uppercase;
+      white-space: nowrap;
+
+      &:after {
+        position: relative;
+        top: rem(2px);
+        right: rem(-4px);
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 1.4em;
+      }
+
+      &:before {
+        top: 50%;
+        width: rem(13px);
+        height: rem(13px);
+        margin-top: rem(-7px);
+        right: rem(-7px);
+        border: rem(2px) solid $color-base-contrast;
+        background-color: $color-base-2;
+      }
+
+      .updates-list & {
+        font-size: rem(11px);
+      }
+    }
+
+    &.active h3:after {
+      @extend .ficon--keyboard-arrow-up:before;
+    }
+  }
+
+  li:not(.active) > .collapsible-header h3:before {
+    //opacity: .6;
+    background-color: $color-base-1;
+  }
+}
+
+.updates-list .collapsible-header h3,
+.updates-row__time {
+  position: relative;
+  width: $updates-time-width;
+  padding-right: $widget-row-th-pr;
+  border-right: 1px solid $color-base-0;
+  flex-shrink: 0;
+}
+
+.updates-list .collapsible-header h3:before,
+.updates-row__time:after,
+.sort-mark {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+}
+.sort-mark {
+  z-index: 5; //to put above the :after element (if both are present)
+}
+
+.updates-list .collapsible-header,
+.updates-row {
+  padding-left: $widget-padding-x;
+  padding-right: $widget-padding-x;
+
+}
+
+.updates-row {
+  position: relative;
+  display: flex;
+  @include widget-row-hover();
+
+  &--passed {
+    > * > * {
+      opacity: .4;
+    }
+    .updates-row__time:after {
+      opacity: .4;
+      background-color: $color-base-2 !important;
+    }
+  }
+
+  &__time,
+  &__img,
+  &__text{
+    //padding-top: 15px;
+    padding-top: rem(15px);
+    //padding-bottom: 15px;
+    padding-bottom: rem(15px);
+  }
+
+  &__title {
+    //font-size: rem(13px);
+    font-size: 1.0833em;
+    [class*="ficon--"] {
+      margin-right: rem(8px);
+      font-size: 1.1666em;
+      font-size: rem(14px);
+    }
+
+    .history-notes & {
+      display: flex;
+      span {
+        line-height: 1.6;
+      }
+    }
+  }
+  &__action-name {
+    //color: $widget-color-muted;
+  }
+}
+.updates-row__img {
+  flex: rem(0 0 40px);
+  margin: 0 0 0 4%;
+  overflow: hidden;
+
+  .img-group {
+    width: rem(40px);
+    height: rem(40px);
+
+    &__img {
+      overflow: hidden;
+      height: 100%;
+      img {}
+    }
+  }
+}
+.updates-row__text:not(:hover) {
+  .widget & {
+    max-height: rem(52px);
+  }
+}
+.updates-row__text {
+  padding-left: rem(20px);
+  padding-right: rem(20px);
+  .widget & {
+    padding-left: 4%;
+    padding-right: 3%;
+  }
+  overflow: hidden; // for text-overflow: ellipsis, see below
+
+  .history-notes & {
+    overflow: visible;
+
+  }
+
+  @include base-transition(max-height);
+
+  //transition: height 1s ease, max-height 1s ease;
+  .history-notes &,
+  .updates-row:hover & {
+    max-height: rem(200px);
+
+    .agenda & {
+      max-height: initial;
+    }
+  }
+
+  //.widget--row-links &,
+  .widget--updates-links & {
+    padding-right: 4%;
+  }
+}
+.updates-row__info {
+  //font-size: rem(12px);
+  font-size: .923em;
+  //animation: slideEllipsis 1s;
+
+  .widget & {
+    @include txtTruncate();
+  }
+  .updates-row:hover & {
+    .widget & {
+      white-space: normal !important;
+    }
+  }
+}
+@keyframes slideEllipsis {
+  from {
+    white-space: nowrap;
+  }
+  to {
+    white-space: normal;
+  }
+}
+
+.updates-row__time {
+  text-align: right;
+  //font-size: rem(9px);
+  font-size: .75em;
+  text-transform: uppercase;
+
+  span {
+    display: block;
+    padding-top: rem(3px);
+  }
+
+  .sort-mark,
+  &:after {
+    //top: 1.6em;
+    top: rem(19px);
+    right: rem(-5px);
+    @include historyPoint;
+
+    .updates-row:hover & {
+      border-color: #fff;
+    }
+  }
+  &:after {
+    .widget--updates-unavailable & {
+      display: none;
+    }
+  }
+}
+
+.updates-row__info .cat-label,
+.updates-row__title [class*="ficon--"] {
+  .updates-cat--submited &,
+  .updates-cat--waiting &,
+  .updates-cat--edited & {
+    color: $color-edited;
+  }
+
+  .updates-cat--terminated &,
+  .updates-cat--refunded &,
+  .updates-cat--rejected &,
+  .updates-cat--deleted & {
+    color: $color-deleted;
+  }
+
+  .updates-cat--converted &,
+  .updates-cat--received &,
+  .updates-cat--completed &,
+  .updates-cat--approved &,
+  .updates-cat--sent & {
+    color: $color-approved;
+  }
+
+  .updates-list--agenda &,
+  //.row-cat--red &,
+  .updates-cat--uploaded &,
+  .updates-cat--imported &,
+  .updates-cat--assigned &,
+  .updates-cat--paid &,
+  .updates-cat--added & {
+    color: $color-added;
+  }
+}
+
+.updates-row__time .sort-mark,
+.updates-row__time:after {
+  .updates-cat--submited &,
+  .updates-cat--waiting &,
+  .updates-cat--edited & {
+    background-color: $color-edited;
+  }
+
+  .updates-cat--terminated &,
+  .updates-cat--refunded &,
+  .updates-cat--rejected &,
+  .updates-cat--deleted & {
+    background-color: $color-deleted;
+  }
+
+  .updates-cat--converted &,
+  .updates-cat--received &,
+  .updates-cat--completed &,
+  .updates-cat--approved &,
+  .updates-cat--sent & {
+    background-color: $color-approved;
+  }
+
+  .updates-list--agenda &,
+  //.row-cat--red &,
+  .updates-cat--uploaded &,
+  .updates-cat--imported &,
+  .updates-cat--assigned &,
+  .updates-cat--paid &,
+  .updates-cat--added & {
+    background-color: $color-added;
+  }
+}

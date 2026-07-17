@@ -1,0 +1,679 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <style type="text/css">
+        @page {
+            size: 8.3in 11.7in;
+            margin: 20px 15px 20px 15px;
+            padding: 0;
+        }
+
+        body {
+            font-family: Times New Roman;
+            font-size: 11pt;
+        }
+
+        td {
+            padding: 3px;
+        }
+
+        .title {
+            font-size: 9pt;
+        }
+
+        .name {
+            font-size: 7pt;
+        }
+
+        .value {
+            font-size: 8pt;
+        }
+
+        .personalValue {
+            font-size: 7pt;
+        }
+
+        .nameCapital {
+            text-transform: capitalize;
+        }
+
+        .specificLI {
+            list-style: none;
+        }
+
+        .tble {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        #pagecount:before {
+            content: counter(pages);
+        }
+
+        b,
+        p,
+        td,
+        span,
+        caption,
+        hr,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: Times New Roman;
+        }
+
+        table {
+            -fs-table-paginate: paginate;
+        }
+
+    </style>
+</head>
+<body>
+<div>
+    <img alt="images"
+         src="https://workforcetrack.s3.amazonaws.com/000000000000/public/65159/a2113e82-397f-49fd-a58a-cdf4f4b93dff?AWSAccessKeyId=AKIAIROQMC77E5UKWBWQ"
+         style="display: none;"/>
+    #if($itextGenericPdfData.companyData.companyName == 'KPI Software Inc' or
+    $itextGenericPdfData.companyData.companyLogoUrl == 'https://apps.kpi.com/customisation/kpi.com/images/kpilogo.png')
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="width: 88px; display: none;"/>
+    #else
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl"
+         style="max-width: 100%; max-height: 100%; display: none;"/>
+    #end
+
+    #set($itemtable = $itextGenericPdfData.baseInvoice.getCustomProductTable().rows)
+    #set($komissiyaRaisi = $itextGenericPdfData.getCustomData().get("CUSTOM_FIELDS").rows.get("Komissiya tarkibi Komissii Raisi").get("COLUMN_VALUE"))
+    #set($komissiyaAzolari = $itextGenericPdfData.getCustomData().get("CUSTOM_FIELDS").rows.get("Komissiya a’zolari").get("COLUMN_VALUE"))
+    #set($komissiyaAzolari = $komissiyaAzolari.replace('&','&amp;'))
+    #set($komissiyaAzolariArr = $komissiyaAzolari.split(";"))
+
+
+    #set($komissiyaAzolari = $itextGenericPdfData.getCustomData().get("CUSTOM_FIELDS").rows.get("Komissiya a’zolari").get("COLUMN_VALUE"))
+    #set($komissiyaAzolari = $komissiyaAzolari.replace('&','&amp;'))
+    #set($komissiyaAzolariArr = $komissiyaAzolari.split(","))
+
+    #set($komisiyaKotibi = $itextGenericPdfData.getCustomData().get("CUSTOM_FIELDS").rows.get("Komissiya kotibi").get("COLUMN_VALUE"))
+    #set($createdDate = $itextGenericPdfData.baseInvoice.customNumberAndDatesTable.rows.get("Date").get("COLUMN_VALUE"))
+    #set($createdDateRu = $itextGenericPdfData.baseInvoice.customNumberAndDatesTable.rows.get("DATE_RU").get("COLUMN_VALUE"))
+    #set($rotationNumber = $itextGenericPdfData.baseInvoice.customNumberAndDatesTable.rows.get("Number").get("COLUMN_VALUE"))
+    #set($info = $createdDateRu.split("-"))
+    #set($forcounter = 0)
+    #foreach($row in $info)
+    #set($forcounter = $forcounter + 1)
+    #if($forcounter == 1)
+    #set($creationDay = $row)
+    #elseif($forcounter == 2)
+    #set($creationMonth = $row)
+    #else
+    #set($creationYear = $row)
+    #end
+    #end
+
+    #if($creationMonth == "01")
+    #set($creationMonthInWords = "yanvardan")
+    #end
+    #if($creationMonth == "02")
+    #set($creationMonthInWords = "fevraldan")
+    #end
+    #if($creationMonth == "03")
+    #set($creationMonthInWords = "martdan")
+    #end
+    #if($creationMonth == "04")
+    #set($creationMonthInWords = "apreldan")
+    #end
+    #if($creationMonth == "05")
+    #set($creationMonthInWords = "maydan")
+    #end
+    #if($creationMonth == "06")
+    #set($creationMonthInWords = "iyundan")
+    #end
+    #if($creationMonth == "07")
+    #set($creationMonthInWords = "iyuldan")
+    #end
+    #if($creationMonth == "08")
+    #set($creationMonthInWords = "avgustdan")
+    #end
+    #if($creationMonth == "09")
+    #set($creationMonthInWords = "sentyabrdan")
+    #end
+    #if($creationMonth == "10")
+    #set($creationMonthInWords = "oktabrdan")
+    #end
+    #if($creationMonth == "11")
+    #set($creationMonthInWords = "noyabrdan")
+    #end
+    #if($creationMonth == "12")
+    #set($creationMonthInWords = "dekabrdan")
+    #end
+
+    #set($dateInWords = $creationYear + " -yil " + $creationDay + "-" + $creationMonthInWords)
+    <div style="margin-top: 28px; font-size: 11pt; text-align: center;">
+        <strong> #foreach($row in $itemtable)
+            $row.get("CURRENT_DEPARTMENT_UZ").replace('&', '&amp;')
+            #end xodimlarining #foreach($row in $itemtable)
+            $row.get("NEW_DEPARTMENT_UZ").replace('&', '&amp;') #end
+
+        </strong>
+        <strong>ga o’tkazish bo`yicha og’zaki suhbatining komissiya</strong>
+        <br/>
+        <strong style="font-size: 13pt; margin-top: 4px;">BAYONNOMASI</strong>
+        <hr style="border: solid;"/>
+
+        <table style="margin-top: 4px; font-size: 12pt;" width="100%">
+            <tr>
+                <td style="text-align: left;" width="85%">
+                    <strong>Komissiya tarkibi Komissia Raisi:</strong>
+                    <br/>
+                    Komissiya tarkibi Komissia Raisi : #if($komissiyaRaisi.replaceAll('&','&amp;') != '')$komissiyaRaisi.replaceAll('&','&amp;')#end
+                    <br/>
+                    <br/>
+                    <br/>
+                    <strong>Komissiya a’zolari:</strong>
+                    <br/>
+                    #if($komissiyaAzolariArr !='')
+                    #foreach($row in $komissiyaAzolariArr)
+                    #set($ccounter = 0)
+                    #set($employeeInfo = $row.split("--"))
+                    #foreach($erow in $employeeInfo)
+                    #set($ccounter = $ccounter + 1)
+                    #if($ccounter == 1)
+                    #set($komissiyaAzosiUzbekName = $erow)
+                    #elseif($ccounter == 2)
+                    #set($komissiyaAzosiEngName = $erow.replaceAll('&','&amp;'))
+                    #else
+                    #set($komissiyaAzosiPositions = $erow)
+                    #set($posInfo = $komissiyaAzosiPositions.split(";"))
+                    #foreach($prow in $posInfo)
+                    #if($ccounter == 3)
+                    #set($komissiyaEngPos = $prow.replaceAll('&','&amp;'))
+                    #set($ccounter = $ccounter + 1)
+                    #else
+                    #set($komissiyaUzbPos = $prow.replaceAll('&','&amp;'))
+                    #end
+                    #end
+                    #end
+                    #end
+                    $itextGenericPdfData.crylToLat($komissiyaUzbPos.replaceAll('&','&amp;')) : $komissiyaAzosiUzbekName.replaceAll('&','&amp;')<br/>
+                    #end
+                    #end
+                    <br/>
+
+                    <strong>Komissiya kotibi:</strong>
+                    <br/>
+                    Komissiya kotibi: #if($komisiyaKotibi != '')$komisiyaKotibi#end
+                    <br/> <br/>
+                    <strong>Baxolash:</strong><br/>
+                    86 va yuqori - "lavozimiga munosib yoki lavozimi va malaka toifasini ko'tarish imkoniyati
+                    mavjud"<br/>
+                    72-85 - "lavozimiga munosib"<br/>
+                    56-71 - "shartli ravishda lavozimiga munosib"<br/>
+                    0-55 - "lavozimiga munosib emas"
+                </td>
+                <td width="15%">
+
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div style="page-break-after: always;"></div>
+    <div style="margin-top: 20px; text-align: center; vertical-align: top; page-break-after: always;">
+        <strong style="text-align: center; font-size: 13pt;">BAYONNOMA NATIJALARI</strong>
+        <br/>
+        <br/>
+        <table cellspacing="0" class="tble" style="vertical-align: top; text-align: center; font-size: 10pt;"
+               width="100%">
+            <thead>
+            <th class="tble" style=" padding: 2px;" width="5%">
+                №
+            </th>
+            <th class="tble" style=" padding: 2px;" width="20%">
+                F. I. Sh
+            </th>
+            <th class="tble" style=" padding: 2px;" width="20%">
+                Lavozimi
+            </th>
+            <th class="tble" style=" padding: 2px;" width="12%">
+                Attestasiya natijasi
+            </th>
+            <th class="tble" style=" padding: 2px;" width="20%">
+                Munosib ravishda o'zgarayotgan lavozim va toifa darajasi
+            </th>
+            </thead>
+
+            #set($counter = 1)
+            #foreach($row in $itextGenericPdfData.baseInvoice.getCustomProductTable().rows)
+
+            <tr>
+                <td class="tble" style=" padding: 2px;">$counter</td>
+                #set($counter = $counter + 1)
+
+                <td class="tble" style=" padding: 2px;">$row.get("EMPLOYEE_LASTNAME") $row.get("EMPLOYEE_FIRSTNAME")
+                    $row.get("EMPLOYEE_MIDDLENAME")
+                </td>
+                <td class="tble" style=" padding: 2px;">$row.get("CURRENT_POSITION_UZ").replaceAll('&','&amp;')</td>
+                <td class="tble" style=" padding: 2px;">$row.get("Решение аттестационной комиссии").replaceAll('&','&amp;')
+                </td>
+                <td class="tble" style=" padding: 2px;">
+                    #if($row.get("NEW_POSITION_UZ") != '')
+                    $row.get("NEW_POSITION_UZ").replaceAll('&','&amp;') #elseif($row.get("2") != '')
+                    $row.get("Разряд2") #end
+                </td>
+            </tr>
+            #end
+        </table>
+    </div>
+
+
+    <div style="margin-top: 20px; text-align: center; vertical-align: top; page-break-after: always;">
+        <strong style="text-align: center; font-size: 13pt;">BAYONNOMA NATIJALARI</strong>
+        <br/>
+        <br/>
+        <table cellspacing="0" class="tble" style="vertical-align: top; text-align: center; font-size: 10pt;"
+               width="100%">
+            <tr>
+                <th class="tble" colspan="1" rowspan="2" style=" padding: 2px;" width="5%">
+                    #
+                </th>
+                <th class="tble" colspan="1" rowspan="2" style=" padding: 2px;" width="15%">
+                    F. I. Sh
+                </th>
+                <th class="tble" colspan="1" rowspan="2" style=" padding: 2px;" width="15%">
+                    Lavozimi va darajasi
+                </th>
+                <th class="tble" colspan="2" rowspan="1" style=" padding: 2px;" width="30%">
+                    Ish tajribasi (oy)
+                </th>
+                <th class="tble" colspan="1" rowspan="2" style=" padding: 2px;" width="30%">
+                    Taklif qilinayotgan lavozim va daraja
+                </th>
+            </tr>
+            <tr>
+                <th class="tble" colspan="1" rowspan="1" style="padding: 2px;">
+                    Tarmoqda
+                </th>
+                <th class="tble" colspan="1" rowspan="1" style="padding: 2px;">
+                    Korxonada
+                    <br/>(UzGTL)
+                </th>
+            </tr>
+            #set($miniCounter = 0)
+            #foreach($row in $itextGenericPdfData.baseInvoice.getCustomProductTable().rows)
+            #set($miniCounter = $miniCounter + 1)
+            <tr>
+                <td class="tble" style=" padding: 2px;"> $miniCounter</td>
+                <td class="tble" style=" padding: 2px;">$row.get("EMPLOYEE_LASTNAME") $row.get("EMPLOYEE_FIRSTNAME")
+                    $row.get("EMPLOYEE_MIDDLENAME")
+                </td>
+                <td class="tble" style=" padding: 2px;">$row.get("CURRENT_POSITION_UZ").replaceAll('&','&amp;')</td>
+                <td class="tble" style=" padding: 2px;">$row.get("Tarmoqda")</td>
+                <td class="tble" style=" padding: 2px;">$row.get("KORXONADA")</td>
+                <td class="tble" style=" padding: 2px;">#if($row.get("NEW_POSITION_UZ") != '')
+                    $row.get("NEW_POSITION_UZ").replaceAll('&','&amp;') #elseif($row.get("2") != '')
+                    $row.get("Разряд2") #end
+                </td>
+            </tr>
+            #end
+        </table>
+    </div>
+    <div style="page-break-after: always;">
+        <table
+                cellpadding="0"
+                cellspacing="0"
+                style="
+      font-size: 11pt;
+      background-image: url('https://hrm.uzgtl.com/images/pattern.png');
+    "
+                width="100%"
+        >
+            <tr>
+                <td
+                        style="
+          font-weight: bold;
+          text-align: center;
+          font-size: 11pt;
+          padding: 15px 0;
+        "
+                        width="40%"
+                >
+        <span style="font-size: 12pt; line-height: 18pt"
+        >"O`zbekneftgaz" AJ <br/>
+          "Uzbekistan GTL" </span
+        ><br/>
+                    <span style="font-size: 9pt; line-height: 18pt"
+                    >ma`suliyati cheklangan jamiyati</span
+                    ><br/>
+                    <span style="font-size: 14pt; line-height: 18pt">BUYRUG`I</span>
+                </td>
+                <td align="center">
+                    <img
+                            src="https://hrm.uzgtl.com/images/logouzgtl.png"
+                            style="height: 110px; width: auto"
+                    />
+                </td>
+                <td
+                        style="
+          font-weight: bold;
+          font-size: 11pt;
+          text-align: center;
+          padding: 15px 0;
+        "
+                        width="40%"
+                >
+                    <span style="font-size: 14pt; line-height: 18pt">ORDER</span>
+                    <br/>
+                    <span style="font-size: 12pt; line-height: 18pt">of "Uzbekistan GTL" </span>
+                    <br/>
+                    <span style="font-size: 9pt; line-height: 18pt">Limited Liability Company</span>
+                    <br/>
+                    <span style="font-size: 12pt; line-height: 18pt">"Uzbekneftgaz" JSC</span>
+                </td>
+            </tr>
+            <tr>
+                <td
+                        colspan="3"
+                        style="
+          background-image: url('https://hrm.uzgtl.com/images/pattern2.png');
+          height: 10px;
+        "
+                ></td>
+            </tr>
+        </table>
+        <br/>
+        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <tr>
+                <td align="center" width="100%">
+                    <b>
+                        #set($creationData = $creationYear + "." + $creationMonth + "." +$creationDay)
+                        $creationData HR/ $rotationNumber -sonli</b>
+                </td>
+            </tr>
+            <tr>
+                <td align="center"><i>Xodimlarni boshqa lavozimga tayinlash (o'tkazish) to'g'risida</i></td>
+            </tr>
+            <tr>
+                <td align="center"><i>On transfer of the employees</i></td>
+            </tr>
+        </table>
+
+        <table
+                border="0"
+                cellpadding="0"
+                cellspacing="0"
+                style="margin-top: 20px"
+                width="100%"
+        >
+            <tr>
+                <td align="center" width="50%">
+                    <b>BUYURAMAN: </b>
+                </td>
+                <td align="center" width="50%">
+                    <b>I HEREBY ORDER:</b>
+                </td>
+            </tr>
+        </table>
+
+        #set($miniCounter = 0)
+        #foreach($row in $itextGenericPdfData.baseInvoice.getCustomProductTable().rows)
+        #set($miniCounter = $miniCounter + 1)
+        <table
+                cellpadding="0"
+                cellspacing="0"
+                style="margin-top: 5px"
+                width="100%"
+        >
+            <tr>
+                <td align="center" valign="top" width="5%"> $miniCounter</td>
+                <td style="text-align: justify" valign="top" width="43%">
+                    $dateInWords $row.get("CURRENT_DEPARTMENT_UZ").replaceAll('&','&amp;') $row.get("Разряд2") -darajali
+                    $row.get("CURRENT_POSITION_UZ").replaceAll('&','&amp;') $row.get("EMPLOYEE_LASTNAME")
+                    $row.get("EMPLOYEE_FIRSTNAME") $row.get("EMPLOYEE_MIDDLENAME").replaceAll('&','&amp;')
+                    $row.get("NEW_DEPARTMENT_UZ").replaceAll('&','&amp;') $row.get("Разряд22").replaceAll('&','&amp;')-darajali
+                    $row.get("NEW_POSITION_UZ").replaceAll('&','&amp;') lavozimiga o'tkazilsin.
+                </td>
+                <td width="4%"></td>
+                <td align="center" valign="top" width="5%"> $miniCounter</td>
+                <td style="text-align: justify" valign="top" width="43%">
+                    Transfer $row.get("Имя (eng)") $row.get("Фамилия (eng)"), the #if($row.get("Разряд2") ==
+                    '1')1st#elseif($row.get("Разряд2") == '2')2nd#elseif($row.get("Разряд2") == '3')3rd#else
+                    $row.get("Разряд2") th#end grade $row.get("CURRENT_POSITION").replaceAll('&','&amp;') in the
+                    $row.get("CURRENT_DEPARTMENT").replaceAll('&','&amp;') to the #if($row.get("Разряд22") ==
+                    '1')1st#elseif($row.get("Разряд22") == '2')2nd#elseif($row.get("Разряд22") ==
+                    '3')3rd#else$row.get("Разряд22")th#end grade $row.get("CURRENT_POSITION").replaceAll('&','&amp;') of
+                    $row.get("CURRENT_DEPARTMENT").replaceAll('&','&amp;') from $createdDate.
+                </td>
+            </tr>
+        </table>
+        #end
+        #set($dataSize = $itextGenericPdfData.baseInvoice.getCustomProductTable().rows.size())
+        <table
+                cellpadding="0"
+                cellspacing="0"
+                style="margin-top: 4px"
+                width="100%"
+        >
+            #set($dataSize = $dataSize + 1)
+            <tr>
+                <td align="center" valign="top" width="5%">$dataSize.</td>
+                <td style="text-align: justify" valign="top" width="43%">
+                    Kompaniya Shtatlar jadvali va "Mehnatga haq to'lash tartibi to'g'risida"gi Nizomga muvofiq ish haqi
+                    belgilansin.
+                </td>
+                <td width="4%"></td>
+                <td align="center" valign="top" width="5%">$dataSize.</td>
+                <td style="text-align: justify" valign="top" width="43%">
+                    Establish salary&amp;base addition according to the Staff member list&amp;Remuneration policy of
+                    Company.
+                </td>
+            </tr>
+        </table>
+        <table
+                cellpadding="0"
+                cellspacing="0"
+                style="margin-top: 4px"
+                width="100%"
+        >
+            #set($dataSize = $dataSize + 1)
+            <tr>
+                <td align="center" valign="top" width="5%">$dataSize.</td>
+                <td style="text-align: justify" valign="top" width="43%">
+                    Xodimlarni ushbu buyruq bilan tanishtirilsin.
+                </td>
+                <td width="4%"></td>
+                <td align="center" valign="top" width="5%">$dataSize.</td>
+                <td style="text-align: justify" valign="top" width="43%">
+                    Familiarize the employees with this order.
+                </td>
+            </tr>
+        </table>
+        <table
+                cellpadding="0"
+                cellspacing="0"
+                style="margin-top: 10px"
+                width="100%"
+        >
+            <tr>
+                <td width="5%"></td>
+                <td valign="top" width="43%">
+                    <b>Asos:</b>
+                    Xodimlarni mehnat shartnomaga qo'shimcha kelishuvlari, attestasiya komissiyasi yig'ilishining
+                    bayonnomasi.
+                    <br/>
+                    <br/>
+                    <br/>
+                </td>
+                <td width="4%"></td>
+                <td width="5%"></td>
+                <td valign="top" width="43%">
+                    <b>Basis:</b>
+                    Supplementary agreements to the Employment agreements, minutes of the meeting of the attestation
+                    commission.
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    #set($miniCounter = 0)
+    #foreach($row in $itextGenericPdfData.baseInvoice.getCustomProductTable().rows)
+    #set($miniCounter = $miniCounter + 1)
+
+    <div style="page-break-after: always;"></div>
+    <div class="text" style="padding-top: 0px; margin-top: 20px;">
+        <div
+                style="
+        text-align: center;
+        font-size: 12pt;
+        margin-bottom: 5px;
+        padding: 1px;"
+                width="100%">
+            <strong>UZ-GTL-HR- $row.get("Табельный Номер") -SONLI MEHNAT SHARTNOMASIGA
+                $rotationNumber -SONLI QO'SHIMCHA KELISHUV</strong>
+        </div>
+        <table style="margin-bottom: 4px" width="100%">
+            <tr>
+                <td style="padding: 0px; margin: 0px" width="15%">Toshkent sh.</td>
+                <td style="padding: 0px; margin: 0px" width="70%"></td>
+                <td style="padding: 0px; margin: 0px" width="15%">$creationData y.</td>
+            </tr>
+        </table>
+        <div>
+            <p style="margin: 0px; padding: 0px">
+                <strong style="font-size: 12pt">"UZBEKISTAN GTL" MCHJ,</strong> bir
+                nomidan ustav asosida faoliyat yurituvchi Bosh direktor F.R. Abdurasulov (keyingi o'rinlarda "Ish
+                beruvchi" deb ataladi), bir tomondan va
+                <strong style="font-size: 12pt">$row.get("EMPLOYEE_LASTNAME") $row.get("EMPLOYEE_FIRSTNAME")
+                    $row.get("EMPLOYEE_MIDDLENAME").replaceAll('&','&amp;')</strong>
+                (keyingi o'rinlarda "Xodim" deb ataladi), ikkinchi tomondan, birgalikda "Tomonlar" deb nomlanadi,
+                O'zbekiston Respublikasining amaldagi mehnat qonunchiligiga asoslanib, UZ-GTL-HR- $row.get("Табельный Номер") -sonli mehnat shartnomasiga (keyingi o'rinlarda "Mehnat shartnomasi" deb ataladi)
+                $rotationNumber -sonli qo'shimcha kelishuvni quyidagilar haqida tuzdilar:
+            </p>
+            <table style="margin-top: 10px;" width="100%">
+                <tr>
+                    <td style="text-align: left; vertical-align: top;" width="8%">
+                        1.
+                    </td>
+                    <td style="text-align: left; vertical-align: top;" width="92%">
+                        Mehnat shartnomasining 1.1-bandi quyidagi tahrirda bayon qilinsin:
+                        <i>«1.1. Xodim asosiy ish joyi bo'yicha $row.get("CURRENT_DEPARTMENT").replaceAll('&','&amp;')
+                            $row.get("Разряд22")-darajali $row.get("CURRENT_POSITION").replaceAll('&','&amp;') lavozimiga
+                            ishga qabul qilinadi».</i>
+                        <br/>
+                        Tomonlar o'rtasida ushbu $rotationNumber -sonli qo'shimcha kelishuvga zid bo'lgan barcha ilgari
+                        erishilgan kelishuvlar ko'shimcha kelishuv kuchga kirgan paytdan boshlab o'z kuchini yo'qotadi.
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: left; vertical-align: top;" width="8%">
+                        2.
+                    </td>
+                    <td style="text-align: left; vertical-align: top;" width="92%">
+                        Ushbu $rotationNumber -sonli qo'shimcha kelishuv mehnat shartnomasining ajralmas qismi
+                        hisoblanadi va $dateInWords boshlab kuchga kiradi.
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: left; vertical-align: top;" width="8%">
+                        3.
+                    </td>
+                    <td style="text-align: left; vertical-align: top;" width="92%">
+                        Ushbu $rotationNumber -sonli qo'shimcha kelishuv 2 (ikki) nusxada tuzilgan bo'lib, har bir nusxa
+                        bir xil yuridik kuchga ega.
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: left; vertical-align: top;" width="8%">
+                        4.
+                    </td>
+                    <td style="text-align: left; vertical-align: top;" width="92%">
+                        Tomonlarning imzosi:
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div
+                style="margin: 0px; padding: 0px; text-align: center; margin-top: 10px"
+        >
+            <table
+                    style="border: dashed rgb(100, 100, 100); padding: 1px; margin: 0px; border-bottom: none;"
+                    width="100%"
+            >
+                <tr>
+                    <td
+                            style="
+          border-right: dashed rgb(100, 100, 100);
+          border-bottom: dashed rgb(100, 100, 100);
+          text-align: center;
+          font-size: 11pt;
+          vertical-align: baseline;
+        "
+                            width="50%"
+                    >
+                        <strong>Ish beruvchi</strong><br/>
+                        <strong>«UZBEKISTAN GTL» MCHJ</strong><br/>
+                        <br/>
+                        Manzil: 100060, Toshkent sh., Yashnobod tumani,<br/>
+                        Farg'ona yo'li ko'chasi, 7-b.<br/>
+                        <br/>
+                        <strong>Bosh direktor</strong><br/>
+                        <strong>Abdurasulov F.R.</strong><br/>
+                        <br/>
+                        <div align="center" valign="middle">
+                            <img
+                                    align="center"
+                                    alt="QrCode"
+                                    height="120px"
+                                    src="$approver_urll"
+                                    valign="middle"
+                                    width="120px"
+                            />
+                        </div>
+                    </td>
+                    <td
+                            style="
+          text-align: center;
+          font-size: 11pt;
+          vertical-align: baseline;
+          border-bottom: dashed rgb(100, 100, 100);
+        "
+                            width="50%"
+                    >
+                        <strong>Xodim:</strong><br/>
+                        <strong>$row.get("EMPLOYEE_LASTNAME") $row.get("EMPLOYEE_FIRSTNAME")
+                            $row.get("EMPLOYEE_MIDDLENAME").replaceAll('&','&amp;')</strong><br/>
+                        Manzil: #if($row.get("LIVING_LOCATION") != "") $row.get("LIVING_LOCATION") #end <br/>
+                        Pasport ma'lumotlari: $row.get("Серия Пасспорта") $row.get("PASSPORT_NUMBER") $row.get("Кем выдан документ"), $row.get("PASSPORT_ISSUE_DATE") y.
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <div align="center" valign="middle">
+                            <img
+                                    align="center"
+                                    alt="QrCode"
+                                    height="120px"
+                                    src="$approver_urll"
+                                    valign="middle"
+                                    width="120px"
+                            />
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    #end
+
+
+</div>
+</body>
+</html>

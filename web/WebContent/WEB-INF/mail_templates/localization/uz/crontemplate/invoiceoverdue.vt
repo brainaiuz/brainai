@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+
+<p>Дорогой $username,</p>
+
+<p>Пожалуйста, примите к сведению что Ваша счет-фактура просрочена:</p>
+
+<table border="0" width="100%" cellspacing="0" style="border: solid 1px #365F91;color:#365F91;margin-top:20px;">
+    <tr>
+        <td bgcolor="#FFFFFF" style="border: solid 1px #365F91;width:50px;text-align:center;"><b>Номер счет-фактуры</b></td>
+        <td bgcolor="#FFFFFF" style="border: solid 1px #365F91;width:50px;text-align:center;"><b>Дата счет-фактуры</b></td>
+        <td bgcolor="#FFFFFF" style="border: solid 1px #365F91;width:50px;text-align:center;"><b>Срок</b></td>
+        <td bgcolor="#FFFFFF" style="border: solid 1px #365F91;width:50px;text-align:center;"><b>Клиент</b></td>
+        <td bgcolor="#FFFFFF" style="border: solid 1px #365F91;width:50px;text-align:center;"><b>Общее количество</b></td>
+        <td bgcolor="#FFFFFF" style="border: solid 1px #365F91;width:50px;text-align:center;"><b>Выплаченная сумма</b></td>
+        <td bgcolor="#FFFFFF" style="border: solid 1px #365F91;width:50px;text-align:center;"><b>&nbsp;&nbsp;&nbsp;&nbsp;</b></td>
+    </tr>
+    #foreach($invoice in $invoices)
+    <tr>
+        <td bgcolor="#FFFFFF" style="border: solid 1pt; width:50px;text-align:left; font-color:#000000;">$invoice.getInvoiceNumber()</td>
+        <td bgcolor="#FFFFFF" style="border: solid 1pt; width:50px;text-align:center; font-color:#000000;">$invoice.getInvoiceDateAsString()</td>
+        <td bgcolor="#FFFFFF" style="border: solid 1pt; width:50px;text-align:center; font-color:#000000;">$invoice.getDueDateAsString()</td>
+        <td bgcolor="#FFFFFF" style="border: solid 1pt; width:50px;text-align:left; font-color:#000000;">$invoice.getClientName()</td>
+        <td bgcolor="#FFFFFF" style="border: solid 1pt; width:50px;text-align:center; font-color:#000000;">$invoice.getTotalAsString()</td>
+        <td bgcolor="#FFFFFF" style="border: solid 1pt; width:50px;text-align:center; font-color:#000000;">$invoice.getPaymentsAsString()</td>
+        <td bgcolor="#FFFFFF" style="border: solid 1pt; width:50px;text-align:center; font-color:#000000;"><a href="$host/Accounting.html?link=$invoice.getInvoiceURL()" title="View Overdue Invoice">Обзор</a></td>
+    </tr>
+    #end
+</table>
+<p>Нажмите <a href="$host/Accounting.html?link=$link" title="View Overdue Invoices List">здесь</a>
+для просмотра списка просроченных счет-фактур.</p>
+<p>* Если Вы не можете нажать на ссылку, Вы можете скопировать и вставить следующий адрес в Ваш веб браузер: </p>
+<p><span style="color: #0033FF">$host/Accounting.html?link=$link</span></p>
+
+</body>
+</html>

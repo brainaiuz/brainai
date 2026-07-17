@@ -1,0 +1,7 @@
+<module>
+
+    <inherits name='com.edatasite.workforce.gwt.core.Core'/>
+    <inherits name='com.edatasite.workforce.gwt.timesheet.Timesheet'/>
+    <inherits name="com.edatasite.workforce.gwt.ganttchart.GanttChart"/>
+    <inherits name="com.edatasite.workforce.gwt.importfile.ImportFile"/>
+</module>

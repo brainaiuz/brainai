@@ -1,0 +1,83 @@
+UPDATE "anv".form_property
+SET settingsjsondata = jsonb_insert(
+        settingsjsondata::jsonb,
+        '{-1}',
+        '{
+          "code": "GOAL_ASSIGNEES",
+          "title": "Assignees",
+          "aliasName": "GOAL_ASSIGNEES",
+          "changed": false,
+          "required": true,
+          "widget": "Unknown",
+          "selectedId": null,
+          "defaultValue": "",
+          "disabled": false
+        }'::jsonb,
+        true)
+WHERE form_id = 'BUSINESS_GOAL_FORM'
+  AND NOT EXISTS (SELECT 1
+                  FROM jsonb_array_elements(settingsjsondata::jsonb) AS element
+                  WHERE element ->> 'code' = 'GOAL_ASSIGNEES');
+
+UPDATE "anv".form_property
+SET settingsjsondata = jsonb_insert(
+        settingsjsondata::jsonb,
+        '{-1}',
+        '{
+          "code": "ATTACHMENTS",
+          "title": "Attachments",
+          "aliasName": "ATTACHMENTS",
+          "changed": false,
+          "required": false,
+          "widget": "Unknown",
+          "selectedId": null,
+          "defaultValue": "",
+          "disabled": false
+        }'::jsonb,
+        true)
+WHERE form_id = 'BUSINESS_GOAL_FORM'
+  AND NOT EXISTS (SELECT 1
+                  FROM jsonb_array_elements(settingsjsondata::jsonb) AS element
+                  WHERE element ->> 'code' = 'ATTACHMENTS');
+
+UPDATE "anv".form_property
+SET settingsjsondata = jsonb_insert(
+        settingsjsondata::jsonb,
+        '{-1}',
+        '{
+          "code": "CRM_NOTE",
+          "title": "Notes",
+          "aliasName": "NOTE",
+          "changed": false,
+          "required": false,
+          "widget": "Unknown",
+          "selectedId": null,
+          "defaultValue": "",
+          "disabled": false
+        }'::jsonb,
+        true)
+WHERE form_id = 'BUSINESS_GOAL_FORM'
+  AND NOT EXISTS (SELECT 1
+                  FROM jsonb_array_elements(settingsjsondata::jsonb) AS element
+                  WHERE element ->> 'code' = 'CRM_NOTE');
+
+UPDATE "anv".form_property
+SET settingsjsondata = jsonb_insert(
+        settingsjsondata::jsonb,
+        '{-1}',
+        '{
+          "code": "LINKS",
+          "title": "Links",
+          "aliasName": "LINKS",
+          "changed": false,
+          "required": false,
+          "widget": "Unknown",
+          "selectedId": null,
+          "defaultValue": "",
+          "disabled": false
+        }'::jsonb,
+        true)
+WHERE form_id = 'BUSINESS_GOAL_FORM'
+  AND NOT EXISTS (SELECT 1
+                  FROM jsonb_array_elements(settingsjsondata::jsonb) AS element
+                  WHERE element ->> 'code' = 'LINKS');

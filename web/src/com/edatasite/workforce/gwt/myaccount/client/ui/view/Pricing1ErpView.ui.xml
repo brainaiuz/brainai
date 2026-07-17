@@ -1,0 +1,693 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui' xmlns:components="urn:import:com.edatasite.workforce.gwt.core.client.ui.components">
+    <ui:style>
+
+        .full-main {
+            float: left;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+
+        .title {
+            margin: 0 0 30px;
+            padding: 0 0 15px;
+            color: #3b3b3b;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 25px;
+            font-weight: normal;
+        }
+
+        #main section {
+            margin: 0 0 40px;
+            padding: 10px 0 0;
+        }
+
+        .kpi-pricing h1.planSubTitle {
+            font-size: 20px;
+            line-height: 20px;
+            margin-bottom: 15px;
+            margin-top: 0;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .col-md-12 {
+            width: 100%;
+        }
+
+        .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
+            float: left;
+            min-height: 1px;
+            padding-left: 5px;
+            padding-right: 5px;
+            position: relative;
+        }
+
+        .row {
+            clear: both;
+            float: left;
+            margin: 0 0 20px;
+            padding: 0;
+            width: 100%;
+        }
+
+        .kpi-pricing {
+            display: block;
+            text-align: center;
+            float: left;
+            position: relative;
+            width: 100%;
+        }
+
+        select#priceType {
+            border-radius: 5px 5px 5px 5px;
+            float: right;
+            height: 40px;
+            margin-right: 15px;
+            padding-left: 10px;
+            width: 100px;
+        }
+
+        .kpi-pricing .bundlesFields {
+            color: #8E8E8E;
+            height: auto;
+            margin-bottom: 20px;
+            overflow: auto;
+            position: relative;
+            width: 100%;
+        }
+
+        .kpi-pricing .bundlesFields .columns:first-child {
+            padding-left: 0;
+        }
+
+        .kpi-pricing .bundlesFields .columns {
+            background: none repeat scroll 0 0 #FFFFFF;
+            cursor: pointer;
+            float: left;
+            height: auto;
+            padding-left: 5px;
+            padding-right: 5px;
+            position: relative;
+            width: 31%;
+        }
+
+        .kpi-pricing .bundlesFields .columns .insideColumn {
+            -moz-border-bottom-colors: none;
+            -moz-border-image: none;
+            -moz-border-left-colors: none;
+            -moz-border-right-colors: none;
+            -moz-border-top-colors: none;
+            border-color: #1A76BC;
+            border-style: solid;
+            border-width: 1px 1px 10px;
+            height: auto;
+            position: relative;
+            text-align: center;
+            width: 100%;
+        }
+
+        .kpi-pricing .bundlesFields .columns .insideColumn .planHeaderName.mini, .kpi-pricing .bundlesFields .columns .insideColumn .planHeaderName.small, .kpi-pricing .bundlesFields .columns .insideColumn .planHeaderName.silver, .kpi-pricing .bundlesFields .columns .insideColumn .planHeaderName .interprice {
+            background-attachment: scroll;
+            background-clip: border-box;
+            background-color: #19619F;
+            background-image: none;
+            background-origin: padding-box;
+            background-position: 0 0;
+            background-repeat: repeat;
+            background-size: 100% 100%;
+        }
+
+        .kpi-pricing .bundlesFields .columns .insideColumn .planHeaderName {
+            background-attachment: scroll;
+            background-clip: border-box;
+            background-color: #19619F;
+            background-image: none;
+            background-origin: padding-box;
+            background-position: 0 0;
+            background-repeat: repeat;
+            background-size: 100% 100%;
+            color: #FFFFFF;
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 70px;
+            text-align: center;
+            vertical-align: middle;
+            width: 100%;
+        }
+
+        .kpi-pricing .bundlesFields .columns .insideColumn .planAttributesField {
+            border-top: 5px solid #E9F2FA;
+        }
+
+        .kpi-pricing .bundlesFields .columns .insideColumn .planAttributesField ul {
+            margin-bottom: 10px !important;
+            margin-left: 0;
+            margin-right: 0;
+            margin-top: 0;
+            padding-left: 0;
+        }
+
+        .kpi-pricing .bundlesFields .nth-child {
+            background: none repeat scroll 0 0 #E9F2FA;
+        }
+
+        .kpi-pricing .bundlesFields .columns .insideColumn .planAttributesField ul li {
+            color: #1EA0DA;
+            font-size: 12px;
+            line-height: 14px;
+            list-style: none outside none;
+            margin: 0;
+            padding-bottom: 10px;
+            padding-top: 10px;
+            text-align: center;
+        }
+
+        .kpi-pricing .planCustomizing {
+            float: left;
+            margin-bottom: 40px;
+            margin-top: 20px;
+            overflow: auto;
+            padding: 0;
+            position: relative;
+            width: 100%;
+        }
+
+        .kpi-pricing .planCustomizing .users-column {
+            background: none repeat scroll 0 0 #FFFFFF;
+            width: 20%;
+        }
+
+        .kpi-pricing .planCustomizing .left-panel, .kpi-pricing .planCustomizing .right-panel, .kpi-pricing .planCustomizing .users-column {
+            float: left;
+            position: relative;
+        }
+
+        .kpi-pricing .planCustomizing .users-column .panel-column {
+            border-right: medium none;
+            width: 100%;
+            border: 1px solid #1A76BC;
+        }
+
+        .kpi-pricing .planCustomizing .panel-column {
+            border: 1px solid #1A76BC;
+
+        }
+
+        .kpi-pricing .planCustomizing .panel-column .planHeaderName {
+            background-attachment: scroll;
+            background-clip: border-box;
+            background-color: #19619F;
+            background-image: none;
+            background-origin: padding-box;
+            background-position: 0 0;
+            background-repeat: repeat;
+            background-size: 100% 100%;
+            color: #FFFFFF;
+            font-size: 18px;
+            font-weight: bold;
+            height: 62px;
+            line-height: 62px;
+            text-align: center;
+            vertical-align: middle;
+            width: 100%;
+        }
+
+        .kpi-pricing .planCustomizing .panel-column .customField1, .kpi-pricing .planCustomizing .panel-column .customField2 {
+            padding: 10px;
+        }
+
+        .kpi-pricing .planCustomizing .panel-column .number-of-users:after {
+            content: "gllg";
+            display: block;
+            height: 30px;
+            position: absolute;
+            right: 10px;
+            top: 5px;
+            width: 17px;
+            z-index: 10;
+        }
+
+        .kpi-pricing .planCustomizing .panel-column .number-of-users, .kpi-pricing .planCustomizing .panel-column select {
+            border-radius: 5px 5px 5px 5px;
+            height: 40px;
+            padding-left: 10px;
+            width: 100%;
+        }
+
+        .kpi-pricing .planCustomizing .left-panel {
+            background: none repeat scroll 0 0 #FFFFFF;
+            padding-right: 5px;
+            width: 36%;
+        }
+
+        .kpi-pricing .planCustomizing .left-panel, .kpi-pricing .planCustomizing .right-panel, .kpi-pricing .planCustomizing .users-column {
+            float: left;
+            position: relative;
+        }
+
+        .kpi-pricing .planCustomizing .panel-column .number-of-users, .kpi-pricing .planCustomizing .panel-column select {
+            border-radius: 5px 5px 5px 5px;
+            height: 40px;
+            padding-left: 10px;
+            width: 100%;
+        }
+
+        .kpi-pricing span.error {
+            color: #D8000C;
+            display: block;
+            text-align: left;
+        }
+
+        .kpi-pricing .planCustomizing .panel-column table {
+            border: medium none;
+            margin: 10px 0 0;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        .kpi-pricing .select-modules {
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 18px;
+        }
+
+        h1, h2, h3 {
+            font-weight: normal;
+            margin: 0 0 0.25em;
+        }
+
+        .kpi-pricing .planCustomizing .panel-column table th, .kpi-pricing .planCustomizing .panel-column table td {
+            font-size: 12px;
+            text-align: left;
+        }
+
+        .kpi-pricing .planCustomizing .panel-column th {
+            background: none repeat scroll 0 0 #FFFFFF;
+            color: #229ED6;
+            text-transform: uppercase;
+            width: 35%;
+            font-weight: bold;
+            border-top: none;
+        }
+
+        .prices {
+            margin-right: 5px;
+        }
+
+        .table-striped {
+
+        }
+
+        .kpi-pricing .table-striped tr {
+            height: 30px;
+        }
+
+        .table-striped tr:nth-child(2n+1) td, .table-striped tr:nth-child(2n+1) th {
+            background-color: #F9F9F9;
+        }
+
+        .kpi-pricing .planCustomizing .right-panel {
+            background: none repeat scroll 0 0 #FFFFFF;
+            padding-left: 5px;
+            width: 40%;
+        }
+
+        .kpi-pricing .planCustomizing .left-panel, .kpi-pricing .planCustomizing .right-panel, .kpi-pricing .planCustomizing .users-column {
+            float: left;
+            position: relative;
+        }
+
+        .customField3 {
+
+        }
+
+        .kpi-pricing .planCustomizing .panel-column .customField3 {
+            min-height: 183px;
+        }
+
+        .kpi-pricing .planCustomizing .panel-column .customField3 {
+            padding-bottom: 0;
+            padding-top: 0;
+        }
+
+        .nav-tabs {
+            border-bottom: 1px solid #DDDDDD;
+        }
+
+        .nav {
+            height: 50px;
+            list-style: none outside none;
+            margin-bottom: 0;
+            padding-left: 0;
+        }
+
+        .kpi-pricing .planCustomizing .panel-column .nav-tabs {
+            list-style: none outside none;
+            margin: 0 !important;
+        }
+
+        .kpi-pricing .planCustomizing .panel-column .nav-tabs, .kpi-pricing .planCustomizing .panel-column .nav-tabs > li.active > a {
+            border-bottom: medium none;
+        }
+
+        .kpi-pricing .planCustomizing .panel-column .nav-tabs > li > a {
+            -moz-border-bottom-colors: none;
+            -moz-border-image: none;
+            -moz-border-left-colors: none;
+            -moz-border-right-colors: none;
+            -moz-border-top-colors: none;
+            border-color: #E3E2E1 -moz-use-text-color #E3E2E1 #E3E2E1;
+            border-radius: 0 0 0 0 !important;
+            border-style: solid none solid solid;
+            border-width: 1px medium 1px 1px;
+            color: #7C7878;
+            font-size: 11px;
+            margin-right: 0;
+        }
+
+        .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+            -moz-border-bottom-colors: none;
+            -moz-border-image: none;
+            -moz-border-left-colors: none;
+            -moz-border-right-colors: none;
+            -moz-border-top-colors: none;
+            background-color: #FFFFFF;
+            border-color: #DDDDDD #DDDDDD transparent;
+            border-style: solid;
+            border-width: 1px;
+            color: #555555;
+            cursor: default;
+        }
+
+        .nav-tabs > li > a {
+            border: 1px solid transparent;
+            border-radius: 4px 4px 0 0;
+            line-height: 1.42857;
+            margin-right: 2px;
+        }
+
+        .nav > li > a {
+            display: block;
+            padding: 10px 0;
+            position: relative;
+        }
+
+        .kpi-pricing .tab-content {
+            display: block;
+            padding-top: 20px;
+            position: relative;
+            text-align: center;
+        }
+
+        .calc-tab {
+            padding-bottom: 10px;
+        }
+
+        .num-of-users, .consulting-service-type, .selected-packages {
+            font-weight: bold;
+            margin-left: 10px;
+            margin-top: 0;
+            text-align: left;
+        }
+
+        .num-of-users span, .selected-packages span, .consulting-service-type span {
+            color: #2AAAE1;
+        }
+
+        #nav-content .tab-pane.active {
+            display: block;
+        }
+
+        #nav-content .tab-pane {
+            display: none;
+        }
+
+        .calc-tab > .tab-pane {
+            text-align: center;
+        }
+
+        .kpi-pricing .planCustomizing .panel-column .nav-tabs > li {
+            background: none repeat scroll 0 0 #F7F8F8;
+            text-align: center;
+            text-transform: uppercase;
+            width: 50%;
+        }
+
+        .kpi-pricing .planCustomizing .panel-column .nav-tabs li {
+            display: inline-block;
+            margin: 0 !important;
+        }
+
+        .nav-tabs > li {
+            float: left;
+            margin-bottom: -1px;
+        }
+
+        .nav > li {
+            display: block;
+            position: relative;
+        }
+
+        .kpi-pricing .tab-content h1 span {
+            color: #007BE4;
+            text-align: center;
+            display: block;
+        }
+
+        input.buynow {
+            background: none repeat scroll 0 0 #19619F;
+            border: medium none;
+            border-radius: 4px 4px 4px 4px;
+            color: #FFFFFF;
+            font-weight: bold;
+            margin-bottom: 10px !important;
+            padding: 10px 15px;
+            position: relative;
+            text-transform: uppercase;
+            width: auto;
+        }
+
+        .kpi-pricing .planCustomizing .panel-column .nav-tabs > li:first-child > a {
+            border-left: medium none;
+        }
+
+        li .active a {
+            background-color: #FFFFFF;
+            cursor: default;
+            -moz-border-bottom-colors: none;
+            -moz-border-image: none;
+            -moz-border-left-colors: none;
+            -moz-border-right-colors: none;
+            -moz-border-top-colors: none;
+            border-bottom: medium none;
+        }
+
+        .left-panel table th input {
+            margin-right: 5px;
+        }
+    </ui:style>
+    <g:HTMLPanel>
+        <div id="content" class="full-main">
+            <div id="main">
+                <section>
+                    <h1 class="{style.title}">Pricing Packages</h1>
+
+                    <div class="{style.kpi-pricing}">
+                        <div class="{style.row}">
+                            <div class="{style.col-md-12}">
+                                <h1 class="{style.planSubTitle}">Choose One of the Offered Bundles or Customise Your Own Subscription Plan
+                                    <br/>
+                                    Smart Bundles:
+                                </h1>
+                            </div>
+                            <!-- End of Right sidebar, sign up form -->
+                        </div>
+                        <div class="{style.row}">
+                            <div class="{style.col-md-12}">
+                                <select id="priceType" class="priceType">
+                                    <option value="1">SR</option>
+                                    <option value="2">USD</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="{style.bundlesFields}">
+                            <div class="{style.columns} {style.columns}" style="margin-left:23px;">
+                                <div class="{style.insideColumn}">
+                                    <div class="{style.planHeaderName} {style.mini}">Essential</div>
+                                    <div class="{style.planAttributesField}">
+                                        <ul id="planAttributes">
+                                            <li>2 to 9 users</li>
+                                            <li class="{style.nth-child}">My Workspace</li>
+                                            <li>Documents</li>
+                                            <li class="{style.nth-child}">Remote Support</li>
+                                            <li>Integration with Google</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="{style.columns} {style.columns}">
+                                <div class="{style.insideColumn}">
+                                    <div class="{style.planHeaderName} {style.small}">Standard</div>
+                                    <div class="{style.planAttributesField}">
+                                        <ul id="planAttributes">
+                                            <li>10 to 49 users</li>
+                                            <li class="{style.nth-child}">My Workspace</li>
+                                            <li>Documents</li>
+                                            <li class="{style.nth-child}">Remote Support</li>
+                                            <li>Integration with Google</li>
+                                            <li class="{style.nth-child}">Relationship Manager</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="{style.columns} column3">
+                                <div class="{style.insideColumn}">
+                                    <div class="{style.planHeaderName} standard">Enterprise</div>
+                                    <div class="{style.planAttributesField}">
+                                        <ul id="planAttributes">
+                                            <li>50 and above users</li>
+                                            <li class="{style.nth-child}">My Workspace</li>
+                                            <li>Documents</li>
+                                            <li class="{style.nth-child}">Remote Support</li>
+                                            <li>Integration with Google</li>
+                                            <li class="{style.nth-child}">Relationship Manager</li>
+                                            <li>Reporting &amp; Dashboards</li>
+                                            <li class="{style.nth-child}">MultiCompany</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <form id="plan-customizing" style="margin-left:25px">
+                            <div class="{style.planCustomizing}">
+                                <div class="{style.users-column}">
+                                    <div class="{style.panel-column}">
+                                        <div class="{style.planHeaderName}">Number of users</div>
+                                        <div class="{style.customField1} {style.customField1}">
+                                            <input name="number-of-users" min="0" step="1" class="{style.number-of-users}" type="number" ui:field="numberOfUsers" placeholder="input number of users"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="{style.left-panel}">
+                                    <div class="{style.panel-column}">
+                                        <div class="kpiFeatures">
+                                            <div class="{style.planHeaderName}">Features</div>
+                                            <div class="{style.customField1} {style.customField2}">
+                                                <g:ListBox ui:field="selectModule" name="modules">
+                                                    <g:item value="0">Select module...</g:item>
+                                                    <g:item value="1">2 modules</g:item>
+                                                    <g:item value="2">3 modules</g:item>
+                                                    <g:item value="3">All modules</g:item>
+                                                </g:ListBox>
+
+                                                <span class="{style.error}"></span>
+                                                <table class="table {style.table-striped}" ui:field="tableModules" style="display: none;">
+                                                    <thead>
+                                                        <tr>
+                                                            <td>
+                                                                <h2 class="{style.select-modules}">Select modules</h2>
+                                                            </td>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <th>
+                                                                <components:KpiCheckBox name="price[]" ui:field="chbPM" formValue="1">Project Management</components:KpiCheckBox>
+                                                            </th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>
+                                                                <components:KpiCheckBox name="price[]" ui:field="chbHRMS" formValue="2">HRMS</components:KpiCheckBox>
+                                                            </th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>
+                                                                <components:KpiCheckBox name="price[]" ui:field="chbCRM" formValue="3">CRM</components:KpiCheckBox>
+                                                            </th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>
+                                                                <components:KpiCheckBox name="price[]" ui:field="chbAccounting" formValue="4">Accounting and Finance</components:KpiCheckBox>
+                                                            </th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>
+                                                                <components:KpiCheckBox name="price[]" ui:field="chbPayroll" formValue="5">Payroll</components:KpiCheckBox>
+                                                            </th>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="{style.right-panel}">
+                                    <div class="{style.panel-column}">
+                                        <div class="{style.planHeaderName}">Your Subscription</div>
+                                        <div class="customField  {style.customField3}" id="nav-content">
+                                            <!-- Nav tabs -->
+                                            <ul class="{style.nav} {style.nav-tabs}" role="tablist">
+                                                <li role="presentation">
+                                                    <a href="#quarterly" role="tab" data-toggle="tab">Quarterly
+                                                        <br/>
+                                                    </a>
+                                                </li>
+                                                <li role="presentation" class="{style.active}">
+                                                    <a href="#annual" role="tab" data-toggle="tab">Annual
+                                                        <br/>
+                                                    </a>
+                                                </li>
+                                            </ul>
+
+                                            <!-- Tab panes -->
+                                            <div class="{style.tab-content} {style.calc-tab}">
+                                                <div class="{style.num-of-users}">Number of users:
+                                                    <span ui:field="numberOfUsersContainer">0</span>
+                                                </div>
+                                                <div class="{style.selected-packages}">Package:
+                                                    <span>Not Selected</span>
+                                                </div>
+                                                <div class="{style.consulting-service-type}">Modules:
+                                                    <span ui:field="packages"></span>
+                                                </div>
+                                                <div role="tabpanel" class="{style.tab-pane}" id="quarterly">
+                                                    <h1 id="price">
+                                                        <span id="prices" style="display:block">405</span>
+                                                        <span class="pricesType">(SR)</span>
+                                                    </h1>
+                                                    <a href="http://app.1erp.sa/signup.html?storage=1&amp;service=pm&amp;type=true&amp;isGBP=false&amp;tax=false&amp;users=3&amp;category=essential&amp;moduleLimit=2&amp;modules=projects,hrms&amp;usagePeriodID=1" target="_blank">
+                                                        <input type="button" value="Buy now" class="btn btn-primary {style.buynow}"/>
+                                                    </a>
+                                                </div>
+                                                <div role="tabpanel" class="{style.tab-pane} {style.active}" id="annual">
+                                                    <h1 id="price">
+                                                        <span id="prices">1548</span>
+                                                        <span class="pricesType">(SR)</span>
+                                                    </h1>
+                                                    <a href="http://app.1erp.sa/signup.html?storage=1&amp;service=pm&amp;type=true&amp;isGBP=false&amp;tax=false&amp;users=3&amp;category=essential&amp;moduleLimit=2&amp;modules=projects,hrms&amp;usagePeriodID=3" target="_blank">
+                                                        <input type="button" value="Buy now" class="btn btn-primary {style.buynow}"/>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </section>
+            </div>
+        </div>
+    </g:HTMLPanel>
+</ui:UiBinder>

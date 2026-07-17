@@ -1,0 +1,2 @@
+UPDATE myupdatetype SET code='SALES_QUOTE_MANAGER_APPROVE' where id=978 and parentid=(SELECT id FROM myupdatetype where code='SALES_QUOTE');
+UPDATE myupdatetype SET code='SALES_QUOTE_CLIENT_APPROVE' where id=100 and parentid=(SELECT id FROM myupdatetype where code='SALES_QUOTE');

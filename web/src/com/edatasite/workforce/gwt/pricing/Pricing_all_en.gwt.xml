@@ -1,0 +1,4 @@
+<module rename-to="pricing">
+    <inherits name='com.edatasite.workforce.gwt.pricing.Pricing'/>
+    <inherits name="com.edatasite.workforce.gwt.Localization_properties"/>
+</module>

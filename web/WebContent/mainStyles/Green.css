@@ -1,0 +1,1583 @@
+.green {
+}
+
+.green .mainBackground {
+    background-image: url(themes/green/green-gradient-bg-logo.png);
+    height: 53px;
+    background-repeat: repeat-x;
+}
+
+.green .border {
+    border: 1px solid #5db166;
+    background-color: white;
+}
+
+.green .containerBackground {
+    background-color: #298d9d; /*background-color:#F4F4F4;*/
+
+    /*color:#565656;*/
+}
+
+.green .section-seleced {
+    /*Not Used IF*/
+    background: transparent url(themes/green/green-shortcut_selected_bgr.png) repeat-x;
+}
+
+.green .eds-shortcutitem-hdr {
+    width: 100%;
+    background: transparent url(themes/green/green-shortcut_bgr.png) repeat-x;
+    border-bottom: 1px solid #298d9d;
+    color: #5db166;
+    font-weight: bold;
+    text-align: left;
+    cursor: pointer;
+}
+
+.green .eds-shortcutitem-active-hdr {
+    width: 100%;
+    background: transparent url(themes/green/green-shortcut_selected_bgr.png) repeat-x;
+    border-bottom: 1px solid #298d9d;
+    color: #000000;
+    font-weight: bold;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.green .eds-shortcutitem-hdr-over {
+    width: 100%;
+    background: transparent url(themes/green/green-shortcut_mouseover_bgr.png) repeat-x;
+    border-bottom: 1px solid #298d9d;
+    color: #349f41;
+    font-weight: bold;
+    text-align: left;
+    cursor: pointer;
+}
+
+.green .eds-document-active-hdr {
+    width: 100%;
+    background: transparent url(themes/green/green-background-document-tab.png) repeat-x;
+    border-bottom: 1px solid #298d9d;
+    color: #549778;
+    font-weight: bold;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.green .blue-header {
+    background: url(themes/green/green-top2.gif);
+    font-weight: bold;
+    color: #549778;
+}
+
+.green .table-blue-header {
+    background: url(themes/green/green-top2.gif);
+    font-weight: bold;
+    color: #549778;
+}
+
+.green .wfm-my-tabfolder-header {
+    background: url(themes/green/green-tabs-orange.gif) repeat-x 0 -108px;
+    overflow: hidden;
+}
+
+.green .wfm-my-tabitem-over .wfm-my-tabitem-l {
+    background: url(themes/green/green-tabs-orange.gif) no-repeat 0 -27px;
+}
+
+.green .wfm-my-tabitem-over .wfm-my-tabitem-ml, .green .wfm-my-tabitem-over .wfm-my-tabitem-c {
+    background: url(themes/green/green-tabs-orange.gif) repeat-x 0 -81px;
+}
+
+.green .wfm-my-tabitem-over .wfm-my-tabitem-mr {
+    background: url(themes/green/green-tabs-orange.gif) repeat-x 0 -81px;
+}
+
+.green .wfm-my-tabitem-over .wfm-my-tabitem-r {
+    background: url(themes/green/green-tabs-orange.gif) no-repeat right -27px;
+}
+
+.green .wfm-my-tabitem-secondary .wfm-my-tabitem-l {
+    background: url(themes/green/green-tabs-orange.gif) no-repeat 0 -27px;
+}
+
+.green .wfm-my-tabitem-secondary .wfm-my-tabitem-ml, .green .wfm-my-tabitem-secondary .wfm-my-tabitem-c {
+    background: url(themes/green/green-tabs-orange.gif) repeat-x 0 -81px;
+}
+
+.green .wfm-my-tabitem-secondary .wfm-my-tabitem-mr {
+    background: url(themes/green/green-tabs-orange.gif) repeat-x 0 -81px;
+}
+
+.green .wfm-my-tabitem-secondary .wfm-my-tabitem-r {
+    background: url(themes/green/green-tabs-orange.gif) no-repeat right -27px;
+}
+
+.green .wfm-my-tabitem-sel .wfm-my-tabitem-text {
+    color: #349f41;
+}
+
+.green .wfm-my-tabitem-text {
+    display: block;
+    padding: 0 5px 0 3px;
+    color: #349f41;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.green .wfm-my-tabitem-sel .wfm-my-tabitem-l {
+    background: url(themes/green/green-tabs-orange.gif) no-repeat;
+}
+
+.green .wfm-my-tabitem-sel .wfm-my-tabitem-ml, .green .wfm-my-tabitem-sel .wfm-my-tabitem-c {
+    background: url(themes/green/green-tabs-orange.gif) repeat-x 0 -54px;
+}
+
+.green .wfm-my-tabitem-sel .wfm-my-tabitem-mr {
+    background: url(themes/green/green-tabs-orange.gif) repeat-x 0 -54px;
+}
+
+.green .wfm-my-tabitem-sel .wfm-my-tabitem-r {
+    background: url(themes/green/green-tabs-orange.gif) no-repeat right 0;
+}
+
+.green .wfm-tool-bar {
+    background: url(themes/green/green-bg.gif) repeat-x scroll 0 0 transparent;
+    margin: 0;
+    width: 100%;
+    border: medium none;
+}
+
+.green .my-paging-toolbar {
+    background: url(themes/green/green-bg.gif) repeat-x;
+    border-top: 1px solid #298d9d;
+}
+
+.green .my-cpanel-frame .my-toolbar {
+    position: static;
+    background: url(themes/green/green-bg.gif) repeat-x;
+    border: 1px solid #298d9d;
+    border-bottom: none;
+}
+
+.green .my-toolitem-mr div {
+    background: transparent url(themes/green/green-btn-arrow.gif) no-repeat scroll 0 3px;
+    width: 12px;
+    height: 21px;
+}
+
+.green .my-toolitem-seperator {
+    background: url(themes/green/green-split.gif) no-repeat 50% 50%;
+    border: 0 none;
+    cursor: default;
+    font-size: 1px;
+    height: 21px;
+    overflow: hidden;
+    width: 4px;
+}
+
+.green .my-toolbar {
+    background: url(themes/green/green-bg.gif) 0 0 repeat-x;
+}
+
+.green .wfm-my-toolbar {
+    background: url(themes/green/green-bg.gif) repeat-x;
+}
+
+.green .my-cpanel-frame .wfm-my-toolbar {
+    position: static;
+    background: url(themes/green/green-bg.gif) repeat-x;
+    border: 1px solid #298d9d;
+    border-bottom: none;
+}
+
+.green .my-toolitem-over .my-toolitem-l {
+    background: url(themes/green/green-tb-btn-sprite.gif) no-repeat;
+}
+
+.green .my-toolitem-over .my-toolitem-ml,
+.green .my-toolitem-over .my-toolitem-c {
+    background: url(themes/green/green-tb-btn-sprite.gif) repeat-x 0 -42px;
+}
+
+.green .my-toolitem-over .my-toolitem-ml,
+.green .my-toolitem-over .my-toolitem-c {
+    background: url(themes/green/green-tb-btn-sprite.gif) repeat-x 0 -42px;
+}
+
+.green .my-toolitem-over .my-toolitem-mr {
+    background: url(themes/green/green-tb-btn-sprite.gif) repeat-x 0 -42px;
+}
+
+.green .my-toolitem-split div {
+    background: transparent url(themes/green/green-btn-arrow.gif) no-repeat 0 -47px;
+    width: 12px;
+    height: 21px;
+}
+
+.green .my-toolbar {
+    background: url(themes/green/green-bg.gif) 0 0 repeat-x;
+    border-bottom: 0 solid #298d9d; /*TODO after bottom size if 1px*/
+}
+
+.green .my-toolitem-over .my-toolitem-r {
+    background: url(themes/green/green-tb-btn-sprite.gif) no-repeat 0 -21px;
+}
+
+.green .my-toolitem-down .my-toolitem-l {
+    background: url(themes/green/green-tb-btn-sprite.gif) no-repeat 0 -63px;
+}
+
+.green .my-toolitem-down .my-toolitem-ml,
+.green .my-toolitem-down .my-toolitem-c {
+    background: url(themes/green/green-tb-btn-sprite.gif) repeat-x 0 -105px;
+}
+
+.green .my-toolitem-down .my-toolitem-mr {
+    background: url(themes/green/green-tb-btn-sprite.gif) repeat-x 0 -105px;
+}
+
+.green .my-toolitem-down .my-toolitem-r {
+    background: url(themes/green/green-tb-btn-sprite.gif) no-repeat 0 -84px;
+}
+
+.green .my-toolitem-sel .my-toolitem-l {
+    background: url(themes/green/green-tb-btn-sprite.gif) no-repeat 0 -63px;
+}
+
+.green .my-toolitem-sel .my-toolitem-ml,
+.green .my-toolitem-sel .my-toolitem-c {
+    background: url(themes/green/green-tb-btn-sprite.gif) repeat-x 0 -105px;
+}
+
+.green .my-toolitem-sel .my-toolitem-mr {
+    background: url(themes/green/green-tb-btn-sprite.gif) repeat-x 0 -105px;
+}
+
+.green .my-toolitem-sel .my-toolitem-r {
+    background: url(themes/green/green-tb-btn-sprite.gif) no-repeat 0 -84px;
+}
+
+.green .wfm-my-toolitem-over .wfm-my-toolitem-l {
+    background: url(themes/green/green-tb-btn-sprite.gif) no-repeat;
+}
+
+.green .wfm-my-toolitem-over .wfm-my-toolitem-ml,
+.green .wfm-my-toolitem-over .wfm-my-toolitem-c {
+    background: url(themes/green/green-tb-btn-sprite.gif) repeat-x 0 -42px;
+}
+
+.green .wfm-my-toolitem-over .wfm-my-toolitem-ml, .wfm-my-toolitem-over .wfm-my-toolitem-c {
+    background: url(themes/green/green-tb-btn-sprite.gif) repeat-x 0 -42px;
+}
+
+.green .wfm-my-toolitem-over .wfm-my-toolitem-mr {
+    background: url(themes/green/green-tb-btn-sprite.gif) repeat-x 0 -42px;
+}
+
+.green .wfm-my-toolitem-over .wfm-my-toolitem-r {
+    background: url(themes/green/green-tb-btn-sprite.gif) no-repeat 0 -21px;
+}
+
+.green .wfm-my-toolitem-over {
+    height: 21px;
+    cursor: pointer;
+}
+
+.green .hasRichTextToolbar {
+    border: 1px solid #298d9d;
+}
+
+/****************************** Applied to the decorator panel. *******************/
+.green .gwt-DecoratorPanel {
+}
+
+.green .gwt-DecoratorPanel .middleCenter {
+    height: 100%;
+    width: 100%;
+}
+
+.green .gwt-DecoratorPanel .topCenter,
+.green .gwt-DecoratorPanel .bottomCenter {
+    background: url(themes/green/green-hborder.png) repeat-x;
+}
+
+.green .gwt-DecoratorPanel .middleLeft,
+.green .gwt-DecoratorPanel .middleRight {
+    background: url(themes/green/green-vborder.png) repeat-y;
+}
+
+.green .gwt-DecoratorPanel .topLeftInner,
+.green .gwt-DecoratorPanel .topRightInner,
+.green .gwt-DecoratorPanel .bottomLeftInner,
+.green .gwt-DecoratorPanel .bottomRightInner {
+    width: 5px;
+    height: 5px;
+    zoom: 1;
+}
+
+.green .gwt-DecoratorPanel .topLeft {
+    background: url(themes/green/green-corner.png) no-repeat 0 0;
+    -background: url(themes/green/green-corner_ie6.png) no-repeat 0px 0px;
+}
+
+.green .gwt-DecoratorPanel .topRight {
+    background: url(themes/green/green-corner.png) no-repeat -5px 0;
+    -background: url(themes/green/green-corner_ie6.png) no-repeat -5px 0px;
+}
+
+.green .gwt-DecoratorPanel .bottomLeft {
+    background: url(themes/green/green-corner.png) no-repeat 0 -5px;
+    -background: url(themes/green/green-corner_ie6.png) no-repeat 0px -5px;
+}
+
+.green .gwt-DecoratorPanel .bottomRight {
+    background: url(themes/green/green-corner.png) no-repeat -5px -5px;
+    -background: url(themes/green/green-corner_ie6.png) no-repeat -5px -5px;
+}
+
+* html .green .gwt-DecoratorPanel .topLeftInner,
+* html .green .gwt-DecoratorPanel .topRightInner,
+* html .green .gwt-DecoratorPanel .bottomLeftInner,
+* html .green .gwt-DecoratorPanel .bottomRightInner {
+    width: 5px;
+    height: 5px;
+    overflow: hidden;
+}
+
+/*****************  gwt 1.5 Button  *************************/
+.green .gwt-Button {
+    margin: 0;
+    padding: 3px 5px;
+    text-decoration: none;
+    font-size: small;
+    cursor: pointer;
+    background: url("themes/green/green-hborder.png") repeat-x 0 -27px;
+    border: 1px outset #ccc;
+}
+
+.green .gwt-Button:active {
+    border: 1px inset #ccc;
+}
+
+.green .gwt-Button:hover {
+    border-color: #9cf #69e #69e #7af;
+}
+
+.green .gwt-Button[disabled] {
+    cursor: default;
+    color: #888;
+}
+
+.green .gwt-Button[disabled]:hover {
+    border: 1px outset #ccc;
+}
+
+/******************** Applied decoreted tab panel *******************/
+.green .gwt-DecoratedTabBar .tabTopCenter {
+    padding: 0;
+    background: #71d9c1;
+}
+
+.green .gwt-DecoratedTabBar .tabMiddleLeft,
+.green .gwt-DecoratedTabBar .tabMiddleRight {
+    width: 6px;
+    padding: 0;
+    background: #71d9c1;
+}
+
+.green .gwt-DecoratedTabBar .tabMiddleCenter {
+    padding: 0 4px 2px 4px;
+    cursor: pointer;
+    color: #349f41;
+    font: 14px;
+    font-weight: bold;
+    text-align: center;
+    background: #71d9c1;
+}
+
+.green .gwt-DecoratedTabBar .gwt-TabBarItem-selected .tabTopCenter {
+    background: #1bbf8f;
+}
+
+.green .gwt-DecoratedTabBar .gwt-TabBarItem-selected .tabMiddleLeft,
+.green .gwt-DecoratedTabBar .gwt-TabBarItem-selected .tabMiddleRight {
+    color: #000000;
+    background: #1bbf8f;
+}
+
+.green .gwt-DecoratedTabBar .gwt-TabBarItem-selected .tabMiddleCenter {
+    cursor: default;
+    color: #000000;
+    background: #1bbf8f;
+}
+
+/* html>body .green  */.gwt-DecoratedTabBar .tabTopLeft {
+    background-image: url(themes/green/green-corner.png);
+	background-repeat:no-repeat;
+                           background-position: 0 -55px;
+}
+
+/* html>body .green  */.gwt-DecoratedTabBar .tabTopRight {
+    background-image: url(themes/green/green-corner.png);
+	background-repeat:no-repeat;
+	background-position:-6px -55px;
+}
+
+* html .green .gwt-DecoratedTabBar .tabTopLeftInner {
+    width: 5px;
+    height: 61px;
+    margin-top: -55px;
+    overflow: hidden;
+    background: url(themes/green/green-corner.png);
+    -background: url(themes/green/green-corner_ie6.png);
+}
+
+* html .green .gwt-DecoratedTabBar .tabTopRightInner {
+    width: 12px;
+    height: 61px;
+    margin-top: -55px;
+    margin-left: -6px;
+    overflow: hidden;
+    background: url(themes/green/green-corner.png);
+    -background: url(themes/green/green-corner_ie6.png);
+}
+
+* html .green .gwt-DecoratedTabBar .gwt-TabBarItem-selected .tabTopLeftInner {
+    width: 5px;
+    height: 67px;
+    margin-top: -61px;
+    overflow: hidden;
+    background: url(themes/green/green-corner.png);
+    -background: url(themes/green/green-corner_ie6.png);
+}
+
+* html .green .gwt-DecoratedTabBar .gwt-TabBarItem-selected .tabTopRightInner {
+    width: 12px;
+    height: 67px;
+    margin-top: -61px;
+    margin-left: -6px;
+    overflow: hidden;
+    background: url(themes/green/green-corner.png);
+    -background: url(themes/green/green-corner_ie6.png);
+}
+
+.green .gwt-TabPanelBottom {
+    border-color: #549778;
+    border-style: solid;
+    border-width: 1px 1px 1px 1px;
+    overflow: hidden; /*padding: 0px;*/
+}
+
+.green .gwt-DecoratedTabBar {
+
+}
+
+.green .gwt-DecoratedTabBar .gwt-TabBarFirst {
+    width: 5px; /* first tab distance from the left */
+}
+
+.green .gwt-DecoratedTabBar .gwt-TabBarRest {
+
+}
+
+.green .gwt-DecoratedTabBar .gwt-TabBarItem {
+    border-collapse: collapse;
+    margin-left: 6px;
+}
+
+.green .gwt-DecoratedTabBar .tabTopLeft,
+.green .gwt-DecoratedTabBar .tabTopRight {
+    padding: 0;
+    zoom: 1;
+}
+
+.green .gwt-DecoratedTabBar .tabTopLeftInner,
+.green .gwt-DecoratedTabBar .tabTopRightInner {
+    width: 6px;
+    height: 6px;
+}
+
+.green .gwt-DecoratedTabBar .tabMiddleLeftInner,
+.green .gwt-DecoratedTabBar .tabMiddleRightInner {
+    width: 1px;
+    height: 1px;
+}
+
+/* html>body .green  */.gwt-DecoratedTabBar .gwt-TabBarItem-selected .tabTopLeft {
+                           background-position: 0 -61px;
+}
+
+/* html>body .green  */.gwt-DecoratedTabBar .gwt-TabBarItem-selected .tabTopRight {
+    background-position: -6px -61px;
+}
+
+.green .gwt-TabPanel {
+    /*padding:0px;*/
+}
+
+/*	DUPLICATE CODE .green .gwt-DecoratedTabBar {
+
+}
+
+.green .gwt-DecoratedTabBar .gwt-TabBarFirst {
+    width: 5px;
+}
+
+.green .gwt-DecoratedTabBar .gwt-TabBarRest {
+}
+
+.green .gwt-DecoratedTabBar .gwt-TabBarItem {
+    border-collapse: collapse;
+    margin-left: 6px;
+}
+
+.green .gwt-DecoratedTabBar .tabTopLeft,
+.green .gwt-DecoratedTabBar .tabTopRight {
+    padding: 0px;
+    zoom: 1;
+}
+
+.green .gwt-DecoratedTabBar .tabTopLeftInner,
+.green .gwt-DecoratedTabBar .tabTopRightInner {
+    width: 6px;
+    height: 6px;
+}
+
+.green .gwt-DecoratedTabBar .tabMiddleLeftInner,
+.green .gwt-DecoratedTabBar .tabMiddleRightInner {
+    width: 1px;
+    height: 1px;
+}
+
+html>body .green .gwt-DecoratedTabBar .gwt-TabBarItem-selected .tabTopLeft {
+    background-position: 0px -61px;
+}
+
+html>body .green .gwt-DecoratedTabBar .gwt-TabBarItem-selected .tabTopRight {
+    background-position: -6px -61px;
+}
+
+.green .gwt-TabPanel {
+ 
+} */
+
+/******************** Styles end for decoreted tab panel *******************/
+
+/******************************************* Decorated Stack Panel **********************************************/
+
+.green .gwt-DecoratedStackPanel {
+    border-bottom: 1px solid #bbbbbb;
+}
+
+.green .gwt-DecoratedStackPanel .gwt-StackPanelContent {
+    border: 1px solid #bbbbbb;
+    border-bottom: 0;
+    background: white;
+    padding: 2px 2px 10px 5px;
+}
+
+.green .gwt-DecoratedStackPanel .gwt-StackPanelItem {
+    cursor: pointer;
+}
+
+.green .gwt-DecoratedStackPanel .stackItemTopLeft,
+.green .gwt-DecoratedStackPanel .stackItemTopRight {
+    height: 6px;
+    width: 6px;
+    zoom: 1;
+}
+
+.green .gwt-DecoratedStackPanel .stackItemTopLeftInner,
+.green .gwt-DecoratedStackPanel .stackItemTopRightInner {
+    width: 1px;
+    height: 1px;
+}
+
+.green .gwt-DecoratedStackPanel .stackItemMiddleLeftInner,
+.green .gwt-DecoratedStackPanel .stackItemMiddleRightInner {
+    width: 1px;
+    height: 1px;
+}
+
+.green .gwt-DecoratedStackPanel .gwt-StackPanelItem-first .stackItemTopRight,
+.green .gwt-DecoratedStackPanel .gwt-StackPanelItem-first .stackItemTopLeft {
+    border: 0;
+    background-color: white;
+}
+
+.green .gwt-DecoratedStackPanel .gwt-StackPanelItem-below-selected .stackItemTopLeft,
+.green .gwt-DecoratedStackPanel .gwt-StackPanelItem-below-selected .stackItemTopRight {
+    background-color: white;
+}
+
+.green .cw-StackPanelHeader {
+    padding-left: 7px;
+    font-weight: bold;
+    font-size: 1.4em;
+}
+
+.green .gwt-DecoratedStackPanel .stackItemTopLeft {
+    border-left: 1px solid #bbbbbb;
+    background: #298d9d url(themes/green/green-corner.png) no-repeat 0 -49px;
+    -background: #d3def6 url(themes/green/green-corner_ie6.png) no-repeat 0px -49px;
+}
+
+.green .gwt-DecoratedStackPanel .stackItemTopRight {
+    border-right: 1px solid #bbbbbb;
+    background: #298d9d url(themes/green/green-corner.png) no-repeat -6px -49px;
+    -background: #d3def6 url(themes/green/green-corner_ie6.png) no-repeat -6px -49px;
+}
+
+.green .gwt-DecoratedStackPanel .stackItemTopCenter {
+    background: url(themes/green/green-hborder.png) 0 -21px repeat-x;
+}
+
+.green .gwt-DecoratedStackPanel .stackItemMiddleLeft {
+    background: #298d9d url(themes/green/green-hborder.png) repeat-x 0 -989px;
+    border-left: 1px solid #bbbbbb;
+}
+
+.green .gwt-DecoratedStackPanel .stackItemMiddleRight {
+    background: #298d9d url(themes/green/green-hborder.png) repeat-x 0 -989px;
+    border-right: 1px solid #bbbbbb;
+}
+
+.green .gwt-DecoratedStackPanel .stackItemMiddleCenter {
+    font-weight: bold;
+    font-size: 1.3em;
+    background: #298d9d url(themes/green/green-hborder.png) repeat-x 0 -989px;
+}
+
+.green .docs-button-table {
+    height: 21px;
+    border-collapse: collapse;
+    border-spacing: 0;
+    cursor: pointer;
+    margin-left: 12px;
+}
+
+.green .docs-button-table tr td {
+    background: url(themes/green/green-tb-btn-sprite.gif) repeat-x 0 -42px;
+    padding: 0 !important;
+    border: 0 none !important;
+}
+
+.green .docs-button-table .left_bdr {
+    background: url(themes/green/green-tb-btn-sprite.gif) no-repeat 0 0 !important;
+}
+
+.green .docs-button-table .right_bdr {
+    background: url(themes/green/green-tb-btn-sprite.gif) no-repeat 100% -21px !important;
+}
+
+.green .my-border-layout {
+    border: 1px solid #5cb9d3;
+    background-color: #DEE7F6;
+}
+
+.green .my-cpanel {
+    /*border: 1px solid #5cb9d3;*/
+    overflow: hidden;
+}
+
+.green .my-cpanel-hdr {
+    height: 26px;
+    cursor: default;
+    border-bottom: 1px solid #5cb9d3;
+}
+
+.green .my-cpanel-body-header {
+    border-color: -moz-use-text-color #5cb9d3 #5cb9d3;
+    border-right: 1px solid #5cb9d3;
+    border-style: none solid solid;
+    border-width: medium 1 1;
+}
+
+.green .my-cpanel-body-header {
+    border: 1px solid #5cb9d3;
+    border-top: none;
+}
+
+.green .my-cpanel-frame .my-cpanel-body-header {
+    border: 1px solid #5cb9d3;
+}
+
+.green .topPanelCompanyNameStyle {
+    font-size: 14px;
+    color: #349f41;
+    font-weight: bold;
+}
+
+.green .maxLogoHeight {
+    max-height: 53px;
+    height: auto !important;
+    height: 53px;
+}
+
+.green .my-cpanel-hdr-text {
+    padding: 0 4px;
+    color: #1F4F8F;
+    font-size: 11px;
+    font-size-adjust: none;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: bold;
+    line-height: 15px;
+}
+
+.green .my-cpanel-hdr-l {
+    background: url(themes/green/green-corners-sprite.gif) no-repeat 0 0;
+}
+
+.green .my-cpanel-hdr-ml {
+    padding-left: 2px;
+    background: url(themes/green/green-top-bottom.gif) repeat-x;
+}
+
+.green .my-cpanel-hdr-c {
+    width: 100%;
+    background: url(themes/green/green-top-bottom.gif) repeat-x;
+}
+
+.green .my-cpanel-hdr-mr {
+    padding-top: 2px;
+    padding-right: 2px;
+    background: url(themes/green/green-top-bottom.gif) repeat-x;
+}
+
+.green .my-cpanel-hdr-r {
+    width: 3px;
+    background: url(themes/green/green-corners-sprite.gif) no-repeat right 0;
+}
+
+.green .my-tool {
+    overflow: hidden;
+    width: 15px;
+    height: 15px;
+    float: right;
+    cursor: pointer;
+    background: transparent url(themes/green/green-tool-sprites.gif) no-repeat;
+    margin-left: 2px;
+    margin-right: 5px;
+}
+
+.green .my-toolitem-selected .my-toolitem-l {
+    background: url(themes/green/green-tb-btn-sprite-orange.gif) no-repeat;
+}
+
+.green .my-toolitem-selected .my-toolitem-ml, .my-toolitem-selected .my-toolitem-c {
+    background: url(themes/green/green-tb-btn-sprite-orange.gif) repeat-x 0 -42px;
+}
+
+.green .my-toolitem-selected .my-toolitem-ml, .my-toolitem-selected .my-toolitem-c {
+    background: url(themes/green/green-tb-btn-sprite-orange.gif) repeat-x 0 -42px;
+}
+
+.green .my-toolitem-selected .my-toolitem-mr {
+    background: url(themes/green/green-tb-btn-sprite-orange.gif) repeat-x 0 -42px;
+}
+
+.green .my-toolitem-selected .my-toolitem-r {
+    background: url(themes/green/green-tb-btn-sprite-orange.gif) no-repeat 0 -21px;
+}
+
+.green .logOut {
+    color: #349f41;
+}
+
+.green .logOutLink {
+    color: #349f41;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.green .inOutColor {
+    color: #349f41;
+}
+
+.green .quickViewHeaderSome {
+    background: url(themes/green/green-header_bgr.jpg) repeat-x;
+    padding: 3px;
+    vertical-align: middle;
+    /*font-family: Tahoma, Verdana, Geneva, Arial, Helvetica, sans-serif;*/
+    font-size: 11px;
+    font-style: normal;
+    color: #ffffff;
+}
+
+/* Changed by Stanislav */
+.green .gwt-ScrollTable .headerWrapper {
+    /* background: #8bd url(themes/blue/bg_header_gradient.gif) repeat-x */
+    background-color: #398642;
+}
+
+.green .gwt-ScrollTable .headerTable td,
+.green .gwt-ScrollTable .footerTable td {
+    color: #fff;
+}
+
+.headerTable td {
+    /* border-right: 1px solid #69b37f;
+    border-left: 1px solid #2c5639; */
+    background-color: #398642;
+}
+
+.green .menu-popup-style {
+    background-color: #ebf3fe;
+    color: #000000;
+}
+
+.green .menu-button-mouse-over-background {
+    background-image: url(themes/green/green-button-hover.png);
+    cursor: pointer;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.green .menu-button-mouse-over-right {
+    background-image: url(themes/green/green-button-right.png);
+    cursor: pointer;
+}
+
+.green .menu-button-mouse-over-left {
+    background-image: url(themes/green/green-button-left.png);
+    cursor: pointer;
+}
+
+.green .menu-button {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.green .menu-button-selected {
+    background: transparent url(themes/green/green-uppertab.gif) 0 48px;
+    cursor: pointer;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.green .menu-button-selected-right {
+    background: url(themes/green/green-uppertab.gif) 0 24px;
+    cursor: pointer;
+}
+
+.green .menu-button-selected-left {
+    background: url(themes/green/green-uppertab.gif) 0 72px;
+    cursor: pointer;
+}
+
+.green .menu-item-right-shadow {
+    padding-top: 5px;
+    background: transparent url(themes/green/green-right.png) repeat-y;
+    width: 4px;
+}
+
+.green .menu-item-bottom-shadow {
+    padding-left: 5px;
+    background: transparent url(themes/green/green-bottom.png) repeat-x;
+    height: 4px;
+}
+
+.green .menu-item-corner-shadow {
+    background-image: url(themes/blue/popup-menu-corner.png);
+    width: 4px;
+    height: 4px;
+}
+
+.green .menu-item-on-mouse-over-left {
+    background: url(themes/green/green-sprite.png) 0 42px;
+    cursor: pointer;
+}
+
+.green .menu-item-on-mouse-over-right {
+    background: url(themes/green/green-sprite.png) 0 63px;
+    cursor: pointer;
+}
+
+.green .menu-item-on-mouse-over-middle {
+    background: url(themes/green/green-sprite.png) 0 21px;
+    cursor: pointer;
+}
+
+.green .menu-item-arrow-down {
+    background: url(themes/green/green-arrow-down.png) no-repeat;
+}
+
+.green .menu-separator {
+    background: url(themes/green/green-separator.gif) repeat-y;
+}
+
+.green .split-bar-on-collapsed {
+    background: url(themes/green/green-split-bar-collapse-image.png);
+}
+
+.green .split-bar-on-expanded {
+    background: url(themes/green/green-split-bar-close-image.png);
+}
+
+.green .split-bar-on-disabled {
+    background: url(themes/green/green-split-bar-collapse-image-grey-closed.png);
+}
+
+
+.green .loading-image {
+    background-image: url("themes/green/green-loader.gif");
+}
+
+/*Begin WftSplitLayouPanel*/
+.green .SplitLayoutPanel-HDragger, .SplitLayoutPanel-VDragger {
+    background-color: #5db166;
+}
+
+.green .SplitLayoutPanel-HDragger {
+    cursor: pointer;
+}
+
+.green .SplitLayoutPanel-HDragger {
+    cursor: pointer;
+}
+
+.green .SplitLayoutPanel-VDragger {
+    cursor: pointer;
+}
+
+/*End WftSplitLayouPanel*/
+/*GWT Menu*/
+.gwt-MenuBar {
+    cursor: default;
+}
+
+.gwt-MenuBar .gwt-MenuItem {
+}
+
+.gwt-MenuBar .menu-bar, .menu-bar .gwt-MenuItem-selected {
+    background: none !important;
+}
+
+/* 07.19 .gwt-MenuBar-horizontal .gwt-MenuItem {
+    padding: 0px 10px;
+    vertical-align: bottom;
+    color: #666666;
+    font-weight: bold;
+}
+
+.gwt-MenuBar-horizontal .gwt-MenuItemSeparator {
+    width: 1px;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    border-left: 1px solid #888888;
+    background: white;
+}
+
+.gwt-MenuBar-horizontal .gwt-MenuItemSeparator .menuSeparatorInner {
+    width: 1px;
+    height: 1px;
+    background: white;
+}
+
+.gwt-MenuBar-vertical {
+    margin-top: 0;
+    margin-left: 0;
+    background: white;
+}
+
+.gwt-MenuBar-vertical table {
+    border-collapse: collapse;
+}
+
+.gwt-MenuBar-vertical .gwt-MenuItem {
+    padding: 4px 14px 4px 1px;
+}
+
+.gwt-MenuBar-vertical .gwt-MenuItemSeparator {
+    padding: 2px 0;
+}
+
+.gwt-MenuBar-vertical .gwt-MenuItemSeparator .menuSeparatorInner {
+    height: 1px;
+    padding: 0px;
+    border: 0px;
+    border-top: 1px solid #ccc;
+    overflow: hidden;
+}
+
+.gwt-MenuBar-vertical .subMenuIcon {
+    padding-right: 4px;
+}
+
+.gwt-MenuBar-vertical .subMenuIcon-selected {
+    background: #E3E8F3;
+}
+
+.gwt-MenuBarPopup {
+    margin: 0px 0px 0px 3px;
+}
+ */
+/* 07.24 - moved tro Core.cache.css .gwt-MenuBarPopup .menuPopupTopCenter {
+    background: url(themes/blue/hborder.png) 0px -12px repeat-x;
+}
+
+.gwt-MenuBarPopup .menuPopupBottomCenter {
+    background: url(themes/blue/hborder.png) 0px -13px repeat-x;
+    -background: url(themes/blue/hborder_ie6.png) 0px -13px repeat-x;
+}
+
+.gwt-MenuBarPopup .menuPopupMiddleLeft {
+    background: url(themes/blue/vborder.png) -12px 0px repeat-y;
+    -background: url(themes/blue/vborder_ie6.png) -12px 0px repeat-y;
+}
+
+.gwt-MenuBarPopup .menuPopupMiddleRight {
+    background: url(themes/blue/vborder.png) -13px 0px repeat-y;
+    -background: url(themes/blue/vborder_ie6.png) -13px 0px repeat-y;
+}
+
+
+.gwt-MenuBarPopup .menuPopupTopLeft {
+    background: url(themes/blue/corner.png) no-repeat 0px -36px;
+    -background: url(themes/blue/corner_ie6.png) no-repeat 0px -36px;
+}
+
+.gwt-MenuBarPopup .menuPopupTopRight {
+    background: url(themes/blue/corner.png) no-repeat -5px -36px;
+    -background: url(themes/blue/corner_ie6.png) no-repeat -5px -36px;
+}
+
+.gwt-MenuBarPopup .menuPopupBottomLeft {
+    background: url(themes/blue/corner.png) no-repeat 0px -41px;
+    -background: url(themes/blue/corner_ie6.png) no-repeat 0px -41px;
+}
+
+.gwt-MenuBarPopup .menuPopupBottomRight {
+    background: url(themes/blue/corner.png) no-repeat -5px -41px;
+    -background: url(themes/blue/corner_ie6.png) no-repeat -5px -41px;
+} */
+
+
+
+.green .toolBar-panel
+/* ,.green .dd-menu>ul>li */ {
+    color: #fff;
+    background-color: #306436;
+}
+.green .dd-menu>ul>li {
+	background-color:#306436;
+	}
+.green .dd-menu>ul>li:hover, .dd-menu>ul>li.act {
+    background-color: #398642;
+}
+
+.green .dd-menu ul ul li:hover > a,
+.green .dd-menu ul ul li:hover > a.fly {
+    /* background-color: #f2f2f2; */
+    color: #398642;
+}
+
+.green .dd-menu .toolBar .guideCard>a {
+    /* padding: 0 9px;
+    font-weight: bold; */
+    color: #306436;
+    /* cursor: default; */
+}
+
+.green .userMenu {
+    background-color: #306436;
+    /* float: right; */
+}
+
+/*          X U S H N U D       */
+/**** START tabsPanel
+=================================================================****/
+.green .tabsPanel {
+    border-bottom-color:#5db166;
+    background-color: #3a8743;
+}
+.green .tabsPanel .tabItem, .green .tabsPanel .tabItem>span {
+    background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAACCCAMAAABWxpmJAAAALVBMVEVOn1c7iERQoVlZrGI3kEBdsGY0mj01lT40mz05h0I1lj40nD05hkIznzxdsWYuPx3XAAAARklEQVQoz8XOOwKAIBAD0fAVheT+x3WXGm03xatSDFYdRCWJ7sxIlu0I53XDHo/DWD4jNwlFyJLQHEXyX7pRsWL7ZqeF5r58WRorlWykigAAAABJRU5ErkJggg==);
+		/* background-repeat:no-repeat; */
+		background-color:#339e40;
+}
+
+.green .tabsPanel .tabItem {
+  /* color: #fff; */
+}
+
+.green .tabsPanel .tabItem:hover,
+.green .tabsPanel .tabItem.act {
+    background-color: #5db166;
+}
+
+.green .tabsPanel .tabItem:hover>span,
+.green .tabsPanel .tabItem.act>span {
+    background-color: #5db166 /* !important */;
+}
+
+
+.green .tabsPanel .tabClosable>a:first-child {
+    background-image: url(/mainStyles/images/default/tabfolder/tab-close-green.png);
+}
+
+
+
+
+.green .tabsPanel .markHome {
+    /* background:url(images/bg_homeTab.png) no-repeat 0 -27px; */
+   /*--At the moment is not used--  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC8AAAA0CAMAAAAt6JHGAAAAk1BMVEUnkM8QleUCe8QFesGt3fq03PNgu/JwuOKg1/io1vFZq91GsO96x/W/4va64/uHxOidz+6T0vc3mdQfn+vU7v5Dn9cspO3W7vwCeMALjdocicqGzPYSgsYOkuESmekHhdCSyesPlOMBecHH6fwSg8YBeMEjjc0Li9gah8olj87K6Pkrk9EHhdEAd7/h9P8sk9ESmerNhlFuAAABIElEQVRIx9XU2Y7CIBgFYNSWrdWC+6zOvnPa93+6oUYNpihg9MJzxcV3Egg/ELN6biLT+3wx5K9JyI0hDyn+8Z30UnzT9/tJUUwiPc0ySqfAlMb5EhhBU6pBYz34yJa4r+D1LT9Q6Pq7DfcXOp7u+LpQBrx2OPDKoY970AxOMorQ/vd9+LyneF7Y8Hhfbi/uAl67Xoe9HeVi3i7mhWeo++d5L1fkTVrS/f13HRnytTTkrU7IrSEfKf53SUiKrwd+P5ZyHOlZnjO2ABYszlfAEIoxBRbrIYa2JHwFr2/5gULXP224v9DxbMfXhSrglcOBHwF13IPl7n+VM4T2v+/D5z3FC2kj4n21vbgLeOV6FfZ2lOWsXcykZ6gH53kv1+P/AbpWmWi8jQRLAAAAAElFTkSuQmCC) no-repeat 0 -27px; */
+}
+
+
+/**** ================================### End HEADER PANELS ###============================== ****/
+
+/**** ### Start subDivisionsBar content ###
+==============================================================****/
+.green.subDivisionsBar {
+    float: left;
+    overflow: auto;
+    width: 214px;
+    height: 100%;
+    padding: 0;
+    border-right: 1px solid #ccc;
+}
+
+.green.subDivisionsBar.disable {
+    display: none;
+}
+
+.green.subDivisionsBar .sdb-inner {
+    padding-bottom: 30px;
+}
+
+/* SubDivisions navigation menu */
+.green .subDivisions {
+    margin: 0 0 18px;
+}
+
+/* .subDivisions li,
+.subDivisions li:hover,
+.subDivisions li.active {
+    background-image: url(images/theme-green/bg_subDivs-items.png);
+    background-repeat: repeat-x;
+} */
+
+.green .subDivisions li,
+.green .subDivisions li:hover,
+.green .subDivisions li.active {
+    height: 31px;
+    line-height: 31px;
+    font-weight: bold;
+    background-image: url(/mainStyles/themes/green/bg_subDivs-items.png);
+    background-repeat: repeat-x;
+}
+
+
+.green .subDivisions li:hover,
+.green .subDivisions li.active {
+    background-position: 0 100% !important;
+}
+
+.green .subDivisions li a {
+    display: block;
+    /*background-image: url(/mainStyles/images/default/bg/marks_subDivisions.png);*/
+    /*background-repeat: no-repeat;*/
+    text-decoration: none;
+    color: #515151;
+    padding-left: 30px;
+}
+
+.green .subDivisions li:hover a,
+.green .subDivisions li.active a {
+    color: #fff;
+}
+
+.green .subDivisions li img {
+    margin-left: 10px;
+    position: absolute;
+    margin-top: 8px;
+}
+
+/**** End subDivisionsBar content ****/
+
+address, em {
+    font-style: normal;
+}
+
+/*Internet Explorer problem on module loading, gwt iframe history visible*/
+#__gwt_historyFrame {
+    display: none;
+}
+
+/*halim's changes*/
+.green .customStyleTable {
+    border: 1px solid #5db166;
+}
+
+.green .customStyleTable thead th {
+    background-color: #5db166;
+    border-right: 1px solid #339e40;
+    border-left: 1px solid #70b15d;
+}
+
+.green .defaultRateStep-0 {
+    background: #5ba364;
+}
+
+.green .defaultRateStep-1 {
+    background: #4f9759;
+}
+
+.green .defaultRateStep-2 {
+    background: #408548;
+}
+
+.green .defaultRateStep-3 {
+    background: #35763d;
+}
+
+.green .defaultRateStep-4 {
+    background: #2d6934;
+}
+
+.green .defaultRateStep-5 {
+    background: #285e2d;
+}
+
+.green .defaultRateStep-6 {
+    background: #245329;
+}
+
+.green .defaultRateStep-7 {
+    background: #075310;
+}
+
+		/***### Start New!!! images COLORSCHEME GREEN ============================================ ###***/
+
+		/*** COLORS ***/
+a,
+.shortFAQ dt {
+    color:#306436;
+}
+a:visited, .btn:hover,
+.optBtn2:active,
+.optBtn2 button:active {
+    color:#144119;
+}
+
+.customTitle, .tabBarLinks a {
+	color:#1a4b20;
+}
+
+.btn, .optBtn, .optBtn2,
+.labelLine .addFieldSet .addField {
+	color:#306336;
+	}
+/*  Exist above .btn:hover {} */
+
+/* Exist above .optBtn2:active,
+.optBtn2 button:active {} */
+
+
+/* .labelLine .addFieldSet .addField {} */
+
+		/* BG-COLORS, BORDERS */
+.title {}
+
+/* Oportunity accordeon string-title */
+.slideDown-title, .slideDown-title em,
+.slideDown-halfTitle, .slideDown-halfTitle em, .slideDown-halfTitle .gwt-HTML,
+.slideDown-title .gwt-HTML,
+/* NEW */
+.title-2, .subTitle,
+.noteTable a, .noteTable .noteOwner,
+.pairDate dt,
+.faceInfo .title,
+.sectTitle
+ {
+    color: #1b4d21;
+}
+
+.slideDown-title {
+    border-color:#b3dcb6;
+    background: #f1fff2;
+}
+
+.slideDown-title:hover>em,
+.slideDown-title:hover .gwt-HTML {
+    color: #123d17;
+}
+
+		/*** ICONS ***/
+
+/*** header of listing table ***/
+/* .gwt-ScrollTable .headerTable td, .gwt-ScrollTable .footerTable td {
+	border-left: 1px solid #2c5639;
+    border-right: 1px solid #69b37f;
+} */
+/* Added by Xushnud
+.headerTable td, .footerTable td {
+    background-color: #5db166;
+} */
+
+/*** Buttons ***/
+.btn-1, a.btn-1,
+.blueBtn, .blueBtn span,
+.masterBtn,
+.boxTitle a,
+.rangeLine>.act, .rangeLine>div:hover {
+    background:url(images/theme-green/bg_gradX-1.png) repeat-x scroll 0 0 #dadada;
+    /* background: url(data:image/png;base64,) repeat-x scroll 0 0 #DADADA; */
+}
+
+
+.btn-1, a.btn-1 {
+    /* background:#068dc8 url(images/theme-green/bg_gradX-3.png) repeat-x; */
+}
+
+
+.masterBtn {
+    /* background:#002341 url(images/theme-green/bg_gradX-2.png) repeat-x; */
+    background-color: #002341;
+}
+
+.mark {
+    /* background:url(images/theme-green/marks-1.png) no-repeat; */
+}
+
+
+
+.mark2, .profileSubOptions>a, .key-slideBar {
+		background-image: url(images/theme-green/marks-2.png);
+}
+
+
+.markPlus {
+    padding-left:20px;
+    background: url(images/theme-green/bg_markPlus.png) no-repeat 0 50%;
+}
+
+.markCompetenciTemplate {
+    padding-left: 36px;
+    background: url(images/theme-green/bg_markAddCompetenciTemplate.png) no-repeat 10px 50%;
+}
+
+.markImport {
+    padding-left: 32px;
+    background: url(images/theme-green/bg_markImport.png) no-repeat 8px 50%;
+}
+
+
+/* ?? */
+.markCompetenci {
+    padding-left: 36px;
+    /* background: url(images/theme-green/bg_?.png) no-repeat 10px 50%; */
+}
+
+/* ?? */
+
+.markAddPerson {
+    padding-left: 36px;
+    background: url(images/theme-green/bg_markAddPerson.png) no-repeat 10px 50%;
+}
+
+.markAddProject {
+    padding-left: 36px;
+    background: url(images/theme-green/bg_markAddProject.png) no-repeat 10px 50%;
+}
+
+.markAddDepart {
+    padding-left: 36px;
+    background: url(images/theme-green/bg_markAddDepart.png) no-repeat 10px 50%;
+}
+
+.markAddBusiness {
+    padding-left: 36px;
+    background: url(images/theme-green/bg_markAddBusiness.png) no-repeat 10px 50%;
+}
+
+.markAdd2 {
+    padding-left: 26px;
+    background: url(images/theme-green/bg_markAdd2.png) no-repeat 5px 50%;
+}
+
+.markAddFrom {
+    padding-left: 26px;
+    background: url(images/theme-green/bg_markAddFrom.png) no-repeat 5px 50%;
+}
+
+.markNewReport {
+    padding-left: 26px;
+    background: url(images/theme-green/bg_markNewReport.png) no-repeat 5px 50%;
+}
+
+.markSuggestNew {
+    padding-left: 26px;
+    background: url(images/theme-green/bg_markSuggestNew.png) no-repeat 5px 50%;
+}
+
+.markBulletArrow {
+    padding-left: 31px;
+    background: url(images/theme-green/bg_markBulletArrow.png) no-repeat 5px 50%;
+}
+
+.markShare {
+    padding-left: 26px;
+    background: url(images/theme-green/bg_markShare.png) no-repeat 10px 50%;
+}
+
+.markModify {
+    padding-left: 26px;
+    background: url(images/theme-green/bg_markModify.png) no-repeat 10px 50%;
+}
+
+.markTickR {
+    padding-right: 34px;
+    background: url(images/theme-green/bg_markTickR.png) no-repeat 100% 50%;
+}
+
+
+.markDraftR {
+    padding-right: 34px;
+		background: url(images/theme-green/bg_markDraftR.png) no-repeat 100% 50%;
+    /* background: url(data:image/png;base64,) no-repeat 100% 50%; */
+}
+
+.markBack {
+    padding-left: 24px;
+    background: url(images/theme-green/bg_markBack.png) no-repeat 0 50%;
+}
+
+.markPrev {
+    padding-left: 24px;
+    background: url(images/theme-green/bg_markPrev.png) no-repeat 0 50%;
+}
+
+.markRunR {
+    padding-right: 24px;
+    background: url(images/theme-green/bg_markRun.png) no-repeat 100% 50%;
+}
+
+.markCloseR {
+    padding-right: 24px;
+    background: url(images/theme-green/bg_markClose.png) no-repeat 100% 50%;
+}
+
+.markNextR {
+    padding-right: 24px;
+    background: url(images/theme-green/bg_markNext.png) no-repeat 100% 50%;
+}
+
+/** Opportunity Buttons **/
+
+
+.markCloseR {
+    padding-right: 30px;
+    background: url(images/theme-green/bg_markCloseR.png) no-repeat 100% 50%;
+}
+
+.markConvertToR {
+    padding-right: 30px;
+    background: url(images/theme-green/bg_markConvertToR.png) no-repeat 100% 50%;
+}
+
+.markSaveCloseR {
+    padding-right: 30px;
+    background: url(images/theme-green/bg_markSaveCloseR.png) no-repeat 100% 50%;
+}
+
+
+.markUploadR {
+    padding-right: 20px;
+    background: url(images/theme-green/bg_markUploadR.png) no-repeat 100% 50%;
+}
+
+
+
+.markDownload {
+    padding-left: 16px;
+    background: url(images/theme-green/bg_markDownload.png) no-repeat;
+}
+
+.markDelete {
+    padding-left: 16px;
+    line-height: 1em;
+    background: url(images/theme-green/bg_markDelete.png) no-repeat;
+}
+
+
+.slideDown-title>em,
+.slideDown-title .gwt-HTML {
+    background:url(images/theme-green/bg_slideDown.png) no-repeat 5px 3px;
+}
+
+
+
+/* .labelLine .addFieldSet  *//* a is TEMP */
+a.addField, .addField a,
+.shortFAQ .gwt-DisclosurePanel a.header {
+    padding-left: 10px;
+    background:url(images/theme-green/bg_markLinkPlus.png) no-repeat 0 50%;
+}
+
+/* For sidebar Halp-List (expand and collapse) */
+.shortFAQ dt, .GTLP2WPH dt {
+    background:url(images/theme-green/bg_markLinkPlus2.png) no-repeat 0 50%;
+}
+
+.shortFAQ dt.expandElement, .GTLP2WPH dt.expandElement {
+    background:url(images/theme-green/bg_markLinkMinus.png) no-repeat 0 50%;
+}
+
+/** Keys - little buttons **/
+.keyRemove, .keyAdd {
+    /* width:14px; height:14px; */
+    background: url(images/theme-green/bg_key_add-remove.png) no-repeat;
+}
+
+.feedBackButton {
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAABYCAYAAAAN8yztAAAEg0lEQVRo3u2aaUgUYRjHNdtljcioiKy+BEV0GLmaR7d2mFbSHVR0EEVIJ2EHSko3imYIZUVGRRkaoevih1DpPla/RJp0savY4UYHtBVB+PQ8r7PT7O5Us9u8MyH74c/ODOjvnWee8+UNCe0RFpJ4OFlOxoSDScsTDyWXoRx4/x0F/yrkGVFhqNAQOThCFyHwhRowGXh/VDgtwAM+ZoO5J0LzeEAl8BHCAowinMzAGyzAzahIlEmEJxxIWsYbLMATUEPJ9AyO5jbhW7frAo/fP321FmA5eA/07mt6wcnD2/SCGxGuKIHEZk2B3IqDPs8n7JsKm4u3gbWxxm+4Semqx2+Ph6rb1XDj8U12jxECKdnzoLK+Cjo7O8HR0eo3PFwpPHpnIly0XmKgZvsTOFFRAh3vneze+dEJhdXH+cFJ47bEQe2DOgZ0y2qrgfSipQF987/CybzzC5aImpOTLlrA8bYV1pzcwAces2cSHCnN83jT30n1b64rXM7scuL2zeXieseFXezanDkRzlwv5Q8nC8zanQYPH9tEE49eH83CzfXNJS6Ie5w7P71jz6IyYuHBo4fs2ZO2Fn5wLL1gf2UXwXKx/zfzqw6Xvj03uNTs9tcOsNyphqqbFmh63sTf7KSxm2JEmEeMY6Zbe2oj/1Cj0pp9Noe9ueWeFc7UlgZcz/2GeyedeXmLYVXhOr5VjaAzM1Nlzc69nsuVU6mu3CnXJs6X56zCawfYnjZ2XaP3B9JG+Q0n85IV6mz17Jraq8p6C6bYL9qY3XLXKsY8A39x8U0y5HAzds5h5m541ghJW2aLUJK7seQaavG501hCod8VR9cwKyhxNtXgFNf5V49BQWWRoszGrXtlrXRri6KGQpXCwooLer693S5+94bnjZxDjWDYtbjHJu+sx83bWUV70eyTRlmc37D41HlVu9e0wwthT3EWuL66oOxWOXuWemABHD2fz2dcCg4NugwN1LXsPZndFVZ/ElY11dOrrmYnk5NHUyrNLy+EE+UlzNttLQ3sWV5ZQVdVw2dKermA45z6c+moJE25dQ312k0sUgfTZGiQFhXnB6e2Q4PYTGB+93Y27lOqWzSTl1Sd/jU0aDGfe0ws53Lhcu0VluOVglVvJuxvHGw/jpxQs82BppfNrLwS3P1Ms1BjW6FYwynmNQk1XeFyZqd412RP5k/dK3eH+y82B4JxHozzYJx3vzinDsafWObSt9NWl7gVct+qaDBUFe59H4Tzh9tq2Ogkvec6pXbzzYFDyZ912xzAf/5Sr2ML4XE506x6wU1YrTJ0O7DRZ1i/wWj6t3rA6XhYxNhNsVt1OaSD6oUaguY/r/nxJJQB1dfQ2zQSF1ChNZze3oQaiBo1cmVUFpbOV5rAhfNwYYL5B9ECjBHhU3ERR8yZE+/iQjowEf3gCQ+VLIAsMBwVjZqMmoFKQaWi0lBzA1Sy7GE8rwXQJ+iLGiwcG4xCxaDiUPHC6gOR2ecY4jaDwUOCDxgEK0SgBgifY4hgskAV6XMA0xvutYiewnFRk/BH/yKT9OjpTxPkF7gCBezLAAAAAElFTkSuQmCC);
+}
+
+.nearSearchBtn>em {
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAMAQMAAABV3H//AAAABlBMVEX///8wZDa/gg3UAAAAAXRSTlMAQObYZgAAADFJREFUeF4NxTERgDAMAMA3jIaCMYKTSMhGh156ML2xiSYXNZnFSvrmPajrlPGI39E+BSUVYuoovxoAAAAASUVORK5CYII=);
+	}
+.nearSearchBtn1>em:before {
+    background-color: #1a4b20;
+}
+
+			/***### \COLORSCHEME GREEN ###***/
+
+/******************************Tree Table styles BEGAN*****************************/
+
+.wfm-treeTable {
+    background: white;
+    overflow: hidden;
+    border: 1px solid #CCCCCC;
+}
+
+.wfm-treeTable-header {
+    color: #fff;
+    background-position: 100% 0;
+    background-color: #398642;
+}
+/******************************Tree Table styles END*****************************/
+
+.green .invoice-block .label,
+.green .invoice-type .label,
+.green .progress-invoicing .label {
+    color: #1A4B20;
+}
+
+.green .invoice-block .titlelabel{
+    color: #1A4B20;
+}
+.green .optionlabel{
+    color: #1A4B20;
+}
+
+
+.myCompanyNameStyle {
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: 15%;
+    color: #1A4B20 !important;
+}

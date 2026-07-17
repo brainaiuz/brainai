@@ -1,0 +1,56 @@
+.material-tooltip {
+    display: none; // don't remove will lead to side effect https://prnt.sc/qbh1vi
+    overflow: hidden;
+    position: absolute;
+    z-index: 2000;
+    top:0;
+    left:0;
+
+    max-width: calc(100% - 4px);
+    min-height: 36px;
+    line-height: 120%;
+    padding: 10px 8px;
+    border-radius: 2px;
+    font-size: 1rem;
+    text-align: center;
+    will-change: top, left, margin;
+    color: #fff;
+    background-color: transparent;
+    //opacity: 0;
+  &[style*="top: 4px"] {
+    margin-top: 10px !important;
+    transition: margin-top .3s ease; //top filters menu fix https://prnt.sc/qb3i56
+  }
+
+  .backdrop {
+    display: none;
+    position: absolute;
+    left: 0 !important;
+    right: 0 !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    //height: 7px;
+    //width: 14px;
+    //border-radius: 0 0 14px 14px;
+    opacity: 0;
+    background-color: $tooltip-bg;
+    z-index: -1;
+    transform: scale(0);
+    transform-origin: 50% 50%;
+    transition: transform 1s ease;
+    will-change: transform, opacity;
+  }
+    &[style*="block"] {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      .backdrop {
+        transform: scale(1);
+      }
+    }
+}
+
+

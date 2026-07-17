@@ -1,0 +1,14 @@
+## Assessment review notification
+## $assessment - EdsAssessment
+## $date - current date
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head><body><p>Dear $employeeAssessment.assessment.reviewer.getName(),</p>
+<p>Please be advised that $employeeAssessment.employee.getName() has completed the review of the employee appraisal on $date. You can now review and rate this employee. </p>
+<p>Click <a href="$host/Hrms.html?link=$link" title="Rate assessment" target="_blank">here</a> to review and rate the appraisal.</p>
+<p>* If you are not able to click on the link, you can copy and paste the following address into your web browser:</p>
+<p><a href="$host/Hrms.html?link=$link" title="Rate assessment" target="_blank">$host/Hrms.html?link=$link</a></p>
+</body></html>
+
+

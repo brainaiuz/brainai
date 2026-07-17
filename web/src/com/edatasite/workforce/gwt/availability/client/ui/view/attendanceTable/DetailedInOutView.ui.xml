@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:g="urn:import:com.google.gwt.user.client.ui"
+             xmlns:m="urn:import:gwt.material.design.client.ui">
+
+    <g:HTMLPanel ui:field="htmlPanel">
+        <m:MaterialPanel ui:field="avatarWrapper" addStyleNames="trmnlAtt-head__ava avatar">
+            <m:MaterialImage ui:field="avatarImg" addStyleNames="avatar__img"/>
+        </m:MaterialPanel>
+
+        <m:MaterialPanel ui:field="textWrapper" addStyleNames="trmnlAtt-head__txt">
+            <m:MaterialPanel addStyleNames="trmnlAtt-head__person">
+                <m:MaterialPanel addStyleNames="trmnlAtt-head__nameGroup">
+                    <m:MaterialLabel ui:field="nameLabel" addStyleNames="trmnlAtt-head__name"/>
+                    <m:MaterialLabel ui:field="positionLabel" addStyleNames="trmnlAtt-head__pos"/>
+                </m:MaterialPanel>
+
+                <m:MaterialPanel addStyleNames="trmnlAtt-date">
+                    <g:HTMLPanel addStyleNames="trmnlAtt-date__icon">
+                        <ui:msg>
+                            <svg width="11" height="11" viewBox="0 0 11 11" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7.875 6.125C8.15114 6.125 8.375 5.90114 8.375 5.625C8.375 5.34886 8.15114 5.125 7.875 5.125C7.59886 5.125 7.375 5.34886 7.375 5.625C7.375 5.90114 7.59886 6.125 7.875 6.125Z"
+                                      fill="currentColor"/>
+                                <path d="M7.875 8.125C8.15114 8.125 8.375 7.90114 8.375 7.625C8.375 7.34886 8.15114 7.125 7.875 7.125C7.59886 7.125 7.375 7.34886 7.375 7.625C7.375 7.90114 7.59886 8.125 7.875 8.125Z"
+                                      fill="currentColor"/>
+                                <path d="M5.875 5.625C5.875 5.90114 5.65114 6.125 5.375 6.125C5.09886 6.125 4.875 5.90114 4.875 5.625C4.875 5.34886 5.09886 5.125 5.375 5.125C5.65114 5.125 5.875 5.34886 5.875 5.625Z"
+                                      fill="currentColor"/>
+                                <path d="M5.875 7.625C5.875 7.90114 5.65114 8.125 5.375 8.125C5.09886 8.125 4.875 7.90114 4.875 7.625C4.875 7.34886 5.09886 7.125 5.375 7.125C5.65114 7.125 5.875 7.34886 5.875 7.625Z"
+                                      fill="currentColor"/>
+                                <path d="M2.875 6.125C3.15114 6.125 3.375 5.90114 3.375 5.625C3.375 5.34886 3.15114 5.125 2.875 5.125C2.59886 5.125 2.375 5.34886 2.375 5.625C2.375 5.90114 2.59886 6.125 2.875 6.125Z"
+                                      fill="currentColor"/>
+                                <path d="M2.875 8.125C3.15114 8.125 3.375 7.90114 3.375 7.625C3.375 7.34886 3.15114 7.125 2.875 7.125C2.59886 7.125 2.375 7.34886 2.375 7.625C2.375 7.90114 2.59886 8.125 2.875 8.125Z"
+                                      fill="currentColor"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                      d="M2.875 0C3.08211 0 3.25 0.167893 3.25 0.375V0.75636C3.581 0.749993 3.94566 0.749996 4.34673 0.75H6.40321C6.80428 0.749996 7.169 0.749993 7.5 0.75636V0.375C7.5 0.167893 7.66789 0 7.875 0C8.08211 0 8.25 0.167893 8.25 0.375V0.788544C8.37997 0.798453 8.50305 0.810909 8.61951 0.826567C9.20572 0.905381 9.6802 1.07144 10.0544 1.44562C10.4286 1.8198 10.5946 2.29428 10.6734 2.88049C10.75 3.45009 10.75 4.1779 10.75 5.09677V6.15321C10.75 7.07207 10.75 7.79991 10.6734 8.36951C10.5946 8.95572 10.4286 9.4302 10.0544 9.80438C9.6802 10.1786 9.20572 10.3446 8.61951 10.4234C8.04991 10.5 7.3221 10.5 6.40323 10.5H4.3468C3.42792 10.5 2.70009 10.5 2.13049 10.4234C1.54428 10.3446 1.0698 10.1786 0.695622 9.80438C0.32144 9.4302 0.155382 8.95572 0.0765676 8.36951C-1.39102e-05 7.7999 -7.70884e-06 7.07209 1.58978e-07 6.15321V5.09679C-7.70884e-06 4.17791 -1.39102e-05 3.4501 0.0765676 2.88049C0.155382 2.29428 0.32144 1.8198 0.695622 1.44562C1.0698 1.07144 1.54428 0.905381 2.13049 0.826567C2.24695 0.810909 2.37003 0.798453 2.5 0.788544V0.375C2.5 0.167893 2.66789 0 2.875 0ZM2.23042 1.56988C1.72738 1.63751 1.43756 1.76435 1.22595 1.97595C1.01435 2.18756 0.887512 2.47738 0.81988 2.98042C0.808426 3.06562 0.798849 3.1553 0.790842 3.25H9.95916C9.95115 3.1553 9.94157 3.06562 9.93012 2.98042C9.86249 2.47738 9.73565 2.18756 9.52405 1.97595C9.31244 1.76435 9.02262 1.63751 8.51958 1.56988C8.00574 1.5008 7.32841 1.5 6.375 1.5H4.375C3.42159 1.5 2.74426 1.5008 2.23042 1.56988ZM0.75 5.125C0.75 4.69799 0.75016 4.32636 0.756543 4H9.99346C9.99984 4.32636 10 4.69799 10 5.125V6.125C10 7.07841 9.9992 7.75574 9.93012 8.26958C9.86249 8.77262 9.73565 9.06244 9.52405 9.27405C9.31244 9.48565 9.02262 9.61249 8.51958 9.68012C8.00574 9.7492 7.32841 9.75 6.375 9.75H4.375C3.42159 9.75 2.74426 9.7492 2.23042 9.68012C1.72738 9.61249 1.43756 9.48565 1.22595 9.27405C1.01435 9.06244 0.887512 8.77262 0.81988 8.26958C0.750797 7.75574 0.75 7.07841 0.75 6.125V5.125Z"
+                                      fill="currentColor"/>
+                            </svg>
+                        </ui:msg>
+                    </g:HTMLPanel>
+
+                    <m:MaterialLabel ui:field="dateLabel" text="DATE 2026-03-01" addStyleNames="trmnlAtt-date__text"/>
+                </m:MaterialPanel>
+            </m:MaterialPanel>
+
+            <m:MaterialPanel ui:field="statsPanel" addStyleNames="trmnlAtt-head__stats">
+                <m:MaterialPanel addStyleNames="trmnlAtt-statItem">
+                    <g:HTMLPanel addStyleNames="trmnlAtt-stat-icon trmnlAtt-stat-icon--1">
+                        <ui:msg>
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                <path d="M12 6V12L16 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </ui:msg>
+                    </g:HTMLPanel>
+                    <m:MaterialPanel addStyleNames="trmnlAtt-statItem__txt">
+                        <m:MaterialLabel ui:field="lateRateLabel" addStyleNames="trmnlAtt-statItem__lbl"/>
+                        <m:MaterialLabel ui:field="percentLabel1" text="50.00 %"
+                                         addStyleNames="trmnlAtt-statItem__val"/>
+                    </m:MaterialPanel>
+                </m:MaterialPanel>
+
+                <m:MaterialPanel addStyleNames="trmnlAtt-statItem">
+                    <g:HTMLPanel addStyleNames="trmnlAtt-stat-icon trmnlAtt-stat-icon--2">
+                        <ui:msg>
+                            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16 32C16 37.6569 16 40.4853 17.7574 42.2426C19.04 43.5253 20.8931 43.8717 24 43.9654M16 16C16 10.3431 16 7.51472 17.7574 5.75736C19.5147 4 22.3431 4 28 4H30C35.6569 4 38.4853 4 40.2426 5.75736C42 7.51472 42 10.3431 42 16V20V28V32C42 37.6569 42 40.4853 40.2426 42.2426C38.7059 43.7794 36.3501 43.9723 32 43.9965"
+                                      stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                                <path d="M6 19V29C6 33.714 6 36.0711 7.46447 37.5355C8.92893 39 11.286 39 16 39M7.46447 10.4645C8.92893 9 11.286 9 16 9"
+                                      stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                                <path d="M12 24L30 24M30 24L25 29M30 24L25 19" stroke="currentColor" stroke-width="3"
+                                      stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </ui:msg>
+                    </g:HTMLPanel>
+                    <m:MaterialPanel addStyleNames="trmnlAtt-statItem__txt">
+                        <m:MaterialLabel ui:field="earlyLeaveLabel"  addStyleNames="trmnlAtt-statItem__lbl"/>
+                        <m:MaterialLabel ui:field="percentLabel2" text="25.00 %"
+                                         addStyleNames="trmnlAtt-statItem__val"/>
+                    </m:MaterialPanel>
+                </m:MaterialPanel>
+
+                <m:MaterialPanel ui:field="extraStatPanel" addStyleNames="trmnlAtt-statItem">
+                    <g:HTMLPanel addStyleNames="trmnlAtt-stat-icon trmnlAtt-stat-icon--3">
+                        <ui:msg>
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M30 24L12 24M12 24L16 28M12 24L16 20" stroke="currentColor" stroke-width="3"
+                                      stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M24.0004 43.9654C20.8935 43.8717 19.0404 43.5253 17.7578 42.2426C16.221 40.7059 16.0281 38.3501 16.0039 34M32.0004 43.9965C36.3505 43.9723 38.7063 43.7794 40.2431 42.2426C42.0004 40.4853 42.0004 37.6569 42.0004 32V28V20V16C42.0004 10.3431 42.0004 7.51472 40.2431 5.75736C38.4857 4 35.6573 4 30.0004 4H28.0004C22.3436 4 19.5151 4 17.7578 5.75736C16.221 7.29413 16.0281 9.64995 16.0039 14"
+                                      stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                                <path d="M6 19V29C6 33.714 6 36.0711 7.46447 37.5355C8.92893 39 11.286 39 16 39M7.46447 10.4645C8.92893 9 11.286 9 16 9"
+                                      stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                            </svg>
+                        </ui:msg>
+                    </g:HTMLPanel>
+                    <m:MaterialPanel addStyleNames="trmnlAtt-statItem__txt">
+                        <m:MaterialLabel ui:field="attendanceLabel"  addStyleNames="trmnlAtt-statItem__lbl"/>
+                        <m:MaterialLabel ui:field="percentLabel3" text="2.33 %" addStyleNames="trmnlAtt-statItem__val"/>
+                    </m:MaterialPanel>
+                </m:MaterialPanel>
+            </m:MaterialPanel>
+
+        </m:MaterialPanel>
+
+        <m:MaterialPanel ui:field="sheet" addStyleNames="trmnlAtt-body">
+            <m:MaterialPanel ui:field="rowsPanel"/>
+            <m:MaterialButton ui:field="pdfBtn" addStyleNames="btn btn-block btn--darkgrey trmnlAtt-pdf-btn"/>
+        </m:MaterialPanel>
+
+    </g:HTMLPanel>
+</ui:UiBinder>

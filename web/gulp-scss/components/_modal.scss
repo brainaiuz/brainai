@@ -1,0 +1,624 @@
+$modal-padding-x: rem(30px);
+$modal-padding-y: rem(25px);
+
+
+.modal-holder {
+  &:not(.active) {
+    display: none; //for statick examples and for greater reliability
+  }
+
+  &.active {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &.wg_dial__parent {
+      align-items: flex-end;
+      justify-content: flex-end;
+    }
+
+    .modal {
+      z-index: 1003;
+    }
+
+    .lean-overlay {
+      z-index: 1002;
+    }
+  }
+}
+
+.modal {
+
+  /* Layout and Sizing logic */
+  .modal-holder & {
+    min-width: 300px;
+    max-width: 75%;
+    max-height: 90vh;
+
+    &.orgBoardPopup {
+      width: 562px;
+      // Но следим, чтобы на планшетах оно не вылезло за экран
+      max-width: 95vw;
+
+      // На средних экранах (планшетах) и ниже можно сделать чуть шире относительно экрана
+      @media #{$medium-and-down} {
+        width: 90%;
+      }
+
+      // На очень широких экранах оставляем строго 562px
+      @media #{$large-and-up} {
+        width: 562px;
+      }
+    }
+
+    &--fitContent {
+      width: fit-content;
+    }
+
+    @media #{$medium-and-down} {
+      width: 80%;
+    }
+  }
+
+  /* Visual Style Unification */
+  /* We use $modalRadius (10px) and elevation 2 to match popups */
+  @include dropdown-content-style($radius: $modalRadius, $elevation: 2);
+
+  will-change: top, opacity;
+
+
+  > .modal-wrapper > .modal-content:last-child { //last-child may be the .modal-footer
+    border-radius: $modalRadius;
+  }
+
+  //> .modal-wrapper:not(:has(> .modal-content + .modal-footer)) > .modal-content {
+  //  border-radius: $modalRadius;
+  //}
+
+  &.vat-special-modal {
+    max-width: 900px;
+    width: 100%;
+
+    .modal-header {
+      text-align: left;
+
+      .modal-header-heading {
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 24px;
+        color: #425364;
+      }
+    }
+  }
+
+  .modal-footer {
+    border-top: 0;
+  }
+
+  .vat-modal-list {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    color: #5A6169;
+    padding-left: 15px;
+
+    li {
+      list-style: disc;
+      margin-bottom: 15px;
+    }
+  }
+
+  .vat-modal-row {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .vat-modal-column-small {
+    width: 284px;
+    padding-left: 24px;
+    border-left: 1px solid #C4D0DA;
+  }
+
+  .vat-modal-column-large {
+    padding-right: 24px;
+  }
+
+  .vat-conditions-area {
+    margin-top: 24px;
+  }
+
+  .modal-content:not(:last-child) { // i don't know why this is here but i've limited selector to not have .modal-footer
+    padding-bottom: 0;
+  }
+
+  .vat-modal-item {
+    .form-group {
+      background: #F4F7FA;
+      border-radius: 3px;
+      padding: 10px;
+
+      .form-group__label {
+        margin-top: 12px;
+        text-transform: unset;
+      }
+
+      input.form-control.default-width {
+        width: 50%;
+      }
+    }
+  }
+
+  .vat-modal-inner-heading {
+    font-size: 14px;
+    font-weight: 500;
+    color: #1D252C;
+    margin-top: 0;
+
+    strong {
+      font-weight: 700;
+    }
+  }
+
+  .modal-close {
+    cursor: pointer;
+  }
+
+  &-wrapper {
+    display: flex !important;
+    flex-direction: column;
+    height: 100%; // need for scrolled child blocks (.kpi-upload)
+  }
+
+  &--md {
+    max-width: 85%;
+  }
+
+  &[style*="width: 400px"] {
+    .modal-wrapper {
+      width: 400px;
+    }
+  }
+
+  &-header,
+  &-footer,
+  &-content {
+    background-color: #fff;
+  }
+
+  &-header,
+  &-footer {
+    padding-left: $modal-padding-x;
+    padding-right: $modal-padding-x;
+  }
+
+  &-header, .modal-wrapper > &-content:first-child {
+    @include border-top-radius($modalRadius);
+  }
+
+  &-header {
+    position: relative;
+    flex-shrink: 0;
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+    color: #425364;
+    padding-top: $modal-padding-y;
+
+    &:after {
+      left: 0;
+      right: 0;
+      @extend .gradient-blend-top--white;
+    }
+
+    .modal-light & {
+      padding: 10px 10px 0;
+    }
+
+    .close-x {
+      position: absolute;
+
+      &:not(.side-nav-close) {
+        top: $modal-padding-y - rem($svgSizeBase / 2);
+        right: $modal-padding-x - rem($svgSizeBase);
+      }
+
+    }
+  }
+
+
+  &-content {
+    overflow-y: auto;
+    .modal--hasPop & { //when there is dropdown list into the .modal-content
+      overflow: visible;
+      max-height: calc(80vh - 160px);
+    }
+
+    padding: $modal-padding-y rem(30px);
+
+    .has-material-carousel & {
+      padding: 0;
+    }
+
+
+    > .form-group:last-child {
+      margin-bottom: 0; //https://prnt.sc/t38qio
+    }
+
+    .wfmMessageBox td {
+      text-align: center;
+    }
+
+    .modal-light & {
+      *:first-child { //for h5
+        margin-top: 0;
+      }
+
+      p:last-child {
+        margin-bottom: 0;
+      }
+
+      h5 {
+
+      }
+    }
+  }
+
+  &-footer {
+    @include border-bottom-radius($modalRadius);
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    flex-shrink: 0;
+    padding-top: rem(15px);
+    padding-bottom: rem(15px);
+    border-top: 1px solid #D8D8D8;
+    background-color: #fff;
+
+    .modal-light & {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    &.text-left {
+      justify-content: flex-end;
+
+      > .btn:last-child {
+        margin-left: 0;
+      }
+
+      > .btn:first-child {
+        margin-left: 0;
+      }
+    }
+
+    &.text-right {
+      justify-content: flex-start;
+
+      > .btn:last-child {
+        margin-right: 0;
+      }
+
+      > .btn:first-child {
+        margin-right: 0;
+      }
+    }
+
+    //&.buttons-opposite {
+    //  justify-content: space-between;
+    //  > .btn {
+    //    margin-left: 0;
+    //    margin-right: 0;
+    //  }
+    //}
+    > .btn {
+      min-width: 80px; // make "save" and "cancel" buttons equal size
+    }
+
+    > .btn,
+    > .dropdown-split {
+      margin: 0 5px 5px;
+    }
+
+  }
+
+
+  //Guide Line Modal
+  .has-guide-modal & {
+    position: fixed;
+    top: 5% !important;
+    left: 10%;
+    right: 10%;
+    width: auto !important;
+
+    @media screen and (max-width: 1366px) {
+      max-width: 740px;
+    }
+
+    .modal-wrapper {
+      position: relative;
+      overflow: visible;
+      height: auto !important;
+    }
+
+    .modal-content {
+      position: relative;
+      padding-bottom: 54.65%; /* 16:9 */
+      padding-top: 25px;
+      height: 0;
+
+      @media screen and (max-width: 1366px) {
+        padding-bottom: 53.05%;
+      }
+
+      iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .btn--close {
+      position: absolute;
+      z-index: 9;
+      top: -($button-height-small / 2);
+      right: -($button-height-small / 2);
+      background: black;
+      color: #fff;
+      opacity: 1;
+    }
+  }
+}
+
+
+.gwt-PopupPanelGlass {
+  @include backdrop-base();
+}
+
+.lean-overlay {
+  @include backdrop-base($pos: absolute);
+
+  .modal-holder:not(.active) > & { //for statick examples and for greater reliability
+    display: none;
+  }
+}
+
+// Modal with fixed action footer
+.modal.modal-fixed-footer {
+  padding: 0;
+  height: 70%;
+
+  .modal-content {
+    position: absolute;
+    height: calc(100% - 56px);
+    max-height: 100%;
+    width: 100%;
+    overflow-y: auto;
+  }
+
+  .modal-footer {
+    border-top: 1px solid rgba(0, 0, 0, .1);
+    position: absolute;
+    bottom: 0;
+  }
+}
+
+// Modal Bottom Sheet Style
+.modal.bottom-sheet {
+  top: auto;
+  bottom: -100%;
+  margin: 0;
+  width: 100%;
+  max-height: 45%;
+  border-radius: 0;
+  will-change: bottom, opacity;
+}
+
+//MODAL WITH WITE BG
+.has-modal--sampledata .lean-overlay {
+  opacity: 0.8 !important;
+  background: #fff;
+}
+
+.modal--sample {
+  .modal-wrapper {
+    background: rgba(255, 255, 255, 0.84);
+    box-shadow: 0px 20px 40px 0 rgba(0, 0, 0, 0.06);
+    border-color: lighten($color-base-1, 8%);
+    border-color: $color-base-0;
+  }
+
+  .modal-header {
+    h5 {
+      margin: 0;
+      font-size: 17px;
+    }
+
+    p {
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .modal-content {
+    padding-top: 10px;
+  }
+
+  .btns-group + .img-holder {
+    margin-top: 20px;
+  }
+}
+
+.modal--sample-image {
+  .modal-content {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+}
+
+.modal-sample-intro {
+  .modal-content {
+    @media screen and (max-width: 1366px) {
+      padding-top: 0;
+    }
+
+    p {
+      margin: rem(9px) 0;
+      font-size: rem(13px);
+    }
+  }
+
+}
+
+.modal-chooseOptions {
+  .modal-content {
+    .gwt-RadioButton + * {
+      margin-top: 10px;
+    }
+  }
+}
+
+// \MODAL WITH WITE BG
+
+.img-holder {
+  line-height: 0;
+
+  img {
+    max-width: 100%;
+    vertical-align: top;
+  }
+}
+
+//CRM > CALLENDAR MODAL
+.cal-popup {
+  padding: 15px;
+  border-radius: $radius-base;
+  background-color: #fff;
+  box-shadow: 0px 3px 14px 0px rgba(0, 0, 0, 0.3);
+  border: 1px solid $color-base-1;
+  //.close-button,
+  .close-x {
+    position: absolute;
+    z-index: 1;
+    right: 7px;
+    top: 7px;
+    cursor: pointer;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .popupContent {
+    > div > table > tbody > tr {
+      + tr {
+        > td {
+          padding-top: 10px;
+        }
+      }
+    }
+  }
+}
+
+.popup-overlay {
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+
+  border-radius: $radius-base;
+
+  .frame__content & {
+    right: $frameContentPadding;
+    bottom: $frameContentPadding;
+  }
+
+  .cal-popup--opened & {
+    position: absolute;
+  }
+}
+
+
+//https://prnt.sc/sqheok
+.table-dependences {
+  &__wrapper {
+    max-width: 650px;
+  }
+
+  &__body {
+    max-height: 300px;
+  }
+
+  img.wfm-treeTable__toggle {
+    display: none;
+  }
+}
+
+//Select Matching Transaction(s) Modal
+.matching-transactions-table {
+  > tbody > tr {
+    > td {
+      padding-bottom: 5px;
+
+      + td {
+        padding-left: 10px;
+      }
+    }
+
+    .cell-amountMore,
+    .cell-amountLess {
+      display: inline-block;
+      max-width: 130px;
+    }
+
+    &:first-child > td {
+      padding-bottom: 0;
+      font-weight: 500;
+    }
+  }
+}
+
+.modal.has-frame__info {
+  .modal-footer {
+    min-height: $frameInfoSize;
+  }
+}
+
+//https://prnt.sc/szyneg
+.upgradePupup {
+  max-width: 510px;
+
+  &-table {
+    .WfmMessageBox-message__cell {
+      padding-top: 0;
+      padding-bottom: $padding-x-base;
+    }
+  }
+
+  .modal-footer {
+    .btn + .btn {
+      margin-left: $padding-x-half;
+    }
+  }
+}
+
+.modal .WfmMessageBox-msg td:not(:empty) {
+  text-align: center; //https://i.imgur.com/YCxBJih.png
+}
+
+//HRMS>>Goal management>>Business goal>>customize >>propereties
+.bznsGoalCustomDetModal {
+  width: 834px;
+
+  //.tbl-labels ~ .form-group {
+  //  margin: $m-base 0 0;
+  //}
+}

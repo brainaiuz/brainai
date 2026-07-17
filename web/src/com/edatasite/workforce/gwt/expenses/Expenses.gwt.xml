@@ -1,0 +1,7 @@
+<module rename-to="expenses">
+    <inherits name='com.edatasite.workforce.gwt.core.Core'/>
+    <inherits name='com.edatasite.workforce.gwt.expenses.ExpensesMain'/>
+    <inherits name="com.edatasite.workforce.gwt.accounting.AccountingMain"/>
+    <entry-point class='com.edatasite.workforce.gwt.expenses.client.Expenses'/>
+    <set-property name="locale" value="default"/>
+</module>

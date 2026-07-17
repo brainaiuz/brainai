@@ -1,0 +1,45 @@
+
+Index: src/com/edatasite/workforce/gwt/messagecenter/client/view/ComposeMessageView.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/com/edatasite/workforce/gwt/messagecenter/client/view/ComposeMessageView.java	(revision 4a6567cacaffb0903290eb36df06de18261d2c1a)
++++ src/com/edatasite/workforce/gwt/messagecenter/client/view/ComposeMessageView.java	(revision c963954c445e4f7aa647e8257cfcef943cd374cf)
+@@ -174,7 +174,7 @@
+         isReplyAll = false;
+         toText.setEmails(to, true);
+         toText.deselectItem(true);
+-        defaultContent.setHTML("<br><br><br><br>"+contentHTML);
++        defaultContent.setHTML("<br><br><br><br>" + contentHTML);
+         content.setFocusOnStartup(true);
+         if (mailSubject == null) {
+             mailSubject = "";
+@@ -191,7 +191,7 @@
+         toText.setEmails(to, true);
+         ccText.setEmails(cc, true);
+         bccText.getSuggestBox().setText(bcc);
+-        defaultContent.setHTML("<br><br><br><br>"+contentHTML);
++        defaultContent.setHTML("<br><br><br><br>" + contentHTML);
+         if (mailSubject == null) {
+             mailSubject = "";
+         }
+@@ -811,7 +811,7 @@
+         addBcc.addClickHandler(new ClickHandler() {
+             @Override
+             public void onClick(ClickEvent clickEvent) {
+-                showCCPanel(panel, addBcc, border, table);
++                showBCCPanel(panel, addBcc, border, table);
+             }
+         });
+         addCc = new Label(coreStrings.addCc());
+@@ -821,7 +821,7 @@
+         addCc.addClickHandler(new ClickHandler() {
+             @Override
+             public void onClick(ClickEvent clickEvent) {
+-                showBCCPanel(panel, addCc, border, table);
++                showCCPanel(panel, addCc, border, table);
+             }
+         });
+ 
+\ No newline at end of file

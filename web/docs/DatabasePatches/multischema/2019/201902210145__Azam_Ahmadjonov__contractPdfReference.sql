@@ -1,0 +1,1 @@
+insert into "anv".pdfreference (code, name) values ('CONTRACT', 'Contract');

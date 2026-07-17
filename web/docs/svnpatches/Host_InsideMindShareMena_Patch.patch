@@ -1,0 +1,18 @@
+Index: src/com/edatasite/workforce/gwt/core/client/ui/Constants.java
+===================================================================
+--- src/com/edatasite/workforce/gwt/core/client/ui/Constants.java	(revision 14767)
++++ src/com/edatasite/workforce/gwt/core/client/ui/Constants.java	(working copy)
+@@ -283,11 +283,11 @@
+     public static final String MY_LEAVE_REQUEST = "myLeaveRequestView";
+ 
+ 
+-    public static final String HOST_LIVE = "app.workforcetrack.com";
++    public static final String HOST_LIVE = "inside.mindsharemena.com";
+     public static final String HOST_AWS = "aws.workforcetrack.com";
+     public static final String HOST_LOCAL = "localhost:8080";
+ 
+-    public static String applicationRootLive = "/usr/share/tomcat6/webapps/projects/app.workforcetrack.com/ROOT";
++    public static String applicationRootLive = "/usr/share/tomcat6/webapps/projects/inside.mindsharemena.com/ROOT";
+     public static String applicationRootAws = "/usr/share/tomcat6/webapps/projects/aws.workforcetrack.com/ROOT";
+ 
+     ////////////////GOOGLE/////////////////////////////////////

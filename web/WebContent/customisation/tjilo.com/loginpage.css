@@ -1,0 +1,20 @@
+button, input.btn, .btn input {
+    cursor: pointer;
+}
+
+.btn {
+    display: inline-block;
+    margin: 1px;
+}
+
+.btn>span {
+    display: block;
+}
+
+.btn {
+    position: relative;
+    /*text-indent: 0px !important;*/
+}
+
+
+

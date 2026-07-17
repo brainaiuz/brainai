@@ -1,0 +1,1 @@
+delete from "anv".listPanelSettings where paneltype = 'LeadKanbanPanel';

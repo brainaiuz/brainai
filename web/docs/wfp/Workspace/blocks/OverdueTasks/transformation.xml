@@ -1,0 +1,25 @@
+<tr class="odd">
+    <th>
+        <a class="left" target="_blank" href='/ProjectManagement.html?link=$rowItem.encryptURL("id","task|summary/")' title="$rowItem.getStringValue("t.taskname")'">
+        $rowItem.getValueLimit("t.taskname", 20)
+    </a>
+</th>
+<td>
+<strong class="clear">$rowItem.getStringValue("t.projectname")</strong>
+</td>
+        #if ($rowItem.getStringValue("allday") == "yes")
+<td class="date">
+<strong class="clear">$rowItem.getShortDateValue("t.startdate")</strong>
+</td>
+<td class="date">
+<strong class="clear">$rowItem.getShortDateValue("t.duedate")</strong>
+</td>
+        #else
+<td class="date">
+<strong class="clear">$rowItem.getLongDateValue("t.startdate")</strong>
+</td>
+<td class="date">
+<strong class="clear">$rowItem.getLongDateValue("t.duedate")</strong>
+</td>
+        #end
+        </tr>

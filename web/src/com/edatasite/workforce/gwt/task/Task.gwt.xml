@@ -1,0 +1,7 @@
+<module>
+
+    <inherits name='com.edatasite.workforce.gwt.core.Core'/>
+    <inherits name="com.edatasite.workforce.gwt.workstream.Workstream"/>
+    <inherits name="com.edatasite.workforce.gwt.project.Project"/>
+
+</module>

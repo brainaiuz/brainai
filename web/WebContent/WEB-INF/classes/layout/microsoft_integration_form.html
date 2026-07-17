@@ -1,0 +1,58 @@
+<div class="contentBar">
+    <ul class="collapsible--panels collapsible--arrows-left collapsible collapsible--gwt required" data-collapsible="expandable">
+        <li class="slideDown-box group active">
+            <div class="collapsible-header active"
+                 onclick="var myclick=this.parentElement;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls; } var myclick=this;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls; }">
+                <a style="cursor: pointer;"><span>$$label:CALENDAR$$</span></a>
+            </div>
+
+            <div class="collapsible-body">
+                <div class="grid-row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <div class="form-group__label">&nbsp;</div>
+                            <div class="form-group__content">$$input:ENABLE_REMINDER$$</div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <div class="form-group__label">&nbsp;</div>
+                            <div class="form-group__content">$$input:CONFIGURE_LINK$$</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+
+        <li class="slideDown-box group active">
+            <div class="collapsible-header active"
+                 onclick="var myclick=this.parentElement;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls; } var myclick=this;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls; }">
+                <a style="cursor: pointer;"><span>$$label:TOKENS$$</span></a>
+            </div>
+            <div class="collapsible-body">
+                <div class="grid-row">
+                    <!--<div class="col-6">
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:DELETE_GOOGLE_CALENDAR_TOKEN$$</div>
+                            <div class="form-group__content">$$input:DELETE_GOOGLE_CALENDAR_TOKEN$$</div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:DELETE_GOOGLE_CONTACT_TOKEN$$</div>
+                            <div class="form-group__content">$$input:DELETE_GOOGLE_CONTACT_TOKEN$$</div>
+                        </div>
+                    </div>-->
+                    <div class="col-6">
+                        <!--<div class="form-group">
+                            <div class="form-group__label">$$label:DELETE_GOOGLE_DOCUMENT_TOKEN$$</div>
+                            <div class="form-group__content">$$input:DELETE_GOOGLE_DOCUMENT_TOKEN$$</div>
+                        </div>-->
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:DELETE_OFFICE_TOKEN$$</div>
+                            <div class="form-group__content">$$input:DELETE_OFFICE_TOKEN$$</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>

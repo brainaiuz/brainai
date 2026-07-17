@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+
+<p>Dear $userName, </p>
+
+<p>
+    You are receiving the $receivedMessageCount of four consecutive notifications as your account $accountName is to expire
+    in $daysCount days.
+    Please note that the next notice will be sent $afterSendEmailDate away from expiration.
+    <br/>
+    You need to renew your subscription, please call GoodSystems on 1300 85 75 60 before $expireDate because after that your account will be automatically inactivated.
+</p>
+
+</body>
+</html>

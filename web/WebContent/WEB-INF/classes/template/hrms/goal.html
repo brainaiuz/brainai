@@ -1,0 +1,638 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style type="text/css">
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+
+        td {
+            padding: 3px;
+        }
+
+        .title {
+            font-size: 9pt;
+        }
+
+        .name {
+            font-size: 7pt;
+        }
+
+        .value {
+            font-size: 8pt;
+        }
+
+        .personalValue {
+            font-size: 7pt;
+        }
+
+        .nameCapital {
+            text-transform: capitalize;
+        }
+
+    </style>
+</head>
+<body>
+<div>
+    <img alt="images"
+         src="https://workforcetrack.s3.amazonaws.com/000000000000/public/65159/a2113e82-397f-49fd-a58a-cdf4f4b93dff?AWSAccessKeyId=AKIAIROQMC77E5UKWBWQ"
+         style="display: none;"/>
+    #if($itextGenericPdfData.companyData.companyName == 'KPI Software Inc' or
+    $itextGenericPdfData.companyData.companyLogoUrl == 'https://apps.kpi.com/customisation/kpi.com/images/kpilogo.png')
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="width: 88px; display: none;"/>
+    #else
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl"
+         style="max-width: 100%; max-height: 100%; display: none;"/>
+    #end
+
+    #set($numAndDatesTable = $itextGenericPdfData.baseInvoice.customNumberAndDatesTable.rows)
+    #set($type = $numAndDatesTable.get("TYPE").get("COLUMN_VALUE"))
+
+    #if($type == 'company')
+
+    #set($statusLabel = $numAndDatesTable.get("STATUS").get("COLUMN_NAME"))
+    #set($validityLabel = $numAndDatesTable.get("VALIDITY_PERIOD").get("COLUMN_NAME"))
+    #set($titleLabel = $numAndDatesTable.get("TITLE").get("COLUMN_NAME"))
+    #set($periodLabel = $numAndDatesTable.get("PERIOD").get("COLUMN_NAME"))
+    #set($descriptionLabel = $numAndDatesTable.get("DESCRIPTION").get("COLUMN_NAME"))
+    #set($outComeLabel = $numAndDatesTable.get("OUTCOME").get("COLUMN_NAME"))
+
+    #set($status = $numAndDatesTable.get("STATUS").get("COLUMN_VALUE"))
+    #set($validity = $numAndDatesTable.get("VALIDITY_PERIOD").get("COLUMN_VALUE"))
+    #set($title = $numAndDatesTable.get("TITLE").get("COLUMN_VALUE"))
+    #set($period = $numAndDatesTable.get("PERIOD").get("COLUMN_VALUE"))
+    #set($description = $numAndDatesTable.get("DESCRIPTION").get("COLUMN_VALUE"))
+    #set($outcome = $numAndDatesTable.get("OUTCOME").get("COLUMN_VALUE"))
+
+    #elseif($type == 'personal')
+
+    #set($assigneeLabel = $numAndDatesTable.get("ASSIGNEE").get("COLUMN_NAME"))
+    #set($targetLabel = $numAndDatesTable.get("TARGET").get("COLUMN_NAME"))
+    #set($actualLabel = $numAndDatesTable.get("ACTUAL").get("COLUMN_NAME"))
+    #set($weightLabel = $numAndDatesTable.get("WEIGHT").get("COLUMN_NAME"))
+
+    #set($assignee = $numAndDatesTable.get("ASSIGNEE").get("COLUMN_VALUE"))
+    #set($target = $numAndDatesTable.get("TARGET").get("COLUMN_VALUE"))
+    #set($actual = $numAndDatesTable.get("ACTUAL").get("COLUMN_VALUE"))
+    #set($weight = $numAndDatesTable.get("WEIGHT").get("COLUMN_VALUE"))
+
+    #elseif($type == 'department')
+
+    #set($departmentLabel = $numAndDatesTable.get("DEPARTMENT").get("COLUMN_NAME"))
+    #set($department = $numAndDatesTable.get("DEPARTMENT").get("COLUMN_VALUE"))
+
+    #elseif($type == 'project')
+
+    #set($projectLabel = $numAndDatesTable.get("PROJECT_NAME").get("COLUMN_NAME"))
+    #set($project = $numAndDatesTable.get("PROJECT_NAME").get("COLUMN_VALUE"))
+
+    #end
+
+    #if($type != 'company')
+    #set($statusLabel = $numAndDatesTable.get("STATUS").get("COLUMN_NAME"))
+    #set($validityLabel = $numAndDatesTable.get("VALIDITY_PERIOD").get("COLUMN_NAME"))
+    #set($titleLabel = $numAndDatesTable.get("TITLE").get("COLUMN_NAME"))
+    #set($measurementLabel = $numAndDatesTable.get("MEASUREMENT").get("COLUMN_NAME"))
+    #set($periodLabel = $numAndDatesTable.get("PERIOD").get("COLUMN_NAME"))
+    #set($descriptionLabel = $numAndDatesTable.get("DESCRIPTION").get("COLUMN_NAME"))
+    #set($actionLabel = $numAndDatesTable.get("ACTION_STEPS").get("COLUMN_NAME"))
+    #set($scorecalculationLabel = $numAndDatesTable.get("SCORE_CALCULATION").get("COLUMN_NAME"))
+    #set($companyGoalLabel = $numAndDatesTable.get("COMPANY_GOAL").get("COLUMN_NAME"))
+
+    #set($status = $numAndDatesTable.get("STATUS").get("COLUMN_VALUE"))
+    #set($validity = $numAndDatesTable.get("VALIDITY_PERIOD").get("COLUMN_VALUE"))
+    #set($title = $numAndDatesTable.get("TITLE").get("COLUMN_VALUE"))
+    #set($measurement = $numAndDatesTable.get("MEASUREMENT").get("COLUMN_VALUE"))
+    #set($period = $numAndDatesTable.get("PERIOD").get("COLUMN_VALUE"))
+    #set($description = $numAndDatesTable.get("DESCRIPTION").get("COLUMN_VALUE"))
+    #set($action = $numAndDatesTable.get("ACTION_STEPS").get("COLUMN_VALUE"))
+    #set($scorecalculation = $numAndDatesTable.get("SCORE_CALCULATION").get("COLUMN_VALUE"))
+    #set($companyGoal = $numAndDatesTable.get("COMPANY_GOAL").get("COLUMN_VALUE"))
+    #end
+
+    #if($type == 'personal')
+    <table width="100%" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+            <td width="34%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital"> $assigneeLabel</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($assignee != '') $assignee #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="33%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital"> $statusLabel</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($status != '') $status #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="33%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital"> $validityLabel</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($validity != '') $validity #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-top: 10px;">
+        <tr>
+            <td width="34%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital"> $titleLabel</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($title != '') $title #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="33%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital"> $targetLabel</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($target != '') $target #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="33%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital"> $measurementLabel</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($measurement != '') $measurement #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-top: 10px;">
+        <tr>
+            <td width="34%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital"> $periodLabel</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($period != '') $period #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="33%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital"> $actualLabel</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($actual != '') $actual #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="33%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital"> $weightLabel</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($weight != '') $weight #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-top: 10px;">
+        <tr>
+            <td width="50%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital"> $descriptionLabel</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($description != '') $description #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="50%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital"> $actionLabel</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($action != '') $action #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    #end
+
+    #if($type == 'department' || $type == 'project')
+    <table width="100%" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+            <td width="34%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital"> $titleLabel</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($title != '') $title #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="33%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital"> $statusLabel</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($status != '') $status #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="33%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital"> $validityLabel</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($validity != '') $validity #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-top: 10px;">
+        <tr>
+            <td width="34%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td class="name nameCapital" width="100%"> #if($type == 'department') $departmentLabel #else
+                            $projectLabel #end
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($department != '') $department #end
+                            #if($project != '') $project #end
+                            #if($department == ''&& $project == '') — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="33%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital"> $scorecalculationLabel</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($scorecalculation != '') $scorecalculation #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="33%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital"> $measurementLabel</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($measurement != '') $measurement #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-top: 10px;">
+        <tr>
+            <td width="34%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital"> $periodLabel</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($period != '') $period #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="33%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital"> $companyGoalLabel</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($companyGoal != '') $companyGoal #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="33%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td class="name nameCapital" width="100%"></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-top: 10px;">
+        <tr>
+            <td width="50%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital"> $descriptionLabel</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($description != '') $description #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="50%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital"> $actionLabel</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($action != '') $action #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    #end
+
+    #if($type == 'business')
+    <table width="100%" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+            <td width="34%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital"> $titleLabel</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($title != '') $title #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="33%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital"> $statusLabel</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($status != '') $status #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="33%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital"> $validityLabel</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($validity != '') $validity #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-top: 10px;">
+        <tr>
+            <td width="34%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td class="name nameCapital" width="100%"> $periodLabel</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($period != '') $period #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="33%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital"> $companyGoalLabel</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($companyGoal != '') $companyGoal #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="33%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital"> $measurementLabel</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($measurement != '') $measurement #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-top: 10px;">
+        <tr>
+            <td width="34%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital"> $descriptionLabel</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($description != '') $description #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="33%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital"> $actionLabel</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($action != '') $action #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="33%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td class="name nameCapital" width="100%"> $scorecalculationLabel</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($scorecalculation != '') $scorecalculation #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    #end
+
+    #if($type == 'company')
+    <table width="100%" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+            <td width="34%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital"> $titleLabel</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($title != '') $title #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="33%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital"> $periodLabel</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($period != '') $period #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="33%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital"> $statusLabel</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($status != '') $status #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-top: 10px;">
+        <tr>
+            <td width="34%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td class="name nameCapital" width="100%"> $descriptionLabel</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($description != '') $description #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="33%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital"> $outComeLabel</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($outcome != '') $outcome #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="33%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital"> $validityLabel</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($validity != '') $validity #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    #end
+
+</div>
+
+</body>
+</html>

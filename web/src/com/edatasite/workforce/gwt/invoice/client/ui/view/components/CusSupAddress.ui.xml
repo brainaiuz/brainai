@@ -1,0 +1,16 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:m='urn:import:gwt.material.design.client.ui'
+             xmlns:kw='urn:import:com.edatasite.workforce.gwt.core.client.ui'
+             xmlns:m.html="urn:import:gwt.material.design.client.ui.html">
+    <g:HTMLPanel styleName="address-field">
+        <div class="address-field__select-region">
+            <kw:DataListBox ui:field="addressList"/>
+        </div>
+        <div class="address-field__text-region">
+            <m.html:Div class="address-field__text keep-text-inline" ui:field="addressDescription"/>
+            <m:MaterialLink class="address-field__edit address-field__btn btn--icon" ui:field="editAddressLink"/>
+        </div>
+        <m:MaterialLink class="address-field__add address-field__btn btn--icon" ui:field="addAddressLink"/>
+    </g:HTMLPanel>
+</ui:UiBinder>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Flat" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#D3C6E0;}
+	.st1{fill:#8B61A2;}
+	.st2{fill:#FFFFFF;}
+	.st3{font-family:'Somatic-Rounded';}
+	.st4{font-size:92.6758px;}
+</style>
+<path class="st0" d="M392,488H120c-26.5,0-48-21.5-48-48l0,0V72c0-26.5,21.5-48,48-48h224l96,96v320C440,466.5,418.5,488,392,488
+	L392,488z"/>
+<path class="st1" d="M72,360h368l0,0v80c0,26.5-21.5,48-48,48l0,0H120c-26.5,0-48-21.5-48-48l0,0V360L72,360z"/>
+<g>
+	<path class="st1" d="M440,120h-48c-26.5,0-48-21.5-48-48V24L440,120z"/>
+	<circle class="st1" cx="288" cy="216" r="8"/>
+	<circle class="st1" cx="224" cy="216" r="8"/>
+	<circle class="st1" cx="256" cy="216" r="8"/>
+	<path class="st1" d="M184,272c-4.4,0-8-3.6-8-8v-32c0-5.9-2.2-11.6-6.1-16c4-4.4,6.1-10.1,6.1-16v-32c0-4.4,3.6-8,8-8
+		c4.4,0,8-3.6,8-8s-3.6-8-8-8c-13.2,0-24,10.8-24,24v32c0,4.4-3.6,8-8,8c-4.4,0-8,3.6-8,8s3.6,8,8,8c4.4,0,8,3.6,8,8v32
+		c0,13.2,10.8,24,24,24c4.4,0,8-3.6,8-8S188.4,272,184,272z"/>
+	<path class="st1" d="M360,208c-4.4,0-8-3.6-8-8v-32c0-13.2-10.8-24-24-24c-4.4,0-8,3.6-8,8s3.6,8,8,8c4.4,0,8,3.6,8,8v32
+		c0,5.9,2.2,11.6,6.1,16c-4,4.4-6.1,10.1-6.1,16v32c0,4.4-3.6,8-8,8c-4.4,0-8,3.6-8,8s3.6,8,8,8c13.2,0,24-10.8,24-24v-32
+		c0-4.4,3.6-8,8-8c4.4,0,8-3.6,8-8S364.4,208,360,208z"/>
+</g>
+<text transform="matrix(1 0 0 1 132.8521 455.7734)" class="st2 st3 st4">JSON</text>
+</svg>

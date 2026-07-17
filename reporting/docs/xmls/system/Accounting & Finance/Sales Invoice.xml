@@ -1,0 +1,69 @@
+<report>
+    <view>
+        <title>Invoice List</title>
+        <name>Invoice List</name>
+        <category>invoice</category>
+        <sqlquery>
+            <select agregateFunc="distinct">
+                <table name="Invoice">
+                    <column name="id" title="id" type="number" formattype="hidden"/>
+                    <column name="t.clientname" title="Client Name" type="string" formattype="string"/>
+                    <column name="t.exchangeRate" title="Exchange Rate" type="number" formattype="number" />
+                    <column name="t.number" title="Invoice Number" type="string" formattype="string"/>
+                    <column name="t.invoicedate" title="Invoice Date" type="date" formattype="date" customdateformat="DD-Mon, YYYY HH24:MI"/>
+                    <column name="t.duedate" title="Due Date" type="date" formattype="date" customdateformat="DD-Mon, YYYY HH24:MI"/>
+                    <column name="t.total" title="Total" type="number" formattype="money"/>
+                    <column name="t.discount" title="Discount" type="number" formattype="money" />
+                    <column name="t.currencyname" title="Currency" type="string" formattype="string"/>
+                    <!--<column name="t.itemname" title="Product Name" type="string" formattype="string"/>-->
+                    <column name="t.statusname" title="Status" type="string" formattype="string"/>
+                    <column name="t.billingaddress" title="Address" type="string" formattype="string"/>
+                    <column name="t.ponumber" title="PO Number" type="string" formattype="string"/>
+                    <column name="t.shippingmethod" title="Shipping Method" type="string" formattype="string"/>
+                    <column name="t.subtotal" title="Subtotal" type="number" formattype="money"/>
+                    <column name="t.totaltaxes" title="Tax Total" type="number" formattype="money"/>
+                    <column name="t.totaldiscount" title="Discount Total" type="number" formattype="money"/>
+                    <column name="t.totalininvoicecurrency" title="Total Invoice Currency" type="number" formattype="number" />
+                </table>
+                <table name="Bank Details">
+                    <column name="t.accountnumber" title="Account Number" type="string" formattype="string"/>
+                    <column name="t.accountname" title="Bank Name" type="string" formattype="string"/>
+                </table>
+            </select>
+            <from>(SELECT iv.id,st.code, cl.name as
+                clientname,iv.exchangeRate,iv.number,iv.invoicedate,iv.duedate,iv.discount,cu.name as
+                currencyname,
+                st.name as statusname,(ad.address||', '||ad.city||', '||co.name||', '||ad.zipcode)
+                as billingaddress,iv.ponumber,shm.name as shippingmethod,iv.subtotal,iv.totaltaxes,
+                iv.totaldiscount,
+                case when iv.iscreditnote = true then iv.total*(-1) else iv.total end as total,
+                iv.totalininvoicecurrency,bna.accountnumber as accountnumber,acc.name as
+                accountname FROM "$".saleinvoice sliv
+                INNER JOIN "$".invoice iv ON iv.id = sliv.id
+                LEFT JOIN "$".invoiceitem ivit ON ivit.invoice_id = iv.id
+                LEFT JOIN "$".item it ON it.id = ivit.item_id
+                LEFT JOIN currency cu ON cu.id = iv.currency_id
+                LEFT JOIN "reference" st ON st.id = iv.status_id
+                LEFT JOIN "$".crmaccount cl on cl.id = sliv.client_id
+                LEFT JOIN "$".address ad on cl.billingaddressid = ad.id
+                LEFT JOIN "public".country co ON co.id = ad.countryid
+                LEFT JOIN "$".shippingmethod shm ON shm.id = sliv.shippingmethodid
+                LEFT JOIN "$".bankaccount bna ON bna.id = sliv.bankaccountid
+                LEFT JOIN "$".account acc ON acc.id = bna.accountid
+
+                where  iv.deleted is not true
+                group by
+                iv.id,st.code,cl.name,iv.exchangeRate,iv.number,iv.invoicedate,iv.duedate,iv.total,iv.discount,cu.name,st.name,ad.address,
+                ad.city,co.name,ad.zipcode,iv.ponumber,shm.name,iv.subtotal,iv.totaltaxes,iv.totaldiscount,iv.total,iv.totalininvoicecurrency,bna.accountnumber,acc.name,cl.deleted,iv.iscreditnote
+                order by iv.id desc) t
+            </from>
+            <where>
+                <terms id="base" value="t.id IS NOT NULL  AND t.code!='REVERSED'"/>
+                <!-- <terms id="userid" userid="" company="t.company_id"/>
+              <terms id="managerid" userid="" company="t.company_id"/>
+              <terms id="leaderid" userid="" company="t.company_id"/>
+              <terms id="admin" company="t.company_id"/>-->
+            </where>
+        </sqlquery>
+    </view>
+</report>

@@ -1,0 +1,13 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head><body><p>Дорогой $username,<br /></p>
+<p>Вы дали запрос на синхронизацию Google Контактов с $productName $time</p>
+<p>Это сообщение было отправлено для подтверждения того что мы успешно синхронизировали ваши контакты с Вашей учетной записью в Google.</p>
+<p>При возниконовении вопросов, пожалуйста, свяжитесь с нами.</p>
+<p>&nbsp;<br /></p>
+
+<p>Искренне Ваш,</p>
+<p>Отдел обслуживания клиентов,</p>
+<p>Команда поддержки $productName <br />
+$companyInfo
+</body></html>

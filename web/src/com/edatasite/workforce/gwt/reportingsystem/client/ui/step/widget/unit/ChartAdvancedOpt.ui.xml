@@ -1,0 +1,84 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:m.html="urn:import:gwt.material.design.client.ui.html"
+             xmlns:form="urn:import:com.edatasite.workforce.gwt.core.client.ui.components.form"
+             xmlns:components="urn:import:com.edatasite.workforce.gwt.core.client.ui.components"
+             xmlns:core="urn:import:com.edatasite.workforce.gwt.core.client.ui">
+    <g:HTMLPanel styleName="panel-chart-opt">
+        <!--Advanced opt label-->
+        <m.html:Heading size="H3" class="panel-chart-opt__title" text="Advansed Options" ui:field="advancedOptLabel"/>
+
+        <!--Chart title-->
+
+        <form:FormGroup ui:field="chartTitleField"/>
+
+        <div class="grid-row">
+            <form:FormGroup class="col-6" ui:field="chartScaleField"/>
+            <form:FormGroup class="col-6" ui:field="pageSizeField"/>
+        </div>
+
+        <div class="grid-row">
+            <form:FormGroup class="col-6" ui:field="referenceFieldName"/>
+            <form:FormGroup class="col-6" ui:field="aggregateFunctionValue"/>
+        </div>
+        <div class="grid-row">
+            <form:FormGroup class="col-6" ui:field="benchmarkType"/>
+            <form:FormGroup class="col-6" ui:field="benchmarField"/>
+        </div>
+        <div class="grid-row">
+            <form:FormGroup class="col-6" ui:field="viewOption"/>
+            <form:FormGroup class="col-6" ui:field="viewOptionType"/>
+        </div>
+
+
+        <g:HTMLPanel styleName="form-group" ui:field="advancedOptContainer">
+            <g:HTMLPanel styleName="form-group" visible="true" ui:field="labelOptContainer">
+                <div class="grid-row">
+                    <div class="col-6">
+                        <m.html:Span class="switch-box__label" text="Show label" ui:field="chartLabelOpt"/>
+                    </div>
+                    <div class="col-6">
+                        <m.html:Span class="switch-box__label" text="Show series" ui:field="seriesLabelOpt"/>
+                    </div>
+                </div>
+                <div class="grid-row">
+                    <div class="col-6">
+                        <core:DataListBox ui:field="stackedOptList"/>
+                    </div>
+                    <div class="col-6">
+                        <core:DataListBox ui:field="seriesOptList"/>
+                    </div>
+                </div>
+            </g:HTMLPanel>
+
+            <div class="grid-row">
+                <div class="col-6">
+                    <g:HTMLPanel styleName="switch-box" visible="true" ui:field="stackedOptContainer">
+                        <div class="switch-box__heading">
+                            <m.html:Span class="switch-box__label" text="Stacked" ui:field="stackedOpt"/>
+                            <components:KpiSwitcher ui:field="stackedSwitcher"/>
+                        </div>
+                    </g:HTMLPanel>
+                </div>
+                <div class="col-6">
+                    <g:HTMLPanel styleName="switch-box" visible="true" ui:field="pieChartOptContainer">
+                        <div class="switch-box__heading">
+                            <m.html:Span class="switch-box__label" text="Combo" ui:field="pieChartOptLabel"/>
+                            <components:KpiSwitcher ui:field="pieChartSwitcher"/>
+                        </div>
+                    </g:HTMLPanel>
+                </div>
+            </div>
+
+            <br/>
+
+            <div class="grid-row">
+                <form:FormGroup class="col-6" ui:field="legendOptField"/>
+                <form:FormGroup class="col-6" ui:field="chartTypeField"/>
+                <form:FormGroup class="col-6" ui:field="pieChartPositionField"/>
+            </div>
+        </g:HTMLPanel>
+        <m.html:Div ui:field="gaugeChartAdvanceOptContaner"/>
+
+    </g:HTMLPanel>
+</ui:UiBinder>

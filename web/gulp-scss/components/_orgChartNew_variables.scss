@@ -1,0 +1,69 @@
+// =========================================================================
+// OrgBoard specific variables
+// =========================================================================
+$orgBoardPadding-x: $padding-x-base;
+$orgBoardPadding-y: ($orgBoardPadding-x / 2);
+
+$orgChartInnerGap: 16px;
+
+//SCROLL SIZES
+$orgChart-scrollWidth: rem(14px); // Общая ширина области скролла
+$orgChart-scrollThumbWidth: rem(6px);  // Визуальная ширина самого ползунка
+
+// =========================================================================
+// Department card variables
+// =========================================================================
+$depCard-minSize: 220px;
+$dipCardRadius: $radius-big;
+$depCard-bg: #FFF9D7;
+$depCard-border-color: #e5e5e5; // Light gray border for the card
+
+// =========================================================================
+// Tree spacing variables (gaps between levels)
+// =========================================================================
+$depTree-gap: 18px;
+$depTree-gap-lg: $depTree-gap * 1.2;
+$depTree-gap-sm: $depTree-gap * .6;
+$depTree-gap-xs: $depTree-gap-sm * .6;
+
+// =========================================================================
+// Vertical connector line variables (used only in vertical view)
+// =========================================================================
+$depTreeLine-paddingX: 24px;
+$depTreeLine-width: $depTreeLine-paddingX / 2;
+$depTreeLine-color: $color-base-2;
+$depTreeLine-bdWidth: 1px;
+$depTreeLine-anchorY: 30px;
+
+// Optional: indentation increment for deeper vertical levels (disabled by default)
+// (Use later if you decide to implement deeper "staircase" indentation)
+$depTreeLine-indentStep: 8px;
+
+// =========================================================================
+// Card inner spacing and hover focus variables
+// =========================================================================
+$depCard-padding-x: $padding-x-base;
+$depCard-padding-y: $padding-x-base;
+$depCard-inner-gap: $depCard-padding-x / 2; // Inner vertical spacing (~8px)
+
+$depCardFocusSize-line: $depTreeLine-bdWidth;
+$depCardFocusSize-shadow: 5px;
+
+// =========================================================================
+// Text / colors
+// =========================================================================
+$depCarTxt-1: #222;
+$deepCardText-2: $text-muted;
+
+$deepCardFontTitle-1: 1.5rem; //18px
+$deepCardFontTitle-2: 1.16rem; //14px
+
+// =========================================================================
+// Employee list variables
+// =========================================================================
+$depEmplAvatar-size: 28px; // Employee list avatar size
+
+// =========================================================================
+// Small items size
+// =========================================================================
+$colorCircleSize: $input-height;

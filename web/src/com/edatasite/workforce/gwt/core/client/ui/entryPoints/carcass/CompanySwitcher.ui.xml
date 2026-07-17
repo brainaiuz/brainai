@@ -1,0 +1,14 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:m="urn:import:gwt.material.design.client.ui"
+>
+
+    <g:HTMLPanel>
+        <m:MaterialPanel ui:field="container">
+            <!--                <m:MaterialDropDown activator="frame__header__create-new" class="prof-comp-list" ui:field="ul">-->
+            <!--                    <m:MaterialLink ui:field="li">-->
+            <!--                    </m:MaterialLink>-->
+            <!--                </m:MaterialDropDown>-->
+        </m:MaterialPanel>
+    </g:HTMLPanel>
+</ui:UiBinder>

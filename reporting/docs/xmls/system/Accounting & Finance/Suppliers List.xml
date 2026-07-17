@@ -1,0 +1,64 @@
+<report>
+    <view>
+        <title>Supplier Reports</title>
+        <name>Supplier Reports</name>
+        <category>supplier</category>
+        <sqlquery>
+            <select agregateFunc="distinct">
+                <!--  Please only enter type property {'number' or 'date or clock' }   -->
+                <table name="Supplier">
+                    <column name="sp.id" title="id" type="number" formattype="hidden"/>
+                    <column name="sp.name" title="Name" type="string" formattype="string"/>
+                    <column name="sp.number" title="Code" type="string" formattype="string"/>
+                </table>
+                <table name="Address">
+                    <column name="co.name" title="Billing Country" type="string" formattype="string"/>
+                    <column name="bad.address" title="Billing Address" type="string" formattype="string"/>
+                    <column name="bad.city" title="Billing City" type="string" formattype="string"/>
+                    <column name="rg.name" title="Billing State" type="string" formattype="string"/>
+                    <column name="bad.zipcode" title="Billing Zip Code" type="string" formattype="string"/>
+                    <column name="co2.name" title="Shipping Country" type="string" formattype="string"/>
+                    <column name="mad.address" title="Shipping Address" type="string" formattype="string"/>
+                    <column name="mad.city" title="Shipping City" type="string" formattype="string"/>
+                    <column name="rg2.name" title="Shipping State" type="string" formattype="string"/>
+                    <column name="mad.zipcode" title="Shipping Zip Code" type="string" formattype="string"/>
+                </table>
+                <table name="Payment Details">
+                    <column name="cu.name" title="Currency" type="string" formattype="string"/>
+                    <column name="pymd.name" title="Payment Method" type="string" formattype="string"/>
+                    <column name="sp.vatnumber" title="VAT Number" type="string" formattype="string"/>
+                </table>
+                <table name="Bank Details">
+                    <column name="sp.bankname" title="Bank Name" type="string" formattype="string"/>
+                    <column name="sp.accountname" title="Account Name" type="string" formattype="string"/>
+                    <column name="sp.accountno" title="Account No." type="string" formattype="string"/>
+                    <column name="sp.swiftcode" title="Swift Code" type="string" formattype="string"/>
+                    <column name="sp.sortcode" title="Sort Code" type="string" formattype="string"/>
+                    <column name="sp.ibancode" title="IBAN Code" type="string" formattype="string"/>
+                    <column name="sp.branch" title="Branch" type="string" formattype="string"/>
+                    <column name="sp.bankaddress" title="Bank Address" type="string" formattype="string"/>
+                </table>
+            </select>
+            <from>
+                "$".crmaccount sp
+                inner join "$".crmaccount_types typeIDs on sp.id = typeIDs.crmaccount_id
+                inner join "$".reference type on type.id = typeIDs.type_id
+                left join "$".address bad on bad.id = sp.billingaddressid
+                left join "$".address mad on bad.id = sp.mailingaddressid
+                left join "public".country co on co.id = bad.countryid
+                left join "public".country co2 on co2.id = mad.countryid
+                left join "public".region rg on rg.id = bad.stateid
+                left join "public".region rg2 on rg2.id = mad.stateid
+                left join "public".currency cu on cu.id = sp.currencyid
+                left join "$".paymentmethod pymd on pymd.id = sp.paymentMethodId
+            </from>
+            <where>
+                <terms id="base" value=" type.code = 'SUPPLIER' and sp.deleted = false"/>
+                <!--  <terms id="userid" userid="" company="sp.companyid"/>
+              <terms id="managerid" userid="" company="sp.companyid"/>
+              <terms id="leaderid" userid="" company="sp.companyid"/>
+              <terms id="admin" company="sp.companyid"/>-->
+            </where>
+        </sqlquery>
+    </view>
+</report>

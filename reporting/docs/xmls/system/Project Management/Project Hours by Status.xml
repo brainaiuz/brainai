@@ -1,0 +1,60 @@
+<report>
+    <view>
+        <title>Project Hours by Status</title>
+        <name>Project Hours by Status</name>
+        <category>Timesheet</category>
+        <sqlquery>
+            <select>
+                <table name="Task">
+                    <column name="t.taskname" title="Task Name" type="string" formattype="string"/>
+                    <column name="t.startdate" title="Start Date" type="date" formattype="date"  customdateformat="DD-Mon, YYYY"/>
+                    <column name="t.duedate" title="Due Date" type="date" formattype="date"  customdateformat="DD-Mon, YYYY"/>
+                    <column name="percent" title="% completed" type="number" formattype="percent"/>
+                    <column name="t.taskstatus" title="Task Status" type="string" formattype="string" />
+                </table>
+                <table name="Project">
+                    <column name="t.projectname" title="Project Name" type="string" formattype="string" />
+                    <column name="t.clientname" title="Client Name" type="string" formattype="string" />
+                </table>
+                <table name="Timesheet">
+                    <column name="t.timespent" title="Timesheet hours" type="number" formattype="time" />
+                    <column name="t.approvettimespent" title="Approved Hours" type="number" formattype="time" />
+                    <column name="t.billtimespent" title="Billed Hours" type="number" formattype="time" />
+                    <column name="t.nonbilltimespent" title="Unbilled Hours" type="number" formattype="time" />
+                </table>
+            </select>
+            <from>
+                (select distinct tk.name as taskname,
+                tk.startdate,
+                tk.duedate,
+                tk.estimatedtime,
+                CAST(to_char(coalesce(tk.percent,0),'990.99') AS real) percent,
+                st.name as taskstatus,
+                pj.name as projectname,
+                cl.name as clientname,
+                coalesce(ts.timespent, 0) as timespent,
+                coalesce(ats.approvettimespent, 0) as approvettimespent,
+                coalesce(bts.billtimespent, 0) as billtimespent,
+                coalesce(ats.approvettimespent, 0) - coalesce(bts.billtimespent, 0) as nonbilltimespent
+                from
+                "$".task tk
+                LEFT JOIN "$"."reference" st on st.id= tk.statusid
+                LEFT JOIN "$".project pj on tk.projectid = pj.id
+                LEFT JOIN "$".crmaccount cl ON pj.clientid = cl.id
+                LEFT JOIN ( SELECT sum(timespent) timespent, taskid from "$".timesheet group by taskid ) ts on tk.id = ts.taskid
+                LEFT JOIN ( SELECT sum(timespent) approvettimespent, taskid from "$".timesheet
+                INNER JOIN "$".reference ref on statusid=ref.id where ref.code='_APPROVE' group by taskid ) ats on tk.id = ats.taskid
+                LEFT JOIN ( SELECT sum(timespent) billtimespent, taskid from "$".timesheet where usedininvoice=true group by taskid ) bts on tk.id = bts.taskid
+
+                WHERE pj.isdeleted!=true AND tk.deleted!=true AND (tk.isissue is null OR tk.isissue!=true)) t
+            </from>
+            <where>
+                <terms id="base" value="1=1"/>
+                <!--<terms id="userid" userid="t.assigneeid" company="t.companyid" />
+                    <terms id="managerid" userid="t.managerid" company="t.companyid" />
+                    <terms id="leaderid" userid="t.leaderid" company="t.companyid" />
+                    <terms id="admin" company="t.companyid" />-->
+            </where>
+        </sqlquery>
+    </view>
+</report>

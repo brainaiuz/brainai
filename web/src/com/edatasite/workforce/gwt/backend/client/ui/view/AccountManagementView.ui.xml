@@ -1,0 +1,67 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:m='urn:import:gwt.material.design.client.ui'
+             xmlns:mhtml='urn:import:gwt.material.design.client.ui.html'>
+    <g:HTMLPanel ui:field="panel">
+
+        <g:HTMLPanel styleName="form-group" ui:field="accountNamePanel">
+            <mhtml:Label ui:field="accountNameLabel" styleName="form-group__label"/>
+            <g:HTML ui:field="accountName"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group" ui:field="rolePanel">
+            <mhtml:Label ui:field="roleLabel" styleName="form-group__label"/>
+            <g:HTML ui:field="role"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group" ui:field="registrationDatePanel">
+            <mhtml:Label ui:field="registrationDateLabel" styleName="form-group__label"/>
+            <g:HTML ui:field="registrationDate"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group" ui:field="phonePanel">
+            <mhtml:Label ui:field="phoneLabel" styleName="form-group__label"/>
+            <g:HTML ui:field="phone"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group" ui:field="emailPanel">
+            <mhtml:Label ui:field="emailLabel" styleName="form-group__label"/>
+            <g:HTML ui:field="email"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group" ui:field="loginPanel">
+            <mhtml:Label ui:field="loginLabel" styleName="form-group__label"/>
+            <g:HTML ui:field="login"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group" ui:field="passwordPanel">
+            <mhtml:Label ui:field="passwordLabel" styleName="form-group__label"/>
+            <g:HTML ui:field="password"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="grid-row">
+            <g:HTMLPanel styleName="col-12">
+                <g:HTML ui:field="note"/>
+            </g:HTMLPanel>
+        </g:HTMLPanel>
+
+        <m:MaterialPanel styleName="grid-row" style="margin-top: 10px">
+            <g:HTMLPanel styleName="col-6">
+                <g:HTMLPanel ui:field="changePasswordButtonPanel"/>
+            </g:HTMLPanel>
+            <g:HTMLPanel styleName="col-6">
+                <g:HTMLPanel ui:field="changeUserNameButtonPanel"/>
+            </g:HTMLPanel>
+        </m:MaterialPanel>
+
+        <m:MaterialPanel styleName="grid-row" style="margin-top: 10px">
+            <g:HTMLPanel styleName="col-6">
+                <g:HTMLPanel ui:field="killSessionButtonPanel"/>
+            </g:HTMLPanel>
+            <g:HTMLPanel styleName="col-6">
+                <g:HTMLPanel ui:field="sendEmailButtonPanel"/>
+            </g:HTMLPanel>
+        </m:MaterialPanel>
+
+    </g:HTMLPanel>
+</ui:UiBinder>

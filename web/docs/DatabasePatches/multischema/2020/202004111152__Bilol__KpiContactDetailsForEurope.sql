@@ -1,0 +1,2 @@
+insert into kpicontactdetails(demourl, phonenumber, countrycode) values ('https://calendly.com/kpicom/demo-request','+44 173 261 7967','IT');
+insert into kpicontactdetails(demourl, phonenumber, countrycode) values ('https://calendly.com/kpicom/demo-request','+44 173 261 7967','ES');

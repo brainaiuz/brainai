@@ -1,0 +1,169 @@
+{
+  "customBillToAddress": {
+    "name": "Bill To:",
+    "rows": {
+      "NAME": {
+        "COLUMN_VALUE": "John Smith"
+      },
+      "BILL_ADDRESS": {
+        "COLUMN_VALUE": "2035 Sunset Lake Road"
+      },
+      "BILL_ADDRESS2": {
+        "COLUMN_VALUE": ""
+      },
+      "BILL_CITY": {
+        "COLUMN_VALUE": "Newark"
+      },
+      "BILL_ZIPCODE": {
+        "COLUMN_VALUE": "DE 19705"
+      },
+      "BILL_COUNTRY": {
+        "COLUMN_VALUE": "USA"
+      },
+      "CONTACT_EMAIL": {
+        "COLUMN_VALUE": "support@kpi.com"
+      },
+      "CLIENT_VAT_NUMBER": {
+        "COLUMN_VALUE": "1234"
+      }
+    }
+  },
+  "customNumberAndDatesTable": {
+    "rows": {
+      "REFERENCE": {
+        "COLUMN_NAME": "Reference:",
+        "COLUMN_VALUE": "Sample Reference",
+        "TYPE": "REFERENCE"
+      },
+      "PROJECT_NAME": {
+        "COLUMN_NAME": "Project Name",
+        "COLUMN_VALUE": "Sample Project Name",
+        "TYPE": "PROJECT_NAME"
+      },
+      "PROJECT_NUMBER": {
+        "COLUMN_NAME": "Project No.",
+        "COLUMN_VALUE": "P0001",
+        "TYPE": "PROJECT_NUMBER"
+      },
+      "INV_NUMBER": {
+        "COLUMN_NAME": "Invoice No.:",
+        "COLUMN_VALUE": "INV0001",
+        "TYPE": "INV_NUMBER"
+      },
+      "QT_NUMBER": {
+        "COLUMN_NAME": "Quote No.:",
+        "COLUMN_VALUE": "SQ0503",
+        "TYPE": "QT_NUMBER"
+      },
+      "PO_NUMBER": {
+        "COLUMN_NAME": "Purchase No.:",
+        "COLUMN_VALUE": "PO0001",
+        "TYPE": "PO_NUMBER"
+      },
+      "INV_DATE": {
+        "COLUMN_NAME": "Invoice Date:",
+        "COLUMN_VALUE": "March 01, 2019",
+        "TYPE": "INV_DATE"
+      },
+      "COMP_VAT_NUMBER": {
+        "COLUMN_NAME": "Vat",
+        "COLUMN_VALUE": "1003280771",
+        "TYPE": "COMP_VAT_NUMBER"
+      },
+      "INV_DUE_DATE": {
+        "COLUMN_NAME": "Due Date:",
+        "COLUMN_VALUE": "March 01, 2019",
+        "TYPE": "INV_DUE_DATE"
+      }
+    }
+  },
+  "customProductTable": {
+    "header": {
+      "PRODUCT_NAME": "Product/Service",
+      "NAME": "Product/Service",
+      "DESCRIPTION": "Description",
+      "QTY_HRS": "Qty",
+      "UNIT_MEASUREMENT": "",
+      "UNIT_PRICE": "Unit Price",
+      "DISCOUNT": "Discount",
+      "DISCOUNT_AMOUNT": "Discount",
+      "TAX_AMOUNT": "Tax",
+      "TOTAL_AMOUNT": "Amount"
+    },
+    "rows": {
+      "0": {
+        "PRODUCT_NAME": "Online Training",
+        "NAME": "Online Training",
+        "DESCRIPTION": "(Optional) online demo session through Webex (3 sessions- max 9 hours)",
+        "QTY_HRS": "1.00",
+        "UNIT_MEASUREMENT": "",
+        "UNIT_PRICE": "3,669.53",
+        "DISCOUNT": "0.00",
+        "DISCOUNT_AMOUNT": "",
+        "TAX_AMOUNT": "183.48",
+        "TOTAL_AMOUNT": "3,853.01"
+      },
+      "1": {
+        "PRODUCT_NAME": "Online Training",
+        "NAME": "Online Training",
+        "DESCRIPTION": "(Optional) online demo session through Webex (3 sessions- max 9 hours)",
+        "QTY_HRS": "1.00",
+        "UNIT_MEASUREMENT": "",
+        "UNIT_PRICE": "3,669.53",
+        "DISCOUNT": "0.00",
+        "DISCOUNT_AMOUNT": "",
+        "TAX_AMOUNT": "183.48",
+        "TOTAL_AMOUNT": "3,853.01"
+      }
+    }
+  },
+  "customTotalTable": {
+    "rows": {
+      "DISCOUNT_TOTAL": {
+        "COLUMN_NAME": "Discount:",
+        "COLUMN_VALUE": "2 .50",
+        "TYPE": "DISCOUNT_TOTAL"
+      },
+      "DUE_AMOUNT_WORD": {
+        "COLUMN_NAME": "",
+        "COLUMN_VALUE": "Five Hundred Fourteen Thousand Eight Hundred And Forty-Five",
+        "TYPE": "DUE_AMOUNT_WORD"
+      },
+      "DUE_AMOUNT": {
+        "COLUMN_NAME": "Due Amount",
+        "COLUMN_VALUE": "5,148.45",
+        "TYPE": "DUE_AMOUNT"
+      },
+      "SUBTOTAL": {
+        "COLUMN_NAME": "Subtotal",
+        "COLUMN_VALUE": "50.00",
+        "TYPE": "SUBTOTAL"
+      },
+      "SHIPPING_TOTAL": {
+        "COLUMN_NAME": "Shipping",
+        "COLUMN_VALUE": "100.00",
+        "TYPE": "SHIPPING_TOTAL"
+      },
+      "BILL_EXP_TOTAL": {
+        "COLUMN_NAME": "Bill Exp.",
+        "COLUMN_VALUE": "5,000.00",
+        "TYPE": "BILL_EXP_TOTAL"
+      },
+      "HAS_BILL_EXP_TOTAL": {
+        "COLUMN_NAME": "",
+        "COLUMN_VALUE": "true",
+        "TYPE": "HAS_BILL_EXP_TOTAL"
+      },
+      "TOTAL": {
+        "COLUMN_NAME": "Total:",
+        "COLUMN_VALUE": "5,148.45",
+        "TYPE": "TOTAL"
+      },
+      "TAX_TOTAL": {
+        "COLUMN_NAME": "Tax Total",
+        "COLUMN_VALUE": "0.95",
+        "TYPE": "TAX_TOTAL"
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:wfm='urn:import:com.edatasite.workforce.gwt.assessment.client.ui.view.ui'>
+
+    <g:HTMLPanel styleName="section-box box-bg--1">
+        <g:VerticalPanel>
+        <wfm:ReviewHeader ui:field="reviewHeader"/>
+        <g:VerticalPanel ui:field="content"/>
+        <g:HTMLPanel ui:field="buttonPanel"/>
+        </g:VerticalPanel>
+    </g:HTMLPanel>
+</ui:UiBinder>

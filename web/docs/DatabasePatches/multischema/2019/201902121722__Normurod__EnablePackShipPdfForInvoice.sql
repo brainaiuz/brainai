@@ -1,0 +1,1 @@
+insert into "anv".genericSettings(key, value) values ('ENABLE_PACK_SHIP_PDF_FOR_SALE_INVOICE', 'YES');

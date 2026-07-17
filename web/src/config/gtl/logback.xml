@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="15 seconds">
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>
+                %d{yyyy-MM-dd HH:mm:ss} [%thread] %highlight(%-5level) %cyan(%logger{36}) -%kvp %msg %n %ex{short}
+            </pattern>
+        </encoder>
+    </appender>
+
+    <logger name="net" level="error" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+    <logger name="javax" level="error" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+    <logger name="com.edatasite" level="info" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+    <logger name="com.finnetlimited" level="info" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+    <logger name="org.hibernate.tool" level="error" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+    <logger name="org.hibernate.hikaricp" level="info" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+    <logger name="org.hibernate" level="error" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+    <logger name="com.edatasite.workforce.gwt.core.server.app.WfmJpaTransactionManager" level="error" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+    <logger name="com.edatasite.workforce.gwt.core.server.app.WfmJpaTemplate" level="error" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+    <logger name="org.springframework" level="info" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+    <logger name="org.springframework.web" level="info" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+    <logger name="org.aspectj" level="info" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+    <logger name="com.workforcetrack.api" level="info" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+    <logger name="com.workforcetrack.mobile" level="info" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+    <logger name="com.edatasite.workforce.rest.aspects" level="info" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+    <logger name="org.springframework.jms.listener" level="info" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+    <logger name="messageCenter" level="info" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+    <logger name="com.zaxxer.hikari" level="info" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+
+    <root level="error" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </root>
+
+</configuration>

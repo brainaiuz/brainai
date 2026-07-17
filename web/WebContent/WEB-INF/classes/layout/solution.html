@@ -1,0 +1,61 @@
+<div class="contentBar file--solution" style="padding:0 10px;">
+    <style>
+        .reachFullWidth table {
+            border: none !important;
+        }
+    </style>
+
+    <ul class="collapsible--panels collapsible--arrows-left collapsible collapsible--gwt required"
+        data-collapsible="expandable">
+        <li class="slideDown-box group active">
+            <div class="collapsible-header active"
+                 onclick="var myclick=this.parentElement;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls; } var myclick=this;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls; }">
+                <a style="cursor: pointer;"><span>$$label:CRM_SOLUTION_INFORMATION$$</span></a>
+            </div>
+            <div class="collapsible-body file--solution">
+                <div class="single-column">
+                    <div class="column">
+                        <h5 class="custom-form-item__dt">$$label:TITLE$$</h5>
+                        <div class="field">$$input:TITLE$$</div>
+                    </div>
+                    <div class="column">
+                        <h5 class="custom-form-item__dt">$$label:ASSIGNEE$$</h5>
+                        <div class="field">$$input:ASSIGNEE$$</div>
+                    </div>
+                    <div class="column">
+                        <h5 class="custom-form-item__dt">$$label:STATUS$$</h5>
+                        <div class="field">$$input:STATUS$$</div>
+                    </div>
+                </div>
+            </div>
+        </li>
+
+        <li class="slideDown-box group">
+            <div class="collapsible-header"
+                 onclick="var myclick=this.parentElement;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls;} var myclick=this;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls; }">
+                <a style="cursor: pointer;"><span>$$label:CRM_SOLUTION_DESCRIPTION$$</span></a>
+            </div>
+            <div class="collapsible-body">
+                <div class="single-column">
+                    <div class="column">
+                        <h5 class="custom-form-item__dt">$$label:CRM_SOLUTION_QUESTION$$</h5>
+                        <div class="field">$$input:CRM_SOLUTION_QUESTION$$</div>
+                    </div>
+                    <div class="column">
+                        <h5 class="custom-form-item__dt">$$label:CRM_SOLUTION_ANSWER$$</h5>
+                        <div class="field">$$input:CRM_SOLUTION_ANSWER$$</div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="slideDown-box group">
+            <div class="collapsible-header"
+                 onclick="var myclick=this.parentElement;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls;} var myclick=this;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls; }">
+                <a style="cursor: pointer;"><span>$$label:ATTACHMENTS$$</span></a>
+            </div>
+            <div class="collapsible-body">
+                $$input:ATTACHMENTS$$
+            </div>
+        </li>
+    </ul>
+</div>

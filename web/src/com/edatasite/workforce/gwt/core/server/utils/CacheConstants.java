@@ -1,0 +1,18 @@
+package com.edatasite.workforce.gwt.core.server.utils;
+
+/**
+ * Created by Normurod on 7/23/2017.
+ */
+public interface CacheConstants {
+    String EXCHANGE_RATE = "EXCHANGE_RATE";
+    String REQUESTED_BILL_OF_MATERIALS = "REQUESTED_BILL_OF_MATERIALS";
+    String CALCULATION_SCALE = "CALCULATION_SCALE";
+    String SUPER_USER = "SUPER_USER";
+    String SESSION = "SESSION";
+    String SESSION_LENGTH = "SESSION_LENGTH";
+    String TIMESHEET_WEEK_START = "TIMESHEET_WEEK_START";
+    String USER_EMAIL_ACCOUNT = "USER_EMAIL_ACCOUNT";
+    String EMAIL_SETTING_PROVIDER = "EMAIL_SETTING_PROVIDER";
+    String ITEM_TABLE_SECTION = "ITEM_TABLE_SECTION";
+    String TRANSACTION_LOCKING = "TRANSACTION_LOCKING";
+}

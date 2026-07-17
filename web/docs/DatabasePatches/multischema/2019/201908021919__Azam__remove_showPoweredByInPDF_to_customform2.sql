@@ -1,0 +1,3 @@
+DELETE FROM "0".modelfield WHERE form_id='COMPANY_SETTINGS_FORM' AND field_id='SHOW_POWERED_BY_IN_PDF';
+
+DELETE FROM "anv".modelfield WHERE form_id='COMPANY_SETTINGS_FORM' AND field_id='SHOW_POWERED_BY_IN_PDF';

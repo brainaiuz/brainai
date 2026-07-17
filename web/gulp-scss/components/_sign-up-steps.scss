@@ -1,0 +1,169 @@
+// Common
+.simple-text {
+  line-height: 1.8;
+}
+
+.stripePayment,
+.signUpStep {
+  .lean-overlay {
+    @include backdrop-base();
+    filter: blur(6.4px);
+    background: url("../images/bg-signUpSteps--16x9.png") no-repeat 0 0/cover;
+
+    ///* (1440x900) WXGA+ Display */
+    @media screen and (max-width: 1440px) {
+      background-image: url("../images/bg-signUpSteps--1.6x1.png");
+    }
+    ///* (1280x1024) SXGA Display */
+    @media screen and (max-width: 1280px) {
+      background-image: url("../images/bg-signUpSteps--1.25x1.png");
+    }
+    ///* (1024x768) iPad 1 & 2, XGA */
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+      background-image: url("../images/bg-signUpSteps--4x3.png");
+    }
+  }
+}
+.lean-overlay {
+  //cursor: url('data:image/png;base654,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAfCAYAAAAfrhY5AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA3ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQ1IDc5LjE2MzQ5OSwgMjAxOC8wOC8xMy0xNjo0MDoyMiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDplMjY0MWVkNi1lNGNhLTljNDktODcwNy1kODhjYzBjMWI3YmMiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6REEzNkIwNjJCRjk2MTFFOUIwRDVBRjU0NjgzQzBCNkMiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6REEzNkIwNjFCRjk2MTFFOUIwRDVBRjU0NjgzQzBCNkMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTkgKFdpbmRvd3MpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6OGIwYjgxNjktMDFkNC0zMDQ2LWE3M2YtODU5NDcwNTNmNjU2IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOmUyNjQxZWQ2LWU0Y2EtOWM0OS04NzA3LWQ4OGNjMGMxYjdiYyIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PoWW/O0AAAErSURBVHja1JdRDoIwDIbHcXyAGE+jvqKQUDiYXsZEEy+CovFldjgJQbBs6yQ2+V+W2a+sresCKaXQFqFC1Bl1EPy2QM1QJ9SxXlFw1BpVyZfdUale51KGemj/lebV8Ej2GzCBiwH/NRzksIEncAOfy+8GHsANXCkmNubM4LgNFxrAcQL52A/pq0qXAChw1t5v4wAswR+/cz66kTnuDdjlCN9/RKltqlyLZ+9SIxzVa90dXH1r1Zaml0NJQMtuO3HBxYgc70z8/cWXT5bzyao9H5FjL31OHXWi9yW217EtGBzvAvZbDUwDMHVAtRGYBO58LVoEUHThW+Yhkkrdxvf0SgVAzu2ZdJvbgYKHnl8sOTW3r1BXvXjz8FZL9RtQ2QW1VOtB65X6c3sKMAAfUw9JpHrggwAAAABJRU5ErkJggg'), auto;
+}
+.sign-up-step {
+  max-width: 883px;
+  .modal-header {
+    h1 {
+      margin: 0;
+    }
+    .visual img {
+      max-height: 200px;
+    }
+  }
+  .modal-wrapper {
+    @media #{$medium-and-up} {
+      > *:first-child {
+        padding-top: $modal-padding-y + rem(15px);
+
+      }
+      > *:last-child {
+        padding-bottom: $modal-padding-y + rem(15px);
+      }
+    }
+  }
+  .modal-content {
+    background-color: transparent; // for mobile view of step--2 //
+  }
+  &--1 {
+    text-align: center;
+
+    .modal-header {
+      figure {
+        margin: 0;
+        .visual {
+        }
+      }
+      figcaption {
+        margin-top: 30px;
+      }
+    }
+
+    .modal-content {
+      p {
+        font-size: rem(14px);
+      }
+      a[href^=mailto] {
+        color: $text-color-base;
+      }
+    }
+  }
+  &--2 {
+    .modal-wrapper {
+      background-image: url('../icons//sign-up-step-password.svg');
+      background-size: auto 54%;
+      background-repeat: no-repeat;
+
+      @media #{$medium-and-up} {
+        min-width: 600px;
+        padding-right: 161px;
+        background-position: right 20px bottom 30px;
+      }
+      @media #{$medium-and-down} {
+        padding-bottom: 350px;
+        background-position: center bottom 15px;
+      }
+    }
+    .modal-header {
+      text-align: left;
+    }
+  }
+  &--3,
+  &--4 {
+    .modal-header {
+      @media #{$medium-and-up} {
+      padding-bottom: 32px;
+      }
+    }
+  }
+  &--3 {
+    .modal-content {
+      position: relative;
+      background: url('../icons/sign-up-step-org.svg') right 30px bottom -10px / auto 90% no-repeat;
+
+      @media #{$medium-and-up} {
+        padding-right: 200px;
+        &:after {
+
+        }
+      }
+      @media #{$medium-and-down} {
+        padding-top: $modal-padding-y / 2;
+      }
+    }
+  }
+  &--4 {
+    &:after {
+      top: auto;
+      bottom: 0;
+      height: 0;
+      right: $modal-padding-x;
+      left: $modal-padding-x;
+      border-bottom: 1px solid $gray-new;
+    }
+  }
+  .sub-title {
+    font-weight: 500;
+  }
+
+  .modal-footer {
+    flex-wrap: wrap;
+    border-top: none;
+
+    .footnote {
+      flex: 100% 0 0;
+      padding-top: 20px;
+    }
+  }
+
+  .cp_modules-switch {
+    flex-wrap: nowrap;
+  }
+  &__password {
+    @media #{$medium-and-up} {
+      padding-right: 60px;
+    }
+
+    .form-group__content {
+      position: relative;
+    }
+    .form-control {
+      padding-right: 74px;
+    }
+    .pass-validation {
+      position: absolute;
+      left: 100%;
+      top: 0;
+      margin: 0 0 0 -74px;
+      //width: 140px;
+      justify-content: flex-start;
+      white-space: nowrap;
+    }
+  }
+}

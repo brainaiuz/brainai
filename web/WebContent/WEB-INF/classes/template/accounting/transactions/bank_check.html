@@ -1,0 +1,251 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style type="text/css">
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+        td, th {
+            padding: 3px;
+        }
+        .title {
+            font-size: 9pt;
+        }
+        .name {
+            font-size: 8pt;
+        }
+        .value {
+            font-size: 8pt;
+        }
+        .personalValue {
+            font-size: 7pt;
+        }
+        .nameCapital {
+            text-transform: capitalize;
+        }
+        .product-head th{
+            border-bottom: 1px solid #000;
+            font-size: 8pt;
+            font-weight: bold;
+            padding: 6px;
+        }
+        .product-head td{
+            border-bottom: 1px solid #ced5db;
+            font-size: 8pt;
+            padding: 6px;
+        }
+        .bold {
+            font-weight: bold;
+        }
+        .product-head {
+            margin-top: 30px;
+        }
+
+    </style>
+</head>
+<body>
+<div>
+    <img alt="images" src="https://workforcetrack.s3.amazonaws.com/000000000000/public/65159/a2113e82-397f-49fd-a58a-cdf4f4b93dff?AWSAccessKeyId=AKIAIROQMC77E5UKWBWQ" style="display: none;"/>
+    #if($itextGenericPdfData.companyData.companyName == 'KPI Software Inc' or $itextGenericPdfData.companyData.companyLogoUrl == 'https://apps.kpi.com/customisation/kpi.com/images/kpilogo.png')
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="width: 88px; display: none;"/>
+    #else
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="max-width: 100%; max-height: 100%; display: none;"/>
+    #end
+
+    #set($checkDataTable = $itextGenericPdfData.customData.get('CHECK_HEADER_DATA'))
+
+    #set($dateLabel = $checkDataTable.rows.get('date').get('COLUMN_NAME'))
+    #set($projectLabel = $checkDataTable.rows.get('PROJECT_NAME').get('COLUMN_NAME'))
+    #set($projectNumberLabel = $checkDataTable.rows.get('PROJECT_NUMBER').get('COLUMN_NAME'))
+    #set($bankLabel = $checkDataTable.rows.get('BANK_NAME').get('COLUMN_NAME'))
+    #set($balanceLabel = $checkDataTable.rows.get('ACCOUNT_BALANCE').get('COLUMN_NAME'))
+    #set($payToLabel = $checkDataTable.rows.get('payTo').get('COLUMN_NAME'))
+    #set($amountLabel = $checkDataTable.rows.get('amount').get('COLUMN_NAME'))
+    #set($amountInWordsLabel = $checkDataTable.rows.get('amountStringWord').get('COLUMN_NAME'))
+    #set($memoLabel = $checkDataTable.rows.get('memo').get('COLUMN_NAME'))
+    #set($addressLabel = $checkDataTable.rows.get('address').get('COLUMN_NAME'))
+
+    #set($dateValue = $checkDataTable.rows.get('date').get('COLUMN_VALUE'))
+    #set($projectNameValue = $checkDataTable.rows.get('PROJECT_NAME').get('COLUMN_VALUE'))
+    #set($projectNumberValue = $checkDataTable.rows.get('PROJECT_NUMBER').get('COLUMN_VALUE'))
+    #set($bankValue = $checkDataTable.rows.get('BANK_NAME').get('COLUMN_VALUE'))
+    #set($balanceValue = $checkDataTable.rows.get('ACCOUNT_BALANCE').get('COLUMN_VALUE'))
+    #set($payToValue = $checkDataTable.rows.get('payTo').get('COLUMN_VALUE'))
+    #set($amountValue = $checkDataTable.rows.get('amount').get('COLUMN_VALUE'))
+    #set($amountInWordsValue = $checkDataTable.rows.get('amountStringWord').get('COLUMN_VALUE'))
+    #set($memoValue = $checkDataTable.rows.get('memo').get('COLUMN_VALUE'))
+    #set($addressValue = $checkDataTable.rows.get('address').get('COLUMN_VALUE'))
+
+
+    <table width="100%" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+            <td width="33%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital"> $dateLabel </td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($dateValue != '') $dateValue #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="34%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital"> $bankLabel </td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($bankValue != '') $bankValue #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="33%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital"> $balanceLabel </td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($balanceValue != '') $balanceValue #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <table width="100%" cellspacing="0" cellpadding="0" style="margin-top: 10px;">
+        <tr>
+            <td width="33%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital"> $payToLabel </td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($payToValue != '') $payToValue #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="34%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital"> $amountLabel </td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($amountValue != '') $amountValue #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="33%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital"> $amountInWordsLabel </td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold; text-transform: capitalize;" class="value">
+                            #if($amountInWordsValue != '') $amountInWordsValue.replace("*", "") #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <table width="100%" cellspacing="0" cellpadding="0" style="margin-top: 10px;">
+        <tr>
+            <td width="33%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital"> $memoLabel </td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($memoValue != '') $memoValue #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="34%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital"> $addressLabel </td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($addressValue != '') $addressValue #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            #if($projectNumberValue != '' or $projectNameValue != '')
+            <td width="33%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital"> $projectLabel </td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($projectNumberValue != '' and $projectNameValue != '')
+                                $projectNumberValue - $projectNameValue
+                            #elseif($projectNameValue != '')
+                                $projectNameValue
+                            #else
+                                —
+                            #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            #else
+                <td width="33%" style="padding: 0; margin: 0;" valign="top">
+
+                </td>
+            #end
+        </tr>
+    </table>
+
+    #set($itemsTable = $itextGenericPdfData.getCustomData().get('ITEMS_TABLE'))
+
+    #if($itemsTable.rows.size()>0)
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" class="product-head">
+        <tr>
+            <th width="20%" align="left">$itemsTable.header.get('ACCOUNT')</th>
+            #if($itemsTable.header.get('ITEM_PROJECT') != '')
+                <th width="25%" align="left">$itemsTable.header.get('DESCRIPTION')</th>
+                <th width="15%" align="left">$itemsTable.header.get('ITEM_PROJECT')</th>
+            #else
+                <th width="40%" align="left">$itemsTable.header.get('DESCRIPTION')</th>
+            #end
+            <th width="13%" align="left">$itemsTable.header.get('NAME')</th>
+            <th width="14%" align="left">$itemsTable.header.get('BILL_TO_HEADER')</th>
+            <th width="13%" align="right">$itemsTable.header.get('AMOUNT')</th>
+        </tr>
+        #foreach($row in $itemsTable.rows.values())
+        <tr>
+            <td> #if($row.get('ACCOUNT') != '') $row.get('ACCOUNT') #else — #end </td>
+            #if($itemsTable.header.get('ITEM_PROJECT') != '')
+                <td> #if($row.get('DESCRIPTION') != '') $row.get('DESCRIPTION').replaceAll('\n', '<br/>') #else — #end </td>
+                <td> #if($row.get('ITEM_PROJECT') != '') $row.get('ITEM_PROJECT') #else — #end </td>
+            #else
+                <td> #if($row.get('DESCRIPTION') != '') $row.get('DESCRIPTION').replaceAll('\n', '<br/>') #else — #end </td>
+            #end
+            <td> #if($row.get('NAME') != '') $row.get('NAME') #else — #end </td>
+            <td> #if($row.get('BILL_TO_HEADER') != '') $row.get('BILL_TO_HEADER') #else — #end </td>
+            <td align="right"> #if($row.get('AMOUNT') != '') $row.get('AMOUNT') #else 0.00 #end </td>
+        </tr>
+        #end
+    </table>
+    #end
+
+</div>
+
+</body>
+</html>

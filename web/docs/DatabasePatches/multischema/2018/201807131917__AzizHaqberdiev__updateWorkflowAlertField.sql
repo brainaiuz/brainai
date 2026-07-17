@@ -1,0 +1,1 @@
+update "anv".workflow_alerts set includeAttachment = includePDF;

@@ -1,0 +1,212 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style type="text/css">
+        body {
+            font-family: 'Arial', "Helvetica Neue", Helvetica, sans-serif;
+        }
+
+        table, th, td {
+            font-family: 'Calibri', sans-serif;
+            font-size: 14px;
+        }
+
+        td {
+            padding: 3px;
+        }
+
+        .sales-invoice-table-pdf th {
+            border-bottom: 1px solid black;
+        }
+
+        .sales-invoice-table-pdf td {
+            border-bottom: 1px solid #ced5db;
+        }
+
+        .sales-invoice__tmp * {
+            line-height: 1.4;
+        }
+
+        .billing-address__tmp-bill td {
+            line-height: 1.4;
+        }
+
+        .page-break {
+            display: inline-block ! important;
+            page-break-inside: auto ! important;
+        }
+    </style>
+</head>
+<body>
+<div id="body sales-invoice__tmp">
+    <img alt="images" src="https://workforcetrack.s3.amazonaws.com/000000000000/public/65159/a2113e82-397f-49fd-a58a-cdf4f4b93dff?AWSAccessKeyId=AKIAIROQMC77E5UKWBWQ" style="display: none;"/>
+    #if($itextGenericPdfData.companyData.companyName == 'KPI Software Inc' or $itextGenericPdfData.companyData.companyLogoUrl == 'https://apps.kpi.com/customisation/kpi.com/images/kpilogo.png')
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="width: 88px;display: none;"/>
+    #else
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="max-width: 100%; max-height: 100%; display: none;"/>
+    #end
+
+    #set($headerTable = $itextGenericPdfData.customData.get('HEADER'))
+    #set($employeeTable = $itextGenericPdfData.customData.get('EMPLOYEE_TABLE'))
+    #set($totalTable = $itextGenericPdfData.customData.get('TOTAL_TABLE'))
+
+    #set($creatorLabel = $headerTable.rows.get('CREATOR').get('COLUMN_NAME'))
+    #set($frequencyLabel = $headerTable.rows.get('FREQUENCY').get('COLUMN_NAME'))
+    #set($payrollGroupLabel = $headerTable.rows.get('GROUP').get('COLUMN_NAME'))
+    #set($approverLabel = $headerTable.rows.get('APPROVER').get('COLUMN_NAME'))
+    #set($periodLabel = $headerTable.rows.get('PERIOD').get('COLUMN_NAME'))
+    #set($codeLabel = $headerTable.rows.get('CODE_LABEL').get('COLUMN_NAME'))
+    #set($processDateLabel = $headerTable.rows.get('PROCESSED_DATE').get('COLUMN_NAME'))
+    #set($employeeLabel = $headerTable.rows.get('EMPLOYEE_LABEL').get('COLUMN_NAME'))
+    #set($basicLabel = $headerTable.rows.get('BASIC_LABEL').get('COLUMN_NAME'))
+    #set($allowanceLabel = $headerTable.rows.get('ALLOWANCE_LABEL').get('COLUMN_NAME'))
+    #set($deductionLabel = $headerTable.rows.get('DEDUCTION_LABEL').get('COLUMN_NAME'))
+    #set($expenseLabel = $headerTable.rows.get('EXPENSE_LABEL').get('COLUMN_NAME'))
+    #set($payTotalLabel = $headerTable.rows.get('PAY_TOTAL_LABEL').get('COLUMN_NAME'))
+    #set($totalLabel = $headerTable.rows.get('TOTAL_LABEL').get('COLUMN_NAME'))
+
+
+    #set($creator = $headerTable.rows.get('CREATOR').get('COLUMN_VALUE'))
+    #set($frequency = $headerTable.rows.get('FREQUENCY').get('COLUMN_VALUE'))
+    #set($payrollGroup = $headerTable.rows.get('GROUP').get('COLUMN_VALUE'))
+    #set($approver = $headerTable.rows.get('APPROVER').get('COLUMN_VALUE'))
+    #set($period = $headerTable.rows.get('PERIOD').get('COLUMN_VALUE'))
+    #set($processDate = $headerTable.rows.get('PROCESSED_DATE').get('COLUMN_VALUE'))
+
+
+    <!-- Header table starts-->
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top: 10px;" align="left">
+        <tr>
+            <td width="60%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td>$creatorLabel: <strong>#if($creator != '') $creator #else — #end</strong></td>
+                    </tr>
+                </table>
+            </td>
+            <td width="40%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td>$payrollGroupLabel:<strong> #if($payrollGroup != '') $payrollGroup #else — #end</strong>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top: 10px;" align="left">
+        <tr>
+            <td width="60%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td>$approverLabel:<strong> #if($approver != '') $approver #else — #end</strong></td>
+                    </tr>
+                </table>
+            </td>
+            <td width="40%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td>$periodLabel: <strong>#if($period != '') $period #else — #end</strong></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top: 10px;" align="left">
+        <tr>
+            <td width="60%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;">
+
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="40%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td>$processDateLabel:<strong> #if($processDate != '') $processDate #else — #end</strong></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <!-- Header table ends-->
+
+    <!-- Product table starts-->
+    <table border="0" cellpadding="10" cellspacing="0" class="product-table sales-invoice-table-pdf"
+           style="table-layout: fixed; margin-bottom: 22pt;padding-top: 20px; font-size: 12px; width:100%;">
+        <colgroup>
+            <col style="width: 12%"></col>
+            <col style="width: 24%"></col>
+            <col style="width: 11%"></col>
+            <col style="width: 12%"></col>
+            <col style="width: 12%"></col>
+            <col style="width: 12%"></col>
+            <col style="width: 12%"></col>
+        </colgroup>
+        <tbody>
+        <tr>
+            <th style="padding-left: 0; text-align: left; vertical-align: top;">
+                <strong>$codeLabel</strong>
+            </th>
+            <th style="padding-left: 0; text-align: left; vertical-align: top;" align="left">
+                <strong>$employeeLabel</strong>
+            </th>
+            <th style="padding-right: 0; vertical-align: top; text-align: right;" align="right">
+                <strong>$basicLabel</strong>
+            </th>
+            <th style="padding-right: 0; vertical-align: top; text-align: right;" align="right">
+                <strong>$allowanceLabel</strong>
+            </th>
+            <!--<th style="padding-right: 0;vertical-align: top; text-align: right;" align="right">
+                <strong>Pension</strong>
+            </th>-->
+            <th style="padding-right: 0;vertical-align: top; text-align: right;" align="right">
+                <strong>$deductionLabel</strong>
+            </th>
+            <th style="padding-right: 0;vertical-align: top; text-align: right;" align="right">
+                <strong>$expenseLabel</strong>
+            </th>
+            <th style="padding-right: 0;vertical-align: top; text-align: right;">
+                <strong>$payTotalLabel</strong>
+            </th>
+        </tr>
+        </tbody>
+        <tbody>
+        #foreach($row in $employeeTable.rows.values())
+        <tr>
+            <td style="padding-left: 0; word-wrap:break-word;" dir="$row.get('EMPLOYEE_CODE')">$row.get('EMPLOYEE_CODE')</td>
+            <td style="word-wrap:break-word;text-align: left" dir="$row.get('EMPLOYEE_NAME')">$row.get('EMPLOYEE_NAME')</td>
+            <td dir="$row.get('BASIC_SALARY')" align="right" style="word-wrap:break-word;text-align: right">$row.get('BASIC_SALARY')</td>
+            <td dir="$row.get('ADDITIONAL_PAYMENT')" align="right" style="word-wrap:break-word;text-align: right">$row.get('ADDITIONAL_PAYMENT')</td>
+<!--            <td dir="$row.get('PENSION_DEDUCTION')" align="right" style="padding-right:0; word-wrap:break-word;text-align: right">$row.get('PENSION_DEDUCTION')</td>-->
+            <td dir="$row.get('DEDUCTION_AMOUNT')" align="right" style="padding-right:0; word-wrap:break-word;text-align: right">$row.get('DEDUCTION_AMOUNT')</td>
+            <td dir="$row.get('EXPENSE_AMOUNT')" align="right" style="padding-right:0; word-wrap:break-word;text-align: right">$row.get('EXPENSE_AMOUNT')</td>
+            <td dir="$row.get('TOTAL_PAY')" align="right" style="padding-right:0; word-wrap:break-word;text-align: right">$row.get('TOTAL_PAY')</td>
+        </tr>
+        #end
+
+        #foreach($row in $totalTable.rows.values())
+        <tr>
+            <td dir="Total" style="padding-left: 0; word-wrap:break-word;font-weight: bold;">$totalLabel
+                ($row.get('BASE_CURRENCY'))
+            </td>
+            <td colspan="5" style="word-wrap:break-word;" dir="Total">($row.get('TOTAL_IN_WORDS'))</td>
+            <td dir="$row.get('TOTAL')" align="right" style="padding-right:0; word-wrap:break-word;">$row.get('TOTAL')</td>
+        </tr>
+        #end
+        </tbody>
+    </table>
+    <!-- Product table ends-->
+</div>
+</body>
+</html>
+
+

@@ -1,0 +1,2 @@
+insert into myupdatetype (code, description, parentid)
+values ('ADDITIONAL_PAYMENT_DRAFT', 'Records when user has draft additional payment', (select id from myupdatetype where code = 'ADDITIONAL_PAYMENT'));

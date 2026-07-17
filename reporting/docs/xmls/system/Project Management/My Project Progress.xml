@@ -1,0 +1,55 @@
+<report>
+    <view>
+        <title>Projects Progres</title>
+        <name>Projects Progres</name>
+        <category>projectsSummary</category>
+        <sqlquery>
+            <select agregateFunc="distinct">
+                <table name="Project">
+                    <column name="id" title="id" type="integer" formattype="hidden"/>
+                    <column name="projectname" title="Project Name" type="string" formattype="string"/>
+                    <column name="managername" title="Manager" type="string" formattype="string"/>
+                    <column name="client" title="Client" type="string" formattype="string"/>
+                    <column name="taskCount" title="Task Count" type="number" formattype="number"/>
+                    <column name="notComplatedTaskCount" title="Not Completed Task Count" type="number" formattype="number"/>
+                    <column name="timeSpentByProject" title="Time Spent" type="time" formattype="time"/>
+                    <column name="complete" title="Complete" type="number" formattype="percent"/>
+                </table>
+            </select>
+            <from>(
+                select sts.name, pj.id,pj.name projectname, account.name client
+                ,coalesce(t.taskCount,0) taskCount
+                ,coalesce(notComplatedTaskCount,0) notComplatedTaskCount
+                ,coalesce(tsh.timeSpentByProject,0) timeSpentByProject,
+                coalesce(pj.percent,0) complete , coalesce(man.firstname,'')||' '||coalesce(man.lastname) managername
+                ,case when sts.code ='ONGOING' then 1 when isSystemReference is false then 2 when sts.code ='PS_NOT_STARTED' then 3 when sts.code ='PS_COMPLETED' then 4 end sorder
+
+                from "$".project pj left join "$".crmaccount account on pj.clientid = account.id
+                left join "$".myuser man on pj.managerid=man.id
+                left join (select count(t.id) taskCount,projectid
+                ,count(case when r.code not in ('COMPLETED','CLOSED','CANCELLED') then 1 end ) notComplatedTaskCount
+                from "$".task t
+                left join "$".reference r on t.statusid=r.id
+                where  t.isIssue is not true and  t.deleted is not true
+                group by projectid) t on pj.id=t.projectid
+                left join (select projectID, sum(timespent) timeSpentByProject
+                from "$".timesheet
+                group by projectID) tsh on pj.id=tsh.projectID
+                join "$".reference sts on pj.statusid=sts.id
+
+                left outer join "$".projectemployee pe on pj.id=pe.projectid
+                left outer join "$".teamemployee te on (pe.employeedepartmentid=te.id )
+                left outer join "$".myuser mu on (te.employeeid=mu.id)
+
+                where pe.isdeleted is not true and pj.isdeleted is not  true and pj.parnetId is null and mu.id=#?user_id?#
+                order by sorder asc, timeSpentByProject desc
+
+                )t
+            </from>
+            <where>
+                <terms id="base" value="1=1"/>
+                <replacement id="userid" userid="#?user_id?#"/>
+            </where>
+        </sqlquery>
+    </view>
+</report>

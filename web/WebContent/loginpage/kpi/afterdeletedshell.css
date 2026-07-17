@@ -1,0 +1,87 @@
+h1,h2, h3, h4 {font-weight:bold; margin: 0 0 0.25em 0;}
+h1 { font-size: 166.67% }                     /* 20px */
+h2 { font-size: 150% }                        /* 18px */
+h3 { font-size: 133.33% }                     /* 16px */
+
+body {line-height: 1;}
+
+body {font:normal 12px/1.2 Arial, "Helvetica Neue", Helvetica, sans-serif; color:#3c3c3c;}
+body {position:relative; min-height:100%; background:#fff;}
+
+
+a:hover, a:active {
+    text-decoration: none;
+}
+
+.c-box, #contentPlace, #nice-menu-1 {position:relative; width:984px; margin:0 auto; padding-left:10px; padding-right:10px;}
+
+#main {overflow:hidden;}
+
+#header .c-box {min-height:104px;	padding-bottom:37px;}
+
+.sidebar {position:relative;}
+
+.right {float:right !important;}
+
+img.right {margin:0 0 0 10px;}
+
+/*.form-submit {
+    position:absolute; right:0; top:0;
+    width:71px;	font:bold 13px/37px Arial,sans-serif;
+    text-transform:capitalize; text-align:center;	color:#fff; cursor:pointer;}*/
+
+.c {text-align:center;}
+.steps {margin-top: 25px;}
+.b {font-weight:bold;}
+
+/* ### TITLES ### */
+.title, .title2, .teaserTitle, .subTitle {color:#399AA2; /* margin-bottom:0.4em */;}
+.title2, .boxTitle {
+    font-family:"Arial Narrow", Arial, sans-serif; font-stretch:condensed;
+    font-weight:normal;
+}
+.title {font:bold 20px Arial,sans-serif; margin-bottom:0.5em}
+.introductory .title {font-size:26px; /* margin-bottom:20px */}
+h1.title {margin-bottom:20px}
+.title2 {font-size:23px;}
+
+.c-box:before, .c-box:after,
+.plateBox:before, .plateBox:after,
+.plateBox2:before, .plateBox2:after {content:"";display:table;}
+.c-box:after, .plateBox:after, .plateBox2:after {clear:both;}
+*+html .c-box, *+html .plateBox, *+html .plateBox2 {zoom:1;}
+
+.bgAngle.topLeft {top:-1px; left:-1px;}
+.bgAngle.topRight {top:-1px; right:-1px; background-position:100% 0;}
+.bgAngle.bottomLeft {bottom:-1px; left:-1px; background-position:0 100%;}
+.bgAngle.bottomRight {bottom:-1px; right:-1px; background-position:100% 100%;}
+
+.plateBox, .plateBox2, .directList>ul {margin-bottom:20px;
+    -moz-border-radius:10px;
+    -webkit-border-radius:10px;
+    -o-border-radius:10px;
+    border-radius:10px;
+}
+.plateBox, .plateBox2 {/* display:inline-block; */ position:relative; padding:8px;}
+
+.plateBox2 .boxTitle {
+    -webkit-border-top-left-radius:10px;
+    -webkit-border-top-right-radius:10px;
+    border-top-left-radius:10px;
+    border-top-right-radius:10px;
+}
+
+.plateBox2 {border:1px solid #c5c5c5;}
+
+.plateBox2 .bgAngle {
+    background-image:url(/loginpage/images/bg_plateAngles-2.png);
+    background-repeat:no-repeat;
+}
+
+.strongBox {
+    display:block;
+    padding:8px;
+    background-color:#f6f6f6;
+}
+
+.sect {margin-bottom:20px;}

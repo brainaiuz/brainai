@@ -1,0 +1,87 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:m='urn:import:gwt.material.design.client.ui'
+>
+    <g:HTMLPanel ui:field="panel">
+        <div class="payment-gateway-panel refer-panel">
+            <div class="payment-gateway-panel__main">
+                <div class="payment-gateway-panel__header" ui:field="helpSmallBusinessTitle">Want to Help Another Small
+                    Business?
+                </div>
+                <div class="payment-gateway-panel__description" ui:field="letYourFriendsKnowLabel">
+                    Let your friends know about our system
+                </div>
+                <div class="payment-gateway-panel__description" ui:field="discountDescription"></div>
+
+                <div class="payment-gateway-panel__options-list">
+
+                    <div class="payment-gateway-panel__option">
+                        <m:MaterialRadioButton name="PAYMENT_METHOD" checked="true" debugId="payment-method-stripe"
+                                               tabIndex="0" ui:field="radioEmail" text="Email"/>
+                        <g:HTMLPanel styleName="payment-gateway-panel__option-content form-group">
+                            <!--<mhtml:Label ui:field="toLabel" styleName="form-group__label"/>-->
+                            <g:HTMLPanel ui:field="to"/>
+                        </g:HTMLPanel>
+                    </div>
+
+                    <div class="payment-gateway-panel__option">
+
+                        <m:MaterialRadioButton name="PAYMENT_METHOD" debugId="payment-method-paypal" tabIndex="0"
+                                               ui:field="radioFacebook" text="Facebook"/>
+
+                        <div class="payment-gateway-panel__option-content">
+                            <div class="payment-gateway-panel__option-cards">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--RIGHT PANEL-->
+            <g:HTMLPanel styleName="payment-gateway-panel__side payment-gateway-panel__side--stripe"
+                         ui:field="rightPanelWrapper">
+                <!--Email Right Panel-->
+                <div class="payment-gateway-panel__side-item payment-gateway-panel__side-item--stripe">
+                    <div class="payment-gateway-panel__side-top">
+                        <div class="payment-gateway-panel__side-logo">
+                            <img src="/mainStyles/new-ui/images/refer/email.png"/>
+                        </div>
+                        <m:MaterialTextArea placeholder="Write a note" ui:field="emailText" height="150"></m:MaterialTextArea>
+                    </div>
+
+                    <div class="payment-gateway-panel__side-bottom">
+                        <div class="payment-gateway-panel__side-price-desc">
+                            <div class="control control--checkbox">
+                                <input type="checkbox" checked="checked" />
+                                <span class="control__indicator"></span>
+                                <span class="control__text">
+                                    <small ui:field="agreeWith">I agree with the</small>
+                                    <a href="content/terms-of-use" target="_blank" ui:field="termsAndConditions">
+                                        Terms and Conditions
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <m:MaterialLink styleName="btn btn-large btn--white btn--outline" ui:field="sendEmail" text="Send"/>
+
+                </div>
+                <!--Facebook Right Panel-->
+                <div class="payment-gateway-panel__side-item payment-gateway-panel__side-item--paypal">
+                    <div class="payment-gateway-panel__side-top">
+                        <div class="payment-gateway-panel__side-logo">
+                            <img src="/mainStyles/new-ui/images/refer/facebook.png"/>
+                            <div>An integrated online buisness applications that allow businesses to manage processes effortlessly, helps them to stay organized, productive and efficient at a time.</div>
+                        </div>
+                    </div>
+
+                    <m:MaterialLink styleName="btn btn-large btn--white btn--outline btn--fb" ui:field="postFacebook"/>
+
+                    <div class="payment-gateway-panel__side-muted-text"><i class="ficon--lock mr-1"></i> Guaranteed Safe &amp; Secure</div>
+                </div>
+            </g:HTMLPanel>
+        </div>
+
+    </g:HTMLPanel>
+</ui:UiBinder>

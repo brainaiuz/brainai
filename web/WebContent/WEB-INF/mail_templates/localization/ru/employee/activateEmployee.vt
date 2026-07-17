@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body><p>Уважаемый(ая) $name</p><br/>
+
+<p>Мы хотели бы сообщить Вам, что Ваша учетная запись была активирована.</p>
+
+<p>Ваше имя пользователя: $userName.</p>
+
+<p>Ваш пароль: &lt;зашифрован&gt; (скрыт по соображениям безопасности).</p>
+
+<p>Чтобы получить доступ к вашей учетной записи, пожалуйста <a href="$HOST">нажмите здесь</a><br/>
+    (или перейдите по следующей ссылке в веб-браузере: $HOST)</p>
+
+
+<p>Благодарим Вас за интерес к нашей продукции.</p>
+
+</body>
+</html>

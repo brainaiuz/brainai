@@ -1,0 +1,2 @@
+insert into "31287".certificateType (backimageurl, fieldcount, frontimageurl, name)
+                              values('/tc/images/31-2.png', 3, '/tc/images/31-1.png', 'HSE Construction Orientation');

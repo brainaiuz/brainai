@@ -1,0 +1,89 @@
+.pg_order-summary {
+  background-color: white;
+  border-radius: $radius-basePlus;
+  padding: 3.8rem;
+
+  .cp_receipt__block {
+    &:after {
+      clear: both;
+      display: block;
+      content: "";
+    }
+  }
+
+  .cp_receipt__buynow {
+    margin-top: 20px;
+    height: 60px;
+    font-size: 17px;
+  }
+
+  .btn--default {
+    background-color: $color-accent-2;
+  }
+}
+
+.cp_receipt__buttons {
+  display: flex;
+
+  .btn {
+    flex-grow: 1;
+  }
+}
+
+.cp_receipt__button {
+  &:not(:last-child) {
+    margin-right: 10px;
+  }
+}
+
+
+.page-title {
+  font-size: 1.7rem;
+  font-weight: bold;
+}
+
+.order-summary__table {
+  font-size: 1rem;
+  border-spacing: 0 10px;
+  border-collapse: unset;
+  padding-top: 25px;
+
+  th {
+    font-weight: 300;
+    text-transform: uppercase;
+    padding: 1.1rem 3.3rem;
+    color: black;
+  }
+
+  tbody {
+    td {
+      padding: 1.1rem 3.3rem;
+      background-color: $highlightedRowColor;
+
+
+      &:first-child {
+        border-top-left-radius: $radius-base;
+        border-bottom-left-radius: $radius-base;
+        max-width: 470px;
+      }
+
+      &:last-child {
+        border-top-right-radius: $radius-base;
+        border-bottom-right-radius: $radius-base;
+      }
+
+      &:not(:first-child) {
+        white-space: nowrap;
+      }
+    }
+  }
+}
+.pg_order-summary-callout-block {
+  float: left;
+  width: 60%;
+  margin-top: 35px;
+
+  h5 {
+    margin-top: 0;
+  }
+}

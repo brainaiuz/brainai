@@ -1,0 +1,1 @@
+ant WebForms -f ./web/AutoCompile.xml

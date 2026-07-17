@@ -1,0 +1,19 @@
+services:
+  kpi-mongodb:
+    extends:
+      file: compose.yml
+      service: mongodb
+    volumes:
+      - kpi-mongodb-data:/data/db
+    networks:
+      - kpi-network
+
+volumes:
+  kpi-mongodb-data:
+    name: kpi-mongodb-data
+
+networks:
+  kpi-network:
+    name: kpi-network
+    driver: bridge
+    external: true

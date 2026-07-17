@@ -1,0 +1,1 @@
+INSERT INTO apiaccesstoken(token, description,blocked,modulecode) VALUES ('511171d4-9c52-4d09-812c-ac351c80c51e','Access token for HRMS app','f','HRMS_MODULE');

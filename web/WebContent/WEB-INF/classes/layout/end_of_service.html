@@ -1,0 +1,84 @@
+<ul class="collapsible--panels collapsible--arrows-left collapsible collapsible--gwt required" data-collapsible="expandable">
+    <li class="slideDown-box group active">
+        <div class="collapsible-header active"
+             onclick="var myclick=this.parentElement;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls; } var myclick=this;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls; }">
+            <a style="cursor: pointer;"><span>$$label:EOS_GRATUITY$$</span></a>
+        </div>
+        <div class="collapsible-body">
+            <div class="grid-row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <div class="form-group__label">$$label:EMPLOYEE$$</div>
+                        <div class="form-group__content">$$input:EMPLOYEE$$</div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-group__label">$$label:CREATED_DATE$$</div>
+                        <div class="form-group__content">$$input:CREATED_DATE$$</div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <div class="form-group__label">$$label:PAYMENT_NUMBER$$</div>
+                        <div class="form-group__content">$$input:PAYMENT_NUMBER$$</div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-group__label">$$label:REASON$$</div>
+                        <div class="form-group__content">$$input:REASON$$</div>
+                    </div>
+                    $$input:EXCHANGE_RATE$$
+                </div>
+            </div>
+            <div class="grid-row">
+                <div class="col-12">
+                    <div class="form-group">
+                        <div class="form-group__label">&nbsp;</div>
+                        <div class="form-group__content">$$input:CALCULATION_TABLE$$</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li class="slideDown-box group active hideCustomField">
+        <div class="collapsible-header active"
+             onclick="var myclick=this.parentElement;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls; } var myclick=this;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls; }">
+            <a style="cursor: pointer;"><span>$$label:ADDITIONAL_INFORMATION$$</span></a>
+        </div>
+        <div class="collapsible-body">
+            <div class="grid-row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <div class="form-group__label">&nbsp;</div>
+                        <div class="form-group__content">$$input:PAYMENT_POLICY$$</div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <div class="form-group__label">$$label:APPROVER$$</div>
+                        <div class="form-group__content">$$input:APPROVER$$</div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <div class="form-group__label">&nbsp;</div>
+                        <div class="form-group__content">$$input:PAYMENT_TABLE$$</div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-group__label">&nbsp;</div>
+                        <div class="form-group__content">$$input:EXPENSES$$</div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <div class="form-group__label">&nbsp;</div>
+                        <div class="form-group__content">$$input:DEDUCTION_TABLE$$</div>
+                    </div>
+                </div>
+            </div>
+            <div class="section-box">
+                $$input:TOTAL_TABLE_PANEL$$
+            </div>
+        </div>
+    </li>
+</ul>

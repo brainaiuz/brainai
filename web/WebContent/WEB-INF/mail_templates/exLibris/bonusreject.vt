@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+
+<p>Dear $EMPLOYEE_NAME,</p><br/>
+
+<p>Please be advised that <strong>$RECOMMENDER_NAME</strong> added a recommend on premium.</p>
+
+<p><b>Details:</b></p>
+
+<p>Effective date - $EFFECTED_DATE</p>
+
+<p>$DESCRIPTION</p>
+
+<p>$APPROVER_NAME - rejected the recommendation.</p>
+
+<p><b>Details:</b></p>
+
+<p>$COMMENT</p>
+
+</body>
+</html>

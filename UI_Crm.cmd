@@ -1,0 +1,1 @@
+ant CRM -f ./web/AutoCompile.xml

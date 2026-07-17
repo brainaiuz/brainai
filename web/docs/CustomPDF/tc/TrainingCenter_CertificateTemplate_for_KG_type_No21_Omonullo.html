@@ -1,0 +1,1182 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style type="text/css">
+        @page {
+            size: 8.71cm 5.46cm;
+            margin: 0 0 0 0;
+        }
+
+        * html {
+            margin: 0;
+            padding: 0;
+        }
+
+        .airText br {
+            display: block;
+            height: 5px;
+            padding: 0;
+            margin: 0;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body style="margin:0;padding:0;font-size: 8px">
+#set($rows = $itextGenericPdfData.customData.get('ID_CARD').rows)
+#set($items = $itextGenericPdfData.customData.get('ID_CARD_ITEMS').rows)
+
+#if($rows.get('CERTIFICATE_TYPE').get('VALUE')=='NORMA')
+<img src="$rows.get('FRONT_IMAGE_URL').get('VALUE')" style="width:331px;margin:0;padding:0;float:left;"/>
+<table style="width:330px;vertical-align:top;">
+    <tr>
+        <td style="width:250px"></td>
+        <td style="height:110px;width:80px;">
+            <img src="$rows.get('STUDENT_PHOTO').get('VALUE')"
+                 style="width:67px;height:74px;margin-top:10px;margin-left:8px"/>
+            <span style="color:#ff0000;display:block;margin-top:10px;text-align:center">$rows.get('CERTIFICATE_NUMBER').get('VALUE')</span>
+        </td>
+    </tr>
+    <tr>
+        <td class="airText" colspan="2" align="left" style="height:90px;vertical-align:top;padding-top:10px">
+
+            $rows.get('STUDENT_NAME').get('NAME') #if($rows.get('STUDENT_NAME').get('VALUE')!='')
+            $rows.get('STUDENT_NAME').get('VALUE') #end <br/>
+
+            $rows.get('DOB').get('NAME') #if($rows.get('DOB').get('VALUE')!='') $rows.get('DOB').get('VALUE') #end <br/>
+
+            $rows.get('REFERENCE_INDICATOR').get('NAME') #if($rows.get('REFERENCE_INDICATOR').get('VALUE').trim()!='')
+            $rows.get('REFERENCE_INDICATOR').get('VALUE') #end<br/>
+
+            $rows.get('RESIDENCE_CARD_NO').get('NAME') #if($rows.get('RESIDENCE_CARD_NO').get('VALUE')!='')
+            $rows.get('RESIDENCE_CARD_NO').get('VALUE') #end <br/>
+
+            $rows.get('COMPANY_EMPLOYEE_NUMBER').get('NAME') #if($rows.get('COMPANY_EMPLOYEE_NUMBER').get('VALUE')!='')
+            $rows.get('COMPANY_EMPLOYEE_NUMBER').get('VALUE') #end <br/>
+        </td>
+    </tr>
+</table>
+<img src="$rows.get('BACK_IMAGE_URL').get('VALUE')" style="width:331px;margin:0;padding:0;float:left;"/>
+<table style="width:330px;vertical-align:top;">
+    <tr>
+        <td style="vertical-align:top;height:158px;padding-top:82px;padding-left:70px;font-size:14px">
+            #if($rows.get('STUDENT_NAME').get('VALUE')!='') $rows.get('STUDENT_NAME').get('VALUE') #end
+        </td>
+    </tr>
+    <tr>
+        <td style="vertical-align:top;padding-left:85px;font-size:12px;">
+            #if($items.get('0').get('VALUE')!='') <font style="color:$items.get('0').get('COLOR')">$items.get('0').get('VALUE')</font>
+            #end
+        </td>
+    </tr>
+    <tr>
+        <td style="vertical-align:top;padding-left:85px;font-size:12px;">
+            #if($items.get('1').get('VALUE')!='') <font style="color:$items.get('1').get('COLOR')">$items.get('1').get('VALUE')</font>
+            #end
+        </td>
+    </tr>
+</table>
+
+#elseif($rows.get('CERTIFICATE_TYPE').get('VALUE')=='NORMS')
+<img src="$rows.get('FRONT_IMAGE_URL').get('VALUE')" style="width:331px;margin:0;padding:0;float:left;"/>
+<table style="width:330px;vertical-align:top;">
+    <tr>
+        <td style="width:250px"></td>
+        <td style="height:110px;width:80px;">
+            <img src="$rows.get('STUDENT_PHOTO').get('VALUE')"
+                 style="width:68px;height:74px;margin-top:9px;margin-left:7px"/>
+            <span style="color:#ff0000;display:block;margin-top:10px;text-align:center">$rows.get('CERTIFICATE_NUMBER').get('VALUE')</span>
+        </td>
+    </tr>
+    <tr>
+        <td class="airText" colspan="2" align="left" style="height:90px;vertical-align:top;padding-top:10px">
+            $rows.get('STUDENT_NAME').get('NAME') #if($rows.get('STUDENT_NAME').get('VALUE')!='')
+            $rows.get('STUDENT_NAME').get('VALUE') #end <br/>
+
+            $rows.get('DOB').get('NAME') #if($rows.get('DOB').get('VALUE').trim()!='') $rows.get('DOB').get('VALUE')
+            #end <br/>
+
+            $rows.get('REFERENCE_INDICATOR').get('NAME') #if($rows.get('REFERENCE_INDICATOR').get('VALUE').trim()!='')
+            $rows.get('REFERENCE_INDICATOR').get('VALUE') #end <br/>
+
+            $rows.get('RESIDENCE_CARD_NO').get('NAME') #if($rows.get('RESIDENCE_CARD_NO').get('VALUE')!='')
+            $rows.get('RESIDENCE_CARD_NO').get('VALUE') #end<br/>
+
+            $rows.get('COMPANY_EMPLOYEE_NUMBER').get('NAME') #if($rows.get('COMPANY_EMPLOYEE_NUMBER').get('VALUE')!='')
+            $rows.get('COMPANY_EMPLOYEE_NUMBER').get('VALUE') #end <br/>
+        </td>
+    </tr>
+</table>
+<img src="$rows.get('BACK_IMAGE_URL').get('VALUE')" style="width:331px;margin:0;padding:0;float:left;"/>
+<table style="width:330px;vertical-align:top;">
+    <tr>
+        <td style="vertical-align:top;height:165px;padding-top:72px;padding-left:70px;font-size:14px">
+            #if($rows.get('STUDENT_NAME').get('VALUE')!='') $rows.get('STUDENT_NAME').get('VALUE') #end
+        </td>
+    </tr>
+    <tr>
+        <td style="vertical-align:top;padding-left:85px;font-size:12px;">
+            #if($items.get('0').get('VALUE')!='') <font style="color:$items.get('0').get('COLOR')">$items.get('0').get('VALUE')</font>
+            #end
+        </td>
+    </tr>
+    <tr>
+        <td style="vertical-align:top;padding-left:85px;font-size:12px;">
+            #if($items.get('1').get('VALUE')!='') <font style="color:$items.get('1').get('COLOR')">$items.get('1').get('VALUE')</font>
+            #end
+        </td>
+    </tr>
+</table>
+
+#elseif($rows.get('CERTIFICATE_TYPE').get('VALUE')=='PLANT OPERATOR PERMIT')
+<img src="$rows.get('FRONT_IMAGE_URL').get('VALUE')" style="width:331px;margin:0;padding:0;float:left;"/>
+<table style="width:330px;vertical-align:top;">
+    <tr>
+        <td style="width:240px"></td>
+        <td style="height:120px;width:90px;">
+            <img src="$rows.get('STUDENT_PHOTO').get('VALUE')"
+                 style="width:68px;height:75px;margin-top:21px;margin-left:3px"/>
+            <span style="color:#ff0000;display:block;margin-top:10px;text-align:center">$rows.get('CERTIFICATE_NUMBER').get('VALUE')</span>
+        </td>
+    </tr>
+    <tr>
+        <td class="airText" colspan="2" align="left"
+            style="height:80px;vertical-align:top;padding-top:5px;padding-left:15px">
+            $rows.get('STUDENT_NAME').get('NAME') #if($rows.get('STUDENT_NAME').get('VALUE')!='')
+            $rows.get('STUDENT_NAME').get('VALUE') #end <br/>
+
+            $rows.get('DOB').get('NAME') #if($rows.get('DOB').get('VALUE').trim()!='') $rows.get('DOB').get('VALUE')
+            #end <br/>
+
+            $rows.get('RESIDENCE_CARD_NO').get('NAME') #if($rows.get('RESIDENCE_CARD_NO').get('VALUE')!='')
+            $rows.get('RESIDENCE_CARD_NO').get('VALUE') #end<br/>
+
+            $rows.get('COMPANY_EMPLOYEE_NUMBER').get('NAME') #if($rows.get('COMPANY_EMPLOYEE_NUMBER').get('VALUE')!='')
+            $rows.get('COMPANY_EMPLOYEE_NUMBER').get('VALUE') #end <br/>
+
+            $rows.get('COMPANY_NAME').get('NAME') #if($rows.get('COMPANY_NAME').get('VALUE')!='')
+            $rows.get('COMPANY_NAME').get('VALUE') #end <br/>
+        </td>
+    </tr>
+</table>
+<img src="$rows.get('BACK_IMAGE_URL').get('VALUE')" style="width:331px;margin:0;padding:0;float:left;"/>
+<table style="width:330px;vertical-align:top;margin-top:30px;">
+    <tr>
+        <td style="width:8px"></td>
+        <td style="width:104px;text-align:center;vertical-align:top;height:36px;">
+            #if($items.get('0').get('VALUE')!='') <font style="color:$items.get('0').get('COLOR')">$items.get('0').get('VALUE')</font>
+            #end
+        </td>
+        <td style="width:6px"></td>
+        <td style="width:103px;text-align:center;vertical-align:top;">
+            #if($items.get('1').get('VALUE')!='') <font style="color:$items.get('1').get('COLOR')">$items.get('1').get('VALUE')</font>
+            #end
+        </td>
+        <td style="width:5px"></td>
+        <td style="width:104px;text-align:center;vertical-align:top;">
+            #if($items.get('2').get('VALUE')!='') <font style="color:$items.get('2').get('COLOR')">$items.get('2').get('VALUE')</font>
+            #end
+        </td>
+    </tr>
+    <tr>
+        <td style="width:8px"></td>
+        <td style="width:104px;text-align:center;vertical-align:top;height:63px;">
+            #if($items.get('3').get('VALUE')!='') <font style="color:$items.get('3').get('COLOR')">$items.get('3').get('VALUE')</font>
+            #end
+        </td>
+        <td style="width:6px"></td>
+        <td style="width:103px;text-align:center;vertical-align:top;">
+            #if($items.get('4').get('VALUE')!='') <font style="color:$items.get('4').get('COLOR')">$items.get('4').get('VALUE')</font>
+            #end
+        </td>
+        <td style="width:5px"></td>
+        <td style="width:104px;text-align:center;vertical-align:top;">
+            #if($items.get('5').get('VALUE')!='') <font style="color:$items.get('5').get('COLOR')">$items.get('5').get('VALUE')</font>
+            #end
+        </td>
+    </tr>
+    <tr>
+        <td style="width:8px"></td>
+        <td style="width:104px;text-align:center;vertical-align:top;height:49px;">
+            #if($items.get('6').get('VALUE')!='') <font style="color:$items.get('6').get('COLOR')">$items.get('6').get('VALUE')</font>
+            #end
+        </td>
+        <td style="width:6px"></td>
+        <td style="width:103px;text-align:center;vertical-align:top;">
+            #if($items.get('7').get('VALUE')!='') <font style="color:$items.get('7').get('COLOR')">$items.get('7').get('VALUE')</font>
+            #end
+        </td>
+        <td style="width:5px"></td>
+        <td style="width:104px;text-align:center;vertical-align:top;">
+            #if($items.get('8').get('VALUE')!='') <font style="color:$items.get('8').get('COLOR')">$items.get('8').get('VALUE')</font>
+            #end
+        </td>
+    </tr>
+    <tr>
+        <td style="width:8px"></td>
+        <td style="width:104px;text-align:center;">
+            #if($items.get('9').get('VALUE')!='') <font style="color:$items.get('9').get('COLOR')">$items.get('9').get('VALUE')</font>
+            #end
+        </td>
+        <td style="width:6px"></td>
+        <td style="width:103px;text-align:center">
+            #if($items.get('10').get('VALUE')!='') <font style="color:$items.get('10').get('COLOR')">$items.get('10').get('VALUE')</font>
+            #end
+        </td>
+        <td style="width:5px"></td>
+        <td style="width:104px;text-align:center">
+            #if($items.get('11').get('VALUE')!='') <font style="color:$items.get('11').get('COLOR')">$items.get('11').get('VALUE')</font>
+            #end
+        </td>
+    </tr>
+</table>
+
+#elseif($rows.get('CERTIFICATE_TYPE').get('VALUE')=='PERMIT TO WORK')
+<img src="$rows.get('FRONT_IMAGE_URL').get('VALUE')" style="width:331px;margin:0;padding:0;float:left;"/>
+<table style="width:330px;vertical-align:top;">
+    <tr>
+        <td style="width:240px"></td>
+        <td style="height:120px;width:90px;">
+            <img src="$rows.get('STUDENT_PHOTO').get('VALUE')"
+                 style="width:68px;height:74px;margin-top:14px;margin-left:9px"/>
+            <span style="color:#ff0000;display:block;margin-top:10px;text-align:center">$rows.get('CERTIFICATE_NUMBER').get('VALUE')</span>
+        </td>
+    </tr>
+    <tr>
+        <td class="airText" colspan="2" align="left" style="height:80px;vertical-align:top;padding-left:10px">
+            $rows.get('STUDENT_NAME').get('NAME') #if($rows.get('STUDENT_NAME').get('VALUE')!='')
+            $rows.get('STUDENT_NAME').get('VALUE') #end <br/>
+
+            $rows.get('DOB').get('NAME') #if($rows.get('DOB').get('VALUE').trim()!='') $rows.get('DOB').get('VALUE')
+            #end<br/>
+
+            $rows.get('REFERENCE_INDICATOR').get('NAME') #if($rows.get('REFERENCE_INDICATOR').get('VALUE').trim()!='')
+            $rows.get('REFERENCE_INDICATOR').get('VALUE') #end <br/>
+
+            $rows.get('RESIDENCE_CARD_NO').get('NAME') #if($rows.get('RESIDENCE_CARD_NO').get('VALUE')!='')
+            $rows.get('RESIDENCE_CARD_NO').get('VALUE') #end <br/>
+
+            $rows.get('COMPANY_EMPLOYEE_NUMBER').get('NAME') #if($rows.get('COMPANY_EMPLOYEE_NUMBER').get('VALUE')!='')
+            $rows.get('COMPANY_EMPLOYEE_NUMBER').get('VALUE') #end<br/>
+        </td>
+    </tr>
+</table>
+<img src="$rows.get('BACK_IMAGE_URL').get('VALUE')" style="width:331px;margin:0;padding:0;float:left;"/>
+<table style="width:330px;vertical-align:top;margin-top:114px;">
+    <tr>
+        <td style="width:6px"></td>
+        <td style="width:103px;text-align:center;vertical-align:top;height:36px;">
+            #if($items.get('0').get('VALUE')!='') <font style="color:$items.get('0').get('COLOR')">$items.get('0').get('VALUE')</font>
+            #end
+        </td>
+        <td style="width:6px"></td>
+        <td style="width:102px;text-align:center;vertical-align:top;">
+            #if($items.get('1').get('VALUE')!='') <font style="color:$items.get('1').get('COLOR')">$items.get('1').get('VALUE')</font>
+            #end
+        </td>
+        <td style="width:5px"></td>
+        <td style="width:108px;text-align:center;vertical-align:top;">
+            #if($items.get('2').get('VALUE')!='') <font style="color:$items.get('2').get('COLOR')">$items.get('2').get('VALUE')</font>
+            #end
+        </td>
+    </tr>
+</table>
+
+#elseif($rows.get('CERTIFICATE_TYPE').get('VALUE')=='RIGGER AND BANKSMAN')
+<img src="$rows.get('FRONT_IMAGE_URL').get('VALUE')" style="width:331px;margin:0;padding:0;float:left;"/>
+<table style="width:330px;vertical-align:top;">
+    <tr>
+        <td style="width:240px"></td>
+        <td style="height:120px;width:90px;">
+            <img src="$rows.get('STUDENT_PHOTO').get('VALUE')"
+                 style="width:68px;height:74px;margin-top:16px;margin-left:7px"/>
+            <span style="color:#ff0000;display:block;margin-top:10px;text-align:center">$rows.get('CERTIFICATE_NUMBER').get('VALUE')</span>
+        </td>
+    </tr>
+    <tr>
+        <td class="airText" colspan="2" align="left" style="height:80px;vertical-align:top;padding-left:10px">
+            $rows.get('STUDENT_NAME').get('NAME') #if($rows.get('STUDENT_NAME').get('VALUE')!='')
+            $rows.get('STUDENT_NAME').get('VALUE') #end<br/>
+
+            $rows.get('DOB').get('NAME') #if($rows.get('DOB').get('VALUE').trim()!='') $rows.get('DOB').get('VALUE')
+            #end<br/>
+
+            $rows.get('RESIDENCE_CARD_NO').get('NAME') #if($rows.get('RESIDENCE_CARD_NO').get('VALUE')!='')
+            $rows.get('RESIDENCE_CARD_NO').get('VALUE') #end<br/>
+
+            $rows.get('COMPANY_EMPLOYEE_NUMBER').get('NAME') #if($rows.get('COMPANY_EMPLOYEE_NUMBER').get('VALUE')!='')
+            $rows.get('COMPANY_EMPLOYEE_NUMBER').get('VALUE') #end<br/>
+
+            $rows.get('COMPANY_NAME').get('NAME') #if($rows.get('COMPANY_NAME').get('VALUE')!='')
+            $rows.get('COMPANY_NAME').get('VALUE') #end<br/>
+        </td>
+    </tr>
+</table>
+<img src="$rows.get('BACK_IMAGE_URL').get('VALUE')" style="width:331px;margin:0;padding:0;float:left;"/>
+<table style="width:330px;vertical-align:top;margin-top:98px;">
+    <tr>
+        <td style="width:6px"></td>
+        <td style="width:103px;text-align:center;vertical-align:top;height:36px;">
+            #if($items.get('0').get('VALUE')!='') <font style="color:$items.get('0').get('COLOR')">$items.get('0').get('VALUE')</font>
+            #end
+        </td>
+        <td style="width:6px"></td>
+        <td style="width:102px;text-align:center;vertical-align:top;">
+            #if($items.get('1').get('VALUE')!='') <font style="color:$items.get('1').get('COLOR')">$items.get('1').get('VALUE')</font>
+            #end
+        </td>
+        <td style="width:5px"></td>
+        <td style="width:108px;text-align:center;vertical-align:top;">
+            #if($items.get('2').get('VALUE')!='') <font style="color:$items.get('2').get('COLOR')">$items.get('2').get('VALUE')</font>
+            #end
+        </td>
+    </tr>
+</table>
+
+#elseif($rows.get('CERTIFICATE_TYPE').get('VALUE')=='BREATHING APPARATUS AUTHORISED USER')
+<img src="$rows.get('FRONT_IMAGE_URL').get('VALUE')" style="width:331px;margin:0;padding:0;float:left;"/>
+<table style="width:330px;vertical-align:top;">
+    <tr>
+        <td style="width:240px"></td>
+        <td style="height:120px;width:90px;">
+            <img src="$rows.get('STUDENT_PHOTO').get('VALUE')"
+                 style="width:67px;height:75px;margin-top:21px;margin-left:5px"/>
+            <span style="color:#ff0000;display:block;margin-top:10px;text-align:center">$rows.get('CERTIFICATE_NUMBER').get('VALUE')</span>
+        </td>
+    </tr>
+    <tr>
+        <td class="airText" colspan="2" align="left" style="height:80px;vertical-align:top;padding-left:10px">
+            $rows.get('STUDENT_NAME').get('NAME') #if($rows.get('STUDENT_NAME').get('VALUE')!='')
+            $rows.get('STUDENT_NAME').get('VALUE') #end<br/>
+
+            $rows.get('DOB').get('NAME') #if($rows.get('DOB').get('VALUE').trim()!='') $rows.get('DOB').get('VALUE')
+            #end <br/>
+
+            $rows.get('RESIDENCE_CARD_NO').get('NAME') #if($rows.get('RESIDENCE_CARD_NO').get('VALUE')!='')
+            $rows.get('RESIDENCE_CARD_NO').get('VALUE') #end <br/>
+
+            $rows.get('COMPANY_EMPLOYEE_NUMBER').get('NAME') #if($rows.get('COMPANY_EMPLOYEE_NUMBER').get('VALUE')!='')
+            $rows.get('COMPANY_EMPLOYEE_NUMBER').get('VALUE') #end <br/>
+
+            $rows.get('COMPANY_NAME').get('NAME') #if($rows.get('COMPANY_NAME').get('VALUE')!='')
+            $rows.get('COMPANY_NAME').get('VALUE') #end <br/>
+        </td>
+    </tr>
+</table>
+<img src="$rows.get('BACK_IMAGE_URL').get('VALUE')" style="width:331px;margin:0;padding:0;float:left;"/>
+<table style="width:330px;vertical-align:top;margin-top:98px;">
+    <tr>
+        <td style="width:6px"></td>
+        <td style="width:103px;text-align:center;vertical-align:top;height:36px;">
+            #if($items.get('0').get('VALUE')!='') <font style="color:$items.get('0').get('COLOR')">$items.get('0').get('VALUE')</font>
+            #end
+        </td>
+        <td style="width:6px"></td>
+        <td style="width:102px;text-align:center;vertical-align:top;">
+            #if($items.get('1').get('VALUE')!='') <font style="color:$items.get('1').get('COLOR')">$items.get('1').get('VALUE')</font>
+            #end
+        </td>
+        <td style="width:5px"></td>
+        <td style="width:108px;text-align:center;vertical-align:top;">
+            #if($items.get('2').get('VALUE')!='') <font style="color:$items.get('2').get('COLOR')">$items.get('2').get('VALUE')</font>
+            #end
+        </td>
+    </tr>
+</table>
+
+#elseif($rows.get('CERTIFICATE_TYPE').get('VALUE')=='AUTHORISED GAS TESTER')
+<img src="$rows.get('FRONT_IMAGE_URL').get('VALUE')" style="width:331px;margin:0;padding:0;float:left;"/>
+<table style="width:330px;vertical-align:top;">
+    <tr>
+        <td style="width:240px"></td>
+        <td style="height:120px;width:90px;">
+            <img src="$rows.get('STUDENT_PHOTO').get('VALUE')"
+                 style="width:68px;height:74px;margin-top:17px;margin-left:7px"/>
+            <span style="color:#ff0000;display:block;margin-top:10px;text-align:center">$rows.get('CERTIFICATE_NUMBER').get('VALUE')</span>
+        </td>
+    </tr>
+    <tr>
+        <td class="airText" colspan="2" align="left" style="height:80px;vertical-align:top;padding-left:10px">
+            $rows.get('STUDENT_NAME').get('NAME') #if($rows.get('STUDENT_NAME').get('VALUE')!='')
+            $rows.get('STUDENT_NAME').get('VALUE') #end <br/>
+
+            $rows.get('DOB').get('NAME') #if($rows.get('DOB').get('VALUE').trim()!='') $rows.get('DOB').get('VALUE')
+            #end<br/>
+
+            $rows.get('RESIDENCE_CARD_NO').get('NAME') #if($rows.get('RESIDENCE_CARD_NO').get('VALUE')!='')
+            $rows.get('RESIDENCE_CARD_NO').get('VALUE') #end<br/>
+
+            $rows.get('COMPANY_EMPLOYEE_NUMBER').get('NAME') #if($rows.get('COMPANY_EMPLOYEE_NUMBER').get('VALUE')!='')
+            $rows.get('COMPANY_EMPLOYEE_NUMBER').get('VALUE') #end <br/>
+
+            $rows.get('COMPANY_NAME').get('NAME') #if($rows.get('COMPANY_NAME').get('VALUE')!='')
+            $rows.get('COMPANY_NAME').get('VALUE') #end <br/>
+        </td>
+    </tr>
+</table>
+<img src="$rows.get('BACK_IMAGE_URL').get('VALUE')" style="width:331px;margin:0;padding:0;float:left;"/>
+<table style="width:330px;vertical-align:top;">
+    <tr>
+        <td style="vertical-align:top;height:155px;padding-top:77px;padding-left:70px;font-size:14px">
+            #if($rows.get('STUDENT_NAME').get('VALUE')!='') $rows.get('STUDENT_NAME').get('VALUE') #end
+        </td>
+    </tr>
+    <tr>
+        <td style="vertical-align:top;padding-left:85px;font-size:12px">
+            #if($items.get('0').get('VALUE')!='') <font style="color:$items.get('0').get('COLOR')">$items.get('0').get('VALUE')</font>
+            #end
+        </td>
+    </tr>
+    <tr>
+        <td style="vertical-align:top;padding-left:85px;font-size:12px">
+            #if($items.get('1').get('VALUE')!='') <font style="color:$items.get('1').get('COLOR')">$items.get('1').get('VALUE')</font>
+            #end
+        </td>
+    </tr>
+</table>
+
+#elseif($rows.get('CERTIFICATE_TYPE').get('VALUE')=='H2S AND SO2 ENTRY PERMIT')
+<img src="$rows.get('FRONT_IMAGE_URL').get('VALUE')" style="width:331px;margin:0;padding:0;float:left;"/>
+<table style="width:330px;vertical-align:top;">
+    <tr>
+        <td style="width:240px"></td>
+        <td style="height:120px;width:90px;vertical-align:top;">
+            <span style="color:#ff0000;display:block;text-align:center;margin-top:0">$rows.get('CERTIFICATE_NUMBER').get('VALUE')</span>
+            <img src="$rows.get('STUDENT_PHOTO').get('VALUE')"
+                 style="width:67px;height:74px;margin-top:5px;margin-left:17px"/>
+        </td>
+    </tr>
+    <tr>
+        <td class="airText" colspan="2" align="left"
+            style="height:80px;vertical-align:top;padding-left:10px;padding-top:5px">
+            $rows.get('STUDENT_NAME').get('NAME') #if($rows.get('STUDENT_NAME').get('VALUE')!='')
+            $rows.get('STUDENT_NAME').get('VALUE') #end <br/>
+
+            $rows.get('DOB').get('NAME') #if($rows.get('DOB').get('VALUE').trim()!='')
+            $rows.get('DOB').get('VALUE') #end<br/>
+
+            $rows.get('RESIDENCE_CARD_NO').get('NAME') #if($rows.get('RESIDENCE_CARD_NO').get('VALUE')!='')
+            $rows.get('RESIDENCE_CARD_NO').get('VALUE') #end<br/>
+
+            $rows.get('COMPANY_EMPLOYEE_NUMBER').get('NAME') #if($rows.get('COMPANY_EMPLOYEE_NUMBER').get('VALUE')!='')
+            $rows.get('COMPANY_EMPLOYEE_NUMBER').get('VALUE') #end<br/>
+
+            $rows.get('COMPANY_NAME').get('NAME') #if($rows.get('COMPANY_NAME').get('VALUE')!='')
+            $rows.get('COMPANY_NAME').get('VALUE')#end<br/>
+
+        </td>
+    </tr>
+</table>
+<img src="$rows.get('BACK_IMAGE_URL').get('VALUE')" style="width:331px;margin:0;padding:0;float:left;"/>
+<table style="width:330px;vertical-align:top;">
+    <tr>
+        <td style="vertical-align:top;height:156px;padding-top:63px;padding-left:70px;font-size:14px">
+            #if($rows.get('STUDENT_NAME').get('VALUE')!='') $rows.get('STUDENT_NAME').get('VALUE') #end
+        </td>
+    </tr>
+    <tr>
+        <td style="vertical-align:top;padding-left:85px;font-size:12px">
+            #if($items.get('0').get('VALUE')!='') <font style="color:$items.get('0').get('COLOR')">$items.get('0').get('VALUE')</font>
+            #end
+        </td>
+    </tr>
+    <tr>
+        <td style="vertical-align:top;padding-left:85px;font-size:12px">
+            #if($items.get('1').get('VALUE')!='') <font style="color:$items.get('1').get('COLOR')">$items.get('1').get('VALUE')</font>
+            #end
+        </td>
+    </tr>
+</table>
+
+#elseif($rows.get('CERTIFICATE_TYPE').get('VALUE')=='HSE TRAINING CARD')
+<img src="$rows.get('FRONT_IMAGE_URL').get('VALUE')" style="width:331px;margin:0;padding:0;float:left;"/>
+<table style="width:330px;vertical-align:top;">
+    <tr>
+        <td style="width:240px"></td>
+        <td style="height:120px;width:90px;">
+            <img src="$rows.get('STUDENT_PHOTO').get('VALUE')"
+                 style="width:67px;height:70px;margin-top:20px;margin-left:8px"/>
+            <span style="color:#ff0000;display:block;margin-top:10px;text-align:center">$rows.get('CERTIFICATE_NUMBER').get('VALUE')</span>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" align="left" style="height:80px;vertical-align:top;padding-left:10px">
+            #if($rows.get('STUDENT_NAME').get('VALUE')!='')
+            $rows.get('STUDENT_NAME').get('NAME') $rows.get('STUDENT_NAME').get('VALUE')<br/>
+            #end
+            #if($rows.get('DOB').get('VALUE').trim()!='')
+            $rows.get('DOB').get('NAME') $rows.get('DOB').get('VALUE')<br/>
+            #end
+            #if($rows.get('REFERENCE_INDICATOR').get('VALUE').trim()!='')
+            $rows.get('REFERENCE_INDICATOR').get('NAME') $rows.get('REFERENCE_INDICATOR').get('VALUE')<br/>
+            #end
+            #if($rows.get('RESIDENCE_CARD_NO').get('VALUE')!='')
+            $rows.get('RESIDENCE_CARD_NO').get('NAME') $rows.get('RESIDENCE_CARD_NO').get('VALUE')<br/>
+            #end
+            #if($rows.get('COMPANY_EMPLOYEE_NUMBER').get('VALUE')!='')
+            $rows.get('COMPANY_EMPLOYEE_NUMBER').get('NAME') $rows.get('COMPANY_EMPLOYEE_NUMBER').get('VALUE')<br/>
+            #end
+        </td>
+    </tr>
+</table>
+<img src="$rows.get('BACK_IMAGE_URL').get('VALUE')" style="width:331px;margin:0;padding:0;float:left;"/>
+<table style="width:330px;vertical-align:top;margin-top:42px;border:0;">
+    <tr>
+        <td style="width:7px"></td>
+        <td style="width:63px;text-align:center;vertical-align:top;height:60px;">
+            #if($items.get('0').get('VALUE')!='') <font style="color:$items.get('0').get('COLOR')">$items.get('0').get('VALUE')</font>
+            #end
+        </td>
+        <td style="width:1px"></td>
+        <td style="width:62px;text-align:center;vertical-align:top;">
+            #if($items.get('1').get('VALUE')!='') <font style="color:$items.get('1').get('COLOR')">$items.get('1').get('VALUE')</font>
+            #end
+        </td>
+        <td style="width:1px"></td>
+        <td style="width:62px;text-align:center;vertical-align:top;">
+            #if($items.get('2').get('VALUE')!='') <font style="color:$items.get('2').get('COLOR')">$items.get('2').get('VALUE')</font>
+            #end
+        </td>
+        <td style="width:1px"></td>
+        <td style="width:62px;text-align:center;vertical-align:top;">
+            #if($items.get('3').get('VALUE')!='') <font style="color:$items.get('3').get('COLOR')">$items.get('3').get('VALUE')</font>
+            #end
+        </td>
+        <td style="width:1px"></td>
+        <td style="width:65px;text-align:center;vertical-align:top;">
+            #if($items.get('4').get('VALUE')!='') <font style="color:$items.get('4').get('COLOR')">$items.get('4').get('VALUE')</font>
+            #end
+        </td>
+        <td style="width:5px"></td>
+    </tr>
+    <tr>
+        <td style="width:7px"></td>
+        <td style="width:63px;text-align:center;vertical-align:top;height:58px;">
+            #if($items.get('5').get('VALUE')!='') <font style="color:$items.get('5').get('COLOR')">$items.get('5').get('VALUE')</font>
+            #end
+        </td>
+        <td style="width:1px"></td>
+        <td style="width:62px;text-align:center;vertical-align:top;">
+            #if($items.get('6').get('VALUE')!='') <font style="color:$items.get('6').get('COLOR')">$items.get('6').get('VALUE')</font>
+            #end
+        </td>
+        <td style="width:1px"></td>
+        <td style="width:62px;text-align:center;vertical-align:top;">
+            #if($items.get('7').get('VALUE')!='') <font style="color:$items.get('7').get('COLOR')">$items.get('7').get('VALUE')</font>
+            #end
+        </td>
+        <td style="width:1px"></td>
+        <td style="width:62px;text-align:center;vertical-align:top;">
+            #if($items.get('8').get('VALUE')!='') <font style="color:$items.get('8').get('COLOR')">$items.get('8').get('VALUE')</font>
+            #end
+        </td>
+        <td style="width:1px"></td>
+        <td style="width:65px;text-align:center;vertical-align:top;">
+            #if($items.get('9').get('VALUE')!='') <font style="color:$items.get('9').get('COLOR')">$items.get('9').get('VALUE')</font>
+            #end
+        </td>
+        <td style="width:5px"></td>
+    </tr>
+    <tr>
+        <td style="width:7px"></td>
+        <td style="width:63px;text-align:center;vertical-align:top;">
+            #if($items.get('10').get('VALUE')!='') <font style="color:$items.get('10').get('COLOR')">$items.get('10').get('VALUE')</font>
+            #end
+        </td>
+        <td style="width:1px"></td>
+        <td style="width:62px;text-align:center;vertical-align:top;">
+            #if($items.get('11').get('VALUE')!='') <font style="color:$items.get('11').get('COLOR')">$items.get('11').get('VALUE')</font>
+            #end
+        </td>
+        <td style="width:1px"></td>
+        <td style="width:62px;text-align:center;vertical-align:top;">
+            #if($items.get('12').get('VALUE')!='') <font style="color:$items.get('12').get('COLOR')">$items.get('12').get('VALUE')</font>
+            #end
+        </td>
+        <td style="width:1px"></td>
+        <td style="width:62px;text-align:center;vertical-align:top;">
+            #if($items.get('13').get('VALUE')!='') <font style="color:$items.get('13').get('COLOR')">$items.get('13').get('VALUE')</font>
+            #end
+        </td>
+        <td style="width:1px"></td>
+        <td style="width:65px;text-align:center;vertical-align:top;">
+            #if($items.get('14').get('VALUE')!='') <font style="color:$items.get('14').get('COLOR')">$items.get('14').get('VALUE')</font>
+            #end
+        </td>
+        <td style="width:5px"></td>
+    </tr>
+</table>
+
+#elseif($rows.get('CERTIFICATE_TYPE').get('VALUE')=='SUPERVISOR LIFTING OPERATIONS')
+<img src="$rows.get('FRONT_IMAGE_URL').get('VALUE')" style="width:331px;margin:0;padding:0;float:left;"/>
+<table style="width:330px;vertical-align:top;">
+    <tr>
+        <td style="width:240px"></td>
+        <td style="height:120px;width:90px;">
+            <img src="$rows.get('STUDENT_PHOTO').get('VALUE')"
+                 style="width:67px;height:75px;margin-top:15px;margin-left:2px"/>
+            <span style="color:#ff0000;display:block;margin-top:10px;margin-right:17px; text-align:center">$rows.get('CERTIFICATE_NUMBER').get('VALUE')</span>
+        </td>
+    </tr>
+    <tr>
+        <td class="airText" colspan="2" align="left" style="height:80px;vertical-align:top;padding-left:10px">
+            $rows.get('STUDENT_NAME').get('NAME') #if($rows.get('STUDENT_NAME').get('VALUE')!='')
+            $rows.get('STUDENT_NAME').get('VALUE') #end <br/>
+
+            $rows.get('DOB').get('NAME') #if($rows.get('DOB').get('VALUE').trim()!='') $rows.get('DOB').get('VALUE')
+            #end <br/>
+
+            $rows.get('RESIDENCE_CARD_NO').get('NAME') #if($rows.get('RESIDENCE_CARD_NO').get('VALUE')!='')
+            $rows.get('RESIDENCE_CARD_NO').get('VALUE') #end<br/>
+
+            $rows.get('COMPANY_EMPLOYEE_NUMBER').get('NAME') #if($rows.get('COMPANY_EMPLOYEE_NUMBER').get('VALUE')!='')
+            $rows.get('COMPANY_EMPLOYEE_NUMBER').get('VALUE') #end <br/>
+
+            $rows.get('COMPANY_NAME').get('NAME') #if($rows.get('COMPANY_NAME').get('VALUE')!='')
+            $rows.get('COMPANY_NAME').get('VALUE') #end <br/>
+        </td>
+    </tr>
+</table>
+<img src="$rows.get('BACK_IMAGE_URL').get('VALUE')" style="width:331px;margin:0;padding:0;float:left;"/>
+<table style="width:330px;vertical-align:top;margin-top:98px;">
+    <tr>
+        <td style="width:6px"></td>
+        <td style="width:103px;text-align:center;vertical-align:top;height:36px;">
+            #if($items.get('0').get('VALUE')!='') <font style="color:$items.get('0').get('COLOR')">$items.get('0').get('VALUE')</font>
+            #end
+        </td>
+        <td style="width:6px"></td>
+        <td style="width:102px;text-align:center;vertical-align:top;">
+            #if($items.get('1').get('VALUE')!='') <font style="color:$items.get('1').get('COLOR')">$items.get('1').get('VALUE')</font>
+            #end
+        </td>
+        <td style="width:5px"></td>
+        <td style="width:108px;text-align:center;vertical-align:top;">
+            #if($items.get('2').get('VALUE')!='') <font style="color:$items.get('2').get('COLOR')">$items.get('2').get('VALUE')</font>
+            #end
+        </td>
+    </tr>
+</table>
+
+
+#elseif($rows.get('CERTIFICATE_TYPE').get('VALUE')=='SCAFFOLD INSPECTOR')
+<img src="$rows.get('FRONT_IMAGE_URL').get('VALUE')" style="width:331px;margin:0;padding:0;float:left;"/>
+<table style="width:330px;vertical-align:top;">
+    <tr>
+        <td style="width:240px"></td>
+        <td style="height:120px;width:90px;">
+            <img src="$rows.get('STUDENT_PHOTO').get('VALUE')"
+                 style="width:68px;height:74px;margin-top:16px;margin-left:5px"/>
+            <span style="color:#ff0000;display:block;margin-top:10px;text-align:center">$rows.get('CERTIFICATE_NUMBER').get('VALUE')</span>
+        </td>
+    </tr>
+    <tr>
+        <td class="airText" colspan="2" align="left" style="height:80px;vertical-align:top;padding-left:10px">
+            $rows.get('STUDENT_NAME').get('NAME') #if($rows.get('STUDENT_NAME').get('VALUE')!='')
+            $rows.get('STUDENT_NAME').get('VALUE') #end<br/>
+
+            $rows.get('DOB').get('NAME') #if($rows.get('DOB').get('VALUE').trim()!='') $rows.get('DOB').get('VALUE')
+            #end<br/>
+
+            $rows.get('RESIDENCE_CARD_NO').get('NAME') #if($rows.get('RESIDENCE_CARD_NO').get('VALUE')!='')
+            $rows.get('RESIDENCE_CARD_NO').get('VALUE') #end<br/>
+
+            $rows.get('COMPANY_EMPLOYEE_NUMBER').get('NAME') #if($rows.get('COMPANY_EMPLOYEE_NUMBER').get('VALUE')!='')
+            $rows.get('COMPANY_EMPLOYEE_NUMBER').get('VALUE') #end<br/>
+
+            $rows.get('COMPANY_NAME').get('NAME') #if($rows.get('COMPANY_NAME').get('VALUE')!='')
+            $rows.get('COMPANY_NAME').get('VALUE') #end<br/>
+        </td>
+    </tr>
+</table>
+<img src="$rows.get('BACK_IMAGE_URL').get('VALUE')" style="width:331px;margin:0;padding:0;float:left;"/>
+<table style="width:330px;vertical-align:top;margin-top:98px;">
+    <tr>
+        <td style="width:6px"></td>
+        <td style="width:103px;text-align:center;vertical-align:top;height:36px;">
+            #if($items.get('0').get('VALUE')!='') <font style="color:$items.get('0').get('COLOR')">$items.get('0').get('VALUE')</font>
+            #end
+        </td>
+        <td style="width:6px"></td>
+        <td style="width:102px;text-align:center;vertical-align:top;">
+            #if($items.get('1').get('VALUE')!='') <font style="color:$items.get('1').get('COLOR')">$items.get('1').get('VALUE')</font>
+            #end
+        </td>
+        <td style="width:5px"></td>
+        <td style="width:108px;text-align:center;vertical-align:top;">
+            #if($items.get('2').get('VALUE')!='') <font style="color:$items.get('2').get('COLOR')">$items.get('2').get('VALUE')</font>
+            #end
+        </td>
+    </tr>
+</table>
+#elseif($rows.get('CERTIFICATE_TYPE').get('VALUE')=='WIRE LINE AND RIGGER BANKSMAN')
+<img src="$rows.get('FRONT_IMAGE_URL').get('VALUE')" style="width:331px;margin:0;padding:0;float:left;"/>
+<table style="width:330px;vertical-align:top;">
+    <tr>
+        <td style="width:240px"></td>
+        <td style="height:120px;width:90px;">
+            <img src="$rows.get('STUDENT_PHOTO').get('VALUE')"
+                 style="width:67px;height:75px;margin-top:15px;margin-left:8px"/>
+            <span style="color:#ff0000;display:block;margin-top:10px;margin-right:17px; text-align:center">$rows.get('CERTIFICATE_NUMBER').get('VALUE')</span>
+        </td>
+    </tr>
+    <tr>
+        <td class="airText" colspan="2" align="left" style="height:80px;vertical-align:top;padding-left:10px;padding-top:6px;padding-left:17px;">
+            $rows.get('STUDENT_NAME').get('NAME') #if($rows.get('STUDENT_NAME').get('VALUE')!='')
+            $rows.get('STUDENT_NAME').get('VALUE') #end <br/>
+
+            $rows.get('DOB').get('NAME') #if($rows.get('DOB').get('VALUE').trim()!='') $rows.get('DOB').get('VALUE')
+            #end <br/>
+
+            $rows.get('RESIDENCE_CARD_NO').get('NAME') #if($rows.get('RESIDENCE_CARD_NO').get('VALUE')!='')
+            $rows.get('RESIDENCE_CARD_NO').get('VALUE') #end<br/>
+
+            $rows.get('COMPANY_EMPLOYEE_NUMBER').get('NAME') #if($rows.get('COMPANY_EMPLOYEE_NUMBER').get('VALUE')!='')
+            $rows.get('COMPANY_EMPLOYEE_NUMBER').get('VALUE') #end <br/>
+
+            $rows.get('COMPANY_NAME').get('NAME') #if($rows.get('COMPANY_NAME').get('VALUE')!='')
+            $rows.get('COMPANY_NAME').get('VALUE') #end <br/>
+        </td>
+    </tr>
+</table>
+<img src="$rows.get('BACK_IMAGE_URL').get('VALUE')" style="width:331px;margin:0;padding:0;float:left;"/>
+<table style="width:330px;vertical-align:top;margin-top:82px;">
+    <tr>
+        <td style="width:6px"></td>
+        <td style="width:103px;text-align:center;vertical-align:top;height:36px;">
+            #if($items.get('0').get('VALUE')!='') <font style="color:$items.get('0').get('COLOR')">$items.get('0').get('VALUE')</font>
+            #end
+        </td>
+        <td style="width:6px"></td>
+        <td style="width:102px;text-align:center;vertical-align:top;">
+            #if($items.get('1').get('VALUE')!='') <font style="color:$items.get('1').get('COLOR')">$items.get('1').get('VALUE')</font>
+            #end
+        </td>
+        <td style="width:5px"></td>
+        <td style="width:108px;text-align:center;vertical-align:top;">
+            #if($items.get('2').get('VALUE')!='') <font style="color:$items.get('2').get('COLOR')">$items.get('2').get('VALUE')</font>
+            #end
+        </td>
+    </tr>
+    <tr>
+        <td style="width:6px"></td>
+        <td style="width:103px;text-align:center;vertical-align:top;height:40px;padding-top:7px;">
+            #if($items.get('3').get('VALUE')!='') <font style="color:$items.get('3').get('COLOR')">$items.get('3').get('VALUE')</font>
+            #end
+        </td>
+        <td style="width:6px"></td>
+        <td style="width:102px;text-align:center;vertical-align:top;padding-top:7px;">
+            #if($items.get('4').get('VALUE')!='') <font style="color:$items.get('4').get('COLOR')">$items.get('4').get('VALUE')</font>
+            #end
+        </td>
+        <td style="width:5px"></td>
+        <td style="width:108px;text-align:center;vertical-align:top;padding-top:7px;">
+            #if($items.get('5').get('VALUE')!='') <font style="color:$items.get('5').get('COLOR')">$items.get('5').get('VALUE')</font>
+            #end
+        </td>
+    </tr>
+</table>
+
+#elseif($rows.get('CERTIFICATE_TYPE').get('VALUE')=='LIFTING_EQUIPMENT')
+<img src="$rows.get('FRONT_IMAGE_URL').get('VALUE')" style="width:331px;margin:0;padding:0;float:left;"/>
+<table style="width:330px;vertical-align:top;">
+    <tr>
+        <td style="width:60%"></td>
+        <td style="width:10%"></td>
+        <td style="height:120px;">
+            <img src="$rows.get('STUDENT_PHOTO').get('VALUE')"
+                 style="width:67px;height:78px;margin-top:20px;margin-left:10px"/>
+            <span style="font-size:16px;color:#ff0000;display:block;margin-top:8px;margin-right:10px;text-align:center">$rows.get('CERTIFICATE_NUMBER').get('VALUE')</span>
+        </td>
+    </tr>
+    <tr>
+        <td style="width:60%;"></td>
+        <td colspan="2" align="center" style="width:40%;height:60px;font-size:10px;font-weight:bolder;color:#000000;padding-top:10px;padding-right:15px;">
+            #if($rows.get('COMPANY_NAME').get('VALUE')!='')
+            $rows.get('COMPANY_NAME').get('VALUE')
+            #end
+        </td>
+    </tr>
+</table>
+<img src="$rows.get('BACK_IMAGE_URL').get('VALUE')" style="width:331px;margin:0;padding:0;float:left;"/>
+<table style="width:330px;vertical-align:top;margin-top:102px;font-size:12px">
+    <tr>
+        <td style="width:10px"></td>
+        <td style="width:102px;text-align:center;vertical-align:top;height:36px;">
+            #if($items.get('0').get('VALUE')!='') <font style="color:$items.get('0').get('COLOR')">$items.get('0').get('VALUE')</font>
+            #end
+        </td>
+        <td style="width:5px"></td>
+        <td style="width:102px;text-align:center;vertical-align:top;">
+            #if($items.get('1').get('VALUE')!='') <font style="color:$items.get('1').get('COLOR')">$items.get('1').get('VALUE')</font>
+            #end
+        </td>
+        <td style="width:4px"></td>
+        <td style="width:110px;text-align:center;vertical-align:top;">
+            #if($items.get('2').get('VALUE')!='') <font style="color:$items.get('2').get('COLOR')">$items.get('2').get('VALUE')</font>
+            #end
+        </td>
+        <td style="width:10px"></td>
+    </tr>
+</table>
+#elseif($rows.get('CERTIFICATE_TYPE').get('VALUE')=='SAFETY LEADERSHIP FOR SUPERVISORS')
+<img src="$rows.get('FRONT_IMAGE_URL').get('VALUE')" style="width:331px;margin:0;padding:0;float:left;"/>
+<table style="width:330px;vertical-align:top;">
+    <tr>
+        <td style="width:240px"></td>
+        <td style="height:120px;width:90px;">
+            <img src="$rows.get('STUDENT_PHOTO').get('VALUE')"
+                 style="width:67px;height:75px;margin-top:20px;margin-left:7px"/>
+            <span style="font-size:16px;color:#ff0000;display:block;margin-top:8px;margin-right:10px;text-align:center">$rows.get('CERTIFICATE_NUMBER').get('VALUE')</span>
+        </td>
+    </tr>
+    <tr>
+        <td class="airText" colspan="2" align="left" style="height:70px;vertical-align:top;padding-left:120px;font-weight:bold;">
+            #if($rows.get('STUDENT_NAME').get('VALUE')!='')
+            $rows.get('STUDENT_NAME').get('VALUE') #end <br/>
+
+            #if($rows.get('DOB').get('VALUE').trim()!='') $rows.get('DOB').get('VALUE')
+            #end <br/><br/>
+
+            #if($rows.get('RESIDENCE_CARD_NO').get('VALUE')!='')
+            $rows.get('RESIDENCE_CARD_NO').get('VALUE') #end<br/>
+
+            #if($rows.get('COMPANY_EMPLOYEE_NUMBER').get('VALUE')!='')
+            $rows.get('COMPANY_EMPLOYEE_NUMBER').get('VALUE') #end <br/>
+        </td>
+    </tr>
+</table>
+<img src="$rows.get('BACK_IMAGE_URL').get('VALUE')" style="width:331px;margin:0;padding:0;float:left;"/>
+<table style="width:330px;vertical-align:top;margin-top:100px;font-size:12px">
+    <tr>
+        <td style="width:65px"></td>
+        <td style="text-align:center;vertical-align:top;height:36px;">
+            #if($items.get('0').get('VALUE')!='') <font style="color:$items.get('0').get('COLOR')">$items.get('0').get('VALUE')</font>
+            #end
+        </td>
+        <td style="width:10px"></td>
+        <td style="text-align:center;vertical-align:top;">
+            #if($items.get('1').get('VALUE')!='') <font style="color:$items.get('1').get('COLOR')">$items.get('1').get('VALUE')</font>
+            #end
+        </td>
+        <td style="width:55px"></td>
+    </tr>
+</table>
+#elseif($rows.get('CERTIFICATE_TYPE').get('VALUE')=='FIRST AIDER')
+<img src="$rows.get('FRONT_IMAGE_URL').get('VALUE')" style="width:331px;margin:0;padding:0;float:left;"/>
+<table style="width:330px;vertical-align:top;">
+    <tr>
+        <td style="width:240px"></td>
+        <td style="height:120px;width:90px;">
+            <img src="$rows.get('STUDENT_PHOTO').get('VALUE')"
+                 style="width:67px;height:75px;margin-top:20px;margin-left:7px"/>
+            <span style="font-size:16px;color:#ff0000;display:block;margin-top:8px;margin-right:10px;text-align:center">$rows.get('CERTIFICATE_NUMBER').get('VALUE')</span>
+        </td>
+    </tr>
+    <tr>
+        <td class="airText" colspan="2" align="left" style="height:70px;vertical-align:top;padding-left:120px;font-weight:bold;">
+            #if($rows.get('STUDENT_NAME').get('VALUE')!='')
+            $rows.get('STUDENT_NAME').get('VALUE') #end <br/>
+
+            #if($rows.get('DOB').get('VALUE').trim()!='') $rows.get('DOB').get('VALUE')
+            #end <br/><br/>
+
+            #if($rows.get('RESIDENCE_CARD_NO').get('VALUE')!='')
+            $rows.get('RESIDENCE_CARD_NO').get('VALUE') #end<br/>
+
+            #if($rows.get('COMPANY_EMPLOYEE_NUMBER').get('VALUE')!='')
+            $rows.get('COMPANY_EMPLOYEE_NUMBER').get('VALUE') #end <br/>
+        </td>
+    </tr>
+</table>
+<img src="$rows.get('BACK_IMAGE_URL').get('VALUE')" style="width:331px;margin:0;padding:0;float:left;"/>
+<table style="width:330px;vertical-align:top;margin-top:100px;font-size:12px">
+    <tr>
+        <td style="width:65px"></td>
+        <td style="text-align:center;vertical-align:top;height:36px;">
+            #if($items.get('0').get('VALUE')!='') <font style="color:$items.get('0').get('COLOR')">$items.get('0').get('VALUE')</font>
+            #end
+        </td>
+        <td style="width:10px"></td>
+        <td style="text-align:center;vertical-align:top;">
+            #if($items.get('1').get('VALUE')!='') <font style="color:$items.get('1').get('COLOR')">$items.get('1').get('VALUE')</font>
+            #end
+        </td>
+        <td style="width:55px"></td>
+    </tr>
+</table>
+#elseif($rows.get('CERTIFICATE_TYPE').get('VALUE')=='DEFENSIVE DRIVING')
+<img src="$rows.get('FRONT_IMAGE_URL').get('VALUE')" style="width:331px;margin:0;padding:0;float:left;"/>
+<table style="width:330px;vertical-align:top;">
+    <tr>
+        <td style="width:240px"></td>
+        <td style="height:120px;width:90px;">
+            <img src="$rows.get('STUDENT_PHOTO').get('VALUE')"
+                 style="width:67px;height:75px;margin-top:20px;margin-left:7px"/>
+            <span style="font-size:16px;color:#ff0000;display:block;margin-top:8px;margin-right:10px;text-align:center">$rows.get('CERTIFICATE_NUMBER').get('VALUE')</span>
+        </td>
+    </tr>
+    <tr>
+        <td class="airText" colspan="2" align="left" style="height:70px;vertical-align:top;padding-left:120px;font-weight:bold;">
+            #if($rows.get('STUDENT_NAME').get('VALUE')!='')
+            $rows.get('STUDENT_NAME').get('VALUE') #end <br/>
+
+            #if($rows.get('DOB').get('VALUE').trim()!='') $rows.get('DOB').get('VALUE')
+            #end <br/><br/>
+
+            #if($rows.get('RESIDENCE_CARD_NO').get('VALUE')!='')
+            $rows.get('RESIDENCE_CARD_NO').get('VALUE') #end<br/>
+
+            #if($rows.get('COMPANY_EMPLOYEE_NUMBER').get('VALUE')!='')
+            $rows.get('COMPANY_EMPLOYEE_NUMBER').get('VALUE') #end <br/>
+        </td>
+    </tr>
+</table>
+<img src="$rows.get('BACK_IMAGE_URL').get('VALUE')" style="width:331px;margin:0;padding:0;float:left;"/>
+<table style="width:330px;vertical-align:top;margin-top:103px;font-size:12px">
+    <tr>
+        <td style="width:65px"></td>
+        <td style="text-align:center;vertical-align:top;height:22px;">
+            #if($items.get('0').get('VALUE')!='') <font style="color:$items.get('0').get('COLOR')">$items.get('0').get('VALUE')</font>
+            #end
+        </td>
+        <td style="width:10px"></td>
+        <td style="text-align:center;vertical-align:top;">
+            #if($items.get('1').get('VALUE')!='') <font style="color:$items.get('1').get('COLOR')">$items.get('1').get('VALUE')</font>
+            #end <br/>
+        </td>
+        <td style="width:55px"></td>
+    </tr>
+    <tr>
+        <td style="width:65px"></td>
+        <td style="text-align:center;vertical-align:top;">
+        </td>
+        <td style="width:10px"></td>
+        <td style="text-align:center;vertical-align:top;">
+            #if($items.get('2').get('VALUE')!='') <font style="color:$items.get('2').get('COLOR')">$items.get('2').get('VALUE')</font>
+            #end
+        </td>
+        <td style="width:55px"></td>
+    </tr>
+</table>
+#elseif($rows.get('CERTIFICATE_TYPE').get('VALUE')=='FIRE WARDEN')
+<img src="$rows.get('FRONT_IMAGE_URL').get('VALUE')" style="width:331px;margin:0;padding:0;float:left;"/>
+<table style="width:330px;vertical-align:top;">
+    <tr>
+        <td style="width:240px"></td>
+        <td style="height:120px;width:90px;">
+            <img src="$rows.get('STUDENT_PHOTO').get('VALUE')"
+                 style="width:67px;height:75px;margin-top:20px;margin-left:7px"/>
+            <span style="font-size:16px;color:#ff0000;display:block;margin-top:8px;margin-right:10px;text-align:center">$rows.get('CERTIFICATE_NUMBER').get('VALUE')</span>
+        </td>
+    </tr>
+    <tr>
+        <td class="airText" colspan="2" align="left" style="height:70px;vertical-align:top;padding-left:120px;font-weight:bold;">
+            #if($rows.get('STUDENT_NAME').get('VALUE')!='')
+            $rows.get('STUDENT_NAME').get('VALUE') #end <br/>
+
+            #if($rows.get('DOB').get('VALUE').trim()!='') $rows.get('DOB').get('VALUE')
+            #end <br/><br/>
+
+            #if($rows.get('RESIDENCE_CARD_NO').get('VALUE')!='')
+            $rows.get('RESIDENCE_CARD_NO').get('VALUE') #end<br/>
+
+            #if($rows.get('COMPANY_EMPLOYEE_NUMBER').get('VALUE')!='')
+            $rows.get('COMPANY_EMPLOYEE_NUMBER').get('VALUE') #end <br/>
+        </td>
+    </tr>
+</table>
+<img src="$rows.get('BACK_IMAGE_URL').get('VALUE')" style="width:331px;margin:0;padding:0;float:left;"/>
+<table style="width:330px;vertical-align:top;margin-top:100px;font-size:12px">
+    <tr>
+        <td style="width:65px"></td>
+        <td style="text-align:center;vertical-align:top;height:36px;">
+            #if($items.get('0').get('VALUE')!='') <font style="color:$items.get('0').get('COLOR')">$items.get('0').get('VALUE')</font>
+            #end
+        </td>
+        <td style="width:10px"></td>
+        <td style="text-align:center;vertical-align:top;">
+            #if($items.get('1').get('VALUE')!='') <font style="color:$items.get('1').get('COLOR')">$items.get('1').get('VALUE')</font>
+            #end
+        </td>
+        <td style="width:55px"></td>
+    </tr>
+</table>
+#elseif($rows.get('CERTIFICATE_TYPE').get('VALUE')=='AUTHORISED GAS TESTER AUTHORISATION')
+<img src="$rows.get('FRONT_IMAGE_URL').get('VALUE')" style="width:331px;margin:0;padding:0;float:left;"/>
+<table style="width:330px;vertical-align:top;">
+    <tr>
+        <td style="width:240px"></td>
+        <td style="height:120px;width:90px;">
+            <img src="$rows.get('STUDENT_PHOTO').get('VALUE')"
+                 style="width:67px;height:75px;margin-top:20px;margin-left:7px"/>
+            <span style="font-size:16px;color:#ff0000;display:block;margin-top:8px;margin-right:10px;text-align:center">$rows.get('CERTIFICATE_NUMBER').get('VALUE')</span>
+        </td>
+    </tr>
+    <tr>
+        <td class="airText" colspan="2" align="left" style="height:70px;vertical-align:top;padding-left:120px;font-weight:bold;">
+            #if($rows.get('STUDENT_NAME').get('VALUE')!='')
+            $rows.get('STUDENT_NAME').get('VALUE') #end <br/>
+
+            #if($rows.get('DOB').get('VALUE').trim()!='') $rows.get('DOB').get('VALUE')
+            #end <br/><br/>
+
+            #if($rows.get('RESIDENCE_CARD_NO').get('VALUE')!='')
+            $rows.get('RESIDENCE_CARD_NO').get('VALUE') #end<br/>
+
+            #if($rows.get('COMPANY_EMPLOYEE_NUMBER').get('VALUE')!='')
+            $rows.get('COMPANY_EMPLOYEE_NUMBER').get('VALUE') #end <br/>
+        </td>
+    </tr>
+</table>
+<img src="$rows.get('BACK_IMAGE_URL').get('VALUE')" style="width:331px;margin:0;padding:0;float:left;"/>
+<table style="width:330px;vertical-align:top;margin-top:100px;font-size:12px">
+    <tr>
+        <td style="width:65px"></td>
+        <td style="text-align:center;vertical-align:top;height:36px;">
+            #if($items.get('0').get('VALUE')!='') <font style="color:$items.get('0').get('COLOR')">$items.get('0').get('VALUE')</font>
+            #end
+        </td>
+        <td style="width:10px"></td>
+        <td style="text-align:center;vertical-align:top;">
+            #if($items.get('1').get('VALUE')!='') <font style="color:$items.get('1').get('COLOR')">$items.get('1').get('VALUE')</font>
+            #end
+        </td>
+        <td style="width:55px"></td>
+    </tr>
+</table>
+#elseif($rows.get('CERTIFICATE_TYPE').get('VALUE')=='H2S AND SO2 AWARENESS AND ESCAPE')
+<img src="$rows.get('FRONT_IMAGE_URL').get('VALUE')" style="width:331px;margin:0;padding:0;float:left;"/>
+<table style="width:330px;vertical-align:top;">
+    <tr>
+        <td style="width:240px"></td>
+        <td style="height:120px;width:90px;">
+            <img src="$rows.get('STUDENT_PHOTO').get('VALUE')"
+                 style="width:67px;height:75px;margin-top:20px;margin-left:7px"/>
+            <span style="font-size:16px;color:#ff0000;display:block;margin-top:8px;margin-right:10px;text-align:center">$rows.get('CERTIFICATE_NUMBER').get('VALUE')</span>
+        </td>
+    </tr>
+    <tr>
+        <td class="airText" colspan="2" align="left" style="height:70px;vertical-align:top;padding-left:120px;font-weight:bold;">
+            #if($rows.get('STUDENT_NAME').get('VALUE')!='')
+            $rows.get('STUDENT_NAME').get('VALUE') #end <br/>
+
+            #if($rows.get('DOB').get('VALUE').trim()!='') $rows.get('DOB').get('VALUE')
+            #end <br/><br/>
+
+            #if($rows.get('RESIDENCE_CARD_NO').get('VALUE')!='')
+            $rows.get('RESIDENCE_CARD_NO').get('VALUE') #end<br/>
+
+            #if($rows.get('COMPANY_EMPLOYEE_NUMBER').get('VALUE')!='')
+            $rows.get('COMPANY_EMPLOYEE_NUMBER').get('VALUE') #end <br/>
+        </td>
+    </tr>
+</table>
+<img src="$rows.get('BACK_IMAGE_URL').get('VALUE')" style="width:331px;margin:0;padding:0;float:left;"/>
+<table style="width:330px;vertical-align:top;margin-top:100px;font-size:12px">
+    <tr>
+        <td style="width:65px"></td>
+        <td style="text-align:center;vertical-align:top;height:36px;">
+            #if($items.get('0').get('VALUE')!='') <font style="color:$items.get('0').get('COLOR')">$items.get('0').get('VALUE')</font>
+            #end
+        </td>
+        <td style="width:10px"></td>
+        <td style="text-align:center;vertical-align:top;">
+            #if($items.get('1').get('VALUE')!='') <font style="color:$items.get('1').get('COLOR')">$items.get('1').get('VALUE')</font>
+            #end
+        </td>
+        <td style="width:55px"></td>
+    </tr>
+</table>
+
+
+
+
+#elseif($rows.get('CERTIFICATE_TYPE').get('VALUE')=='Rusayl Lifting and handling')
+<img src="$rows.get('FRONT_IMAGE_URL').get('VALUE')" style="width:331px;margin:0;padding:0;float:left;"/>
+<table style="width:330px;vertical-align:top;">
+    <tr>
+        <td style="width:240px"></td>
+        <td style="height:120px;width:88px;">
+            <img src="$rows.get('STUDENT_PHOTO').get('VALUE')" style="width:68px;height:74px;margin-top:10px;"/>
+            <span style="color:#ff0000;display:block;margin-top:10px;text-align:center;margin-right: 15px;">$rows.get('CERTIFICATE_NUMBER').get('VALUE')</span>
+        </td>
+    </tr>
+    <tr>
+        <td class="airText" colspan="2" align="left" style="height:70px;vertical-align:bottom;padding-left:10px">
+            $rows.get('STUDENT_NAME').get('NAME') #if($rows.get('STUDENT_NAME').get('VALUE')!='')
+            $rows.get('STUDENT_NAME').get('VALUE') #end<br/>
+
+            $rows.get('DOB').get('NAME') #if($rows.get('DOB').get('VALUE').trim()!='') $rows.get('DOB').get('VALUE')
+            #end<br/>
+
+            $rows.get('RESIDENCE_CARD_NO').get('NAME') #if($rows.get('RESIDENCE_CARD_NO').get('VALUE')!='')
+            $rows.get('RESIDENCE_CARD_NO').get('VALUE') #end<br/>
+
+            $rows.get('COMPANY_EMPLOYEE_NUMBER').get('NAME') #if($rows.get('COMPANY_EMPLOYEE_NUMBER').get('VALUE')!='')
+            $rows.get('COMPANY_EMPLOYEE_NUMBER').get('VALUE') #end<br/>
+        </td>
+    </tr>
+</table>
+<img src="$rows.get('BACK_IMAGE_URL').get('VALUE')" style="width:331px;margin:0;padding:0;float:left;"/>
+<table style="width:330px;vertical-align:top;margin-top:98px;">
+    <tr>
+        <td style="width:6px"></td>
+        <td style="width:103px;text-align:center;height:39px;">
+            #if($items.get('0').get('VALUE')!='') <font style="color:$items.get('0').get('COLOR')">$items.get('0').get('VALUE')</font>
+            #end
+        </td>
+        <td style="width:6px"></td>
+        <td style="width:102px;text-align:center">
+            #if($items.get('1').get('VALUE')!='') <font style="color:$items.get('1').get('COLOR')">$items.get('1').get('VALUE')</font>
+            #end
+        </td>
+        <td style="width:5px"></td>
+        <td style="width:108px;text-align:center;">
+            #if($items.get('2').get('VALUE')!='') <font style="color:$items.get('2').get('COLOR')">$items.get('2').get('VALUE')</font>
+            #end
+        </td>
+    </tr>
+</table>
+#elseif($rows.get('CERTIFICATE_TYPE').get('VALUE')=='OCC first aid awareness')
+<img src="$rows.get('FRONT_IMAGE_URL').get('VALUE')" style="width:331px;margin:0;padding:0;float:left;"/>
+<table style="width:330px;vertical-align:top;">
+    <div class="airText" align="left" style="height:70px;vertical-align:bottom;margin-top:102px;margin-left:15px; width:45%;">
+        $rows.get('STUDENT_NAME').get('NAME') #if($rows.get('STUDENT_NAME').get('VALUE')!='')
+        $rows.get('STUDENT_NAME').get('VALUE') #end<br/>
+
+        $rows.get('DOB').get('NAME') #if($rows.get('DOB').get('VALUE').trim()!='') $rows.get('DOB').get('VALUE')
+        #end<br/>
+
+        $rows.get('RESIDENCE_CARD_NO').get('NAME') #if($rows.get('RESIDENCE_CARD_NO').get('VALUE')!='')
+        $rows.get('RESIDENCE_CARD_NO').get('VALUE') #end<br/>
+
+        $rows.get('COMPANY_EMPLOYEE_NUMBER').get('NAME') #if($rows.get('COMPANY_EMPLOYEE_NUMBER').get('VALUE')!='')
+        $rows.get('COMPANY_EMPLOYEE_NUMBER').get('VALUE') #end<br/>
+    </div>
+    <div style="position:absolute; top: 25.3px; left: 244px;">
+        <img src="$rows.get('STUDENT_PHOTO').get('VALUE')" style="width:72px;height:82px;"/>
+        <span style="color:#ff0000;display:block;margin-top:10px;text-align:center;">$rows.get('STUDENT_NUMBER').get('VALUE')</span>
+    </div>
+</table>
+<img src="$rows.get('BACK_IMAGE_URL').get('VALUE')" style="width:331px;margin:0;padding:0;float:left;"/>
+<table style="width:330px;vertical-align:top;margin-top:98px;">
+
+    <div style="position:absolute;margin-top:32px;margin-left:64.5px;width:5.2cm;">
+        <table style="width:5.2cm;">
+            <tr>
+                <td align="center">
+                    #if($items.get('0').get('VALUE')!='') <font style="color:$items.get('0').get('COLOR')">$items.get('0').get('VALUE')</font>
+                    #end
+                </td>
+                <td align="center">
+                    #if($items.get('1').get('VALUE')!='') <font style="color:$items.get('1').get('COLOR')">$items.get('1').get('VALUE')</font>
+                    #end
+                </td>
+            </tr>
+        </table>
+    </div>
+</table>
+#end
+</body>
+</html>

@@ -1,0 +1,13 @@
+<module rename-to="localization_properties">
+    <set-property name="locale" value="default"/>
+    <!--<extend-property name="locale" values="en_GB"/>-->
+    <!--<extend-property name="locale" values="ar"/>-->
+    <!--<extend-property name="locale" values="it"/>-->
+    <!--<extend-property name="locale" values="tr"/>-->
+    <extend-property name="locale" values="ru"/>
+    <!--<extend-property name="locale" values="pt"/>-->
+    <!--<extend-property name="locale" values="fr"/>-->
+    <!--<extend-property name="locale" values="es"/>-->
+    <!--<extend-property name="locale" values="nl"/>-->
+    <!--<extend-property name="locale" values="th"/>-->
+</module>

@@ -1,0 +1,1 @@
+ant Myaccount -f ./web/AutoCompile.xml

@@ -1,0 +1,249 @@
+///* Custom form Draggable view*/
+$space-x: 5px;
+
+.panel-w-switch {
+  &__header-bar {
+    background-color: white;
+    padding: 10px 0 12px 20px;
+    display: flex;
+    border-bottom: 2px solid #eceff4;
+    border-radius: 5px 5px 0 0;
+
+    > * {
+      align-self: center;
+      margin-right: 20px;
+    }
+
+    .panel-w-switch--off & {
+      border-radius: $radius-basePlus;
+      border-bottom: 0;
+
+      > * {
+        opacity: 0.6;
+      }
+    }
+  }
+
+  &__header-text {
+    flex-grow: 1;
+    font-size: 15px;
+    line-height: $button-height;
+  }
+
+  &__header-separator {
+    width: 2px;
+    height: 30px;
+    background-color: #E1E5EC;
+  }
+
+  &__container {
+    background-color: #f6f7f9;
+    border: 1px solid #f6f7f9;
+
+    &.custom-form-grid {
+      + .custom-form-grid {
+        padding-top: $padding-x-base; //https://prnt.sc/otx6ln
+      }
+    }
+
+    &-header {
+      font-size: 15px;
+      padding: $padding-x-base $padding-x-base 0px;
+      //margin-bottom: 27px;
+      margin-bottom: 0;
+
+      + .grid-stack {
+        margin-top: $padding-x-base; //https://prnt.sc/otx8xd
+      }
+    }
+
+    &-columns {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 5px;
+      margin-left: -$space-x;
+      margin-right: -$space-x;
+
+      > table > tbody > tr > td {
+        padding-top: $padding-x-base;
+
+        &:first-child {
+          padding-left: $padding-x-base;
+        }
+
+        &:last-child {
+          padding-right: $padding-x-base;
+        }
+      }
+
+      .drag-tiles {
+        background-color: white;
+        border-radius: $radius-basePlus;
+      }
+
+      .has-btn-addFields {
+        background-color: #fff;
+      }
+
+      > table {
+        table-layout: fixed; // one from 3 cells is unvisible
+        border-collapse: separate;
+        border-spacing: $space-x;
+
+        > tbody > tr > td {
+          background-color: white;
+          border-radius: $radius-basePlus;
+        }
+      }
+      .dragdrop-dropTarget {
+        table-layout: fixed; //Long text broke layout https://i.imgur.com/P0Rwgxt.png
+      }
+
+      .dragdrop-dropTarget td[height="200px;"] {
+        height: 50px !important;
+      }
+
+      .dragdrop-dropTarget > tbody {
+        position: relative;
+
+        > tr:last-child > td {
+          padding-bottom: 30px;
+        }
+      }
+
+      .dragdrop-dropTarget.drop-target--empty td[height="200px;"] {
+        height: 100px !important;
+      }
+    }
+
+    .dragdrop-dropTarget-engage {
+      //border: 1px dashed $gray-new-light;
+    }
+
+    .drag-tiles {
+      //justify-content: flex-start;
+      margin-left: 0;
+      padding: $padding-x-base;
+      //border: 1px dashed #eceff3;
+    }
+
+    .grid-stack-item-content {
+      //.grid-stack-item__content: z-index: 0 !important -> fix
+      // customyze form dropdown z-index issue //https://prnt.sc/pc50tz
+      z-index: auto !important;
+    }
+
+    &__column {
+      background-color: #f6f7f9;
+      flex-shrink: 0;
+      border-radius: $radius-basePlus;
+      width: 24.7%;
+      min-height: 150px;
+      align-self: flex-start;
+      overflow: hidden;
+
+      &-content {
+        padding: 23px $padding-x-base ($padding-x-base / 2 * 3);
+        background-color: white;
+      }
+
+      &-actions {
+        position: relative;
+        width: 100%;
+        display: flex;
+
+        button {
+          border-radius: 0 0 5px 5px;
+          flex-grow: 1;
+          font-weight: bold;
+          color: #8d9ba8;
+          height: 50px;
+          background-color: #f6f7f9;
+          transition: background-color 0.35s;
+          border-top: 2px solid #eceff4;
+          border: none;
+
+          &:hover {
+            background-color: #fbfbfb;
+          }
+        }
+      }
+    }
+
+    .drop-target--empty {
+      margin-bottom: 23px;
+    }
+
+    + .dragdrop-movable-panel .dragdrop-dragging {
+      width: 100% !important;
+    }
+
+    i.ficon--equalizer {
+      display: inline-block;
+      padding: 0;
+      border-radius: $radius-basePlus;
+      background-color: #f6f7f9;
+    }
+  }
+
+  .edit-section--inline {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    &.edit-section—editable {
+      border: 1px solid $drag-edit-coolor;
+      border-radius: $control-border-radius;
+
+      .form-control {
+        border: none;
+      }
+    }
+
+    &:not(.edit-section—editable) {
+      &:hover {
+        &:before {
+          content: '';
+          position: absolute;
+          top: -7px;
+          margin-right: -7px;
+          height: 13px;
+          width: 13px;
+          background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIHdpZHRoPSI5cHgiIGhlaWdodD0iOXB4IiB2aWV3Qm94PSIwIDAgOSA5IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPiAgICA8ZGVmcz48L2RlZnM+ICAgIDxnIGlkPSJQYWdlLTEiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPiAgICAgICAgPGcgaWQ9IkN1c3RvbWVyLUNlbnRlci1ORVciIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0zNDEuMDAwMDAwLCAtNTAxLjAwMDAwMCkiIGZpbGw9IiM1MzY2NzciPiAgICAgICAgICAgIDxnIGlkPSJlZGl0LTMtY29weSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzQxLjAwMDAwMCwgNTAxLjAwMDAwMCkiPiAgICAgICAgICAgICAgICA8cG9seWdvbiBpZD0iU2hhcGUiIHBvaW50cz0iNi42IDAgOSAyLjQgMi40IDkgMCA5IDAgNi42Ij48L3BvbHlnb24+ICAgICAgICAgICAgPC9nPiAgICAgICAgPC9nPiAgICA8L2c+PC9zdmc+);
+          //background-color: white;
+          background-repeat: no-repeat;
+          background-position: 50% 50%;
+        }
+      }
+    }
+
+    > .gwt-Label[style*="display: none"] {
+      + .form-control {
+        width: 100%;
+        border-color: $drag-edit-coolor;
+        color: darken($drag-edit-coolor, 25%)
+      }
+
+      ~ .btn--icon {
+        color: $drag-edit-coolor
+      }
+    }
+  }
+
+  .drag-tiles--inline {
+    column-gap: $space-x;
+    row-gap: $space-x;
+    .drag-tile, .dragdrop-flow-panel-positioner {
+      //width: 24%;
+      width: calc(33.333333% - #{$space-x}) !important;
+      //margin-bottom: 12px;
+      //margin-top: 0;
+      //margin-right: 10px;
+      //align-self: flex-start;
+    }
+  }
+
+  .drag-tile--inactive {
+    background-color: $gray-new;
+  }
+}

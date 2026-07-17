@@ -1,0 +1,99 @@
+.progress-panel {
+
+}
+
+.progress-panel__header {
+  font-size: 1.3rem;
+  text-align: center;
+  margin: 15px auto 35px;
+  max-width: 420px;
+}
+
+
+.progress-panel__steps {
+  display: flex;
+  padding: 20px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.progress-panel__step {
+  text-align: center;
+  min-width: 155px;
+  position: relative;
+  color: $gray-dark;
+
+  &:not(:last-child):after {
+    background-color: $gray-middle;
+    content: '';
+    display: block;
+    height: 1px;
+    position: absolute;
+    right: -30px;
+    top: 17px;
+    width: 60px;
+  }
+
+  &--success {
+    color: $text-color-base;
+  }
+}
+
+.progress-panel__step-circle {
+  align-items: center;
+  background-color: $gray-dark;
+  border-radius: 100%;
+  justify-content: center;
+  height: 35px;
+  overflow: hidden;
+  transform: background-color 0.3s;
+  width: 35px;
+  display: inline-flex;
+  margin-bottom: 20px;
+
+  .progress-panel__step--success & {
+    background-color: $success-color;
+  }
+}
+
+.progress-panel__step-icon {
+  //transform: scale(0);
+  transform: translateY(60px);
+  transition: transform 0.2s;
+
+  &.ficon--check-thin {
+    color: white;
+    font-size: 1.6rem;
+  }
+}
+
+.progress-panel__step--success .progress-panel__step-icon--success {
+  //transform: scale(1);
+  transform: translateX(0);
+}
+
+.progress-panel__current-desc {
+  font-size: 1.15rem;
+  margin-bottom: 35px;
+  height: 20px;
+  position: relative;
+}
+
+.progress-panel__current-desc-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+
+  &--active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &--passed {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}

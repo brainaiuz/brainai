@@ -1,0 +1,2 @@
+insert into "anv".reference(code, isactive, issystemreference, name, shared, sorder, parentid)
+values ('FAILED', true, true, 'Failed', true, 25, (select id from "anv".reference where code = 'INVOICE_STATUS'));

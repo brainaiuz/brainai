@@ -1,0 +1,292 @@
+.loginBox {
+    width: 875px;
+}
+
+.loginBox .boxIn {
+    width: auto;
+    padding: 0;
+    border: 1px solid transparent;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
+    border-radius: 0;
+}
+
+.cover {
+    /*display: -webkit-box;*/
+    /*display: -webkit-flex;*/
+    /*display: -ms-flexbox;*/
+    /*display: flex;*/
+    /*-webkit-box-align: stretch;*/
+    /*-webkit-align-items: stretch;*/
+    /*-ms-flex-align: stretch;*/
+    /*align-items: stretch;*/
+    padding: 0;
+    height: 442px;
+}
+
+.cover .alterLogin {
+    /*align-items: center;*/
+    margin: 30px 0;
+    /* display: flex; */
+    /*-webkit-box-align: center;*/
+    /*-webkit-align-items: center;*/
+    /*-ms-flex-align: center;*/
+    /* background: none; */
+    /* padding: 0 10px; */
+    /* border-left: 1px solid #0076C6; */
+    /* border-right: 1px solid #0076C6; */
+    /*box-shadow: 1px 0px 0px 0px rgba(0, 118, 198, 0.2), -1px 0px 0px 0px rgba(0, 118, 198, 0.2), 2px 0px 0px 0px rgba(0, 118, 198, 0.2), -2px 0px 0px 0px rgba(0, 118, 198, 0.2);*/
+    background: url(images/1pxdot.png) repeat-x center;
+}
+
+.cover .right-login-side {
+    /*display: -webkit-box;*/
+    /*display: -webkit-flex;*/
+    /*display: -ms-flexbox;*/
+    /*display: flex;*/
+    /*-webkit-box-align: stretch;*/
+    /*-webkit-align-items: stretch;*/
+    /*-ms-flex-align: stretch;*/
+    /*align-items: stretch;*/
+    /*-webkit-box-flex: 1;*/
+    /*-webkit-flex: 1;*/
+    /*-ms-flex: 1;*/
+    /*flex: 1;*/
+    /*-webkit-box-orient: vertical;*/
+    /*-webkit-box-direction: normal;*/
+    /*-webkit-flex-direction: column;*/
+    /*-ms-flex-direction: column;*/
+    /*flex-direction: column;*/
+    /*-webkit-box-pack: center;*/
+    /*-webkit-justify-content: center;*/
+    /*-ms-flex-pack: center;*/
+    /*justify-content: center;*/
+    padding-top: 55px;
+    padding-right: 70px;
+    float: right;
+}
+
+.cover .useSocialBookMarking {
+    margin: 0 auto;
+    padding: 0;
+    /*display: -webkit-box;*/
+    /*display: -webkit-flex;*/
+    /*display: -ms-flexbox;*/
+    /*display: flex;*/
+    /*-webkit-box-orient: vertical;*/
+    /*-webkit-box-direction: normal;*/
+    /*-webkit-flex-direction: column;*/
+    /*-ms-flex-direction: column;*/
+    /*flex-direction: column;*/
+    width: 297px;
+    /*-webkit-justify-content: space-around;*/
+    /*-ms-flex-pack: distribute;*/
+    /*justify-content: space-around;*/
+}
+
+.cover .btn {
+    display: inline-block;
+    margin: 0;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.cover .btnLogIn.btn {
+    color: #fff;
+    background-color: #0277bd;
+    border-color: #0277bd;
+    background-image: none;
+    box-shadow: none;
+    width: 250px;
+}
+
+.cover .btnLogIn.btn:hover, .cover .btnLogIn.btn:active {
+    color: #fff;
+    background-color: #0277bd;
+    border-color: #0277bd;
+}
+
+.cover .btnLogIn.btn:active {
+    background-image: none;
+    outline: 0;
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+
+.loginBox label .txt {
+    width: 218px;
+    border-radius: 4px;
+    padding: 12px 10px 12px 23px;
+}
+
+.cvoer .c {
+    /*display: -webkit-box;*/
+    /*display: -webkit-flex;*/
+    /*display: -moz-flex;*/
+    /*display: -ms-flexbox;*/
+    /*display: -moz-flexbox;*/
+    /*display: flex;*/
+    /*-webkit-box-pack: center;*/
+    /*-webkit-justify-content: center;*/
+    /*-ms-flex-pack: center;*/
+    /*justify-content: center;*/
+}
+
+.cover .c > * {
+    text-align: left;
+    color: #272727;
+}
+
+.cover .useSocialBookMarking li {
+    float: none;
+    margin: 0;
+}
+
+.loginBox label {
+    margin: 0 0 16px;
+}
+
+.cover .useSocialBookMarking li a {
+    /*display: -webkit-box;*/
+    /*display: -webkit-flex;*/
+    /*display: -moz-flex;*/
+    /*display: -moz-flexbox;*/
+    /*display: -ms-flexbox;*/
+    /*display: flex;*/
+    /*-webkit-box-align: center;*/
+    /*-webkit-align-items: center;*/
+    /*-ms-flex-align: center;*/
+    /*align-items: center;*/
+    text-indent: 0;
+    width: auto;
+    float: none;
+    height: 40px;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 0;
+    margin: 2px 0;
+    padding-left: 95px;
+    font-weight: 700;
+    display: inline-block;
+    line-height: 40px;
+}
+
+.left-login-side {
+    /*display: -webkit-box;*/
+    /*display: -webkit-flex;*/
+    /*display: -ms-flexbox;*/
+    /*display: -moz-flex;*/
+    /*display: -moz-flexbox;*/
+    /*display: flex;*/
+    /*-webkit-box-orient: vertical;*/
+    /*-webkit-box-direction: normal;*/
+    /*-webkit-flex-direction: column;*/
+    /*-ms-flex-direction: column;*/
+    /*flex-direction: column;*/
+    /*-webkit-box-pack: center;*/
+    /*-webkit-justify-content: center;*/
+    /*-ms-flex-pack: center;*/
+    justify-content: center;
+    padding: 0 0 0 70px;
+    width: 366px;
+    border-right: 1px solid #e5e5e5;
+    float: left;
+    padding-top: 95px;
+    height: 347px;
+}
+
+.cover .useSocialBookMarking li a.mini-google {
+    background: url(images/bg_g.png) no-repeat 1px center/contain;
+    color: #BE1E2C;
+}
+
+.cover .useSocialBookMarking li a.mini-yahoo {
+    background: url(images/bg_y.png) no-repeat 1px center/contain;
+    color: #8B2B90;
+}
+
+.cover .useSocialBookMarking li a.mini-google-apps {
+    background: url(images/bg_gapp.png) no-repeat 1px center/contain;
+    color: #BE1E2C;
+}
+
+.cover .useSocialBookMarking li a.mini-linkedin {
+    background: url(images/bg-li.png) no-repeat 1px center/contain;
+    color: #1C75BC;
+}
+
+.cover .useSocialBookMarking li div {
+    background: url(images/bg_fb.png) no-repeat 1px center/contain;
+    color: #3B5999;
+}
+
+.cover .c {
+    margin-top: -8px;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.cover h1.title {
+    margin-bottom: 0;
+    font-family: sans-serif;
+    font-weight: 700;
+    text-align: left;
+    margin-bottom: 10px;
+    background: none;
+}
+
+#signupLink a {
+    display: inline-block;
+    background: #d90000;
+    color: #fff;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    text-decoration: none;
+    width: 297px;
+    border-radius: 4px;
+}
+
+span#signupLink {
+    text-align: center;
+}
+
+.alterLogin strong {
+    background: #FFF;
+    display: inline-block;
+    padding: 0 10px;
+}
+
+.fb-login-button.fb_iframe_widget:before {
+    content: "Sign in with Facebook";
+    color: #415CA9;
+    font-weight: 700;
+    margin-left: 20px;
+}
+
+.fb-login-button.fb_iframe_widget {
+    float: none;
+    width: 100%;
+    height: 40px;
+}
+
+.cover .alterLogin span {
+    background: #fff;
+    display: inline-block;
+    padding: 0 5px;
+}
+
+.fb-login-button.fb_iframe_widget span {
+    opacity: 0;
+}

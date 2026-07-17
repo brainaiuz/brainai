@@ -1,0 +1,316 @@
+Index: src/com/edatasite/workforce/core/domain/accounting/EdsBaseInvoice.java
+===================================================================
+--- src/com/edatasite/workforce/core/domain/accounting/EdsBaseInvoice.java	(revision 8438)
++++ src/com/edatasite/workforce/core/domain/accounting/EdsBaseInvoice.java	(working copy)
+@@ -68,10 +68,12 @@
+     @JoinColumn(name = "currency_id")
+     private EdsCurrency currency;
+ 
++    @Column(length=30000)
++    private String paymentInstruction;
++
+     private Double totalTaxes;//todo refactor - move to EdsInvoice table
++    
+ 
+-    private String paymentInstruction;
+-
+     public Integer getObjectID() {
+         return objectID;
+     }
+Index: src/com/edatasite/workforce/gwt/invoice/client/ui/view/InvoiceQuoteItemView.java
+===================================================================
+--- src/com/edatasite/workforce/gwt/invoice/client/ui/view/InvoiceQuoteItemView.java	(revision 8438)
++++ src/com/edatasite/workforce/gwt/invoice/client/ui/view/InvoiceQuoteItemView.java	(working copy)
+@@ -71,6 +71,7 @@
+     private boolean firstTime = true;
+     private double exchangeRateValue;
+     private double discountPercent;
++    private Label paymentNote;
+ 
+     public InvoiceQuoteItemView(DynamicTable table, String type, String viewName) {
+         this.table = table;
+@@ -172,10 +173,12 @@
+          */
+         paymentInstruction = new TextArea();
+         paymentInstruction.setSize("100%", "50px");
++        paymentNote=new Label("Payment Instructions/Notes:");
++        paymentNote.setStyleName("customTitle");
+         vp = new VerticalPanel();
+         vp.setWidth("100%");
+         vp.setSpacing(5);
+-        vp.add(new HTML("<b class=customTitle>Payment Instructions/Notes:</b>"));
++        vp.add(getPaymentNote());
+         vp.add(paymentInstruction);
+ 
+         VerticalPanel panel = new VerticalPanel();
+@@ -846,6 +849,22 @@
+     public interface ProductProvider {
+         public void execute(Integer[] productsID);
+     }
++
++    public VerticalPanel getVp() {
++        return vp;
++    }
++
++    public void setVp(VerticalPanel vp) {
++        this.vp = vp;
++    }
++
++    public Label getPaymentNote() {
++        return paymentNote;
++    }
++
++    public void setPaymentNote(Label paymentNote) {
++        this.paymentNote.setText( paymentNote.getText());
++    }
+ }
+ 
+ /**
+Index: src/com/edatasite/workforce/gwt/invoice/client/ui/view/InvoiceSummaryView.java
+===================================================================
+--- src/com/edatasite/workforce/gwt/invoice/client/ui/view/InvoiceSummaryView.java	(revision 8438)
++++ src/com/edatasite/workforce/gwt/invoice/client/ui/view/InvoiceSummaryView.java	(working copy)
+@@ -108,6 +108,7 @@
+ 
+     private TextBox paymentExchangeRate;
+     private HorizontalPanel exchangeRatesPanel;
++    private VerticalPanel paymentV;
+ 
+     protected boolean isPaid = false;
+     protected WfmButton2 invoiceSendButton;
+@@ -285,6 +286,8 @@
+         columns[1] = new DynamicTableColumn("Value", "value", 100);
+         summaryTable = new DynamicTable(columns, false);
+         summaryTable.setHeight("20px");
++        paymentV = new VerticalPanel();
++        paymentV.setSpacing(5);
+ 
+         formInnerPanel = grayForm.addInnerPanel();
+ 
+@@ -321,6 +324,9 @@
+             paymentPanel.setCellHorizontalAlignment(exchangeRatesPanel, HasHorizontalAlignment.ALIGN_RIGHT);
+             hp.add(paymentPanel);
+         }
++        hp.add(paymentV);
++        hp.setCellHorizontalAlignment(paymentV,HorizontalPanel.ALIGN_LEFT);
++        hp.setCellVerticalAlignment(paymentV, HorizontalPanel.ALIGN_MIDDLE);
+         hp.add(summaryTable);
+         hp.setCellHorizontalAlignment(summaryTable, HorizontalPanel.ALIGN_RIGHT);
+         hp.setCellVerticalAlignment(summaryTable, HorizontalPanel.ALIGN_MIDDLE);
+@@ -707,4 +713,12 @@
+     public GrayForm getGrayForm() {
+         return grayForm;
+     }
++
++    public VerticalPanel getPaymentV() {
++        return paymentV;
++    }
++
++    public void setPaymentV(VerticalPanel paymentV) {
++        this.paymentV = paymentV;
++    }
+ }
+Index: src/com/edatasite/workforce/gwt/invoice/client/ui/view/salequote/SaleQuoteAddView.java
+===================================================================
+--- src/com/edatasite/workforce/gwt/invoice/client/ui/view/salequote/SaleQuoteAddView.java	(revision 8438)
++++ src/com/edatasite/workforce/gwt/invoice/client/ui/view/salequote/SaleQuoteAddView.java	(working copy)
+@@ -26,6 +26,8 @@
+ import com.google.gwt.user.client.ui.*;
+ import com.google.gwt.user.client.rpc.AsyncCallback;
+ import com.google.gwt.user.client.Cookies;
++import com.google.gwt.user.client.DOM;
++import com.google.gwt.user.client.Element;
+ 
+ import java.util.Date;
+ import java.util.Map;
+@@ -34,6 +36,7 @@
+ import net.mygwt.ui.client.widget.LoadingPanel;
+ import net.mygwt.ui.client.widget.WidgetContainer;
+ import net.mygwt.ui.client.Style;
++import net.mygwt.ui.client.MyDOM;
+ import net.mygwt.ui.client.event.BaseEvent;
+ import net.mygwt.ui.client.event.SelectionListener;
+ 
+@@ -77,6 +80,9 @@
+ 
+     private InvoiceNumberData quoteNumberData;
+     private Integer quoteID;
++    private CheckBox agreeCheck;
++    private WfmButton2 approveButton;
++    private WfmButton2 aproveAndSendToClient;
+ 
+     public SaleQuoteAddView() {
+         super("salequoteadd", "Add Sales Quote");
+@@ -232,7 +238,33 @@
+     private void drawSecondPart() {
+         dynamicTable = new DynamicTable(getColumns());
+         currencyView.setItemView(dynamicTableView = new InvoiceQuoteItemView(dynamicTable, RECEIVABLE, InvoiceQuoteItemView.QUOTE));
++        dynamicTableView.getPaymentInstruction().setSize("80%", "150px");
+ 
++        agreeCheck = new CheckBox();
++        agreeCheck.addClickListener(new ClickListener() {
++            public void onClick(Widget sender) {
++                if(agreeCheck.isChecked()){
++                    approveButton.setEnabled(true);
++                    aproveAndSendToClient.setEnabled(true);
++                }else{
++                    approveButton.setEnabled(false);
++                    aproveAndSendToClient.setEnabled(false);
++                }
++            }
++        });
++        HTML text = new HTML("<font color='#1f4f8f'><b>I agree with Terms and Conditions</b></font>");
++
++        HorizontalPanel hp =new HorizontalPanel();
++        hp.setSpacing(5);
++        hp.add(agreeCheck);
++        hp.setCellVerticalAlignment(agreeCheck, HorizontalPanel.ALIGN_MIDDLE);
++        hp.add(new HTML("&nbsp;&nbsp;"));
++        hp.add(text);
++        hp.setCellVerticalAlignment(text, HorizontalPanel.ALIGN_MIDDLE);
++
++        dynamicTableView.getVp().add(hp);
++        dynamicTableView.setPaymentNote(new Label("Terms and Conditions:"));
++
+         VerticalPanel innerPanel = grayForm.addInnerPanel();
+         innerPanel.add(dynamicTableView);
+     }
+@@ -270,14 +302,16 @@
+             }
+         });
+ 
+-        WfmButton2 approveButton = new WfmButton2("Save and Approve");
++        approveButton = new WfmButton2("Save and Approve");
++        approveButton.setEnabled(false);
+         approveButton.addClickListener(new ClickListener() {
+             public void onClick(Widget sender) {
+                 save(APPROVE);
+             }
+         });
+ 
+-        WfmButton2 aproveAndSendToClient = new WfmButton2("Approve and Send to Client");
++        aproveAndSendToClient = new WfmButton2("Approve and Send to Client");
++        aproveAndSendToClient.setEnabled(false);
+         aproveAndSendToClient.addClickListener(new ClickListener() {
+             public void onClick(Widget sender) {
+                 save(OPEN);
+Index: src/com/edatasite/workforce/gwt/invoice/client/ui/view/salequote/SaleQuoteSummaryView.java
+===================================================================
+--- src/com/edatasite/workforce/gwt/invoice/client/ui/view/salequote/SaleQuoteSummaryView.java	(revision 8438)
++++ src/com/edatasite/workforce/gwt/invoice/client/ui/view/salequote/SaleQuoteSummaryView.java	(working copy)
+@@ -36,6 +36,9 @@
+ public class SaleQuoteSummaryView extends InvoiceSummaryView {
+ 
+     private Integer saleQuoteID;
++    private WfmButton2 approve;
++    private WfmButton2 approveAndSendToClient;
++    private TextArea paymentArea= new TextArea();;
+ 
+     public SaleQuoteSummaryView(Integer saleQuoteID) {
+         super("summary", saleQuote);
+@@ -54,6 +57,7 @@
+         quoteService.getQuote(saleQuoteID, new AbstractAsyncCallback() {
+             public void success(Object result) {
+                 drawInvoiceInfoField(invoiceData = (NewInvoice) result);
++                paymentArea.setText(invoiceData.getPaymentInstruction());
+             }
+         });
+     }
+@@ -65,9 +69,30 @@
+     protected void drawButtons() {
+         String status = invoiceData.getStatus();
+ 
++        paymentArea.setSize("600px","150px");
++        paymentArea.setReadOnly(true);
++
++        HorizontalPanel hp =new HorizontalPanel();
++        CheckBox agree = new CheckBox();
++
++        HTML text= new HTML("<font color='#1f4f8f'><b>I agree with Terms and Conditions</b></font>");
++        hp.add(agree);
++        hp.setCellVerticalAlignment(agree, HorizontalPanel.ALIGN_MIDDLE);
++        hp.add(new HTML("&nbsp;&nbsp;"));
++        hp.add(text);
++        hp.setCellVerticalAlignment(text, HorizontalPanel.ALIGN_MIDDLE);
++        Label label = new Label("Terms and Conditions:");
++        label.setStyleName("customTitle");
++
++
++        getPaymentV().add(label);
++        getPaymentV().add(paymentArea);
++        getPaymentV().add(hp);
++
+         if(invoiceData.isClient()){
+             if(!(CLIENT_APPROVE.equals(status) || REJECT.equals(status))){
+                 WfmButton2 approve=new WfmButton2("Approve");
++                approve.setEnabled(false);
+                 approve.addClickListener(new ClickListener(){
+                     public void onClick(Widget sender) {
+                         LoadingPanel.loading(true);
+@@ -114,6 +139,7 @@
+                 }
+                 buttonPanel.add(approve);
+                 buttonPanel.add(reject);
++                addApproveListener(agree, approve, null);
+             }
+         }else{
+             if(!invoiceData.isConvertedToInvoice() && !DRAFT.equals(status)) {
+@@ -157,7 +183,8 @@
+             }
+             
+             if(status.equals(DRAFT) || status.equals(REJECT)) {
+-                WfmButton2 approve = new WfmButton2("Approve Quote");
++                approve = new WfmButton2("Approve Quote");
++                approve.setEnabled(false);
+                 approve.addClickListener(new ClickListener() {
+                     public void onClick(Widget sender) {
+                         quoteService.approveQuote(saleQuoteID, new AsyncCallback() {
+@@ -192,7 +219,8 @@
+             }
+ 
+             if(!status.equals(OPEN) && !status.equals(CLIENT_APPROVE)) {
+-                WfmButton2 approveAndSendToClient = new WfmButton2("Approve and Send to Client");
++                approveAndSendToClient = new WfmButton2("Approve and Send to Client");
++                approveAndSendToClient.setEnabled(false);
+                 approveAndSendToClient.addClickListener(new ClickListener() {
+                     public void onClick(Widget sender) {
+                         sendToClient("Sales Quote");
+@@ -218,6 +246,7 @@
+         });
+         buttonPanel.add(close);
+         buttonPanel.add(pdf);
++        addApproveListener(agree, approve, approveAndSendToClient);
+     }
+ 
+     private void rejectQuote(String rejectionReason){
+@@ -257,4 +286,18 @@
+     public String getIconStyle() {
+         return null;
+     }
++
++    private void addApproveListener(final CheckBox agree,final WfmButton2 approve,final WfmButton2 approveClient){
++        agree.addClickListener(new ClickListener() {
++            public void onClick(Widget sender) {
++                if (agree.isChecked()) {
++                    if (approve != null) approve.setEnabled(true);
++                    if (approveClient != null) approveClient.setEnabled(true);
++                } else {
++                    if (approve != null) approve.setEnabled(false);
++                    if (approveClient != null) approveClient.setEnabled(false);
++                }
++            }
++        });
++    }
+ }
+Index: WebContent/mainStyles/Core.css
+===================================================================
+--- WebContent/mainStyles/Core.css	(revision 8438)
++++ WebContent/mainStyles/Core.css	(working copy)
+@@ -1070,6 +1070,7 @@
+     color: #1f4f8f;
+     font-family: tahoma, verdana, helvetica;
+     font-size: 11px;
++    font-weight:bold;
+ }
+ 
+ .boldCustomTitle {

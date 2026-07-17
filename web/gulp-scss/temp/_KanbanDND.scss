@@ -1,0 +1,1537 @@
+//@CHARSET "UTF-8";
+
+$kanbanMenuShift: 6px;
+$kanbanColumnWidth: 296px;
+$kanbanNotePadding-x: 13px;
+$kanbanEntryPadding: 10px;
+$kanbanEntryPaddingLeft: 26px;
+$kanbanAdditionalSection: 50px;
+
+
+///* ------------ global ------------ */
+.rtl {
+  //direction: rtl;
+}
+
+.ltr {
+  //direction: ltr;
+}
+
+CODE {
+  font-style: normal;
+}
+.has-dnd-drag {
+  cursor: move;
+}
+///* ------------ Example ------------ */
+.kanban-topnav-bar {
+  position: relative;
+  vertical-align: middle;
+  display: block;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  height: 45px;
+  background-color: white;
+  border-bottom: 2px solid lightgrey;
+  padding: 0px 10px 0px 10px;
+}
+
+.kanban-panel {
+  margin: 1em 1em;
+}
+
+.kanban-dnd-panel-container {
+  height: 100%; //bottom space fix)
+  .dragdrop-draggable:not(.wg_canban__column--hide) {
+    //table-layout: fixed; //to fix the following bug https://prnt.sc/p61gwn
+  }
+  .dragdrop-draggable {
+    //height: 100%; // don't use it - causes to stick items (.kanban-board-item) together by vertical line;
+    padding: 0 1em;
+
+    &:not(.wg_canban__column--hide) > tbody > tr > td {
+        width: $kanbanColumnWidth;
+    }
+
+    > tbody > tr {
+      &:first-child > td {
+        height: 54px;
+      }
+      + tr > td {
+      }
+    }
+
+    .wg_canban__column-body {
+      height: 100%;
+      @media screen and (max-height: 2160px) {
+        height: 1970px;
+      }
+      @media screen and (max-height: 1080px) {
+        height: 880px;
+      }
+      @media screen and (max-height: 1024px) {
+        height: 840px;
+      }
+      @media screen and (max-height: 900px) {
+        height: 710px;
+      }
+      @media screen and (max-height: 768px) {
+        height: 590px;
+      }
+      @media screen and (max-height: 667px) {
+        height: 490px;
+      }
+    }
+  }
+  > tbody > tr > td:first-child {
+    .dragdrop-draggable {
+      &:not(.wg_canban__column--hide) > tbody > tr > td {
+        width: $kanbanColumnWidth - 12px;
+
+        .dragdrop-draggable.dragdrop-handle {
+          padding-left: 0;
+        }
+      }
+    }
+  }
+}
+
+.card .card-content .card-title {
+  line-height: 14px !important;
+
+}
+
+///* ------------ Main Boundary Panel ------------ */
+DIV.demo-main-boundary-panel {
+  background: #F8F8F8; ///* light gray */
+  border: 1px solid blue;
+}
+
+///* ------------ RedBoxDraggableWidget ------------ */
+.demo-red-box-draggable-widget {
+  background-color: #EE0000;
+  border: 2px solid #AA0000;
+  text-align: center;
+  color: #FFCCCC;
+  font-size: 12px;
+}
+
+///* ------------ BinExample ------------ */
+.demo-BinExample DIV.dragdrop-dropTarget {
+  background-color: #CCCCCC;
+}
+
+.demo-BinExample DIV.demo-bin {
+  text-align: center;
+  border: 1px solid black;
+  border-top: 4px solid black;
+  background-color: #87B3FF;
+}
+
+.demo-BinExample DIV.demo-bin-engage {
+  background-color: #A7E3FF;
+}
+
+.demo-BinExample DIV.demo-trashbin {
+  background-color: #FF7743;
+}
+
+.demo-BinExample DIV.demo-trashbin-engage {
+  background-color: #FFA773;
+}
+
+.demo-BinExample-draggable-engage {
+  filter: alpha(opacity=10);
+  opacity: 0.1;
+  -moz-opacity: 0.1;
+}
+
+///* ------------ AbsolutePositionExample ------------ */
+.demo-AbsolutePositionExample {
+
+}
+
+///* ------------ GridConstrainedExample ------------ */
+.demo-GridConstrainedExample {
+
+}
+
+///* ------------ FlowPanelExample ------------ */
+.demo-FlowPanelExample-draggable {
+  padding: 0.1em;
+  margin: 0.1em;
+  border: 1px solid blue;
+  background-color: #B3FF87;
+}
+
+.demo-FlowPanelExample-draggable,
+.demo-FlowPanelExample-draggable DIV {
+  display: inline;
+}
+
+.demo-FlowPanelExample-label {
+  font-size: 1.2em;
+  line-height: 1.3em;
+}
+
+///* ------------ InsertPanelExample ------------ */
+.kanban-dnd-panel {
+  height: 100%;
+  > div {
+    height: 100%;
+  }
+}
+
+.kanban-dnd-panel .kanban-dnd-panel-heading {
+  padding: 1.2rem 0px;
+  margin: 0px 12px;
+  font-size: 1.1rem;
+  border-top-width: 2px;
+  border-top-style: solid;
+  width: 272px;
+}
+
+.kanban-dnd-panel .kanban-dnd-panel-heading-1 {
+  border-top: 2px solid #666666;
+}
+
+.kanban-dnd-panel .kanban-dnd-panel-heading-2 {
+  border-top: 2px solid greenyellow;
+}
+
+.kanban-dnd-panel .kanban-dnd-panel-heading-3 {
+  border-top: 2px solid indianred;
+}
+
+.kanban-dnd-panel .kanban-dnd-panel-heading-4 {
+  border-top: 2px solid darksalmon;
+}
+
+.kanban-dnd-panel .kanban-dnd-panel-heading-5 {
+  border-top: 2px solid #B3FF87;
+}
+
+.kanban-dnd-panel .kanban-dnd-panel-heading-6 {
+  border-top: 2px solid cornflowerblue;
+}
+
+///*.kanban-dnd-panel .kanban-dnd-panel-heading, */
+.kanban-dnd-panel .kanban-dnd-panel-widget,
+.kanban-dnd-panel .kanban-dnd-panel-spacer {
+  padding: 0.1em;
+  margin: 0.1em;
+  width: 120px;
+}
+
+///*.kanban-dnd-panel .kanban-dnd-panel-heading, */
+.kanban-dnd-panel .kanban-dnd-panel-widget
+{
+  border: 1px solid blue;
+}
+
+.kanban-dnd-panel .kanban-dnd-panel-widget {
+  background-color: #B3FF87;
+}
+
+.kanban-dnd-panel table.dnd_scrollbar {}
+
+.kanban-dnd-panel .kanban-dnd-panel-column-composite {
+  padding: 1px;
+}
+
+///* ------------ FlexTableRowExample ------------ */
+.demo-FlexTableRowExample .dragdrop-boundary {
+  background-color: #F8F8F8;
+  border: 1px solid black;
+}
+
+.demo-FlexTableRowExample .demo-FlexTableRowExample-table-proxy {
+  border: 1px solid blue;
+  filter: alpha(opacity=50);
+  opacity: 0.5;
+}
+
+.demo-FlexTableRowExample .demo-flextable .dragdrop-handle {
+  background: url("images/row-dragger-8.gif") no-repeat;
+  padding-left: 10px;
+}
+
+.demo-FlexTableRowExample TABLE {
+  background-color: #CCCCCC;
+  border: 1px solid black;
+}
+
+.demo-FlexTableRowExample .demo-table-positioner {
+  z-index: 1;
+  border-top: 1px solid green;
+  margin-top: 1px;
+}
+
+.demo-FlexTableRowExample .dragdrop-selected,
+.demo-FlexTableRowExample .dragdrop-dragging,
+.demo-FlexTableRowExample .dragdrop-proxy {
+  filter: alpha(enabled=false);
+  opacity: 1.0;
+}
+
+///* ------------ WindowExample ------------ */
+.demo-WindowExample .demo-WindowPanel {
+  background-color: #FFFFFF; ///* prevent transparency */
+}
+
+.demo-WindowExample .demo-WindowPanel .demo-WindowPanel-header {
+  background-color: #666666;
+  color: #FFFFFF;
+  overflow: hidden;
+}
+
+.demo-WindowExample .demo-WindowPanel .demo-WindowPanel-iframe {
+  border: none;
+  display: block;
+}
+
+.demo-WindowExample .dragdrop-boundary {
+  background-color: #F8F8F8;
+  border: 1px solid black;
+}
+
+.demo-WindowExample .demo-resize-html {
+  background-color: #DDEEDD;
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 0px;
+}
+
+.demo-WindowExample .demo-resize-edge {
+  background-image: url("images/dragger-4x4.gif");
+  background-repeat: repeat;
+  line-height: 1px;
+  font-size: 1px;
+}
+
+.demo-WindowExample .demo-resize-nw .dragdrop-handle {
+  cursor: nw-resize;
+}
+
+.demo-WindowExample .demo-resize-n .dragdrop-handle {
+  cursor: n-resize;
+}
+
+.demo-WindowExample .demo-resize-ne .dragdrop-handle {
+  cursor: ne-resize;
+}
+
+.demo-WindowExample .demo-resize-w .dragdrop-handle {
+  cursor: w-resize;
+}
+
+.demo-WindowExample .demo-resize-e .dragdrop-handle {
+  cursor: e-resize;
+}
+
+.demo-WindowExample .demo-resize-sw .dragdrop-handle {
+  cursor: sw-resize;
+}
+
+.demo-WindowExample .demo-resize-s .dragdrop-handle {
+  cursor: s-resize;
+}
+
+.demo-WindowExample .demo-resize-se .dragdrop-handle {
+  cursor: se-resize;
+}
+
+///* ------------ DragHandleExample ------------ */
+.demo-DragHandleExample .demo-DragHandleExample-panel {
+  background-color: white;
+  border: 1px solid green;
+  width: 400px;
+}
+
+.demo-DragHandleExample .demo-DragHandleExample-textarea {
+  width: 95%;
+  height: 4em;
+}
+
+.demo-DragHandleExample .demo-DragHandleExample-header {
+  background-color: #DDEEDD;
+}
+
+///* ------------ DualListExample ------------ */
+.demo-DualListExample .dragdrop-selected,
+.demo-DualListExample .dragdrop-dragging,
+.demo-DualListExample .dragdrop-proxy {
+  filter: alpha(enabled=false);
+  opacity: 1.0;
+}
+
+.demo-DualListExample .dragdrop-boundary {
+  border: none;
+  background-color: transparent;
+}
+
+.demo-DualListExample .demo-MouseListBox {
+  border: 1px solid gray;
+  background-color: white;
+}
+
+.demo-DualListExample .dragdrop-movable-panel {
+  border: none;
+}
+
+.demo-DualListExample-center {
+  margin: 0.4em;
+}
+
+.demo-DualListExample-center TD {
+  padding: 0.2em 0.4em;
+}
+
+.demo-DualListExample-center BUTTON {
+  width: 4em;
+}
+
+.demo-DualListExample-item-has-content {
+  cursor: pointer;
+}
+
+.demo-DualListExample .dragdrop-selected,
+.demo-DualListExample .dragdrop-movable-panel .demo-DualListExample-item-has-content {
+  background-color: blue;
+}
+
+///* ------------ PuzzleExample ------------ */
+.demo-PuzzleExample .dragdrop-boundary {
+  background-color: #F8F8F8;
+  border: 1px solid black;
+}
+
+.demo-PuzzleExample-table {
+  border: 1px solid red;
+}
+
+.demo-PuzzleExample-cell {
+  border: 1px solid black;
+}
+
+///* ------------ MatryoshkaExample ------------ */
+.demo-MatryoshkaExample .dragdrop-boundary {
+  background-color: #F8F8F8;
+  border: 1px solid black;
+}
+
+.demo-MatryoshkaExample .demo-rgb-focus-panel .demo-rgb-focus-panel {
+  margin: 10px;
+}
+
+.demo-MatryoshkaExample .demo-rgb-focus-panel {
+  ///* refer to DragDropDemo.html for IE specific version */
+  border: 1px solid white;
+}
+
+.demo-MatryoshkaExample .demo-MatryoshkaExample-dropTarget-engage {
+  border: 1px solid black;
+}
+
+///* ------------ ResetCacheExample ------------ */
+.demo-ResetCacheExample .demo-ResetCacheExample-TabPanel .gwt-TabPanelBottom {
+  height: 100%;
+}
+
+.demo-ResetCacheExample DIV.dragdrop-dropTarget {
+  border: none;
+}
+
+.demo-ResetCacheExample .gwt-TabBar DIV.dragdrop-dropTarget {
+  padding: 2px 6px;
+}
+
+.demo-ResetCacheExample-draggable {
+  border: 1px solid black;
+  width: 5em;
+  text-align: center;
+}
+
+///* ------------ PaletteWidget ------------ */
+.demo-PaletteExample .dragdrop-dragging {
+  filter: alpha(enabled=false);
+  opacity: 1.0;
+}
+
+.demo-PaletteWidget {
+  display: inline;
+  margin: auto;
+}
+
+.demo-PaletteWidget-widget {
+  display: inline;
+  margin: auto;
+  padding: 2px;
+}
+
+.demo-PaletteWidget-shim {
+  opacity: 0.1;
+  filter: alpha(opacity=10);
+  background-color: #0000FF;
+}
+
+.demo-PalettePanel {
+  padding: 4px;
+  background-color: white;
+  border: 1px solid #0000FF;
+}
+
+.demo-PalettePanel-header {
+  font-weight: bold;
+}
+
+.bottomborder-lightgray {
+  border-bottom: 1px solid lightgray;
+}
+
+///* ------------ General Demo CSS ------------ */
+.demo-main-boundary-panel .demo-example-description {
+  border-bottom: 1px solid #87B3FF;
+  padding: 0.5em 0.3em;
+}
+
+.demo-behavior-panel {
+  width: 100%;
+  background-color: #E8EEF7;
+  border: 1px solid #87B3FF;
+  margin-top: 1em;
+  margin-bottom: 0.2em;
+  padding: 0.2em 0.1em;
+}
+
+.demo-behavior-panel .demo-behavior-heading {
+  font-weight: bold;
+  color: blue;
+  cursor: help;
+}
+
+.demo-behavior-panel .gwt-RadioButton {
+  cursor: pointer;
+}
+
+.demo-event-text-area {
+  border: 1px solid green;
+  overflow: auto;
+}
+
+.gwt-TabBar .gwt-TabBarItem {
+  cursor: pointer;
+}
+
+///* ------------ ExampleTabPanel ------------ */
+.demo-MultiRowTabPanel-bottom {
+  border-left: 1px solid #87B3FF;
+  border-right: 1px solid #87B3FF;
+  border-bottom: 1px solid #87B3FF;
+  background-color: #E8EEF7;
+}
+
+.demo-ExampleTabPanel-tab-bar .gwt-TabBar {
+  background-color: #C3D9FF;
+}
+
+.demo-ExampleTabPanel-tab-bar .gwt-TabBar .gwt-TabBarFirst {
+  height: 100%;
+  padding-left: 3px;
+}
+
+.demo-ExampleTabPanel-tab-bar .gwt-TabBar .gwt-TabBarRest {
+  padding-right: 3px;
+}
+
+.demo-ExampleTabPanel-tab-bar .gwt-TabBar .gwt-TabBarItem {
+  border-top: 1px solid #C3D9FF;
+  padding: 2px 6px;
+}
+
+.demo-ExampleTabPanel-tab-bar .demo-MultiRowTabPanel-row .gwt-TabBarItem,
+.demo-ExampleTabPanel-tab-bar .demo-MultiRowTabPanel-row .gwt-TabBarFirst,
+.demo-ExampleTabPanel-tab-bar .demo-MultiRowTabPanel-row .gwt-TabBarRest {
+  border-bottom: 1px solid #87B3FF;
+}
+
+.demo-ExampleTabPanel-tab-bar .gwt-TabBar .gwt-TabBarItem-selected {
+  font-weight: bold;
+  background-color: #E8EEF7;
+  border-top: 1px solid #87B3FF;
+  border-left: 1px solid #87B3FF;
+  border-right: 1px solid #87B3FF;
+  border-bottom: 1px solid #E8EEF7;
+  padding: 2px;
+  cursor: default;
+}
+
+.circle {
+  border-radius: 50%;
+}
+
+.kanban-board-item {
+  border-radius: 5px !important;
+  width: 272px;
+  margin: 0 auto;
+}
+
+.kanban-board-item .card-content .card-title {
+  font-size: 12px;
+  font-weight: 300;
+}
+
+.kanban-board-item .card-content {}
+
+.kanban-board-item .row {
+  margin: 0px;
+}
+
+.kanban-board-item img.left {
+  margin: 0 10px 0 0 !important;
+}
+
+.kanban-board-item .card-action {
+}
+
+.kanban-board-item .grey {
+  height: 100% !important;
+  background-color: transparent !important;
+  background: none !important;
+}
+
+.kanban-board-item .material-icons {
+  font-size: 14px !important;
+}
+
+///*---*/
+.kanban-dnd-panel-container {
+  width: auto !important;
+}
+
+.kanban-board-item {
+  background-color: #f9fafc;
+  margin-bottom: 10px !important;
+  border: 1px solid transparent;
+}
+.wg_canban__card {
+  position: relative;
+}
+.wg_canban__card-status {
+  position: absolute;
+  top: $kanbanEntryPaddingLeft * .7;
+  left: $kanbanEntryPaddingLeft / 2;
+  width: 8px;
+  height: 8px;
+  margin: -4px 0 0 -4px;
+  background-color: $body-bg;
+  border-radius: 50%;
+}
+
+.kanban-dnd-panel div.dragdrop-dropTarget {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.kanban-dnd-panel .dragdrop-handle {
+  cursor: move;
+  user-select: none;
+}
+
+.kanban-dnd-panel > div > .dragdrop-dropTarget.dragdrop-boundary {
+  height: 100%;
+  overflow-x: auto !important;
+
+  &::-webkit-scrollbar-thumb {
+    //background: rgba(83, 102, 119, 0.3);
+  }
+}
+
+.kanban-dnd-panel .dragdrop-boundary table.dragdrop-dropTarget td {
+  padding: 0;
+}
+
+.kanban-dnd-panel .dragdrop-boundary table.dragdrop-dropTarget.kanban-dnd-panel-container > tbody > tr > td {
+  width: auto;
+}
+
+.kanban-dnd-panel .dragdrop-boundary table.dragdrop-dropTarget.kanban-dnd-panel-container > tbody > tr > td:first-child .kanban-dnd-panel-heading {
+  margin-left: 0;
+}
+
+.kanban-dnd-panel .dragdrop-boundary table.dragdrop-dropTarget.kanban-dnd-panel-container > tbody > tr > td:first-child .dnd_scrollbar {
+  padding-left: 0;
+}
+
+.kanban-dnd-panel .dragdrop-boundary table.dragdrop-dropTarget.kanban-dnd-panel-container > tbody > tr > td:first-child .kanban_header_wrapper {
+  width: 284px;
+}
+
+.kanban-dnd-panel .kanban-dnd-panel-heading {
+  margin-bottom: 10px;
+}
+
+.kanban-dnd-panel .dragdrop-boundary table.dragdrop-dropTarget.kanban-dnd-panel-container > tbody > tr > td:first-child .wg_canban__column--hide .wg_canban__column-body {
+  margin-left: 0;
+}
+
+.kanban-dnd-panel .dragdrop-boundary table.dragdrop-dropTarget.kanban-dnd-panel-container > tbody > tr > td:first-child .wg_canban__column--hide .wg_canban__collapse-toggle {
+  right: auto;
+  left: 0;
+}
+
+.kanban-dnd-panel .dragdrop-boundary table.dragdrop-dropTarget.kanban-dnd-panel-container > tbody > tr > td:first-child .wg_canban__column--hide .kanban_header_wrapper {
+  width: 40px !important;
+}
+
+.kanban-dnd-panel .dragdrop-boundary table.dragdrop-dropTarget.kanban-dnd-panel-container > tbody > tr > td:first-child .wg_canban__column-body-top,
+.kanban-dnd-panel .dragdrop-boundary table.dragdrop-dropTarget.kanban-dnd-panel-container > tbody > tr > td:first-child .kanban-board-item {
+  margin-left: 0;
+}
+
+.kanban-dnd-panel .dnd_scrollbar {
+  padding: 0 12px;
+  border-radius: $radius-basePlus;
+}
+
+.kanban-dnd-panel .dnd_scrollbar *, .dragdrop-movable-panel * {
+  list-style: none;
+}
+
+.kanban-dnd-panel .kanban-column-scrollpanel::-webkit-scrollbar {
+  box-shadow: none;
+  background: white;
+  border-radius: $radius-basePlus;
+}
+
+.kanban-dnd-panel .kanban-column-scrollpanel::-webkit-scrollbar-track {
+  border-radius: $radius-basePlus;
+  box-shadow: none;
+}
+
+.kanban-dnd-panel {
+  padding-left: $frameContentPadding;
+}
+
+.kanban-dnd-panel .dragdrop-boundary::-webkit-scrollbar-thumb:hover {
+  //background: #b7b7b97a;
+}
+.kanban-column-scrollpanel {
+  flex-grow: 1;
+  margin-bottom: 10px;
+  //overflow: inherit !important; //need for solve the next problem //https://prnt.sc/t7cimz But lead to jump content!
+  overflow: hidden !important; //to override inline :auto
+
+  &:hover {
+    overflow-y: auto !important;
+  }
+
+  > div {
+    width: calc(100% - 6px); //to provide space for the scroll and preven jumping on hover
+  }
+}
+
+.dragdrop-selected, .dragdrop-dragging, .dragdrop-proxy {
+  filter: alpha(opacity=100);
+  opacity: 1;
+}
+
+.kanban-dnd-panel .dragdrop-movable-panel {
+  transform: rotate(5deg);
+  transform-origin: 0px 100px;
+  min-width: 53px !important;
+  background-color: #eceff3;
+  box-shadow: -18px 20px 20px -10px rgba(83, 102, 119, 0.2), -15px 22px 50px 0px rgba(83, 102, 119, 0.1);
+}
+
+.kanban-dnd-panel-heading .wg_canban__column-header-totalcount {
+  padding: 2px 5px;
+  background: #f9fafc;
+  border-radius: $radius-basePlus;
+  display: inline-block;
+  min-width: 40px;
+  text-align: center;
+  margin-left: 10px;
+  max-width: 60px;
+  @include txtTruncate();
+  display: block;
+}
+
+///*---*/
+.wg_canban__entry {
+  display: flex;
+  border-bottom: 1px solid $gray-new-light;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  overflow: hidden;
+}
+
+.wg_canban__entry-info {
+  flex-grow: 1;
+  max-width: 100%;
+  flex-flow: wrap;
+  display: flex;
+  align-items: center;
+  padding: $kanbanEntryPadding $kanbanEntryPadding $kanbanEntryPadding $kanbanEntryPaddingLeft;
+}
+
+.wg_canban__card-amount {
+  //width: 100%;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.wg_canban__card-amount-value {
+  display: block;
+  //width: 190px;
+}
+
+.wg_canban__card-amount-date {
+  color: #8e9ca9;
+  display: block;
+}
+
+.wg_canban__entry-photo {
+  height: 40px;
+  width: 40px;
+  margin-right: 20px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  background: #c1cad1;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid $gray-new-light;
+}
+
+.wg_canban__entry-photo img {}
+
+.wg_canban__entry-title {
+  flex-grow: 1;
+  max-width: 100%;
+
+  .wg_canban__entry-photo + & {
+    width: calc(100% - 60px);
+  }
+}
+
+.wg_canban__entry-photo + .wg_canban__entry-title .wg_canban__entry-name,
+.wg_canban__entry-photo + .wg_canban__entry-title .wg_canban__entry-company {
+  width: 130px;
+}
+
+.wg_canban__entry-name {
+  color: #007de7;
+  display: block;
+  font-size: 1.15rem;
+  padding-bottom: 1px;
+  min-height: 19px;
+  overflow-wrap: break-word; //to prevent the long word from breaking the layout https://i.imgur.com/byEMZmR.png
+}
+
+.wg_canban__entry-name:hover {}
+
+.wg_canban__entry-company {
+  color: #8e9ca9;
+  display: block;
+  @include txtTruncate();
+  display: block;
+  width: 190px;
+  min-height: 19px;
+}
+
+.wg_canban__entry-contacts {
+  flex: 0 0 $kanbanAdditionalSection;
+  border-left: 1px solid $gray-new-light;
+}
+
+.wg_canban__entry-contacts ul {
+  margin: 0;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.wg_canban__entry-contacts ul li {
+  flex-grow: 1;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
+
+.wg_canban__entry-contacts ul li a,
+.wg_canban__entry-contacts ul li span {
+  text-align: center;
+  flex-grow: 1;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
+
+.wg_canban__entry-contacts ul li a {
+  color: rgba(83, 102, 119, 1);
+}
+
+.wg_canban__entry-contacts ul li span {
+  color: rgba(83, 102, 119, 0.5);
+}
+
+.wg_canban__entry-contacts ul li:not(:last-child) {
+  border-bottom: 1px solid $gray-new-light;
+}
+
+
+//wg_canban__user
+.wg_canban__user {
+  display: grid;
+  grid-template-columns: auto $kanbanAdditionalSection;
+  height: $button-height;
+
+  &-content {
+    // do not! apply overflow: hidden; because it contains Note popup https://prnt.sc/p61gwn
+    display: grid;
+    //grid-template-columns: 26px repeat(auto-fit, minmax(15px, 1fr));
+    grid-template-columns: 26px auto 1fr;
+    border-bottom-left-radius: 5px;
+    //grid-auto-flow: column;
+    > * {
+      align-self: stretch;
+      align-content: center;
+    }
+  }
+
+  &-notes {
+    width: $kanbanEntryPaddingLeft;
+    text-align: right;
+
+    [class*="dropdown-kit--arrow--"] {
+      position: relative;
+      display: flex;
+      align-items: stretch;
+      height: 100%;
+
+      > .dropdown-button {
+        display: flex !important;
+        height: 100%;
+        width: 100%;
+
+        &:before, &:after {
+          //border-width: 9px;
+        }
+        &:before {
+          //border-bottom-color: $color-base-1;//ToDo: change to $dropdown-border-color
+        }
+        &:after {
+        }
+      }
+
+      > .ficon--tag-down {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    .dropdown-content {
+      margin-left: -$kanbanMenuShift; //make small gap before the arrow sign
+      //border: 1px solid $color-base-1;
+    }
+  }
+
+  &-name {
+    color: $text-color-light;
+    @include txtTruncate();
+
+    .material-label {
+      @include txtTruncate();
+    }
+  }
+  &-actions {
+    position: relative;
+    border-left: 1px solid $gray-new-light;
+
+    [class*="dropdown-kit--"] {
+      display: flex;
+      align-items: stretch;
+      justify-content: stretch;
+      height: 100%;
+    }
+
+    .dropdown-content {
+      left: auto !important;
+      right: -5px;
+      width: 160px !important;
+      white-space: nowrap;
+      //box-shadow: 0 8px 13px 0 rgba(176, 186, 195, 0.33);
+    }
+
+    > .dropdown-kit--arrow--below:last-child > .dropdown-button { //a tag
+      display: flex !important; // override inline-flex
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      @include border-left-radius(0);
+      border-top-right-radius: 0;
+    }
+
+    > .dropdown-kit--arrow--below > .dropdown-button > .icon--moreBold,
+    > .dropdown-kit--arrow--below > .dropdown-button > .ficon--more-horiz {
+      border-top-right-radius: 0 !important;
+      border-top-right-radius: 0 !important;
+      border-bottom-left-radius: 0 !important;
+      border-bottom-right-radius: 5px;
+    }
+
+    > .dropdown-kit--arrow--below > .dropdown-button .ficon--more-horiz:before {
+      color: rgb(141, 155, 168);
+    }
+
+    > .dropdown-kit--arrow--below > .dropdown-button:hover {
+      box-shadow: none !important;
+    }
+
+    > .dropdown-kit--arrow--below > .dropdown-button:hover .ficon--more-horiz:before {
+      color: rgb(141, 155, 168);
+    }
+
+
+    .dropdown-kit--arrow--below:not(.dropdown-kit--arrow--below--reverse) .dropdown-content {
+      //margin-top: $triangleSpace;
+    }
+
+    .dropdown-kit--arrow--below--reverse .dropdown-content {
+      //margin-bottom: 29px;
+    }
+  }
+
+  .dropdown-kit--arrow--below--reverse {
+    > .dropdown-content {
+      //bottom: 40px;
+      //top: auto !important;
+    }
+
+    > .dropdown-button.active:before,
+    > .dropdown-button.active:after {
+      //transform: rotate(180deg);
+    }
+
+    .wg_canban__dropdown {
+      display: flex;
+      flex-flow: column;
+    }
+
+    .wg_canban__dropdown-header {
+      order: 3;
+    }
+
+    .wg_canban__dropdown-content {
+      order: 2;
+      padding-top: 20px;
+      max-height: 120px;
+      overflow: auto;
+    }
+
+    .wg_canban__dropdown-footer {
+      order: 1;
+    }
+
+    > .dropdown-content {
+      left: -2px !important;
+    }
+  }
+}
+
+.wg_canban__user-notes .dropdown-content,
+.wg_canban__user-activities .dropdown-content {
+  //margin-left: rem(-13px);
+  box-shadow: 0 0px 13px 0 rgba(176, 186, 195, 0.33);
+
+  &:not(.dropdown-content-tooltip) { // to override the [class*=dropdown-kit--] .dropdown-content:not(.dropdown-content-tooltip) -> width: auto !important;
+    width: 272px !important;
+
+  }
+}
+
+.wg_canban__user-notes .dropdown-content li,
+.wg_canban__user-activities .dropdown-content li {
+  cursor: default;
+}
+
+.wg_canban__user-notes .dropdown-button:hover,
+.wg_canban__user-notes .dropdown-button.active {
+  color: rgb(83, 102, 119);
+}
+
+.wg_canban__user-activities {
+  width: 15px;
+  margin-left: 12px;
+  margin-right: 33px;
+
+  .dropdown-button {
+    height: 5px;
+    display: block !important; //https://i.imgur.com/gJIytx1.png
+    border-radius: $radius-basePlus;
+    background-color: rgb(208, 2, 27);
+    transition: opacity 0.2s ease-out 0s;
+  }
+
+  &:hover .dropdown-button,
+  .dropdown-button.active {
+    background-color: rgb(208, 2, 27);
+  }
+  .dropdown-content {
+    left: -29px !important;
+  }
+
+  &--available .dropdown-button {
+    background-color: #85CA40;
+  }
+
+  &--overdue .dropdown-button {
+    background-color: #F5A623;
+  }
+
+  &--notasks .dropdown-button {
+    background-color: #D0021B;
+  }
+
+  &--available .dropdown-button:hover,
+  &--available .dropdown-button.active {
+    background-color: rgb(133, 202, 64);
+  }
+
+  &--overdue .dropdown-button:hover,
+  &--overdue .dropdown-button.active {
+    background-color: rgb(245, 166, 35);
+  }
+
+  &--notasks .dropdown-button:hover,
+  &--notasks .dropdown-button.active {
+    background-color: rgba(208, 2, 27, 0.5);
+  }
+
+  &--available .wg_canban__dropdown-activities {
+    background-color: #85CA40;
+  }
+
+  &--overdue .wg_canban__dropdown-activities {
+    background-color: #F5A623;
+  }
+
+  &--notasks .wg_canban__dropdown-activities {
+    background-color: #D0021B;
+  }
+}
+
+
+.wg_canban__user-actions .dropdown-button,
+.wg_canban__entry-contacts ul li a,
+.wg_canban__user-content,
+.wg_canban__entry-info {
+  transition: background 0.2s ease-out 0s;
+  background-color: transparent;
+}
+
+.wg_canban__user-actions .dropdown-button:hover,
+.wg_canban__entry-contacts ul li a:hover,
+.wg_canban__user-content:hover,
+.wg_canban__entry-info:hover {
+  background: white;
+}
+
+.wg_canban__dropdown {
+  background-color: white;
+  text-align: left;
+}
+
+.wg_canban__dropdown-header {
+  padding-left: $kanbanNotePadding-x;
+  padding-right: $kanbanNotePadding-x;
+  margin-bottom: 10px;
+  padding-top: 20px;
+}
+
+.wg_canban__dropdown-content {
+  padding-left: $kanbanNotePadding-x;
+  padding-right: $kanbanNotePadding-x;
+}
+
+.wg_canban__dropdown-title {
+  font-size: 16px;
+  font-weight: 100;
+  color: $color-accent-2;
+  margin-bottom: 7px;
+}
+
+.wg_canban__dropdown-text {
+  color: #8D9BA8;
+  margin-bottom: 15px;
+}
+
+.wg_canban__dropdown-checklist {
+  overflow: hidden;
+  position: relative;
+}
+
+.wg_canban__dropdown-checklist-item {
+  margin-bottom: 15px;
+  display: flex;
+  opacity: 1;
+  transition: all 0.3s ease-out 1s;
+}
+
+.wg_canban__dropdown-checklist-item--task .wg_canban__dropdown-checklist-title {
+  color: #D0021B;
+}
+
+.wg_canban__dropdown-checklist-item--task .wg_canban__dropdown-checklist-title:before {
+  content: "\e901";
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  margin-right: 5px;
+}
+
+.wg_canban__dropdown-checklist-aside {
+  width: 25px;
+  flex-shrink: 0;
+  height: 25px;
+}
+
+.wg_canban__dropdown-checklist-content {
+  flex-grow: 1;
+  margin-left: 10px;
+
+}
+
+.wg_canban__dropdown-footer {
+  padding-left: $kanbanNotePadding-x;
+  padding-right: $kanbanNotePadding-x;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  background-color: #F9FAFB;
+}
+
+.wg_canban__dropdown-checklist-title {
+  color: #007DE7;
+  font-size: 1.1rem;
+  margin-top: 1px;
+}
+
+.wg_canban__dropdown-checklist-created {
+  color: #8D9BA8;
+}
+
+.wg_canban__dropdown-checklist-date:after {
+  content: '|';
+  margin-left: 3px;
+  margin-right: 0px;
+}
+
+.wg_canban__dropdown-activities {
+  height: 6px;
+  width: 26px;
+  border-radius: $radius-basePlus;
+  background: $gray-new-light;
+}
+
+.wg_canban__dropdown-notes-icon i {
+  font-size: 16px;
+}
+
+.cp_btn-list-item {
+  display: flex;
+  align-items: center;
+}
+
+.cp_btn-list-item:not(:last-child) {
+  margin-bottom: 15px;
+}
+
+//elm_btn elm_btn--blue elm_btn--forward
+.elm_btn { //http://prntscr.com/lk2ujl
+  display: block;
+  width: 25px;
+  height: 25px;
+  //background-color: #85CA40;
+  background-color: $button-color-success;
+  color: white;
+  border-radius: 50%;
+  font-family: 'icomoon' !important;
+  text-align: center;
+  line-height: 25px;
+  box-shadow: 0px 1px 5px 0 $button-color-success;
+
+
+  &:hover, &:hover:after {
+    color: white;
+  }
+  &:after {
+    content: "\e92c";
+  }
+
+}
+.cp_btn-list-item-title {
+  margin-left: 10px;
+  color: #8D9BA8;
+}
+
+///* shrink column*/
+.kanban-dnd-panel-heading {
+  transform: rotate(0deg);
+  width: 302px;
+  display: flex;
+  align-items: center;
+}
+
+.wg_canban__column-header-title {
+  @include txtTruncate();
+  max-width: 126px;
+}
+
+.wg_canban__column-body {
+  flex-flow: column;
+  display: flex;
+  overflow: visible !important;
+  position: relative;
+}
+
+.dragdrop-draggable.wg_canban__column--hide .kanban-dnd-panel-heading {
+  width: 35px;
+  height: 270px;
+  writing-mode: tb-rl;
+  background-color: #f9fafc;
+  display: flex;
+  align-items: center;
+  margin: 0 6px 0 12px;
+  align-items: center;
+  padding-top: 35px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border: none;
+  transform: rotate(180deg);
+  justify-content: flex-end;
+  transition: background 0.3s ease-out 0s;
+}
+
+.dragdrop-draggable.wg_canban__column--hide .kanban-dnd-panel-heading .wg_canban__column-header-totalcount {
+  min-width: auto;
+  margin: 0;
+  margin-top: 15px;
+  border: 1px solid $gray-new-light;
+  padding: 5px 2px;
+  min-height: 60px;
+
+}
+
+.dragdrop-draggable.wg_canban__column--hide .kanban-dnd-panel-heading .wg_canban__column-header-title {
+  @include txtTruncate();
+  display: block;
+}
+
+.dragdrop-draggable.wg_canban__column--hide .wg_canban__column-body {
+  width: 35px;
+  margin-left: 12px;
+  background-color: #f9fafc;
+  transition: background-color 0.3s ease-out 0s;
+  margin-top: -270px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.wg_canban__column--hide tbody > tr:nth-child(2) > td {
+  overflow: hidden;
+}
+
+.dragdrop-draggable.wg_canban__column--hide .kanban-column-scrollpanel {
+  opacity: 0;
+  overflow: hidden;
+  display: none;
+}
+
+.kanban_header_wrapper {
+  position: relative;
+  width: $kanbanColumnWidth;
+}
+
+@keyframes kcc {
+  from {
+    opacity: 0;
+    width: 53px;
+  }
+  to {
+    opacity: 1;
+    width: $kanbanColumnWidth;
+  }
+}
+
+.wg_canban__add-card, .wg_canban__collapse-toggle {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  margin-top: -7px;
+  color: #8D9BA8;
+}
+
+.wg_canban__collapse-toggle {
+  right: 44px;
+  font-weight: bold;
+}
+
+.wg_canban__add-card i {
+  font-weight: bold;
+}
+
+.wg_canban__column--hide .wg_canban__add-card {
+  display: none;
+}
+
+.wg_canban__column--hide .kanban_header_wrapper {
+  width: 53px !important;
+  padding-top: 68px;
+}
+
+.wg_canban__collapse-toggle i {
+  transform: rotate(-90deg);
+  display: inline-block;
+}
+
+.wg_canban__column--hide .wg_canban__collapse-toggle {
+  top: 0px;
+  right: 5px;
+  left: auto;
+  margin-top: 0;
+  width: 35px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  color: #fff;
+  border-radius: $radius-basePlus;
+}
+
+.wg_canban__column--hide .wg_canban__collapse-toggle i {
+  transform: rotate(90deg);
+}
+
+.kanban-dnd-panel-container > tbody > tr > td > .dragdrop-draggable:not(.wg_canban__column--hide) .wg_canban__collapse-toggle {
+  background-color: transparent !important;
+}
+
+.wg_canban__column--hide:hover .kanban-dnd-panel-heading,
+.wg_canban__column--hide:hover .wg_canban__column-body {
+  background-color: white;
+}
+
+///*oportunities*/
+.wg_canban__column-body-top {
+  text-align: center;
+  padding: 0.6rem;
+  background: #f9fafc;
+  border-radius: $radius-basePlus;
+  margin: 0 12px 10px 12px;
+  width: 272px;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 2px 17px 0 rgba(0, 0, 0, 0.099);
+  height: 47px;
+  flex-shrink: 0;
+}
+
+.wg_canban__oportunity-total {
+  font-size: 1.6rem;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.wg_canban__probability-total {
+  border: 1px solid $gray-new-light;
+  padding: 5px 2px;
+  border-radius: $radius-basePlus;
+  background-color: #eceff3;
+  text-align: center;
+  font-weight: bold;
+  min-width: $kanbanAdditionalSection;
+}
+
+.wg_canban__column--hide .wg_canban__column-body-top {
+  display: none;
+}
+
+.kanban-dnd-panel .kanban-dnd-panel-spacer {
+  width: 270px;
+  height: 300px;
+}
+
+.wg_canban__entry-inits {
+  display: block;
+  height: 38px;
+  width: 38px;
+  line-height: 38px;
+  text-align: center;
+  color: white;
+}
+
+
+//KANBAN QUICK ACTIONS
+.kanban-quickActions {
+  display: block;
+  bottom: 0;
+  width: auto;
+  height: 100px;
+  height: 10vh;
+  text-align: center;
+
+  > tbody {
+    display: table;
+    width: auto;
+    margin: 0 auto;
+    height: 100%;
+     > tr {
+       > td {
+         height: 100%;
+         > table {
+           height: 100%;
+           table-layout: auto !important;
+         }
+       }
+     }
+  }
+  td > div[class*="gwt-HTML"] {
+    height: 100%;
+    > table {
+      height: 100%;
+    }
+  }
+}
+[class*="quickActionTarget--"] {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1 0 auto;
+  height: 100%;
+  color: #fff;
+  @include border-top-radius($radius-big);
+  transition:height .3s ease-out;
+  font-size: 1.2em;
+  box-shadow: inset 0 1px 3px 1px rgba(#000, .1);
+
+  &:hover {
+    height: 125%;
+    flex: 1 0 125%
+  }
+}
+.quickActionTarget--lost {
+  background-color: $error-color;
+}
+.quickActionTarget--won {
+  background-color: $success-color;
+}

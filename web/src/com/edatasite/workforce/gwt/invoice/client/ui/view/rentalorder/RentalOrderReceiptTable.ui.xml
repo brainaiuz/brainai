@@ -1,0 +1,31 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:mh='urn:import:gwt.material.design.client.ui.html'
+>
+    <g:HTMLPanel styleName="bill">
+
+        <mh:Div styleName="bill-left "></mh:Div>
+        <mh:Div styleName="bill-right ">
+            <mh:Div styleName="bill-details ">
+                <mh:Table>
+                    <mh:TableHead ui:field="subTotalBody"/>
+                    <mh:TableRow class="active" ui:field="defaultDiscountRow">
+                        <mh:TableHeadCell>
+                            <g:HTML ui:field="discountLabel"/>
+                        </mh:TableHeadCell>
+                        <mh:TableDataCell>
+                            <g:HTML ui:field="discountValue"/>
+                        </mh:TableDataCell>
+                    </mh:TableRow>
+                    <mh:TableBody ui:field="itemsTotalBody"/>
+                </mh:Table>
+            </mh:Div>
+            <mh:Div styleName="bill-details">
+                <mh:Table>
+                    <mh:TableHead ui:field="grossTotalBody">
+                    </mh:TableHead>
+                </mh:Table>
+            </mh:Div>
+        </mh:Div>
+    </g:HTMLPanel>
+</ui:UiBinder>

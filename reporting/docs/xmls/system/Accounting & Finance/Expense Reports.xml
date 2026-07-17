@@ -1,0 +1,71 @@
+<report>
+    <view>
+        <title>Expence Reports</title>
+        <name>Expence Reports</name>
+        <category>expence</category>
+        <sqlquery>
+            <select agregateFunc="distinct">
+                <!--  Please only enter type property {'number' or 'date or clock' }   -->
+                <table name="Expence Report">
+                    <column name="exrp.id" title="id" type="number" formattype="hidden"/>
+                    <column name="exrp.title" title="Title" type="string" formattype="string"/>
+                    <column name="exrp.startDate" title="Start Date" type="date" formattype="date"/>
+                    <column name="exrp.endDate" title="End Date" type="date" formattype="date"/>
+                    <column name="exrp.description" title="Description" type="string" formattype="string"/>
+                    <column name="rfc.name" title="Status" type="string" formattype="string"/>
+                </table>
+                <table name="Reporter">
+                    <column name="(rep.firstname||' '||rep.lastname)" title="Reported By" type="string"
+                            formattype="string"/>
+                </table>
+                <table name="Currency">
+                    <column name="(cr.name)" title="Currency" type="string" formattype="string"/>
+                </table>
+                <!--<table name="Amount">-->
+                <!--<column name="(exrp.Amount)" title="Amount" type="string" formattype="string"/>-->
+                <!--</table>-->
+                <table name="Related Project">
+                    <column name="pj.name" title="Project Name" type="string" formattype="string"/>
+                    <column name="cl.name" title="Client Name" type="string" formattype="string"/>
+                </table>
+                <table name="Approver">
+                    <column name="(mu.firstname||' '||mu.lastname)" title="Approver Name" type="string"
+                            formattype="string"/>
+                </table>
+                <table name="Expence">
+                    <column name="exp.units" title="Units" type="number" formattype="string"/>
+                    <column name="exp.costperunit" title="Cost per Unit" type="number" formattype="string"/>
+                    <column name="exp.exchagerate" title="Exch rate" type="number" formattype="string"/>
+                    <column name="exp.date" title="Expense Date" type="date" formattype="date"/>
+                    <column name="exp.subtotal" title="Total" type="number" formattype="string"/>
+                    <column name="exp.basesubtotal" title="Total(exchanged)" type="number" formattype="string"/>
+                </table>
+            </select>
+            <from>"$".expenseReport exrp
+                left join "$".project pj on pj.id=exrp.projectId
+                left join "$".myuser mu on mu.id=exrp.approverId
+                left join "$".myuser ma ON ma.id = pj.managerid
+                left join "$".myuser rep ON rep.id = exrp.reporterId
+                left join currency cr ON cr.id = exrp.baseCurrencyId
+                left join "$".crmaccount cl ON pj.clientid = cl.id
+            </from>
+            <join-conditions>
+                <join name="Units,Cost per Unit,Exch rate,Expense Date,Total,Total(exchanged)">
+                    left join "$".expense exp on exp.reportId= exrp.id
+                </join>
+
+                <join name="Status">
+                    left join "$".reference rfc on rfc.id = exrp.statusid
+                </join>
+            </join-conditions>
+            <where>
+                <!-- <terms id="userid" userid="mu.id" company="pj.companyid"/>
+             <terms id="managerid" userid="ma.id" company="ma.companyid"/>
+             <terms id="leaderid" userid="ma.id" company="ma.companyid"/>-->
+                <terms id="base" value="pj.isdeleted != true"/>
+                <!--<terms id="admin" company="pj.companyid"/>-->
+                <terms id="client" clientid="pj.clientid"/>
+            </where>
+        </sqlquery>
+    </view>
+</report>

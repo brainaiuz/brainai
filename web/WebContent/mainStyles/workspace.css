@@ -1,0 +1,293 @@
+﻿.subDivisions li, .subDivisions li:hover, .subDivisions li.active {
+    background-image: none !important;
+}
+
+.subDivisions {
+    margin: 0 !important;
+}
+
+.subDivisions li {
+    float: left;
+}
+
+/*for accounting*/
+.subDivisions li.accountMark a {
+    background-image: url("/accounting/images/accounting-sprite.png");
+    background-repeat: no-repeat;
+}
+
+.subDivisions .report-list a {
+    background-position: 8px -238px;
+}
+
+/* report-list active hover*/
+.subDivisions .report-list a:hover, .subDivisions .report-list.active a {
+    background-position: 8px -212px;
+}
+
+.subDivisions li.crm a {
+    background-image: url("/crm/icons/crm-sprite.png");
+    background-repeat: no-repeat;
+}
+
+.subDivisions .crm-account-list a {
+    background-position: 8px -1885px;
+}
+
+/*crm-account-list  hover and active*/
+.subDivisions .crm-account-list a:hover, .subDivisions .crm-account-list.active a {
+    background-position: 8px -1860px;
+}
+
+/*availability */
+.subDivisions li.availability a {
+    background-image: url("/hrms/images/availability-sprite.png");
+    background-repeat: no-repeat;
+}
+
+.subDivisions .global-employee-leave-req a {
+    background-position: 11px -488px;
+}
+
+/*global-employee-leave-req active hover*/
+.subDivisions .global-employee-leave-req a:hover, .subDivisions .global-employee-leave-req.active a {
+    background-position: 11px -462px;
+}
+
+/**** Start MYWORKSPACE PAGES Layout****/
+
+/*** it need to add a core.Cache.css ***/
+.sectTitle2 {
+    padding-bottom: 3px;
+    margin: 2em 0 10px;
+    font: bold 1em Arial, sans-serif;
+    border-bottom: 1px solid #d4d4d4;
+}
+
+/**** ### two colubn layout block (pseudo-table) ###
+==============================================================****/
+.tool-myWorkspace {
+    /*overflow: hidden;*/
+}
+
+.workarea {
+    overflow: visible;
+}
+
+.tool-myWorkspace >div:first-child {
+    margin-top: -43px;
+}
+
+.tool-myWorkspace .bindContent {
+    height: 100%;
+    overflow: auto;
+    position: relative;
+}
+
+/*.bindContent {
+    display:table;
+    }*/
+.bindContent>div {
+    display: table-cell;
+    vertical-align: top;
+}
+
+/*** Start PROFILEBAR column ***/
+.profileBar {
+    width: 238px;
+    padding: 9px 9px 40px;
+    border-right: 1px solid #d6d2d2;
+}
+
+/* .profileBar .profile-image {min-width:60px;} */
+.profileBar .btn-addNew {
+    margin: 14px 0 10px;
+}
+
+/* EVENTLINKS sidebar list */
+.eventLinks, .addLinks {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.eventLinks>li, .addLinks>li {
+    float: left;
+    width: 50%;
+    min-width: 104px;
+    margin: 6px 0;
+}
+
+.eventLinks>li a {
+    display: block;
+    font: bold 12px Arial, sans-serif;
+    padding: 6px 6px 6px 38px;
+}
+
+.eventLinks>li a:hover {
+    background-color: #F5F5F5;
+}
+
+.addLinks>li>a {
+    padding-left: 18px;
+}
+
+/*** ADD NEW WIDGET button ***/
+.widgetBox .btn-addNew {
+    margin: 20px auto 0;
+    clear: both;
+}
+
+.gwt-MenuBarPopup {
+    text-transform: uppercase;
+}
+
+.gwt-MenuBarPopup+.gwt-MenuBarPopup {
+    text-transform: none;
+}
+
+.gwt-MenuBarPopup+.gwt-MenuBarPopup [role="menuitem"] {
+    background-color: #F4F4F4;
+}
+
+.gwt-MenuBarPopup+.gwt-MenuBarPopup [role="menuitem"]:hover, .gwt-MenuBarPopup+.gwt-MenuBarPopup .gwt-MenuItem-selected {
+    background: #506882;
+    color: #fff;
+}
+
+.gwt-MenuBarPopup .menuPopupMiddleLeft, .gwt-MenuBarPopup .menuPopupMiddleRight {
+    background: #d8d8d8;
+}
+
+.gwt-MenuBar>table {
+    min-width: 170px;
+}
+
+.gwt-MenuBar .gwt-MenuItem, .gwt-MenuBar .gwt-MenuItem+.subMenuIcon {
+    font: bold 14px/31px, Arial, sans-serif;
+    vertical-align: middle;
+    cursor: default;
+    border-top: 1px solid #D8D8D8;
+    border-bottom: 1px solid #D8D8D8;
+    color: #404040;
+}
+
+.gwt-MenuBar .gwt-MenuItem {
+    padding-left: 10px;
+    padding-right: 5px;
+}
+
+.gwt-MenuBar-horizontal .gwt-MenuItem {
+    padding: 0 10px;
+    vertical-align: bottom;
+    color: #666666;
+    font-weight: bold;
+    background: url("images/bg_arrowDown.png") no-repeat scroll 95% 50% transparent;
+    font-weight: bold;
+    padding-right: 20px;
+}
+
+.gwt-MenuBar-vertical .gwt-MenuItem {
+    cursor: pointer;
+    cursor: hand;
+    /* color:#0E73AD; */
+    font-weight: bold;
+    /*padding: 4px 14px 4px 1px;*/
+}
+
+/* .gwt-MenuBar-vertical .gwt-MenuItem:hover
+,.gwt-MenuBar-vertical .gwt-MenuItem-selected
+{
+   color:#0E73AD;
+} */
+
+/*** End PROFILEBAR column ***/
+
+/*** Start MAINBAR column ***/
+.mainBar {
+    padding: 9px;
+}
+
+#search {
+    clear: right;
+    float: right;
+    margin: 17px 7px 0;
+}
+
+#search input[type="text"] {
+    border: 1px solid #B5B5B5;
+    float: left;
+    font-size: 13px;
+    height: 20px;
+    line-height: 20px;
+    margin-right: 2px;
+    width: 188px;
+}
+
+#search img {
+    border: 1px solid #B5B5B5;
+    float: right;
+}
+
+.table-List {
+    width: 100%;
+    border: 1px solid #0070BF;
+}
+
+.table-reportList {
+    width: 100%;
+    border: 1px solid #0070BF;
+}
+
+.table-List .thead {
+    background-color: #1286C3;
+    line-height: 16px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.table-List .thead a {
+    color: #FFFFFF !important;
+}
+
+.table-List td {
+    vertical-align: middle;
+    padding-left: 5px;
+    color: #222222;
+    text-align: left;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: 0;
+    word-wrap: break-word;
+}
+
+.table-List tr.odd:hover td,
+.table-List tr.even:hover td {
+    background-color: #E4F5FF;
+}
+
+.table-List tr.odd td {
+    background-color: #F3F3F3;
+}
+
+.table-List tr td.mark {
+    background-color: #E6E6E6;
+}
+
+/**** end additional  all marks ****/
+
+/*** Start SCROLLBOX
+.wfp-draggable-pane .scrollBox {
+	position:relative; overflow-y:auto;
+	border:1px solid #dadada;
+	}
+
+.tool_wspace-1 .mainBar .scrollBox {
+	height:228px; background:#fff;
+	}
+.tool_wspace-1 .mainBar .contactList {height:246px; }***/
+.filterPanel {
+    margin-bottom: 7px;
+    border-bottom: 1px dotted gray;
+    display: block;
+}

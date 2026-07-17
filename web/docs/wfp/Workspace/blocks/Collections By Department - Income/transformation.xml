@@ -1,0 +1,21 @@
+<tr class="odd">
+    <th>
+            <a class="left" target="_blank" href='/ProjectManagement.html?link=$rowItem.encryptURL("id","task|summary/")'
+               title="$rowItem.getStringValue("departmentname")'">
+            $rowItem.getValueLimit("departmentname", 20)
+        </a>
+    </th>
+
+    <td>
+        <strong class="clear">$rowItem.getStringValue("statusname")</strong>
+    </td>
+
+    <td class="clear">
+        <strong class="clear">$rowItem.getDoubleValue("incomeamount")</strong>
+    </td>
+
+    <td class="date">
+        <strong class="clear">$rowItem.getShortDateValue("paymentDate")</strong>
+    </td>
+
+</tr>

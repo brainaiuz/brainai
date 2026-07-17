@@ -1,0 +1,292 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style type="text/css">
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+
+        table td, table {
+            vertical-align: top;
+
+        }
+
+        td {
+            padding: 5px;
+
+
+        }
+
+        tr {
+            border-spacing: 10em;
+        }
+
+        th {
+            border: 0px ;
+            padding: 5px;
+            text-align: left;
+            font-size: 11px;
+            border-bottom: solid thin;
+        }
+
+        .title {
+            font-size: 9pt;
+        }
+
+        .name {
+            font-size: 7pt;
+        }
+
+        .value {
+            font-size: 8pt;
+        }
+
+        .personalValue {
+            font-size: 7pt;
+        }
+
+        .nameCapital {
+            text-transform: uppercase;
+        }
+
+    </style>
+</head>
+<body>
+<div>
+    <p><img alt="images"
+            src="https://workforcetrack.s3.amazonaws.com/000000000000/public/65159/a2113e82-397f-49fd-a58a-cdf4f4b93dff?AWSAccessKeyId=AKIAIROQMC77E5UKWBWQ"
+            style="display: none;"/>
+        #if($itextGenericPdfData.companyData.companyName == 'KPI Software Inc' or
+        $itextGenericPdfData.companyData.companyLogoUrl == 'https://apps.kpi.com/customisation/kpi.com/images/kpilogo.png')
+        <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="width: 88px; display: none;"/>
+        #else
+        <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl"
+             style="max-width: 100%; max-height: 100%; display: none;"/>
+        #end
+
+        #set($numAndDatesTable = $itextGenericPdfData.baseInvoice.customNumberAndDatesTable.rows)
+
+        <!-- Warehouse Columns Data -->
+        #set($warehouseNumberLable = $numAndDatesTable.get("NUMBER").get("COLUMN_NAME"))
+        #set($warehouseNameLable = $numAndDatesTable.get("NAME").get("COLUMN_NAME"))
+        #set($ownerLable = $numAndDatesTable.get("OWNERS").get("COLUMN_NAME"))
+        #set($contactNameLable = $numAndDatesTable.get("PRIMARY_CONTACT").get("COLUMN_NAME"))
+        #set($emailLable = $numAndDatesTable.get("EMAIL").get("COLUMN_NAME"))
+        #set($phoneLable = $numAndDatesTable.get("PHONE").get("COLUMN_NAME"))
+        #set($addressLable = $numAndDatesTable.get("ADDRESS").get("COLUMN_NAME"))
+        #set($descriptionLable = $numAndDatesTable.get("NOTES").get("COLUMN_NAME"))
+
+        <!-- Warehouse Value Data -->
+
+        #set($warehouse_name = $numAndDatesTable.get("NAME").get("COLUMN_VALUE"))
+        #set($warehouse_number = $numAndDatesTable.get("NUMBER").get("COLUMN_VALUE"))
+        #set($contact_name = $numAndDatesTable.get("PRIMARY_CONTACT").get("COLUMN_VALUE"))
+        #set($contact_address = $numAndDatesTable.get("ADDRESS").get("COLUMN_VALUE"))
+        #set($contact_email = $numAndDatesTable.get("EMAIL").get("COLUMN_VALUE"))
+        #set($contact_phone = $numAndDatesTable.get("PHONE").get("COLUMN_VALUE"))
+        #set($warehouse_notes = $numAndDatesTable.get("NOTES").get("COLUMN_VALUE"))
+        #set($warehouse_assignee = $numAndDatesTable.get("OWNERS").get("COLUMN_VALUE"))
+
+
+        <!--        &lt;!&ndash; Product Columns &ndash;&gt;-->
+        #set($nameLable = $numAndDatesTable.get("NAME").get("COLUMN_NAME"))
+        <!--        #set($numberLable = $numAndDatesTable.get("NUMBER").get("COLUMN_NAME"))-->
+        #set($descriptionProductLable = $numAndDatesTable.get("DESCRIPTION").get("COLUMN_NAME"))
+        <!--                #set($qtyProductLable = $numAndDatesTable.get("QTY").get("COLUMN_NAME"))-->
+        <!--        #set($activeLable = $numAndDatesTable.get("ACTIVE").get("COLUMN_NAME"))-->
+        <!--        #set($catecoryLable = $numAndDatesTable.get("CATEGORY").get("COLUMN_NAME"))-->
+        <!--        #set($brandLable = $numAndDatesTable.get("BRAND").get("COLUMN_NAME"))-->
+        <!--        #set($suppliersLable = $numAndDatesTable.get("SUPPLIERS").get("COLUMN_NAME"))-->
+        <!--        #set($barcodeLable = $numAndDatesTable.get("BARCODE").get("COLUMN_NAME"))-->
+        <!--        #set($purchasePriceLable = $numAndDatesTable.get("PURCHASE_PRICE").get("COLUMN_NAME"))-->
+        <!--        #set($salesPriceLable = $numAndDatesTable.get("SALES_PRICE").get("COLUMN_NAME"))-->
+        <!--        #set($purchaseAccountLAble = $numAndDatesTable.get("PURCHASE_ACCOUNT").get("COLUMN_NAME"))-->
+        <!--        #set($salesAccountLable = $numAndDatesTable.get("SALES_ACCOUNT").get("COLUMN_NAME"))-->
+        <!--        #set($taxLable = $numAndDatesTable.get("TAX").get("COLUMN_NAME"))-->
+        <!--        #set($additionalInfTitle = $numAndDatesTable.get('ADDITIONAL_INFORMATION').get('COLUMN_NAME'))-->
+        <!--        #set($typeLable = $numAndDatesTable.get("TYPE").get("COLUMN_NAME"))-->
+        #set($imageUploadLable = $numAndDatesTable.get("IMAGE_URL").get("COLUMN_NAME"))
+        #set($qtylable = $numAndDatesTable.get("QTY").get("COLUMN_NAME"))
+
+        <!-- Product Values -->
+        #set($item_name = $numAndDatesTable.get("NAME").get("COLUMN_VALUE"))
+        #set($item_number = $numAndDatesTable.get("ITEM_NUMBER").get("COLUMN_VALUE"))
+        #set($warehouseProducts = $numAndDatesTable.get("WAREHOUSE_PRODUCTS").get("COLUMN_NAME"))
+        <!--        #set($catecory = $numAndDatesTable.get("CATEGORY").get("COLUMN_VALUE"))-->
+        <!--        #set($brand = $numAndDatesTable.get("BRAND").get("COLUMN_VALUE"))-->
+        <!--        #set($suppliers = $numAndDatesTable.get("SUPPLIERS").get("COLUMN_VALUE"))-->
+        <!--        #set($barcode = $numAndDatesTable.get("BARCODE").get("COLUMN_VALUE"))-->
+        <!--        #set($purchasePrice = $numAndDatesTable.get("PURCHASE_PRICE").get("COLUMN_VALUE"))-->
+        <!--        #set($salesPrice = $numAndDatesTable.get("SALES_PRICE").get("COLUMN_VALUE"))-->
+        <!--        #set($purchaseAccount = $numAndDatesTable.get("PURCHASE_ACCOUNT").get("COLUMN_VALUE"))-->
+        <!--        #set($salesAccount = $numAndDatesTable.get("SALES_ACCOUNT").get("COLUMN_VALUE"))-->
+        <!--        #set($tax = $numAndDatesTable.get("TAX").get("COLUMN_VALUE"))-->
+        #set($type = $numAndDatesTable.get("QTY").get("COLUMN_VALUE"))
+        #set($imageUpload = $numAndDatesTable.get("IMAGE_UPLOAD").get("COLUMN_VALUE"))
+        <!--        #set($attachments = $numAndDatesTable.get("ATTACHMENTS").get("COLUMN_VALUE"))-->
+    </p>
+
+    <table width="100%" cellpacing="0" cellpadding="0" border="0" style="font-size: 11px;">
+        <tbody align="left">
+        <tr>
+            <td width="33%">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital">$warehouseNumberLable</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">#if($warehouse_number != '') $warehouse_number #else — #end</td>
+                    </tr>
+                    <tr>
+                        <td width="100%" class="name nameCapital">&nbsp;</td>
+                    </tr>
+
+                </table>
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital">$warehouseNameLable</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">#if($warehouse_name != '') $warehouse_name #else — #end</td>
+                    </tr>
+                    <tr>
+                        <td width="100%" class="name nameCapital">&nbsp;</td>
+                    </tr>
+                </table>
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital">$ownerLable</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">#if($warehouse_assignee != '') $warehouse_assignee #else — #end</td>
+
+                    </tr>
+                    <tr>
+                        <td width="100%" class="name nameCapital">&nbsp;</td>
+                    </tr>
+                </table>
+            </td>
+            <td width="34%">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital">$contactNameLable</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($contact_name != '') $contact_name #else — #end
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="100%" class="name nameCapital">&nbsp;</td>
+                    </tr>
+                </table>
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital">$phoneLable</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($contact_phone != '') $contact_phone #else — #end
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="100%" class="name nameCapital">&nbsp;</td>
+                    </tr>
+                </table>
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital">$emailLable</td>
+
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($contact_email != '') $contact_email #else — #end
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="100%" class="name nameCapital">&nbsp;</td>
+                    </tr>
+                </table></td>
+            <td width="33%">
+                <table width="100%" cellspacing="0" cellpadding="0" >
+                    <tr>
+                        <td width="100%" class="name nameCapital">$addressLable</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($contact_address != '') $contact_address #else — #end
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="100%" class="name nameCapital">&nbsp;</td>
+                    </tr>
+                </table>
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td width="100%" class="name nameCapital">&nbsp;</td>
+                    </tr>
+                </table>
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital">$descriptionLable</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($warehouse_notes != '') $warehouse_notes #else — #end</td>
+                    </tr>
+                    <tr>
+                        <td width="100%" class="name nameCapital">&nbsp;</td>
+                    </tr>
+                </table></td>
+        </tr>
+        </tbody>
+    </table>
+    <p>&nbsp;</p>
+    <h3 class="nameCapital">#if($warehouseProducts  != '') $warehouseProducts  #else — #end</h3>
+
+    #set($customFieldTable = $itextGenericPdfData.customData.get("CUSTOM_FIELD"))
+
+
+
+    <table width="100%" border="0" cellspacing="1" cellpadding="1">
+        <thead>
+        <tr>
+            #set($headerName = $itextGenericPdfData.baseInvoice.customProductTable.header)
+            <th scope="col" width="15%" class="nameCapital">$headerName.get("IMAGE_URL")</th>
+            <th scope="col" width="15%" class="nameCapital">$headerName.get("ITEM_NUMBER")</th>
+            <th scope="col" width="30%" class="nameCapital">$headerName.get("NAME")</th>
+            <th scope="col" width="30%" class="nameCapital">$headerName.get("DESCRIPTION") </th>
+            <th scope="col" width="10%" class="nameCapital">$headerName.get("QTY")</th>
+        </tr>
+        </thead>
+
+        <tbody >
+        #foreach($row in $itextGenericPdfData.baseInvoice.customProductTable.rows.values())
+        <tr>
+            <td class="value">#if($row.get('IMAGE_URL') != '')
+                <img width="25%"  src="$row.get('IMAGE_URL')" />
+                #else
+                <img width="25%" src="https://workforcetrack.s3.amazonaws.com/000000000000/public/51285/5f697fbb-257b-4e03-b25e-ea2a688c991a" />
+                #end</td>
+            <td class="value">$row.get('ITEM_NUMBER')</td>
+            <td class="value">$row.get('NAME')</td>
+            <td class="value">#if($row.get('DESCRIPTION') == 'null') -   #else $row.get('DESCRIPTION')   #end</td>
+            <td class="value" >$row.get('QTY')</td>
+        </tr>
+        #end
+        </tbody>
+    </table>
+
+</div>
+</body>
+</html>
+
+
+
+

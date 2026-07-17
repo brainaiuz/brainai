@@ -1,0 +1,43 @@
+<report>
+    <view>
+        <title>Recently Leads</title>
+        <name>Recently Leads</name>
+        <category>sickRequest</category>
+        <sqlquery>
+            <select agregateFunc="distinct">
+                <table name="sicjRequest">
+                    <column name="id" title="id" type="number" formattype="hidden"/>
+                    <column name="leadname" title="Lead Name" type="string" formattype="string"/>
+                    <column name="primaryemail" title="Primary Email" type="string" formattype="string"/>
+                    <column name="caName" title="Company" type="string" formattype="string"/>
+                    <column name="creationDate" title="Created Date" type="date" formattype="date" customdateformat="DD-Mon, YYYY HH24:MI"/>
+                    <column name="modificationDate" title="Modified Date" type="date" formattype="date" customdateformat="DD-Mon, YYYY HH24:MI"/>
+                </table>
+            </select>
+            <from>
+                (
+                select c.id, coalesce(c.firstname,'')||' '|| coalesce(c.lastname,'') leadname ,
+                c.primaryemail,ca.name caName,c.creationDate,modificationDate
+                from "$".crmcontact c
+                left join "$".crmAccount ca on c.crmAccount=ca.id
+
+                ,(select distinct u.id userid,r.code roles from "$".myuser u
+                join "$".myuser_role mr on u.id=mr.users_id and u.id=#?user_id?#
+                join "$".role r on mr.roles_id=r.id) up
+
+                where c.deleted is not true and c.contacttype=5
+                and trim(coalesce(c.firstname,'')||' '|| coalesce(c.lastname,'')) != ''
+                and (
+                (up.roles in ('ADMIN','SALESMAN'))
+                or (true!=(up.roles in ('ADMIN','SALESMAN')) and (c.assignee=up.userid or c.backupAssignee=up.userid or c.owner=up.userid))
+                )
+                order by c.id desc
+                ) t
+            </from>
+            <where>
+                <terms id="base" value="1=1"/>
+                <replacement id="userid" userid="#?user_id?#"/>
+            </where>
+        </sqlquery>
+    </view>
+</report>

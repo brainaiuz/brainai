@@ -1,0 +1,4 @@
+<module rename-to="payroll">
+    <inherits name='com.edatasite.workforce.gwt.payroll.Payroll'/>
+    <set-property name="user.agent" value="gecko1_8"/>
+</module>

@@ -1,0 +1,179 @@
+.selectModules .panel.group {
+  padding: 10px 20px;
+}
+.selectModules .panel.group + .panel {
+  margin-top: 20px;
+}
+.selectModules .panel-heading h3 {
+  font-size: 22px;
+}
+.selectModules .module-items {
+  padding-left: 10px;
+}
+
+.bknd-sum-cells {
+  > tbody > tr > td {
+    &:first-child {
+      padding-right: 10px;
+    }
+    &:last-child {
+      padding-left: 10px;
+    }
+  }
+
+  &__content {
+    padding-top: 10px;
+
+    table > tbody > tr > td {
+      &:first-child {
+        white-space: nowrap;
+      }
+      + td {
+        padding-left: 10px;
+      }
+    }
+  }
+}
+
+
+.EnableBackendOptions-table {
+  > tbody > tr + tr {
+    > td {
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+  }
+  .hostNamePanel {
+    td + td {
+      padding-top: 5px;
+      padding-left: 10px;
+    }
+  }
+  .backendCheckboxPanel {
+
+  }
+}
+
+.editReportingDBTableLeft {
+  margin-right: 20px;
+  width: calc(100% - 20px) !important;
+  min-width: 400px;
+}
+
+.FooterButtonsTable,
+.backend-ExportShcema-table,
+.backend-createShcemas-table {
+  width: auto;
+  tbody > tr {
+    > td + td {
+      padding-left: 20px;
+    }
+    + tr > td {
+      padding-top: 20px;
+    }
+  }
+}
+
+.AddEditReportTemplateView,
+.bknd-addSubsriptionType-table {
+  .wfmform__container {
+    > table:last-child {
+      width: auto;
+      td + td {
+        padding-left: 10px;
+      }
+    }
+  }
+}
+.FooterButtonsTable {
+  width: auto;
+  > tbody > tr > td {
+    + td {
+
+    }
+  }
+}
+
+.operPanel-table {
+  > tbody > tr > td {
+    vertical-align: middle !important;
+    + td {
+      padding-left: 10px;
+      > div {
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
+//https://prnt.sc/s9pibn
+.AddHelpForm-table {
+  > tbody > tr {
+    + tr {
+      > td {
+        padding-top: 10px;
+      }
+    }
+  }
+  .counterLabel {
+    margin-bottom: -15px;
+  }
+  &__footer {
+    float: right;
+    width: auto;
+    td + td {
+      padding-left: 15px;
+    }
+  }
+}
+
+.AddEditReportTemplateView {
+  &__sharedsTree {
+    max-width: 400px;
+    padding-left: 20px;
+  }
+}
+
+
+.previewSection-table {
+  &__th {
+    padding-right: 30px;
+    width: 100px;
+    white-space: nowrap;
+  }
+  &__td {}
+}
+.previewSection-short-summary {
+  margin-bottom: 20px;
+  tr + tr > td {
+    padding-top: 9px;
+  }
+  td:first-child {
+    width: 10px;
+    white-space: nowrap;
+    padding-right: 10px;
+  }
+}
+.subscriptionManagementSummary {
+  > tbody > tr + tr > td {
+    > div {
+      width: auto !important;
+      height: auto !important; //https://prnt.sc/vn0pr1
+    }
+  }
+}
+.usagePlan-table { //https://prnt.sc/vd0ind
+  td {
+    padding-top: 3px;
+    padding-bottom: 10px;
+    &:first-child, &:nth-child(3) {
+      width: 100px;
+      white-space: nowrap;
+      padding-right: 15px;
+    }
+    &:nth-child(3) {
+      padding-left: 30px;
+    }
+  }
+}

@@ -1,0 +1,96 @@
+<report>
+    <view>
+        <title>Multi Warehouse Stock Valuation Report</title>
+        <name>Multi Warehouse Stock Valuation Report</name>
+        <category>invoice</category>
+        <sqlquery>
+            <select agregateFunc="distinct">
+                <table name="Sales Invoice">
+                    <column name="id" title="id" type="number" formattype="hidden"/>
+                    <column name="inventoryname" title="Inventory" type="string" formattype="string"/>
+                    <column name="parentInventoryName" title="Category" type="string" formattype="string"/>
+                    <column name="description" title="Inventory Description" type="string" formattype="string"/>
+                    <column name="onhand" title="On Hand" type="number" formattype='number'/>
+                    <column name="averagecost" title="Avg Cost" type="number" formattype="number"/>
+                    <column name="assetValue" title="Asset Value" type="number" formattype="number"/>
+                    <column name="totalassetvalue" title="% of Total Assets" type="number" formattype="number"/>
+                    <column name="sellingprice" title="Sales Price" type="money" formattype="number"/>
+                    <column name="retailValue" title="Retail Value" type="money" formattype="number"/>
+                    <column name="totalRetailValue" title="% of Total Retail" type="number" formattype="number"/>
+                    <column name="warehousename" title="Ware House Name" type="string" formattype="string"/>
+                    <column name="locationname" title="Location Name" type="string" formattype="string"/>
+
+                </table>
+            </select>
+            <from>(
+                select parentid,coalesce(max(parentinventoryname),'Uncategorized Items') parentinventoryname,itemname
+                inventoryname	,
+                max(description) description,sum(onhand) onhand,case sum(onhand) when 0 then 0 else sum(asset)/sum(onhand) end averagecost, sum(asset) assetValue
+                , sum(asset/totalasset.assets)*100 totalAssetValue
+                , max(sellingprice) sellingprice, sum(onhand * sellingprice) retailValue
+                , sum(onhand * sellingprice/totalRetailValue.retailValue)*100 totalRetailValue
+                , warename warehousename
+                , (select text (aisle || ' ' || bin
+                || ' ' || rack || ' ' || shelf)  from "$".productwarehouselocation pwl
+                join "$".productlocation pl on pwl.productlocationid=pl.id
+                where pwl.productid=r.itemid and pwl.warehouseid=r.warehouseid ) locationname
+
+
+                from (select  pc.parentid parentid,pc.productcategory inventoryname,pc.productparentcategory parentInventoryName,  i.name itemname,
+                i.description description, i.id itemid
+                , case upper(s.transaction_code) when 'IN' then s.quantity when 'OUT' then (-1)*s.quantity end onhand
+                , (case upper(s.transaction_code) when 'IN' then s.transaction_value when 'OUT' then (-1)*s.transaction_value  end) asset
+                , i.sellingprice sellingprice
+                , war.name warename
+                , war.id warehouseid
+                from "$".item_stock s
+                inner join "$".item i on i.id=s.item_id
+                left join (select pc.name productcategory,pcp.name productparentcategory , pc.id,pcp.id parentid
+                from "$".productcategory pc
+                left join "$".productcategory pcp on coalesce(pc.parentid,pc.id)=pcp.id
+                order by pcp.id) pc on i.categoryid=pc.id
+                left join "$".warehouse war on s.warehouseid = war.id
+                where  coalesce(s.quantity ,0)>0 and i.deleted is not true
+                order by pc.id
+                ) r
+                left join (select cast(null as varchar) xxx, sum(assets) assets from (select sum(
+                (case upper(s.transaction_code) when 'IN' then s.transaction_value when 'OUT' then (-1)*s.transaction_value  end)) assets
+                from "$".item_stock s
+                inner join "$".item i on i.id=s.item_id
+                left join (select pc.name productcategory,pcp.name productparentcategory , pc.id,pcp.id parentid
+                from "$".productcategory pc
+                left join "$".productcategory pcp on coalesce(pc.parentid,pc.id)=pcp.id
+                order by pcp.id
+                ) pc on i.categoryid=pc.id
+                where  coalesce(s.quantity ,0)>0
+                group by pc.parentid, i.name) a) totalasset  on r.itemname=coalesce(totalasset.xxx,r.itemname)
+                left join (select cast(null as varchar) xxx, sum(retailValue) retailValue from ( select sum(onhand * sellingprice) retailValue
+                from (select pc.id inventoryid, pc.parentid parentid,pc.productcategory inventoryname,pc.productparentcategory parentInventoryName,i.name itemname, i.description description
+                , case upper(s.transaction_code) when 'IN' then s.quantity when 'OUT' then (-1)*s.quantity end onhand
+                , (case upper(s.transaction_code) when 'IN' then s.transaction_value end)
+                / (case upper(s.transaction_code) when 'IN' then s.quantity end) averagecost
+                , i.sellingprice sellingprice
+                from "$".item_stock s
+                inner join "$".item i on i.id=s.item_id
+                left join (select pc.name productcategory,pcp.name productparentcategory , pc.id,pcp.id parentid
+                from "$".productcategory pc
+                left join "$".productcategory pcp on coalesce(pc.parentid,pc.id)=pcp.id
+                order by pcp.id) pc on i.categoryid=pc.id
+                where  coalesce(s.quantity ,0)>0
+                order by pc.id) r
+
+                group by parentid, inventoryid,itemname) a) totalRetailValue on r.itemname=coalesce(totalRetailValue.xxx,r.itemname)
+                group by parentid, itemname, warename, itemid, warehouseid
+
+                ) t
+            </from>
+            <where>
+                <terms id="base" value="1=1"/>
+                <!-- <terms id="userid" userid="" company="t.company_id"/>
+              <terms id="managerid" userid="" company="t.company_id"/>
+              <terms id="leaderid" userid="" company="t.company_id"/>
+              <terms id="admin" company="t.company_id"/>-->
+            </where>
+        </sqlquery>
+    </view>
+</report>

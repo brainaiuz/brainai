@@ -1,0 +1,1 @@
+delete from "anv".genericSettings where key = 'ENABLE_CUSTOMER_NUMBER_WITHOUT_FORMAT';

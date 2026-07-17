@@ -1,0 +1,315 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style type="text/css">
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+
+        td {
+            padding: 3px;
+        }
+
+        .title {
+            font-size: 9pt;
+        }
+
+        .name {
+            font-size: 7pt;
+        }
+
+        .value {
+            font-size: 8pt;
+        }
+
+        .nameCapital {
+            text-transform: capitalize;
+        }
+
+        .sales-invoice-table-pdf th {
+            border-bottom: 1px solid black;
+            font-size: 9pt;
+        }
+
+        .sales-invoice-table-pdf td {
+            border-bottom: 1px solid #ced5db;
+            font-size: 9pt;
+        }
+
+        #sales-invoice__tmp * {
+            line-height: 1.4;
+        }
+
+    </style>
+</head>
+<body>
+<div>
+    <img alt="images" src="https://workforcetrack.s3.amazonaws.com/000000000000/public/65159/a2113e82-397f-49fd-a58a-cdf4f4b93dff?AWSAccessKeyId=AKIAIROQMC77E5UKWBWQ" style="display: none;"/>
+    #if($itextGenericPdfData.companyData.companyName == 'KPI Software Inc' or $itextGenericPdfData.companyData.companyLogoUrl == 'https://apps.kpi.com/customisation/kpi.com/images/kpilogo.png')
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="width: 88px; display: none;"/>
+    #else
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="max-width: 100%; max-height: 100%; display: none;"/>
+    #end
+
+    #set($headerTable = $itextGenericPdfData.getCustomData().get('TASK_CONTENT_TABLE').getRows())
+    #set($assigneeTable = $itextGenericPdfData.getCustomData().get('TASK_ASSIGNEES').getRows())
+    #set($taskLabels = $itextGenericPdfData.localizeLabels)
+
+    #set($taskInformationLabel = $taskLabels.get('TASK_INFORMATION_LABEL'))
+    #set($taskDescriptionLabel = $taskLabels.get('TASK_DESCRIPTION_LABEL'))
+
+
+
+
+    #set($project = $headerTable.get('PROJECT_NAME').get('NAME'))
+    #set($projectLabel = $taskLabels.get('PROJECT_LABEL'))
+
+    #set($taskNumber = $headerTable.get('TASK_NUMBER').get('NAME'))
+    #set($taskNumberLabel = $taskLabels.get('TASK_NUMBER_LABEL'))
+
+    #set($taskName = $headerTable.get('TASK_NAME').get('NAME'))
+    #set($taskNameLabel = $taskLabels.get('TASK_NAME_LABEL'))
+
+    #set($startDate = $headerTable.get('TASK_START_DATE').get('NAME'))
+    #set($startDateLabel = $taskLabels.get('START_DATE_LABEL'))
+
+    #set($dueDate = $headerTable.get('TASK_DUE_DATE').get('NAME'))
+    #set($dueDateLabel = $taskLabels.get('DUE_DATE_LABEL'))
+
+
+    #set($status = $headerTable.get('TASK_STATUS').get('NAME'))
+    #set($statusLabel = $taskLabels.get('STATUS_LABEL'))
+
+    #set($billable = $headerTable.get('BILLABLE').get('NAME'))
+    #set($billableLabel = $taskLabels.get('BILLABLE_LABEL'))
+
+    #set($estimatedTime = $headerTable.get('ESTIMATED_TIME').get('NAME'))
+    #set($estimatedTimeLabel = $taskLabels.get('ESTIMATED_TIME_LABEL'))
+
+    #set($timeSpent = $headerTable.get('TIME_SPENT').get('NAME'))
+    #set($timeSpentLabel = $taskLabels.get('TIME_SPENT_LABEL'))
+
+    #set($priority = $headerTable.get('TASK_PRIORITY').get('NAME'))
+    #set($priorityLabel = $taskLabels.get('PRIORITY_LABEL'))
+
+    #set($description = $headerTable.get('TASK_DESCRIPTION').get('NAME'))
+    #set($descriptionLabel = $taskLabels.get('DESCRIPTION_LABEL'))
+
+    #set($assigneesLabel = $taskLabels.get('ASSIGNEES_LABEL'))
+    #set($employeeCodeLabel = $taskLabels.get('EMPLOYEE_CODE_LABEL'))
+    #set($employeeNameLabel = $taskLabels.get('EMPLOYEE_NAME_LABEL'))
+    #set($assigneeStatusLabel = $taskLabels.get('ASSIGNEES_STATUS_LABEL'))
+    #set($additionalInformationLabel = $taskLabels.get('ADDITIONAL_INFORMATION_LABEL'))
+
+    <table width="100%" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+            <td class="title nameCapital" style="font-weight: bold;" width="100%">$taskInformationLabel</td>
+        </tr>
+    </table>
+
+    <table width="100%" cellspacing="0" cellpadding="0" style="margin-top: 10px;" border="0">
+        <tr>
+            <td width="40%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td class="name nameCapital" width="100%">$projectLabel: <strong>#if($project!='') $project
+                            #else — #end</strong></td>
+                    </tr>
+                </table>
+            </td>
+            <td width="30%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td class="name nameCapital" width="100%">$startDateLabel: <strong>#if($startDate!='')
+                            $startDate #else — #end</strong></td>
+                    </tr>
+                </table>
+            </td>
+            <td width="30%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td class="name nameCapital" width="100%">$billableLabel: <strong>#if($billable!='') $billable
+                            #else — #end</strong></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <table width="100%" cellspacing="0" cellpadding="0" style="margin-top: 10px;" border="0">
+        <tr>
+            <td width="40%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td class="name nameCapital" width="100%">$taskNumberLabel - $taskNameLabel: <strong>$taskNumber
+                            - $taskName</strong></td>
+                    </tr>
+                </table>
+            </td>
+            <td width="30%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td class="name nameCapital" width="100%">$dueDateLabel: <strong>#if($dueDate!='') $dueDate
+                            #else — #end</strong></td>
+                    </tr>
+                </table>
+            </td>
+            <td width="30%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td class="name nameCapital" width="100%">$estimatedTimeLabel: <strong>#if($estimatedTime!='')
+                            $estimatedTime #else — #end</strong></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <table width="100%" cellspacing="0" cellpadding="0" style="margin-top: 10px;" border="0">
+        <tr>
+            <td width="40%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td class="name nameCapital" width="100%">$priorityLabel: <strong>#if($priority!='') $priority
+                            #else — #end</strong></td>
+                    </tr>
+                </table>
+            </td>
+            <td width="30%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td class="name nameCapital" width="100%">$statusLabel: <strong>#if($status!='') $status #else —
+                            #end</strong></td>
+                    </tr>
+                </table>
+            </td>
+            <td width="30%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td class="name nameCapital" width="100%">$timeSpentLabel: <strong>#if($timeSpent!='')
+                            $timeSpent #else — #end</strong></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+
+    #if($description!='')
+    <table width="100%" cellspacing="0" cellpadding="0" align="right" style="margin-top: 15px; border-bottom: 1px solid #000;">
+        <tr>
+            <td width="100%"></td>
+        </tr>
+    </table>
+
+
+    <table width="100%" cellspacing="0" align="right" cellpadding="0" border="0" style="margin-top: 15px;">
+        <tr>
+            <td class="title nameCapital" style="font-weight: bold;" width="100%">$taskDescriptionLabel</td>
+        </tr>
+    </table>
+
+    <table width="100%" cellspacing="0" align="right" cellpadding="0" style="margin-top: 10px;" border="0">
+        <tr>
+            <td width="100%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <!--<tr>
+                        <td width="100%" class="name nameCapital">Description</td>
+                    </tr>-->
+                    <tr>
+                        <td style="font-weight: bold;" class="value" width="100%">
+                            $description
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    #end
+
+    #if($assigneeTable.values().size()>0)
+    <table width="100%" cellspacing="0" cellpadding="0" align="right" style="margin-top: 15px; border-bottom: 1px solid #000;">
+        <tr>
+            <td width="100%"></td>
+        </tr>
+    </table>
+
+    <table width="100%" cellspacing="0" align="right" cellpadding="0" border="0" style="margin-top: 20px;">
+        <tr>
+            <td class="title nameCapital" style="font-weight: bold;" width="75%">$assigneesLabel</td>
+        </tr>
+    </table>
+
+    <table border="0" cellpadding="10" cellspacing="0" class="product-table sales-invoice-table-pdf" style="margin-bottom: 22pt; font-size: 9pt; width:100%; table-layout:fixed;">
+        <colgroup>
+            <col style="width:20%"></col>
+            <col style="width:30%"></col>
+            <col style="width:30%"></col>
+            <col style="width:20%"></col>
+        </colgroup>
+        <thead>
+
+        <tr>
+            <th style="padding-left: 0; text-align: left; vertical-align: top;"><strong>$employeeCodeLabel</strong></th>
+            <th style="padding-left: 0; text-align: left; vertical-align: top;"><strong>$employeeNameLabel</strong></th>
+            <th style="padding-left: 0; text-align: left; vertical-align: top;"><strong>$assigneeStatusLabel</strong>
+            </th>
+            <th style="padding-left: 0; text-align: left; vertical-align: top;"><strong>$timeSpentLabel</strong></th>
+        </tr>
+        </thead>
+        <tbody>
+        #foreach($row in $assigneeTable.values())
+        <tr>
+            <td style="padding-left: 0; word-wrap:break-word;">
+                $row.get('EMPLOYEE_CODE')
+            </td>
+            <td style="word-wrap:break-word;">
+                $row.get('EMPLOYEE_NAME')
+            </td>
+            <td style="word-wrap:break-word;">
+                $row.get('ASSIGNEE_STATUS')
+            </td>
+            <td style="word-wrap:break-word;">
+                $row.get('TIME_SPENT')
+            </td>
+        </tr>
+        #end
+        </tbody>
+    </table>
+    #end
+
+    #set($customFieldTable = $itextGenericPdfData.customData.get("CUSTOM_FIELD").customFields.get("TASK"))
+
+    #if($customFieldTable.size() > 0)
+
+    <table width="100%" cellspacing="0" cellpadding="0" align="right" style="margin-top: 15px; border-bottom: 1px solid #000;">
+        <tr>
+            <td width="100%"></td>
+        </tr>
+    </table>
+
+    <table width="100%" cellspacing="0" align="right" cellpadding="0" border="0" style="margin-top: 20px; margin-bottom: 15px;">
+        <tr>
+            <td class="title nameCapital" style="font-weight: bold;" width="100%"> $additionalInformationLabel</td>
+        </tr>
+    </table>
+
+    <div>
+        #foreach($row in $customFieldTable.values())
+        <div style="width: 25%; float: left;">
+            <div class="name" style="padding-bottom: 3px; padding-left: 3px;">
+                $row.get('COLUMN_NAME')
+            </div>
+            <div style="font-weight: bold; padding-top: 3px; padding-left: 3px; padding-bottom: 15px;" class="value">
+                #if($row.get('COLUMN_VALUE')!='') $row.get('COLUMN_VALUE') #else — #end
+            </div>
+        </div>
+        #end
+    </div>
+
+    #end
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:w='urn:import:com.edatasite.workforce.gwt.core.client.ui'
+             xmlns:mhtml='urn:import:gwt.material.design.client.ui.html'
+             xmlns:m='urn:import:gwt.material.design.client.ui'
+             xmlns:menubar="urn:import:gwt.material.design.addins.client.menubar">
+
+    <g:HTMLPanel styleName="attendanceReport">
+        <div class="attendanceReport__filters">
+            <div class="group-box group-box--no-padding group-box--united">
+                <div class="group-box__items">
+
+                    <div class="group-box__item group-box__item--width-free group-box__item--split-right">
+                        <div>
+                            <g:FlowPanel ui:field="plusButton"/>
+                        </div>
+                    </div>
+
+                    <div class="group-box__item group-box__item--width-free group-box__item--split-right">
+                        <div>
+                            <g:FlowPanel ui:field="searchPanel"/>
+                        </div>
+                    </div>
+
+                    <div class="group-box__item group-box__item--width-free group-box__item--split-right">
+                        <div>
+                            <g:TextBox ui:field="searchBox"/>
+                        </div>
+                    </div>
+
+                    <div class="group-box__item flex-shrink-0 group-box__item--split-right">
+                        <div >
+                            <m:MaterialLink styleName="btn btn--icon btn--white" ui:field="resetButton"/>
+                            <menubar:MaterialMenuBar styleName="btn-group dropdown-kit--arrow--below"
+                                                     ui:field="menuBar"/>
+                            <m:MaterialLink styleName="btn btn--icon btn--white" ui:field="filter"/>
+                        </div>
+                    </div>
+
+                    <div class="group-box__item group-box__item--width-free invoice__date group-box__item--split-right">
+                        <div class="group-box__item-content">
+                            <div class="input-group">
+                                <w:DatePicker ui:field="monthPicker"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group-box__item flex-shrink-0 group-box__item--split-right" >
+                        <div>
+                            <g:HTMLPanel ui:field="weeks"/>
+                        </div>
+                    </div>
+
+                    <div class="group-box__item group-box__item--width-free" style="margin-left: auto;">
+                        <div>
+                            <div class="operPanel__settings">
+                                <div class="paging-group opers-2 operPanel--paging">
+                                    <div class="pagingStat__wrapper">
+                                        <m:MaterialLink class="dropdown-button"
+                                                        activates="attendance_report_pagination_menu" href="#">
+                                            <mhtml:Span styleName="pagingStat" ui:field="dispalying"/>
+                                        </m:MaterialLink>
+                                    </div>
+                                    <m:MaterialDropDown activator="attendance_report_pagination_menu"
+                                                        class="dropdown-content" ui:field="paginationMenu"/>
+
+                                    <mhtml:Div ui:field="pagingWrapper"></mhtml:Div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="attendanceReport__table-wrapper">
+            <g:HTML styleName="attendanceReport__table-header fixed-content" ui:field="tableHeader"/>
+            <g:HTMLPanel styleName="attendanceReport__table-body" ui:field="tablePanel"/>
+        </div>
+
+    </g:HTMLPanel>
+</ui:UiBinder>

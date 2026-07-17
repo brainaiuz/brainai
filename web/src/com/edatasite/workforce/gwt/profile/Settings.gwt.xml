@@ -1,0 +1,15 @@
+<module rename-to="settings">
+    <inherits name='com.edatasite.workforce.gwt.profile.SettingsMain'/>
+    <!--<inherits name='com.edatasite.workforce.gwt.website.WebsiteMain'/>-->
+    <!--<inherits name="com.edatasite.workforce.gwt.workspace.WorkspaceMain"/>-->
+    <inherits name="com.edatasite.workforce.gwt.news.News"/>
+    <inherits name='com.edatasite.workforce.gwt.submodule.todo.TodoEmpty'/>
+    <inherits name='com.edatasite.workforce.gwt.hrms.HrmsEmpty'/>
+    <inherits name='com.edatasite.workforce.gwt.team.Team'/>
+    <inherits name='com.edatasite.workforce.gwt.employee.Employee'/>
+    <inherits name="org.gwt.advanced.Grid"/>
+
+    <entry-point class='com.edatasite.workforce.gwt.profile.client.Settings'/>
+    <inherits name="com.edatasite.workforce.gwt.Localization_properties"></inherits>
+    <inherits name="com.google.gwt.user.Debug"/>
+</module>

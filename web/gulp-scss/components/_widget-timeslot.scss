@@ -1,0 +1,52 @@
+.timeslot {
+  height: 100%;
+
+  th, td {
+    height: rem(108px);
+    width: 14.2857%;
+    padding: 1%;
+    text-align: center;
+    font-size: .9em;
+
+    &:not(.day-off) {
+
+      background-color: #fff;
+    }
+
+    &.current {
+      font-weight: bold;
+    }
+    &.day-off {
+      color: #b0242d;
+    }
+  }
+  tr > * + * {
+    border-left: 1px solid $color-base-0;
+  }
+  thead {
+    th {
+      position: relative;
+      text-transform: uppercase;
+      &.current {
+        span {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          text-align: center;
+          font-weight: normal;
+          font-size: 8px;
+          line-height: 16px;
+          letter-spacing: 1px;
+          background-color: #c1c8d0;
+          color: #fff;
+        }
+      }
+    }
+  }
+  tbody {
+    td {
+      border-top: 1px solid $color-base-0;
+    }
+  }
+}

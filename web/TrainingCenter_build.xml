@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<project name="TrainingCenter" basedir=".">
+
+    <import file="Base_build.xml"/>
+
+    <target name="TrainingCenter">
+        <antcall target="MAIN">
+            <param name="permutation" value="com.edatasite.workforce.gwt.trainingcenter.TrainingCenter"/>
+        </antcall>
+    </target>
+
+</project>

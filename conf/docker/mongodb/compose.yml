@@ -1,0 +1,16 @@
+
+services:
+  mongodb:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: kpi:mongodb
+    container_name: "${KPI_MONGODB_HOST}"
+    hostname: "${KPI_MONGODB_HOST}"
+    ports:
+      - "${KPI_MONGODB_PORT}:27017"
+    restart: always
+    deploy:
+      resources:
+        limits:
+          memory: "${KPI_MONGODB_MAX_MEMORY}"

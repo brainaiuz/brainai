@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Organization Chart</title>
+    <style>
+        /*@page {
+            size: 8.3in 11.7in;
+            margin: 40px 30px 100px 30px;
+            padding: 0;
+
+            @top-center {
+                content: element(header);
+            }
+        }
+        #header {
+            margin-top: 0 !important;
+        }*/
+
+        a {
+            color: #1071e3;
+            text-decoration: none;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #0d59b3;
+        }
+
+        table, th, td {
+            border: none;
+            font-weight: normal;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        /*START ORG CHART*/
+        .ttree-dropbtn {
+            background-color: #f2f5f7 !important;
+        }
+
+        .ttree-dropdown-content {
+            display: none;
+        }
+
+        .ttree-dropdown:hover .ttree-dropdown-content {
+            display: block;
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+            border-color: #ced5db;
+        }
+
+        .ttree-dropdown-content a {}
+
+        .white-overlay .btn[style*="fixed;"] {
+            z-index: 99;
+        }
+
+        .orgChart {
+            margin: 60px 10px 10px;
+        }
+
+        .orgChart__header {
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            top: 3.33333rem;
+            right: auto !important;
+            background-color: rgba(255, 255, 255, 0.8);
+            height: 60px;
+        }
+
+        .orgChart__header > div + div {
+            padding-left: 10px;
+        }
+
+        .orgChart__switch {}
+
+        .orgChart__title {
+            line-height: 40px;
+            margin-left: 10px;
+        }
+
+        .orgChart__reset {
+            float: right;
+            position: static !important;
+        }
+
+        .orgChart table table {
+            /*border-collapse: collapse;*/
+        }
+
+        .orgChart td {
+            text-align: center;
+            vertical-align: top;
+            padding: 0;
+        }
+
+        .orgChart .tlleft {
+            width: 9px;
+            border-left: 2px solid #ced5db;
+        }
+
+        .orgChart .bls2 {
+            border-left-width: 2px !important;
+        }
+
+        .orgChart .tSame25 {
+            /*width: 25% !important;*/
+        }
+
+        .orgChart--2 .borderLeft {
+            border-left: 2px solid #ced5db;
+        }
+
+        .orgChart .nextLevel {
+            position: relative;
+            padding: 0 0 0 15px;
+        }
+
+        .orgChart .rowSpacer {
+            height: 15px;
+        }
+
+        .orgChart .tbottom {
+            border-bottom: 2px solid #ced5db;
+        }
+
+        .orgChart tr.nodes ~ tr:last-child > .nextLevel.borderLeft {
+            position: relative;
+        }
+
+        .orgChart tr.nodes ~ tr:last-child > .nextLevel.borderLeft:before {
+            content: "";
+            position: absolute;
+            /*z-index: 9;*/
+            left: -10px;
+            bottom: -5px;
+            width: 13px;
+            top: 43px;
+            border-top-right-radius: 2px;
+            background: #fff;
+            /*background: yellow;*/
+            box-shadow: none;
+        }
+
+        .orgChart .nextLevel.borderLeft .parentLines {
+            position: relative;
+        }
+
+        .orgChart .nextLevel.borderLeft .parentLines:before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            margin-top: -2px;
+            left: -15px;
+            width: 50%;
+            border-bottom-left-radius: 50%;
+            /* border-bottom: 2px solid #ced5db; */
+            height: 2px;
+            background: #ced5db;
+        }
+
+        .orgChart .orgChart tr:last-child table tr:last-child > .nextLevel > table > tbody > .nodes .parentLines:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: -13px;
+            width: 4px;
+            background: #fff;
+            height: 10000px;
+            top: calc(50% + 1px);
+        }
+
+        .orgChart .orgChart > table > tbody > tr > td > table > tbody > tr.nodes:first-child .parentLines:after {
+            display: none;
+        }
+
+        .orgChart .orgChart > table > tbody > tr > td > table > tbody > tr.nodes:first-child .parentLines:before {
+            display: none;
+        }
+
+        .orgChart .orgChart div.node.childrenLines {
+            width: 100%;
+            min-width: 100px;
+        }
+
+        .orgChart .orgChart .parentLines:before {
+            top: 0.2px;
+            height: 1.6px;
+        }
+
+        .orgChart .orgChart > table > tbody > tr:last-child .borderLeft, .orgChart .orgChart > table > tbody > tr:last-child .tline {
+            border-color: #ced504 !important;
+        }
+
+        .orgChart .orgChart > table > tbody > tr:last-child .parentLines:before {
+            background: #ced504 !important;
+        }
+
+        .orgChart .orgChart div.node {
+            min-width: 220px;
+        }
+
+        .orgChart .orgChart > table > tbody > tr:last-child .childrenLines {
+            width: 100%;
+            min-width: 150px;
+            max-width: 250px;
+        }
+
+        .orgChart.orgChart--1 > table > tbody > tr > td {
+            padding-left: 6px;
+            padding-right: 6px;
+        }
+
+        .orgChart.orgChart--1 td.node {
+            padding: 0 2px;
+        }
+
+        .orgChart.orgChart--2 > table > tbody > tr > td {
+            padding-left: 6px;
+            padding-right: 6px;
+        }
+
+        .orgChart.orgChart--2 td.node {
+            padding: 0 4px;
+            text-align: center;
+        }
+
+        .orgChart .interactive .hasChildren {
+            cursor: pointer;
+        }
+
+        .orgChart .ttop {
+            border-top: 2px solid #ced5db;
+        }
+
+        .orgChart .tleft {
+            border-right: 1px solid #ced5db;
+        }
+
+        .orgChart .tright {
+            border-left: 1px solid #ced5db;
+        }
+
+        .orgChart tr.tlines td.tline {
+            /*width: 1px;*/
+            height: 15px;
+        }
+        .orgChart--2 > table > tbody > tr.nodes + .tlines td.tline {
+            height: 25px;
+        }
+        .tlines.x .tline {
+            width: 50%;
+        }
+
+        .orgChart h2, .orgChart h3 {
+            font-weight: normal;
+        }
+
+        .orgChart div.node h2, .orgChart div.node h3, .orgChart div.node h5, .orgChart div.node em {
+            /* line-height: 1.2; */
+        }
+
+        .orgChart div.node h2:hover, .orgChart div.node h3:hover, .orgChart div.node h5:hover, .orgChart div.node em:hover {
+            overflow: visible;
+        }
+
+        .orgChart .adjunct.node {
+            position: absolute;
+            margin-top: 8px;
+            margin-left: -110px;
+            width: 80px;
+            height: 40px;
+            background-color: white;
+        }
+
+        .orgChart .adjunct-link {
+            display: inline-block;
+            position: absolute;
+            margin-left: -20px;
+            margin-top: 25px;
+            width: 20px;
+            border: 2px dashed #4f88bb;
+        }
+
+        .orgChart > table > tbody > .orgChart tr.tlines td.tline {
+            width: 1px;
+            height: 20px;
+        }
+
+        .orgChart ul {
+            list-style-type: none;
+            position: relative;
+        }
+
+        .orgChart li {
+            margin: 0;
+            padding: 0;
+            font-weight: normal;
+        }
+
+        .orgChart .circular-portrait {
+            position: relative;
+            overflow: hidden;
+            border-radius: 3px;
+            height: 50px;
+            width: 50px;
+        }
+
+        .orgChart .circular-portrait + div.overhide {
+            overflow: hidden;
+        }
+
+        .orgChart .circular-portrait + div.overhide h2, .orgChart .circular-portrait + div.overhide h3 {
+            flex: 1 0 auto;
+        }
+
+        .orgChart .circular-portrait + div.overhide em {}
+
+        .orgChart .circular-portrait img {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            min-width: 30px;
+            min-height: 40px;
+            background: #ced5db;
+        }
+        tr.tlines + tr.nodes > td.node > div.node.shownChildren {
+            background: #f9fafb;
+        }
+        .orgChart .ttree {
+            margin: 0;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .orgChart .ttree li {
+            position: relative;
+        }
+
+        .orgChart .ttree li + li {
+            padding-top: 15px;
+        }
+
+        .orgChart .ttree > li::before {
+            content: '';
+            position: absolute;
+            border-left: 1px solid #8d9ba8;
+            width: 0;
+            left: 13px;
+            top: 0px;
+            bottom: 0px;
+        }
+
+        .orgChart .ttree > li:last-child {
+            /* hide line from the last of the first level list items */
+        }
+
+        .orgChart .ttree > li + li[style*="padding:0px"] {
+            padding-top: 15px !important;
+        }
+
+        .orgChart .ttree ul {
+            margin: 0 0 0 15px;
+            padding-left: 10px;
+        }
+
+        .orgChart .ttree ul > li {
+            clear: both;
+            padding-top: 7px;
+            padding-bottom: 7px;
+            /* horizontal line on inner list items */
+        }
+
+        .orgChart .ttree ul > li::after {
+            content: '';
+            position: absolute;
+            border-top: 1px solid #8d9ba8;
+            top: 50%;
+            left: auto;
+            right: 100%;
+            width: 12px;
+            height: 0;
+        }
+
+        .orgChart .ttree .circular-portrait {
+            float: left;
+            clear: left;
+            width: 30px;
+            height: 30px;
+            margin-right: 8px;
+        }
+
+        .orgChart .ttree .overhide h5 {
+            margin: 0;
+            font-size: 1rem;
+            line-height: 1;
+            text-transform: none;
+            font-weight: normal;
+        }
+
+        .orgChart--1 tr.nodes div.node {
+            width: 124px;
+            height: 141px;
+            padding: 9px 5px;
+        }
+
+        .orgChart--1 div.node h2 {
+            margin: 7px 0 0;
+            font-size: 1rem;
+            line-height: 1;
+        }
+
+        .orgChart--1 div.node h2 a {
+            font-size: 0.91667rem;
+            color: #4aa7e4;
+        }
+
+        .orgChart--1 div.node h3 {
+            margin: 3px 0;
+            font-size: 1rem;
+        }
+
+        .orgChart--1 div.node h3 i {
+            font-style: normal;
+        }
+
+        .orgChart--1 div.node em {
+            display: block;
+            margin: 0.41667rem 0 0.41667rem;
+            font-size: 10px;
+            font-style: normal;
+            text-transform: lowercase;
+            line-height: 1;
+            color: gray;
+        }
+
+        .orgChart__container .orgChart--1 .circular-portrait {
+            text-align: center;
+        }
+
+        .orgChart__container .orgChart--1 .circular-portrait i {
+            font-size: 24px;
+            font-size: 1.5rem;
+        }
+
+        .orgChart--2 {
+            text-align: center;
+        }
+
+        .orgChart--2 > table {
+            margin-left: auto;
+            margin-right: auto;
+            /*border: 1px solid orangered;*/
+        }
+
+        .orgChart--2 div.node > h2 {
+            font-size: 0.91667rem;
+            padding: 8px;
+            background: #8d9ba8;
+            color: #fff;
+            margin: 0;
+        }
+
+        .orgChart--2 div.node em, .orgChart--2 div.node i {
+            font-style: normal;
+            color: gray;
+        }
+
+        .orgChart--2 div.node em {
+            margin: 5px 0 10px 0;
+            font-size: 10px;
+            line-height: 1.3;
+            display: block;
+        }
+
+
+
+        .orgChart--2 tr.nodes:first-child div.node .ttree-wrapword {
+            /* padding-top: 9px; */
+            /* min-height: 52px; */
+        }
+
+        .orgChart--2 tr.nodes:first-child div.node .ttree-wrapword h2 {
+            /* min-height: 41px; */
+            margin: 10px;
+            font-size: 0.91667rem;
+            line-height: 1.2;
+            line-height: 1.2;
+        }
+
+        .orgChart--2 tr.nodes:first-child div.node .ttree-dropdown {
+            display: none;
+        }
+
+        .orgChart--2 tr.nodes:first-child div.node .ttree-dropbtn {
+            display: none;
+        }
+
+        /*.orgChart--with-employes*/
+        td.node {
+            text-align: center;
+        }
+        div.node {
+            display: inline-block;
+            position: relative;
+            width: 100%;
+            min-width: 125px;
+            max-width: 298px;
+            min-height: 89px;
+            line-height: 1.2em;
+            border-radius: 8px;
+            background-color: #F6F7F8;
+        }
+        div.node.hasChildren {
+            background: #f5f5f5;
+        }
+        .orgChart--2 > table > tbody > tr.nodes > td.node > div.node {
+            min-height: 0;
+        }
+        .orgChart--2 tr.nodes:first-child div.node {
+            /* background: lightyellow; */
+        }
+
+        .orgChart--2 > table > tbody > tr > td > table > tbody > tr > td.colSpacer {
+            width: 0;
+        }
+
+        .orgChart .count-left, .orgChart .count-right {
+            position: absolute;
+            bottom: 5px;
+            font-size: .9em;
+            color: #6c757d;
+        }
+        .orgChart .count-left {
+            left: 10px;
+        }
+        .orgChart .count-right {
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+<div id="body sales-invoice__tmp">
+    <div class="orgChart orgChart--2">
+        $itextGenericPdfData.getCustomData().get('CONTENT').getName()
+    </div>
+</div>
+</body>
+</html>

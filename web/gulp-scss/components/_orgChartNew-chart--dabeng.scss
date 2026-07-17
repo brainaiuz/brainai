@@ -1,0 +1,277 @@
+.orgBoard {
+  //max-width: 800px;
+}
+
+// end Temporary fix
+
+
+// OrgChart (dabeng) – KPI mode styles
+// KPI orgchart container: only local overrides for dabeng layout / lines
+.orgchart--kpi {
+  background-image: none;
+  //background: inherit;
+
+  // Color palette for org-structure cards
+  // Палитра цветов карточек оргструктуры
+  --orgst-color-blue: #dbeafe;
+  --orgst-color-pink: #fee2e2;
+  --orgst-color-yellow: #fef3c7;
+  --orgst-color-green: #ecfccb;
+
+  // remove legacy arrows from old orgchart implementation
+  // убираем лишние стрелочки от старого orgchart-а
+  .node:before,
+  .subNodeItem:before {
+    content: none;
+  }
+
+  // dabeng sets .orgchart { display: inline-block; }
+  // we need full-width block container for scrolling & panning
+  // делаем контейнер блочным, чтобы диаграмма занимала всю ширину
+  &.orgchart {
+    display: block;
+  }
+
+  // ------------------------------------------------------
+  // Connectors style (lines between nodes)
+  // Управление цветом и толщиной соединительных линий
+  // ------------------------------------------------------
+  $orgchart-line-color: $color-base-1;
+  $orgchart-line-width: 2px;
+
+  // стандартные линии dabeng
+  .lines {
+    .topLine,
+    .rightLine,
+    .leftLine,
+    .downLine {
+      border-width: $orgchart-line-width;
+      border-color: $orgchart-line-color;
+    }
+  }
+
+  // вертикальный коннектор
+  .hierarchy:not(.couple)>.node:has(+.nodes)::after,
+  .node:not(:only-child)::after,
+  > ul > li > ul li > .node:not(.outsider)::before,
+  > ul > li > ul li > .node::before,
+  .hierarchy::before {
+    border-width: $orgchart-line-width;
+    border-color: $orgchart-line-color;
+    background-color: $orgchart-line-color;
+  }
+
+
+  // ------------------------------------------------------
+  // Orgchart owner profile popup
+  // ------------------------------------------------------
+}
+
+
+// Node card layout and levels
+// Карточки и уровни
+.orgNode {
+  cursor: move;
+
+  // isolate from dabeng's .node flex/width rules
+  // изолируемся от правил .node библиотеки
+  .orgchart.orgchart--kpi & {
+    display: block;
+    text-align: left;
+  }
+
+
+  // base card
+  &__card {
+    // we fully control card appearance here and never touch .node styles
+    // внешний вид карточки управляем только здесь, .node не трогаем
+    border-radius: $radius-big;
+    padding: rem(16px) rem(18px) rem(14px);
+    background-color: #fff;
+    box-shadow: 0 rem(6px) rem(16px) rgba(15, 23, 42, 0.12);
+    //min-width: rem(260px);
+    //max-width: rem(640px);
+
+    @include base-transition(background-color, border-color, box-shadow);
+
+    // typography smoothing
+    font-size: $font-size-base; // fallback to project base size
+    line-height: 1.4;
+
+    &.orgNode--dragSource {
+      outline: 2px dashed rgba(37, 99, 235, .7);
+      outline-offset: 2px;
+    }
+
+  }
+
+
+  // header: title + gear button
+  &__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: rem(12px);
+    margin-bottom: rem(8px);
+  }
+
+  &__headerMain {
+    min-width: 0; // allow text ellipsis
+  }
+
+  // main title (function name)
+  &__title {
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin-bottom: rem(4px);
+  }
+
+  // subtitle under title (position)
+  &__subtitle {
+    font-size: $font-size-base;
+    color: $gray-mutted;
+  }
+
+  // gear button wrapper (dropdown-kit)
+  &__actions {
+    flex-shrink: 0;
+  }
+
+  &__menuWrapper {
+    .dropdown-button {
+      position: relative; // опорная точка для списка
+
+      .btn--icon {
+        padding: rem(4px);
+        border-radius: 50%;
+      }
+    }
+  }
+
+  &__gear {
+    // btn--icon already has basic styles,
+    // we only fix alignment inside node header
+    vertical-align: top;
+  }
+
+  // dropdown menu for node actions
+  // сам список
+  &__menu {
+    position: absolute;
+    top: calc(100% + rem(4px)); // чуть ниже кнопки
+
+    .orgNode__card & {
+      right: 0;
+    }
+
+    min-width: rem(220px);
+    padding: rem(8px) 0;
+    border-radius: $radius-big;
+
+    background-color: #fff;
+    box-shadow: 0 rem(10px) rem(30px) rgba(15, 23, 42, 0.18);
+
+    display: none;
+    opacity: 0;
+    pointer-events: none;
+
+    @include base-transition(opacity);
+
+    li > a {
+      display: flex;
+      align-items: center;
+      padding: rem(8px) rem(16px);
+      column-gap: rem(8px);
+
+      font-size: $font-size-base;
+      color: $text-color-base;
+      white-space: nowrap;
+
+      @include base-transition(background-color);
+
+      &:hover {
+        background-color: $color-base-contrast;
+      }
+
+      .icon-text {
+        display: inline-flex;
+        align-items: center;
+        column-gap: rem(10px);
+
+        svg {
+          flex-shrink: 0;
+        }
+      }
+    }
+  }
+
+  // показываем меню, когда кнопка активна
+  .dropdown-button.active &__menu {
+    display: block;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  // meta row: avatar + owner name
+  &__metaRow {
+    display: flex;
+    align-items: center;
+    gap: rem(8px);
+    margin-bottom: rem(8px);
+    margin-top: rem(4px);
+    cursor: pointer;
+
+    .avatar {
+      width: rem(32px);
+    }
+  }
+
+  &__metaName {
+    font-weight: 500;
+  }
+
+  // text blocks for YKM / metrics / description
+  &__body {
+    font-size: $font-size-base;
+    color: $text-color-base;
+    margin-top: rem(4px);
+
+    & + & {
+      margin-top: rem(4px);
+    }
+
+    strong {
+      font-weight: 600;
+      display: inline-block;
+      margin-right: rem(4px);
+    }
+  }
+
+  // footer actions row (если ещё что-то появится кроме меню)
+  &__footer {
+    margin-top: rem(10px);
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  // Colors of cards by level type
+  .orgNode--root &__card {
+    background-color: var(--orgst-color-blue);
+  }
+
+  .orgNode--band1 &__card {
+    background-color: var(--orgst-color-pink);
+  }
+
+  .orgNode--band2 &__card {
+    background-color: var(--orgst-color-yellow);
+  }
+
+  .orgNode--func &__card {
+    background-color: var(--orgst-color-green);
+  }
+}
+
+// End .orgNode

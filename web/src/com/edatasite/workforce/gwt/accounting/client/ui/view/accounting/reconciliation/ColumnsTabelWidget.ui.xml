@@ -1,0 +1,31 @@
+<!-- UploadWidget.ui.xml -->
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:g="urn:import:com.google.gwt.user.client.ui"
+             xmlns:kpi="urn:import:com.edatasite.workforce.gwt.core.client.ui"
+             xmlns:c='urn:import:com.edatasite.workforce.gwt.core.client.ui'>
+    <g:HTMLPanel>
+        <div class="panel--bordered panel--rows uploadedCols">
+            <div class="panel__heading">
+                <div class="grid-row">
+                    <div class="col">
+                        <i class="col-tag">A</i>
+                        <span>Column heading from csv file</span>
+                    </div>
+                    <div class="col">
+                        <i class="col-tag">B</i>
+                        <span>Preview from csv file</span>
+                    </div>
+                    <div class="col">
+                        <i class="col-tag">C</i>
+                        <span>Assign to a field in KPI</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <g:FlowPanel ui:field="panelBodyContainer"/>
+
+        </div>
+
+    </g:HTMLPanel>
+</ui:UiBinder>

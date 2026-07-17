@@ -1,0 +1,1 @@
+update permission set name = 'Sales Quote Approve Or Reject' where code = 'ACCOUNTING_CAN_APPROVE_SALES_QUOTE' and parent = (select id from permission where code = 'ACCOUNTING_SALES_QUOTE_LIST');

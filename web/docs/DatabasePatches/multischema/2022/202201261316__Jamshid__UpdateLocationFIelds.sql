@@ -1,0 +1,2 @@
+delete from "anv".modelfield where form_id = 'LOCATION_FORM' and field_id not in ('NAME', 'COUNTRY', 'CITY', 'STATE', 'EMPLOYEES');
+update "anv".modelfield set columntype = 'COL_2' where form_id = 'LOCATION_FORM' and field_id not in ('NAME', 'COUNTRY');

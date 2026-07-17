@@ -1,0 +1,149 @@
+.compose {
+  height: 100%;
+  > .content-box {
+    height: 100%;
+
+    // height of editor problem https://prnt.sc/myqg2p
+    > .width-limiter {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      > * {
+
+      }
+      > .code {
+        flex: 1 0 auto;
+        > div {
+          height: 100%;
+          > .code {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+
+            .note-editor {
+              flex: 1 0 auto;
+              display: flex;
+              flex-direction: column;
+              .note-editable {
+                flex: 1 0 auto;
+              }
+            }
+          }
+        }
+      }
+    }
+    // \ height of editor problem https://prnt.sc/myqg2p
+  }
+
+  .token-list-fb {
+    position: relative;
+    z-index: 0; // left menu overlap fix https://prnt.sc/mnb1bz
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    margin: 0;
+    border: none;
+
+
+    .form-control {
+      margin: 0;
+      border-bottom: 0;
+    }
+    .custom-select, .simpleGwt-ComboBox, .select-wrapper {
+      position: static;
+    }
+    .openIconWrapperFacebook {
+      display: inline-block !important;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 0;
+      border-bottom: $control-border-width solid $control-border-color;
+    }
+  }
+  .token-fb {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+  }
+  .input-fb {
+    flex-grow: 1;
+    width: auto !important;
+    float: none;
+  }
+
+
+  &__to {
+    position: relative;
+
+    > div:first-child {
+      flex-grow: 1;
+    }
+    .form-control {
+      padding-right: 70px;
+    }
+  }
+  &__cc {
+    position: absolute;
+    z-index: 999;
+    right: 0;
+    top: 7px;
+    a {
+      margin-right: 5px;
+      color: $color-accent-2;
+      &:hover, &:focus {
+        color: $text-color-base;
+      }
+      + a {
+        margin-left: 1px;
+      }
+    }
+  }
+  &__subject {
+    align-items: flex-end;
+    .col-auto:last-child {
+      width: 35%;
+      padding-left: 15px;
+    }
+    .gwt-ListBox {
+      .select-dropdown {
+        //font-weight: 500;
+        direction: ltr;
+        text-indent: 0;
+        text-align: left;
+      }
+    }
+  }
+  .select-dropdown {
+    padding-left: 0;
+  }
+  .form-control {
+    padding-left: 0;
+    border-radius: 0;
+    border-top-color: transparent;
+    border-left: none;
+    border-right: none;
+    border-bottom: $control-border-width solid $control-border-color; //especially indicated for (ul.token-list-fb li input) lookup list control
+    &:focus + .openIconWrapperFacebook,
+    &:focus {
+      border-bottom-color: $control-border-color-hover;
+    }
+  }
+  .token-fb + .input-fb .form-control {
+    padding-left: $control-padding-x;
+  }
+  .note-editable {
+    border:none !important;
+  }
+}
+
+//MODAL WITH ADDED LINKS TABLE
+.added-links {
+  td + td {
+    @include txtTruncate();
+    padding-left: 10px;
+  }
+}
+
+

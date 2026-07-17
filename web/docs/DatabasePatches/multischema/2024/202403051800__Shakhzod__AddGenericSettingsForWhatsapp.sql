@@ -1,0 +1,1 @@
+insert into "anv".genericsettings (key,value) values ('ENABLE_WHATSAPP','NO');

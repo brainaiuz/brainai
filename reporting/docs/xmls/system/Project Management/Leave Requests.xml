@@ -1,0 +1,57 @@
+<report>
+    <view>
+        <title>Leave Request</title>
+        <name>Leave Request</name>
+        <category>sickRequest</category>
+        <sqlquery>
+            <select agregateFunc="distinct">
+                <table name="sicjRequest" class="file--LeaveReQuests">
+                    <column name="id" title="id" type="number" formattype="hidden"/>
+                    <column name="departmentName" title="Department" type="string" formattype="string"/>
+                    <column name="employeeName" title="Employee" type="string" formattype="string"/>
+                    <column name="startDate" title="Start Date" type="date" formattype="date_without_time_zone" customdateformat="DD-Mon, YYYY HH24:MI"/>
+                    <column name="endDate" title="End Date" type="date" formattype="date_without_time_zone" customdateformat="DD-Mon, YYYY HH24:MI"/>
+                    <column name="statusName" title="Status" type="string" formattype="string"/>
+                    <column name="reasonName" title="Reason" type="string" formattype="string"/>
+                    <column name="description" title="Description" type="string" formattype="string"/>
+                    <column name="typeName" title="Type" type="string" formattype="string"/>
+                    <column name="toTakeFromAllowanceData" title="Taken from annual leave" type="string" formattype="string"/>
+                    <column name="approverName" title="Approver" type="string" formattype="string"/>
+                    <column name="takendays" title="Taken days" type="money" formattype="money"/>
+                </table>
+            </select>
+            <from>
+                (
+                select lr.id, dp.name departmentName, coalesce(u.firstname,'')||' '||coalesce(u.lastname,'') employeeName,lr.startDate,lr.endDate,(lr.endDate-lr.startDate)::time datex
+                ,coalesce(sts.name,'Pending') statusName
+                ,reason.name reasonName,lr.description,type.name typeName
+                , case when lr.toTakeFromAllowance then 'Yes' else 'No' end toTakeFromAllowanceData
+                ,coalesce(approver.firstname,'')||' '||coalesce(approver.lastName,'') approverName
+                , elr.takendays
+                from "$".team dp
+                left join "$".teamEmployee te on dp.id=te.teamId
+                left join "$".employee e on te.id=e.employeeDepartmentId
+                inner join "$".myuser u on e.id=u.id
+                join "$".SickRequest lr on e.id=lr.employeeId
+                left join "$".reference sts on lr.status=sts.id
+                left join "$".reference reason on lr.reason=reason.id
+                left join "$".reference type on lr.type=type.id
+
+                left join "$".myuser approver on lr.managerId=approver.id
+
+                left join (select att.employeeId as id,	round(CAST (SUM(CASE WHEN att.holiday = false THEN att.leave/cast(att.timeslot as real) ELSE (CASE WHEN att.holidayfromannualleave = true THEN 1 ELSE 0 END) END) AS numeric) ,1)as takendays
+                from "$".attendancerawdata att
+                left join datejoin d on ( d.id = att.dateid)
+                where  att.dayoff is not true and leave !=0 and (date_part('year', d.from_date) = date_part('year', now())) group by att.employeeid)
+                elr on e.id = elr.id
+
+                where dp.isdeleted is not true and u.deleted is not true
+
+                )t
+            </from>
+            <where>
+                <terms id="base" value="1=1"/>
+            </where>
+        </sqlquery>
+    </view>
+</report>

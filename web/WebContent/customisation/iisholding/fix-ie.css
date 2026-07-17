@@ -1,0 +1,73 @@
+
+/* START .signUpForm */
+#text-1 {
+	background:#fff;}
+	.signUpForm label select {
+		//height:40px;}
+/* END .signUpForm */
+
+/* START header nav */
+header nav {
+	position:relative;
+	z-index:2;}
+header nav li>ul {
+	display:none;
+	//overflow:visible;}
+header nav li:hover>ul {
+	display:block;}
+	header nav li ul li, header nav li:hover ul li, header nav li ul li a {
+		height:auto;}
+	header nav li ul li a {
+		//position:static;}
+	header nav li ul li a:hover {
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#33a5e7', endColorstr='#117abe',GradientType=0 );}
+
+	header nav li:hover ul {
+		border:1px solid #E1E1E1;
+		border-bottom:0;}
+/* END header nav */
+
+.appActs {
+	margin:0 0 13px 20px}
+
+.langBar ul {
+	background-color:#fff;}
+
+/* START styles for buttons */
+.btn-1, .btn-2, .btn-3, .btn-4, .btn-5, .btn-6,
+.plate-1, .plate-1 h2 {position:relative;}
+/* END styles for buttons */
+
+#content {//overflow:hidden;}
+
+/* START #main */
+#main, footer {
+	border-right:1px solid #ccc;
+	border-left:1px solid #ccc;}
+#main, article {//overflow:hidden;}
+/* END #main */
+
+.articleSpecial .cellLeft {
+	width:415px;}
+.slideMenu li a, .btn-3 {position:relative;}
+.slideMenu li {margin:0 12px 0 0}
+
+.articleRecentPosts {
+	overflow:hidden;}
+.articleFeatures table .thead .fLeft div {
+	margin:0;}
+
+#head-bann
+,.productsList .even {
+	//clear:none;}
+.productsList .even {
+	margin-left:24px;
+	}
+
+.btn-3 .iconArrows {
+	margin:-10px -10px 0 20px;}
+
+.packFormWrap {border:1px solid #ccc;}
+
+.page-id-149 .mDownload {
+	//width:290px;}

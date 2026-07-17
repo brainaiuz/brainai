@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="Reporting - Server Build" basedir=".">
+    <!--IMPORT GWT MODULS-->
+    <import file="gwtbuild.xml"/>
+
+    <property name="src.dir" value="src"/>
+    <property name="lib.dir" value="lib"/>
+    <property name="web.dir" value="web"/>
+
+    <!-- Temporary build directories -->
+    <property name="build.dir" value="out/exploded/web"/>
+    <property name="build.classes" value="${build.dir}/WEB-INF/classes"/>
+    <property name="build.lib" value="${build.dir}/WEB-INF/lib"/>
+
+    <path id="gwt.compiler.classpath">
+        <pathelement location="src"/>
+        <pathelement location="../../ChartService/cs/src"/>
+        <fileset dir="${gwt.sdk}"/>
+    </path>
+
+    <path id="reporting.class.path">
+        <pathelement path="${java.class.path}/"/>
+        <fileset dir="${build.lib}">
+            <include name="*.jar"/>
+        </fileset>
+    </path>
+
+
+    <target name="delete" description="Delete All Directories">
+
+        <delete dir="${build.dir}"/>
+
+        <mkdir dir="${build.dir}"/>
+        <mkdir dir="${build.classes}"/>
+        <mkdir dir="${build.lib}"/>
+        <mkdir dir="${build.classes}/META-INF"/>
+
+    </target>
+
+    <target name="all" depends="delete,report,drsystem,admin,dashboard"
+            description="Cleans,Copies and Compiles">
+
+        <copy todir="${build.lib}">
+            <fileset dir="${lib.dir}"/>
+        </copy>
+
+        <copy todir="${build.dir}">
+            <fileset dir="${web.dir}"/>
+        </copy>
+
+        <copy todir="${build.classes}/META-INF">
+            <fileset dir="${src.dir}/META-INF"/>
+        </copy>
+
+        <javac srcdir="${src.dir}" destdir="${build.classes}">
+            <classpath refid="gwt.class.path"/>
+            <classpath refid="reporting.class.path"/>
+        </javac>
+
+    </target>
+
+</project>

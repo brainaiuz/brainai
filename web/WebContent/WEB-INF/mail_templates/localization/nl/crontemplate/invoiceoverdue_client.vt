@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+
+<p>Beste $username,</p>
+
+<p>Dit een herinnering dat de volgende facturen nog open staan:</p>
+
+<table border="0" width="100%" cellspacing="0" style="border: solid 1px #365F91;color:#365F91;margin-top:20px;">
+    <tr>
+        <td bgcolor="#FFFFFF" style="border: solid 1px #365F91;width:50px;text-align:center;"><b>Factuurnummer</b></td>
+        <td bgcolor="#FFFFFF" style="border: solid 1px #365F91;width:50px;text-align:center;"><b>Factuurdatum</b></td>
+        <td bgcolor="#FFFFFF" style="border: solid 1px #365F91;width:50px;text-align:center;"><b>Vervaldatum</b></td>
+        <td bgcolor="#FFFFFF" style="border: solid 1px #365F91;width:50px;text-align:center;"><b>Totaalbedrag</b></td>
+        <td bgcolor="#FFFFFF" style="border: solid 1px #365F91;width:50px;text-align:center;"><b>Betaald</b></td>
+    </tr>
+    #foreach($invoice in $invoices)
+        <tr>
+            <td bgcolor="#FFFFFF"
+                style="border: solid 1pt; width:50px;text-align:left; font-color:#000000;">$invoice.getInvoiceNumber()</td>
+            <td bgcolor="#FFFFFF"
+                style="border: solid 1pt; width:50px;text-align:center; font-color:#000000;">$invoice.getInvoiceDateAsString()</td>
+            <td bgcolor="#FFFFFF"
+                style="border: solid 1pt; width:50px;text-align:center; font-color:#000000;">$invoice.getDueDateAsString()</td>
+            <td bgcolor="#FFFFFF"
+                style="border: solid 1pt; width:50px;text-align:center; font-color:#000000;">$invoice.getTotalInInvoiceAsString()</td>
+            <td bgcolor="#FFFFFF"
+                style="border: solid 1pt; width:50px;text-align:center; font-color:#000000;">$invoice.getPaymentsAsString()</td>
+        </tr>
+    #end
+</table>
+<p>Mocht u vragen hebben over de bovenstaande facturen, neem dan gerust contact met ons op. Indien er al een
+    betalingsopdracht verzonden is kunt u dit bericht als niet verzonden beschouwen.</p>
+
+<br/>
+
+<p>Met vriendelijke groet,<br/>
+    Afdeling Boekhouding,<br/>
+    $company
+</p>
+</body>
+</html>

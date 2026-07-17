@@ -1,0 +1,53 @@
+
+delete from "0".customformsection where form_id='TASK_MAX_FORM';
+INSERT INTO "0".customformsection (active, custom, form_id, section, sorder, expanded) VALUES (true, false, 'TASK_MAX_FORM', 'TASK_DETAILS', 0, true);
+INSERT INTO "0".customformsection (active, custom, form_id, section, sorder) VALUES (true, false, 'TASK_MAX_FORM', 'ASSIGNEES', 1);
+INSERT INTO "0".customformsection (active, custom, form_id, section, sorder) VALUES (true, false, 'TASK_MAX_FORM', 'DEPENDENCIES', 2);
+INSERT INTO "0".customformsection (active, custom, form_id, section, sorder) VALUES (true, false, 'TASK_MAX_FORM', 'MORE_DETAILS', 3);
+INSERT INTO "0".customformsection (active, custom, form_id, section, sorder) VALUES (true, false, 'TASK_MAX_FORM', 'ATTACHMENTS', 4);
+INSERT INTO "0".customformsection (active, custom, form_id, section, sorder) VALUES (false, false, 'TASK_MAX_FORM', 'LINKS', 5);
+INSERT INTO "0".customformsection (active, custom, form_id, section, sorder) VALUES (true, false, 'TASK_MAX_FORM', 'TASK_NOTES', 6);
+INSERT INTO "0".customformsection (active, custom, form_id, section, sorder) VALUES (false, false, 'TASK_MAX_FORM', 'ADVANCED_OPTIONS', 7);
+INSERT INTO "0".customformsection (active, custom, form_id, section, sorder) VALUES (true, false, 'TASK_MAX_FORM', 'ADDITIONAL_INFORMATION', 8);
+INSERT INTO "0".customformsection (active, custom, form_id, section, sorder) VALUES (true, false, 'TASK_MAX_FORM', 'UPDATES', 9);
+insert into "0".modelfield (form_id, fsection, field_id, forder, columntype, hide, hideincustomizeform) values('TASK_MAX_FORM', 'TASK_DETAILS', 'PDF_VERSION', 3, 'COL_3', false, false);
+insert into "0".modelfield (form_id, fsection, field_id, forder, columntype, hide, hideincustomizeform) values('TASK_MAX_FORM', 'MORE_DETAILS', 'PROJECT_MANAGER', 0, 'COL_1', false, false);
+insert into "0".modelfield (form_id, fsection, field_id, forder, columntype, hide, hideincustomizeform) values('TASK_MAX_FORM', 'MORE_DETAILS', 'BACKUP_MANAGERS', 1, 'COL_1', false, false);
+insert into "0".modelfield (form_id, fsection, field_id, forder, columntype, hide, hideincustomizeform) values('TASK_MAX_FORM', 'MORE_DETAILS', 'CLIENT', 2, 'COL_1', false, false);
+insert into "0".modelfield (form_id, fsection, field_id, forder, columntype, hide, hideincustomizeform) values('TASK_MAX_FORM', 'MORE_DETAILS', 'TIME_SPENT', 3, 'COL_1', false, false);
+insert into "0".modelfield (form_id, fsection, field_id, forder, columntype, hide, hideincustomizeform) values('TASK_MAX_FORM', 'MORE_DETAILS', 'ACTUAL_START_DATE', 0, 'COL_2', false, false);
+insert into "0".modelfield (form_id, fsection, field_id, forder, columntype, hide, hideincustomizeform) values('TASK_MAX_FORM', 'MORE_DETAILS', 'ACTUAL_END_DATE', 1, 'COL_2', false, false);
+insert into "0".modelfield (form_id, fsection, field_id, forder, columntype, hide, hideincustomizeform) values('TASK_MAX_FORM', 'MORE_DETAILS', 'ACTUAL_TIME_SPENT', 2, 'COL_2', false, false);
+insert into "0".modelfield (form_id, fsection, field_id, forder, columntype, hide, hideincustomizeform) values('TASK_MAX_FORM', 'MORE_DETAILS', 'ACTUAL_COST', 3, 'COL_2', false, false);
+insert into "0".modelfield (form_id, fsection, field_id, forder, columntype, hide, hideincustomizeform) values('TASK_MAX_FORM', 'MORE_DETAILS', 'ESTIMATED_TIME', 0, 'COL_3', false, false);
+insert into "0".modelfield (form_id, fsection, field_id, forder, columntype, hide, hideincustomizeform) values('TASK_MAX_FORM', 'MORE_DETAILS', 'ESTIMATED_COST', 1, 'COL_3', false, false);
+insert into "0".modelfield (form_id, fsection, field_id, forder, columntype, hide, hideincustomizeform) values('TASK_MAX_FORM', 'MORE_DETAILS', 'WAITING_HOURS', 2, 'COL_3', false, false);
+insert into "0".modelfield (form_id, fsection, field_id, forder, columntype, hide, hideincustomizeform) values('TASK_MAX_FORM', 'MORE_DETAILS', 'REJECTED_HOURS', 3, 'COL_3', false, false);
+insert into "0".modelfield (form_id, fsection, field_id, forder, columntype, hide, hideincustomizeform) values('TASK_MAX_FORM', 'UPDATES', 'CREATED_BY', 0, 'COL_1', false, false);
+insert into "0".modelfield (form_id, fsection, field_id, forder, columntype, hide, hideincustomizeform) values('TASK_MAX_FORM', 'UPDATES', 'CREATED_DATE', 1, 'COL_1', false, false);
+insert into "0".modelfield (form_id, fsection, field_id, forder, columntype, hide, hideincustomizeform) values('TASK_MAX_FORM', 'UPDATES', 'UPDATED_BY', 0, 'COL_2', false, false);
+insert into "0".modelfield (form_id, fsection, field_id, forder, columntype, hide, hideincustomizeform) values('TASK_MAX_FORM', 'UPDATES', 'UPDATED_DATE', 1, 'COL_2', false, false);
+insert into "0".modelfield (form_id, fsection, field_id, forder, columntype, hide, hideincustomizeform) values('TASK_MAX_FORM', 'TASK_DETAILS', 'PERCENT', 1010, 'COL_1', true, false);
+
+
+
+INSERT INTO "anv".customformsection (active, custom, form_id, section, sorder) VALUES (true, false, 'TASK_MAX_FORM', 'MORE_DETAILS', 2);
+INSERT INTO "anv".customformsection (active, custom, form_id, section, sorder) VALUES (true, false, 'TASK_MAX_FORM', 'UPDATES', 7);
+insert into "anv".modelfield (form_id, fsection, field_id, forder, columntype, hide, hideincustomizeform) values('TASK_MAX_FORM', 'TASK_DETAILS', 'PDF_VERSION', 3, 'COL_3', false, false);
+insert into "anv".modelfield (form_id, fsection, field_id, forder, columntype, hide, hideincustomizeform) values('TASK_MAX_FORM', 'MORE_DETAILS', 'PROJECT_MANAGER', 0, 'COL_1', false, false);
+insert into "anv".modelfield (form_id, fsection, field_id, forder, columntype, hide, hideincustomizeform) values('TASK_MAX_FORM', 'MORE_DETAILS', 'BACKUP_MANAGERS', 1, 'COL_1', false, false);
+insert into "anv".modelfield (form_id, fsection, field_id, forder, columntype, hide, hideincustomizeform) values('TASK_MAX_FORM', 'MORE_DETAILS', 'CLIENT', 2, 'COL_1', false, false);
+insert into "anv".modelfield (form_id, fsection, field_id, forder, columntype, hide, hideincustomizeform) values('TASK_MAX_FORM', 'MORE_DETAILS', 'TIME_SPENT', 3, 'COL_1', false, false);
+insert into "anv".modelfield (form_id, fsection, field_id, forder, columntype, hide, hideincustomizeform) values('TASK_MAX_FORM', 'MORE_DETAILS', 'ACTUAL_START_DATE', 0, 'COL_2', false, false);
+insert into "anv".modelfield (form_id, fsection, field_id, forder, columntype, hide, hideincustomizeform) values('TASK_MAX_FORM', 'MORE_DETAILS', 'ACTUAL_END_DATE', 1, 'COL_2', false, false);
+insert into "anv".modelfield (form_id, fsection, field_id, forder, columntype, hide, hideincustomizeform) values('TASK_MAX_FORM', 'MORE_DETAILS', 'ACTUAL_TIME_SPENT', 2, 'COL_2', false, false);
+insert into "anv".modelfield (form_id, fsection, field_id, forder, columntype, hide, hideincustomizeform) values('TASK_MAX_FORM', 'MORE_DETAILS', 'ACTUAL_COST', 3, 'COL_2', false, false);
+insert into "anv".modelfield (form_id, fsection, field_id, forder, columntype, hide, hideincustomizeform) values('TASK_MAX_FORM', 'MORE_DETAILS', 'ESTIMATED_TIME', 0, 'COL_3', false, false);
+insert into "anv".modelfield (form_id, fsection, field_id, forder, columntype, hide, hideincustomizeform) values('TASK_MAX_FORM', 'MORE_DETAILS', 'ESTIMATED_COST', 1, 'COL_3', false, false);
+insert into "anv".modelfield (form_id, fsection, field_id, forder, columntype, hide, hideincustomizeform) values('TASK_MAX_FORM', 'MORE_DETAILS', 'WAITING_HOURS', 2, 'COL_3', false, false);
+insert into "anv".modelfield (form_id, fsection, field_id, forder, columntype, hide, hideincustomizeform) values('TASK_MAX_FORM', 'MORE_DETAILS', 'REJECTED_HOURS', 3, 'COL_3', false, false);
+insert into "anv".modelfield (form_id, fsection, field_id, forder, columntype, hide, hideincustomizeform) values('TASK_MAX_FORM', 'UPDATES', 'CREATED_BY', 0, 'COL_1', false, false);
+insert into "anv".modelfield (form_id, fsection, field_id, forder, columntype, hide, hideincustomizeform) values('TASK_MAX_FORM', 'UPDATES', 'CREATED_DATE', 1, 'COL_1', false, false);
+insert into "anv".modelfield (form_id, fsection, field_id, forder, columntype, hide, hideincustomizeform) values('TASK_MAX_FORM', 'UPDATES', 'UPDATED_BY', 0, 'COL_2', false, false);
+insert into "anv".modelfield (form_id, fsection, field_id, forder, columntype, hide, hideincustomizeform) values('TASK_MAX_FORM', 'UPDATES', 'UPDATED_DATE', 1, 'COL_2', false, false);
+insert into "anv".modelfield (form_id, fsection, field_id, forder, columntype, hide, hideincustomizeform) values('TASK_MAX_FORM', 'TASK_DETAILS', 'PERCENT', 1010, 'COL_1', true, false);

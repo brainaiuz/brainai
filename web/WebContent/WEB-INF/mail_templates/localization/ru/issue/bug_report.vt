@@ -1,0 +1,28 @@
+﻿## Issue add notification
+## $issue(EdsIncident) - Newly created issue
+## $user - User submitted this alert
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+
+<body>
+##<h1>Отчет об ошибках</h1>
+<p><b>Дата отчета:</b> $date</p>
+
+<p><b>Компания:</b> $company</p>
+
+<p><b>Пользователь:</b> $userName</p>
+
+<p><b>Электронная почта:</b> $userEmail</p>
+
+<p><b>Раздел:</b> $section</p>
+##<b>Ошибка :</b> $reportText
+$reportText
+<input type="hidden" value="$keywords"/>
+
+</body>
+</html>

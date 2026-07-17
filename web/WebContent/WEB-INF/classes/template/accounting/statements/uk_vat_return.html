@@ -1,0 +1,165 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            font-weight: 300;
+            font-size: 9pt;
+            line-height: 1.4;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        h4 {
+            font-size: 20px;
+            font-weight: 300;
+            text-align: center;
+        }
+
+        h5 {
+            font-size: 18px;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .table table {
+            border-bottom: 1px solid #ddd;
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        .table table th {
+            color: #263035;
+            font-size: 12px;
+            font-weight: 500;
+            text-transform: uppercase;
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            border-left: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+            background-color: #f5f5f5;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .table table th:not(:nth-child(-n+2)), .table table td:not(:nth-child(-n+2)) {
+            width: 15%;
+            text-align: left;
+        }
+
+        .table table td {
+            border-bottom: 1px solid #ddd;
+            border-top: 1px solid #ddd;
+            border-left: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+            padding: 10px;
+            vertical-align: top;
+            font-size: 12px;
+            line-height: 1.42;
+        }
+
+        .table table td:first-child {
+            text-align: left;
+        }
+
+        .table table td a {
+            color: #428bca;
+            text-decoration: none;
+        }
+
+        .table table td span {
+            display: block;
+            white-space: normal;
+            color: #555;
+            margin-top: 5px;
+            font-size: 12px;
+        }
+
+        .table table td.disable {
+            background: #f9f9f9;
+            white-space: nowrap;
+        }
+
+        .table table td .asbutton {
+            background-color: #2e8fda;
+            display: inline;
+            font-size: 75%;
+            color: #fff;
+            border-radius: .25em;
+            float: left;
+            margin: 0;
+            line-height: 1.3;
+            font-weight: 600;
+            padding: .2em .6em .1em;
+        }
+
+        .table.min-table table td:last-child {
+            width: 21%;
+        }
+
+        .table {
+            position: relative;
+        }
+
+        .date-section {
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .date-section span {
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+<section>
+    <img alt="images"
+         src="https://workforcetrack.s3.amazonaws.com/000000000000/public/65159/a2113e82-397f-49fd-a58a-cdf4f4b93dff?AWSAccessKeyId=AKIAIROQMC77E5UKWBWQ"
+         style="display: none;"/>
+    #if($itextGenericPdfData.companyData.companyName == 'KPI Software Inc' or
+    $itextGenericPdfData.companyData.companyLogoUrl == 'https://apps.kpi.com/customisation/kpi.com/images/kpilogo.png')
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="width: 88px;display: none;"/>
+    #else
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl"
+         style="max-width: 100%; max-height: 100%; display: none;"/>
+    #end
+
+    <div class="container">
+        <main>
+            <h4>$itextGenericPdfData.companyData.companyName</h4>
+            <h5>VAT return</h5>
+            <p class="date-section">$itextGenericPdfData.extraData</p>
+            <!--sales-table-->
+            #set($salesTable = $itextGenericPdfData.customData.get("SALES_TABLE"))
+            <div class="table-section">
+                <div class="table">
+                    <table>
+                        <tr>
+                            <th>№</th>
+                            <th>DESCRIPTION</th>
+                            <th>BOX#</th>
+                            <th>AMOUNT</th>
+                        </tr>
+                        #foreach($salesRow in $salesTable.rows.values())
+                        <tr>
+                            <td>$salesRow.get("COLUMN_CODE")</td>
+                            <td>$salesRow.get("COLUMN_DESCRIPTION")</td>
+                            <td>$salesRow.get("COLUMN_BOX")</td>
+                            <td>$salesRow.get("COLUMN_ADJUSTMENTS")</td>
+                        </tr>
+                        #end
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+</section>
+</body>
+</html>

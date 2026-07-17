@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head><body>
+
+<p>Dear $USER.firstName $USER.lastName,</a><br />
+
+<p>Please be advised that $APPROVER.firstName $APPROVER.lastName has approved your Expense Claims,
+$REPORT_TITLE on $APPROVE_DATE.</p>
+
+<p>The PDF version of the Expense Claims is attached for your attention.</p>
+
+<p>Click <a href="$HOST/Accounting.html?link=$LINK&uid=$uid&cid=$companyid" title="Edit Expense Claims" target="_blank">here </a>
+to view the Expense Claims.</p>
+
+<p><font color='red'>* </font>If you are not able to click on the link, you can copy and paste the following address into your web browser:<br />
+$HOST/Accounting.html?link=$LINK&uid=$uid&cid=$companyid</p>
+
+<p></p>
+
+</body></html>

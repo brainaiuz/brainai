@@ -1,0 +1,67 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:kpiNew='urn:import:com.edatasite.workforce.gwt.core.client.ui.components'
+             xmlns:mhtml='urn:import:gwt.material.design.client.ui.html'
+             xmlns:design="urn:import:gwt.material.design.client.ui"
+             xmlns:k='urn:import:com.edatasite.workforce.gwt.core.client.ui'>
+    <g:HTMLPanel width="100%">
+        <div class="orgChart__container box-radius">
+            <div class="orgChart__header fixed-content box-radius--top">
+                <div class="orgChart__switchView">
+                    <design:MaterialButton ui:field="refreshBtn"/>
+                    <div class="orgChart__title txt-elem--base-dark btnReload"></div>
+                </div>
+                <g:HTMLPanel styleName="orgChart__switchView operPanel__settings" ui:field="switchDiv">
+
+                </g:HTMLPanel>
+                <div class="orgChart__switchView">
+                    <design:MaterialButton ui:field="resetBtn"/>
+                    <div class="orgChart__title txt-elem--base-dark"></div>
+                </div>
+                <g:HTMLPanel styleName="form-group ">
+                    <br/>
+                    <mhtml:Label ui:field="locationLabel" styleName="form-group__label"/>
+
+                    <g:HTMLPanel styleName="orgChart__switchView " ui:field="locationDBLClick">
+
+                    </g:HTMLPanel>
+                </g:HTMLPanel>
+                <g:HTMLPanel styleName="form-group ">
+                    <br/>
+                    <mhtml:Label ui:field="departmentLabel" styleName="form-group__label"/>
+
+                    <g:HTMLPanel styleName="orgChart__switchView " ui:field="departmentDBLClick">
+
+                    </g:HTMLPanel>
+                </g:HTMLPanel>
+                <g:HTMLPanel styleName="form-group ">
+                    <br/>
+                    <mhtml:Label ui:field="levelLabel" styleName="form-group__label"/>
+
+                    <div class="orgChart__switchView">
+                        <div class="dropdown-select--arrow dropdown-kit--below">
+                            <k:DataListBox ui:field="levelOptionList" width="175px"/>
+                        </div>
+                    </div>
+                </g:HTMLPanel>
+
+                <g:HTMLPanel styleName="orgChart__switchView operPanel__settings" ui:field="exportBtn">
+
+                </g:HTMLPanel>
+                <g:HTMLPanel styleName="orgChart__switchView " ui:field="customizeBtn">
+
+                </g:HTMLPanel>
+
+                <g:HTMLPanel styleName="form-group">
+                    <br/>
+                    <mhtml:Label ui:field="externalEmployeeLabel" styleName="form-group__label"/>
+
+                    <kpiNew:KpiSwitcher ui:field="externalEmployee"/>
+
+                </g:HTMLPanel>
+
+            </div>
+            <div ui:field="content" class="orgChart orgChart--2"></div>
+        </div>
+    </g:HTMLPanel>
+</ui:UiBinder>

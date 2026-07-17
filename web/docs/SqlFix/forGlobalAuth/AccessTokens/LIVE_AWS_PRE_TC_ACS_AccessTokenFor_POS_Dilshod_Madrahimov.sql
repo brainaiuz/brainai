@@ -1,0 +1,1 @@
+INSERT INTO apiaccesstoken(token, description,blocked) VALUES ('190ea109-c549-47fd-8663-8d2fc115bfef','Access token for POS PURA','f');

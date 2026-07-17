@@ -1,0 +1,1 @@
+insert into "anv".dashboard_accesses(dashboard_id, role_id) values ((select id from "anv".module_dashboards where name = 'Employee Portal'), (select id from "anv".role where code = 'ESS_USER'));

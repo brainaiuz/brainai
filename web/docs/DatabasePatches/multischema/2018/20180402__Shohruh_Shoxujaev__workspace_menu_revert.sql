@@ -1,0 +1,1 @@
+update permission set ismainmenu = true, companyid = null where code = 'WORKSPACE_MAIN_MENU';

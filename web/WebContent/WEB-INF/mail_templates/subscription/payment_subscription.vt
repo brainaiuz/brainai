@@ -1,0 +1,319 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width">
+    <style>@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+    body,
+    table.body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    td,
+    th {
+        color: #2c3a45;
+        font-family: Montserrat, Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-weight: normal;
+        padding: 0;
+        margin: 0;
+        Margin: 0;
+        text-align: left;
+        line-height: 1.5;
+    }
+    </style>
+</head>
+
+<body style="-moz-box-sizing: border-box; -ms-text-size-adjust: 100%; -webkit-box-sizing: border-box; -webkit-text-size-adjust: 100%; Margin: 0; box-sizing: border-box; color: #2c3a45; font-family: Montserrat, Helvetica Neue, Helvetica, Arial, sans-serif !important; font-size: 16px; font-weight: normal; line-height: 1.5; margin: 0; min-width: 100%; padding: 0; text-align: left; width: 100% !important;">
+
+<table class="body" cellpadding="0" cellspacing="0" border="0"
+       style="Margin: 0; background: #eceff3; color: #2c3a45; font-family: Montserrat , Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; height: 100%; line-height: 1.5; margin: 0; padding: 0; text-align: left; vertical-align: top; width: 100%;">
+    <tbody>
+    <tr style="padding: 0; text-align: left; vertical-align: top;">
+        <td style="Margin: 0; color: #2c3a45; font-family: Montserrat , Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 1.5; margin: 0; padding: 0; text-align: left; vertical-align: top;">
+            <table class="container" cellpadding="0" cellspacing="0" border="0"
+                   style="Margin: 0 auto; margin: 0 auto; padding: 0; text-align: inherit; vertical-align: top; width: 634px;">
+                <tbody>
+                <tr style="padding: 0; text-align: left; vertical-align: top;">
+                    <td style="Margin: 0; color: #2c3a45; font-family: Montserrat , Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 1.5; margin: 0; padding: 0; text-align: left; vertical-align: top;">
+
+                        <table class="row" cellspacing="0" cellpadding="0" border="0"
+                               style="border-collapse: separate; border-spacing: 17px 0; padding: 0; text-align: left; vertical-align: top; width: 100%;">
+                            <tbody>
+                            <tr style="padding: 0; text-align: left; vertical-align: top;">
+                                <td valign="middle"
+                                    style="Margin: 0; color: #2c3a45; font-family: Montserrat , Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 1.5; margin: 0; padding: 0; padding-bottom: 30px; padding-top: 30px; text-align: left; vertical-align: middle; width: 70px;">
+                                    <img src="${logo}"
+                                         width="56" height="54" alt="" border="0"
+                                         style="-ms-interpolation-mode: bicubic; clear: both; display: block; max-width: 100%; outline: none; text-decoration: none; width: auto;">
+                                </td>
+                                <td valign="middle"
+                                    style="Margin: 0; color: #2c3a45; font-family: Montserrat, Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 1.5; margin: 0; padding: 0; padding-bottom: 30px; padding-top: 36px; text-align: left; vertical-align: top;">
+                                    <div style="font-size: 13px;">
+                                        All-in-one business <br>management software
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="row" cellpadding="0" border="0" width="100%"
+                               style="border-collapse: separate; border-spacing: 17px 0; margin-bottom: 17px; padding: 0; text-align: left; vertical-align: top; width: 100%;">
+                            <tbody>
+                            <tr style="padding: 0; text-align: left; vertical-align: top;">
+                                <td valign="top"
+                                    style="Margin: 0; background-color: #2D3945; border-radius: 10px 10px 0 0; color: white; font-family: Montserrat , Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 1.5; margin: 0; padding: 30px 25px 0; text-align: left; vertical-align: top; width: 140px;">
+                                    <img
+                                            style="-ms-interpolation-mode: bicubic; clear: both; display: block; margin-bottom: 20px; outline: none; text-decoration: none;"
+                                            src="${host}/mainStyles/new-ui/images/emailTemplateService/wallet.png"
+                                            alt="picture" border="0">
+                                    <div style=" line-height: 1.375; ">
+                                        Your <b style="color: #2bbe57;"><br>payment <br>received</b>
+                                    </div>
+                                </td>
+                                <td valign="top"
+                                    style="Margin: 0; background-color: white; border-radius: 10px 10px 0 0; color: #2c3a45; font-family: Montserrat , Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 1.5; margin: 0; padding: 30px 25px 0; text-align: center; vertical-align: top;">
+
+                                    <div style="font-size: 18px; margin-bottom: 15px; margin-top: 10px;">Hello,
+                                        ${customerName}!
+                                    </div>
+                                    <div style="margin-bottom: 25px;">This is to confirm and thank you for your payment
+                                        of <b>$numberFormatter.format('#,##0.00', $invoiceTotalAmount) ${currency}.</b>
+                                    </div>
+
+                                </td>
+                            </tr>
+                            <tr style="padding: 0; text-align: left; vertical-align: top;">
+                                <td style="Margin: 0; background-color: #2D3945; border-radius: 0 0 10px 10px; color: white; font-family: Montserrat , Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 1.5; margin: 0; padding: 15px 25px 20px; text-align: left; vertical-align: bottom; width: 140px;">
+                                    <div style="font-size: 13px; line-height: 1.85;">
+                                        <div style="align-self: flex-end;vertical-align: bottom">Company ID:</div>
+                                        <div style="color: #b0bec8;overflow-wrap: break-word;word-wrap: break-word;max-width: 140px;text-decoration: none;">
+                                            ${companyId}
+                                        </div>
+                                    </div>
+                                    <div style="font-size: 13px; line-height: 1.85;">
+                                        <div style="align-self: flex-end;vertical-align: bottom">Company Name:</div>
+                                        <div style="color: #b0bec8;overflow-wrap: break-word;word-wrap: break-word;max-width: 140px;text-decoration: none;">
+                                            ${companyName}
+                                        </div>
+                                    </div>
+                                    <div style="font-size: 13px; line-height: 1.85;">
+                                        <div style="align-self: flex-end;vertical-align: bottom">Payment Date:</div>
+                                        <div style="color: #b0bec8;overflow-wrap: break-word;word-wrap: break-word;max-width: 140px;text-decoration: none;">
+                                            ${paymentDate}
+                                        </div>
+                                    </div>
+                                </td>
+                                <td style="Margin: 0; background-color: white; border-radius: 0 0 10px 10px; color: #2c3a45; font-family: Montserrat , Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 1.5; margin: 0; padding: 15px 0px 0px; text-align: left; vertical-align: top;">
+                                    <img width="393"
+                                         style="width: 393px; max-width: 100%;"
+                                         src="${host}/mainStyles/new-ui/images/emailTemplateService/pay.png"
+                                         alt="" border="0">
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+
+                        <table class="row" cellpadding="0" border="0" width="100%"
+                               style="border-collapse: separate; border-spacing: 17px 0; margin-bottom: 17px; padding: 0; text-align: left; vertical-align: top; width: 100%;">
+                            <tbody>
+                            <tr style="padding: 0; text-align: left; vertical-align: top;">
+                                <td style="Margin: 0; background-color: white; border-radius: 10px; color: #2c3a45; font-family: Montserrat , Helvetica, Arial, sans-serif; font-size: 13px; font-weight: normal; line-height: 1.84; margin: 0; padding: 30px 25px 30px; text-align: left; vertical-align: top;">
+                                    <div style="font-size: 18px; margin-bottom: 15px;">
+                                        Order Summary
+                                    </div>
+
+                                    <table class="order-table" width="100%" cellpadding="0" cellspacing="0" style="border-spacing: 0px 10px;">
+                                        <thead>
+                                        <tr>
+                                            <th style="padding: 10px 10px;font-size: 12px; border-bottom: 1px solid #eceff3;">
+                                                <b>Description</b></th>
+                                            <th style="padding: 10px 12px;font-size: 12px;width: 140px; border-bottom: 1px solid #eceff3;">
+                                                <b>QTY</b></th>
+                                            <th style="padding: 10px 10px;font-size: 12px;text-align: right; border-bottom: 1px solid #eceff3;">
+                                                <b>Amount</b></th>
+                                        </tr>
+                                        </thead>
+
+                                        <tfoot>
+                                        <tr>
+                                            <th style=" border-top: 1px solid #eceff3;padding: 10px 0;"></th>
+                                            <td style=" border-top: 1px solid #eceff3;padding: 10px 0;"></td>
+                                            <td style=" border-top: 1px solid #eceff3;padding: 10px 0;"></td>
+                                        </tr>
+                                        <tr>
+                                            <th style="padding: 0px 20px;font-size: 12px;padding-left: 0"></th>
+                                            <td style="color: #2c3a45;font-family: Montserrat, Helvetica Neue, Helvetica, Arial, sans-serif;font-weight: normal;padding: 0;margin: 0;Margin: 0;text-align: left;line-height: 1.5;padding: 0px 20px;font-size: 12px;padding-left: 0">
+                                                Users (${usersCount}) / Apps (${appsCount})
+                                            </td>
+                                            <td style="color: #2c3a45;font-family: Montserrat, Helvetica Neue, Helvetica, Arial, sans-serif;font-weight: normal;padding: 0;margin: 0;Margin: 0;text-align: left;line-height: 1.5;padding: 0px 20px;font-size: 12px;text-align: right;padding-right: 0;">
+                                                $numberFormatter.format('#,##0.00', $usersPrice)
+                                            </td>
+                                        </tr>
+                                        #if(${essUsersCount} >0 )
+                                        <tr>
+                                            <th style="padding: 0px 20px;font-size: 12px;padding-left: 0"></th>
+                                            <td style="color: #2c3a45;font-family: Montserrat, Helvetica Neue, Helvetica, Arial, sans-serif;font-weight: normal;padding: 0;margin: 0;Margin: 0;text-align: left;line-height: 1.5;padding: 0px 20px;font-size: 12px;padding-left: 0">
+                                                ESS User (${essUsersCount})
+                                            </td>
+                                            <td style="color: #2c3a45;font-family: Montserrat, Helvetica Neue, Helvetica, Arial, sans-serif;font-weight: normal;padding: 0;margin: 0;Margin: 0;text-align: left;line-height: 1.5;padding: 0px 20px;font-size: 12px;text-align: right;padding-right: 0;">
+                                                $numberFormatter.format('#,##0.00', $essUsersPrice)
+                                            </td>
+                                        </tr>
+                                        #end
+                                        #if(${nonUsersCount} >0 )
+                                        <tr>
+                                            <th style="padding: 0px 20px;font-size: 12px;padding-left: 0"></th>
+                                            <td style="color: #2c3a45;font-family: Montserrat, Helvetica Neue, Helvetica, Arial, sans-serif;font-weight: normal;padding: 0;margin: 0;Margin: 0;text-align: left;line-height: 1.5;padding: 0px 20px;font-size: 12px;padding-left: 0">
+                                                Non User (${nonUsersCount})
+                                            </td>
+                                            <td style="color: #2c3a45;font-family: Montserrat, Helvetica Neue, Helvetica, Arial, sans-serif;font-weight: normal;padding: 0;margin: 0;Margin: 0;text-align: left;line-height: 1.5;padding: 0px 20px;font-size: 12px;text-align: right;padding-right: 0;">
+                                                $numberFormatter.format('#,##0.00', $nonUsersPrice)
+                                            </td>
+                                        </tr>
+                                        #end
+                                        <tr>
+                                            <th style="padding: 0px 20px;font-size: 12px;padding-left: 0"></th>
+                                            <td style="color: #2c3a45;font-family: Montserrat, Helvetica Neue, Helvetica, Arial, sans-serif;font-weight: normal;padding: 0;margin: 0;Margin: 0;text-align: left;line-height: 1.5;padding: 0px 20px;font-size: 12px;padding-left: 0">
+                                                You save
+                                            </td>
+                                            <td style="color: #FF0000;font-family: Montserrat, Helvetica Neue, Helvetica, Arial, sans-serif;font-weight: normal;padding: 0;margin: 0;Margin: 0;text-align: left;line-height: 1.5;padding: 0px 20px;font-size: 12px;text-align: right;padding-right: 0;">
+                                                -$numberFormatter.format('#,##0.00', $usersDiscount)
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th style="padding: 10px 20px 0px 20px;font-size: 12px;"></th>
+                                            <td style="border-top:1px dashed #2d3a44;color: #2c3a45;font-family: Montserrat, Helvetica Neue, Helvetica, Arial, sans-serif;font-weight: normal;padding: 0;margin: 0;Margin: 0;text-align: left;line-height: 1.5;padding: 10px 20px 0px 20px;;font-size: 12px;padding-left: 0">
+                                                <b>Subtotal Subscription</b>
+                                            </td>
+                                            <td style="border-top:1px dashed #2d3a44;color: #2c3a45;font-family: Montserrat, Helvetica Neue, Helvetica, Arial, sans-serif;font-weight: normal;padding: 0;margin: 0;Margin: 0;text-align: left;line-height: 1.5;padding: 10px 20px 0px 20px;;font-size: 12px;text-align: right;padding-right: 0;font-weight: bold;">
+                                                $numberFormatter.format('#,##0.00', $totalSubscription)
+                                            </td>
+                                        </tr>
+
+                                        #set ($total=$totalSubscription)
+                                        <tr>
+                                            <th style="color: #2c3a45;font-family: Montserrat, Helvetica Neue, Helvetica, Arial, sans-serif;font-weight: normal;padding: 0;margin: 0;Margin: 0;text-align: left;line-height: 1.5;padding: 10px 20px;font-size: 12px;"></th>
+                                            <td style="color: #2c3a45;font-family: Montserrat, Helvetica Neue, Helvetica, Arial, sans-serif;font-weight: normal;padding: 0;margin: 0;Margin: 0;text-align: left;line-height: 1.5;padding: 10px 20px;font-size: 16px;padding-left: 0;font-weight: bold;border-top: 1px dashed #2d3a44;border-bottom: 1px dashed #2d3a44;">
+                                                Total:
+                                            </td>
+                                            <td style="color: #2c3a45;font-family: Montserrat, Helvetica Neue, Helvetica, Arial, sans-serif;font-weight: normal;padding: 0;margin: 0;Margin: 0;text-align: left;line-height: 1.5;padding: 10px 20px;font-size: 12px;text-align: right;padding-right: 0;border-top: 1px dashed #2d3a44;border-bottom: 1px dashed #2d3a44;font-weight: bold;">
+                                                $numberFormatter.format('#,##0.00', $total)
+                                            </td>
+                                        </tr>
+
+                                        </tfoot>
+                                        <tbody>
+                                        <tr style="background-color:#F6F7F9;">
+                                            <td style="border-bottom-left-radius:5px;border-top-left-radius:5px;padding: 10px 10px;font-size: 12px;">
+                                                User(s) / App(s) (${apps})
+                                            </td>
+                                            <td style="color: #2c3a45;font-family: Montserrat, Helvetica Neue, Helvetica, Arial, sans-serif;font-weight: normal;padding: 0;margin: 0;Margin: 0;text-align: left;line-height: 1.5;padding: 10px 20px;font-size: 12px;">
+                                                ${usersCount}
+                                            </td>
+                                            <td style="border-bottom-right-radius:5px;border-top-right-radius:5px;color: #2c3a45;font-family: Montserrat, Helvetica Neue, Helvetica, Arial, sans-serif;font-weight: normal;padding: 0;margin: 0;Margin: 0;text-align: left;line-height: 1.5;padding: 10px 10px;font-size: 12px;text-align: right;">
+                                                $numberFormatter.format('#,##0.00', $usersPrice)
+                                            </td>
+                                        </tr>
+                                        #if(${essUsersCount} >0 )
+                                        <tr style="background-color:#F6F7F9;">
+                                            <td style="border-bottom-left-radius:5px;border-top-left-radius:5px;padding: 10px 10px;font-size: 12px;">
+                                                ESS User(s)
+                                            </td>
+                                            <td style="color: #2c3a45;font-family: Montserrat, Helvetica Neue, Helvetica, Arial, sans-serif;font-weight: normal;padding: 0;margin: 0;Margin: 0;text-align: left;line-height: 1.5;padding: 10px 20px;font-size: 12px;">
+                                                ${essUsersCount}
+                                            </td>
+                                            <td style="border-bottom-right-radius:5px;border-top-right-radius:5px;color: #2c3a45;font-family: Montserrat, Helvetica Neue, Helvetica, Arial, sans-serif;font-weight: normal;padding: 0;margin: 0;Margin: 0;text-align: left;line-height: 1.5;padding: 10px 10px;font-size: 12px;text-align: right;">
+                                                $numberFormatter.format('#,##0.00', $essUsersPrice)
+                                            </td>
+                                        </tr>
+                                        #end
+                                        #if(${nonUsersCount} >0 )
+                                        <tr style="background-color:#F6F7F9;">
+                                            <td style="border-bottom-left-radius:5px;border-top-left-radius:5px;padding: 10px 10px;font-size: 12px;">
+                                                Non User(s)
+                                            </td>
+                                            <td style="color: #2c3a45;font-family: Montserrat, Helvetica Neue, Helvetica, Arial, sans-serif;font-weight: normal;padding: 0;margin: 0;Margin: 0;text-align: left;line-height: 1.5;padding: 10px 20px;font-size: 12px;">
+                                                ${nonUsersCount}
+                                            </td>
+                                            <td style="border-bottom-right-radius:5px;border-top-right-radius:5px;color: #2c3a45;font-family: Montserrat, Helvetica Neue, Helvetica, Arial, sans-serif;font-weight: normal;padding: 0;margin: 0;Margin: 0;text-align: left;line-height: 1.5;padding: 10px 10px;font-size: 12px;text-align: right;">
+                                                $numberFormatter.format('#,##0.00', $nonUsersPrice)
+                                            </td>
+                                        </tr>
+                                        #end
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="row" cellpadding="0" border="0" width="100%"
+                               style="border-collapse: separate; border-spacing: 17px 0; margin-bottom: 17px; padding: 0; text-align: left; vertical-align: top; width: 100%;">
+                            <tbody>
+                            <tr style="padding: 0; text-align: left; vertical-align: top;">
+                                <td style="Margin: 0; background-color: white; border-radius: 10px; color: #2c3a45; font-family: Montserrat , Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 1.5; margin: 0; padding: 30px 25px; text-align: left; vertical-align: top;">
+                                    <table cellpadding="0" cellspacing="0" border="0"
+                                           style="font-size: 16px; padding: 0; text-align: left; vertical-align: top;">
+                                        <tbody>
+                                        <tr style="padding: 0; text-align: left; vertical-align: top;">
+                                            <td valign="top"
+                                                style="Margin: 0; color: #2c3a45; font-family: Montserrat, Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 1.5; margin: 0; padding: 0; text-align: left; vertical-align: top;">
+                                                <div style="font-size: 16px; line-height: 1.5; color: #2c3a45;">
+                                                    <div style="font-size: 18px; margin-bottom: 15px;">Questions?</div>
+                                                    <div>Send an&nbsp;email to&nbsp;<a href="mailto:$supportEmail"
+                                                                                       style="Margin: 0; color: #007de8; font-family: Montserrat, Helvetica Neue, Helvetica, Arial, sans-serif; font-weight: normal; line-height: 1.5; margin: 0; padding: 0; text-align: left; text-decoration: none;">support@kpi.com</a>,
+                                                        message us via&nbsp;<a href="#"
+                                                                               style="Margin: 0; color: #2c3a45; font-family: Montserrat , Helvetica, Arial, sans-serif; font-weight: normal; line-height: 1.5; margin: 0; padding: 0; text-align: left; text-decoration: none;">live
+                                                            chat</a> or book a&nbsp;<a href="#"
+                                                                                       style="Margin: 0; color: #2c3a45; font-family: Montserrat , Helvetica, Arial, sans-serif; font-weight: normal; line-height: 1.5; margin: 0; padding: 0; text-align: left; text-decoration: none;">callback</a>.
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td valign="top" width="250" align="right"
+                                                style="Margin: 0; color: #2c3a45; font-family: Montserrat , Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 1.5; margin: 0; padding: 0; text-align: left; vertical-align: top;">
+                                                <img src="${host}/mainStyles/new-ui/images/emailTemplateService/guy.png"
+                                                     width="178" height="162"
+                                                     style="-ms-interpolation-mode: bicubic; clear: both; display: block; margin-right: 10px; margin-left: auto; max-width: 100%; outline: none; text-decoration: none; width: auto;"
+                                                     alt="" border="0">
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="row" cellpadding="0" border="0" width="100%"
+                               style="border-collapse: separate; border-spacing: 17px 0; padding: 0; text-align: left; vertical-align: top; width: 100%;">
+                            <tbody>
+                            <tr style="padding: 0; text-align: left; vertical-align: top;">
+                                <td style="Margin: 0; color: #2c3a45; font-family: Montserrat , Helvetica, Arial, sans-serif; font-size: 12px; font-weight: normal; line-height: 1.5; margin: 0; padding: 0; padding-bottom: 30px; padding-left: 25px; padding-right: 25px; padding-top: 10px; text-align: center; vertical-align: top;">
+                                    <div style="opacity: 0.7;">© ${currentYear}  KPI Software Limited, 80 Alleyn Park, Dulwich, London,
+                                         SE21 8SL, UK
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
+</body>
+
+</html>

@@ -1,0 +1,1 @@
+ant WfpWidgetContainer -f ./web/AutoCompile.xml

@@ -1,0 +1,17 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head><body>
+
+<p>Dear $USER.firstName $USER.lastName,</a><br />
+
+<p>Please be advised that your Expense Claim has been submitted and sent to $APPROVER.firstName $APPROVER.lastName
+for consideration on $SUBMIT_DATE</p>
+
+<p>The PDF version of the Expense Claim is attached for your attention.</p>
+
+<p>Once $APPROVER.firstName $APPROVER.lastName approves or declines the report
+you will receive an email notification about its status.</p>
+
+<p></p>
+
+</body></html>

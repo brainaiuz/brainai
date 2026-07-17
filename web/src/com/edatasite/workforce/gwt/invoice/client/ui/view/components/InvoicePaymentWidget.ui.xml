@@ -1,0 +1,17 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:m.html="urn:import:gwt.material.design.client.ui.html">
+    <g:HTMLPanel styleName="simple-panel">
+        <div class="grid-row">
+            <m.html:Div ui:field="amountToPayContainer" class="col-auto"/>
+            <m.html:Div ui:field="paymentDateContainer" class="col-auto"/>
+            <m.html:Div ui:field="paymentAccountContainer" class="col"/>
+            <m.html:Div ui:field="referenceNumberContainer" class="col-auto"/>
+            <m.html:Div ui:field="buttonContainer" class="col-auto"/>
+        </div>
+        <div class="grid-row">
+            <m.html:Div ui:field="overpaymentAmountContainer" class="col-auto"/>
+            <m.html:Div ui:field="overpaymentAccountContainer" class="col-auto"/>
+        </div>
+    </g:HTMLPanel>
+</ui:UiBinder>

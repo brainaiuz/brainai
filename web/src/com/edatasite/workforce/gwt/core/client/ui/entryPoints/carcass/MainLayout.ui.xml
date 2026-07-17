@@ -1,0 +1,70 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:m='urn:import:gwt.material.design.client.ui'
+             xmlns:mx='urn:import:com.edatasite.workforce.gwt.core.client.ui.entryPoints.carcass'
+             xmlns:m.html="urn:import:gwt.material.design.client.ui.html" xmlns:g="urn:import:com.google.gwt.user.client.ui">
+
+    <m.html:Div>
+        <!--system alert container there might be {trun off sample data}, {expire free trial period}-->
+        <m.html:Div class="system-alerts" ui:field="systemAlertContainer"/>
+
+        <!--frame container all of the main data container-->
+        <m:MaterialPanel class="frame has-scroll--vertical" ui:field="frameContainer">
+
+            <!--header{choose company} container-->
+            <mx:NavToolBar ui:field="navToolBar"/>
+
+            <!--Kpi modules/sections container-->
+            <mx:ModulesBar ui:field="modulesBar"/>
+
+            <!--Left menu container-->
+
+            <mx:SideNav ui:field="sideNavBar"/>
+            <!--Tabs/Actions container-->
+            <m:MaterialPanel class="page-opers">
+                <m:MaterialPanel class="page-opers__nav page-nav">
+                    <m:MaterialPanel class="page-nav__tabs" ui:field="tabsContainer">
+                        <!--Dynamic tabs container-->
+                        <m:MaterialTab ui:field="viewTabs"/>
+
+                        <!--More tabs container-->
+                        <m:MaterialPanel class="content-tabs__more page-nav__more" ui:field="moreTabsContainer">
+                            <m:MaterialLink class="dropdown-button" activates="content-tabs__more-toggle" href="javascript:void(0)" ui:field="moreTabs">
+                                <m:MaterialDropDown class="dropdown-content" activator="content-tabs__more-toggle" ui:field="moreTabsList"/>
+                            </m:MaterialLink>
+                        </m:MaterialPanel>
+                    </m:MaterialPanel>
+                </m:MaterialPanel>
+
+                <!--Custom form buttons container-->
+                <m:MaterialPanel class="page-opers__actions" ui:field="actionsContainer"/>
+            </m:MaterialPanel>
+
+            <!--Main container-->
+            <m:MaterialPanel class="frame__content scrollbar-external_wrapper" ui:field="contentBody">
+                <m:MaterialPanel class="frame__content__body scrollbar-external" ui:field="mainContent" />
+                <g:HTMLPanel styleName="external-scroll_x">
+                    <div class="scroll-element_outer">
+                        <div class="scroll-element_size"></div>
+                        <div class="scroll-element_track"></div>
+                        <div class="scroll-bar"></div>
+                    </div>
+                </g:HTMLPanel>
+
+                <g:HTMLPanel styleName="external-scroll_y">
+                    <div class="scroll-element_outer">
+                        <div class="scroll-element_size"></div>
+                        <div class="scroll-element_track"></div>
+                        <div class="scroll-bar"></div>
+                    </div>
+                </g:HTMLPanel>
+            </m:MaterialPanel>
+            <!--modal pop-ups container-->
+            <m:MaterialPanel ui:field="modalContainer" class="kpi-overlay"/>
+            <m.html:Div styleName="tooltip_templates" ui:field="tooltips"/>
+
+        </m:MaterialPanel>
+
+
+
+    </m.html:Div>
+</ui:UiBinder>

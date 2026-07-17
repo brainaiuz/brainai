@@ -1,0 +1,230 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style type="text/css">
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+        td {
+            padding: 3px;
+        }
+        .title {
+            font-size: 9pt;
+        }
+        .name {
+            font-size: 7pt;
+        }
+        .value {
+            font-size: 8pt;
+        }
+        .personalValue {
+            font-size: 7pt;
+        }
+        .capital {
+            text-transform: capitalize;
+        }
+        .billing-address__tmp-bill td {
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+<div id="body sales-invoice__tmp">
+    <img alt="images" src="https://workforcetrack.s3.amazonaws.com/000000000000/public/65159/a2113e82-397f-49fd-a58a-cdf4f4b93dff?AWSAccessKeyId=AKIAIROQMC77E5UKWBWQ" style="display: none;"/>
+    #if($itextGenericPdfData.companyData.companyName == 'KPI Software Inc' or $itextGenericPdfData.companyData.companyLogoUrl == 'https://apps.kpi.com/customisation/kpi.com/images/kpilogo.png')
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="width: 88px;display: none;"/>
+    #else
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="max-width: 100%; max-height: 100%; display: none;"/>
+    #end
+
+    #set($issueTable = $itextGenericPdfData.customData.get('VIEW_TABLE'))
+    #set($employeeTable = $itextGenericPdfData.customData.get('EMPLOYEE_TABLE'))
+
+    #set($numberLable = $issueTable.rows.get('NUMBER').get('COLUMN_NAME'))
+    #set($project_nameLable = $issueTable.rows.get('PROJECT_NAME').get('COLUMN_NAME'))
+    #set($issue_nameLable = $issueTable.rows.get('ISSUE_NAME').get('COLUMN_NAME'))
+    #set($issue_periodLable = $issueTable.rows.get('ISSUE_PERIOD').get('COLUMN_NAME'))
+    #set($issue_statusLable = $issueTable.rows.get('ISSUE_STATUS').get('COLUMN_NAME'))
+    #set($reported_byLable = $issueTable.rows.get('REPORTED_BY').get('COLUMN_NAME'))
+    #set($resolver_ownerLable = $issueTable.rows.get('RESOLVER_OWNER').get('COLUMN_NAME'))
+    #set($priorityLable = $issueTable.rows.get('PRIORITY').get('COLUMN_NAME'))
+
+    #set($number = $issueTable.rows.get('NUMBER').get('COLUMN_VALUE'))
+    #set($project_name = $issueTable.rows.get('PROJECT_NAME').get('COLUMN_VALUE'))
+    #set($issue_name = $issueTable.rows.get('ISSUE_NAME').get('COLUMN_VALUE'))
+    #set($issue_period = $issueTable.rows.get('ISSUE_PERIOD').get('COLUMN_VALUE'))
+    #set($issue_status = $issueTable.rows.get('ISSUE_STATUS').get('COLUMN_VALUE'))
+    #set($reported_by = $issueTable.rows.get('REPORTED_BY').get('COLUMN_VALUE'))
+    #set($resolver_owner = $issueTable.rows.get('RESOLVER_OWNER').get('COLUMN_VALUE'))
+    #set($priority = $issueTable.rows.get('PRIORITY').get('COLUMN_VALUE'))
+
+    <div>
+        <div>
+            <table class="billing-address__tmp-bill" align="left" border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 7pt; line-height: 1.4; font-size: 9pt;" width="60%">
+                <tbody>
+                #if($issue_name != '')
+                <tr>
+                    <td align="left" style="color: #0a0a0a; padding:4px 0; width:100%; word-wrap: break-word;" dir="$issue_nameLable"><strong>$issue_nameLable:</strong> <span>$issue_name </span></td>
+                </tr>
+                #end
+                #if($issue_period != '')
+                <tr>
+                    <td align="left" style="color: #0a0a0a; padding:4px 0; width:100%; word-wrap: break-word;" dir="$issue_periodLable"><strong>$issue_periodLable:</strong> <span>$issue_period </span></td>
+                </tr>
+                #end
+                #if($project_name != '')
+                <tr>
+                    <td align="left" style="color: #0a0a0a; padding:4px 0; width:100%; word-wrap: break-word;" dir="$project_nameLable"><strong>$project_nameLable:</strong> <span>$project_name </span></td>
+                </tr>
+                #end
+                #if($reported_by != '')
+                <tr>
+                    <td align="left" style="color: #0a0a0a; padding:4px 0; width:100%; word-wrap: break-word;" dir="$reported_byLable"><strong>$reported_byLable:</strong> <span>$reported_by </span></td>
+                </tr>
+                #end
+                </tbody>
+            </table>
+
+            <table align="right" border="0" cellpadding="5" cellspacing="0" style="margin-bottom: 7pt;font-size: 9pt; margin-left:10%; width:30%;">
+                <tbody>
+                #if($number != '')
+                <tr>
+                    <th align="left" dir="$numberLable"><strong>$numberLable:</strong></th>
+                    <td align="right" dir="$number" style="color: #0a0a0a; padding-right:0;">$number</td>
+                </tr>
+                #end
+                #if($issue_status != '')
+                <tr>
+                    <th align="left" dir="$issue_statusLable">$issue_statusLable:</th>
+                    <td align="right" dir="$issue_status" style="color: #0a0a0a; padding-right:0;">$issue_status</td>
+                </tr>
+                #end
+                #if($priority != '')
+                <tr>
+                    <th align="left" dir="$priorityLable">$priorityLable:</th>
+                    <td align="right" dir="$priority" style="color: #0a0a0a; padding-right:0;">$priority</td>
+                </tr>
+                #end
+                #if($resolver_owner != '')
+                <tr>
+                    <th align="left" dir="$resolver_ownerLable">$resolver_ownerLable:</th>
+                    <td align="right" dir="$resolver_owner" style="color: #0a0a0a; padding-right:0;">$resolver_owner</td>
+                </tr>
+                #end
+                </tbody>
+            </table>
+        </div>
+
+        <table width="100%" cellspacing="0" cellpadding="0" style="margin-top: 15px; border-bottom: 1px solid #000;">
+            <tr>
+                <td width="100%"></td>
+            </tr>
+        </table>
+
+        <table width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-top: 20px;">
+            <tr>
+                <td dir="$employeeTable.name" style="font-weight: bold;" class="title capital">$employeeTable.name</td>
+            </tr>
+        </table>
+
+        #if($employeeTable.rows.size() > 0)
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top: 10px;">
+                <tr>
+                    <td width="25%" dir="$employeeTable.header.get('EMPLOYEE')" class="name capital">$employeeTable.header.get('EMPLOYEE')</td>
+                    <td width="25%" dir="$employeeTable.header.get('DEPARTMENT_NAME')" class="name capital" style="padding-left: 3pt">$employeeTable.header.get('DEPARTMENT_NAME')</td>
+                    <td width="35%" dir="$employeeTable.header.get('POSITION')" class="name capital" style="padding-left: 3pt">$employeeTable.header.get('POSITION')</td>
+                    <td width="15%" dir="$employeeTable.header.get('ESTIMATED_TIME')" class="name capital" style="padding-left: 3pt">$employeeTable.header.get('ESTIMATED_TIME')</td>
+                </tr>
+                #foreach($row in $employeeTable.rows.values())
+                <tr>
+                    <td style="font-weight: bold;vertical-align: top;padding-bottom: 10pt;" class="value">
+                        #if($row.get('EMPLOYEE') != '')
+                            $row.get('EMPLOYEE')
+                        #else
+                            —
+                        #end
+                    </td>
+                    <td style="font-weight: bold;vertical-align: top;padding-bottom: 10pt;padding-left: 3pt" class="value">
+                        #if($row.get('DEPARTMENT_NAME') != '')
+                            $row.get('DEPARTMENT_NAME')
+                        #else
+                            —
+                        #end
+                    </td>
+                    <td style="font-weight: bold;vertical-align: top;padding-bottom: 10pt;padding-left: 3pt" class="value">
+                        #if($row.get('POSITION') != '')
+                            $row.get('POSITION')
+                        #else
+                            —
+                        #end
+                    </td>
+                    <td style="font-weight: bold;vertical-align: top;padding-bottom: 10pt;padding-left: 3pt" class="value">
+                        #if($row.get('ESTIMATED_TIME') != '')
+                            $row.get('ESTIMATED_TIME')
+                        #else
+                            —
+                        #end
+                    </td>
+                </tr>
+                #end
+            </table>
+        #else
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top: 10px;">
+                <tr>
+                    <td width="25%" style="padding: 0; margin: 0;" valign="top">
+                        <table width="100%" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td dir="$employeeTable.header.get('EMPLOYEE')" class="name capital">$employeeTable.header.get('EMPLOYEE')</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;" class="value">
+                                    —
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td width="32%" style="padding: 0; margin: 0;" valign="top">
+                        <table width="100%" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td dir="$employeeTable.header.get('DEPARTMENT_NAME')" class="name capital">$employeeTable.header.get('DEPARTMENT_NAME')</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;" class="value">
+                                    —
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td width="15%" style="padding: 0; margin: 0;" valign="top">
+                        <table width="100%" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td dir="$employeeTable.header.get('POSITION')" class="name capital">$employeeTable.header.get('POSITION')</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;" class="value">
+                                    —
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td width="28%" style="padding: 0; margin: 0;" valign="top">
+                        <table width="100%" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td dir="$employeeTable.header.get('ESTIMATED_TIME')" class="name capital">$employeeTable.header.get('ESTIMATED_TIME')</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;" class="value">
+                                    —
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        #end
+    </div>
+</div>
+</body>
+</html>
+
+

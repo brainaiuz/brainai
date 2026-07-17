@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean class="org.springframework.web.servlet.handler.SimpleServletHandlerAdapter"/>
+    <bean class="org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter"/>
+
+    <bean id="handlerMapping"
+          class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <value>
+                /taskListPDFHandler = taskListPDFHandler
+                /taskViewPDFHandler = taskViewPDFHandler
+                /projectListPDFHandler = projectListPDFHandler
+                /workStreamListPDFHandler = workStreamListPDFHandler
+                /projectViewPDFHandler = projectViewPDFHandler
+                /brigadaViewPDFHandler = brigadaViewPDFHandler
+                /clientListPDFHandler = clientListPDFHandler
+                /clientViewPDFHandler = clientViewPDFHandler
+                /departmentListPDFHandler = departmentListPDFHandler
+                /departmentViewPDFHandler = departmentViewPDFHandler
+                /timesheetApprovalListPDFHandler = timesheetApprovalListPDFHandler
+                /assessmentListPDFHandler = assessmentListPDFHandler
+                /assessmentViewPDFHandler = assessmentViewPDFHandler
+                <!--/initiate360PDFHandler = initiate360PDFHandler-->
+                /timeSheetPDFHandler = timeSheetPDFHandler
+                /monthlyTimesheetViewPDFHandler = monthlyTimesheetViewPDFHandler
+                /locationListPDFHandler = locationListPDFHandler
+                /locationListViewPDFHandler = locationListViewPDFHandler
+                /issueListViewPDFHandler = issueListViewPDFHandler
+                /issueListPDFHandler = issueListPDFHandler
+                /projectBudgetPDFHandler=projectBudgetPDFHandler
+                /projectBudgetSheetPDFHandler=projectBudgetSheetPDFHandler
+                /contractListPDFHandler = contractListPDFHandler
+                /contractViewPDFHandler = contractViewPDFHandler
+
+                <!-- Accounting & Finance-->
+                /baseInvoiceListPDFHandler=baseInvoiceListPDFHandler
+                /spendMoneyViewPDFHandler=spendMoneyViewPDFHandler
+                /recurringBillListPDFHandler=recurringBillListPDFHandler
+                /paymentMethodListPDFHandler=paymentMethodListPDFHandler
+                <!--/baseInvoiceViewPDFHandler=baseInvoiceViewPDFHandler-->
+
+                /saleQuoteViewPDFHandler=saleQuoteViewPDFHandler
+                /saleOrderViewPDFHandler=saleOrderViewPDFHandler
+                /saleInvoceViewPDFHandler=saleInvoceViewPDFHandler
+                /packingSlipPDFHandler=packingSlipPDFHandler
+                /salesReceiptViewPDFHandler=salesReceiptViewPDFHandler
+                /purchaseOrderViewPDFHandler=purchaseOrderViewPDFHandler
+                /purchaseInvoiceViewPDFHandler=purchaseInvoiceViewPDFHandler
+                /projectBaseInvoiceViewPDFHandler=projectBaseInvoiceViewPDFHandler
+                /receivableCreditNoteViewPDFHandler=receivableCreditNoteViewPDFHandler
+                /payableCreditNoteViewPDFHandler=payableCreditNoteViewPDFHandler
+                /batchPaymentListPDFHandler = batchPaymentListPDFHandler
+                /requestForQuoteListPDFHandler = requestForQuoteListPDFHandler
+                /requestForQuotePDFHandler = requestForQuotePDFHandler
+                /dashBoardChartsPDFHandler = dashBoardChartsPDFHandler
+                /requestForPurchsePDFHandler = requestForPurchsePDFHandler
+
+                /savedSaleQuoteViewPDFHandler=savedSaleQuoteViewPDFHandler
+                /savedSaleOrderViewPDFHandler=savedSaleOrderViewPDFHandler
+                /savedSaleInvoceViewPDFHandler=savedSaleInvoceViewPDFHandler
+                /savedPackingSlipPDFHandler=savedPackingSlipPDFHandler
+                /savedPurchaseOrderViewPDFHandler=savedPurchaseOrderViewPDFHandler
+                /savedPurchaseInvoiceViewPDFHandler=savedPurchaseInvoiceViewPDFHandler
+                /savedProjectBaseInvoiceViewPDFHandler=savedProjectBaseInvoiceViewPDFHandler
+                /savedReceivableCreditNoteViewPDFHandler=savedReceivableCreditNoteViewPDFHandler
+                /savedPayableCreditNoteViewPDFHandler=savedPayableCreditNoteViewPDFHandler
+                /savedSalesOrderPackingSlipPDFHandler=savedSalesOrderPackingSlipPDFHandler
+
+                /caseViewPDFHandler = caseViewPDFHandler
+                /employeeProfileSummaryViewPDFHandler = employeeProfileSummaryViewPDFHandler
+                /employeeLeaveRequestViewPDFHandler = employeeLeaveRequestViewPDFHandler
+                /leaveRequestListPDFHandler = leaveRequestListPDFHandler
+                /downloadAnnualBalanceReport = annualBalanceReportPdfHandler
+                /saleQuoteListPDFHandler=saleQuoteListPDFHandler
+                /saleInvoceListPDFHandler=saleInvoceListPDFHandler
+                /bankCheckListPDFHandler=bankCheckListPDFHandler
+                /recurringInvoceListPDFHandler=recurringInvoceListPDFHandler
+                /purchaseOrderListPDFHandler=purchaseOrderListPDFHandler
+                /purchaseInvoiceListPDFHandler=purchaseInvoiceListPDFHandler
+                /requestForPurchaseListPDFHandler=requestForPurchaseListPDFHandler
+                /trialBalancePDFHandler=trialBalancePDFHandler
+                /cashFlowPDFHandler=cashFlowPDFHandler
+                /profitLostViewPDFHandler=profitLostViewPDFHandler
+                /journalReportPDFHandler=journalReportPDFHandler
+                /balanceSheetPDFHandler=balanceSheetPDFHandler
+                /stockValuationPDFHandler=stockValuationPDFHandler
+                /stockAdjustmentPDFHandler=stockAdjustmentPDFHandler
+
+                /invoiceItemListPDFHandler = invoiceItemListPDFHandler
+                /suppliersListPDFHandler= suppliersListPDFHandler
+                /suppliersViewPDFHandler = suppliersViewPDFHandler
+                /accountingClientsListPDFHandler= accountingClientsListPDFHandler
+                /bankAccountsListPDFHandler= bankAccountsListPDFHandler
+                /accountTransactionsListPDFHandler= accountTransactionsListPDFHandler
+                /taxRatesListPDFHandler= taxRatesListPDFHandler
+                /downloadReservationPDFHandler= reservationPDFHandler
+                /chartOfAccountListPDFHandler= chartOfAccountListPDFHandler
+
+                /manualTransactionListPDFHandler = manualTransactionListPDFHandler
+                /transactionByPeriodPdfHandler = transactionByPeriodPdfHandler
+                /bankTransferListPDFHandler = bankTransferListPDFHandler
+                /invoicePaymentListPDFHandler = invoicePaymentListPDFHandler
+                /pickViewPDFHandler = pickViewPDFHandler
+                /saleOrderListPDFHandler = saleOrderListPDFHandler
+                /pickListPDFHandler = pickListPDFHandler
+                /shippingMethodsListPDFHandler = shippingMethodsListPDFHandler
+                /unitMeasurementsListPDFHandler = unitMeasurementsListPDFHandler
+                /productCategoriesListPDFHandler = productCategoriesListPDFHandler
+                /brandsListPDFHandler = brandsListPDFHandler
+                <!--/storeFrontsListPDFHandler = storeFrontsListPDFHandler-->
+                /crmAccountBalancePDFHandler = crmAccountBalancePDFHandler
+                /fixedAssetListPDFHandler=fixedAssetListPDFHandler
+                /fixedAssetViewPDFHandler=fixedAssetViewPDFHandler
+                /expensesViewPDFHandler = expensesViewPDFHandler
+                /expensePaymentViewPDFHandler = expensePaymentViewPDFHandler
+                /vatReturnPDFHandler=vatReturnPDFHandler
+                /uaeVatReturnPDFHandler = uaeVatReturnPDFHandler
+                /ksaVatReturnPDFHandler = ksaVatReturnPDFHandler
+                /checkPDFHandler=checkPDFHandler
+                /agingSummaryPdfHandler=agingSummaryPdfHandler
+                /manualJournalViewPDFHandler=manualJournalViewPDFHandler
+                /invoicePaymentViewPDFHandler = invoicePaymentViewPDFHandler
+                /batchReceivePaymentViewPDFHandler = batchReceivePaymentViewPDFHandler
+                /batchPayBillViewPDFHandler = batchPayBillViewPDFHandler
+                /stockTransferViewPDFHandler = stockTransferViewPDFHandler
+                /transferMoneyViewPDFHandler = transferMoneyViewPDFHandler
+                /grnOrderViewPDFHandler=grnOrderViewPDFHandler
+                /gdnOrderViewPDFHandler=gdnOrderViewPDFHandler
+                /shippingDataListPdfHandler=shippingDataListPdfHandler
+                /ukVatReturnPDFHandler = ukVatReturnPDFHandler
+                <!--CRM PDFs begin-->
+                /leadListPDFHandler = leadListPDFHandler
+                /crmAccountListPDFHandler = crmAccountListPDFHandler
+                /crmContactListPDFHandler = crmContactListPDFHandler
+                /opportunitiesListPDFHandler = opportunitiesListPDFHandler
+                /campaignListPDFHandler = campaignListPDFHandler
+                /downloadCrmEventPDF = downloadCrmEventPDF
+                /solutionListPDFHandler = solutionListPDFHandler
+                /caseListPDFHandler = caseListPDFHandler
+                /bouncedEmailListPDFHandler = bouncedEmailListPDFHandler
+                <!--CRM PDFs end-->
+                /usageHistoryListPDFHandler = usageHistoryListPDFHandler
+                /sentMessagesListPDFHandler = sentMessagesListPDFHandler
+                /unsubscribedListPDFHandler = unsubscribedListPDFHandler
+                /holidayListPDFHandler = holidayListPDFHandler
+                /timeslotListPDFHandler = timeslotListPDFHandler
+                /timeslotSummaryViewPDFHandler = timeslotSummaryViewPDFHandler
+                /viewLeadFormPDFHandler = viewLeadFormPDFHandler
+                /viewContactFormPDFHandler = viewContactFormPDFHandler
+
+                <!--Payroll PDFs begin-->
+                /payslipPDFHandler = payslipPDFHandler
+                /singlePayrunPdfHandler = singlePayrunPdfHandler
+                /downloadEndOfServiceReportPdf = endOfServiceReportPdfHandler
+                /downloadCashAdvanceReportPdf = cashAdvanceReportPdfHandler
+                /cashAdvancePdfHandler = cashAdvancePdfHandler
+                /cashAdvanceListPDFHandler = cashAdvanceListPDFHandler
+                /downloadSalaryReportPdf = salaryReportPdfHandler
+                /groupPayrunViewPDFHandler = groupPayrunViewPDFHandler
+                /groupPayrunListPDFHandler = groupPayrunListPDFHandler
+                /additionalPaymentPdfHandler = additionalPaymentPdfHandler
+                /additionalPaymentItemPdfHandler = additionalPaymentItemPdfHandler
+                /additionalPaymentItemPdfHandl = additionalPaymentItemPdfHandl
+                /singlePayrunListPDFHandler = singlePayrunListPDFHandler
+                <!--Payroll PDFs end-->
+
+                <!--Workspace begin -->
+                /newsListPDFHanlder = newsListPDFHanlder
+                /newsViewPDFHandler = newsViewPDFHandler
+                /calendarAgendaListPDFHanlder = calendarAgendaListPDFHanlder
+                /downloadWorkspaceMeetingMinutesViewPDF = meetingMinutesPDFHandler
+                <!--Workspace end-->
+                <!--HRMS PDF's begin -->
+                /employeeListPDFHandler = employeeListPDFHandler
+                /employeeViewPDFHandler = employeeViewPDFHandler
+                /positionListViewPDFHandler = positionListViewPDFHandler
+                /positionListPDFHandler = positionListPDFHandler
+                /expensesListPDFHandler = expensesListPDFHandler
+                /expensesViewPDFHandler = expensesViewPDFHandler
+                /employeeStepListPDFHandler = employeeStepListPDFHandler
+                /employeeStepViewPDFHandler = employeeStepViewPDFHandler
+                <!--/expensesReceiptPDFHandler = expensesReceiptPDFHandler-->
+                /goalListPDFHandler = goalListPDFHandler
+                /appraisalTemplateListPDFHandler = appraisalTemplateListPDFHandler
+                /competenceListPDFHandler = competenceListPDFHandler
+                /noteListPDFHandler = noteListPDFHandler
+                /notesPDFHandler = notesPDFHandler
+                /wareHousesListPDFHandler = wareHousesListPDFHandler
+                /warehouseProductsListPDFHandler = warehouseProductsListPDFHandler
+                <!--HRMS PDF's end-->
+                /productsServicesListPDFHandler = productsServicesListPDFHandler
+                /productsServicesStockListPDFHandler = productsServicesStockListPDFHandler
+                /generateCertificatePDF = certificatePdfHandler
+                <!--Settings's begin -->
+                <!--/quickbookSynchHistoryPDFHandler = quickbookSynchHistoryPDFHandler-->
+                /shippingLabelPDFHandler = shippingLabelPDFHandler
+                <!--Settings's end -->
+                <!--/customEntityPdfHandler = customEntityPdfHandler-->
+                /vacancyListPDFHandler = vacancyListPDFHandler
+                /shortListPDFHandler = shortListPDFHandler
+                /candidateListPDFHandler = candidateListPDFHandler
+                /placementListPDFHandler = placementListPDFHandler
+                <!---->
+                <!--TrainingCenter-->
+                /courseListPDFHandler = courseListPDFHandler
+                /scheduledCourseListPDFHandler = scheduledCourseListPDFHandler
+                /courseBookingListPDFHandler = courseBookingListPDFHandler
+                /studentListPDFHandler = studentListPDFHandler
+                /studentRegistratedListPDFHandler = studentRegistratedListPDFHandler
+                /enquiryListPDFHandler = enquiryListPDFHandler
+                /generateIDCard = idCardGenerateHandler
+                /downloadCourseUserPDFHandler = downloadCourseUserPDFHandler
+                /courseBookingPDFHandler = courseBookingPDFHandler
+                /tcScheduledInvoicePDFHandler = tcScheduledInvoicePDFHandler
+                /tcConsolidatedInvoicesPDFHandler = tcConsolidatedInvoicesPDFHandler
+
+
+                /meetingMinutViewPDFHandler = meetingMinutViewPDFHandler
+                /kpiPaymentViewPdfHandler = kpiPaymentViewPdfHandler
+                <!--for exLibris3 end-->
+                /incidentListPDFHandler = incidentListPDFHandler
+                /customFormItemListPDFHandler = customFormItemListPDFHandler
+                /customFormItemViewPDFHandler = customFormItemViewPDFHandler
+                /vacancyViewPDFHandler = vacancyViewPDFHandler
+                /placementInfoPDFHandler = placementInfoPDFHandler
+                /progressInvoicingViewPDFHandler = progressInvoicingViewPDFHandler
+                /opportunityViewPDFHandler = opportunityViewPDFHandler
+                <!--barcode pdf handlers-->
+                /productsBarcodePDFHandler = productsBarcodePDFHandler
+                /reconcilationReportPdfHandler = reconcilationReportPdfHandler
+                /stockAdjustmentListPDFHandler = stockAdjustmentListPDFHandler
+                /stockTransferListPDFHandler = stockTransferListPDFHandler
+                /itemBatchHistoryListPDFHandler = itemBatchHistoryListPDFHandler
+                /asteriskEmployeeListPDFHandler = asteriskEmployeeListPDFHandler
+                /benefitRequestListPDFHandler = benefitRequestListPDFHandler
+                /goalViewPDFHandler = goalViewPDFHandler
+                /OrganizationChart = organizationChartPDFHandler
+                /SupervisorStructure = supervisorStructurePDFHandler
+                /productRentalViewPdfHandler = productRentalViewPdfHandler
+                /rentalOrderViewPdfHandler = rentalOrderViewPdfHandler
+                /candidateFormPDFHandler = candidateFormPDFHandler
+                /shiftViewPDFHandler = shiftViewPDFHandler
+                /rotationViewPDFHandler = rotationViewPDFHandler
+                /rotationListPdfHandler = rotationListPDFHandler
+                /groupPlacementListPdfHandler = groupPlacementListPDFHandler
+                /attendanceTerminalListPDFHandler = attendanceTerminalListPDFHandler
+                /attendanceMarksListPDFHandler = attendanceMarksListPDFHandler
+                /groupPlacementViewPDFHandler = groupPlacementViewPDFHandler
+                /warehouseProductsViewPDFHandler = warehouseProductsViewPDFHandler
+
+            </value>
+        </property>
+    </bean>
+
+</beans>

@@ -1,0 +1,48 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:w="urn:import:com.edatasite.workforce.gwt.core.client.ui.components"
+>
+    <g:HTMLPanel>
+        <!--<div class="tab-pane" id="customReport_tab_4">-->
+        <!--<div class="">-->
+        <!--<p>-->
+            <!--<w:KpiCheckBox ui:field="checkAll"></w:KpiCheckBox>-->
+        <!--</p>-->
+        <table class="table table-striped table-bordered table-condensed table_leftIndex_nextCenter table_report_form">
+            <colgoup>
+                <col></col>
+                <col style="width: 14%;"></col>
+                <col style="width: 14%;"></col>
+                <col style="width: 14%;"></col>
+                <col style="width: 14%;"></col>
+                <col style="width: 14%;"></col>
+            </colgoup>
+            <thead>
+                <tr>
+                    <th>
+                        <span ui:field="columns">COLUMNS</span>
+                    </th>
+                    <th>
+                        <span ui:field="sum">SUM</span>
+                    </th>
+                    <th>
+                        <span ui:field="count">COUNT</span>
+                    </th>
+                    <th>
+                        <span ui:field="average">AVERAGE</span>
+                    </th>
+                    <th>
+                        <span ui:field="largestValue">LARGEST VALUE</span>
+                    </th>
+                    <th>
+                        <span ui:field="smallestValue">SMALLEST VALUE</span>
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody ui:field="tbody">
+
+            </tbody>
+        </table>
+    </g:HTMLPanel>
+</ui:UiBinder>

@@ -1,0 +1,18 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:g="urn:import:com.google.gwt.user.client.ui">
+
+    <g:FlowPanel ui:field="root" styleName="customSelect">
+        <!-- Trigger -->
+        <g:FlowPanel ui:field="trigger" styleName="simpleGwt-ComboBox">
+            <g:TextBox ui:field="input" styleName="gwt-SuggestBox form-control"/>
+            <g:InlineLabel ui:field="caret" styleName="caret"/>
+            <g:InlineLabel ui:field="reset" styleName="controlClear"/>
+        </g:FlowPanel>
+
+        <!-- Dropdown panel -->
+        <g:FlowPanel ui:field="dropBox" styleName="customSelect-dropBox">
+            <g:SimplePanel ui:field="treeHost"/>
+        </g:FlowPanel>
+    </g:FlowPanel>
+</ui:UiBinder>

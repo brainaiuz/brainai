@@ -1,0 +1,528 @@
+.user-profile {
+  text-align: center;
+
+  .ficon--trial {
+    position: absolute;
+  }
+
+  > .dropdown-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent !important;
+
+    &:hover {
+      box-shadow: none;
+    }
+  }
+
+  .dropdown-content {
+    > li {
+      min-height: 0;
+    }
+  }
+}
+
+.avatar,
+.user-profile-img {
+  overflow: hidden;
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background-color: $black-light;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
+
+  img {
+    position: relative;
+    z-index: 1;
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 50%;
+    opacity: 0;
+    object-fit: cover;
+  }
+  &__initials {
+    opacity: 1;
+
+    img + & {
+      position: absolute;
+      z-index: 0;
+      opacity: 0;
+    }
+  }
+}
+
+/* user account img */
+.user-profile-img {
+  .user-profile__menu.dropdown-button & {
+    //height: 40px;
+    //width: 40px;
+    width: $userProfileItemHeight;
+    height: $userProfileItemHeight;
+    transition: width $leftBar-transition, height $leftBar-transition;
+
+    .left-menu-hover .frame__modules &,
+    .left-menu-open .frame__modules & {
+      width: $userProfileItemHeight;
+      height: $userProfileItemHeight;
+    }
+  }
+  a {
+    color: #fff;
+  }
+}
+
+// PROFILE CARD
+.profile-card {
+  position: absolute;
+  top:0;
+  bottom:0;
+  left: 0rem;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+
+  &__content, &__opts {
+    padding: 20px 25px;
+    border-bottom: 1px solid $color-base-0;
+  }
+  &__footer, .profile-companies {
+    padding: 20px 15px;
+  }
+
+  &__content {
+    padding-top: 17px;
+  }
+
+  &-img {
+    width: 100%;
+    height: 100%;
+    //border: 1px solid #eeeff3;
+    border-radius: 100%;
+
+    &__wrapper {
+      position: relative;
+      width: 120px;
+      //width: 8.3vw;
+      height: 120px;
+      //height: 8.3vw;
+      margin: 0 0 22px;
+
+      > .gwt-HTML {
+        width: 100%;
+        height: 100%;
+      }
+
+      &:hover {
+        .user-profile-img__initials {
+          transition: opacity .35s;
+          opacity: 0;
+        }
+
+        .profile-card-img__btn:not(.disabled) { // this is why disabled excluded - https://prnt.sc/r6vebp
+          opacity: 1;
+          border-radius: 50%;
+          color: #fff !important;
+          background: rgba(0, 0, 0, 0.24);
+        }
+        .profile-card-img__btn.disabled {
+          display: none;
+        }
+      }
+
+      .profile-card-img__btn,
+      .user-profile-img__initials {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+      }
+    }
+
+    &__btn {
+      opacity: 0;
+      transition: opacity .35s;
+      color: #fff !important;
+
+      [class^="ficon--"] {
+        margin-bottom: 5px;
+      }
+    }
+
+    img {
+      opacity: 0;
+    }
+  }
+
+  //&__log-out {
+  //  position: absolute;
+  //  right: 20px;
+  //  top: 20px;
+  //  border-radius: 50%;
+  //  display: flex;
+  //  justify-content: center;
+  //  align-items: center;
+  //  width: 30px;
+  //  height: 30px;
+  //  color: #fff;
+  //  background: $text-color-base;
+  //
+  //  &:hover {
+  //    color: #fff;
+  //  }
+  //
+  //  svg {
+  //    width: 16px;
+  //    height: 16px;
+  //  }
+  //}
+
+  &__name {
+    margin-bottom: 1px;
+    font-weight: 500;
+    font-size: 14px;
+  }
+  &__position {
+    color: $color-accent-2;
+  }
+
+  &__opts {
+    figure {
+      display: flex;
+      align-items: center;
+      margin: 0;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 500;
+
+      &:hover {
+        color: $link-color;
+      }
+
+      + figure {
+        margin-top: 20px;
+      }
+
+      svg {
+        width: 17px;
+        height: 17px;
+        margin-right: 18px;
+      }
+
+      figcaption {
+
+      }
+    }
+  }
+
+  @at-root .profile-companies {
+    .dropdown-button {
+      display: flex !important;
+      justify-content: space-between;
+      align-items: center;
+      padding-left: 11px;
+      margin-bottom: 20px;
+      box-shadow: none !important;
+      font-size: 13px;
+      font-weight: 500;
+
+      i {
+        display: block;
+        width: 22px;
+        height: 22px;
+        line-height: 22px;
+        text-align: center;
+        font-style: normal;
+        border-radius: 50%;
+        border: 1px solid $text-color-base;
+      }
+
+      .icon--chevron-right {
+        margin-right: -4px;
+      }
+    }
+  }
+  @at-root .prof-comp-list {
+    position: absolute;
+    top: 0 !important;
+    bottom: 0 !important;
+    left: 100% !important;
+    max-height: none !important;
+    width: 287px !important;
+    opacity: 1 !important;
+    background-color: $color-base-0;
+    box-shadow: none !important;
+    > li {
+      padding: 1px;
+
+      &:after {
+        display: none;
+      }
+
+      > a {
+        display: flex;
+        align-items: center;
+        min-height: 57px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        font-weight: 500;
+        background-color: $color-base-contrast;
+        color: $color-accent-2;
+
+        &:hover:not(.active) {
+          background-color: #fff;
+        }
+
+        &.active {
+          background-color: $color-accent-2;
+          color: #fff !important;
+          cursor: default !important;
+          * {
+            cursor: default;
+          }
+
+          .gwt-RadioButton label:before {
+            color: #fff;
+            cursor: default;
+          }
+        }
+
+        .gwt-RadioButton {
+          padding: 0;
+          width: 100%;
+
+          label {
+            &:before {
+              margin-top: -11px;
+              @extend .ficon--;
+              @extend .ficon--check-thin;
+              background-color: transparent;
+              border: none;
+              font-size: 20px;
+              color: #cecfd3;
+              background: transparent !important;
+              border-color: transparent !important;
+            }
+            &:after {
+              display: none;
+            }
+          }
+          &:hover, &:focus {
+            input + label[for] {
+              &:before {
+                background: transparent !important;
+                border-color: transparent !important;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &__check {
+      flex: 0 0 52px;
+      padding: 0 10px;
+      text-align: center;
+    }
+
+    &__text {
+      flex-grow: 1;
+      @include txtTruncate();
+    }
+    &__arabic {
+      right: 100% !important;
+    }
+  }
+  @at-root .prof-comp-list__mark {
+    flex: 0 0 16px;
+
+    i {
+      display: inline-block;
+      width: 0.69231rem;
+      height: 0.69231rem;
+      border-radius: 50%;
+      margin-left: 0.76923rem;
+      background-color: $warning-color;
+      opacity: .65;
+
+      .status--expired & {
+        background-color: $color-expired;
+      }
+      .status--active & {
+        background-color: $success-color;
+      }
+    }
+  }
+
+  @at-root .company-plate {
+    border-radius: $radius-basePlus;
+    padding: 18px 17px;
+    border: 1px solid rgba($warning-color, .25);
+    background-color: rgba($warning-color, .10);
+
+    &--active {
+      border: 1px solid rgba($success-color, .25);
+      background-color: rgba($success-color, .10);
+    }
+
+    &--expired {
+      border: 1px solid rgba($color-expired, .25);
+      background-color: rgba($color-expired, .10);
+    }
+
+    &__header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 16px;
+
+      svg {
+        margin-top: 4px;
+        width: 36px;
+        height: 46px;
+        stroke-width: .1;
+        stroke: $warning-color;
+        fill: $warning-color;
+
+        .company-plate--active & {
+          stroke: $success-color;
+          fill: $success-color;
+        }
+        .company-plate--expired & {
+          stroke: $color-expired;
+          fill: $color-expired;
+        }
+      }
+    }
+
+    &__status {
+      font-size: 11px;
+      line-height: 1;
+      color: #c0850c;
+
+      .company-plate--active & {
+        color: $success-color;
+      }
+      .company-plate--expired & {
+        color: $color-expired;
+      }
+    }
+
+    &__name {
+      font-weight: 500;
+      font-size: 13px;
+      line-height: 1.8;
+      margin-bottom: 15px;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+      //word-break: break-all;
+      //word-break: break-word;
+    }
+
+    &__id {
+      font-size: 11px;
+      font-weight: normal;
+      color: $color-accent-2;
+    }
+
+    &__btn {
+      display: block;
+      width: 100%;
+      background-color: $warning-color;
+      color: #fff;
+
+      &:hover, &:focus {
+        color: #fff;
+      }
+
+      .company-plate--active & {
+        background-color: $success-color;
+      }
+      .company-plate--expired & {
+        background-color: $color-expired;
+      }
+    }
+  }
+
+  &__footer {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+
+    .vendor-btn--google,
+    .vendor-btn--ios {
+      display: block;
+      height: 28px;
+      border-radius: $radius-basePlus;
+      background: url("../images/kpi-apps.png") 0 0 no-repeat;
+    }
+    .vendor-btn--google {
+      flex: 0 0 91px;
+    }
+    .vendor-btn--ios {
+      flex: 0 0 85px;
+      background-position: -93px 0;
+    }
+  }
+}
+
+//HRMS editemploye
+.profile-card-img__wrapper--square {
+  overflow: hidden;
+  width: 200px;
+  height: 220px;
+  margin: 0 auto;
+
+  .collapsible-body > .grid-row & {
+    margin-top: rem(47px);
+  }
+}
+
+.profile-card-img__wrapper--square .profile-card-img {
+  width: 200px;
+  height: 220px;
+  border-radius: $radius-base;
+}
+
+.profile-card-img__wrapper--square .profile-card-img img {
+  border-radius: $radius-base;
+  opacity: 1;
+}
+
+.profile-card-img__wrapper--square:hover .profile-card-img__btn {
+  border-radius: 0;
+}
+
+.profile-image--right {
+  margin-left: 25px;
+}
+
+.profile-image--right .profile-imagePreview--preview {
+  padding-bottom: 10px;
+}
+
+.company-switch {
+  position: absolute;
+  top: 0 !important;
+  max-height: none !important;
+  width: 287px !important;
+  opacity: 1 !important;
+  background-color: $color-base-0;
+  box-shadow: none !important;
+  overflow: auto;
+}
+

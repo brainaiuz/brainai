@@ -1,0 +1,12 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+>
+    <g:HTMLPanel styleName="total-table">
+            <!-- TOTOAL - CONTAINER -->
+            <div class="">
+                <table class="total-table__base">
+                    <tbody ui:field="totalBody"/>
+                </table>
+            </div>
+    </g:HTMLPanel>
+</ui:UiBinder>

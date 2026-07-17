@@ -1,0 +1,126 @@
+html {
+    /* overflow-y: hidden; */
+}
+
+/*** FRONTEND-COPY SIDE (LOGIN) ***/
+#nice-menu-1>li,
+#header .userMenu li,
+.ourClients > li, .ourClients > li a,
+.directList > ul > li,
+.cols li.parent,
+.chooseOpt label .users-amount {
+    display: inline !important;
+    zoom: 1;
+}
+
+/* .btn {
+    display: inline;
+} */
+
+.directList {
+    padding: 0;
+}
+
+.directList>ul>li+li {
+    margin-left: 2px;
+}
+
+#nice-menu-1>li {
+    margin-left: 2px;
+}
+
+.overhide {
+    zoom: 1;
+}
+
+/*** Contact Form ***/
+.contactForm .form-item select {
+    width: 100%;
+}
+
+*+html .contactForm .form-item input, *+html .contactForm textarea {
+    width: 96%;
+}
+/*** end Contact Form ***/
+
+/* .contentPlaceCover {
+    height: 800px;
+} */
+
+/*** BACKEND SIDE IE7 FIXES ***/
+
+
+/* .operPanel>*, */
+.btn, .key, .fieldKey,
+.optBtn2, .optBtn,
+.exportAs, .exportAs dt, .exportAs dd,
+.import-to,
+.sortBar>li,
+.tabsPanel>span,
+.rangeLine>div,
+.titleStrip dt, .titleStrip dd,
+.rowItems *,
+.rateLine dd,
+.slideBtn, .slideBtn span,
+.keyOptArrow,
+.labelLine .row>label,
+.labelLine .row>.field,
+.labelLine .row>.fieldKey,
+.labelLine .row>label, .labelLine .row>.gwt-HTML, .labelLine .row>.field,
+.noteTable .notesFooter .gwt-HTML,
+.tabBarLinks *
+ {
+	display:inline; zoom:1;
+	}
+/* .optBtn2, .optBtn2:focus {} */
+button.optBtn2 span {
+	display:block;
+	/* line-height:30px; */
+	position:relative;
+	left:0; top:-2px;
+	}
+
+
+
+.dd-menu ul ul {
+    border: 1px solid #dbdbdb;
+}
+
+#search {
+    max-width: 251px;
+}
+
+button, input[type="button"] {
+    overflow: visible;
+}
+
+button, input[type="button"] {overflow:visible;}
+button.slideBtn {
+    line-height: 15px;
+}
+
+/* Add new button Popup */
+.dropBtn-popup table {/* width:auto; */}
+
+.operPanel .optGroupCover {border:none;}
+.operPanel .optGroupCover select {width:99%; margin-top:4px;}
+
+.sectTitle+.gwt-CheckBox {
+	zoom:1;
+	}
+
+/**For accounting**/
+.invoice-ship-via, .invoice-price-level, .invoice-amounts, .invoice-reference, .related-text, .invoice-block .lineItem {
+/ / margin-top : 10 px;
+}
+
+/*Scrollbar on left side of splitpanel*/
+/*.SplitLayoutPanel>div>div>div {
+    overflow-x: hidden
+}*/
+
+.divisioncontainer {
+    overflow-x: hidden !important;
+}
+
+.halfSet-1 {max-width:600px;}

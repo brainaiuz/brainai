@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            elementFormDefault="qualified"
+            targetNamespace="assessment-1.0.xsd"
+            xmlns:assessment="assessment-1.0.xsd">
+
+    <xsd:element name="assessment">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="evaluator" type="xsd:string" minOccurs="1" maxOccurs="1" />
+                <xsd:element name="employee" type="xsd:string" minOccurs="1" maxOccurs="1" />
+                <xsd:element name="date" type="xsd:string" minOccurs="1" maxOccurs="1" />
+                <xsd:element name="overall" type="xsd:string" />
+                <xsd:element name="skill-rating" minOccurs="0" maxOccurs="unbounded">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="skill" minOccurs="1" maxOccurs="1">
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element name="name" type="xsd:string" minOccurs="1" maxOccurs="1" />
+                                        <xsd:element name="description" type="xsd:string" minOccurs="1" maxOccurs="1" />
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                            <xsd:element name="rating" type="xsd:string" minOccurs="1" maxOccurs="1" />
+                            <xsd:element name="comments" minOccurs="1" maxOccurs="1">
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element name="comment" minOccurs="0" maxOccurs="unbounded">
+                                            <xsd:complexType>
+                                                <xsd:sequence>
+                                                    <xsd:element name="author" type="xsd:string" minOccurs="1"
+                                                                 maxOccurs="1" />
+                                                    <xsd:element name="date" type="xsd:string" minOccurs="1"
+                                                                 maxOccurs="1" />
+                                                    <xsd:element name="content" type="xsd:string" minOccurs="1"
+                                                                 maxOccurs="1" />
+                                                </xsd:sequence>
+                                            </xsd:complexType>
+                                        </xsd:element>
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+</xsd:schema>

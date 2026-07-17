@@ -1,0 +1,635 @@
+#__gwt_historyFrame { //https://prnt.sc/q0izgm
+  border: none;
+  visibility: hidden;
+}
+
+// COMMON lAYOUT MIXINS
+.content-paddings-h {
+  padding-right: $padding-y-base;
+}
+
+.fixed-content {// !!! Don't use as selector in other css (lead to > sass @extend ling selectors problem)!
+  @extend %fixed-content;
+}
+
+// \ COMMON lAYOUT MIXINS
+
+// z-index order
+.frame__modules {
+  z-index: 550;
+}
+.frame__nav {
+  z-index: 501; //to overlap gwt lib styles .table thead https://i.imgur.com/PEuzZlA.png
+}
+.new-fields__wrapper {
+  z-index: 499; // to overlap the footer
+}
+//Footer for Add Form Pages
+.frame__info {
+  z-index: 450;
+}
+
+.scroll-y {
+  z-index: 451;
+}
+.scroll-x {
+  z-index: 449;
+}
+.sidenav-right-open .scroll-y {
+  z-index: 449;
+}
+.frame__header {
+  z-index: 350;
+  .frame:has(.note-editor.fullscreen) & {
+    pointer-events: none;
+    z-index: 149; //less than .frame__content
+  }
+}
+.page-opers {
+  z-index: 250;
+  &__header {
+    font-size: 1.38rem;
+    font-weight: 300;
+  }
+}
+//.frame__content.scroll-content
+.frame__content {
+  z-index: 150;
+}
+.operPanel {
+  z-index: 140; // see row
+}
+.headerWrapper {
+  z-index: 130;
+}
+
+.frame__help {
+  z-index: 550; // Sholud be above the frame__info (footer on the add form page)
+  position: absolute;
+  right: $frameHelpPos-right;
+  bottom: $frameHelpPos-bottom;
+
+  html[dir="rtl"] & {
+    right: auto !important;
+    left: ($frameContentPadding - rem(10px)) !important;
+  }
+
+  .has-frame__info & {
+    //margin-bottom: $frameInfoSize;
+    margin-bottom: 8px;
+  }
+}
+// \ z-index order
+
+//sideNav wrapper
+.kpi-overlay {
+  &--active {
+
+  }
+}
+
+html > parsererror { //https://prnt.sc/qqqkeu
+  position: relative;
+  z-index: 1;
+}
+//BASE LAYOUT
+$hoverPrevent: rem(13px);
+.frame {
+  &:before {
+    content: '';
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    bottom: $frameModulesFooter;
+    left: $frameModulesSize - $hoverPrevent;
+    width: $hoverPrevent;
+    bottom: $frameModulesFooter;
+    @media screen and (max-width: 1366px){
+      bottom: $frameModulesFooter - 10px;
+    }
+    .left-menu-hover & {
+    }
+    &:hover {
+    }
+  }
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  //bottom: ($framePadding-bottom) !important;
+  //padding-top: ($frameHeaderSize + $frameContentPadding);
+  padding-top: ($frameHeaderSize + $frameContentPadding);
+
+  @media #{$medium-and-down} { //because .fixed content is fixen only for more large screens
+    //padding-top: 0 !important;
+  }
+
+  //.hasOrgChartHeader &,
+  .has-contentHeader &,
+  .has-page-opers.fitted-content &,
+  .has-operPanel.fitted-content & {
+    padding-top: $spaceHolder-operPanel !important;
+    @media #{$medium-and-down} {
+      //because .fixed content is fixen only for more large screens
+      //padding-top: 0 !important;
+    }
+  }
+  .has-page-opers:not(.fitted-content) &,
+  .has-operPanel:not(.fitted-content) & {
+    padding-top: $spaceHolder-operPanel + $frameContentPadding !important;
+  }
+  .has-page-opers.has-operPanel &,
+  .has-reporting-filters-panel.has-operPanel &
+  {
+    padding-top: $spaceHolder-operPanel + ($oneRowPanelHeight - $fixedPanelPadding) !important;
+  }
+  .has-title-bar & {
+    padding-top: ($frameHeaderSize + $titleBarSize) !important;
+  }
+  .has-frame__info & {
+    padding-bottom: $frameInfoSize;
+  }
+
+  .has-reporting-filters-panel.fitted-content & {
+    padding-top: $reportingFiltersSpace !important;
+  }
+  .has-page-opers.has-reporting-filters-panel & {
+    padding-top: $reportingFiltersSpace + $oneRowPanelHeight !important;
+  }
+  .has-page-opers.has-rsrcUtlzLayout__filters & {
+    padding-top: ($reportingFiltersSpace + $oneRowPanelHeight) - $fixedPanelPadding !important; //http://prntscr.com/ogs09f
+  }
+
+  .attendanceReport__table-header,
+  .rsrcUtlzTbl-outer > div.table,
+  .balance-sheet__caption {
+    top: $reportingFiltersSpace;
+  }
+
+  .fitted-content & {
+    padding-top: ($frameHeaderSize);
+  }
+
+  &__header, &__info {
+    transition: left $leftBar-transition;
+    body:not(.fitted-content) & {
+      left: -($padding-x-base);
+      html[dir="rtl"] & {
+        left: 0;
+        right: -($padding-x-base);
+      }
+    }
+    .fitted-content & {
+      //left: 0;
+      right: 0;
+    }
+  }
+
+  &__header {
+    @extend %fixed-content;
+    top: 0;
+    height: $frameHeaderSize;
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 0;
+    border-bottom: 1px solid $body-bg;
+    background: #fff;
+  }
+
+  &__modules {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: $frameModulesSize !important; //T87909 important added due to editor include styles problem fix //https://i.imgur.com/JIA4NUP.png - we can remove this after developer Azamboy fix it
+    //background: $black-base;
+    background: $frameModulesBg;
+    display: flex;
+    flex-direction: column;
+
+    html[dir="rtl"] & {
+      left: auto;
+      right: 0;
+    }
+
+    .informer--demo {
+      position: absolute;
+    }
+
+    .user-profile {
+      margin: rem(20px) 0;
+      height: $userProfileItemHeight;
+
+      .dropdown-button {
+        box-shadow: none !important;
+      }
+      .user-profile-img {
+        background-color: transparent; //to see after when there is no image
+        &:after {
+          position: absolute;
+          z-index: -1;
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          content:'';
+          background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAtCAMAAAANxBKoAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQ1IDc5LjE2MzQ5OSwgMjAxOC8wOC8xMy0xNjo0MDoyMiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTkgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkJGQTdCNzA3MUYyRTExRUFCNzczRDBCQUEzMkM3QzEwIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkJGQTdCNzA4MUYyRTExRUFCNzczRDBCQUEzMkM3QzEwIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6QkZBN0I3MDUxRjJFMTFFQUI3NzNEMEJBQTMyQzdDMTAiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6QkZBN0I3MDYxRjJFMTFFQUI3NzNEMEJBQTMyQzdDMTAiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4MlIa9AAABuVBMVEUmND+0ubxYYmqvtLclMz62ur0sOUS4vL8mMz+xtrm1ury1ubwrOEO3u763vL4qN0InNEAnNUAuO0ayt7pcZm6wtbihpqoqOEMoNUB8hIopN0IpNkGzt7qIj5QrOEQwPUe4vb8rOUS0ubuyt7lncHgqN0MoNUFjbXS2u70pNkKnrbCMk5gsOkVZY2s2QkwoNkE6RlCytrmtsrWDi5CepKhSXGVXYWl+how2Qk1sdXyorrF1foSeo6eiqKs4RE49SVOxtbiutLZpcnl0fIO4vL5VX2gnND9yeoFZY2xTXmY/S1VDTlgxPklsdX1veH+do6dPWWJ0fYOmrK+zuLoxPUiYn6MzP0p3f4aHjpR4gIdVYGiaoKSxtrhUXmdGUVtMV1+NlJhATFW6vsA5RU+nrK+SmZ2fpal+hYyboqYxPkijqKyhp6teaHBCTleBiI6qsLOJkJWqr7JUX2eOlZo0QEtocXhAS1WzuLtrdHuLk5eDipBncHc9SVKUm58kMj4lMz9ibHNNWGEjMT1BTFY5RVBPWmMzQEpHUlxveH4sOUV4gIZJVV5CTVewtLeorbBKVV6HjpOus7YtOkWNvKhkAAAB2klEQVR42tzV51MTQRgG8Dtvb6/X9EIS0ui9xALSlGIBFKwgFhTsvaKg0gQLsvmLycAY9o7sAjN+4vn8m51n7n13j8kfJsyR0lAtP6g2QGT87YUwCB9AQzCdrul40vrmY5cY208HjHfVmpKSUqz+Yjhv0LWabxEktJPJxKdHBlVnZxMcKkYoC0CKZup4DCOkV3wla2hfSeIYRf2rMaIOfo86jkY9cjtD1OCEhpzRrgGiFkO8SyubFlnn9uiXQXKTU+4m/HNyb9HrPltLk3tnGk9KDuxDv6so07khOLTeYlFmmTnuZzH8ofpLFUXbC1Ov5CJOotFFm7Yn9fDchLA9UM4jzPyInBZrSTomnu2crzc/P/TJvCy1XlTjdy57LbW0DhiXkmPK/W8Z8+5Nb/uzSND7WPbwoXy4lFbh3JlCBYn3/7y11Pi+rW9E9hQKCTVxY6+GDTlhZwGbeMXX/Iet9Py7ErsPQFGDtL67rRyH36AB4NYN55slVDq+ptumS2fLKhEp8gMVOnTwl8QRNacM9Tu0GNIQOfx1C9flV/0piu7eWA5gOvuXUqQQ9rWJaVCh0zDS1wCmmacJmSVHudcrYrrWXhk8Rk5dWxzi32TdYmgx4VH8p/0fvSXAADC6zlFwDMumAAAAAElFTkSuQmCC");
+          background-size: 35px 35px;
+          background-position: center;
+        }
+      }
+    }
+
+    &__footer {
+      position: relative;
+      margin-top: auto;
+      flex: 0 0 70px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      @media screen and (max-width: 1366px){
+        flex-basis: $frameModulesFooter;
+      }
+
+      > a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        height: 100%;
+        width: 100%;
+      }
+    }
+    .left-menu-trigger {
+      color: #fff;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+
+      .icon--chevronRight,
+      svg,
+      .ficon--chevron-right {
+        font-size: 16px;
+        transition: transform 0.3s ease;
+        .left-menu-open & {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+
+  &__nav {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: -($frameNavSize + $frameModulesSize);
+    transition: left $leftBar-transition;
+    width: $frameNavSize;
+    background-color: $body-bg;
+  }
+
+  //FOOTER
+  &__info {
+    &:not(.fixed-content) {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+    height: $frameInfoSize;
+    flex-grow: 0;
+    flex-shrink: 0;
+  }
+
+  &__content { //&.scrollbar-external_wrapper {}
+    height: 100%;
+    overflow: auto;
+    .customContentScroll & {
+      overflow: hidden;
+    }
+
+    &:has(.rsrcUtlzLayout__body) {
+      overflow: hidden;
+    }
+    ::-webkit-scrollbar {}
+    &--0 {
+    }
+    &--2 {
+      background-color: #fff
+    }
+
+    .frame__content__body {
+        height: 100%;
+      &.scroll-wrapper {}
+
+      &.scroll-content {
+        > div {
+          box-sizing: border-box !important;
+        }
+      }
+    }
+
+    .external-scroll_y.scroll-scrolly_visible {
+      right: 0;
+      height: 100%;
+    }
+    .external-scroll_x.scroll-scrollx_visible {
+      bottom: 0;
+      width: 100%;
+    }
+  }
+
+  //Blur when left menu is opened
+
+  &.pageContent_reporting {
+    .frame__content.scrollbar-external_wrapper {
+      padding-top: 130px;
+
+      .filters-account-reports {
+        z-index: 200;
+        //padding-top: ($pageOpersHeight + $fixedPanelPadding) !important;
+        margin-top: ($pageOpersHeight) !important;
+      }
+    }
+  }
+}
+
+//moved from invoice.scss Mirisoev 2018
+.whiteBGR, .workarea, .listing-table-container {
+  height: 100%;
+}
+// \ moved from invoice.scss
+
+
+
+.whiteBGR {
+  min-width: 960px; // !note if change - also change  variable min_width_from_frame_layout
+  padding-bottom: $frameContentPadding;
+
+  .fitted-content &,
+  .has-reporting-filters-panel &,
+  .has-customScrollArea & {
+    padding-bottom: 0;
+  }
+
+  body:not(.fitted-content) & {
+    padding-right: $frameContentPadding;
+  }
+}
+
+.content-box {
+  padding-top: $frameContentPadding;
+  padding-left: $frameContentPadding;
+  padding-right: $frameContentPadding;
+
+  &--white {
+    background-color: #fff;
+  }
+}
+
+//\ BASE LAYOUT
+
+.point_affix_top.has_affix:not(.childTableHeader) {
+  @extend %fixed-content;
+  z-index: 2;
+  overflow: hidden;
+  padding-right: 0 !important;
+}
+
+// LISTING TOP PANELS
+//  $listing-heading-space-top: ($oneRowPanelHeight);
+$listing-heading-space-top: ($input-height);
+//$listing-heading-space-bottom: 60px;
+
+.operPanel--header,
+.page-opers,
+.filters-account-reports,
+.attendanceReport__filters:not(.static-content),
+.rsrcUtlzLayout__filters {
+  @extend %fixed-content;
+  @include pageOpersPanel();
+}
+.operPanel--header,
+.page-opers,
+.filters-account-reports,
+.attendanceReport__filters,
+.rsrcUtlzLayout__filters {
+  @include pageOpersPanel();
+}
+
+// .listing-table-container
+.operPanel__wrapper {
+  .page-opers + .frame__content & {
+    body:not(.has-operPanel) & {
+      padding-top: ($input-height + ($fixedPanelPadding * 2) + rem(2px)) !important; //openPanel paddings + controls height https://prnt.sc/othc20 // https://prnt.sc/othcnj
+      //ToDo - remove it when .has-operPanel will be applied averywhere
+    }
+  }
+}
+
+.filters-account-reports,
+.operPanel--header {
+  @include operPanel-shadow;
+
+  z-index: 140;
+  .has-tabs & {
+    top: ($frameHeaderSize + $oneRowPanelHeight);
+  }
+}
+
+.listing-table-container {
+  .operPanel--footer { //ToDo Check It
+    display: flex;
+    @extend %fixed-content;
+    //bottom: ($framePadding-bottom);
+    bottom: 0;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    border-bottom-left-radius: $radius-base;
+    border-bottom-right-radius: $radius-base;
+  }
+}
+
+//.content__tabs__wrapper,
+.page-opers {
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+
+  .has-tabs:not(.page-opers--empty) & {
+    display: flex;
+  }
+}
+
+.cellBasedWidget-mod--fixed-header > div:first-child > div:last-child {
+  @extend %fixed-content;
+}
+
+//WORKAREA
+.lineBtnSet {
+  @extend %fixed-content; //ToDo Check - are we using this?
+}
+
+.summary-heading {
+  @extend %fixed-content;
+}
+
+.gwt-ScrollTable .headerWrapper {
+  @extend %fixed-content;
+  padding-right: 0 !important;
+}
+
+// full width srollable area imitation
+.white-overlay {
+  overflow: visible !important; //ToDo check it - inline styles
+  background: transparent !important; //ToDo check it - inline styles
+  &:before {
+    @extend %fixed-content;
+    content: '';
+    border-radius: $radius-base;
+    background: #fff;
+    bottom: 0;
+
+    body:not(.fitted-content) & {
+      top: ($frameHeaderSize + $frameContentPadding);
+      //bottom: ($frameInfoSize + $frameContentPadding);
+      left: ($frameModulesSize + $frameContentPadding) !important;
+      right: $frameContentPadding !important;
+    }
+    .fitted-content & {
+      top: ($frameHeaderSize);
+      left: ($frameModulesSize) !important;
+      right: 0 !important;
+    }
+    .has-frame__info & {
+      bottom: ($frameInfoSize);
+    }
+  }
+  .collapsible.collapsible--panels > li {
+    background-color: transparent !important;
+  }
+}
+
+//RESPONSIVE
+@media #{$medium-and-down} {
+   .frame {
+    padding-left: 10px !important;
+
+    body:not(.signUpStep) & { //maybe need add rule for.stripePayment__modal
+      //min-width: 1440px; // impact to chatbot position
+      font-size: 10px;
+    }
+
+    &__nav {
+    }
+
+    .scroll-wrapper > .scroll-content {
+      //overflow: auto !important;
+    }
+
+    &__nav {
+      background-color: rgba(236, 239, 243, 0.92);
+    }
+  }
+
+  .fixed-content {
+    left: 10px;
+  }
+}
+// for IOS browser
+@media #{$medium-and-down} {
+  body.signUpStep { //maybe need add rule for.stripePayment__modal
+    //min-width: auto;
+  }
+}
+
+// ONLY LEFT-MENU OPEN - CLOSE MENU BEHAVIOUR
+.frame {
+  margin-left: ($frameModulesSize + $frameContentPadding);
+  html[dir="rtl"] & {
+    margin-left: 0;
+    margin-right: ($frameModulesSize + $frameContentPadding);
+  }
+
+  .fitted-content & {
+    margin-left: ($frameModulesSize);
+
+    html[dir="rtl"] & {
+      margin-left: 0;
+      margin-right: ($frameModulesSize);
+    }
+  }
+  margin-left: ($frameModulesSize + $frameContentPadding);
+  html[dir="rtl"] & {
+    margin-left: 0;
+    margin-right: ($frameModulesSize + $frameContentPadding);
+  }
+
+  //transitions
+  transition: margin-left $leftBar-transition;
+
+  html[dir="rtl"] & {
+    transition: margin-right $leftBar-transition;
+  }
+
+  &__modules {
+    transition: width $leftBar-transition, opacity $leftBar-transition;
+  }
+  &__nav {}
+  // \transitions
+
+  .left-menu-open &,
+  .left-menu-hover & {
+    &__modules {
+      width: ($frameModulesSizeOpen) !important; //T87909 important added due to editor include styles problem fix //https://i.imgur.com/JIA4NUP.png - we can remove this after developer Azamboy fix it
+    }
+    &__nav {
+      html:not([dir="rtl"]) & {
+        left: ($frameModulesSizeOpen) !important;
+      }
+      html[dir="rtl"] & {
+        right: ($frameModulesSizeOpen) !important;
+      }
+    }
+  }
+
+  .left-menu-open & {
+    margin-left: ($frameNavSize + $frameModulesSizeOpen + $frameContentPadding);
+    .fixed-content,
+    .frame__header,
+    .point_affix_top.has_affix,
+    .operPanel--header,
+    .page-opers,
+    .filters-account-reports,
+    .attendanceReport__filters,
+    .rsrcUtlzLayout__filters,
+    .gwt-ScrollTable .headerWrapper,
+    .summary-heading,
+    .lineBtnSet,
+    .cellBasedWidget-mod--fixed-header > div:first-child > div:last-child,
+    .listing-table-container,
+    .settings_permission-management   > tbody > tr:first-child,
+    .white-overlay:before {}
+
+    html[dir="rtl"] & {
+      margin-left: 0;
+      margin-right: ($frameNavSize + $frameModulesSizeOpen + $frameContentPadding);
+    }
+  }
+
+  .left-menu-open.fitted-content & {
+    margin-left: ($frameNavSize + $frameModulesSizeOpen);
+
+    html[dir="rtl"] & {
+      margin-left: 0;
+      margin-right: ($frameNavSize + $frameModulesSizeOpen);
+    }
+  }
+
+  .left-menu-hover & {}
+}
+// \ LEFT-MENU OPEN - CLOSE MENU BEHAVIOUR

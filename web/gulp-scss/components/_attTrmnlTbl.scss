@@ -1,0 +1,41 @@
+// Стили для всей группы (3 колонки)
+.col-group-day {
+  .daySlot {
+    max-width: none; //override inline gwt
+    small {
+      color: $color-base-2;
+    }
+  }
+}
+.trmnlAtt-tbl {
+  .getPhone {
+    position: absolute;
+    top: 0.1em;
+    right: -0.1em;
+    height: 1em;
+    //fill: $cyan;
+    fill: $color-accent-2;
+    fill: $color-base-2;
+  }
+}
+
+//Temporary hack to hide .attendanceReport duplicate
+// 1. Находим workarea, где есть дубликат
+.workarea:has(.attendanceReport + .attendanceReport)
+// 2. Находим ТОТ attendanceReport, за которым СРАЗУ идет другой такой же
+> .attendanceReport:has(+ .attendanceReport):has(.emptyTable-content) {
+  display: none !important;
+}
+// TEMPORARY HACK TO HIDE .ATTENDANCEREPORT DUPLICATE
+
+  //  1. Находим workarea, где есть дубликат
+.workarea:has(.attendanceReport + .attendanceReport)
+  // 2. Находим ТОТ attendanceReport, за которым СРАЗУ идет другой такой же
+> .attendanceReport:has(+ .attendanceReport):has(.emptyTable-content) {
+  //display: none !important;
+}
+
+// Находим отчет, внутри которого есть наша метка-пустышка, и скрываем весь отчет
+.attendanceReport:has(.report-empty-stub) {
+  display: none !important;
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body><p>Dear $recipientName,</p>
+
+<p>Please be advised that $userName registered $issueName issue on $date and you have been assigned as a resolver.</p>
+
+<p>Issue details are below:</p>
+
+<p>Description: $description <br/>
+    Reported by: $reportedBy <br/>
+    Period: $period <br/>
+</p>
+
+<p>Click <a href="$host/ProjectManagement.html?link=$link" title="View issue">here</a> to view the issue</p>
+
+<p>* If you are not able to click on the link, you can instead copy and paste the following address in to your web
+    browser: </p>
+
+<p><span style="color: #0033FF">$host/ProjectManagement.html?link=$link</span></p>
+</body>
+</html>

@@ -1,0 +1,435 @@
+// =========================================================================
+// transition, not used!
+// =========================================================================
+$expandTsTime: 0.4s;
+@mixin descrTransition($duration: $expandTsTime) {
+  transition: max-height #{$duration} cubic-bezier(0.4, 0, 0.2, 1),
+  height #{$duration} cubic-bezier(0.4, 0, 0.2, 1),
+  border-color 0.3s ease,
+  background-color 0.3s ease,
+  color 0.3s ease,
+  text-shadow 0.3s ease;
+}
+
+.depCardFunc {
+  &-heading {
+    display: flex;
+    flex-direction: column;
+    gap: $depCard-inner-gap; // or $depCard-padding-y
+    margin-bottom: $depCard-padding-y;
+  }
+
+  &-title,
+  &-descr {
+    display: flex;
+    gap: $depCard-inner-gap;
+  }
+}
+
+// --- Row 1: Title ---
+.depCardFunc-title {
+  //align-items: center;
+  .colorPickItem {
+    flex: 0 0 $colorCircleSize;
+    //width: $colorCircleSize;
+    height: $colorCircleSize;
+  }
+
+  .dirModeTabs {
+    flex: 0 0 auto;
+  }
+
+  > .depCardFunc-titleControl {
+    font-weight: bold;
+  }
+}
+
+// --- Row 2 & 3: Shared Control Logic ---
+.depCardFunc-titleControl {
+  flex: 1;
+  position: relative;
+  overflow: hidden; // Parent always clips content
+  @include descrTransition();
+  will-change: max-height;
+
+
+  &.is-collapsed {
+    //@include descrTransition($expandTsTime);
+    max-height: $input-height; //2.5rem
+
+    &:hover {
+      @include txtTruncate($important: true);
+      cursor: pointer;
+    }
+  }
+
+  &.is-expanded {
+    height: auto; //override .form-control
+    min-height: $input-height; //prevent collapse
+    max-height: 250px !important;
+
+    // Now we use the mixin with restricted overflow to keep animation smooth
+    @include txtTruncate(initial, true, $overflow: hidden);
+
+    textarea {
+      // Apply the same transition to sync with parent container
+      @include descrTransition($expandTsTime);
+      display: block;
+      width: 100%;
+      //height: 100%; // Fill the animated parent
+      // Force it to respect the parent's animated height
+      max-height: inherit;
+      overflow: hidden; // Prevent internal scrollbar flickering
+      transition: height 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+  }
+
+  &:not(.focus-visible):not(.is-empty) {
+    background: transparent;
+    border-color: transparent;
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+
+  &.focus-visible,
+  .focus-visible {
+    background: #fff;
+    border-color: $control-border-color-hover;
+  }
+
+  &.is-empty {
+    color: $text-muted; // for placeholder
+    &:not(.focus-visible) {
+      border-color: lighten($control-border-color-hover, 45%);
+      background-color: rgba($color-base-contrast, 0.05);
+    }
+  }
+
+  .depCardFunc-descr2Value {
+    text-shadow: none;
+  }
+}
+
+// --- Row 2 & 3: Description ---
+.depCardFunc-descr {
+  &Title {
+    flex: 0 0 auto; // Occupy space only for text
+    font-weight: bold;
+    color: $text-muted;
+    white-space: nowrap;
+
+    padding-top: $button-padding-y;
+    line-height: $input-btn-line-height;
+  }
+
+  .depCardFunc-titleControl {
+    flex: 1; // Grow to fill remaining space
+
+    &.is-empty:has(.depCardFunc-descr2Value) {
+      &::before {
+        content: attr(placeholder);
+        position: absolute;
+        left: $control-padding-x;
+        top: 50%;
+        transform: translateY(-50%);
+        color: $contol-placeholder-color;
+        font-size: 1rem;
+        font-weight: normal;
+        pointer-events: none;
+        text-shadow: none;
+      }
+    }
+  }
+
+  .depCardFunc-descr2Btn {
+    flex: 0 0 auto; // Prevents the button from being pressed
+  }
+}
+
+// --- Row 3: Special case with button ---
+.depCardFunc-descr--2 {
+  .depCardFunc-descrTitle {
+  }
+  .depCardFunc-titleControl {
+    //flex: 1;
+  }
+}
+
+// =========================================================================
+// Tabs Panes - Full height & Animation logic
+// =========================================================================
+.depTabs {
+  &__panes {
+    position: relative;
+    // Растягиваем контейнер на всю высоту родителя (.side-nav__body)
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+  }
+
+  &__pane {
+    // Hidden state: absolute positioning removes the element from the flow
+    // so it doesn't take up any space or affect the scrollbar
+    position: absolute;
+    width: 100%;
+    height: 0;
+    min-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px); // Subtle slide-up effect
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+
+    &.active {
+      // Active state: return to normal flow
+      position: relative;
+      height: auto;
+      min-height: auto;
+      flex: 1 0 auto;
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      padding-top: $depCard-inner-gap;
+    }
+
+    // Специальная настройка для метрик (центрирование)
+    &--metrics {
+      &.is-empty {
+        // Keep centering for empty states
+        min-height: 350px;
+        justify-content: center;
+      }
+
+      // Чтобы иконка и текст не расплывались
+      > div {
+        flex: 0 0 auto;
+      }
+    }
+
+    //End --metrics
+
+    // Содержимое вкладок (сетка сотрудников и т.д.)
+    .grid-row {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: row; // Чтобы колонки шли в ряд
+    }
+
+    .panel {
+      height: 100%;
+    }
+
+    .panel__heading {
+      border-bottom: none;
+    }
+
+    .panel__title {
+      font-weight: bold;
+      padding-bottom: 0;
+    }
+
+  }
+}
+
+.depTabs-panel {
+  .panel__body > .btn-block {
+    margin-top: 10px;
+  }
+}
+
+.depEmployeeList {
+  padding: 0 $panel-padding $panel-padding;
+
+  .side-nav--orgChart & {
+    //max-height: clamp(200px, 60vh, 800px);
+    //overflow-y: auto;
+  }
+}
+
+
+// =========================================================================
+// Main Container & Scroll Management
+// =========================================================================
+.side-nav--orgChart {
+  width: 65%;
+
+  .side-nav__footer {
+    display: none; // Hidden for now, cleaner to remove via Java later
+  }
+
+  .sidenav-content {
+    display: flex !important;
+    flex-direction: column;
+    height: 100%;
+    padding: 0 !important;
+    overflow: hidden; // Prevent double scrollbars
+  }
+
+  .side-nav__heading {
+    flex: 0 0 auto;
+    padding: $depCard-padding-x $depCard-padding-x $depCard-inner-gap;
+    z-index: 5;
+
+    &:after {
+      height: 10px; // override .gradient-blend-top--sideNav, .side-nav__heading:after
+      margin-top: -1px;
+      left: $padding-x-base;
+      right: $padding-x-base;
+      border-radius: 0 0 $radius-big $radius-big;
+      opacity: 0.7;
+    }
+  }
+
+  .side-nav__body {
+    flex: 1 1 auto;
+    display: block;
+    // Standard GWT Materialize body uses overflow-y: auto already
+    padding: ($depCard-padding-x - $depCard-inner-gap) calc(#{$depCard-padding-x} - #{$orgChart-scrollWidth}) $depCard-padding-x $depCard-padding-x;
+
+    // "Floating" External Scrollbar effect
+    &::-webkit-scrollbar {
+      width: $orgChart-scrollWidth; // Increased width to account for padding
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent !important; // Removes the background color
+      box-shadow: none !important; // Removes any default inner shadows
+      border: none !important; // Ensures no borders are creating "lines"
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $color-base-1;
+      // Symmetric borders to center the thumb and keep it rounded (ref: image_e3ef0f.png)
+      border-left: 3px solid transparent;
+      border-right: 3px solid transparent;
+      background-clip: padding-box;
+      border-radius: 6px;
+
+      &:hover {
+        background-color: $color-base-2;
+      }
+    }
+
+    .scroll-offset {
+      display: block;
+      height: auto;
+    }
+  }
+}
+
+
+// =========================================================================
+// Metrics tab section
+// =========================================================================
+.addMetric {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 40px 20px;
+  height: 100%; // Если родитель позволяет
+  text-align: center;
+
+  .figure-icon {
+    margin-bottom: 16px; //$orgChartInnerGap
+    opacity: 0.6; // Если нужно сделать иконку мягче как на макете
+  }
+
+  &_title {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin: 0 0 8px 0;
+    color: #333;
+  }
+
+  &_subtitle {
+    font-size: 1rem;
+    font-weight: normal;
+    margin: 0 0 24px 0;
+    color: #757575;
+  }
+}
+
+.depMetricRow {
+  display: flex;
+  align-items: center;
+  gap: $depCard-inner-gap;
+  border-radius: $modalRadius;
+  padding: $padding-y-base $padding-y-base;
+  transition: box-shadow 0.2s ease;
+  background-color: #fff;
+
+  &:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  &__title {
+    font-size: $deepCardFontTitle-2;
+    @include txtTruncate();
+  }
+  &__extLink {
+    display: flex;
+    align-items: center;
+    svg {
+      transition: transform 0.2s ease-in-out; // Плавность для ховера
+      //width: 16px;     // Фиксированный размер для аккуратности
+      //height: 16px;
+    }
+    &:hover {
+      svg {
+        color: $primary; // Или твой брендовый цвет
+        stroke: $primary; // Или твой брендовый цвет
+        fill: red;
+        transform: translate(1px, -1px); // Легкий эффект "вылета" в сторону стрелки
+      }
+    }
+  }
+
+  .badge {
+    height: $button-height-small; // to make equal with __action button
+    border-radius: $radius-basePlus;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: normal;
+  }
+
+  &__status {
+    font-style: inherit;
+    background-color: $button-color-success;
+  }
+
+  &__weight {
+    margin-left: auto; // Отталкивает вес и кнопку __action вправо
+    //background-color: $color-base-2;
+    background-color: #ACBDCE;
+  }
+
+  &__action {
+    margin-left: 12px;
+    // Стили для круглой кнопки с тремя точками
+    color: $text-muted;
+    border: 1px solid $text-muted;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover, &:focus {
+      border-color: $button-border-color-secondary;
+      outline: none;
+    }
+  }
+}
+
+// Контейнер (тот самый div.depMetricList)
+.depMetricList {
+  width: 100%;
+  padding: $depCard-padding-y $depCard-padding-x - $orgChart-scrollThumbWidth $depCard-padding-y 0;
+  display: flex;
+  flex-direction: column;
+  gap: $padding-x-half;
+}

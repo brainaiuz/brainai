@@ -1,0 +1,367 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<style type="text/css">
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 8.4pt;
+    color: #232020;
+}
+
+@page {
+    size: A4 landscape;
+    margin-top: 53.6pt;
+    margin-bottom: 40pt;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0;
+
+    @bottom-center {content: element(footer);}
+    @top-center {content: element(header);}
+}
+
+#header {
+    display: block;
+    padding: 10pt 18pt;
+    position: running(header);
+}
+
+.titlePage {
+    padding: 0;
+    margin: 0;
+    font-size: 1.657em;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+#footer {
+    margin: 10px 0;
+    display: block;
+    position: running(footer);
+}
+
+#footer td {
+    vertical-alin: middle;
+}
+
+.pagingBox {
+    text-align: center;
+    padding: 3pt;
+    white-space: nowrap;
+    background: #4e7c99;
+    color: #fff;
+}
+
+.pagingBox>span {
+    background: green;
+}
+
+#pagenumber:before {
+    content: counter(page);
+}
+
+#pagecount:before {
+    content: counter(pages);
+}
+
+#header>table>tbody>tr>td {
+    vertical-align: middle;
+}
+
+#logo {
+    max-height: 38.6pt;
+    max-width: 200pt;
+}
+
+#header strong {
+    display: block;
+    margin-bottom: 1em;
+    font-size: 1.14em;
+    text-transform: uppercase;
+    color: #548ce7;
+}
+
+#content, #footer {
+    padding: 0 18pt;
+}
+
+#footer strong {
+    color: #4c7ead;
+}
+
+/**End Layout**/
+
+.sect {
+    margin-bottom: 19.7pt;
+}
+
+#content>table {
+    margin: 5pt 0;
+}
+
+.autorScript {
+    margin-top: 19.7pt;
+}
+
+.autorScript th {
+    color: #4C7EAD;
+}
+
+.autorScript th, .autorScript td {
+    padding-bottom: 9.7pt;
+}
+
+.c {
+    text-align: center !important;
+}
+
+.warning {
+    color: #FF0000
+}
+
+.baseData {
+}
+
+ul.disc {
+
+    margin-left: 21px;
+}
+
+.focusBox {
+    border: 1pt dashed #c5c5c5;
+
+    background: #fbfbfb;
+}
+
+.baseData {
+    font-weight: bold;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+.page-break {
+    page-break-after: always;
+}
+
+table {
+    max-width: 100%;
+    background-color: transparent;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.nobrd1 {
+    border-top-color: #ffffff !important;
+    border-bottom-color: #ffffff !important;
+    border-right-color: #ffffff !important;
+}
+.nobrd {
+    border-color: #ffffff !important;
+}
+
+.onlyBotBrd1 {
+    border-top-color: #ffffff !important;
+    border-right-color: #ffffff !important;
+}
+
+.onlyBotBrd {
+    border-top-color: #ffffff !important;
+    border-left-color: #ffffff !important;
+    border-right-color: #ffffff !important;
+}
+
+.listing>thead>tr>th, .listing>tbody>tr>td {
+    padding: 2mm 3mm 1mm;
+    border: 1px solid #000;
+}
+
+.listing>thead>tr>th, .listing>tbody>tr>th {
+    background: #c0c0c0;
+}
+
+.listing>tbody>tr>th {
+    text-align: left;
+}
+
+.edgeCells {
+}
+
+.theadOver {
+}
+
+.edgeCells>thead>tr>th, .edgeCells>tbody>tr>td {
+    padding: 2mm 3mm 1mm;
+    border: 1px solid #000;
+}
+
+.theadOver>thead>tr>th {
+    border-color: #ffffff;
+    border-bottom-color: #000;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-align: left;
+}
+</style>
+</head>
+<body>
+#set($companyData = $itextGenericPdfData.getBaseInvoice().getCompanyData())
+#set($customerData = $itextGenericPdfData.getBaseInvoice().getCustomBillToAddress().getRows())
+#set($nomineeList = $itextGenericPdfData.getBaseInvoice().getCustomProductTable().getRows())
+#set($contactData = $itextGenericPdfData.getBaseInvoice().getCustomNumberAndDatesTable().getRows())
+<div>
+    <table width="100%">
+        <tr>
+            <td width="11%"><img id="logo" src="$companyData.getCompanyLogoUrl()" alt="image"/></td>
+            <td width="74%" align="center"><h1 class="titlePage c">TRAINING COURSE BOOKING FORM</h1></td>
+        </tr>
+    </table>
+</div>
+
+<div id="content">
+    <table class="edgeCells theadOver" width="100%">
+        <thead>
+        <tr>
+            <th colspan="4" class="c">&#8212; Course Attendee/Nominee</th>
+            <th width="20%">Selected Training Venue</th>
+            <th width="10%" class="nobrd1">Tel Number</th>
+            <th width="21%" class="nobrd">Email</th>
+            <th width="12%" class="nobrd">Fax number</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td width="11%">Ref indicator</td>
+            <td colspan="3">$customerData.get('REF_IND_NUMBER').get('COLUMN_VALUE')</td>
+            <td class="nobrd1" width="20%">$customerData.get('LOCATION').get('COLUMN_VALUE')</td>
+            <td class="nobrd">#if($customerData.get('LOCATION_PHONE').get('COLUMN_VALUE')!='') $customerData.get('LOCATION_PHONE').get('COLUMN_VALUE') #end</td>
+            <td class="nobrd">#if($customerData.get('LOCATION_EMAIL').get('COLUMN_VALUE')!='') $customerData.get('LOCATION_EMAIL').get('COLUMN_VALUE') #end</td>
+            <td class="nobrd">#if($customerData.get('LOCATION_FAX').get('COLUMN_VALUE')!='') $customerData.get('LOCATION_FAX').get('COLUMN_VALUE') #end</td>
+        </tr>
+
+        <tr>
+            <td>Company Name</td>
+            <td colspan="3">$customerData.get('COMPANY_NAME').get('COLUMN_VALUE')</td>
+            <td colspan="4" class="nobrd1"></td>
+        </tr>
+        <tr>
+            <td>Tel number</td>
+            <td width="13%">$customerData.get('PHONE_NUMBER').get('COLUMN_VALUE')</td>
+            <td width="4%">Fax</td>
+            <td width="14%">$customerData.get('CLIENT_FAX').get('COLUMN_VALUE')</td>
+            <td colspan="4" class="nobrd1"></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td colspan="3">$customerData.get('EMAIL').get('COLUMN_VALUE')</td>
+            <td class="onlyBotBrd1" colspan="4"></td>
+        </tr>
+        </tbody>
+    </table>
+    <p class="warning">
+        All sections to be completed in capital letters - incomplete details will result in non-booking <br/>
+        Full course fee levied if cancellation is less than 48 hours or no attendance by nominee
+    </p>
+    <table class="listing" width="100%" >
+        <colgroup span="1" align="center" style="text-align:center;"/>
+        <colgroup span="9"/>
+        <thead>
+        <tr>
+            <th class="c">No</th>
+            <th>Nominee’s full name</th>
+            <th>Company employee no <br/> <em>(Ref indicator)</em></th>
+            <th>Civil no <br/>
+                <em> (Res card) </em></th>
+            <th>Email address</th>
+            <th>Cell number</th>
+            <th>Course title</th>
+            <th>Course code</th>
+            <th>Language** <br/>
+                (E / A / H)
+            </th>
+            <th>Course date</th>
+        </tr>
+        </thead>
+        <tbody>
+        #if ($nomineeList)
+        #foreach($item in $nomineeList)
+        <tr style="page-break-inside: avoid;">
+            <td class="c">$item.get('NO')</td>
+            <td class="c">$item.get('NAME')</td>
+            <td class="c">$item.get('REF_IND_NUMBER')</td>
+            <td class="c">$item.get('RES_CARD_NUMBER')</td>
+            <td class="c">$item.get('EMAIL')</td>
+            <td class="c">$item.get('PHONE_NUMBER')</td>
+            <td class="c">$item.get('COURSE_TITLE')</td>
+            <td class="c">$item.get('COLUMN_CODE')</td>
+            <td class="c">$item.get('LANGUAGE')</td>
+            <td class="c">$item.get('COURSE_DATE')</td>
+        </tr>
+        #end
+        #end
+        </tbody>
+    </table>
+
+
+    <ul class="disc">
+        <li>Course prerequisites should be considered for each nominee before making any booking. Nominees failing to
+            produce evidence for prerequisites would be considered No Shows. For prerequisite check sp1157 for reference.
+        </li>
+        <li>If the course date you have nominated for is full you will be allocated to the next available slot.</li>
+        <li>All courses at coast start at 07:00. Reporting after 07:15 will be considered as “no show”. Courses in FAHUD and
+            NIMR commence at 07:00. Start times at FAHUD and NIMR can vary during winter but will be communicated in
+            advance.
+        </li>
+        <li>“no shows” shall be charged in full. Please note that ‘no show’ covers all non-compliance even though the
+            nominee physically attends for course registration.
+        </li>
+        <li>* Client sites must be preapproved by PDO in order to conduct the training at their site.</li>
+        <li>** The nominee must be able to understand the language of the course. This includes listening and speaking.</li>
+        <li>Payment is due within 30 days of the date of invoice. This only applies to credit customers: cash customers must
+            pay in advance.
+        </li>
+    </ul>
+
+    <table class="listing" width="100%" style="page-break-inside: avoid;">
+        <thead>
+        <tr>
+            <th colspan="6" class="c">CLIENT AUTHORISATION</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td width="20%">Name</td>
+            <td width="8%">$contactData.get('NAME').get('COLUMN_VALUE')</td>
+            <td width="7%" align="right">Tel no:</td>
+            <td width="26%">$contactData.get('PHONE_NUMBER').get('COLUMN_VALUE')</td>
+            <td width="8%" rowspan="4"><strong>Stamp and Signature</strong></td>
+            <td width="31%" rowspan="4"></td>
+        </tr>
+        <tr>
+            <td>Position</td>
+            <td>$contactData.get('POSITION').get('COLUMN_VALUE')</td>
+            <td align="right">GSM no:</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Ref ind.</td>
+            <td colspan="3">$contactData.get('REF_IND_NUMBER').get('COLUMN_VALUE')</td>
+        </tr>
+        <tr>
+            <td>Date</td>
+            <td colspan="3"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<!-- End #content -->
+
+
+</body>
+</html>

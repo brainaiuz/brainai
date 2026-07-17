@@ -1,0 +1,70 @@
+// ============= rprt-rslt tables
+//Examples:
+//Timesheet Approval -> [Approve Timesheet],
+//Timesheet Approval -> (table line) -> Review
+
+.rprt-rslt {
+  table-layout: fixed;
+  > tbody > tr {
+    > * {
+      height: 50px;
+      padding: 0 10px;
+      &:first-child {
+        padding-left: $padding-x-base;
+      }
+      &:last-child {
+        padding-right: $padding-x-base;
+      }
+    }
+    &:not(.rprt-rslt__total):not(.rprt-rslt__header) {
+      border-bottom: 1px solid $color-base-0;
+      &:hover {
+        //background-color: #f7f9fa;
+        background-color: $gray-light;
+        background-color: $color-base-contrast;
+      }
+      > *:last-child {
+      }
+    }
+  }
+
+  &__total {
+    //background-color: #ced5db;
+    background-color: $color-base-1;
+    color: $color-accent-2;
+    &:hover {
+      background-color: $color-base-1;
+    }
+  }
+  &__header {
+    background-color: $color-accent-2;
+    color: white;
+    font-size: 11px;
+    text-transform: uppercase;
+    > * {
+      > img {
+        display: none;
+      }
+    }
+  }
+}
+.submitApproval {
+  &__sorting {
+    padding:rem(30px) $frameContentPadding 0;
+    background-color: #fff;
+  }
+}
+.submitApproval__footer {
+  //background-color: $color-base-1;
+  //background-color: $color-base-contrast;
+  background-color: #fff;
+
+  &--cleared {
+    border-top: 1px solid $black-base;
+    padding: 13px $padding-x-base;
+  }
+
+  > * + * {
+    margin-left: $padding-x-base;
+  }
+}

@@ -1,0 +1,9 @@
+<module>
+
+    <inherits name='com.google.gwt.user.User'/>
+    <inherits name="gwt.material.design.jquery.JQuery" />
+<!--    <inherits name="com.edatasite.workforce.gwt.core.Core"/>-->
+
+    <entry-point class='com.edatasite.workforce.gwt.materialkanban.client.KanbanViewEntryPoint'/>
+
+</module>

@@ -1,0 +1,365 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style type="text/css">
+        body {
+            font-family: 'Arial', "Helvetica Neue", Helvetica, sans-serif;
+            font-weight: 300;
+            font-size: 9pt;
+            line-height: 1.4;
+        }
+
+        .table-header {
+            font-size: 9pt;
+            padding: 8px 6px;
+            border-bottom: 1px solid black;
+            font-weight: bold;
+            vertical-align: top;
+
+        }
+
+        .profit-and-loss__rowhead {
+            /*text-transform: uppercase;*/
+            padding: 6px 4px 6px 15px;
+            font-size: 10pt;
+            font-weight: bold;
+
+        }
+
+        .profit-and-loss__totalrow .profit-and-loss__rowhead {
+            text-transform: uppercase;
+            padding: 6px 4px;
+        }
+
+        .profit-and-loss__subtotalrow td {
+            border-bottom: 1px solid #ced5db;
+            border-top: 1px solid #ced5db;
+            font-weight: bold;
+            font-size: 10pt;
+            margin-top: 6px;
+            margin-bottom: 6px;
+        }
+
+        .profit-and-loss__table td > div:not(.profit-and-loss__rowhead) {
+            margin-left: 12px;
+        }
+
+        .profit-and-loss__totalrow td {
+            border-bottom: 5px double #ced5db;
+            border-top: 1px solid #ced5db;
+            font-weight: bold;
+            font-size: 10pt;
+            margin-top: 6px;
+            margin-bottom: 6px;
+        }
+
+        .vertical-gap {
+            line-height: 10px;
+        }
+
+    </style>
+</head>
+
+<body>
+#macro(displayNode $pnlKey)
+
+#set($marginSize = 15 * $level)
+    <tr>
+        <td>
+            <div style="text-align: left; font-size: 8pt; padding:4px 4px 4px 20px; margin-left: $marginSize px">$pnlKey.key</div>
+        </td>
+        #foreach($pnlValue in $pnlKey.value.values())
+        <td>
+            <div style="text-align: right;font-size: 8pt; padding:4px 4px;">$pnlValue</div>
+        </td>
+        #end
+    </tr>
+
+    #if ($pnlKey.childs.size() > 0)
+        #set($level = $level + 1)
+        #foreach ($child in $pnlKey.childs)
+            #displayNode($child)
+        #end
+        #set($level = $level - 1)
+    #end
+#end
+
+<div class="trial-balance__tmp">
+    <img alt="images"
+         src="https://workforcetrack.s3.amazonaws.com/000000000000/public/65159/a2113e82-397f-49fd-a58a-cdf4f4b93dff?AWSAccessKeyId=AKIAIROQMC77E5UKWBWQ"
+         style="display: none;"/>
+    #if($itextGenericPdfData.companyData.companyName == 'KPI Software Inc' or $itextGenericPdfData.companyData.companyLogoUrl == 'https://apps.kpi.com/customisation/kpi.com/images/kpilogo.png')
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="width: 88px;display: none;"/>
+    #else
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="max-width: 100%; max-height: 100%; display: none;"/>
+    #end
+
+    #set($colspan = $itextGenericPdfData.getListTable().getTableHeader().size())
+
+    #set($revenueTable = $itextGenericPdfData.customData.get('REVENUE'))
+    #set($saleTable = $itextGenericPdfData.customData.get('SALE'))
+    #set($otherIncomeTable = $itextGenericPdfData.customData.get('OTHER_INCOME'))
+    #set($grossProfitTable = $itextGenericPdfData.customData.get('GROSS_PROFIT'))
+
+    #set($expenseTable = $itextGenericPdfData.customData.get('EXPENSE'))
+    #set($directCostTable = $itextGenericPdfData.customData.get('DIRECT_COST'))
+    #set($depreciationTable = $itextGenericPdfData.customData.get('DEPRECIATION'))
+    #set($overheadTable = $itextGenericPdfData.customData.get('OVERHEAD'))
+    #set($netProfitTable = $itextGenericPdfData.customData.get('NET_PROFIT'))
+    #set($level = 1)
+
+    <table cellspacing="0" cellpadding="0" width="100%" style="font-weight: bold; font-size: 9pt;">
+        <tr>
+            <td width="100%" align="center">$itextGenericPdfData.currentDate</td>
+        </tr>
+        <tr>
+            <td align="center">$itextGenericPdfData.extraData</td>
+        </tr>
+    </table>
+    <br/>
+
+    <table class="profit-and-loss__table" cellspacing="0" cellpadding="0" style="width:100%;">
+        <tr class="thead-tr">
+            #set($i = 0)
+            #foreach($header in $itextGenericPdfData.getListTable().getTableHeader())
+            <!--#set($st='align_' + $header.alignment)-->
+            #if($i == 0)
+            <th style=" font-size: 9pt; padding:8px 6px; border-bottom:1px solid black;font-weight: bold;vertical-align: top; text-align: left">$header.getText()</th>
+            #else
+            <th style=" font-size: 9pt; padding:8px 6px; border-bottom:1px solid black;font-weight: bold;vertical-align: top; text-align: right">$header.getText()</th>
+            #end
+            #set($i = $i + 1)
+            #end
+        </tr>
+        <tr>
+            <td class="vertical-gap" colspan="$colspan">&nbsp;</td>
+        </tr>
+
+        <!--REVENUE-->
+        #if($revenueTable != '')
+        <tr>
+            <td colspan="$colspan">
+                <div class="profit-and-loss__rowhead">$revenueTable.name</div>
+            </td>
+        </tr>
+
+        #foreach($pnlKey in $revenueTable.treeRows.keySet())
+        #set($level = 1)
+            #displayNode($revenueTable.treeRows.get($pnlKey))
+        #end
+        #foreach($pnlKey in $revenueTable.totalRows.keySet())
+        <tr class="profit-and-loss__subtotalrow">
+            <td>
+                <div class="profit-and-loss__rowhead" style="text-align: left; ">$pnlKey</div>
+            </td>
+            #foreach($pnlValue in $revenueTable.totalRows.get($pnlKey))
+            <td>
+                <div style="text-align: right; font-size:10pt; padding:4px 4px;">$pnlValue</div>
+            </td>
+            #end
+        </tr>
+        #end
+        #end
+
+        <!--SALES-->
+        #if($saleTable != '')
+        <tr>
+            <td colspan="$colspan">
+                <div class="profit-and-loss__rowhead">$saleTable.name</div>
+            </td>
+        </tr>
+
+        #foreach($pnlKey in $saleTable.treeRows.keySet())
+        #set($level = 1)
+            #displayNode($saleTable.treeRows.get($pnlKey))
+        #end
+        #foreach($pnlKey in $saleTable.totalRows.keySet())
+        <tr class="profit-and-loss__subtotalrow">
+            <td>
+                <div class="profit-and-loss__rowhead" style="text-align: left; ">$pnlKey</div>
+            </td>
+            #foreach($pnlValue in $saleTable.totalRows.get($pnlKey))
+            <td>
+                <div style="text-align: right; font-size:10pt; padding:4px 4px;">$pnlValue</div>
+            </td>
+            #end
+        </tr>
+        #end
+        #end
+
+        <!--EXPENCE-->
+        #if($expenseTable != '')
+        <tr>
+            <td colspan="$colspan">
+                <div class="profit-and-loss__rowhead">$expenseTable.name</div>
+            </td>
+        </tr>
+
+        #foreach($pnlKey in $expenseTable.treeRows.keySet())
+        #set($level = 1)
+            #displayNode($expenseTable.treeRows.get($pnlKey))
+        #end
+
+        #foreach($pnlKey in $expenseTable.totalRows.keySet())
+        <tr class="profit-and-loss__subtotalrow">
+            <td>
+                <div class="profit-and-loss__rowhead" style="text-align: left; ">$pnlKey</div>
+            </td>
+            #foreach($pnlValue in $expenseTable.totalRows.get($pnlKey))
+            <td>
+                <div style="text-align: right; font-size:10pt; padding:4px 4px;">$pnlValue</div>
+            </td>
+            #end
+        </tr>
+        #end
+        #end
+
+        <!--DIRECT EXPENSES-->
+        #if($directCostTable != '')
+        <tr>
+            <td colspan="$colspan">
+                <div class="profit-and-loss__rowhead">$directCostTable.name</div>
+            </td>
+        </tr>
+
+        #foreach($pnlKey in $directCostTable.treeRows.keySet())
+        #set($level = 1)
+        #displayNode($directCostTable.treeRows.get($pnlKey))
+        #end
+        #foreach($pnlKey in $directCostTable.totalRows.keySet())
+        <tr class="profit-and-loss__subtotalrow">
+            <td>
+                <div class="profit-and-loss__rowhead" style="text-align: left; ">$pnlKey</div>
+            </td>
+            #foreach($pnlValue in $directCostTable.totalRows.get($pnlKey))
+            <td>
+                <div style="text-align: right; font-size:10pt; padding:4px 4px;">$pnlValue</div>
+            </td>
+            #end
+        </tr>
+        #end
+        #end
+
+        <!--GROSS PROFIT-->
+        #if($grossProfitTable != '')
+        <tr class="vertical-gap">
+            <td colspan="$colspan">&nbsp;</td>
+        </tr>
+        #foreach($pnlKey in $grossProfitTable.totalRows.keySet())
+        <tr class="profit-and-loss__totalrow">
+            <td>
+                <div class="profit-and-loss__rowhead" style="text-align: left; ">$pnlKey</div>
+            </td>
+            #foreach($pnlValue in $grossProfitTable.totalRows.get($pnlKey))
+            <td>
+                <div style="text-align: right; font-size:10pt; padding:4px 4px;">$pnlValue</div>
+            </td>
+            #end
+        </tr>
+        #end
+        #end
+
+        <!--OTHER INCOME-->
+        #if($otherIncomeTable != '')
+        <tr>
+            <td colspan="$colspan">
+                <div class="profit-and-loss__rowhead">$otherIncomeTable.name</div>
+            </td>
+        </tr>
+
+        #foreach($pnlKey in $otherIncomeTable.treeRows.keySet())
+        #set($level = 1)
+        #displayNode($otherIncomeTable.treeRows.get($pnlKey))
+        #end
+
+        #foreach($pnlKey in $otherIncomeTable.totalRows.keySet())
+        <tr class="profit-and-loss__subtotalrow">
+            <td>
+                <div class="profit-and-loss__rowhead" style="text-align: left; ">$pnlKey</div>
+            </td>
+            #foreach($pnlValue in $otherIncomeTable.totalRows.get($pnlKey))
+            <td>
+                <div style="text-align: right; font-size:10pt; padding:4px 4px;">$pnlValue</div>
+            </td>
+            #end
+        </tr>
+        #end
+        #end
+
+        <!--DEPRECIATION-->
+        #if($depreciationTable != '')
+        <tr>
+            <td colspan="$colspan">
+                <div class="profit-and-loss__rowhead">$depreciationTable.name</div>
+            </td>
+        </tr>
+
+        #foreach($pnlKey in $depreciationTable.treeRows.keySet())
+        #set($level = 1)
+            #displayNode($depreciationTable.treeRows.get($pnlKey))
+        #end
+
+        #foreach($pnlKey in $depreciationTable.totalRows.keySet())
+        <tr class="profit-and-loss__subtotalrow">
+            <td>
+                <div class="profit-and-loss__rowhead" style="text-align: left; ">$pnlKey</div>
+            </td>
+            #foreach($pnlValue in $depreciationTable.totalRows.get($pnlKey))
+            <td>
+                <div style="text-align: right; font-size:10pt; padding:4px 4px;">$pnlValue</div>
+            </td>
+            #end
+        </tr>
+        #end
+        #end
+
+        <!--OVERHEAD-->
+        #if($overheadTable != '')
+        <tr>
+            <td colspan="$colspan">
+                <div class="profit-and-loss__rowhead">$overheadTable.name</div>
+            </td>
+        </tr>
+
+        #foreach($pnlKey in $overheadTable.treeRows.keySet())
+        #set($level = 1)
+            #displayNode($overheadTable.treeRows.get($pnlKey))
+        #end
+
+        #foreach($pnlKey in $overheadTable.totalRows.keySet())
+        <tr class="profit-and-loss__subtotalrow">
+            <td>
+                <div class="profit-and-loss__rowhead" style="text-align: left; ">$pnlKey</div>
+            </td>
+            #foreach($pnlValue in $overheadTable.totalRows.get($pnlKey))
+            <td>
+                <div style="text-align: right; font-size:10pt; padding:4px 4px;">$pnlValue</div>
+            </td>
+            #end
+        </tr>
+        #end
+        #end
+
+        <!--NET PROFIT-->
+        #if($netProfitTable != '')
+        <tr class="vertical-gap">
+            <td colspan="$colspan">&nbsp;</td>
+        </tr>
+        #foreach($pnlKey in $netProfitTable.totalRows.keySet())
+        <tr class="profit-and-loss__totalrow">
+            <td>
+                <div class="profit-and-loss__rowhead" style="text-align: left; ">$pnlKey</div>
+            </td>
+            #foreach($pnlValue in $netProfitTable.totalRows.get($pnlKey))
+            <td>
+                <div style="text-align: right; font-size:10pt; padding:4px 4px;">$pnlValue</div>
+            </td>
+            #end
+        </tr>
+        #end
+        #end
+
+    </table>
+</div>
+</body>
+</html>

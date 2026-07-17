@@ -1,0 +1,101 @@
+<report>
+    <view>
+        <title>Sales and Stock Report</title>
+        <name>Sales and Stock Report</name>
+        <category>Sales and Stock Report</category>
+        <sqlquery>
+            <select> <table name="Sales and Stock Report">
+                <column name="id" title="Company ID" type="number" formattype="number" />
+                <column name="company" title="Company" type="string" formattype="string"/>
+                <column name="product" title="Product" type="string" formattype="string"/>
+                <column name="transid" title="Transaction ID" type="number" />
+                <column name="trancdate" title="Transaction Date" type="date" formattype="date" customdateformat="Mon dd, yyyy" />
+                <column name="quantity" title="Quantity" type="number" formattype="number"/>
+                <column name="price" title="Price" type="number" formattype="money" />
+                <column name="transcode" title="Transaction Code" type="string" formattype="string"/>
+                <column name="trantype" title="Transaction Type" type="string" formattype="string"/>
+                <column name="point" title="Point" type="number" formattype="number"/>
+            </table>
+            </select>
+            <from> (
+                select a.id id, a.name company
+                , (case trim(lower(a.product))
+                when lower('Merchandise Security')	then '1) '
+                when lower('Merchandise Payment') 	then '2) '
+                when lower('H.O. Savings -')			then '3) '
+                when lower('Jobstreet')				then '4) '
+                when lower('Share of Expense')		then '5) '
+                when lower('Volume Rebate')			then '6) '
+                when lower('Hub Fee')				then '7) '
+                when lower('Insurance Fee')			then '8) '
+                else '' end)|| a.product product
+                , a.transid transid, a.trancdate trancdate,
+                a.quantity quantity, a.price price, a.transaction_code transcode,
+                a.dtype trantype,
+                (case when a.point is null then 1 else a.point end) point
+                from (
+                select c.id, c.name, item.name  product
+                , (c.id || '' || istock.id) transid,
+                istock.transaction_date trancdate, istock.quantity quantity, istock.price, istock.transaction_code,
+                (case when tran.dtype='EdsStockAdjustmentTransaction' then 'Adjustment' else  'Sales' end) dtype,
+                tran.deleted,
+                icf.double_value1 point
+                from "$".transaction tran
+                join "$".item_stock istock on istock.transactionid = tran.id
+                join "$".item item on istock.item_id = item.id left join "$".itemcustomfields icf on item.id = icf.id
+                join "public".company c on c.id=1
+                union all
+                select c.id, c.name
+                , (case trim(lower(item.name))
+                when lower('Merchandise Security')	then '1) '
+                when lower('Merchandise Payment') 	then '2) '
+                when lower('H.O. Savings')			then '3) '
+                when lower('Jobstreet')				then '4) '
+                when lower('Share of Expense')		then '5) '
+                when lower('Volume Rebate')			then '6) '
+                when lower('Hub Fee')				then '7) '
+                when lower('Insurance Fee')			then '8) '
+                else '' end)|| item.name product
+                , (c.id || '' || q.id) transid, q.creationdate trancdate, qi.qty quantity, qi.unitprice price,    'IN' transaction_code, 'Purchase Order' dtype, q.deleted, 0 point
+                from  "$".purchaseorder po
+                join "$".quote q on  po.id = q.id
+                join "$".quoteitem qi on q.id = qi.quote_id
+                join "$".item item on qi.item_id = item.id
+                join "public".company c on c.id=1
+                where item.type in (1,4) and q.status_id in (168,314)
+
+
+                union all
+                select c.id, c.name
+                , (case trim(lower(ac.name))
+                when lower('Merchandise Security')					then '2) '
+                when lower('Merchandise Payment') 					then '1) '
+                when lower('H.O. Savings')							then '3) '
+                when lower('Jobstreet')								then '6) '
+                when lower('Share of Expense')						then '7) '
+                when lower('Volume Rebate')							then '8) '
+                when lower('Hub Fee')								then '4) '
+                when lower('Insurance Fee')							then '5) '
+                when lower('Withholding tax – expanded (1%)')		then '9) '
+                else '' end)|| ac.name product
+                , (tranitem.id || '' || ac.id) transid, tran.journaldate trancdate, 0 quantity,
+                (CASE WHEN tranitem.debit=0.00 THEN tranitem.credit ELSE tranitem.debit END)  price, ''  transaction_code,
+                (CASE WHEN tranitem.debit=0.00 THEN 'CREDIT' ELSE 'CREDIT' END ) dtype, tran.deleted, 0 point
+                from "$".account ac
+                join "$".transactionitem tranitem on ac.id = tranitem.accountid
+                join "$".transaction tran on tranitem.transactionid=tran.id
+                join "public".company c on c.id=1
+                where ac.name in ('Merchandise Payment', 'Merchandise Security', 'Hub Fee', 'H.O. Savings', 'Hub Fee',
+                'Insurance Fee', 'Jobstreet', 'Share of Expense', 'Volume Rebate')
+
+                ) a where a.deleted is not true
+
+                ) t
+            </from>
+            <where>
+                <terms id="base" value="1=1"/>
+                <!-- <terms id="userid" userid="" company="t.company_id"/> <terms id="managerid" userid="" company="t.company_id"/> <terms id="leaderid" userid="" company="t.company_id"/> <terms id="admin" company="t.company_id"/>-->
+            </where>
+        </sqlquery>
+    </view>
+</report>

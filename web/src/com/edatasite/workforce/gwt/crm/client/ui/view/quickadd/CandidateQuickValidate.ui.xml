@@ -1,0 +1,31 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:w="urn:import:com.edatasite.workforce.gwt.core.client.ui.wfmDropdown"
+             xmlns:html="urn:import:gwt.material.design.client.ui.html">
+    <g:HTMLPanel ui:field="container">
+        <div class="grid-row">
+            <div class="col-12">
+                <div class="form-group">
+                    <html:Label ui:field="codeLabel" styleName="form-group__label"/>
+                    <g:TextBox ui:field="codeField"/>
+                </div>
+
+                <div class="form-group">
+                    <html:Label ui:field="passportNumberLabel" styleName="form-group__label"/>
+                    <g:TextBox ui:field="passportNumberField"/>
+                </div>
+
+                <div class="form-group">
+                    <html:Label ui:field="firstNameLabel" styleName="form-group__label"/>
+                    <g:TextBox ui:field="firstNameField"/>
+                </div>
+
+                <div class="form-group">
+                    <html:Label ui:field="lastNameLabel" styleName="form-group__label"/>
+                    <g:TextBox ui:field="lastNameField"/>
+                </div>
+                <g:HTMLPanel ui:field="employeesBox"></g:HTMLPanel>
+            </div>
+        </div>
+    </g:HTMLPanel>
+</ui:UiBinder>

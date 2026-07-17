@@ -1,0 +1,175 @@
+/*CSS Document for pseudo-select*/
+/* .operPanel .pseudoSelect .curValue:hover {
+    border: 1px solid #999999;
+    border-radius: 2px;
+    -moz-box-shadow: 0 0 15px 0 #DDDDDD inset;
+    -webkit-box-shadow: 0 0 15px 0 #DDDDDD inset;
+    box-shadow: 0 0 15px 0 #DDDDDD inset;
+}
+
+.pseudoSelect>ul {
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    -moz-box-shadow:0 3px 9px 0px rgba(0, 0, 0, 0.6);
+    -webkit-box-shadow:0 3px 9px 0px rgba(0, 0, 0, 0.6);
+    box-shadow:0 3px 9px 0px rgba(0, 0, 0, 0.6);
+}
+
+/* Exist in Core.cashe.css */
+
+.optGroupCover.pseudoSelect {
+    /*background: transparent;*/
+    /*width: 100px;*/
+}
+
+/*.optGroupCover.pseudoSelect .curValue {
+    *//* background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAGCAMAAADExV+OAAAACVBMVEXFxcVubm7///8S61ecAAAAI0lEQVQI11XHsQ0AAAjDsJD/jwYGpOLN+EAtrhKbzjEqvoYGGNoAkmFAedsAAAAASUVORK5CYII=);
+ *//*
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAPCAYAAAAYjcSfAAAAY0lEQVQ4y2P4//8/AxBzAbE4EKsDsQUQ+wBxAhCXAnEXEM8H4s1AfByIbwDxCyD++p9MwDBq6ailA27p0aNH/+fl5WFgkDhNfYpuMSELqRa8MIuJsZCqcUqshaOpd9RSqlkKAFniOfoHrqa3AAAAAElFTkSuQmCC);
+    background-repeat: no-repeat;
+    background-position: 100% 50%;
+}*/
+.optGroupCover.pseudoSelect .curValue:after {
+/*background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAPCAYAAAAYjcSfAAAAY0lEQVQ4y2P4//8/AxBzAbE4EKsDsQUQ+wBxAhCXAnEXEM8H4s1AfByIbwDxCyD++p9MwDBq6ailA27p0aNH/+fl5WFgkDhNfYpuMSELqRa8MIuJsZCqcUqshaOpd9RSqlkKAFniOfoHrqa3AAAAAElFTkSuQmCC");*/
+/*background-position: 100% 50%;*/
+/*background-repeat: no-repeat;*/
+/*bottom: 0;*/
+/*content: "";*/
+/*left: 0;*/
+/*position: absolute;*/
+/*right: 0;*/
+/*top: 0;*/
+}
+
+/*** Start optGroupCover (Pseudo Select-list "example - operPanel select") ***/
+.optGroupCover,
+.pseudoSelect {
+    /*position: relative;*/
+    /*display: inline-block;*/
+    /*overflow: hidden;*/
+    /*position: relative;*/
+    /*border: 1px solid #d8d8d8;*/
+}
+
+.optGroupCover.pseudoSelect {
+    overflow: visible;
+}
+
+.optGroupCover select,
+.optGroupCover .curValue,
+.pseudoSelect li {
+    /*padding: 6px;*/
+    /*font: 12px Arial, sans-serif;*/
+    /*color: #6e6e6e;*/
+}
+
+.optGroupCover, .selectArrow {
+    /* background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAGCAMAAADExV+OAAAACVBMVEXFxcVubm7///8S61ecAAAAI0lEQVQI11XHsQ0AAAjDsJD/jwYGpOLN+EAtrhKbzjEqvoYGGNoAkmFAedsAAAAASUVORK5CYII=);
+ */
+    /*background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAPCAYAAAAYjcSfAAAAY0lEQVQ4y2P4//8/AxBzAbE4EKsDsQUQ+wBxAhCXAnEXEM8H4s1AfByIbwDxCyD++p9MwDBq6ailA27p0aNH/+fl5WFgkDhNfYpuMSELqRa8MIuJsZCqcUqshaOpd9RSqlkKAFniOfoHrqa3AAAAAElFTkSuQmCC);*/
+    /*background-repeat: no-repeat;*/
+    /*background-position: 100% 50%;*/
+}
+
+.optGroupCover {
+    /*height: 26px;*/
+}
+
+.optGroupCover select,
+.optGroupCover .curValue {
+    /*position: relative;*/
+    /*padding-right: 0;*/
+    /*background: transparent;*/
+    /* -webkit-appearance: none; */
+    /*border: none;*/
+}
+
+.optGroupCover select {
+    height: 26px;
+}
+
+.optGroupCover:hover select {
+    z-index: 1;
+}
+
+.selectArrow {
+    position: absolute;
+    right: 0;
+    top: 1px;
+    z-index: 0;
+    height: 24px;
+    width: 23px;
+    background-color: #FFF;
+}
+
+/* .selectArrow:hover {} */
+
+/*** PSEUDO SELECT ***/
+.pseudoSelect {
+
+}
+
+.pseudoSelect:hover {
+    /* outline:1px solid #f9ddaa; */
+    /* border-color: #f9ddaa; */
+}
+
+.pseudoSelect {
+    /*white-space: nowrap;*/
+}
+
+.pseudoSelect .curValue {
+    /*overflow: hidden;*/
+    /*display: block;*/
+    /*height: 14px;*/
+    /*white-space: nowrap;*/
+}
+
+/*
+.pseudoSelect .curValue em {
+    position: relative;
+    z-index: -1;
+}
+*/
+
+.pseudoSelect .curValue {
+    text-decoration: none;
+}
+
+.pseudoSelect>ul {
+    /*display: none;*/
+    /*position: absolute;*/
+    /*top: 100%;*/
+    /*left: 0;*/
+    /*min-width: 100%;*/
+    /*border-bottom: 1px solid #d8d8d8;*/
+    /*background: #fff;*/
+    /*margin: 1px 0 0;*/
+    /*padding: 0;*/
+    /*list-style: none;*/
+}
+
+.pseudoSelect.expanded>ul {
+    /*display: block;*/
+}
+
+.pseudoSelect>ul li {
+    /*margin: 0 -1px;*/
+    /*border-top: 1px solid #ededed;*/
+    /*border-left: 1px solid #d8d8d8;*/
+    /*border-right: 1px solid #d8d8d8;*/
+}
+
+.pseudoSelect>ul li.cur,
+.pseudoSelect>ul li.cur:hover {
+    /*background-color: #315792;*/
+    /*background-color: #6e6e6e;*/
+    /*color: #fff;*/
+}
+
+.pseudoSelect>ul li:hover {
+    /*background-color: #f2f2f2;*/
+}
+
+/*** End optGroupCover ***/

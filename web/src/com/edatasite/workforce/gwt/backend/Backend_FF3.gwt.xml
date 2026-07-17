@@ -1,0 +1,4 @@
+<module rename-to="backend">
+    <inherits name='com.edatasite.workforce.gwt.backend.Backend'/>
+    <set-property name="user.agent" value="gecko1_8"/>
+</module>

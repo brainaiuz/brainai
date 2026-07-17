@@ -1,0 +1,1435 @@
+.mediacom {
+}
+
+.mediacom .mainBackground {
+    /*background-image: url("themes/mediacom/gradient-bg-logo.png");*/
+    background-color: #ffffff;
+    height: 53px;
+    background-repeat: repeat-x;
+}
+
+.mediacom .border {
+    border: 3px solid #db2461;
+    background-color: white;
+}
+
+.mediacom .containerBackground {
+    background-color: #ffffff;
+    /*color: #ffffff;*/
+}
+
+.mediacom .section {
+    /*Not Used IF*/
+    /*background: transparent url(themes/mediacom/shortcut_selected_bgr.png) repeat-x;*/
+    background-color: #ff0056;
+    color: #ffffff;
+}
+
+.mediacom .section-seleced {
+    /*Not Used IF*/
+    background: transparent url(themes/mediacom/bg_header_gradient.gif) repeat-x;
+    /*background-color:#ff0056;*/
+    color: #ffffff;
+}
+
+.mediacom .eds-shortcutitem-hdr {
+    width: 100%;
+    /*background: transparent url(themes/mediacom/shortcut_bgr.png) repeat-x;*/
+    border-bottom: 1px solid #ffffff;
+    /*color: #204d89;*/
+    font-weight: bold;
+    text-align: left;
+    cursor: pointer;
+    background-color: #c0c0c0;
+    color: #ffffff;
+}
+
+.mediacom .eds-shortcutitem-active-hdr {
+    width: 100%;
+    /*keyin shortcut_selected_bgr.png imageni commit qilib qoyish kerak*/
+    background: transparent url(themes/mediacom/bg_header_gradient.gif) repeat-x;
+    border-bottom: 1px solid #ffffff;
+    /*color: #000000;*/
+    font-weight: bold;
+    text-align: left;
+    vertical-align: middle;
+    color: #ffffff;
+}
+
+.mediacom .eds-shortcutitem-hdr-over {
+    width: 100%;
+    /*background: transparent url(themes/mediacom/shortcut_mouseover_bgr.png) repeat-x;*/
+    background-color: #ff00c0;
+    border-bottom: 1px solid #ffffff;
+    color: #ffffff;
+    font-weight: bold;
+    text-align: left;
+    cursor: pointer;
+}
+
+.mediacom .blue-header {
+    /*background: url(themes/mediacom/top2.gif);*/
+    background-color: #ffffff;
+    font-weight: bold;
+    color: #5a4580;
+}
+
+.table-blue-header {
+    background: url(themes/mediacom/top2.gif);
+    background-color: #ffffff;
+    font-weight: bold;
+    color: #5a4580;
+}
+
+.mediacom .wfm-my-tabfolder-header {
+    background: url(themes/mediacom/tabs-orange.gif) repeat-x 0 -108px;
+    overflow: hidden;
+    color: #ff0056;
+}
+
+/*   BABAYEV XUSHDNUBEK
+     Ochilgan Tablar styleni ozgartirish uchun
+ */
+.mediacom .wfm-my-tabitem-over .wfm-my-tabitem-l {
+    background: url(themes/mediacom/tabs-orange.gif) no-repeat 0 -27px;
+}
+
+.mediacom .wfm-my-tabitem-over .wfm-my-tabitem-ml, .mediacom .wfm-my-tabitem-over .wfm-my-tabitem-c {
+    background: url(themes/mediacom/tabs-orange.gif) repeat-x 0 -81px;
+}
+
+.mediacom .wfm-my-tabitem-over .wfm-my-tabitem-mr {
+    background: url(themes/mediacom/tabs-orange.gif) repeat-x 0 -81px;
+}
+
+.mediacom .wfm-my-tabitem-over .wfm-my-tabitem-r {
+    background: url(themes/mediacom/tabs-orange.gif) no-repeat right -27px;
+}
+
+.mediacom .wfm-my-tabitem-secondary .wfm-my-tabitem-l {
+    background: url(themes/mediacom/tabs-orange.gif) no-repeat 0 -27px;
+}
+
+.mediacom .wfm-my-tabitem-secondary .wfm-my-tabitem-ml, .mediacom .wfm-my-tabitem-secondary .wfm-my-tabitem-c {
+    background: url(themes/mediacom/tabs-orange.gif) repeat-x 0 -81px;
+}
+
+.mediacom .wfm-my-tabitem-secondary .wfm-my-tabitem-mr {
+    background: url(themes/mediacom/tabs-orange.gif) repeat-x 0 -81px;
+}
+
+.mediacom .wfm-my-tabitem-secondary .wfm-my-tabitem-r {
+    background: url(themes/mediacom/tabs-orange.gif) no-repeat right -27px;
+}
+
+.mediacom .wfm-my-tabitem-sel .wfm-my-tabitem-text {
+    color: #ff0056;
+}
+
+.mediacom .wfm-my-tabitem-text {
+    display: block;
+    padding: 0 5px 0 3px;
+    color: #ff0056;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.mediacom .wfm-my-tabitem-sel .wfm-my-tabitem-l {
+    background: url(themes/mediacom/tabs-orange.gif) no-repeat;
+}
+
+.mediacom .wfm-my-tabitem-sel .wfm-my-tabitem-ml, .mediacom .wfm-my-tabitem-sel .wfm-my-tabitem-c {
+    background: url(themes/mediacom/tabs-orange.gif) repeat-x 0 -54px;
+}
+
+.mediacom .wfm-my-tabitem-sel .wfm-my-tabitem-mr {
+    background: url(themes/mediacom/tabs-orange.gif) repeat-x 0 -54px;
+}
+
+.mediacom .wfm-my-tabitem-sel .wfm-my-tabitem-r {
+    background: url(themes/mediacom/tabs-orange.gif) no-repeat right 0;
+}
+
+.mediacom .my-paging-toolbar {
+    background: url(themes/mediacom/bg.gif) repeat-x;
+    border-top: 1px solid #ffffff;
+}
+
+.mediacom .my-cpanel-frame .my-toolbar {
+    position: static;
+    background: url(themes/mediacom/bg.gif) repeat-x;
+    border: 1px solid #ffffff;
+    border-bottom: none;
+}
+
+.mediacom .my-toolitem-mr div {
+    background: transparent url(themes/mediacom/btn-arrow.gif) no-repeat scroll 0 3px;
+    width: 12px;
+    height: 21px;
+}
+
+.mediacom .my-toolitem-seperator {
+    background: url(themes/mediacom/split.gif) no-repeat 50% 50%;
+    border: 0 none;
+    cursor: default;
+    font-size: 1px;
+    height: 21px;
+    overflow: hidden;
+    width: 4px;
+}
+
+.mediacom .my-toolbar {
+    /*background: url(themes/mediacom/bg.gif) 0px 0px repeat-x;*/
+    /*background-color: #c0c0c0;*/
+
+}
+
+.mediacom .wfm-my-toolbar {
+    background: url(themes/mediacom/main_menu.gif) 0 0 repeat-x;
+    /*background-color: #ff0056;*/
+    /*color:#ffffff;*/
+    color: white !important;
+
+}
+
+.mediacom .my-cpanel-frame .wfm-my-toolbar {
+    position: static;
+    background: url(themes/mediacom/bg_header_gradient.gif) repeat-x;
+    background-color: #ff0056;
+    border: 1px solid #ff0056;
+    /*color:#ffffff;*/
+    color: white !important;
+    border-bottom: none;
+}
+
+.mediacom .my-toolitem-over .my-toolitem-l {
+    background: url(themes/mediacom/tb-btn-sprite.gif) no-repeat;
+}
+
+.mediacom .my-toolitem-over .my-toolitem-ml,
+.mediacom .my-toolitem-over .my-toolitem-c {
+    background: url(themes/mediacom/tb-btn-sprite.gif) repeat-x 0 -42px;
+}
+
+.mediacom .my-toolitem-over .my-toolitem-ml,
+.mediacom .my-toolitem-over .my-toolitem-c {
+    background: url(themes/mediacom/tb-btn-sprite.gif) repeat-x 0 -42px;
+}
+
+.mediacom .my-toolitem-over .my-toolitem-mr {
+    background: url(themes/mediacom/tb-btn-sprite.gif) repeat-x 0 -42px;
+}
+
+.mediacom .my-toolitem-split div {
+    background: transparent url(themes/mediacom/btn-arrow.gif) no-repeat 0 -47px;
+    width: 12px;
+    height: 21px;
+}
+
+.mediacom .wfm-tool-bar {
+    /*background: url("themes/mediacom/test3.gif") repeat-x scroll 0 0 transparent;*/
+    margin: 0;
+    width: 100%;
+    border: medium none;
+}
+
+.mediacom .my-toolbar {
+    /*background: url(themes/mediacom/test3.gif) 0px 0px repeat-x;*/
+    color: #777777;
+    border-bottom: 0 solid #ffffff; /*TODO after bottom size if 1px*/
+}
+
+.mediacom .my-toolitem-over .my-toolitem-r {
+    background: url(themes/mediacom/tb-btn-sprite.gif) no-repeat 0 -21px;
+}
+
+.mediacom .my-toolitem-down .my-toolitem-l {
+    background: url(themes/mediacom/tb-btn-sprite.gif) no-repeat 0 -63px;
+}
+
+.mediacom .my-toolitem-down .my-toolitem-ml,
+.mediacom .my-toolitem-down .my-toolitem-c {
+    background: url(themes/mediacom/tb-btn-sprite.gif) repeat-x 0 -105px;
+}
+
+.mediacom .my-toolitem-down .my-toolitem-mr {
+    background: url(themes/mediacom/tb-btn-sprite.gif) repeat-x 0 -105px;
+}
+
+.mediacom .my-toolitem-down .my-toolitem-r {
+    background: url(themes/mediacom/tb-btn-sprite.gif) no-repeat 0 -84px;
+}
+
+.mediacom .my-toolitem-sel .my-toolitem-l {
+    background: url(themes/mediacom/tb-btn-sprite.gif) no-repeat 0 -63px;
+}
+
+.mediacom .my-toolitem-sel .my-toolitem-ml,
+.mediacom .my-toolitem-sel .my-toolitem-c {
+    background: url(themes/mediacom/tb-btn-sprite.gif) repeat-x 0 -105px;
+    color: #fff;
+}
+
+.mediacom .my-toolitem-sel .my-toolitem-mr {
+    background: url(themes/mediacom/tb-btn-sprite.gif) repeat-x 0 -105px;
+}
+
+.mediacom .my-toolitem-sel .my-toolitem-r {
+    background: url(themes/mediacom/tb-btn-sprite.gif) no-repeat 0 -84px;
+}
+
+.mediacom .wfm-my-toolitem-over .wfm-my-toolitem-l {
+    background: url(themes/mediacom/tb-btn-sprite.gif) no-repeat;
+}
+
+.mediacom .wfm-my-toolitem-over .wfm-my-toolitem-ml,
+.mediacom .wfm-my-toolitem-over .wfm-my-toolitem-c {
+    background: url(themes/mediacom/tb-btn-sprite.gif) repeat-x 0 -42px;
+}
+
+.mediacom .wfm-my-toolitem-over .wfm-my-toolitem-ml,
+.mediacom .wfm-my-toolitem-over .wfm-my-toolitem-c {
+    background: url(themes/mediacom/tb-btn-sprite.gif) repeat-x 0 -42px;
+}
+
+.mediacom .wfm-my-toolitem-over .wfm-my-toolitem-mr {
+    background: url(themes/mediacom/tb-btn-sprite.gif) repeat-x 0 -42px;
+}
+
+.mediacom .wfm-my-toolitem-over .wfm-my-toolitem-r {
+    background: url(themes/mediacom/tb-btn-sprite.gif) no-repeat 0 -21px;
+}
+
+.mediacom .wfm-my-toolitem-over {
+    height: 21px;
+    cursor: pointer;
+}
+
+.mediacom .hasRichTextToolbar {
+    border: 1px solid #99BBE8;
+}
+
+/****************************** Applied to the decorator panel. *******************/
+.mediacom .gwt-DecoratorPanel {
+}
+
+.mediacom .gwt-DecoratorPanel .middleCenter {
+    height: 100%;
+    width: 100%;
+}
+
+.mediacom .gwt-DecoratorPanel .topCenter,
+.mediacom .gwt-DecoratorPanel .bottomCenter {
+    background: url(themes/mediacom/hborder.png) repeat-x;
+}
+
+.mediacom .gwt-DecoratorPanel .middleLeft,
+.mediacom .gwt-DecoratorPanel .middleRight {
+    background: url(themes/mediacom/vborder.png) repeat-y;
+}
+
+.mediacom .gwt-DecoratorPanel .topLeftInner,
+.mediacom .gwt-DecoratorPanel .topRightInner,
+.mediacom .gwt-DecoratorPanel .bottomLeftInner,
+.mediacom .gwt-DecoratorPanel .bottomRightInner {
+    width: 5px;
+    height: 5px;
+    zoom: 1;
+}
+
+.mediacom .gwt-DecoratorPanel .topLeft {
+    background: url(themes/mediacom/cornerGrey_lighter.png) no-repeat 0 0;
+    -background: url(themes/mediacom/corner_ie6.png) no-repeat 0px 0px;
+}
+
+.mediacom .gwt-DecoratorPanel .topRight {
+    background: url(themes/mediacom/cornerGrey_lighter.png) no-repeat -5px 0;
+    -background: url(themes/mediacom/corner_ie6.png) no-repeat -5px 0px;
+}
+
+.mediacom .gwt-DecoratorPanel .bottomLeft {
+    background: url(themes/mediacom/cornerGrey_lighter.png) no-repeat 0 -5px;
+    -background: url(themes/mediacom/corner_ie6.png) no-repeat 0px -5px;
+}
+
+.mediacom .gwt-DecoratorPanel .bottomRight {
+    background: url(themes/mediacom/cornerGrey_lighter.png) no-repeat -5px -5px;
+    -background: url(themes/mediacom/corner_ie6.png) no-repeat -5px -5px;
+}
+
+* html .mediacom .gwt-DecoratorPanel .topLeftInner,
+* html .mediacom .gwt-DecoratorPanel .topRightInner,
+* html .mediacom .gwt-DecoratorPanel .bottomLeftInner,
+* html .mediacom .gwt-DecoratorPanel .bottomRightInner {
+    width: 5px;
+    height: 5px;
+    overflow: hidden;
+}
+
+/*****************  gwt 1.5 Button  *************************/
+.mediacom .gwt-Button {
+    margin: 0;
+    padding: 3px 5px;
+    text-decoration: none;
+    font-size: small;
+    cursor: pointer;
+    background: url("themes/mediacom/hborder.png") repeat-x 0 -27px;
+    border: 1px outset #ccc;
+}
+
+.mediacom .gwt-Button:active {
+    border: 1px inset #ccc;
+}
+
+.mediacom .gwt-Button:hover {
+    border-color: #9cf #69e #69e #7af;
+}
+
+.mediacom .gwt-Button[disabled] {
+    cursor: default;
+    color: #ffffff;
+}
+
+.mediacom .gwt-Button[disabled]:hover {
+    border: 1px outset #ccc;
+}
+
+/******************** Applied decoreted tab panel *******************/
+.mediacom .gwt-DecoratedTabBar .tabTopCenter {
+    padding: 0;
+    background: #CCCCCC;
+}
+
+.mediacom .gwt-DecoratedTabBar .tabMiddleLeft,
+.mediacom .gwt-DecoratedTabBar .tabMiddleRight {
+    width: 6px;
+    padding: 0;
+    background: #CCCCCC;
+}
+
+.mediacom .gwt-DecoratedTabBar .tabMiddleCenter {
+    padding: 0 4px 2px 4px;
+    cursor: pointer;
+    color: #777777;
+    font: 14px;
+    font-weight: bold;
+    text-align: center;
+    background: #CCCCCC;
+}
+
+.mediacom .gwt-DecoratedTabBar .gwt-TabBarItem-selected {
+    /*background: #ff0056;*/
+    background-image: url("themes/mediacom/tab_bgr.png");
+    color: #ffffff;
+}
+
+.mediacom .gwt-DecoratedTabBar .gwt-TabBarItem-selected .tabTopCenter {
+    /*background: #ff0056;*/
+    /*background-image:url("themes/mediacom/tab_bgr.png");*/
+    background-color: #d72460;
+    color: #ffffff;
+}
+
+.mediacom .gwt-DecoratedTabBar .gwt-TabBarItem-selected .tabMiddleLeft,
+.mediacom .gwt-DecoratedTabBar .gwt-TabBarItem-selected .tabMiddleRight {
+    color: #ffffff;
+    /*background: #ff0056;*/
+    background-image: url("themes/mediacom/tab_bgr.png");
+
+}
+
+.mediacom .gwt-DecoratedTabBar .gwt-TabBarItem-selected .tabMiddleCenter {
+    cursor: default;
+    color: #ffffff;
+    /*background: #ff0056;*/
+    background-image: url("themes/mediacom/tab_bgr.png");
+
+}
+
+html>body .mediacom .gwt-DecoratedTabBar .tabTopLeft {
+    background: url(themes/mediacom/cornerGrey_lighter.png) no-repeat 0 -55px;
+}
+
+html>body .mediacom .gwt-DecoratedTabBar .tabTopRight {
+    background: url(themes/mediacom/cornerGrey_lighter.png) no-repeat -6px -55px;
+}
+
+* html .mediacom .gwt-DecoratedTabBar .tabTopLeftInner {
+    width: 5px;
+    height: 61px;
+    margin-top: -55px;
+    overflow: hidden;
+    background: url(themes/mediacom/cornerGrey_lighter.png);
+    -background: url(themes/mediacom/corner_ie6.png);
+}
+
+* html .mediacom .gwt-DecoratedTabBar .tabTopRightInner {
+    width: 12px;
+    height: 61px;
+    margin-top: -55px;
+    margin-left: -6px;
+    overflow: hidden;
+    background: url(themes/mediacom/cornerGrey_lighter.png);
+    -background: url(themes/mediacom/corner_ie6.png);
+    /*background-color: #c0c0c0;*/
+}
+
+* html .mediacom .gwt-DecoratedTabBar .gwt-TabBarItem-selected .tabTopLeftInner {
+    width: 5px;
+    height: 67px;
+    margin-top: -61px;
+    overflow: hidden;
+    background: url(themes/mediacom/corner.png);
+    -background: url(themes/mediacom/corner_ie6.png);
+    /*background-color: #ff0056;*/
+}
+
+* html .mediacom .gwt-DecoratedTabBar .gwt-TabBarItem-selected .tabTopRightInner {
+    width: 12px;
+    height: 67px;
+    margin-top: -61px;
+    margin-left: -6px;
+    overflow: hidden;
+    background: url(themes/mediacom/corner.png);
+    -background: url(themes/mediacom/corner_ie6.png);
+    /*background-color: #ff0056;*/
+}
+
+.mediacom .gwt-TabPanelBottom {
+    border-color: #c0c0c0;
+    border-style: solid;
+    border-width: 1px 1px 1px 1px;
+    overflow: hidden; /*padding: 0px;*/
+}
+
+.mediacom .gwt-DecoratedTabBar {
+
+}
+
+.mediacom .gwt-DecoratedTabBar .gwt-TabBarFirst {
+    width: 5px; /* first tab distance from the left */
+}
+
+.mediacom .gwt-DecoratedTabBar .gwt-TabBarRest {
+
+}
+
+.mediacom .gwt-DecoratedTabBar .gwt-TabBarItem {
+    border-collapse: collapse;
+    /*grey bolishi kerak*/
+    margin-left: 6px;
+}
+
+.mediacom .gwt-DecoratedTabBar .tabTopLeft,
+.mediacom .gwt-DecoratedTabBar .tabTopRight {
+    padding: 0;
+    zoom: 1;
+}
+
+.mediacom .gwt-DecoratedTabBar .tabTopLeftInner,
+.mediacom .gwt-DecoratedTabBar .tabTopRightInner {
+    width: 6px;
+    height: 6px;
+}
+
+.mediacom .gwt-DecoratedTabBar .tabMiddleLeftInner,
+.mediacom .gwt-DecoratedTabBar .tabMiddleRightInner {
+    width: 1px;
+    height: 1px;
+}
+
+html>body .mediacom .gwt-DecoratedTabBar .gwt-TabBarItem-selected .tabTopLeft {
+    background: url(themes/mediacom/corner.png) no-repeat -6px -55px;
+    background-position: 0 -61px;
+}
+
+html>body .mediacom .gwt-DecoratedTabBar .gwt-TabBarItem-selected .tabTopRight {
+    background: url(themes/mediacom/corner.png) no-repeat -6px -55px;
+    background-position: -6px -61px;
+}
+
+/*.mediacom .gwt-DecoratedTabBar .gwt-TabBarItem-selected .tabTopCenter {*/
+/*background: #ff0056;*/
+/*}*/
+
+.mediacom .gwt-TabPanel {
+    /*padding:0px;*/
+}
+
+.mediacom .gwt-DecoratedTabBar {
+
+}
+
+.mediacom .gwt-DecoratedTabBar .gwt-TabBarFirst {
+    width: 5px; /* first tab distance from the left */
+}
+
+.mediacom .gwt-DecoratedTabBar .gwt-TabBarRest {
+}
+
+.mediacom .gwt-DecoratedTabBar .gwt-TabBarItem {
+    border-collapse: collapse;
+    margin-left: 2px;
+}
+
+.mediacom .gwt-DecoratedTabBar .tabTopLeft,
+.mediacom .gwt-DecoratedTabBar .tabTopRight {
+    padding: 0;
+    zoom: 1;
+}
+
+.mediacom .gwt-DecoratedTabBar .tabTopLeftInner,
+.mediacom .gwt-DecoratedTabBar .tabTopRightInner {
+    width: 6px;
+    height: 6px;
+}
+
+.mediacom .gwt-DecoratedTabBar .tabMiddleLeftInner,
+.mediacom .gwt-DecoratedTabBar .tabMiddleRightInner {
+    width: 1px;
+    height: 1px;
+}
+
+html>body .mediacom .gwt-DecoratedTabBar .gwt-TabBarItem-selected .tabTopLeft {
+    background-position: 0 -61px;
+}
+
+html>body .mediacom .gwt-DecoratedTabBar .gwt-TabBarItem-selected .tabTopRight {
+    background-position: -6px -61px;
+}
+
+.mediacom .gwt-TabPanel {
+    /*padding:0px;*/
+}
+
+/******************** Styles end for decoreted tab panel *******************/
+
+/******************************************* Decorated Stack Panel **********************************************/
+
+.mediacom .gwt-DecoratedStackPanel {
+    border-bottom: 1px solid #bbbbbb;
+}
+
+.mediacom .gwt-DecoratedStackPanel .gwt-StackPanelContent {
+    border: 1px solid #bbbbbb;
+    border-bottom: 0;
+    background: white;
+    padding: 2px 2px 10px 5px;
+}
+
+.mediacom .gwt-DecoratedStackPanel .gwt-StackPanelItem {
+    cursor: pointer;
+}
+
+.mediacom .gwt-DecoratedStackPanel .stackItemTopLeft,
+.mediacom .gwt-DecoratedStackPanel .stackItemTopRight {
+    height: 6px;
+    width: 6px;
+    zoom: 1;
+}
+
+.mediacom .gwt-DecoratedStackPanel .stackItemTopLeftInner,
+.mediacom .gwt-DecoratedStackPanel .stackItemTopRightInner {
+    width: 1px;
+    height: 1px;
+}
+
+.mediacom .gwt-DecoratedStackPanel .stackItemMiddleLeftInner,
+.mediacom .gwt-DecoratedStackPanel .stackItemMiddleRightInner {
+    width: 1px;
+    height: 1px;
+}
+
+.mediacom .gwt-DecoratedStackPanel .gwt-StackPanelItem-first .stackItemTopRight,
+.mediacom .gwt-DecoratedStackPanel .gwt-StackPanelItem-first .stackItemTopLeft {
+    border: 0;
+    background-color: white;
+}
+
+.mediacom .gwt-DecoratedStackPanel .gwt-StackPanelItem-below-selected .stackItemTopLeft,
+.mediacom .gwt-DecoratedStackPanel .gwt-StackPanelItem-below-selected .stackItemTopRight {
+    background-color: white;
+}
+
+html>body .mediacom .gwt-DecoratedStackPanel {
+}
+
+* html .mediacom .gwt-DecoratedStackPanel .stackItemTopLeftInner,
+* html .mediacom .gwt-DecoratedStackPanel .stackItemTopRightInner {
+    width: 6px;
+    height: 6px;
+    overflow: hidden;
+}
+
+.mediacom .cw-StackPanelHeader {
+    padding-left: 7px;
+    font-weight: bold;
+    font-size: 1.4em;
+}
+
+.mediacom .gwt-DecoratedStackPanel .stackItemTopLeft {
+    border-left: 1px solid #bbbbbb;
+    background: #d3def6 url(themes/mediacom/cornerGrey_lighter.png) no-repeat 0 -49px;
+    -background: #d3def6 url(themes/mediacom/corner_ie6.png) no-repeat 0px -49px;
+}
+
+.mediacom .gwt-DecoratedStackPanel .stackItemTopRight {
+    border-right: 1px solid #bbbbbb;
+    background: #d3def6 url(themes/mediacom/cornerGrey_lighter.png) no-repeat -6px -49px;
+    -background: #d3def6 url(themes/mediacom/corner_ie6.png) no-repeat -6px -49px;
+}
+
+.mediacom .gwt-DecoratedStackPanel .stackItemTopCenter {
+    background: url(themes/mediacom/hborder.png) 0 -21px repeat-x;
+}
+
+.mediacom .gwt-DecoratedStackPanel .stackItemMiddleLeft {
+    background: #d3def6 url(themes/mediacom/hborder.png) repeat-x 0 -989px;
+    border-left: 1px solid #bbbbbb;
+}
+
+.mediacom .gwt-DecoratedStackPanel .stackItemMiddleRight {
+    background: #d3def6 url(themes/mediacom/hborder.png) repeat-x 0 -989px;
+    border-right: 1px solid #bbbbbb;
+}
+
+.mediacom .gwt-DecoratedStackPanel .stackItemMiddleCenter {
+    font-weight: bold;
+    font-size: 1.3em;
+    background: #d3def6 url(themes/mediacom/hborder.png) repeat-x 0 -989px;
+}
+
+/******************** Styles end for decoreted stack panel *****************************************************/
+
+.mediacom .docs-button-table {
+    height: 21px;
+    border-collapse: collapse;
+    border-spacing: 0;
+    cursor: pointer;
+    margin-left: 12px;
+}
+
+.mediacom .docs-button-table tr td {
+    background: url("themes/mediacom/tb-btn-sprite.gif") repeat-x 0 -42px;
+    padding: 0 !important;
+    border: 0 none !important;
+}
+
+.mediacom .docs-button-table .left_bdr {
+    background: url("themes/mediacom/tb-btn-sprite.gif") no-repeat 0 0 !important;
+}
+
+.mediacom .docs-button-table .right_bdr {
+    background: url("themes/mediacom/tb-btn-sprite.gif") no-repeat 100% -21px !important;
+}
+
+.mediacom .topPanelCompanyNameStyle {
+    font-size: 14px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.mediacom .maxLogoHeight {
+    max-height: 53px;
+    height: auto !important;
+    height: 53px;
+}
+
+.mediacom .gwt-ScrollTable .dataWrapper {
+    width: 100% !important;
+    background-color: #fff;
+
+}
+
+.mediacom .gwt-ScrollTable {
+    /*background: url("/wfp/templates/Mediacom/images/bg-head-menu.png") no-repeat scroll 100% -41px transparent;*/
+}
+
+.mediacom .gwt-ScrollTable .headerWrapper {
+    /*background: url("/wfp/templates/Mediacom/images/bg-head-menu.png") no-repeat scroll 0 0 transparent;*/
+    /* 07.18 height: 24px !important;
+    width: 98.5% !important; */
+    background-color: #e2175f;
+}
+
+.mediacom .gwt-ScrollTable .headerTable td,
+.mediacom .gwt-ScrollTable .footerTable td {
+    color: #ffffff;
+}
+
+.headerTable td, footerTable td {
+    /* border-right: 1px solid #ca66ca;
+    border-left: 1px solid #792a79; */
+    background-color: #e2175f;
+}
+
+.mediacom .menu-button {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.mediacom .menu-button-selected {
+    /*Section selected bolganida */
+    background-image: url(themes/mediacom/bg_header_gradient.gif);
+    /*background-color: #ff0056;*/
+    color: #ffffff;
+    /*background-position: 0 48px;*/
+    cursor: pointer;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.mediacom .my-cpanel-hdr-text {
+    padding: 0 4px;
+    color: #ffffff;
+    font-size: 11px;
+    font-size-adjust: none;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: bold;
+    line-height: 15px;
+}
+
+.mediacom .my-cpanel-hdr-l {
+    background: url(themes/mediacom/corners-sprite.gif) no-repeat 0 0;
+}
+
+.mediacom .my-cpanel-hdr-c {
+    width: 100%;
+    background: url(themes/mediacom/top-bottom.gif) repeat-x;
+}
+
+.mediacom .my-cpanel-hdr-r {
+    width: 3px;
+    background: url(themes/mediacom/corners-sprite.gif) no-repeat right 0;
+}
+
+.mediacom .my-tool {
+    overflow: hidden;
+    width: 15px;
+    height: 15px;
+    float: right;
+    cursor: pointer;
+    background: transparent url(themes/mediacom/tool-sprites.gif) no-repeat;
+    margin-left: 2px;
+    margin-right: 5px;
+}
+
+.mediacom .wfm-my-toolitem-selected .wfm-my-toolitem-l {
+    background: url(themes/mediacom/tb-btn-sprite-orange.gif) no-repeat;
+}
+
+.mediacom .wfm-my-toolitem-selected .wfm-my-toolitem-ml,
+.mediacom .wfm-my-toolitem-selected .wfm-my-toolitem-c {
+    background: url(themes/mediacom/tb-btn-sprite-orange.gif) repeat-x 0 -42px;
+}
+
+.mediacom .wfm-my-toolitem-selected .wfm-my-toolitem-ml,
+.mediacom .wfm-my-toolitem-selected .wfm-my-toolitem-c {
+    background: url(themes/mediacom/tb-btn-sprite-orange.gif) repeat-x 0 -42px;
+}
+
+.mediacom .wfm-my-toolitem-selected .wfm-my-toolitem-mr {
+    background: url(themes/mediacom/tb-btn-sprite-orange.gif) repeat-x 0 -42px;
+}
+
+.mediacom .wfm-my-toolitem-selected .wfm-my-toolitem-r {
+    background: url(themes/mediacom/tb-btn-sprite-orange.gif) no-repeat 0 -21px;
+}
+
+.mediacom .logOut {
+    color: #ff0056;
+}
+
+.mediacom .logOutLink {
+    color: #ff0056;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.mediacom .inOutColor {
+    color: #ff0056;
+}
+
+.mediacom .quickViewHeaderSome {
+    background: url(themes/mediacom/header_bgr.jpg) repeat-x;
+    padding: 3px;
+    vertical-align: middle;
+    /*font-family: Tahoma, Verdana, Geneva, Arial, Helvetica, sans-serif;*/
+    font-size: 11px;
+    font-style: normal;
+    color: #ffffff;
+}
+
+.mediacom .menu-button-mouse-over-background {
+    /*background-image: url(themes/mediacom/popup-menu-button-hover.png);*/
+    background-image: url(themes/mediacom/bg_header_gradient.gif);
+    cursor: pointer;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.mediacom .menu-button-mouse-over-right {
+    /*background-image: url(themes/mediacom/popup-menu-button-right.png);*/
+    background-image: url(themes/mediacom/bg_header_gradient.gif);
+    cursor: pointer;
+}
+
+.mediacom .menu-button-mouse-over-left {
+    /*background-image: url(themes/mediacom/popup-menu-button-left.png);*/
+    background-image: url(themes/mediacom/bg_header_gradient.gif);
+
+    cursor: pointer;
+}
+
+.mediacom .menu-button-selected-right {
+    /*background-image: url(themes/mediacom/popup-menu-uppertab.gif);*/
+    background-image: url(themes/mediacom/bg_header_gradient.gif);
+
+    background-position: 0 24px;
+    cursor: pointer;
+    color: #ffffff;
+}
+
+.mediacom .menu-button-selected-left {
+    /*background-image: url(themes/mediacom/popup-menu-uppertab.gif);*/
+    background-image: url(themes/mediacom/bg_header_gradient.gif);
+
+    background-position: 0 72px;
+    cursor: pointer;
+    color: #ffffff;
+}
+
+.mediacom .menu-popup-style {
+    background-color: #ebf3fe;
+    color: #ffffff;
+}
+
+.mediacom .menu-item-right-shadow {
+    padding-top: 5px;
+    background: transparent url(themes/mediacom/popup-menu-right.png) repeat-y;
+    width: 4px;
+}
+
+.mediacom .menu-item-bottom-shadow {
+    padding-left: 5px;
+    background: transparent url(themes/mediacom/popup-menu-bottom.png) repeat-x;
+    height: 4px;
+}
+
+.mediacom .menu-item-corner-shadow {
+    background-image: url(themes/mediacom/popup-menu-corner.png);
+    width: 4px;
+    height: 4px;
+}
+
+.mediacom .menu-item-on-mouse-over-left {
+    background: url(themes/mediacom/popup-menu-sprite.png) 0 42px;
+
+    cursor: pointer;
+}
+
+.mediacom .menu-item-on-mouse-over-right {
+    background: url(themes/mediacom/popup-menu-sprite.png) 0 63px;
+    cursor: pointer;
+}
+
+.mediacom .menu-item-on-mouse-over-middle {
+    background: url(themes/mediacom/popup-menu-sprite.png) 0 21px;
+    cursor: pointer;
+}
+
+.mediacom .menu-item-arrow-down {
+    background: url(themes/mediacom/popup-menu-arrow-down.png) no-repeat;
+}
+
+.mediacom .menu-separator {
+    background: url(themes/mediacom/popup-menu-separator.gif) repeat-y;
+}
+
+.mediacom .split-bar-on-collapsed {
+    background-image: url(themes/mediacom/split-bar-close-image.png);
+}
+
+.mediacom .split-bar-on-expanded {
+    background-image: url(themes/mediacom/split-bar-collapse-image.png);
+}
+
+.mediacom .split-bar-on-disabled {
+    background-image: url(themes/mediacom/split-bar-collapse-image-grey-closed.png);
+}
+
+.mediacom.loading-image {
+    background-image: url(themes/mediacom/medion-loader.gif);
+}
+
+.my-tab-close {
+    background: url(themes/mediacom/tab-close.gif) no-repeat 0 -9px;
+    width: 9px;
+    height: 9px;
+}
+
+.my-tab-close-over {
+    background: url(themes/mediacom/tab-close.gif) no-repeat 0 -18px;
+}
+
+.mediacom-vsplitbar {
+    background: #ffffff;
+    /*background-image: url(images/default/shared/clear.gif);*/
+    position: absolute; /*z-index: 1;*/
+}
+
+.mediacom .my-cpanel-body-header {
+    border-color: -moz-use-text-color #ffffff #ffffff;
+    border-right: 1px solid #ffffff;
+    border-style: none solid solid;
+    border-width: medium 1 1;
+}
+
+.mediacom .my-cpanel-body-header {
+    border: 1px solid #ffffff;
+    border-top: none;
+}
+
+.mediacom .customTitle {
+    color: #666666;
+    /*font-family: tahoma, verdana, helvetica;*/
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.mediacom .wfm-button, .mediacom .wfm-button button {
+    overflow: hidden;
+    height: 32px;
+    color: #fff; /*#ff0056;*/
+    font-size: 11px;
+    /*font-family: tahoma, verdana, helvetica, serif;*/
+    background-image: url(themes/mediacom/btn_grey.png);
+    background-color: #c0c0c0;
+    white-space: nowrap;
+    background-repeat: no-repeat;
+}
+
+/*Begin WftSplitLayouPanel*/
+.mediacom .SplitLayoutPanel-HDragger, .SplitLayoutPanel-VDragger {
+    background-color: #db2461;
+}
+
+.mediacom .SplitLayoutPanel-HDragger {
+    cursor: pointer;
+}
+
+.mediacom .SplitLayoutPanel-HDragger {
+    cursor: pointer;
+}
+
+.mediacom .SplitLayoutPanel-VDragger {
+    cursor: pointer;
+}
+
+/*End WftSplitLayouPanel*/
+/*GWT Menu*/
+.gwt-MenuBar {
+    cursor: default;
+}
+
+.gwt-MenuBar .gwt-MenuItem {
+
+}
+
+.gwt-MenuBar .menu-bar, .menu-bar .gwt-MenuItem-selected {
+    background: none !important;
+}
+
+/* 07.19 .gwt-MenuBar-horizontal .gwt-MenuItem {
+    padding: 0px 10px;
+    vertical-align: bottom;
+    color: #666666;
+    font-weight: bold;
+}
+
+.gwt-MenuBar-horizontal .gwt-MenuItemSeparator {
+    width: 1px;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    border-left: 1px solid #888888;
+    background: white;
+}
+
+.gwt-MenuBar-horizontal .gwt-MenuItemSeparator .menuSeparatorInner {
+    width: 1px;
+    height: 1px;
+    background: white;
+}
+
+.gwt-MenuBar-vertical {
+    margin-top: 0;
+    margin-left: 0;
+    background: white;
+}
+
+.gwt-MenuBar-vertical table {
+    border-collapse: collapse;
+}
+
+.gwt-MenuBar-vertical .gwt-MenuItem {
+    padding: 4px 14px 4px 1px;
+}
+
+.gwt-MenuBar-vertical .gwt-MenuItemSeparator {
+    padding: 2px 0;
+}
+
+.gwt-MenuBar-vertical .gwt-MenuItemSeparator .menuSeparatorInner {
+    height: 1px;
+    padding: 0px;
+    border: 0px;
+    border-top: 1px solid #ccc;
+    overflow: hidden;
+}
+
+.gwt-MenuBar-vertical .subMenuIcon {
+    padding-right: 4px;
+}
+
+.gwt-MenuBar-vertical .subMenuIcon-selected {
+    background: #E3E8F3;
+}
+
+.gwt-MenuBarPopup {
+    margin: 0px 0px 0px 3px;
+}
+ */
+/* 07.24 - moved tro Core.cache.css .gwt-MenuBarPopup .menuPopupTopCenter {
+    background: url(themes/blue/hborder.png) 0px -12px repeat-x;
+}
+
+.gwt-MenuBarPopup .menuPopupBottomCenter {
+    background: url(themes/blue/hborder.png) 0px -13px repeat-x;
+    -background: url(themes/blue/hborder_ie6.png) 0px -13px repeat-x;
+}
+
+.gwt-MenuBarPopup .menuPopupMiddleLeft {
+    background: url(themes/blue/vborder.png) -12px 0px repeat-y;
+    -background: url(themes/blue/vborder_ie6.png) -12px 0px repeat-y;
+}
+
+.gwt-MenuBarPopup .menuPopupMiddleRight {
+    background: url(themes/blue/vborder.png) -13px 0px repeat-y;
+    -background: url(themes/blue/vborder_ie6.png) -13px 0px repeat-y;
+}
+
+
+
+.gwt-MenuBarPopup .menuPopupTopLeft {
+    background: url(themes/blue/corner.png) no-repeat 0px -36px;
+    -background: url(themes/blue/corner_ie6.png) no-repeat 0px -36px;
+}
+
+.gwt-MenuBarPopup .menuPopupTopRight {
+    background: url(themes/blue/corner.png) no-repeat -5px -36px;
+    -background: url(themes/blue/corner_ie6.png) no-repeat -5px -36px;
+}
+
+.gwt-MenuBarPopup .menuPopupBottomLeft {
+    background: url(themes/blue/corner.png) no-repeat 0px -41px;
+    -background: url(themes/blue/corner_ie6.png) no-repeat 0px -41px;
+}
+
+.gwt-MenuBarPopup .menuPopupBottomRight {
+    background: url(themes/blue/corner.png) no-repeat -5px -41px;
+    -background: url(themes/blue/corner_ie6.png) no-repeat -5px -41px;
+}
+
+html>body .gwt-MenuBarPopup {
+} */
+
+
+
+.mediacom .toolBar-panel
+/* ,.mediacom .dd-menu>ul>li */ {
+    background-color: #b81e52;
+    color: #FFFFFF;
+
+}
+
+.mediacom .dd-menu>ul>li:hover, .dd-menu > ul > li.act {
+    background-color: #e8477d;
+}
+
+.mediacom .dd-menu ul ul li:hover > a,
+.mediacom .dd-menu ul ul li:hover > a.fly {
+    background-color: #f2f2f2;
+    color: #e8477d;
+}
+
+.mediacom .dd-menu .toolBar .guideCard > a {
+    color: #b81e52;
+    cursor: default;
+    font-weight: bold;
+    padding: 0 9px;
+}
+
+.mediacom .userMenu {
+    background-color: #b81e52;
+    float: right;
+}
+
+/*          X U S H N U D       */
+/**** START tabsPanel
+=================================================================****/
+.mediacom .tabsPanel {
+    /* overflow:hidden; */
+    padding-top: 4px;
+    border-bottom: 3px solid #ba1e53;
+    background-color: #e2175f;
+    /*background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAACCCAMAAABWxpmJAAAAM1BMVEXFIFi+H1TWI1/HIFjMysvOqrbRhqDQjqXNusHSaYzWK2XTZ4vOsrvNuL/XI2DMzMy7HlMqGoCjAAAARklEQVQoz8XOKQKAQBADwSzLfaTz/9cisIAdU7rk40QboAnQVYltv8I67wIWAaMAyvhM2raG3iIlUcr5n9q20vqg5CnXdm+JcB4rQfCnCgAAAABJRU5ErkJggg==) no-repeat;*/
+
+}
+
+.mediacom .tabsPanel>span {
+    position: relative;
+    display: inline-block;
+}
+
+.mediacom .tabsPanel>span * {
+    text-decoration: none;
+}
+
+.mediacom .tabsPanel .tabItem, .mediacom .tabsPanel .tabItem>span {
+    display: block;
+    font: 11px Arial, sans-serif;
+    background: #cccccc url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAACCCAMAAABWxpmJAAAAM1BMVEXFIFi+H1TWI1/HIFjMysvOqrbRhqDQjqXNusHSaYzWK2XTZ4vOsrvNuL/XI2DMzMy7HlMqGoCjAAAARklEQVQoz8XOKQKAQBADwSzLfaTz/9cisIAdU7rk40QboAnQVYltv8I67wIWAaMAyvhM2raG3iIlUcr5n9q20vqg5CnXdm+JcB4rQfCnCgAAAABJRU5ErkJggg==) no-repeat;
+}
+
+.mediacom .tabsPanel .tabItem {
+    position: relative;
+    padding-left: 15px;
+    margin-left: 4px;
+    vertical-align: bottom;
+    text-align: center;
+    color: #fff;
+}
+
+.mediacom .tabsPanel .tabItem>span {
+    min-height: 18px;
+    min-width: 36px;
+    padding: 6px 15px 0 0;
+    background-position: 100% -33px;
+}
+
+.mediacom .tabsPanel .tabItem:hover,
+.mediacom .tabsPanel .tabItem.act {
+    background-position: 0 -67px;
+    background-color: #bb1e53;
+}
+
+.mediacom .tabsPanel .tabItem:hover>span,
+.mediacom .tabsPanel .tabItem.act>span {
+    background-position: 100% -102px;
+    background-color: #bb1e53;
+}
+
+.mediacom .tabsPanel .tabClosable .tabItem>span {
+    padding-right: 20px;
+}
+
+.mediacom .tabsPanel .tabClosable>a:first-child {
+    position: absolute;
+    right: 2px;
+    top: 3px;
+    z-index: 1;
+    width: 11px;
+    height: 11px;
+    background-image: url(/mainStyles/images/default/tabfolder/bg_marks_tab-close-1.png);
+    background-position: 0 0;
+    background-repeat: no-repeat;
+}
+
+.mediacom .tabsPanel .tabClosable>a:first-child:hover {
+    background-position: 0 -10px;
+}
+
+.mediacom .tabsPanel .tabClosable>a:first-child:active {
+    background-position: 0 -23px;
+}
+
+.mediacom .tabsPanel .tabClosable>a:first-child.act {
+    background-position: 0 -23px;
+}
+
+.mediacom .tabsPanel .markHome {
+    height: 25px;
+    width: 47px;
+    padding: 0;
+    /* background:url(images/bg_homeTab.png) no-repeat 0 -27px; */
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC8AAAA0CAMAAAAt6JHGAAAAk1BMVEUnkM8QleUCe8QFesGt3fq03PNgu/JwuOKg1/io1vFZq91GsO96x/W/4va64/uHxOidz+6T0vc3mdQfn+vU7v5Dn9cspO3W7vwCeMALjdocicqGzPYSgsYOkuESmekHhdCSyesPlOMBecHH6fwSg8YBeMEjjc0Li9gah8olj87K6Pkrk9EHhdEAd7/h9P8sk9ESmerNhlFuAAABIElEQVRIx9XU2Y7CIBgFYNSWrdWC+6zOvnPa93+6oUYNpihg9MJzxcV3Egg/ELN6biLT+3wx5K9JyI0hDyn+8Z30UnzT9/tJUUwiPc0ySqfAlMb5EhhBU6pBYz34yJa4r+D1LT9Q6Pq7DfcXOp7u+LpQBrx2OPDKoY970AxOMorQ/vd9+LyneF7Y8Hhfbi/uAl67Xoe9HeVi3i7mhWeo++d5L1fkTVrS/f13HRnytTTkrU7IrSEfKf53SUiKrwd+P5ZyHOlZnjO2ABYszlfAEIoxBRbrIYa2JHwFr2/5gULXP224v9DxbMfXhSrglcOBHwF13IPl7n+VM4T2v+/D5z3FC2kj4n21vbgLeOV6FfZ2lOWsXcykZ6gH53kv1+P/AbpWmWi8jQRLAAAAAElFTkSuQmCC) no-repeat 0 -27px;
+}
+
+.mediacom .tabsPanel .markHome:hover, .mediacom .tabsPanel .markHome.act {
+    background-position: 0 0;
+}
+
+/**** ================================### End HEADER PANELS ###============================== ****/
+
+/**** ### Start subDivisionsBar content ###
+==============================================================****/
+.mediacom .subDivisionsBar {
+    float: left;
+    overflow: auto;
+    width: 214px;
+    height: 100%;
+    padding: 0;
+    border-right: 1px solid #ccc;
+}
+
+.mediacom .subDivisionsBar.disable {
+    display: none;
+}
+
+.mediacom .subDivisionsBar .sdb-inner {
+    padding-bottom: 30px;
+}
+
+/* SubDivisions navigation menu */
+.mediacom .subDivisions {
+    margin: 0 0 18px;
+}
+
+.mediacom .subDivisions li,
+.mediacom .subDivisions li:hover,
+.mediacom .subDivisions li.active {
+    height: 31px;
+    line-height: 31px;
+    font-weight: bold;
+    background-image: url(/mainStyles/themes/mediacom/bg_subDivs-items.png);
+    background-repeat: repeat-x;
+}
+
+.mediacom .subDivisions li:hover,
+.mediacom .subDivisions li.active {
+    background-position: 0 100% !important;
+}
+
+.mediacom .subDivisions li a {
+    display: block;
+    /*background-image: url(/mainStyles/images/default/bg/marks_subDivisions.png);*/
+    /*background-repeat: no-repeat;*/
+    text-decoration: none;
+    color: #515151;
+    padding-left: 30px;
+}
+
+.mediacom .subDivisions li:hover a,
+.mediacom .subDivisions li.active a {
+    color: #fff;
+}
+
+.mediacom .subDivisions li img {
+    margin-left: 10px;
+    position: absolute;
+    margin-top: 8px;
+}
+
+/**** End subDivisionsBar content ****/
+
+address, em {
+    font-style: normal;
+}
+
+/*Internet Explorer problem on module loading, gwt iframe history visible*/
+#__gwt_historyFrame {
+    display: none;
+}
+
+/*halim's changes*/
+.mediacom .customStyleTable {
+    border: 1px solid #db2461;
+}
+
+.mediacom .customStyleTable thead th {
+    background-color: #db2461;
+    border-right: 1px solid #CC0066;
+    border-left: 1px solid #db24a8;
+}
+
+.mediacom .defaultRateStep-0 {
+    background: #e3a5ba;
+}
+
+.mediacom .defaultRateStep-1 {
+    background: #db8ea8;
+}
+
+.mediacom .defaultRateStep-2 {
+    background: #d47897;
+}
+
+.mediacom .defaultRateStep-3 {
+    background: #cd6186;
+}
+
+.mediacom .defaultRateStep-4 {
+    background: #c64b75;
+}
+
+.mediacom .defaultRateStep-5 {
+    background: #bf3463;
+}
+
+.mediacom .defaultRateStep-6 {
+    background: #b81e52;
+}
+
+.mediacom .defaultRateStep-7 {
+    background: #b8003e;
+}
+
+.feedBackButton {
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAABYCAYAAAAN8yztAAAEmUlEQVRo3u1aW0gUURjWNFslyHTbyeqxiB56aNPqIYIKyrSiCyVdXDOIQCo0eokgUgihelB8yaAsiC62ZdB1i6ILLkWJtkhatrprapraxU1rK/z7/9PsMO5ONbvNmYnYhw93FvQ7853/+y/HExM7Ki6mXchTQkKbYMvxCLazXiHPg89+BPwtkC8BEYeIjVEiR9I1SPhKCzIF8lREIi1gBHl1SmY8vukhHqQy8mniAhIkcpKBN7FIbkWkIUwSuVvIXc+bWCSfh5hC0jNylNuEe9xhCHmLZbNND2Il8lGtgu2SUeQU4e1GkSd4VSaQ+gk58HZ3Rcj3jZYN8CRvP3y8eDdscpPaVd9JXQVtdgf4bj1iz61CLjyYnQ+N9uswPDwM/taOsMkT1ZLfN6+GuhPVjOiD6wU8LTsJA9297PlLTx/0lVTxIyc4UlfCS8d9RhjAe5S7I2NnRHv+R3KS15OxQ0Jt+lZJgc9ulHrFXj7kTyasg3sHyke86a+g+Z4bSq4kuxK47bmSr7u3lLLPTvNa6C0/z5+cFHBYc6HDWSdJfGb8EvCh3b75BqUFcff5155+9t2VlGzw1D79GfmuFn7k1eMz4Z3bKxEref9P8mtOLn97buRy2Qfc7eC134IW+03ocjXxl51Qk5IlkclBma5rxT7+VqPS2lB0mL15p/029JdXR1zPwyYPTjotGQXgWr6Hb1Uj0mvWzYqyc6/nSuV0RGmtusrf53602o2sAviAET/gfMY+U/RH0kaFRf4eSUheUqHN8ZB9pvbquf0GfPcN6SP7a4z0gOeJ+Avmdq5JhgLusnUjk/sTyn1uVo5ESgg0llyt1mzZxBIK/XRmFzIV1ASbZuTka3fJMegsOa4qs3HrXglDmNfVNBSaFBbma9z7frReYN8HnS6+ViMy6loCY1Nw1uMW7VTRelzNIWmUfN6Mdguu85p2r6707XCn8CB8xTfvx+im7+rTt4GzuILPuBQdGgwZGqhreVhYymz1O3xEaJ5eDZWdJKeIplT6srgSHpdVgR+j/Z2zgX3XWHyUVTXyvppeLmKfU38uH5XkKdeDtV23iUUeYLoMDfKiMoRJRdehIdBM9OHbBwcb9yk1AJrJm8tOS0ODLvO53PuuoiPQVlXDcrxaYs2bCZ/7NTuP82MM6HY40IullcqrDzObdCyml9Wohr/ASCfP62I1Q8lDZW+Cwe5efc5kfte9cg+4f+JwIOrzqM+jPv//fE4dTDhe5tK301FX4CjkzcXbqgZDTcmDn6Pk3Mnp35Y0OsmfuU6p//fhgFfI8xl2OIB/3G3UtYXEJsvGq0aRmx6Y1xQYdmEjY8zESSh9txHkdD1sXE1K1i5DLukgkhCTUf5Tul9PQoxGJKfGJ03HBVzQm5ze3oSwIGZUJi/ch6WzUxdy8T5cnCj/RFqAED92AS6i1GleW4sL6fEItu88yWNlCyAFpiJmIeYjFiOWIpYhshDZEWKR4mW8oAXQFiQjJonXBmciZiPmIOaKq48E1pBriPlJJ0ZAjIHRogrjEGZxOyaLkkWKtJALmMHkQYuIF6+LmsRf+huY5FdPfwCnZ6hVcInykAAAAABJRU5ErkJggg==);
+}
+
+.nearSearchBtn>em {
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAMAQMAAABV3H//AAAABlBMVEX////lFWXwhrL2AAAAAXRSTlMAQObYZgAAADFJREFUeF4NxTERgDAMAMA3jIaCMYKTSMhGh156ML2xiSYXNZnFSvrmPajrlPGI39E+BSUVYuoovxoAAAAASUVORK5CYII=);
+	}
+
+.nearSearchBtn1>em:before {
+    background-color: #db2461;
+}
+
+
+/******************************Tree Table styles BEGAN*****************************/
+
+.wfm-treeTable {
+    background: white;
+    overflow: hidden;
+    border: 1px solid #CCCCCC;
+}
+
+.wfm-treeTable-header {
+    color: #fff;
+    background-position: 100% 0;
+    background-color: #6f0505;
+}
+/******************************Tree Table styles END*****************************/
+
+.mediacom .invoice-block .label,
+.mediacom .invoice-type .label,
+.mediacom .progress-invoicing .label {
+    color: black;
+}
+
+.mediacom .invoice-block .titlelabel{
+    color: black;
+}
+.mediacom .optionlabel{
+    color: black;
+}
+
+.myCompanyNameStyle {
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: 15%;
+    color: #bb1e53 !important;
+}

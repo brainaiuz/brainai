@@ -1,0 +1,1 @@
+update listPanelGuideSettings set forceittoshow = false where paneltype = 'ProjectListPanel';

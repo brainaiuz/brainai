@@ -1,0 +1,16 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transational.dtd">
+<html xmlns="http://w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<p><I>Hi $USER_NAME,</I><br/></p>
+
+<p>Please be advised that auto-sync process failed to connect to your Office 365 calendar.
+   Please check your user credentials and account settings to re-enable auto-sync process. <br>
+</p>
+
+$companyInfo
+</body>
+</html>

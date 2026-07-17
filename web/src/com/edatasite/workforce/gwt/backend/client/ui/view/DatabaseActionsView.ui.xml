@@ -1,0 +1,155 @@
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:g="urn:import:com.google.gwt.user.client.ui"
+             xmlns:m="urn:import:gwt.material.design.client.ui"
+             xmlns:w="urn:import:com.edatasite.workforce.gwt.core.client.ui"
+             xmlns:mhtml="urn:import:gwt.material.design.client.ui.html"
+             xmlns:kpi="urn:import:com.edatasite.workforce.gwt.core.client.ui.components">
+    <g:HTMLPanel ui:field="panel">
+
+        <m:MaterialCollapsible styleName="collapsible--arrows">
+            <m:MaterialCollapsibleItem>
+                <m:MaterialCollapsibleHeader>
+                    <mhtml:Span ui:field="databasePatch"/>
+                </m:MaterialCollapsibleHeader>
+                <m:MaterialCollapsibleBody>
+                    <g:HTMLPanel styleName="grid-row">
+                        <g:HTMLPanel styleName="col-6">
+                            <g:HTMLPanel styleName="form-group">
+                                <mhtml:Label ui:field="schemaLabel" styleName="form-group__label"/>
+                                <g:HTMLPanel ui:field="schemaPanel"/>
+                            </g:HTMLPanel>
+                        </g:HTMLPanel>
+                        <g:HTMLPanel styleName="col-6">
+                            <g:HTMLPanel styleName="form-group">
+                                <mhtml:Label ui:field="excludeSchemaLabel" styleName="form-group__label"/>
+                                <g:TextBox ui:field="excludeSchema"/>
+                            </g:HTMLPanel>
+                        </g:HTMLPanel>
+                    </g:HTMLPanel>
+                    <g:HTMLPanel styleName="grid-row">
+                        <g:HTMLPanel styleName="col-12">
+                            <kpi:KpiTextArea width="100%" height="200px" ui:field="queryBox"/>
+                        </g:HTMLPanel>
+                    </g:HTMLPanel>
+                    <m:MaterialPanel styleName="grid-row" style="margin-top: 10px">
+                        <g:HTMLPanel styleName="col-12">
+                            <g:HTMLPanel ui:field="applyPatchPanel"/>
+                        </g:HTMLPanel>
+                    </m:MaterialPanel>
+
+                </m:MaterialCollapsibleBody>
+            </m:MaterialCollapsibleItem>
+        </m:MaterialCollapsible>
+
+        <m:MaterialCollapsible styleName="collapsible--arrows">
+            <m:MaterialCollapsibleItem>
+                <m:MaterialCollapsibleHeader>
+                    <mhtml:Span ui:field="hostSettings"/>
+                </m:MaterialCollapsibleHeader>
+                <m:MaterialCollapsibleBody>
+
+                    <g:HTMLPanel styleName="grid-row">
+                        <g:HTMLPanel styleName="col-6">
+                            <mhtml:Span ui:field="hostSettingsInfo"/>
+                        </g:HTMLPanel>
+                        <g:HTMLPanel styleName="col-6">
+                            <g:HTMLPanel ui:field="clearHostSettingsPanel"/>
+                        </g:HTMLPanel>
+                    </g:HTMLPanel>
+
+                </m:MaterialCollapsibleBody>
+            </m:MaterialCollapsibleItem>
+        </m:MaterialCollapsible>
+
+        <m:MaterialCollapsible styleName="collapsible--arrows">
+            <m:MaterialCollapsibleItem>
+                <m:MaterialCollapsibleHeader>
+                    <mhtml:Span ui:field="schemaCreateSettings"/>
+                </m:MaterialCollapsibleHeader>
+                <m:MaterialCollapsibleBody>
+
+                    <g:HTMLPanel styleName="grid-row">
+                        <g:HTMLPanel styleName="col-6">
+                            <g:HTMLPanel styleName="form-group">
+                                <g:HTMLPanel ui:field="schemaCreatePanel"/>
+                            </g:HTMLPanel>
+                        </g:HTMLPanel>
+                    </g:HTMLPanel>
+
+                </m:MaterialCollapsibleBody>
+            </m:MaterialCollapsibleItem>
+        </m:MaterialCollapsible>
+
+        <m:MaterialCollapsible styleName="collapsible--arrows">
+            <m:MaterialCollapsibleItem>
+                <m:MaterialCollapsibleHeader>
+                    <mhtml:Span ui:field="updateAttendance"/>
+                </m:MaterialCollapsibleHeader>
+                <m:MaterialCollapsibleBody>
+
+                    <g:HTMLPanel styleName="grid-row">
+                        <g:HTMLPanel styleName="col-6">
+                            <g:HTMLPanel styleName="form-group">
+                                <mhtml:Label ui:field="startDateLabel" styleName="form-group__label"/>
+                                <w:DatePicker ui:field="startDate"/>
+                            </g:HTMLPanel>
+                        </g:HTMLPanel>
+                        <g:HTMLPanel styleName="col-6">
+                            <g:HTMLPanel styleName="form-group">
+                                <mhtml:Label ui:field="dueDateLabel" styleName="form-group__label"/>
+                                <w:DatePicker ui:field="dueDate"/>
+                            </g:HTMLPanel>
+                        </g:HTMLPanel>
+                    </g:HTMLPanel>
+
+                    <g:HTMLPanel styleName="grid-row">
+                        <g:HTMLPanel styleName="col-6">
+                            <g:HTMLPanel styleName="form-group">
+                                <mhtml:Label ui:field="schema2Label" styleName="form-group__label"/>
+                                <g:HTMLPanel ui:field="schema2Panel"/>
+                            </g:HTMLPanel>
+                        </g:HTMLPanel>
+                        <g:HTMLPanel styleName="col-6">
+                            <g:HTMLPanel styleName="form-group">
+                                <mhtml:Label ui:field="employeeLabel" styleName="form-group__label"/>
+                                <w:DataListBox ui:field="employee"/>
+                            </g:HTMLPanel>
+                        </g:HTMLPanel>
+                    </g:HTMLPanel>
+                    <m:MaterialPanel styleName="grid-row" style="margin-top: 10px">
+                        <g:HTMLPanel styleName="col-12">
+                            <g:HTMLPanel ui:field="updateAttendancePanel"/>
+                        </g:HTMLPanel>
+                    </m:MaterialPanel>
+
+                </m:MaterialCollapsibleBody>
+            </m:MaterialCollapsibleItem>
+        </m:MaterialCollapsible>
+
+        <m:MaterialCollapsible styleName="collapsible--arrows">
+            <m:MaterialCollapsibleItem>
+                <m:MaterialCollapsibleHeader>
+                    <mhtml:Span ui:field="schemaUpdate"/>
+                </m:MaterialCollapsibleHeader>
+                <m:MaterialCollapsibleBody>
+
+                    <g:HTMLPanel styleName="grid-row">
+                        <g:HTMLPanel styleName="col-12">
+                            <g:HTMLPanel styleName="form-group">
+                                <mhtml:Label ui:field="schema3Label" styleName="form-group__label"/>
+                                <g:HTMLPanel ui:field="schema3Panel"/>
+                            </g:HTMLPanel>
+                        </g:HTMLPanel>
+                    </g:HTMLPanel>
+                    <m:MaterialPanel styleName="grid-row" style="margin-top: 10px">
+                        <g:HTMLPanel styleName="col-12">
+                            <g:HTMLPanel ui:field="schemaUpdatePanel"/>
+                        </g:HTMLPanel>
+                    </m:MaterialPanel>
+
+                </m:MaterialCollapsibleBody>
+            </m:MaterialCollapsibleItem>
+        </m:MaterialCollapsible>
+
+    </g:HTMLPanel>
+</ui:UiBinder>

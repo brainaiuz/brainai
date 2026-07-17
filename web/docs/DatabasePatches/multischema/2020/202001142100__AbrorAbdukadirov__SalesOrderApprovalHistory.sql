@@ -1,0 +1,3 @@
+insert into myupdatetype (code, description, parentid) values ('SALES_ORDER_MANAGER_REJECT',     'Records when user has rejected sales order',     (select id from myupdatetype where code='SALES_ORDER'));
+insert into myupdatetype (code, description, parentid) values ('SALES_ORDER_MANAGER_APPROVE',    'Records when user has approved sales order',    (select id from myupdatetype where code='SALES_ORDER'));
+insert into myupdatetype (code, description, parentid) values ('SALES_ORDER_SUBMITTED_TO_MANAGER',  'Records when user has submitted sales order to manager',   (select id from myupdatetype where code='SALES_ORDER'));

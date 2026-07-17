@@ -1,0 +1,1 @@
+insert into "anv".genericsettings(key, value) values ('USE_SINGLE_ACCOUNT_TO_VAT_TRANSACTION', 'YES');

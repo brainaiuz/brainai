@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<project name="WFM" basedir=".">
+
+    <property name="MailLogger.mailhost" value="mail.workforcetracksupport.com"/>
+    <property name="MailLogger.user" value="mailer@workforcetracksupport.com"/>
+    <property name="MailLogger.password" value="workforcem"/>
+    <property name="MailLogger.from" value="mailer@workforcetracksupport.com"/>
+    <property name="MailLogger.failure.to" value="wfdev@workforcetrack.com"/>
+    <property name="MailLogger.success.to" value="wfdev@workforcetrack.com"/>
+    <property name="MailLogger.failure.subject" value="Build FAILED"/>
+    <property name="MailLogger.success.subject" value="Build SUCCESSFUL"/>
+    <property name="bin" value="..\bin"/>
+    <property name="gwt.home" value="..\gwtclib"/>
+    <property name="tomcat.dir" value="..\Tomcat9libs"/>
+
+    <!--Overriden-->
+    <property name="gwt.dir" value="../TempGWT"/>
+    <property name="gwtcopt" value=" -XdisableCastChecking  -XdisableClassMetadata"/>
+    <property name="soyc" value=""/>
+    <property name="extra" value=""/>
+
+
+    <property name="outlookIntegration.dir" value="..\OutlookIntegration"/>
+
+    <import file="All_build.xml"/>
+
+    <path id="gwt.compiler.classpath">
+        <pathelement location="src"/>
+        <pathelement location="../reporting/src"/>
+        <pathelement location="../bin"/>
+        <pathelement location="../war/WEB-INF/classes"/>
+        <fileset dir="${gwtc.lib}"/>
+    </path>
+
+
+    <patternset id="ignored.files">
+        <exclude name="**/CVS/**"/>
+        <exclude name="**/SCCS/**"/>
+        <exclude name="**/RCS/**"/>
+        <exclude name="**/rcs/**"/>
+        <exclude name="**/.DS_Store/**"/>
+        <exclude name="**/.svn/**"/>
+    </patternset>
+
+    <patternset id="compiler.resources">
+        <include name="**/?*.properties"/>
+        <include name="**/?*.xml"/>
+        <include name="**/?*.gif"/>
+        <include name="**/?*.png"/>
+        <include name="**/?*.jpeg"/>
+        <include name="**/?*.jpg"/>
+        <include name="**/?*.html"/>
+        <include name="**/?*.dtd"/>
+        <include name="**/?*.tld"/>
+        <include name="**/?*.ott"/>
+        <include name="**/?*.p12"/>
+    </patternset>
+
+
+    <path id="project.class.path">
+        <pathelement path="${java.class.path}/"/>
+        <fileset dir="${basedir}/lib">
+            <include name="**/*.jar"/>
+        </fileset>
+
+
+        <fileset dir="${tomcat.dir}">
+            <include name="*.jar"/>
+        </fileset>
+
+        <fileset dir="${gwt.home}">
+            <include name="*.jar"/>
+        </fileset>
+    </path>
+
+    <!--//////////////////////////// Build All ////////////////////////////////////////////////////////////-->
+    <target name="z4_buildAll" depends="z1_compileServerSide, z2_compileAllUI, z3_CreateWar"/>
+
+    <target name="z4_buildTransmitNotify" depends="z4_buildAll"/>
+
+    <target name="z4_buildServerCreateWar" depends="z1_compileServerSide, z3_CreateWar"/>
+
+    <target name="z4_buildServerCreateWarTransmit" depends="z1_compileServerSide, z3_CreateWar"/>
+
+    <target name="z4_createWarTransmit" depends="z3_CreateWar"/>
+
+    <target name="z1_compileServerSide">
+        <delete dir="../bin"/>
+        <mkdir dir="${bin}"/>
+        <javac destdir="${bin}" includes="**" includeantruntime="false"
+               fork="true"
+               debug="on" debuglevel="lines,vars,source"
+               source="17"
+               memoryinitialsize="1024m"
+               memorymaximumsize="2048m">
+            <src path="${basedir}/src"/>
+            <src path="../reporting/src"/>
+            <classpath refid="project.class.path"/>
+        </javac>
+
+        <copy todir="${bin}">
+            <fileset dir="../reporting/src">
+                <patternset refid="compiler.resources"/>
+                <patternset refid="ignored.files"/>
+                <type type="file"/>
+            </fileset>
+        </copy>
+
+        <copy todir="${bin}">
+            <fileset dir="${basedir}/src">
+                <patternset refid="compiler.resources"/>
+                <patternset refid="ignored.files"/>
+                <type type="file"/>
+            </fileset>
+        </copy>
+
+    </target>
+
+    <target name="z2_compileAllUI" depends="All"/>
+
+    <target name="z3_CreateWar">
+
+
+        <war destfile="/mnt/wars/KPI_Wars/ROOT.war" webxml="${basedir}/WebContent/WEB-INF/web.xml">
+            <fileset dir="${gwt.dir}"/>
+
+            <fileset dir="../reporting/web"/>
+
+            <fileset dir="WebContent"/>
+
+            <zipfileset dir="docs/DatabasePatches" prefix="WEB-INF/classes/DatabasePatches"/>
+            <lib dir="lib/ant"/>
+            <lib dir="lib/antlr"/>
+            <lib dir="lib/apijavaclient"/>
+            <lib dir="lib/aspose"/>
+            <lib dir="lib/aws"/>
+            <lib dir="lib/axiom"/>
+            <lib dir="lib/axis2"/>
+            <lib dir="lib/c3po"/>
+            <lib dir="lib/camel"/>
+            <lib dir="lib/captcha"/>
+            <lib dir="lib/cglib"/>
+            <lib dir="lib/commons"/>
+            <lib dir="lib/dom"/>
+            <lib dir="lib/ehcache"/>
+            <lib dir="lib/fop"/>
+            <lib dir="lib/gcm"/>
+            <lib dir="lib/gdata"/>
+            <lib dir="lib/gwt"/>
+            <lib dir="lib/hibernate"/>
+            <lib dir="lib/htmlunit"/>
+            <lib dir="lib/ios"/>
+            <lib dir="lib/jackson"/>
+            <lib dir="lib/jakarta"/>
+            <lib dir="lib/java jwt"/>
+            <lib dir="lib/javassist"/>
+            <lib dir="lib/javax"/>
+            <lib dir="lib/jaxb"/>
+            <lib dir="lib/jedis"/>
+            <lib dir="lib/jersey"/>
+            <lib dir="lib/jsoup"/>
+            <lib dir="lib/jthink"/>
+            <lib dir="lib/jxls"/>
+            <lib dir="lib/kafka"/>
+            <lib dir="lib/log4j"/>
+            <lib dir="lib/magento"/>
+            <lib dir="lib/metrics"/>
+            <lib dir="lib/mongo"/>
+            <lib dir="lib/opensocial"/>
+            <lib dir="lib/others"/>
+            <lib dir="lib/pdf"/>
+            <lib dir="lib/postgre"/>
+            <lib dir="lib/rabbitmq"/>
+            <lib dir="lib/retrofit"/>
+            <lib dir="lib/rome"/>
+            <lib dir="lib/simplejavamail"/>
+            <lib dir="lib/sms"/>
+            <lib dir="lib/solr"/>
+            <lib dir="lib/spring"/>
+            <lib dir="lib/superscv"/>
+            <lib dir="lib/swagger"/>
+            <lib dir="lib/telegram"/>
+            <lib dir="lib/tiles3"/>
+            <classes dir="${bin}"/>
+        </war>
+
+
+    </target>
+
+    <macrodef name="git">
+        <attribute name="command"/>
+        <attribute name="dir" default="/mnt/wars/KPI_Wars"/>
+        <element name="args" optional="true"/>
+        <sequential>
+            <echo message="${git} @{command}"/>
+            <exec executable="/usr/bin/git" dir="@{dir}">
+                <arg value="@{command}"/>
+                <args/>
+            </exec>
+        </sequential>
+    </macrodef>
+
+    <target name="commitAndPushWar" description="Commits all changes to version git">
+        <input message="Pushing WAR to GIT repo " addproperty="commit-message"/>
+        <git command="add">
+            <args>
+                <arg value="ROOT.war"/>
+            </args>
+        </git>
+        <git command="pull"/>
+        <git command="commit">
+            <args>
+                <arg value="-am Pushing WAR to GIT repo"/>
+            </args>
+        </git>
+        <git command="push"/>
+    </target>
+
+    <target name="jar">
+        <delete file="wftmodules.jar"/>
+        <property name="version.num" value="1.00"/>
+        <buildnumber file="../build.num"/>
+        <tstamp>
+            <format property="TODAY" pattern="yyyy-MM-dd HH:mm:ss"/>
+        </tstamp>
+
+        <manifest file="${bin}/MANIFEST.MF">
+            <attribute name="Built-By" value="${user.name}"/>
+            <attribute name="Implementation-Version"
+                       value="${version.num}-b${build.number}"/>
+            <attribute name="Built-Date" value="${TODAY}"/>
+        </manifest>
+
+        <jar destfile="../wftmodules.jar"
+             basedir="${bin}"
+             includes="**/*.class"
+             manifest="${bin}/MANIFEST.MF"/>
+    </target>
+
+    <target name="cleanup">
+        <delete includeemptydirs="true">
+            <fileset dir="${bin}" includes="**/*"/>
+        </delete>
+    </target>
+
+    <target name="jarCompile">
+        <mkdir dir="${bin}"/>
+        <javac destdir="${bin}" includes="**" includeantruntime="false"
+               excludes="com/edatasite/shared/**,com/edatasite/utils/,com/edatasite/workforce/**"
+               fork="true"
+               debug="on" debuglevel="lines,vars,source"
+               source="17"
+               memoryinitialsize="256m"
+               memorymaximumsize="768m">
+            <src path="../reporting/src"/>
+            <classpath refid="project.class.path"/>
+            <sourcepath path="${basedir}/src"/>
+        </javac>
+
+        <copy todir="${bin}">
+            <fileset dir="../reporting/src">
+                <patternset refid="compiler.resources"/>
+                <patternset refid="ignored.files"/>
+                <type type="file"/>
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="buildModulesJar" depends="cleanup, jarCompile, jar"/>
+
+</project>

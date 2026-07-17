@@ -1,0 +1,429 @@
+.topVerticalBar {
+    background-repeat: repeat-x;
+    size: auto;
+}
+
+.emptyMessagePanel {
+    padding-left: 15px;
+    padding-top: 15px;
+}
+
+.clientAddressPanel {
+    background-color: #DFE8F6;
+}
+
+.gwt-TabPanelBottom {
+    border-color: #92c1f0;
+    border-style: solid;
+    border-width: 3px 2px 2px;
+    overflow: hidden;
+    padding: 0 !important;
+}
+
+.labelPadding {
+    padding-left: 10px;
+}
+
+.checkBoxPanelStyle {
+    margin-left: 500px;
+    margin-right: 10px;
+}
+
+.deleteItemStyle {
+    background: url(pm/images/delete.png) no-repeat;
+}
+
+.removeItemStyle {
+    background: url(pm/images/remove-icon.gif) no-repeat;
+}
+
+.taskListStyle {
+    border: 1px solid #DFE8F6;
+}
+
+/*List Icons Start*/
+.icon-edit {
+    background: url(pm/images/edit.gif);
+}
+
+.icon-fulldetails {
+    background: url(pm/images/fulldetails.gif);
+}
+
+.icon-documents {
+    background: url(pm/images/documents.gif);
+}
+
+.icon-members {
+    background: url(pm/images/membersinvolved.gif);
+}
+
+.icon-comment {
+    background: url(pm/images/comment.gif);
+}
+
+.icon-project-tasks {
+    background: url(pm/images/tasks.gif);
+}
+
+.icon-project-calendar {
+    background: url(pm/images/calendar.gif);
+}
+
+.icon-project-ganttchart {
+    background: url(pm/images/ganttchart.gif);
+}
+
+.icon-project-budget-sheet-small {
+    background: url(pm/images/budget-sheet-small.gif) no-repeat;
+}
+
+.icon-project-WBS {
+    background: url(pm/images/work-breakdown-structure-sm.gif) no-repeat;
+}
+
+.icon-employee-activate {
+    background: url(pm/images/activate.gif);
+}
+
+.icon-employee-disactivate {
+    background: url(pm/images/disactivate.gif);
+}
+
+.icon-employee-resend {
+    background: url(pm/images/resend.gif);
+}
+
+.icon-client-contacts {
+    background: url(pm/images/contacts.gif);
+}
+
+.icon-client-projects {
+    background: url(pm/images/projects.gif);
+}
+
+.introText {
+    font-size: 12px;
+}
+
+.introTitle {
+    color: #1f4f8f;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.task-comment-link {
+    font-size: 11px;
+    text-decoration: underline;
+    color: #112Aff !important;
+    margin-left: 15px;
+}
+
+/*--task view icons--*/
+/*List Icons END*/
+
+.rprt-rslt-te .my-tbl-col.tbl-hdr {
+    /*white-space: nowrap;*/
+}
+
+.rprt-rslt-te td {
+
+}
+
+.rprt-rslt-te {
+
+}
+
+.pm-guide-main {
+    min-height: 400px;
+}
+
+.subDivisions li.bgMark a {
+    background-image: url(pm/images/pm-sprite.png);
+    background-repeat: no-repeat;
+}
+
+.subDivisions .pm-welcome a {
+    background-position: 8px -220px;
+}
+
+.subDivisions .icon-task a {
+    background-position: 8px -168px;
+}
+
+.subDivisions .icon-issue a {
+    background-position: 8px -271px;
+}
+
+.subDivisions .icon-fasttimesheet a {
+    background-position: 8px -63px;
+}
+
+.subDivisions .icon-timesheet-approval a {
+    background-position: 8px -116px;
+}
+
+.subDivisions .icon-timesheet-approval-new a {
+    background-position: 8px -116px;
+}
+
+.subDivisions .icon-project a {
+    background-position: 8px -478px;
+}
+
+.subDivisions .icon-client a {
+    background-position: 8px -426px;
+}
+
+.subDivisions .icon-employee a {
+    background-position: 8px -324px;
+}
+
+.subDivisions .icon-customer a {
+    background-position: 8px -375px;
+}
+
+.subDivisions .icon-location a {
+    background-position: 8px -526px;
+}
+
+.subDivisions .pm-welcome:hover a, .subDivisions .pm-welcome.active a {
+    background-position: 8px -195px;
+}
+
+.subDivisions .icon-task:hover a, .subDivisions .icon-task.active a {
+    background-position: 8px -142px;
+}
+
+.subDivisions .icon-issue:hover a, .subDivisions .icon-issue.active a {
+    background-position: 8px -245px;
+}
+
+.subDivisions .icon-fasttimesheet:hover a, .subDivisions .icon-fasttimesheet.active a {
+    background-position: 8px -37px;
+}
+
+.subDivisions .icon-timesheet-approval:hover a, .subDivisions .icon-timesheet-approval.active a {
+    background-position: 8px -90px;
+}
+
+.subDivisions .icon-timesheet-approval-new:hover a, .subDivisions .icon-timesheet-approval-new.active a {
+    background-position: 8px -90px;
+}
+
+.subDivisions .icon-project:hover a, .subDivisions .icon-project.active a {
+    background-position: 8px -453px;
+}
+
+.subDivisions .icon-client:hover a, .subDivisions .icon-client.active a {
+    background-position: 8px -400px;
+}
+
+.subDivisions .icon-employee:hover a, .subDivisions .icon-employee.active a {
+    background-position: 8px -298px;
+}
+
+.subDivisions .icon-customer:hover a, .subDivisions .icon-customer.active a {
+    background-position: 8px -350px;
+}
+
+.subDivisions .icon-location:hover a, .subDivisions .icon-location.active a {
+    background-position: 8px -500px;
+}
+
+/*new-task-summary*/
+.subDivisions .pm-new-summary a {
+    background-position: 8px -168px;
+}
+
+.subDivisions .pm-new-summary:hover a, .subDivisions .pm-new-summary.active a {
+    background-position: 8px -142px;
+}
+
+/*task-edit*/
+.subDivisions .pm-edit a {
+    background-position: 8px -682px;
+}
+
+.subDivisions .pm-edit:hover a, .subDivisions .pm-edit.active a {
+    background-position: 8px -656px;
+}
+
+/*task-members-involved*/
+.subDivisions .task-members-involved a {
+    background-position: 8px -631px;
+}
+
+.subDivisions .task-members-involved:hover a, .subDivisions .task-members-involved.active a {
+    background-position: 8px -606px;
+}
+
+/*pm-time-entiries*/
+.subDivisions .pm-time-entiries a {
+    background-position: 8px -579px;
+}
+
+.subDivisions .pm-time-entiries:hover a, .subDivisions .pm-time-entiries.active a {
+    background-position: 8px -553px;
+}
+
+/*pm-budget*/
+.subDivisions .pm-budget a {
+    background-position: 8px -835px;
+}
+
+.subDivisions .pm-budget:hover a, .subDivisions .pm-budget.active a {
+    background-position: 8px -809px;
+}
+
+/*task-notes*/
+.subDivisions .pm-notes a {
+    background-position: 8px -930px;
+}
+
+.subDivisions .pm-notes:hover a, .subDivisions .pm-notes.active a {
+    background-position: 8px -908px;
+}
+
+/*task-comments*/
+.subDivisions .pm-comments a {
+    background-position: 8px -784px;
+}
+
+.subDivisions .pm-comments:hover a, .subDivisions .pm-comments.active a {
+    background-position: 8px -758px;
+}
+
+/*resource-work-load*/
+.subDivisions .resource-work-load a {
+    background-image: url("hrms/images/availability-sprite.png") !important;
+    background-repeat: no-repeat;
+    background-position: 8px -488px;
+}
+
+.subDivisions .resource-work-load:hover a, .subDivisions .resource-work-load.active a {
+    background-image: url("hrms/images/availability-sprite.png") !important;
+    background-repeat: no-repeat;
+    background-position: 8px -462px;
+}
+
+/*project-edit*/
+.subDivisions .project-edit a {
+    background-position: 8px -1290px;
+}
+
+.subDivisions .project-edit:hover a, .subDivisions .project-edit.active a {
+    background-position: 8px -1265px;
+}
+
+/*project-gant-chart*/
+.subDivisions .project-gant-chart a {
+    background-position: 8px -1187px;
+}
+
+.subDivisions .project-gant-chart:hover a, .subDivisions .project-gant-chart.active a {
+    background-position: 8px -1161px;
+}
+
+/*project-budget-sheet*/
+.subDivisions .project-budget-sheet a {
+    background-position: 8px -1341px;
+}
+
+.subDivisions .project-budget-sheet:hover a, .subDivisions .project-budget-sheet.active a {
+    background-position: 8px -1315px;
+}
+
+/*cost-rate-list*/
+.subDivisions .cost-rate-list a {
+    background-position: 8px -1390px;
+}
+
+.subDivisions .cost-rate-list:hover a, .subDivisions .cost-rate-list.active a {
+    background-position: 8px -1366px;
+}
+
+/*project-invoice-list*/
+.subDivisions .project-invoice-list a {
+    background-position: 8px -1134px;
+}
+
+.subDivisions .project-invoice-list:hover a, .subDivisions .project-invoice-list.active a {
+    background-position: 8px -1108px;
+}
+
+/*project-purchase-order-list*/
+.subDivisions .project-purchase-order-list a {
+    background-position: 8px -1030px;
+}
+
+.subDivisions .project-purchase-order-list:hover a, .subDivisions .project-purchase-order-list.active a {
+    background-position: 8px -1002px;
+}
+
+/*project-expence-claims-list*/
+.subDivisions .project-expence-claims-list a {
+    background-position: 8px -1239px;
+}
+
+.subDivisions .project-expence-claims-list:hover a, .subDivisions .project-expence-claims-list.active a {
+    background-position: 8px -1213px;
+}
+
+/*message-center*/
+.subDivisions .message-center a {
+    background-position: 8px -1437px;
+}
+
+.subDivisions .message-center:hover a, .subDivisions .message-center.active a {
+    background-position: 8px -1413px;
+}
+
+/*summary-detailed*/
+.subDivisions .summary-detailed a {
+    background-position: 8px -1597px;
+}
+
+.subDivisions .summary-detailed:hover a, .subDivisions .summary-detailed.active a {
+    background-position: 8px -1569px;
+}
+
+/*employee-edit*/
+.subDivisions .employee-edit a {
+    background-position: 8px -1490px;
+}
+
+.subDivisions .employee-edit:hover a, .subDivisions .employee-edit.active a {
+    background-position: 8px -1464px;
+}
+
+/* booking-list*/
+.subDivisions .booking-list a {
+    background-position: 8px -2107px;
+}
+
+.subDivisions .booking-list:hover a, .subDivisions .booking-list.active a {
+    background-position: 8px -2081px;
+}
+
+.saveIcon {
+    /*background: url("mainStyles/images/theme-blue/bg_markSaveCloseR.png") no-repeat scroll 50px 5px transparent;*/
+    padding-right: 35px;
+}
+
+.closeIcon {
+    /*background: url("mainStyles/images/theme-blue/bg_markCloseR.png") no-repeat scroll 50px 8px transparent;*/
+    padding-right: 35px;
+}
+
+.saveIcon span {
+    background-position: 8px -18px;
+}
+
+.saveIcon span {
+    background-position: 8px -18px;
+}
+
+
+
+

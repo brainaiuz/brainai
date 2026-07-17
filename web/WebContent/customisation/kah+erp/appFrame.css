@@ -1,0 +1,114 @@
+.sdbr {
+width: 324px;
+}
+
+/* START .trialFormFull */
+#agree label {
+    width:120px;
+}
+.trialFormFull {
+	width:540px;
+	margin:0 0 20px;
+	padding:15px;
+	background:#f9f9f9;}
+.trialFormFull .BoxIn {
+	padding:18px 0 18px 18px;
+	border:1px solid #f0f0f1;
+	background:#fff;}
+	.trialFormFull label, .trialFormFull label span {
+		display:block;}
+	.trialFormFull label {
+        float:left;
+        width:250px;
+		margin:0 5px 15px 0;}
+		.trialFormFull label span {
+			margin:0 0 7px;
+			font-size:14px;
+			text-transform:uppercase;}
+		.trialFormFull label input {
+			width:218px;
+			padding:9px 10px 8px;
+			font-size:14px;
+			color:#898989;
+			border:1px solid #c9c9c9;
+			outline:0;
+
+			-webkit-box-shadow:0 2px 3px rgba(0, 0, 0, 0.14) inset;
+			-moz-box-shadow:0 2px 3px rgba(0, 0, 0, 0.14) inset;
+			-ms-box-shadow:0 2px 3px rgba(0, 0, 0, 0.14) inset;
+			-o-box-shadow:0 2px 3px rgba(0, 0, 0, 0.14) inset;
+			box-shadow:0 2px 3px rgba(0, 0, 0, 0.14) inset;}
+		.trialFormFull label select {
+			width:238px;
+			padding:8px 10px 7px;
+			font-size:14px;
+			color:#3b3b3b;
+			border:1px solid #d9d9d9;
+
+			-webkit-box-shadow:0 2px 3px rgba(0, 0, 0, 0.14) inset;
+			-moz-box-shadow:0 2px 3px rgba(0, 0, 0, 0.14) inset;
+			-ms-box-shadow:0 2px 3px rgba(0, 0, 0, 0.14) inset;
+			-o-box-shadow:0 2px 3px rgba(0, 0, 0, 0.14) inset;
+			box-shadow:0 2px 3px rgba(0, 0, 0, 0.14) inset;}
+		.trialFormFull label input:focus, .trialFormFull label select:focus {
+			-webkit-box-shadow:0 0 0 0;
+			-moz-box-shadow:0 0 0 0;
+			-ms-box-shadow:0 0 0 0;
+			-o-box-shadow:0 0 0 0;
+			box-shadow:0 0 0 0;}
+    .submitCover {
+        display:block
+    }
+        .submitCover .btn-1 {
+            width:498px;
+        }
+/* END .trialFormFull */
+	
+	
+	/* START .tickList */
+	.sdbr .tickList {
+		margin:0 0 40px;}
+		/* Already present in style.css .tickList li {
+			margin:0 0 8px;
+			padding:0 0 8px 24px;
+			font-size:14px;
+			border-bottom:1px solid #e8e8e8;
+			background:url(images/bg_mark_tick_list.png) no-repeat 0 2px;} */
+	/* END .tickList */	
+	
+	
+/* START .usersPostContent */
+.sdbr .usersPostContent {
+	margin:0 0 25px;}
+/*Already present in style.css .usersPostContent {
+	margin:0 0 16px;
+	color:#626262;}
+	.usersPostContent .art {
+		float:left;
+		margin:0 10px 0 0;
+		padding:5px;
+		-webkit-border-radius:40px 40px 40px 40px;
+		-moz-border-radius:40px 40px 40px 40px;
+		-ms-border-radius:40px 40px 40px 40px;
+		-o-border-radius:40px 40px 40px 40px;
+		border-radius:40px 40px 40px 40px;
+		background:#f0f0f1;}
+		.usersPostContent .art img {
+			float:left;
+			-webkit-border-radius:40px 40px 40px 40px;
+			-moz-border-radius:40px 40px 40px 40px;
+			-ms-border-radius:40px 40px 40px 40px;
+			-o-border-radius:40px 40px 40px 40px;
+			border-radius:40px 40px 40px 40px;
+			}
+	.usersPostContent .overhide p {
+		line-height:22px;
+		margin:0 0 3px;
+		font-size:16px;
+		font-family:"Georgia";}
+	.usersPostContent .r {
+		font-size:12px;}
+		.usersPostContent .r a.b {
+			font-size:13px;
+			color:#474747;} */
+/* END .usersPostContent */

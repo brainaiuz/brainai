@@ -1,0 +1,26 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:groupBox='urn:import:com.edatasite.workforce.gwt.core.client.ui.components.groupBox'>
+
+    <g:HTMLPanel styleName="pageContent_reporting bt_area" ui:field="topPanel">
+
+        <div class="fixed-filters-panel-wrapper">
+            <groupBox:SectionBoxPanel ui:field="headerPanel"/>
+        </div>
+
+        <div id="mainContent" class="inputs_sm aged_receivable_payable_report_table">
+            <div class="textPanel clearfix delimit_top">
+                <table class="table table--small-cells table-condensed table-bordered table-hover table_report table_leftIndex table_report_sections table_lastColTotal valign_middle"
+                       cellspacing="0" cellpadding="0" ui:field="tableSection">
+                    <thead class="point_affix_top text-nowrap" ui:field="tableHead">
+                    </thead>
+
+                    <tbody ui:field="tableBody" class="category_set">
+                    </tbody>
+                </table>
+                <g:HTMLPanel ui:field="noResultMessage" styleName="section-box box-bg--1 center-align-Cell"></g:HTMLPanel>
+            </div>
+        </div>
+    </g:HTMLPanel>
+</ui:UiBinder>

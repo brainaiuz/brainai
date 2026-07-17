@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Application Message Bundle -->
+    <bean id="messageSource"
+          class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <property name="basename" value="WEB-INF/classes/localization/messages"/>
+        <property name="defaultEncoding" value="UTF-8"/>
+    </bean>
+    <bean id="commonLocalizer" name="commonLocalizer" autowire-candidate="true"
+          class="org.springframework.context.support.WfmResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <value>WEB-INF/classes/localization/common/common</value>
+                <value>WEB-INF/classes/com/edatasite/workforce/gwt/core/client/localization/WfmStrings</value>
+                <value>WEB-INF/classes/com/edatasite/workforce/gwt/payroll/client/localization/PayrollStrings</value>
+                <value>WEB-INF/classes/com/edatasite/workforce/gwt/accounting/client/localization/AccountingStrings </value>
+                <value>WEB-INF/classes/com/edatasite/workforce/gwt/project/client/localization/ProjectStrings</value>
+                <value>WEB-INF/classes/com/edatasite/workforce/gwt/core/client/localization/CoreStrings</value>
+                <value>WEB-INF/classes/com/edatasite/workforce/gwt/core/client/localization/ReportingStrings</value>
+                <value>WEB-INF/classes/com/edatasite/workforce/gwt/core/client/localization/CoreMessages</value>
+                <value>WEB-INF/classes/com/edatasite/workforce/gwt/trainingcenter/client/localization/TCStrings</value>
+                <value>WEB-INF/classes/com/edatasite/workforce/gwt/backend/client/localization/BackendStrings</value>
+                <value>WEB-INF/classes/com/edatasite/workforce/gwt/meetingMinutes/client/localization/MeetingMinutesString</value>
+                <value>WEB-INF/classes/localization/emailsubject/emailsubject</value>
+                <value>WEB-INF/classes/com/edatasite/workforce/gwt/crm/client/localization/CrmStrings</value>
+                <value>WEB-INF/classes/com/edatasite/workforce/gwt/core/client/localization/HrmsStrings</value>
+                <value>WEB-INF/classes/com/edatasite/workforce/gwt/hrms/client/localization/HrmsMessages</value>
+                <value>WEB-INF/classes/com/edatasite/workforce/gwt/profile/client/localization/SettingStrings</value>
+
+            </list>
+        </property>
+        <property name="defaultEncoding" value="UTF-8"/>
+    </bean>
+    <bean id="coreLocalizer" name="coreLocalizer" autowire-candidate="true"
+          class="org.springframework.context.support.WfmResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <value>WEB-INF/classes/com/edatasite/workforce/gwt/core/client/localization/CoreStrings</value>
+            </list>
+        </property>
+        <property name="defaultEncoding" value="UTF-8"/>
+    </bean>
+
+    <bean id="clientLocalizer" name="clientLocalizer" autowire-candidate="true"
+          class="org.springframework.context.support.WfmResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <value>WEB-INF/classes/com/edatasite/workforce/gwt/core/client/localization/WfmStrings</value>
+            </list>
+        </property>
+        <property name="defaultEncoding" value="UTF-8"/>
+    </bean>
+
+    <bean id="accountingStrings" name="accountingStrings" autowire-candidate="true"
+          class="org.springframework.context.support.WfmResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <value>WEB-INF/classes/com/edatasite/workforce/gwt/accounting/client/localization/AccountingStrings
+                </value>
+                <value>WEB-INF/classes/com/edatasite/workforce/gwt/core/client/localization/WfmStrings</value>
+            </list>
+        </property>
+        <property name="defaultEncoding" value="UTF-8"/>
+    </bean>
+    <bean id="wfmLocalizer" name="wfmLocalizer" autowire-candidate="true"
+          class="org.springframework.context.support.WfmResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <value>WEB-INF/classes/com/edatasite/workforce/gwt/core/client/localization/WfmStrings</value>
+                <value>WEB-INF/classes/com/edatasite/workforce/gwt/core/client/localization/HrmsStrings</value>
+                <value>WEB-INF/classes/com/edatasite/workforce/gwt/accounting/client/localization/AccountingStrings
+                </value>
+                <value>WEB-INF/classes/com/edatasite/workforce/gwt/profile/client/localization/SettingStrings</value>
+            </list>
+        </property>
+        <property name="defaultEncoding" value="UTF-8"/>
+    </bean>
+    <bean id="crmLocalizer" name="crmLocalizer" autowire-candidate="true"
+          class="org.springframework.context.support.WfmResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <value>WEB-INF/classes/com/edatasite/workforce/gwt/crm/client/localization/CrmStrings</value>
+                <value>WEB-INF/classes/com/edatasite/workforce/gwt/core/client/localization/WfmStrings</value>
+            </list>
+        </property>
+        <property name="defaultEncoding" value="UTF-8"/>
+    </bean>
+    <bean id="hrmsLocalizer" name="hrmsLocalizer" autowire-candidate="true"
+          class="org.springframework.context.support.WfmResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <value>WEB-INF/classes/com/edatasite/workforce/gwt/core/client/localization/HrmsStrings</value>
+                <value>WEB-INF/classes/com/edatasite/workforce/gwt/core/client/localization/WfmStrings</value>
+                <value>WEB-INF/classes/localization/hrms/skill</value>
+            </list>
+        </property>
+        <property name="defaultEncoding" value="UTF-8"/>
+    </bean>
+    <bean id="dashboardLocalizer" name="dashboardLocalizer" autowire-candidate="true"
+          class="org.springframework.context.support.WfmResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <value>WEB-INF/classes/com/edatasite/workforce/gwt/dashboard/client/localization/DashboardStrings
+                </value>
+            </list>
+        </property>
+        <property name="defaultEncoding" value="UTF-8"/>
+    </bean>
+
+
+    <bean id="assessmentLocalizer" name="assessmentLocalizer" autowire-candidate="true"
+          class="org.springframework.context.support.WfmResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <value>WEB-INF/classes/com/edatasite/workforce/gwt/hrms/client/localization/AssessmentStrings
+                </value>
+            </list>
+        </property>
+        <property name="defaultEncoding" value="UTF-8"/>
+    </bean>
+
+    <bean id="reportingLocalizer" name="reportingLocalizer" autowire-candidate="true"
+          class="org.springframework.context.support.WfmResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <value>WEB-INF/classes/com/edatasite/workforce/gwt/core/client/localization/ReportingStrings
+                </value>
+            </list>
+        </property>
+        <property name="defaultEncoding" value="UTF-8"/>
+    </bean>
+
+    <bean id="availabilityLocalizer" name="availabilityLocalizer" autowire-candidate="true"
+          class="org.springframework.context.support.WfmResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <value>WEB-INF/classes/com/edatasite/workforce/gwt/core/client/localization/HrmsStrings</value>
+            </list>
+        </property>
+        <property name="defaultEncoding" value="UTF-8"/>
+    </bean>
+
+    <bean name="referenceWfmMessageSource" autowire-candidate="true" id="referenceWfmMessageSource"
+          class="org.springframework.context.support.WfmResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <value>WEB-INF/classes/com/edatasite/workforce/gwt/core/client/localization/Reference</value>
+            </list>
+        </property>
+        <property name="defaultEncoding" value="UTF-8"/>
+    </bean>
+
+    <bean name="countryLocalizer" autowire-candidate="true" id="countryLocalizer"
+          class="org.springframework.context.support.WfmResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <value>WEB-INF/classes/localization/countries/country</value>
+            </list>
+        </property>
+        <property name="defaultEncoding" value="UTF-8"/>
+    </bean>
+
+    <bean name="regionLocalizer" autowire-candidate="true" id="regionLocalizer"
+          class="org.springframework.context.support.WfmResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <value>WEB-INF/classes/localization/regions/region</value>
+            </list>
+        </property>
+        <property name="defaultEncoding" value="UTF-8"/>
+    </bean>
+
+    <bean name="myActivityLocalizer" autowire-candidate="true" id="myActivityLocalizer"
+          class="org.springframework.context.support.WfmResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <value>WEB-INF/classes/localization/myactivity/myactivity</value>
+            </list>
+        </property>
+        <property name="defaultEncoding" value="UTF-8"/>
+    </bean>
+
+    <bean name="notificationLocalizer" autowire-candidate="true" id="notificationLocalizer"
+          class="org.springframework.context.support.WfmResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <value>WEB-INF/classes/localization/notification/notification</value>
+            </list>
+        </property>
+        <property name="defaultEncoding" value="UTF-8"/>
+    </bean>
+
+    <bean name="notificationShortLocalizer" autowire-candidate="true" id="notificationShortLocalizer"
+          class="org.springframework.context.support.WfmResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <value>WEB-INF/classes/localization/notificationshort/notificationShort</value>
+            </list>
+        </property>
+        <property name="defaultEncoding" value="UTF-8"/>
+    </bean>
+
+    <bean name="accountingLocalizer" autowire-candidate="true" id="accountingLocalizer"
+          class="org.springframework.context.support.WfmResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <value>WEB-INF/classes/localization/accounting/account</value>
+                <value>WEB-INF/classes/com/edatasite/workforce/gwt/core/client/localization/WfmStrings</value>
+                <value>WEB-INF/classes/com/edatasite/workforce/gwt/invoice/client/localization/InvoiceMessages</value>
+                <value>WEB-INF/classes/com/edatasite/workforce/gwt/accounting/client/localization/AccountingStrings
+                </value>
+                <value>WEB-INF/classes/com/edatasite/workforce/gwt/accounting/client/localization/AccountingMessages
+                </value>
+                <value>WEB-INF/classes/com/edatasite/workforce/gwt/expenses/client/localization/ExpenseStrings</value>
+                <value>WEB-INF/classes/com/edatasite/workforce/gwt/invoice/client/localization/InventoryStrings</value>
+            </list>
+        </property>
+        <property name="defaultEncoding" value="UTF-8"/>
+    </bean>
+
+    <bean id="pmLocalizer" name="pmLocalizer" autowire-candidate="true"
+          class="org.springframework.context.support.WfmResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <value>WEB-INF/classes/com/edatasite/workforce/gwt/project/client/localization/ProjectStrings</value>
+            </list>
+        </property>
+        <property name="defaultEncoding" value="UTF-8"/>
+    </bean>
+
+    <bean id="expenseLocalizer" name="expenseLocalizer" autowire-candidate="true"
+          class="org.springframework.context.support.WfmResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <value>WEB-INF/classes/com/edatasite/workforce/gwt/expenses/client/localization/ExpenseStrings</value>
+            </list>
+        </property>
+        <property name="defaultEncoding" value="UTF-8"/>
+    </bean>
+
+    <bean id="inventoryLocalizer" name="inventoryLocalizer" autowire-candidate="true"
+          class="org.springframework.context.support.WfmResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <value>WEB-INF/classes/com/edatasite/workforce/gwt/accounting/client/localization/AccountingStrings
+                </value>
+            </list>
+        </property>
+        <property name="defaultEncoding" value="UTF-8"/>
+    </bean>
+
+    <bean id="payrollLocalizer" name="payrollLocalizer" autowire-candidate="true"
+          class="org.springframework.context.support.WfmResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <value>WEB-INF/classes/com/edatasite/workforce/gwt/payroll/client/localization/PayrollStrings</value>
+                <value>WEB-INF/classes/com/edatasite/workforce/gwt/core/client/localization/WfmStrings</value>
+            </list>
+        </property>
+        <property name="defaultEncoding" value="UTF-8"/>
+    </bean>
+
+    <bean id="workspaceLocalizer" name="workspaceLocalizer" autowire-candidate="true"
+          class="org.springframework.context.support.WfmResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <value>WEB-INF/classes/com/edatasite/workforce/gwt/core/client/localization/WfmStrings</value>
+            </list>
+        </property>
+        <property name="defaultEncoding" value="UTF-8"/>
+    </bean>
+
+    <bean id="profileStrings" name="profileStrings" autowire-candidate="true"
+          class="org.springframework.context.support.WfmResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <value>WEB-INF/classes/com/edatasite/workforce/gwt/core/client/localization/WfmStrings</value>
+                <value>WEB-INF/classes/com/edatasite/workforce/gwt/profile/client/localization/SettingStrings</value>
+            </list>
+        </property>
+        <property name="defaultEncoding" value="UTF-8"/>
+    </bean>
+    <bean id="companyStrings" name="companyStrings" autowire-candidate="true"
+          class="org.springframework.context.support.WfmResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <value>WEB-INF/classes/com/edatasite/workforce/gwt/profile/client/localization/CompanySettingsStrings
+                </value>
+            </list>
+        </property>
+        <property name="defaultEncoding" value="UTF-8"/>
+    </bean>
+    <bean id="contactCategoryStrings" name="contactCategoryStrings" autowire-candidate="true"
+          class="org.springframework.context.support.WfmResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <value>
+                    WEB-INF/classes/com/edatasite/workforce/gwt/contactcategory/client/localization/ContactCategoryStrings
+                </value>
+            </list>
+        </property>
+        <property name="defaultEncoding" value="UTF-8"/>
+    </bean>
+</beans>

@@ -1,0 +1,704 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Bank reconciliation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--CSS-->
+    <link rel="stylesheet" href="../WebContent/mainStyles/new-ui/css/materialize.css">
+
+    <style>
+        [data-action="optional-content"].active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body class="frame__body fitted-content left-menu-closed fitted-content has-page-opers">
+<div class="frame has-scroll--vertical has-tabs">
+    <div class="frame__header">
+        <div aria-hidden="true" class="frame__header__item-2" style="display: none;">
+            <div class="dropdown-select--arrow dropdown-kit--below dropdown-kit--edge-in"></div>
+        </div>
+        <div aria-hidden="true" class="frame__header__item-3" style="display: none;">
+            <div style="display:none" class="dropdown-select--arrow dropdown-kit--below dropdown-kit--edge-in"><a
+                    href="javascript:void(0);" class="btn gwt-uid-67 dropdown-button" data-activates="gwt-uid-67">
+                <ul id="gwt-uid-67" class="email-account dropdown-content"></ul>
+            </a></div>
+        </div>
+        <div class="header-tabs">
+            <ul class="tabs">
+                <li class="tab"><a href="#"><span title="Bank Accounts">Bank Accounts</span></a></li>
+                <div class="indicator" style="right: 993.864px; left: 107.156px;"></div>
+                <li class="tab"><a href="#" class="active"><span title="Comparison">Comparison</span><i
+                        class="close"></i></a></li>
+            </ul>
+        </div>
+        <div class="user-menu">
+            <div aria-hidden="true" class="frame__user__trial" style="display: none;">
+                <div class="trial-informer"><span></span>
+                    <button class="btn btn--trial"><span>Upgrade</span></button>
+                </div>
+            </div>
+            <div class="user-menu-dynamic">
+                <div class="user-menu-item" data-delay="350" data-position="bottom"
+                     data-tooltip-id="8b0c411f-101a-4044-acc5-9c811fad5026" data-tooltip="Timer"><a
+                        class="button-collapse"><span class="user-menu-item__icon"><svg class=" icon--clock">
+                                    <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#clock"></use>
+                                </svg><span class="badge" aria-hidden="true" style="display: none;"></span></span></a>
+                </div>
+                <div class="user-menu-item" data-delay="350" data-position="bottom"
+                     data-tooltip-id="ca4170a8-c9e6-48d7-aea0-d1b4263bf863" data-tooltip="Call"><a
+                        class="button-collapse"><span class="user-menu-item__icon"><svg class=" icon--phone">
+                                    <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#phone"></use>
+                                </svg><span class="badge" aria-hidden="true" style="display: none;"></span></span></a>
+                </div>
+            </div>
+            <div class="user-menu-item"><a class="button-collapse" data-delay="350" data-position="bottom"
+                                           data-tooltip-id="fcae765f-b147-ca82-49cc-2697869d98da"
+                                           data-tooltip="Notifications"><span class="user-menu-item__icon"> <svg
+                    class=" icon--bell">
+                                <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#bell"></use>
+                            </svg><span class="badge">1</span></span> </a></div>
+            <div class="user-menu-item"><a class="button-collapse" data-delay="350" data-position="bottom"
+                                           data-tooltip-id="1aec85c3-229b-9909-c2ba-b3a68ee54346" data-tooltip="Emails"><span
+                    class="user-menu-item__icon"><svg class=" icon--mail">
+                                <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#mail"></use>
+                            </svg><span class="badge" aria-hidden="true" style="display: none;"></span></span></a></div>
+            <div class="user-menu-item"><a class="button-collapse" data-delay="350" data-position="bottom"
+                                           data-tooltip-id="6fc79d96-50b6-88f3-6a3a-59ef18882540"
+                                           data-tooltip="Settings"><span class="icon-settings"></span>
+                <svg class=" icon--settings">
+                    <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#settings"></use>
+                </svg>
+            </a></div>
+        </div>
+    </div>
+    <div class="frame__modules">
+        <div class="frame__nav"></div>
+        <div class="main-modules">
+            <div>
+                <div class="user-profile"><a class="user-profile__menu dropdown-button"> <span class="user-profile-img"> <img
+                        alt="" src="../WebContent/mainStyles/new-ui/images/kpilogo.svg"> </span> </a></div>
+            </div>
+            <ul>
+                <li class="main-modules__item main-modules__item--workspace"><a href="Workspace.html">
+                    <svg class=" icon--home">
+                        <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#home"></use>
+                    </svg>
+                    <span></span> </a></li>
+                <li class="main-modules__item main-modules__item--accounting"><a>
+                    <svg class=" icon--accounting">
+                        <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#accounting"></use>
+                    </svg>
+                    <span>Accounts</span></a></li>
+                <li class="main-modules__item main-modules__item--sales"><a>
+                    <svg class=" icon--sales">
+                        <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#sales"></use>
+                    </svg>
+                    <span>Sales</span></a></li>
+                <li class="main-modules__item--active main-modules__item main-modules__item--humans"><a>
+                    <svg class=" icon--humans">
+                        <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#humans"></use>
+                    </svg>
+                    <span>Humans</span></a></li>
+                <li class="main-modules__item main-modules__item--projects"><a>
+                    <svg class=" icon--projects">
+                        <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#projects"></use>
+                    </svg>
+                    <span>Projects</span></a></li>
+                <li class="main-modules__item main-modules__item--payroll"><a>
+                    <svg class=" icon--payroll">
+                        <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#payroll"></use>
+                    </svg>
+                    <span>Payroll</span></a></li>
+                <li class="main-modules__item main-modules__item--reports"><a>
+                    <svg class=" icon--reporting">
+                        <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#reporting"></use>
+                    </svg>
+                    <span>Reports</span></a></li>
+                <li class="main-modules__item main-modules__item--docs"><a>
+                    <svg class=" icon--documents">
+                        <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#documents"></use>
+                    </svg>
+                    <span>Docs</span></a></li>
+            </ul>
+            <div class="kpi-modules-overlay" style="display: none;"></div>
+        </div>
+        <div class="frame__modules__footer"><a class="left-menu-trigger"><i class="ficon--chevron-right"></i></a></div>
+    </div>
+    <div class="frame__nav"></div>
+    <div class="page-opers">
+        <div class="page-opers__nav page-nav">
+            <div class="page-nav__tabs">
+                <ul class="tabs">
+                    <li class="tab"><a tabindex="0" href="#operTab1" class="active">Reconcillation<span></span></a></li>
+                    <li class="tab"><a tabindex="0" href="#operTab2" style="cursor: pointer;">Cash coding<span></span></a></li>
+                    <li class="tab"><a tabindex="0" href="#operTab3" style="cursor: pointer;">Bank Statements<span></span></a></li>
+                    <li class="tab"><a tabindex="0" href="#operTab4" style="cursor: pointer;">Account Transactions<span></span></a></li>
+                </ul>
+            </div>
+            <div class="page-opers__actions"></div>
+        </div>
+    </div>
+
+
+    <div class="frame__content frame__content scrollbar-external_wrapper">
+        <div class="frame__content__body scrollbar-external">
+            <div class="whiteBGR">
+                <div class="workarea" id="workarea">
+                    <div class="add-form">
+                        <div class="content-box content-box--white recon-page">
+                            <!--//START UPLOAD STEPS-->
+                            <div class="grid-row mb-2">
+                                <div class="col">
+                                    Review your bank statement lines...
+                                </div>
+                                <div class="col-1">
+
+                                </div>
+                                <div class="col">
+                                    ...then match with your transactions in KPI
+                                </div>
+                            </div>
+                            <div class="panelSect">
+                                <div class="panelSect__body">
+                                    <div class="grid-row align-items-stretch">
+                                        <div class="col">
+                                            <div class="recon-panel">
+                                                <div class="grid-row">
+                                                    <div class="col">
+                                                        August 1, 2023
+                                                        <br>
+                                                        Description one
+                                                        <br>
+                                                        Ref-1000
+                                                        <br>
+                                                        <a href="#">More details</a>
+                                                    </div>
+                                                    <div class="col-2">
+                                                        <div class="colTitle">Spent</div>
+                                                    </div>
+                                                    <div class="col-2">
+                                                        <div class="colTitle">Received</div>
+                                                        <strong>$3000</strong>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-1 align-self-center text-center">
+                                            <button data-action="switchToggle"
+                                                    class="btn--circle btn--primary btn-large">OK
+                                            </button>
+                                            <span style="display: none" data-action="switchResult"
+                                                  class="sign-btn btn--circle btn--success btn-large"><svg
+                                                    class="icon--doubleCheck"><use
+                                                    href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#doubleCheck"></use></svg></span>
+                                        </div>
+                                        <div class="col">
+                                            <div class="recon-panel">
+                                                <div class="grid-row actions">
+                                                    <div class="col">
+                                                        <ul class="tabs panel-tabs">
+                                                            <li class="tab"><a href="#tab-create">Create</a></li>
+                                                            <li class="tab"><a href="#tab-matched">Matched</a></li>
+                                                            <li class="tab"><a href="#tab-match">Match</a></li>
+                                                            <li class="tab"><a href="#tab-comment">Comment</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-4 text-right">
+                                                        <button class="btn btn--lightgrey">Match another</button>
+                                                    </div>
+                                                </div>
+                                                <div id="tab-create">
+                                                    tab-create
+                                                </div>
+                                                <div data-action="has-optional-content" id="tab-match"
+                                                     class="grid-row recon-panel__informer selected">
+                                                    <div class="col">
+                                                        <p>2 transactions selected</p>
+                                                    </div>
+                                                </div>
+                                                <div id="tab-matched"> <!--opened by default-->
+                                                    <div class="grid-row matched">
+                                                        <div class="col">
+                                                            August 1, 2023
+                                                            <br>
+                                                            Description one
+                                                        </div>
+                                                        <div class="col-2">
+                                                            <div class="colTitle">Spent</div>
+                                                        </div>
+                                                        <div class="col-2">
+                                                            <div class="colTitle">Received</div>
+                                                            <strong>$3000</strong>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div id="tab-comment">
+                                                    tab-comment
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--                                    //MATCH OPENED-->
+                                    <div class="recon-match-opts" data-action="optional-content">
+                                        <div class="recon-match-opts__item">
+                                            <div class="grid-row mb-3">
+                                                <div class="col">
+                                                    <h6>1. Find & select matching transactions</h6>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="grid-row">
+                                                        <div class="col">
+                                                            <label for="1" class="form-group__label">Search by name or
+                                                                reference</label>
+                                                            <div class="form-group__content">
+                                                                <input id="1" type="text" maxlength="255"
+                                                                       class="form-control" autocomplete="off"
+                                                                       placeholder="Reference">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col">
+                                                            <label for="2" class="form-group__label">Search by
+                                                                amount</label>
+                                                            <div class="form-group__content">
+                                                                <input id="2" type="text" maxlength="255"
+                                                                       class="form-control" autocomplete="off"
+                                                                       placeholder="Reference">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-auto align-self-end">
+                                                            <div class="btn btn--primary btn--icon">Go</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="stack-x">
+                                                    <span class="gwt-CheckBox">
+                                                        <input type="checkbox" name="reportType" value="on" id="3">
+                                                        <label for="3">
+                                                            <span>Show DBP items only</span>
+                                                        </label>
+                                                    </span>
+                                                        <span class="gwt-CheckBox">
+                                                        <input type="checkbox" name="reportType" value="on" id="4">
+                                                        <label for="4">
+                                                            <span>Show Spent items</span>
+                                                        </label>
+                                                    </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!--OPTIONAL TABLE 1-->
+                                            <table class="table thead-cols dataTable">
+                                                <colgroup>
+                                                    <col>
+                                                    <col>
+                                                    <col>
+                                                    <col>
+                                                    <col>
+                                                    <col>
+
+                                                </colgroup>
+                                                <thead>
+                                                <tr>
+                                                    <td><span class="gwt-CheckBox selection-grid__checkbox--select-all"
+                                                              id="gwt-debug-select_all_checkbox"><input
+                                                            id="gwt-debug-select_all_checkbox-input" tabindex="0"
+                                                            type="checkbox" value="on"><label
+                                                            for="gwt-debug-select_all_checkbox-input"
+                                                            id="gwt-debug-select_all_checkbox-label"></label></span>
+                                                    </td>
+                                                    <td>
+                                                        <div>
+                                                            <span>Date</span>
+                                                            <svg class="icon--sortAsc">
+                                                                <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#sortAsc"></use>
+                                                            </svg>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div><span>Name</span></div>
+                                                    </td>
+                                                    <td>
+                                                        <div><span>Reference</span></div>
+                                                    </td>
+                                                    <td>
+                                                        <div><span>Spent</span></div>
+                                                    </td>
+                                                    <td>
+                                                        <div><span>Received</span></div>
+                                                    </td>
+
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td><span class="cell-decorator"><label
+                                                            class="gwt-control control control--checkbox"><input
+                                                            type="checkbox"><span
+                                                            class="control__indicator"></span></label></span></td>
+                                                    <td><span class="cell-decorator"><span class="text-holder">22 Jan, 2023</span></span>
+                                                    </td>
+                                                    <td><span class="cell-decorator">Customer - 1</span></td>
+                                                    <td><span class="cell-decorator"><span
+                                                            class="text-holder">aaa</span></span></td>
+                                                    <td><span class="cell-decorator"><span class="text-holder">
+                                                                        <div>FEF1</div>
+                                                                    </span></span></td>
+                                                    <td><span class="cell-decorator"><span
+                                                            class="text-holder">$4000</span></span></td>
+
+                                                </tr>
+                                                <tr class="selected">
+                                                    <td><span class="cell-decorator"><label
+                                                            class="gwt-control control control--checkbox"><input
+                                                            checked="" type="checkbox"><span
+                                                            class="control__indicator"></span></label></span></td>
+                                                    <td><span class="cell-decorator"><span class="text-holder">23 Jan, 2018</span></span>
+                                                    </td>
+                                                    <td><span class="cell-decorator">Customer - 2</span></td>
+                                                    <td><span class="cell-decorator"><span
+                                                            class="text-holder">bbb</span></span></td>
+                                                    <td><span class="cell-decorator"><span class="text-holder">
+                                                                        <div>REF2</div>
+                                                                    </span></span></td>
+                                                    <td><span class="cell-decorator"><span
+                                                            class="text-holder">$2000</span></span></td>
+
+                                                </tr>
+                                                <tr class="selected">
+                                                    <td><span class="cell-decorator"><label
+                                                            class="gwt-control control control--checkbox"><input
+                                                            checked="" type="checkbox"><span
+                                                            class="control__indicator"></span></label></span></td>
+                                                    <td><span class="cell-decorator"><span class="text-holder">23 Jan, 2018</span></span>
+                                                    </td>
+                                                    <td><span class="cell-decorator">Customer - 3</span></td>
+                                                    <td><span class="cell-decorator"><span
+                                                            class="text-holder">ccc</span></span></td>
+                                                    <td><span class="cell-decorator"><span class="text-holder">
+                                                                        <div>REF2</div>
+                                                                    </span></span></td>
+                                                    <td><span class="cell-decorator"><span
+                                                            class="text-holder">$1000</span></span></td>
+
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                            <!-- \ OPTIONAL TABLE 1-->
+
+                                            <!--//OPTIONAL PAGING-->
+                                            <div class="paging-group text-right">
+                                                <div class="pagingStat__wrapper">
+                                                    <a tabindex="0" id="gwt-debug-total_link_id"
+                                                       data-activates="gwt-uid-775" class="gwt-uid-775 dropdown-button">
+                                                        <div class="gwt-HTML pagingStat"><span>0 - 0 of 0 </span></div>
+                                                    </a>
+                                                    <ul class="dropdown-content" style="display: none;"><a tabindex="0"
+                                                                                                           id="gwt-debug-total_link_id"
+                                                                                                           data-activates="gwt-uid-775"
+                                                                                                           class="gwt-uid-775 dropdown-button">
+                                                    </a>
+                                                        <li><a tabindex="0" id="gwt-debug-total_link_id"
+                                                               data-activates="gwt-uid-775"
+                                                               class="gwt-uid-775 dropdown-button"></a><a
+                                                                tabindex="0"><span>Newest</span></a></li>
+                                                        <li><a tabindex="0"><span>Oldest</span></a></li>
+                                                    </ul>
+
+                                                </div>
+                                                <ul class="paging">
+                                                    <li class="paging__prevpage"><a tabindex="0"
+                                                                                    class="btn btn--white btn--icon">
+                                                        <svg class="icon--chevronLeft">
+                                                            <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#chevronLeft"></use>
+                                                        </svg>
+                                                    </a>
+                                                    </li>
+                                                    <li class="paging__currentpage"><input type="text" maxlength="255"
+                                                                                           class="form-control"
+                                                                                           autocomplete="off"
+                                                                                           placeholder="1"></li>
+                                                    <li class="paging__nextpage">
+                                                        <a tabindex="0" class="btn btn--white btn--icon">
+                                                            <svg class="icon--chevronRight">
+                                                                <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#chevronRight"></use>
+                                                            </svg>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <div class="errorMessage"></div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <!--//END OPTIONAL PAGING-->
+                                        </div>
+
+                                        <div class="recon-match-opts__item">
+                                            <div class="grid-row recon-match-opts__item-title">
+                                                <div class="col">
+                                                    <h6>2. View your selected transactions. Add new transaction as
+                                                        needed</h6>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <button class="btn btn--white btn--outline">Add new transaction</button>
+                                                </div>
+                                            </div>
+
+                                            <!--OPTIONAL TABLE 2-->
+                                            <table class="table dataTable">
+                                                <colgroup>
+                                                    <col>
+                                                    <col>
+                                                    <col>
+                                                    <col>
+                                                    <col>
+                                                    <col>
+
+                                                </colgroup>
+                                                <tbody>
+                                                <tr class="selected">
+                                                    <td><span class="cell-decorator"><label
+                                                            class="gwt-control control control--checkbox"><input
+                                                            checked="" type="checkbox"><span
+                                                            class="control__indicator"></span></label></span></td>
+                                                    <td><span class="cell-decorator"><span class="text-holder">23 Jan, 2018</span></span>
+                                                    </td>
+                                                    <td><span class="cell-decorator">Customer - 2</span></td>
+                                                    <td><span class="cell-decorator"><span
+                                                            class="text-holder">bbb</span></span></td>
+                                                    <td><span class="cell-decorator"><span class="text-holder">
+                                                                        <div>REF2</div>
+                                                                    </span></span></td>
+                                                    <td><span class="cell-decorator"><span
+                                                            class="text-holder">$2000</span></span></td>
+
+                                                </tr>
+                                                <tr class="selected">
+                                                    <td><span class="cell-decorator"><label
+                                                            class="gwt-control control control--checkbox"><input
+                                                            checked="" type="checkbox"><span
+                                                            class="control__indicator"></span></label></span></td>
+                                                    <td><span class="cell-decorator"><span class="text-holder">23 Jan, 2018</span></span>
+                                                    </td>
+                                                    <td><span class="cell-decorator">Customer - 3</span></td>
+                                                    <td><span class="cell-decorator"><span
+                                                            class="text-holder">ccc</span></span></td>
+                                                    <td><span class="cell-decorator"><span class="text-holder">
+                                                                        <div>REF2</div>
+                                                                    </span></span></td>
+                                                    <td><span class="cell-decorator"><span
+                                                            class="text-holder">$1000</span></span></td>
+
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                            <!-- \ OPTIONAL TABLE 2-->
+                                        </div>
+
+                                        <div class="recon-match-opts__item">
+                                            <div class="grid-row recon-match-opts__item-title">
+                                                <div class="col">
+                                                    <h6>3. The sum of your selected transactions must match the money
+                                                        spent.
+                                                        Make adjustments, as needed.</h6>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <button class="btn btn--white btn--outline">Add new transaction</button>
+                                                </div>
+                                            </div>
+
+                                            <dl class="recon-match-opts__notice">
+                                                <dt>
+                                                    Must match money spent:
+                                                </dt>
+                                                <dd>GBP 3,000</dd>
+                                                <dt>
+                                                    GBP:
+                                                </dt>
+                                                <dd>
+                                                    3,000
+                                                    <span class="icon-text checked">
+                                                    <svg class="icon--check">
+                                                        <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#check"></use>
+                                                    </svg>
+                                                    <span>Totals match</span>
+                                                </span>
+                                                </dd>
+                                            </dl>
+
+                                            </p>
+                                            <div class="mt-4 text-right stack-x">
+                                                <button class="btn btn--white btn--outline">Cancel</button>
+                                                <button class="btn btn--primary">Reconcile</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panelSect">
+                                <div class="panelSect__body">
+                                    <div class="grid-row align-items-stretch">
+                                        <div class="col">
+                                            <div class="recon-panel">
+                                                <div class="grid-row">
+                                                    <div class="col">
+                                                        August 1, 2023
+                                                        <br>
+                                                        Description one
+                                                        <br>
+                                                        Ref-1000
+                                                        <br>
+                                                        <a href="#">More details</a>
+                                                    </div>
+                                                    <div class="col-2">
+                                                        <div class="colTitle">Spent</div>
+                                                    </div>
+                                                    <div class="col-2">
+                                                        <div class="colTitle">Received</div>
+                                                        <strong>$3000</strong>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-1 align-self-center text-center">
+
+                                        </div>
+                                        <div class="col">
+                                            <div class="recon-panel">
+                                                <div class="grid-row actions">
+                                                    <div class="col">
+                                                        <ul class="tabs panel-tabs">
+                                                            <li class="tab"><a href="#tab-create2" class="active">Create</a></li>
+                                                            <li class="tab"><a href="#tab-match2">Match</a></li>
+                                                            <li class="tab"><a href="#tab-discuss">Discuss</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-4 text-right">
+                                                        <button class="btn btn--lightgrey">Match another</button>
+                                                    </div>
+                                                </div>
+                                                <form id="tab-create2">
+                                                    <div class="form-row">
+                                                        <div class="form-group col">
+                                                            <div class="form-group__content">
+                                                                <input type="text" maxlength="255" class="form-control" autocomplete="off" placeholder="Name">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group col">
+                                                            <div class="form-group__content">
+                                                                <div class="form-control input-field listbox-wrapper">
+                                                                    <select class="select-wrapper gwt-ListBox">
+                                                                        <option value="1">Please select</option>
+                                                                        <option value="2">option</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="form-group__content">
+                                                            <input type="text" maxlength="255" class="form-control" autocomplete="off" placeholder="Reference">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-row">
+                                                        <div class="col">
+                                                            <div class="form-control control-link control-inline input-field listbox-wrapper">
+                                                                <select class="select-wrapper gwt-ListBox">
+                                                                    <option value="1">20% (VAT on income)</option>
+                                                                    <option value="2">option</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col text-right">
+                                                            <a class="btn btn-link" href="#">Add more details</a>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                                <div id="tab-match2">
+                                                    tab-match2
+                                                </div>
+                                                <div id="tab-discuss">
+                                                    tab-discuss
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- PAGINATION-->
+                            <div class="paging-group text-right pb-3">
+                                <div class="pagingStat__wrapper">
+                                    <a tabindex="0" id="gwt-debug-total_link_id" data-activates="gwt-uid-775" class="gwt-uid-775 dropdown-button">
+                                    <div class="gwt-HTML pagingStat"><span>0 - 0 of 0 </span></div>
+                                    <ul class="dropdown-content" style="display: none;">
+                                        <li ><a tabindex="0"><span>Newest</span></a></li>
+                                        <li><a tabindex="0"><span>Oldest</span></a></li>
+                                    </ul>
+                                </a>
+                                </div>
+                                <ul class="paging">
+                                    <li class="paging__prevpage"><a tabindex="0" class="btn btn--white btn--icon">
+                                        <svg class="icon--chevronLeft">
+                                            <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#chevronLeft"></use>
+                                        </svg>
+                                    </a>
+                                    </li>
+                                    <li class="paging__currentpage"><input type="text" maxlength="255" class="form-control" autocomplete="off" placeholder="1"/></li>
+                                    <li class="paging__nextpage">
+                                        <a tabindex="0" class="btn btn--white btn--icon">
+                                            <svg class="icon--chevronRight">
+                                                <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#chevronRight"></use>
+                                            </svg>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <div class="errorMessage"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- //END PAGINATION-->
+
+                            <!--//END UPLOAD STEPS-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--SCRIPTS-->
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>-->
+<script type="text/javascript" src="../WebContent/mainStyles/new-ui/js/jquery.min.js"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>-->
+<script type="text/javascript" src="../WebContent/mainStyles/new-ui/js/materialize-1.0.0.min.js"></script>
+<script src="static-html-examples.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+
+        // Находим элементы по их data-action
+        let switchToggle = document.querySelector("[data-action='switchToggle']");
+        let switchResult = document.querySelector("[data-action='switchResult']");
+
+        // Добавляем обработчик события click на переключатель
+        switchToggle.addEventListener("click", function () {
+            if (switchResult.style.display == "none") {
+                switchResult.removeAttribute("style");
+                this.style.display = "none"; // Нужно добавить display: none для switchToggle
+            } else {
+                switchResult.style.display = "none";
+            }
+        });
+    });
+</script>
+</body>
+
+</html>

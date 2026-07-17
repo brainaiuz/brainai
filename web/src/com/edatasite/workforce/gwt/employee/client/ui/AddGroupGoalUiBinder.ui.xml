@@ -1,0 +1,53 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:m='urn:import:gwt.material.design.client.ui.html'
+             xmlns:w='urn:import:com.edatasite.workforce.gwt.core.client.ui'
+             xmlns:i='urn:import:com.edatasite.workforce.gwt.invoice.client.ui.view.components'
+             xmlns:c='urn:import:com.edatasite.workforce.gwt.core.client.ui.components'
+             xmlns:groupBox="urn:import:com.edatasite.workforce.gwt.core.client.ui.components.groupBox">
+    <g:HTMLPanel>
+        <div class="width-limiter">
+            <div class="grid-row">
+                <div class="col-4">
+                    <m:Div styleName="form-group" ui:field="employeeFormGroup">
+                        <m:Div styleName="form-group__label" ui:field="employeeText"/>
+                        <m:Div styleName="form-group__content" ui:field="employeeWidget"/>
+                    </m:Div>
+                </div>
+                <div class="col-4">
+                    <m:Div styleName="form-group" ui:field="approverFormGroup">
+                        <m:Div styleName="form-group__label" ui:field="approverText"/>
+                        <m:Div styleName="form-group__content" ui:field="approverWidget"/>
+                    </m:Div>
+                </div>
+                <div class="col-4">
+                    <m:Div styleName="form-group" ui:field="validityPeriodFormGroup">
+                        <m:Div styleName="form-group__label" ui:field="validityPeriodText"/>
+                        <m:Div styleName="form-group__content" ui:field="validityPeriodWidget"/>
+                    </m:Div>
+                </div>
+            </div>
+            <div class="grid-row">
+                <div class="col-4">
+                    <m:Div styleName="form-group" ui:field="fromDateFormGroup">
+                        <m:Div styleName="form-group__label" ui:field="fromDateText"/>
+                        <m:Div styleName="form-group__content" ui:field="fromDateWidget"/>
+                    </m:Div>
+                </div>
+                <div class="col-4">
+                    <m:Div styleName="form-group" ui:field="toDateFormGroup">
+                        <m:Div styleName="form-group__label" ui:field="toDateText"/>
+                        <m:Div styleName="form-group__content" ui:field="toDateWidget"/>
+                    </m:Div>
+                </div>
+            </div>
+            <div class="grid-row">
+                <div class="col-12">
+                    <m:Div styleName="form-group" ui:field="goalsFormGroup">
+                        <m:Div styleName="form-group__content" ui:field="goalsWidget"/>
+                    </m:Div>
+                </div>
+            </div>
+        </div>
+    </g:HTMLPanel>
+</ui:UiBinder>

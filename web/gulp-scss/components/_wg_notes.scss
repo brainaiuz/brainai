@@ -1,0 +1,75 @@
+/*
+* Notes widget
+*/
+.wg_notes {
+  display: flex;
+  max-width: 600px;
+}
+
+.wg_notes__add {
+  flex-grow: 0;
+  width: 130px;
+}
+
+.wg_notes__add-btn {
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.wg_notes__add-label {
+  width: 60px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.wg_notes__title {
+  color: $color-accent-2;
+}
+
+.wg_notes__item-remove {
+  align-self: baseline;
+}
+
+.wg_notes__item-remove:hover + .wg_notes__history-info {
+  opacity: 0.5;
+  padding-left: 5px;
+  text-decoration: line-through;
+}
+
+.wg_notes__history {
+  max-height: 250px;
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+.wg_notes__history::-webkit-scrollbar {
+  /*display: block !important;*/
+}
+
+.wg_notes__history-item {
+  display: flex;
+}
+
+.wg_notes__history-info {
+  -webkit-transition: all 0.2s ease-out 0s;
+  -moz-transition: all 0.2s ease-out 0s;
+  -ms-transition: all 0.2s ease-out 0s;
+  -o-transition: all 0.2s ease-out 0s;
+  transition: all 0.2s ease-out 0s;
+}
+
+.wg_notes__user-info {
+  font-size: 11px;
+
+}
+
+.wg_notes__item-remove {
+  margin-right: 15px;
+  font-size: 18px;
+}
+
+.wg_notes__history-item {
+  margin-bottom: 15px;
+  word-break: break-all;
+  padding-right: 10px;
+}

@@ -1,0 +1,1 @@
+update "anv".labour_period set actualAllowanceDays = allowance;

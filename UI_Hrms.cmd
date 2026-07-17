@@ -1,0 +1,1 @@
+ant Hrms -f ./web/AutoCompile.xml

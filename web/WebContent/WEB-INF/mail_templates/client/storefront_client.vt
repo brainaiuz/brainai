@@ -1,0 +1,17 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<p>Dear $CLIENTNAME, </p>
+
+<p>We are pleased to inform you that $MANAGER has created a client account for you at $companyName</p>
+
+<p>In order to activate your account please <a href="$HOST/auth/account?uid=$id&cid=$companyid&sid=$serviceid">click
+    here</a><br/>
+    (or copy/paste the following address into your web browser: $HOST/auth/account?uid=$id&cid=$companyid&sid=$serviceid)</p>
+</body>
+</html>
+

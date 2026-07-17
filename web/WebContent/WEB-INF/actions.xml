@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans
+        default-lazy-init="true"
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean class="org.springframework.web.servlet.handler.SimpleServletHandlerAdapter"/>
+    <bean class="org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter"/>
+
+    <bean name="createSubscriptionHandler"
+          class="com.edatasite.workforce.gwt.backend.server.actions.CreateSubscriptionHandler" scope="prototype">
+
+        <property name="commandClass"
+                  value="com.edatasite.workforce.gwt.backend.server.actions.CreateSubscriptionCommand"/>
+        <property name="propertyEditorRegistrars">
+            <list>
+                <ref bean="wfmRegistrar"/>
+            </list>
+        </property>
+
+        <property name="backendService" ref="backendService"/>
+    </bean>
+
+    <bean name="createTaskCommentHandler"
+          class="com.edatasite.workforce.gwt.task.server.actions.CreateTaskCommentHandler" scope="prototype">
+        <property name="commandClass" value="com.edatasite.workforce.gwt.task.server.actions.CreateTaskCommentCommand"/>
+
+        <property name="propertyEditorRegistrars">
+            <list>
+                <ref bean="wfmRegistrar"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean name="createChartOfAccountsUploadHandler"
+          class="com.edatasite.workforce.gwt.accounting.server.app.ChartOfAccountsUploadHandler" scope="prototype">
+        <property name="commandClass" value="com.edatasite.workforce.gwt.core.server.servlets.WfmCommand"/>
+    </bean>
+
+    <bean name="createAttendanceReportUploadHandler"
+          class="com.edatasite.workforce.gwt.availability.server.app.AttendanceReportUploadHandler" scope="prototype">
+        <property name="commandClass" value="com.edatasite.workforce.gwt.core.server.servlets.WfmCommand"/>
+    </bean>
+
+    <bean name="createChartOfAccountsBackendUploadHandler"
+          class="com.edatasite.workforce.gwt.accounting.server.app.ChartOfAccountsBackendUploadHandler"
+          scope="prototype">
+        <property name="commandClass" value="com.edatasite.workforce.gwt.core.server.servlets.WfmCommand"/>
+    </bean>
+
+    <bean name="createLogoHandler" class="com.edatasite.workforce.gwt.profile.server.actions.CreateLogoHandler"
+          scope="prototype">
+        <property name="commandClass" value="com.edatasite.workforce.gwt.core.server.actions.CreateDocumentCommand"/>
+
+        <property name="propertyEditorRegistrars">
+            <list>
+                <ref bean="wfmRegistrar"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean name="createBankAccountFileHandler"
+          class="com.edatasite.workforce.gwt.core.server.actions.ImportBankTransactionsHandler"
+          scope="prototype">
+        <property name="commandClass"
+                  value="com.edatasite.workforce.gwt.core.server.actions.BankAccountDocumentCommand"/>
+
+        <property name="propertyEditorRegistrars">
+            <list>
+                <ref bean="wfmRegistrar"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean name="createProductPicturesHandler"
+          class="com.edatasite.workforce.gwt.core.server.actions.CreateProductPicturesHandler"
+          scope="prototype">
+        <property name="commandClass" value="com.edatasite.workforce.gwt.core.server.actions.ProductDocumentCommand"/>
+
+        <property name="propertyEditorRegistrars">
+            <list>
+                <ref bean="wfmRegistrar"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean name="createProductCategoryPicturesHandler"
+          class="com.edatasite.workforce.gwt.core.server.actions.CreateProductCategoryPicturesHandler"
+          scope="prototype">
+        <property name="commandClass"
+                  value="com.edatasite.workforce.gwt.core.server.actions.ProductCategoryDocumentCommand"/>
+
+        <property name="propertyEditorRegistrars">
+            <list>
+                <ref bean="wfmRegistrar"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean name="createAttachmentHandler" class="com.edatasite.workforce.gwt.core.server.actions.CreateAttachmentHandler"
+          scope="prototype">
+        <property name="commandClass" value="com.edatasite.workforce.gwt.core.server.actions.CreateDocumentCommand"/>
+    </bean>
+
+
+    <!--<bean name="createStoreFrontSettingsHandler"
+          class="com.edatasite.workforce.gwt.core.server.actions.CreateStoreFrontSettingsHandler"
+          scope="prototype">
+        <property name="commandClass"
+                  value="com.edatasite.workforce.gwt.core.server.actions.StoreFrontSettingsDocumentCommand"/>
+        <property name="propertyEditorRegistrars">
+            <list>
+                <ref bean="wfmRegistrar"/>
+            </list>
+        </property>
+    </bean>-->
+
+    <bean name="productSerailsHandler"
+          class="com.edatasite.workforce.gwt.core.server.actions.ProductSerailsHandler" scope="prototype">
+        <property name="commandClass" value="com.edatasite.workforce.gwt.core.server.servlets.WfmCommand"/>
+    </bean>
+
+    <bean name="createNetworkAttachmentHandler"
+          class="com.edatasite.workforce.gwt.core.server.actions.CreateNetworkAttachmentHandler" scope="prototype">
+        <property name="commandClass" value="com.edatasite.workforce.gwt.core.server.actions.CreateDocumentCommand"/>
+    </bean>
+
+    <bean name="msProjectUploadHandler"
+          class="com.edatasite.workforce.gwt.project.server.app.MSProjectFileUploadHandler" scope="prototype">
+        <property name="commandClass" value="com.edatasite.workforce.gwt.core.server.servlets.WfmCommand"/>
+    </bean>
+
+    <bean name="createExcelReportTemplateHandler"
+          class="com.edatasite.workforce.gwt.backend.server.actions.CreateExcelReportTemplateHandler" scope="prototype">
+        <property name="commandClass" value="com.edatasite.workforce.gwt.core.server.servlets.WfmCommand"/>
+    </bean>
+
+    <bean name="testResultsUploadHandler"
+          class="com.edatasite.workforce.gwt.trainingcenter.server.ImportTestResultsUploadHandler" scope="prototype">
+        <property name="commandClass" value="com.edatasite.workforce.gwt.core.server.servlets.WfmCommand"/>
+    </bean>
+</beans>

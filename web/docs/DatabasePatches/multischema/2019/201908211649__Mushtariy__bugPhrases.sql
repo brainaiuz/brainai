@@ -1,0 +1,20 @@
+update "0".reporting SET description='Get an instant view on a list of tasks expected to be completed today' where code='TASKSDUETODAY###262';
+update "0".reporting SET description='Collected from sales transactions and paid on purchases to help you file sales tax returns' where code='VATREPORTUAE';
+update "0".reporting SET description='Work in Progress is aimed to view the total cost of the project and revenue during the project progress' where code='WORKINPROGRESS';
+update "0".reporting set code='EMPLOYEE_HOURS_BY_PROJECT' where code='EMPLOYEE HOURS BY PROJECT';
+update "0".reporting SET description='Employee hours by project for the CURRENT MONTH' where code='EMPLOYEE_HOURS_BY_PROJECT';
+update "0".reporting SET description='Leads from various Industries.' where code='LEADSBYINDUSTRY';
+update "0".reporting SET description='Sales that have occured this month.' where code='THISMONTHSALES';
+update "0".reporting SET description='Calls/Events related to Contacts, Leads, Accounts, Opportunites and Cases' where code='CALLS_AND_EVENTS_REPORT';
+UPDATE "0".folders SET description='Show lead details per their Sources, Owners, Statuses and Comments' where description='Show lead details per their Source, Owner, Status and Comments';
+
+update "anv".reporting SET description='See a list of tasks which have passed their due date and have not been completed yet' where code='OVERDUETASKSBYASSIGNEE';
+update "anv".reporting SET description='Get an instant view on a list of tasks expected to be completed today' where code='TASKSDUETODAY###262';
+update "anv".reporting SET description='Collected from sales transactions and paid on purchases to help you file sales tax returns' where code='VATREPORTUAE';
+update "anv".reporting SET description='Work in Progress is aimed to view the total cost of the project and revenue during the project progress' where code='WORKINPROGRESS';
+update "anv".reporting set code='EMPLOYEE_HOURS_BY_PROJECT' where code='EMPLOYEE HOURS BY PROJECT';
+update "anv".reporting SET description='Employee hours by project for the CURRENT MONTH' where code='EMPLOYEE_HOURS_BY_PROJECT';
+update "anv".reporting SET description='Leads from various Industries.' where code='LEADSBYINDUSTRY';
+update "anv".reporting SET description='Sales that have occured this month.' where code='THISMONTHSALES';
+update "anv".reporting SET description='Calls/Events related to Contacts, Leads, Accounts, Opportunites and Cases' where code='CALLS_AND_EVENTS_REPORT';
+UPDATE "anv".folders SET description='Show lead details per their Sources, Owners, Statuses and Comments' where description='Show lead details per their Source, Owner, Status and Comments';

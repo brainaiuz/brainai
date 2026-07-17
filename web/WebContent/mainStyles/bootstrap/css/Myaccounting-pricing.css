@@ -1,0 +1,592 @@
+.myaccounting-pricing .page_title {
+    font-size: 18px;
+    margin: 0 0 20px;
+    padding: 0 367px 26px;
+    position: relative;
+    text-align: center;
+}
+.myaccounting-pricing .page_title:after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 30%;
+    margin-left: -15%;
+    display: inline-block;
+    border-top: 1px solid #e3e2e1;
+    border-bottom: 1px solid #fff;
+}
+.myaccounting-pricing h2.planTitle {
+    font-size: 14px;
+    text-align: center;
+    margin-top: 0;
+    position:relative;
+    padding-bottom: 25px;
+}
+
+.myaccounting-pricing h2.planTitle:after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 30%;
+    margin-left: -15%;
+    display: inline-block;
+    border-top: 1px solid #e3e2e1;
+    border-bottom: 1px solid #fff;
+}
+
+.myaccounting-pricing h1.planSubTitle {
+    font-size: 24px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 15px;
+    margin-top: 0;
+}
+
+.myaccounting-pricing .bundlesFields {
+    width: 100%;
+    position:relative;
+    height: auto;
+    margin-bottom: 20px;
+    overflow:auto;
+    color: #8e8e8e;
+}
+.myaccounting-pricing .bundlesFields .columns {
+    float: left;
+    width: 20%;
+    height: auto;
+    padding-left: 3px;
+    padding-right: 3px;
+    position: relative;
+    background: #fff;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.myaccounting-pricing .bundlesFields .columns:first-child {
+    padding-left: 0;
+}
+
+.myaccounting-pricing .bundlesFields .columns:last-child {
+    padding-right: 2px;
+}
+
+.myaccounting-pricing .bundlesFields .columns .insideColumn {
+    position: relative;
+    width: 100%;
+    border: 1px solid #1a76bc;
+    border-bottom: 10px solid #1a76bc;
+    height: auto;
+}
+
+.myaccounting-pricing .bundlesFields .columns .insideColumn .planHeaderName {
+    height: 62px;
+    background: #1a76bc;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    font-size: 24px;
+    line-height: 20px;
+    line-height: 62px;
+    vertical-align: middle;
+}
+
+.myaccounting-pricing .bundlesFields .columns .insideColumn .planPriceField {
+    height: 100px;
+    border-bottom: 1px solid #1a76bc;
+    line-height: 33px;
+}
+
+.myaccounting-pricing .bundlesFields .columns .insideColumn .planPriceField h3 {
+    margin-bottom: 0;
+    text-align: center;
+    color: #8e8e8e;
+}
+
+.myaccounting-pricing .bundlesFields .columns .insideColumn .planPriceField h3.priceType {
+    font-size: 14px !important;
+    margin-top: 0;
+}
+
+.myaccounting-pricing .bundlesFields .columns .insideColumn .planPriceField h3.price {
+    font-size: 40px;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #2aaae1;
+}
+
+.myaccounting-pricing .bundlesFields .columns .insideColumn .planAttributesField {
+    border-top: 5px solid #e9f2fa;
+    text-align: center;
+}
+
+h5.planSubTitle {
+    text-align: center;
+    color: #908d8c;
+    padding-bottom: 10px;
+}
+
+.myaccounting-pricing .bundlesFields .columns .insideColumn .planAttributesField ul {
+    padding-left: 0;
+    margin-bottom: 10px;
+
+}
+
+.myaccounting-pricing .bundlesFields .columns .insideColumn .planAttributesField ul.planAttributes li {
+    list-style: none;
+    font-size: 12px;
+    text-align: center;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.myaccounting-pricing .bundlesFields .columns .insideColumn .planAttributesField ul.planAttributes li:nth-child(even){
+    background: #e9f2fa;
+}
+
+.myaccounting-pricing h1.customiseYourPlan {
+    font-size: 24px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 0;
+    position:relative;
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+
+.myaccounting-pricing h1.customiseYourPlan span {
+    padding-left: 10px;
+    text-transform: lowercase;
+    font-size: 16px;
+}
+
+.myaccounting-pricing h1.customiseYourPlan span:before {
+    content: '*';
+    position: relative;
+    color: #229ed6;
+}
+
+.myaccounting-pricing h1.customiseYourPlan:before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 30%;
+    margin-left: -15%;
+    display: inline-block;
+    border-top: 1px solid #e3e2e1;
+    border-bottom: 1px solid #fff;
+}
+
+.myaccounting-pricing h1.customiseYourPlan:after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 30%;
+    margin-left: -15%;
+    display: inline-block;
+    border-top: 1px solid #e3e2e1;
+    border-bottom: 1px solid #fff;
+}
+
+button.btn.btn-primary.btn-contact-trial {
+    min-width: 60%;
+    margin: 0 10px;
+    margin-bottom: 10px;
+    border-radius: 0;
+    background: #90acd9;
+    border-color: #90acd9;
+    color: #fff;
+}
+
+button.btn.btn-primary.btn-contact-trial:hover,
+button.btn.btn-primary.btn-contact-trial:focus {
+    background: #1a75bc;
+    border-color: #1a75bc;
+}
+
+.myaccounting-pricing .planCustomizing {
+    position: relative;
+    width: 100%;
+    padding:2px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    overflow: auto;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+button.btn.btn-primary.btn-contact-trial-new {
+    min-width: 60%;
+    /*margin: 0 10px;*/
+    /*margin-bottom: 10px;*/
+    border-radius: 0;
+    background: #5fd987;
+    border-color: #5fd987;
+    color: #fff;
+}
+
+
+button.btn.btn-primary.btn-contact-trial-new:hover,
+button.btn.btn-primary.btn-contact-trial-new:focus {
+    background: #26bc44;
+    border-color: #26bc44;
+}
+
+.myaccounting-pricing .planCustomizing .left-panel,
+.myaccounting-pricing .planCustomizing .right-panel,
+.myaccounting-pricing .planCustomizing .users-column {
+    float: left;
+    position: relative;
+}
+
+.myaccounting-pricing .planCustomizing .users-column{
+    width: 20%;
+    background: #fff;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.myaccounting-pricing .planCustomizing .left-panel {
+    padding-right: 5px;
+    width: 40%;
+    background: #fff;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.myaccounting-pricing .planCustomizing .right-panel {
+    padding-left: 5px;
+    width: 40%;
+    background: #fff;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.myaccounting-pricing .planCustomizing .panel-column{
+    border: 1px solid #1a76bc;
+    width: 100%;
+}
+
+.myaccounting-pricing .planCustomizing .users-column .panel-column{
+    border-right: none;
+}
+
+.myaccounting-pricing .planCustomizing .panel-column .planHeaderName {
+    height: 62px;
+    background: #1a76bc;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    font-size: 24px;
+    line-height: 20px;
+    line-height: 62px;
+    vertical-align: middle;
+}
+
+.myaccounting-pricing .planCustomizing .panel-column .customField {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.myaccounting-pricing .planCustomizing .panel-column .number-of-users {
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    padding-left: 10px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.myaccounting-pricing .planCustomizing .panel-column .number-of-users:after {
+    content: 'gllg';
+    width:17px;
+    height: 30px;
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    background: url("../img/select-arrow.png") no-repeat center center;
+    display: block;
+    z-index: 10;
+}
+.myaccounting-pricing .planCustomizing .panel-column  .customField1 {
+    padding: 10px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.myaccounting-pricing .planCustomizing .panel-column .customField2,
+.myaccounting-pricing .planCustomizing .panel-column .customField3 {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.myaccounting-pricing .planCustomizing .panel-column .customField3 {
+    min-height: 183px;
+}
+
+.myaccounting-pricing .planCustomizing .panel-column table {
+    margin-bottom: 0;
+}
+
+.myaccounting-pricing .planCustomizing .panel-column th {
+    width: 40%;
+    text-transform: uppercase;
+}
+
+.myaccounting-pricing .planCustomizing .panel-column td span{
+    font-weight: bold;
+    color: #2aaae1;
+}
+
+.myaccounting-pricing .planCustomizing .panel-column .nav-tabs > li {
+    width: 25%;
+    text-align: center;
+    text-transform: uppercase;
+    background: whitesmoke;
+}
+
+.myaccounting-pricing .planCustomizing .panel-column .nav-tabs > li > a {
+    margin-right: 0;
+    border-radius: 0 !important;
+    border: 1px solid #e3e2e1;
+    border-right: none;
+    color: #7c7878;
+}
+
+.myaccounting-pricing .planCustomizing .panel-column .nav-tabs > li:first-child > a {
+    border-left: none;
+}
+
+.myaccounting-pricing .planCustomizing .panel-column .nav-tabs,
+.myaccounting-pricing .planCustomizing .panel-column .nav-tabs > li.active > a {
+    border-bottom: none;
+}
+.myaccounting-pricing .planCustomizing .panel-column .nav-tabs > li > a.active {
+    border-bottom: none;
+    background-color: #fff;
+}
+.myaccounting-pricing .planCustomizing .panel-column .nav-tabs > li > a.none {
+    background-color: whitesmoke;
+}
+
+.myaccounting-pricing .panelConsulting {
+    position:relative;
+    overflow:auto;
+    width: 100%;
+    height:auto;
+    padding:0;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+.myaccounting-pricing .panelConsulting .insideConsulting {
+    position: relative;
+    width: 100%;
+    height: auto;
+    float: left;
+    border: 1px solid #1a76bc;
+    display: table;
+}
+
+.myaccounting-pricing .panelConsulting .insideConsulting .leftPanel {
+    position: relative;
+    float: none;
+    width: 20%;
+    border-right: 1px solid #1a76bc;
+    display: table-cell;
+    line-height: 20px;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 16px;
+    color: #229ed6;
+    font-weight:bold;
+    background: #fff;
+}
+
+.myaccounting-pricing .panelConsulting .insideConsulting .rightPanel {
+    position: relative;
+    float: none;
+    width: 80%;
+    display: table-cell;
+    padding: 10px 20px;
+}
+
+.myaccounting-pricing .planCustomizing .panel-column #monthly .total-price {
+    text-align: center;
+    color: #2aaae1;
+    font-size: 40px;
+    margin-top:5px;
+}
+
+.myaccounting-pricing .panelConsulting table {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border-spacing: 0;
+}
+
+.myaccounting-pricing .panelConsulting table  thead th {
+    height: 50px;
+    background: #1a76bc;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    border: 1px solid #ddd;
+    line-height:30px;
+    font-size:18px;
+}
+
+.myaccounting-pricing .panelConsulting table  tbody tr td {
+    border: 1px solid #ddd;
+    color: #007be4;
+    /*background: #fff;*/
+    padding: 5px 15px !important;
+    text-align: center;
+}
+
+.myaccounting-pricing .panelConsulting table colgroup {
+    background: #fff;
+}
+
+/*
+.myaccounting-pricing .panelConsulting table colgroup:nth-child(even) {
+	background: #e8edf9;
+}
+*/
+.myaccounting-pricing .panelConsulting table  tbody  tr td:first-child {
+    color: #333333;
+    font-weight: bold;
+    text-align: left;
+}
+
+.myaccounting-pricing .panelConsulting table  tbody  tr td:nth-child(even) {
+    /*background: #e8edf9;*/
+}
+
+.myaccounting-pricing .panelConsulting table  tbody  tr td:not(:first-child) {
+    cursor:pointer;
+}
+
+.myaccounting-pricing .panelConsulting table  tbody  tr td.text-centered {
+    text-align: center;
+    font-weight: normal;
+}
+
+.myaccounting-pricing .panelConsulting table  tbody  tr td.bgcolor {
+    background: #fff;
+    color: #000;
+    font-weight: normal;
+}
+
+.one-off-prices-column span.price {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.one-off-prices-column td.hd-green {
+    font-size: 25px;
+    color: #1a76bc !important;
+}
+
+.nav-tabs li span {
+    display: block;
+    font-size: 10px;
+    margin-top: 5px;
+}
+
+.row.consulting-field {
+    margin-left: 0;
+    margin-right: 0;
+    border: 1px solid #dddddd;
+}
+
+.consulting-field .column1,
+.consulting-field .column2,
+.consulting-field .column3,
+.consulting-field .column4   {
+    /*border: 1px solid #dddddd;*/
+    cursor: pointer;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.consulting-field .list-group {
+    margin-bottom: 0;
+    padding-left: 0;
+}
+
+.consulting-field .list-group-item:first-child,
+.consulting-field .list-group-item:last-child {
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.consulting-field .list-group-item {
+    position: relative;
+    display: block;
+    padding: 10px 10px;
+    margin-bottom: -1px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #dddddd;
+}
+
+colgroup {
+    display: table-column-group;
+}
+
+colgroup.slim {
+    cursor: pointer;
+}
+.panelConsulting colgroup:hover {
+    background-color: #e8edf9 !important;
+}
+
+.panelConsulting .hover { background-color: #e8edf9 !important; }
+.panelConsulting .active { background-color: #e8edf9 !important; }
+
+.consulting input{
+    height: 20px;
+    width: 20px;
+    margin: 0;
+    cursor: pointer;
+}
+
+input.btn.btn-primary.btn-buy-now {
+    position: relative;
+    font-size: 16px;
+}
+
+.num-of-users, .consulting-service-type {
+    margin-top: 10px;
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.consulting-service-type  {
+    margin-top: 0!important;
+}
+
+.num-of-users span, .consulting-service-type span {
+    color: #2aaae1;
+}
+
+.calc-tab {
+    padding-bottom: 10px;
+
+}
+
+.calc-tab  > .tab-pane{
+    text-align: center;
+}
+.btn-primary {
+    color: #ffffff;
+    background-color: #00acee;
+    border-color: #009ad5;
+}

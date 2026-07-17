@@ -1,0 +1,73 @@
+/* moved from .invoice.scss page - main content part - margins between action panel and content */
+.summary .collapsible--panels {
+  padding-top: 0;
+}
+
+//https://i.imgur.com/Fvkkoph.png
+.grid-row:first-child > *[class*='col-']:before {
+  .collapsible-body > & {
+    content: '';
+    display: block;
+    height: $customFormTopPadding; //Munir's Laptop bug (doesn't show the line)
+  }
+  .collapsible-header + .collapsible-body > & {
+    border-top: 1px solid $gray-new-light;
+  }
+}
+
+//.custom__form1 {
+//  .grid-stack>.grid-stack-item>.grid-stack-item-content {
+//    //overflow: visible !important;
+//  }
+//  .contentBar {
+//    padding: 0 !important;
+//
+//    > .field > .dragdrop-dropTarget {
+//      width: auto !important;
+//      margin: 0 !important;
+//    }
+//  }
+//}
+
+//.custom__form1,
+.summary {
+  .form-group__content {
+    > table:not(.dnmctbl) {
+      > tbody > tr > td {
+        + td {
+          .form-control:not([style*="width:"]) {
+            width: calc(100% - 5px) !important;
+            margin-left: 5px;
+          }
+        }
+      }
+    }
+  }
+
+  &-row {
+    .col-6:has(.note-editable[style="height: 250px;"]) {
+      & + .col-6 {
+        &:has(.summaryFileUpload) {
+          .form-group {
+            //height: calc(100% - #{$formGroupMargin})
+          }
+          .form-group__content, .summaryFileUpload {
+            //height: 100%;
+          }
+        }
+
+        .summaryFileUpload {
+          > tbody > tr:first-child > td {
+            padding-top: 48px; //note editor btn-toolbar height + textarea top margin
+            > div {
+              height: 250px;
+            }
+          }
+          &__action {
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,135 @@
+/* $Id: nice_menus_default.css,v 1.6 2007/10/29 16:38:28 add1sun Exp $ */
+/*
+  This is the default layout template for nice menus, and will provide
+  a starting point for the look of your menus. To customize, it's
+  recommended to create a custom CSS file using this file as a template,
+  then configure the module to use your custom CSS file
+  (this is done in the global settings tab of the theme administration.)
+
+  To help understand the CSS, the HTML looks like this, where
+    x is a number;
+    TYPE is down/left/right;
+    PATH is the menu path such as node/343;
+    MID is the menu id such as 33):
+  <ul id='nice-menu-x' class='nice-menu nice-menu-TYPE'>
+    <li id='menu-MID' class='menu-path-PATH'><a href='#'>This is a menu item</a></li>
+    <li class='menuparent menu-path-PATH'><a href='#'>A submenu</a>
+      <ul...><li...>...</li>
+      </ul>
+    </li>
+    ...
+  </ul>
+
+  If you have more than one nice-menu and want to target a particular one,
+  use its id (e.g. ul#nice-menu-2).
+
+  See README.txt and the handbook page (http://drupal.org/node/185543)
+  for some CSS customization examples.
+*/
+
+/******************************
+ Global CSS for ALL menu types
+******************************/
+
+/* .nice-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;} */
+
+.nice-menu li li a, .nice-menu li li a:hover {
+	background-image:none;}
+
+.nice-menu .dd-menu
+/* #header-region .nice-menu ul */ {
+  /* top:36px;
+  left: -1px;
+  border: 0;
+  margin-right: 0; */}
+
+/* Override for Garland header. */
+#header-region .nice-menu ul {
+  top: 1.7em;
+}
+
+.nice-menu ul li {}
+
+/******************************
+ VERTICAL (left/right) menus
+******************************/
+
+/* This is the default width of all vertical menus. */
+/* .nice-menu-right, .nice-menu-left,
+.nice-menu-right li, .nice-menu-left li {
+  width: 12.5em;
+} */
+
+/* VERTICAL menus where submenus pop RIGHT (default). */
+.nice-menu-right ul {
+  /* width: 12.5em;
+  left: 12.5em; */
+  top: -1px;
+}
+
+.nice-menu-right ul ul {
+  width: 12.5em;
+  left: 12.5em;
+  top: -1px;
+}
+
+.nice-menu-right .menuparent,
+.nice-menu-right li .menuparent {
+  background: #eee url(arrow-right.png) right center no-repeat;
+}
+
+.nice-menu-right .menuparent:hover,
+.nice-menu-right li.over,
+.nice-menu-right li .menuparent:hover,
+.nice-menu-right li li.over {
+  background: #ccc url(arrow-right.png) right center no-repeat;
+}
+
+/* VERTICAL menus where submenus pop LEFT. */
+.nice-menu-left li ul {
+  width: 12.5em;
+  left: -12.65em;
+  top: -1px;
+}
+
+.nice-menu-left li ul li ul {
+  width: 12.5em;
+  left: -12.65em;
+  top: -1px;
+}
+
+.nice-menu-left .menuparent,
+.nice-menu-left li .menuparent {
+  background: #eee url(arrow-left.png) left center no-repeat;
+}
+
+.nice-menu-left .menuparent:hover,
+.nice-menu-left li.over,
+.nice-menu-left li .menuparent:hover,
+.nice-menu-left li li.over {
+  background: #ccc url(arrow-left.png) left center no-repeat;
+}
+
+/******************************
+ HORIZONTAL (down) menus
+******************************/
+
+.nice-menu-down li li {
+  border-top: 0;
+}
+
+.nice-menu-down ul {
+  left: 0;
+}
+
+.nice-menu-down ul li {
+}
+
+.nice-menu-down .menuparent a {
+}
+
+.nice-menu-down .menuparent:hover a,
+.nice-menu-down li.over a {}

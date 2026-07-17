@@ -1,0 +1,13 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:m='urn:import:gwt.material.design.client.ui'>
+    <g:HTMLPanel>
+        <m:MaterialPanel ui:field="timerContainer" styleName="timer">
+            <!--            <m:MaterialPanel styleName="timer__heading">-->
+            <g:HTMLPanel styleName="timer__counter">
+                <m:MaterialLabel ui:field="hoursLabel"/>
+            </g:HTMLPanel>
+            <!--            </m:MaterialPanel>-->
+        </m:MaterialPanel>
+    </g:HTMLPanel>
+</ui:UiBinder>

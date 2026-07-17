@@ -1,0 +1,41 @@
+<div class="contentBar" style="padding:0 10px; margin-top:2px;">
+
+    <div id="details" class="slideDown-box expand group">
+        <h3 onclick="var myclick=document.getElementById('details');if(myclick &amp;&amp; myclick.className){;
+}{var cls=myclick.className;if(cls.indexOf('expand')>=0){cls=cls.replace('expand','');}else{cls+=' expand';}myclick.className=cls;}"
+            class="slideDown-title">$$label:DETAILS$$</h3>
+        <fieldset class="slideDown-content group labelLine">
+            <div class="halfSet-1 left">
+                <div class="row">$$label:CHAT_ID$$
+                    <div class="field">$$input:CHAT_ID$$</div>
+                </div>
+                <div class="row">$$label:CHAT_TYPE$$
+                    <div class="field">$$input:CHAT_TYPE$$</div>
+                </div>
+                <div class="row">$$label:CHAT_NAME$$
+                    <div class="field">$$input:CHAT_NAME$$</div>
+                </div>
+                <div class="row">$$label:STATUS$$
+                    <div class="field">$$input:STATUS$$</div>
+                </div>
+                <div class="row">$$label:CREATOR$$
+                    <div class="field">$$input:CREATOR$$</div>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+
+    <div id="notifications" class="slideDown-box expand group">
+        <h3 onclick="var myclick=document.getElementById('notifications');if(myclick &amp;&amp; myclick.className){;
+}{var cls=myclick.className;if(cls.indexOf('expand')>=0){cls=cls.replace('expand','');}else{cls+=' expand';}myclick.className=cls;}"
+            class="slideDown-title">$$label:SEND_NOTIFICATION$$</h3>
+
+        <fieldset class="slideDown-content group labelLine">
+            <div class="halfSet-1 left">
+                <div class="row">$$label:SEND_CASE_CREATE$$
+                    <div class="field">$$input:SEND_CASE_CREATE$$</div>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+</div>

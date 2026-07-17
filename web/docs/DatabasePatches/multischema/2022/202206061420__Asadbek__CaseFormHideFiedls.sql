@@ -1,0 +1,1 @@
+update  "anv".modelfield set mandatory = false where form_id = 'CASE_FORM' and field_id = 'CASE_ID';

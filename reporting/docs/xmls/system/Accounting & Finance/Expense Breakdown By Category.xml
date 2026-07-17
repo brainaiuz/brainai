@@ -1,0 +1,26 @@
+<report>
+    <view>
+        <title>Expense Breakdown By Category</title>
+        <name>Expense Breakdown By Category</name>
+        <category>Expense Breakdown By Category</category>
+        <sqlquery>
+            <select agregateFunc="distinct">
+                <table name="Expense">
+                    <column name="t.id" title="id" type="number" formattype="hidden"/>
+                    <column name="t.name" title="Category Name" type="string" formattype="string"/>
+                    <column name="t.date" title="Expense Date" type="date" formattype="date"/>
+                    <column name="t.expense" title="Expense Amount" type="number" formattype="money"/>
+                </table>
+            </select>
+            <from> (SELECT e.id,COALESCE(a.name, 'N/A') AS name, date, accountid, sum(COALESCE(basesubtotal, 0)) AS expense
+            FROM "$".expense e
+            LEFT JOIN "$".account a ON a.id = e.accountid
+            GROUP BY a.name, e.id, e.accountid, date
+            ORDER BY expense desc) t
+            </from>
+            <where>
+                <terms id="base" value="1=1"/>
+            </where>
+        </sqlquery>
+    </view>
+</report>

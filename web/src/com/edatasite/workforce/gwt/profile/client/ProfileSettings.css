@@ -1,0 +1,197 @@
+.tabTableStyle {
+    margin-bottom: 15px;
+    float: left;
+    padding: 5px;
+    width: 219px;
+    height: 120px;
+}
+
+[dir="rtl"] .left-panel {
+    background: url("settings/images/right-panel.png") no-repeat;
+    height: 141px;
+    width: 6px;
+}
+
+.left-panel {
+    background: url("settings/images/left-panel.png") no-repeat;
+    height: 141px;
+    width: 6px;
+}
+
+.center-panel {
+    background: url("settings/images/center-panel2.png") repeat-x;
+}
+
+.right-panel {
+    background: url("settings/images/right-panel.png") no-repeat;
+    height: 141px;
+    width: 6px;
+}
+
+[dir="rtl"] .right-panel {
+    background: url("settings/images/left-panel.png") no-repeat;
+    height: 141px;
+    width: 6px;
+}
+
+.step-green {
+    background: url("settings/images/green-downArrow.png") no-repeat scroll 0 0 transparent;
+    color: #FFFFFF;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 5px 0 14px 13px;
+}
+
+.infoIcon {
+    background: url("settings/images/informationIcon.png") no-repeat scroll 10px 5px #FEFEE9;
+    border: 1px solid #EFF3C3;
+    padding: 10px 10px 10px 75px;
+}
+
+.infoIcon ul {
+    margin: 10px 0 10px 20px;
+    padding: 0 0 0 5px;
+}
+
+.mt15 {
+    margin-top: 15px;
+}
+
+.linked-label-style {
+    color: #6B90DA;
+    cursor: pointer;
+    padding-left: 6px;
+}
+
+.on-mouse-over {
+    text-decoration: underline;
+}
+
+.dragon-drop-window {
+    border: 1px dashed #000000;
+    padding: 7px 15px 15px 15px;
+    height: 80px;
+}
+
+.previewPanelDrag {
+    font-size: 14px;
+    margin: 10px 10px 15px 250px;
+}
+
+.previewPanelDragP {
+    font-size: 14px;
+    margin: 10px 10px 15px 350px;
+}
+
+.returnPNumber:active, .returnPNumber button:active {
+    color: #00325B;
+}
+
+table .returnPNumber {
+    margin-right: 5px;
+}
+
+.returnPNumber {
+    border: 1px solid #C3C3C3;
+    height: 20px;
+    white-space: nowrap;
+}
+
+.returnPNumber {
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAABcCAYAAACvBd+gAAAAUElEQVQY07WQMQ7AIAwDz8n/n8oPUNyFASqKxNDlZC/OKdh22OaNqprTrt7jc289jm0CGGoAW8mz+H09AxhqrTVHZjJB0jCV9NPXeu9zWvEAUxP7A0tFtjgAAAAASUVORK5CYII=") repeat-x scroll 0 0 #D0D0D0;
+    cursor: pointer;
+}
+
+.returnPNumber {
+    cursor: pointer;
+    display: inline-block;
+    padding: 0;
+    text-decoration: none;
+    vertical-align: middle;
+}
+
+input[type="text"], textarea, select {
+    font-size: 12px;
+}
+
+input, select, button {
+    /*font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;*/
+    font-size: 100%;
+}
+
+input, textarea, select {
+}
+
+input, textarea, select {
+    /*font-family: inherit;*/
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+.gwt-RadioButton label, .gwt-CheckBox label {
+    /*margin-left: 5px;*/
+    /*margin-right: 2px;*/
+}
+
+.icon-add-task {
+    background: url(crm/icons/add-task.png) no-repeat;
+}
+
+.icon-activity-small {
+    background: url("crm/icons/activities-small.png") no-repeat;
+}
+
+.subDivisions .solitions-list a {
+    background-position: 8px -283px;
+}
+
+.subDivisions li.crm a {
+    background-image: url("crm/icons/crm-sprite.png");
+    background-repeat: no-repeat;
+}
+
+.icon-solution-small {
+    background: url(crm/icons/solution-small.png) no-repeat;
+}
+
+
+.gwt-TabPanelBottom .GK40RFKDDH{
+    text-align: center !important;
+    white-space: normal !important;
+}
+
+.td-padding-4 th, .td-padding-4 td{
+    padding:4px;
+    /*border-bottom:1px solid #778899;*/
+}
+.generalPanel {
+    margin: 5px;
+}
+.rowPanel{
+    margin: 5px;
+    display: inline-block;
+    float: left;
+}
+/* ANNUAL LEAVE SETTINGS */
+.lr-settings {
+    margin: auto 5%;
+}
+.lr-settings .titleLabel {
+        font-size: 16px;
+        color: #0d47a1;
+    font-weight: bold;
+    }
+.lr-settings .row {
+    width: 30%;
+    padding: 20px 0;
+}
+.lr-settings .column {
+    font-size: 14px;
+    color: #0d47a1;
+    width: 49%;
+    display: inline-block;
+}
+.lr-settings .row .widget {
+    margin: 0 0 0 30px;
+}
+/* END OF ANNUAL LEAVE SETTINGS */

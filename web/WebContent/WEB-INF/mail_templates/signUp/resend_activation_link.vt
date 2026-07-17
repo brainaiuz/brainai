@@ -1,0 +1,11 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head><body><p>Dear $user.firstName $user.lastName,</a><br />
+<p>You have not activated your account yet. Please activate now. In order to activate 
+  your account, please <u><a href="$HOST/auth/account?uid=$uid&cid=$companyid&sid=$serviceid">click
+  here</a></u><br />
+  (or copy/paste and go to following link in your web browser: <u>$HOST/auth/account?uid=$uid&cid=$companyid&sid=$serviceid</u></p>
+
+<p>Thank you for your interest in our product.</p>
+
+</body></html>

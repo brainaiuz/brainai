@@ -1,0 +1,1 @@
+update "anv".employee_asterisk set active = true where (trim(username) is NOT null and trim(password) is NOT null) AND (username <> '' AND password <> '');

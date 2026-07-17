@@ -1,0 +1,19 @@
+<ul class="list-1 notes widget">
+    <li></li>
+
+    <li>
+        <tr>
+            <td>
+                <strong class="clear">$rowItem.getStringValue("n.getSubject")</strong>
+            </td>
+            <td>
+                <strong class="clear">$rowItem.getStringValue("n.getComment")</strong>
+            </td>
+            <td>
+                <strong class="clear">$rowItem.getStringValue("n.getRelatedToNumber")</strong>
+            </td>
+            <td>
+                <strong class="clear">$rowItem.getStringValue("n.getEmployee")</strong>
+            </td>
+        </tr>
+    </li>

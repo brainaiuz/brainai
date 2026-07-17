@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+Dear $ADMINNAME,<br/>
+
+<p> We regret to inform you that your Free-Trial account at $productName is set to expire on $DATE. However, we are
+    committed to providing efficient customer service and would like to inform you of your next possible steps on your
+    ongoing journey with $productName.
+    </p>
+
+    <p> If you would like to make a subscription to continue using $productName click 'My Account' and then 'Current
+    Subscription'</p>
+
+   <p>  Should you not wish to use our services any longer; your account will be archived and securely deleted.</p>
+
+    $companyInfo
+</body>
+</html>

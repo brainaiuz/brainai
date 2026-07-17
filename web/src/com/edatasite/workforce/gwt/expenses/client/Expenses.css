@@ -1,0 +1,123 @@
+/*List Icons Start*/
+
+.icon-edit-report {
+    background: url(accounting/icons/edit.gif);
+}
+
+.icon-submit-report {
+    background: url(accounting/icons/submit.gif);
+}
+
+.icon-approve {
+    background: url(accounting/icons/approve.gif);
+}
+
+.icon-decline {
+    background: url(accounting/icons/decline.gif);
+}
+
+.icon-comment {
+    background: url(accounting/icons/comment.gif);
+}
+
+/*List Icons End*/
+
+.total-white {
+    color: #6C6C6C;
+    font-weight: 600;
+    background-color: #F9F9F9;
+    border: 1px solid #CBCBCB;
+}
+
+.total-gray {
+    color: white;
+    font-weight: 600;
+    background-color: #CBCBCB;
+}
+
+.expenseTotal td {
+    padding-top: 2px;
+}
+
+.add-font {
+    /*font-family: arial;*/
+    font-size: 11px;
+    color: #6C6C6C;
+}
+
+.big-gray-font {
+    /*font-family: arial;*/
+    font-size: 13px;
+    color: #6C6C6C;
+}
+
+.description-gray-color {
+    background-color: gainsboro;
+    border: 1px solid #819cb9;
+    overflow: auto;
+}
+
+.input-gray-color {
+    background-color: gainsboro;
+    border: 1px solid #819cb9;
+}
+
+/*WfmToolButton styles start*/
+.submit-over {
+    background: transparent url("accounting/buttons/submit_over.png") no-repeat;
+    height: 34px;
+    width: 160px;
+}
+
+.totalReportsBackgroudColor {
+    background-color: gainsboro;
+}
+
+/*-------------------------- Expense Welcome View-------------------------------*/
+
+#add-new-expense {
+    background: url(accounting/icons/addnewexpense.gif) no-repeat;
+}
+
+#configure-settings {
+    background: url(accounting/icons/configuresettings.gif) no-repeat;
+}
+
+#see-example-pdf {
+    background: url(accounting/icons/seeexample.gif) no-repeat;
+}
+
+#view-example-exp-report {
+    background: url(accounting/icons/viewexample.gif) no-repeat;
+}
+
+#add-new-expense .abs-link {
+    bottom: 15px;
+    height: 50px;
+    right: 20px;
+    width: 150px;
+}
+
+#configure-settings .abs-link {
+    bottom: 7px;
+    height: 52px;
+    right: 20px;
+    width: 212px;
+}
+
+#see-example-pdf .abs-link {
+    bottom: 7px;
+    right: 48px;
+    width: 200px;
+    height: 48px;
+}
+
+#view-example-exp-report .abs-link {
+    bottom: 65px;
+    height: 44px;
+    right: 2px;
+    width: 200px;
+}
+
+
+

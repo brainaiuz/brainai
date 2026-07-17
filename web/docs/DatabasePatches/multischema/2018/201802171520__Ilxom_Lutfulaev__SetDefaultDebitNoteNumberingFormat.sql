@@ -1,0 +1,1 @@
+update "anv".invoicingSettings set dnnumberingformat = 'DN 0001';

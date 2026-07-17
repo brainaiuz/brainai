@@ -1,0 +1,2 @@
+update "anv".property set defaultName='Payslips',singular='Payslip',plural='Payslips',shortcut='P' where objectName = 'singlePayrunList';
+update "anv".property set defaultName='Payslips(by Employee)',singular='Payslip',plural='Payslips',shortcut='P' where objectName = 'payslipList';

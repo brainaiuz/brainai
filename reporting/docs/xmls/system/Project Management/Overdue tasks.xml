@@ -1,0 +1,64 @@
+<report>
+    <view>
+        <title>Overdue Tasks</title>
+        <name>Overdue Tasks</name>
+        <category>pm</category>
+        <sqlquery>
+            <select agregateFunc="distinct">
+                <table name="Task">
+                    <column name="zid" title="Task Count" type="number" formattype="hidden"/>
+                    <column name="id" title="Task ID" type="number" formattype="hidden"/>
+                    <column name="t.taskname" title="Task Name" type="string" formattype="string"/>
+                    <column name="t.projectname" title="Project Name" type="string" formattype="string"/>
+                    <column name="t.assignee" title="Assinged To" type="string" formattype="string"/>
+                    <column name="t.manager" title="Project Manager" type="string" formattype="string"/>
+                    <column name="t.backmanager" title="Backup Manager" type="string" formattype="string"/>
+                    <column name="t.startdate" title="Start Date" type="date" formattype="date"/>
+                    <column name="t.duedate" title="End Date" type="date" formattype="date"/>
+                    <column name="t.totalhours" title="Total Hours" type="time" formattype="time"/>
+                    <column name="t.approvedtotaltime" title="Approved Hours" type="time" formattype="time"/>
+                    <column name="t.percent" title="% Completed" type="percent" formattype="percent"/>
+                    <column name="allday" title="All Day" type="string" formattype="hidden2"/>
+                </table>
+            </select>
+            <from>(select count(task.id) as zid, task.id, max(task.name) as taskname, max(pj.name) as projectname,
+                max((mu.firstName||' '||mu.lastname)) as assignee ,
+                max((ma.firstname ||' '|| ma.lastname)) as manager,
+                max((bma.firstname ||' '|| bma.lastname)) as backmanager,
+                max(task.startdate) as startdate, max(task.duedate) as duedate,
+                max(ts.totaltime) as totalhours,
+                max(ats.approvedtotaltime) as approvedtotaltime,
+                max(task.percent) as percent,
+                (CASE WHEN task.all_day is not null THEN (CASE WHEN task.all_day = true THEN 'yes' ELSE 'no' END) ELSE 'no' END) as allday
+                from "$".task task
+                left join "$".project pj on task.projectid = pj.id
+                left join "$".reference ref on task.statusid = ref.id
+                left join "$".employeetask emtk on emtk.taskid = task.id
+                left join "$".projectemployee pjem on emtk.projectemployeeid = pjem.id
+                left join "$".teamemployee tmem on pjem.employeedepartmentid = tmem.id
+                left join "$".myuser mu on tmem.employeeid = mu.id
+                left join "$".team tm on tm.id = tmem.teamid
+                left join "$".myuser ma ON ma.id = pj.managerid
+                left join "$".myuser bma on bma.id = pj.backup_managerid
+                left join (select timesheet.taskid, sum(timesheet.timespent) as totaltime from "$".timesheet timesheet
+                group by timesheet.taskid) ts on task.id = ts.taskid
+                left join (select timesheet.taskid,sum(timesheet.timespent) as approvedtotaltime
+                from "$".timesheet timesheet
+                left join "$".reference ref on timesheet.statusid = ref.id where ref.code ='_APPROVE' group by timesheet.taskid) ats on task.id = ats.taskid
+
+                where ref.code not in ('COMPLETED', 'CLOSED') and task.deleted is not true and (task.isissue is null or task.isissue=false)
+                and now() > task.duedate group by task.id
+                ) t
+            </from>
+            <where>
+                <terms id="base" value="1=1"/>
+                <replacement id="userid" userid="#?user_id?#"/>
+                <replacement code="showAll" name="Show all" value="1=1" permission="PROJECT_PROGRESS_SHOW_ALL"/>
+                <replacement code="myItems" name="My Items" value="mu=#?user_id?#" permission="PROJECT_MY_ITEMS"/>
+                <replacement code="relatedItems" name="Related Items" value="(#?user_id?# in (managerid,backup_ManagerId, backup_ManagerId2, backup_ManagerId3, backup_ManagerId4
+                    , backup_ManagerId5, backup_ManagerId6, backup_ManagerId7, backup_ManagerId8, backup_ManagerId9, backup_ManagerId10))" permission="PROJECT_RELATED_ITEMS"/>
+
+            </where>
+        </sqlquery>
+    </view>
+</report>

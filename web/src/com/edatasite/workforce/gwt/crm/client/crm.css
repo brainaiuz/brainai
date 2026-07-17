@@ -1,0 +1,507 @@
+    /**********************************************************************************************************************
+    * LAST CHANGE                                                                                                        *
+    * User: Hayot                                                                                                        *
+    * Time: 2010/5/28 4:36:2                                                                                             *
+    **********************************************************************************************************************/
+
+        /*--task view icons--*/
+    .icon-task-view {
+        background-image: url("crm/icons/task-view-small.gif") no-repeat;
+    }
+
+    .icon-task-summary {
+        background-image: url("crm/icons/task-summary.gif") no-repeat;
+    }
+
+    .icon-task-edit {
+        background-image: url("crm/icons/task-edit.gif") no-repeat;
+    }
+
+    .icon-contact {
+        background: url("crm/icons/vcard.png") no-repeat;
+    }
+
+        /*--event view icons--*/
+    .icon-event-view {
+        background-image: url("crm/icons/task-view-small.gif") no-repeat;
+    }
+
+    .icon-event-summary {
+        background-image: url("crm/icons/task-summary.gif") no-repeat;
+    }
+
+    .icon-accounts {
+        background: url(crm/icons/accounts.png) no-repeat;
+    }
+
+    .icon-add-new {
+        background: url(crm/icons/add-new.png) no-repeat;
+    }
+
+    .icon-leads {
+        background: url(crm/icons/leads.png) no-repeat;
+    }
+
+    .icon-edit {
+        background: url(crm/icons/edit.gif) no-repeat;
+    }
+
+    .icon-fulldetails {
+        background: url(crm/icons/fulldetails.gif) no-repeat;
+    }
+
+    .icon-contact-small {
+        background: url(crm/icons/contacts.png) no-repeat;
+    }
+
+    .convert-toproject {
+        background: url(crm/icons/projects.png) no-repeat;
+    }
+
+    .icon-hoovers {
+        background: url(crm/icons/icon-hoovers.gif) no-repeat;
+    }
+
+    .icon-facebook {
+        background: url(crm/icons/facebook-icon.png) no-repeat;
+    }
+
+    .icon-linkedin {
+        background: url(crm/icons/linkedin-icon.png) no-repeat;
+    }
+
+    .icon-twitter {
+        background: url(crm/icons/twitter-icon.png) no-repeat;
+    }
+
+    .icon-getCase {
+        background: url(crm/icons/inbox.png) no-repeat;
+    }
+
+    .icon-add-node {
+        background: url(crm/icons/add-note.png) no-repeat;
+    }
+
+    .icon-add-task {
+        background: url(crm/icons/add-task.png) no-repeat;
+    }
+
+    .icon-sms {
+        background: url(settings/images/sent.png) no-repeat;
+    }
+
+    .icon-add-convert {
+        background: url(crm/icons/convert.png) no-repeat;
+    }
+
+    .icon-convert-small {
+        background: url(crm/icons/convert-small.png) no-repeat;
+    }
+
+    .icon-mailing-list {
+        background: url("crm/icons/mail-lists.png") no-repeat;
+    }
+
+        /*CRM WELCOM VIEW*/
+
+    .not-image0 {
+        height: 79px;
+        width: 125px;
+    }
+
+    .not-image {
+        height: 79px;
+        width: 125px;
+    }
+
+    .not-image1 {
+        height: 79px;
+        width: 120px;
+    }
+
+    .not-image2 {
+        height: 79px;
+        width: 123px;
+    }
+
+        /*icons*/
+
+    .icon-opportunity-small {
+        background: url("crm/icons/opportunities-small.png") no-repeat;
+    }
+
+    .icon-campaign-small {
+        background: url("crm/icons/campaigns-small.png") no-repeat;
+    }
+
+    .icon-activity-small {
+        background: url("crm/icons/activities-small.png") no-repeat;
+    }
+
+    .icon-case-small {
+        /*background: url("crm/icons/case-small.png") no-repeat;*/
+    }
+
+    .icon-case-view-small {
+        background: url("crm/icons/case-view-small.png") no-repeat;
+    }
+
+    .icon-solution-small {
+        background: url(crm/icons/solution-small.png) no-repeat;
+    }
+
+    .icon-update-message-sent {
+        background: url(crm/icons/refresh.png) no-repeat;
+    }
+
+    .icon-create-message {
+        background: url(crm/icons/create-message.png) no-repeat;
+    }
+
+    .helpTextField {
+        /*font-family: tahoma;*/
+        font-size: 11px;
+        color: gray;
+    }
+
+    .paddingLeft3px {
+        padding-left: 3px;
+    }
+
+    .gwt-SuggestBox {
+        padding: 2px;
+    }
+
+    .gwt-SuggestBoxPopup {
+        margin-left: 3px;
+    }
+
+    .gwt-SuggestBoxPopup .item {
+        padding: 2px 6px;
+        color: #424242;
+        cursor: default;
+    }
+
+    .gwt-SuggestBoxPopup .item-selected {
+        background: #b7d6f6;
+    }
+
+    .gwt-SuggestBoxPopup .suggestPopupContent {
+        background: white;
+    }
+
+    .gwt-SuggestBoxPopup .suggestPopupTopCenter {
+        background: url(mainStyles/themes/blue/hborder.png) repeat-x;
+    }
+
+    .gwt-SuggestBoxPopup .suggestPopupBottomCenter {
+        background: url(mainStyles/themes/blue/hborder.png) repeat-x 0 -4px;
+        -background: url(mainStyles/themes/blue/hborder_ie6.png) repeat-x 0px -4px;
+    }
+
+    .gwt-SuggestBoxPopup .suggestPopupMiddleLeft {
+        background: url(mainStyles/themes/blue/vborder.png) repeat-y;
+    }
+
+    .gwt-SuggestBoxPopup .suggestPopupMiddleRight {
+        background: url(mainStyles/themes/blue/vborder.png) repeat-y -4px 0;
+        -background: url(mainStyles/themes/blue/vborder_ie6.png) repeat-y -4px 0px;
+    }
+
+    .gwt-SuggestBoxPopup .suggestPopupTopLeftInner {
+        width: 5px;
+        height: 5px;
+        zoom: 1;
+    }
+
+    .gwt-SuggestBoxPopup .suggestPopupTopRightInner {
+        width: 8px;
+        height: 5px;
+        zoom: 1;
+    }
+
+    .gwt-SuggestBoxPopup .suggestPopupBottomLeftInner {
+        width: 5px;
+        height: 8px;
+        zoom: 1;
+    }
+
+    .gwt-SuggestBoxPopup .suggestPopupBottomRightInner {
+        width: 8px;
+        height: 8px;
+        zoom: 1;
+    }
+
+    .gwt-SuggestBoxPopup .suggestPopupTopLeft {
+        background: url(mainStyles/themes/blue/corner.png) no-repeat 0 -23px;
+        -background: url(mainStyles/themes/blue/corner_ie6.png) no-repeat 0 -23px;
+    }
+
+    .gwt-SuggestBoxPopup .suggestPopupTopRight {
+        background: url(mainStyles/themes/blue/corner.png) no-repeat -5px -23px;
+        -background: url(mainStyles/themes/blue/corner_ie6.png) no-repeat -5px -23px;
+    }
+
+    .gwt-SuggestBoxPopup .suggestPopupBottomLeft {
+        background: url(mainStyles/themes/blue/corner.png) no-repeat 0 -28px;
+        -background: url(mainStyles/themes/blue/corner_ie6.png) no-repeat 0px -28px;
+    }
+
+    .gwt-SuggestBoxPopup .suggestPopupBottomRight {
+        background: url(mainStyles/themes/blue/corner.png) no-repeat -5px -28px;
+        -background: url(mainStyles/themes/blue/corner_ie6.png) no-repeat -5px -28px;
+    }
+
+    .call-log .dialogTopRightInner {
+        width: 0 !important;
+    }
+
+    .call-log .dialogTop {
+        height: 1px;
+    }
+
+    .clockImageStyle {
+        cursor: pointer;
+    }
+
+    .backgroundWhite {
+        background-color: white;
+    }
+
+    <!--
+    CONTACT-->
+.doc-TabPanelBottom {
+        border-color: darkgrey;
+        border-width: 1px 1px 1px;
+        overflow: hidden;
+        padding: 6px;
+    }
+
+    .doc-SelectedRow {
+        background-color: #CCCCCC;
+    }
+
+    .gwt-RichTextArea {
+        border: 0 solid black !important;
+    }
+
+    .caseSummaryDesc {
+
+    }
+
+    .caseSummaryDesc p {
+        margin: 0 !important;
+    }
+
+    .e-disable {
+        color: #a9a9a9;
+    }
+
+    .e-no-disable {
+        color: black;
+    }
+
+        /*for crm*/
+    .subDivisions li.crm a {
+        background-image: url("crm/icons/crm-sprite.png");
+        background-repeat: no-repeat;
+    }
+
+        /*welcome*/
+    .subDivisions .welcome a {
+        background-position: 8px -1291px;
+    }
+
+        /*lead-list*//*
+    .subDivisions .lead-list a {
+        background-position: 8px -797px;
+    }*/
+
+       /*crm-account-list*/
+    .subDivisions .crm-account-list a {
+        background-position: 8px -1885px;
+    }
+
+        /*contact-list*//*
+    .subDivisions .contact-list a {
+        background-position: 8px -1439px;
+    }*/
+
+        /*campaign-list*/
+    .subDivisions .campaign-list a {
+        background-position: 8px -1540px;
+    }
+        /*solitions-list*/
+    .subDivisions .solitions-list a {
+        background-position: 8px -283px;
+    }
+
+
+        /*sent-message-list*/
+    .subDivisions .sent-message-list a {
+        background-position: 8px -337px;
+    }
+
+        /*draft-message-list*/
+    .subDivisions .draft-message-list a {
+        background-position: 8px -1139px;
+    }
+
+        /*queued-message-list*/
+    .subDivisions .queued-message-list a {
+        background-position: 8px -468px;
+    }
+
+        /*welcome  hover and active*/
+    .subDivisions .welcome a:hover, .subDivisions .welcome.active a {
+        background-position: 8px -1264px;;
+    }
+
+          /*crm-account-list  hover and active*/
+    .subDivisions .crm-account-list a:hover, .subDivisions .crm-account-list.active a {
+        background-position: 8px -1860px;
+    }
+
+
+        /*campaign-list hover and active*/
+    .subDivisions .campaign-list a:hover, .subDivisions .campaign-list.active a {
+        background-position: 8px -1512px;
+    }
+
+        /*solitions-list  hover and active*/
+    .subDivisions .solitions-list a:hover, .subDivisions .solitions-list.active a {
+        background-position: 8px -256px;
+    }
+        /*sent-message-list  hover and active*/
+    .subDivisions .sent-message-list a:hover, .subDivisions .sent-message-list.active a {
+        background-position: 8px -311px;
+    }
+
+        /*draft-message-list  hover and active*/
+    .subDivisions .draft-message-list a:hover, .subDivisions .draft-message-list.active a {
+        background-position: 8px -1118px;
+    }
+
+        /*queued-message-list  hover and active*/
+    .subDivisions .queued-message-list a:hover, .subDivisions .queued-message-list.active a {
+        background-position: 8px -447px;
+    }
+
+       /*task-members-involved*/
+    .subDivisions .task-members-involved a {
+        background-position: 8px -2234px;
+    }
+
+    .subDivisions .task-members-involved a:hover, .subDivisions .task-members-involved.active a {
+        background-position: 8px -2209px;
+    }
+        /*task-budget*/
+    .subDivisions .task-budget a {
+        background-position: 8px -2390px;
+    }
+
+    .subDivisions .task-budget a:hover, .subDivisions .task-budget.active a {
+        background-position: 8px -2364px;
+    }
+
+         /*task-notes*/
+    .subDivisions .task-notes a {
+        background-position: 8px -1732px;
+    }
+
+    .subDivisions .task-notes a:hover, .subDivisions .task-notes.active a {
+        background-position: 8px -1710px;
+    }
+
+        /*crm-comments*/
+    .subDivisions .crm-comments a {
+        background-position: 8px -2338px;
+    }
+
+    .subDivisions .crm-comments a:hover, .subDivisions .crm-comments.active a {
+        background-position: 8px -2312px;
+    }
+
+/*
+        */
+/*cases-list*//*
+
+    .subDivisions .cases-list a {
+        background-position: 8px -2439px;
+    }
+
+    .subDivisions .cases-list a:hover, .subDivisions .cases-list.active a {
+        background-position: 8px -2415px;
+    }
+*/
+
+        /*account-edit*/
+    .subDivisions .account-edit a {
+        background-position: 8px -1045px;
+    }
+
+    .subDivisions .account-edit a:hover, .subDivisions .account-edit.active a {
+        background-position: 8px -1023px;
+    }
+
+        /*case-edit*/
+    .subDivisions .case-edit a {
+        background-position: 8px -2464px;
+    }
+
+    .subDivisions .case-edit a:hover, .subDivisions .case-edit.active a {
+        background-position: 8px -2491px;
+    }
+
+        /*message-edit*/
+    .subDivisions .message-edit a {
+        background-position: 8px -2540px;
+    }
+
+    .subDivisions .message-edit a:hover, .subDivisions .message-edit.active a {
+        background-position: 8px -2516px;
+    }
+
+        /*message-summary*/
+    .subDivisions .message-summary a {
+        background-position: 8px -516px;
+    }
+
+    .subDivisions .message-summary a:hover, .subDivisions .message-summary.active a {
+        background-position: 8px -491px;
+    }
+
+        /*sales-quote-list*//*
+    .subDivisions .sales-quote-list a {
+        background-position: 8px -2132px;
+    }*/
+/*
+    .subDivisions .sales-quote-list a:hover, .subDivisions .sales-quote-list.active a {
+        background-position: 8px -2106px;
+    }*/
+
+       /* *//*sales-invoice-list*//*
+    .subDivisions .sales-invoice-list a {
+        background-position: 8px -1984px;
+    }
+
+    .subDivisions .sales-invoice-list a:hover, .subDivisions .sales-invoice-list.active a {
+        background-position: 8px -1958px;
+    }
+*/
+        /*crm-mail*/
+    .subDivisions .crm-mail a {
+        background-position: 8px -2693px;
+    }
+
+    .subDivisions .crm-mail a:hover, .subDivisions .crm-mail.active a {
+        background-position: 8px -2666px;
+    }
+
+    .compose-link-panel{
+        padding-top: 4px;
+    }
+
+    .lookUp-moveRight + .openIconWrapper {
+        right: -7px !important;
+    }

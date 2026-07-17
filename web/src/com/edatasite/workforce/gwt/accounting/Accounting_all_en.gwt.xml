@@ -1,0 +1,4 @@
+<module rename-to="accounting">
+    <inherits name="com.edatasite.workforce.gwt.accounting.Accounting"/>
+    <inherits name="com.edatasite.workforce.gwt.Localization_properties"></inherits>
+</module>

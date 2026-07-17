@@ -1,0 +1,1 @@
+ant ReportingSystem -f ./web/AutoCompile.xml

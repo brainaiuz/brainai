@@ -1,0 +1,21 @@
+
+services:
+  kpi-activemq:
+    extends:
+      file: compose.yml
+      service: activemq
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - kpi-activemq-data:/data/activemq
+    networks:
+      - kpi-network
+
+volumes:
+  kpi-activemq-data:
+    name: kpi-activemq-data
+
+networks:
+  kpi-network:
+    name: kpi-network
+    driver: bridge
+    external: true

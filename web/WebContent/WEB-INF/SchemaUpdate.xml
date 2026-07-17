@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<project name="SchemaUpdate" basedir=".">
+
+     <property name="dependencies" value="lib"/>
+
+     <path id="my.classpath">
+        <pathelement location="classes"/>
+         <fileset dir="${dependencies}"/>
+    </path>
+
+
+    <target name="Update">
+        <echo message="Updating started"/>
+
+        <java failonerror="true" fork="true" classname="com.edatasite.workforce.core.tools.EdsSchemaUpdater"
+              classpathref="my.classpath" >
+
+            <arg line="1"/>
+
+            <jvmarg line="-Xmx512M -Xss32M"/>
+        </java>
+    </target>
+
+
+
+</project>

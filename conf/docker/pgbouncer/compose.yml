@@ -1,0 +1,16 @@
+
+services:
+  pgbouncer:
+    image: "${KPI_PGBOUNCER_IMAGE}"
+    container_name: "${KPI_PGBOUNCER_HOST}"
+    hostname: "${KPI_PGBOUNCER_HOST}"
+    ports:
+      - "${KPI_PGBOUNCER_PORT}:6432"
+    healthcheck:
+      test: [ 'CMD', 'pg_isready', '-h', 'localhost' ]
+    restart: unless-stopped
+    extra_hosts:
+      - "pgsql.kpi.internal:172.18.0.1"
+    volumes:
+      - ./conf/pgbouncer.ini:/etc/pgbouncer/pgbouncer.ini:${VOLUME_SUFFIX:-ro}
+      - ./conf/userlist.txt:/etc/pgbouncer/userlist.txt:${VOLUME_SUFFIX:-ro}

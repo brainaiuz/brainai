@@ -1,0 +1,277 @@
+.recurringWidget {
+    width: 100%;
+
+    &__wrapper.grid-row {
+        .group-box__items {
+            display: flex;
+            flex-wrap: wrap;
+            .group-box__item {
+                //width: 100%;
+                margin: 0 !important;
+                min-height: 1px;
+                padding-right: 10px;
+                padding-left: 10px;
+            }
+        }
+    }
+    .add-form & {
+        padding-left: 0;
+        padding-right: 0;
+        margin-left: 0;
+        margin-right: 0;
+
+        .group-box__items {
+            //margin-left: -10px;
+            //margin-right: -10px;
+            > .group-box__item {
+                margin: 0;
+                //padding-right: 10px;
+                //padding-left: 10px;
+            }
+        }
+    }
+    .group-box__item-content {
+        > table > tbody > tr > td {
+            position: relative;
+            > .gwt-HTML {
+                padding-left: 7px;
+                padding-right: 7px;
+            }
+            &:not(:last-child):after {
+                position: absolute;
+                content: '';
+                display: block;
+                top: 5px;
+                bottom: 5px;
+                width: 1px;
+                background-color: $gray-new-light;
+                right: 0;
+            }
+
+            &:not(:last-child){
+                padding-right:1px;
+            }
+        }
+    }
+}
+
+
+//Start
+.recurringStartDateWidget {
+    flex: 0 0 15%;
+    //width: 15%; Leads to the next problem > http://prntscr.com/mthu2k
+    > div > table {
+        table-layout: fixed;
+        > tbody > tr > td {
+            &:first-child {
+                width: 100px;
+                position: relative;
+            }
+            &:last-child {
+                width: 60px;
+                input {
+                    background: #fff url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAGCAYAAAGwZV42AAAAAXNSR0IArs4c6QAAAIpJREFUKBVjYMALgtPK/+NVQFgyJK38IUhVcFrFA8KqiVTBGJpWHsXOwLwfpP4H0z+nNTM6luLVG5JePg/ohN14FQElGUMzK+3///23hpGRyX71zPZrMA2h6ZVa////P8DAxBAGtO0ATJxYmhGmMCS9opLh//8woIDDf0bG/UD2mjWzOttg8oOGBgBeICwSAz7qXQAAAABJRU5ErkJggg==) no-repeat 100% 1.30769rem;
+                }
+            }
+        }
+    }
+}
+
+//End
+.recurringEndDateWidget {
+    .left-menu-closed & {
+        flex: 0 0 18.1%;
+    }
+    .left-menu-open & {
+        flex: 0 0 19.9%;
+    }
+
+    //width: 18.3%;
+    > div > table {
+        table-layout: fixed;
+        > tbody > tr > td {
+            &:first-child {
+                width: 70px;
+            }
+            &:last-child {
+                //width: 80px;
+            }
+            .gwt-HTML {
+                padding-left: 5px;
+            }
+        }
+    }
+    .select2-container {
+        .select2-search--inline {
+            display: inline-block;
+            input {
+                max-width: 30px;
+            }
+        }
+    }
+    &--after > div > table > tbody > tr > td:nth-child(2) {
+        width: 50px;
+        input {
+            text-align: center;
+            padding-right: 10px;
+            padding-left: 10px;
+        }
+    }
+}
+
+//Cron
+.recurringCronWidget {
+    flex: 0 0 33.33333%;
+    width: 33.33333%;
+    > div > table > tbody > tr > td {
+        &:first-child {
+            width: 99px;
+        }
+    }
+    &--daily {
+        > div > table > tbody > tr > td {
+            &:nth-last-child(2) {
+                //width: 50px;
+                input {
+                    text-align: center;
+                    padding-right: 10px;
+                    padding-left: 10px;
+                }
+            }
+            &:nth-last-child(3) {
+                width: 50px;
+            }
+        }
+    }
+    &--weekly {
+        > div > table > tbody > tr > td {
+            &:first-child {
+                //width: 100px;
+            }
+            &:nth-last-child(2) {
+                //width: 70px;
+            }
+        }
+    }
+    &--monthly > div > table > tbody > tr > td {
+        &:nth-child(2) {
+            width: 45px;
+        }
+        &:nth-child(3) {
+            width: 40px;
+            input {
+                text-align: center;
+            }
+        }
+        &:nth-child(5) {
+            width: 60px;
+        }
+        &:first-child {
+            //width: 105px;
+        }
+    }
+    &--yearly > div > table > tbody > tr > td {
+        &:last-child {
+            width: 75px;
+        }
+        &:nth-child(2) {
+            width: 125px;
+        }
+        &:nth-child(3) {
+            width: 79px;
+        }
+    }
+
+    .select2-container .select2-search--inline {
+        display: inline-block;
+        input {
+            max-width: 50px;
+        }
+    }
+    .wfm-dropdown {
+        .material-label {
+            position: absolute;
+        }
+    }
+}
+
+.modal {
+    .recurringStartDateWidget,
+    .recurringCronWidget,
+    .recurringEndDateWidget {
+        flex-grow: 0 !important;
+        flex-shrink: 1 !important;
+        flex-basis: auto !important;
+
+        table {
+            width: auto;
+        }
+        td {
+            width: auto !important;
+            &:last-child {
+                .gwt-HTML {
+                    padding-right: 10px;
+                }
+            }
+        }
+        * {
+            //width: auto !important;
+        }
+    }
+    .recurringCronWidget--yearly,
+    .recurringCronWidget--monthly,
+    .recurringCronWidget--daily {
+        input.form-control {
+            //height: $control-height-noBorder / 2;
+            width: 30px !important;
+            //border-bottom: 1px solid $input-border-color;
+            //padding-top: 0;
+            //padding-bottom: 0;
+        }
+    }
+}
+
+
+@media only screen and (max-width: 1480px) {
+    .recurringCronWidget .select2-selection__choice__remove {
+        display: none;
+    }
+}
+
+/* reduce size of weekday multisect
+ runs if there is recurringWidget--cron-mini class or screen width is less that 1380
+ */
+
+.recurringWidget--cron-mini {
+    .recurringCronWidget {
+        > div > table {
+            table-layout: fixed;
+        }
+        .select2-container--default .select2-selection--multiple .select2-selection__choice {
+            padding: 0;
+            background: none;
+        }
+
+
+    }
+    .select2-selection__choice__remove {
+        display: none;
+    }
+    .select2-container--default .select2-selection--multiple .select2-selection__choice:after {
+        content: ',';
+    }
+}
+
+@media only screen and (max-width: 1380px) {
+    .recurringWidget .recurringCronWidget > div > table {
+        //table-layout: fixed;
+    }
+
+    .recurringCronWidget .select2-container--default .select2-selection--multiple .select2-selection__choice {
+        padding: 0;
+    }
+
+    .recurringCronWidget .select2-container--default .select2-selection--multiple .select2-selection__choice:after {
+        content: ',';
+    }
+}

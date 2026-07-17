@@ -1,0 +1,14 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:wfm='urn:import:com.edatasite.workforce.gwt.core.client.ui.panel'>
+
+    <g:HTMLPanel styleName="skillRatePanel">
+        <g:HTMLPanel styleName="skillRatePanel__content" ui:field="contentPanel">
+            <g:HTMLPanel styleName="skillRateDet">
+                <g:HTMLPanel styleName="skillRateDet__skill" ui:field="headerSkillField"/>
+                <wfm:HorizontalPanelDiv styleName="skillRateDet__weight" ui:field="headerWeightField"/>
+            </g:HTMLPanel>
+        </g:HTMLPanel>
+        <g:HTMLPanel styleName="skillRatePanel__actions" ui:field="footerPanel"/>
+    </g:HTMLPanel>
+</ui:UiBinder>

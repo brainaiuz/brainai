@@ -1,0 +1,758 @@
+/* .green  a {
+    color: #398642;
+} */
+
+.green #logo {
+    height: 57px !important;
+    background: url("/mainStyles/themes/green/mediacom-logo.png") no-repeat scroll 20px 5px transparent !important;
+}
+
+/*--------------------- Footer BEGIN -------------------------*/
+.green #footer {
+    position: fixed;
+    bottom: 0; /*left:47%; margin-left:-471px;*/
+    /*   _left: 0;*/
+    left: 0; /*_margin-left: 0;*/
+    width: 100%;
+    height: 30px; /*_width: auto;*/
+    clear: both;
+    color: #fff;
+    background: #002641 url(../images/themes/green/bg_footer.png) repeat-x 0 0;
+}
+
+.green #footer a {
+    color: #fff;
+}
+
+.green #footer p a {
+    text-decoration: underline;
+}
+
+.green #footer ul li {
+    margin: 0 10px 0 0;
+    padding: 0 10px 0 0;
+    border-right: 1px solid #fff;
+}
+
+.green .footer-inner {
+    overflow: hidden;
+    zoom: 1;
+    padding: 9px 29px 10px;
+}
+
+/*--------------------- Footer END -----------------------------*/
+
+/*--------------------- Titles BEGIN ---------------------------*/
+.green .title {
+    font-size: 16px;
+    margin: 0 0 10px;
+    color: #398642;
+}
+
+.green .sub-title {
+    font-size: 14px;
+    color: #398642;
+    margin: 0 0 15px;
+}
+
+/*--------------------- Titles END -----------------------------*/
+
+/*--------------------- Tab Titles BEGIN -----------------------*/
+.green .tab-t1,
+.green .tab-t2,
+.green .tab-t3,
+.green .tab-t1 span,
+.green .tab-t2 span,
+.green .tab-t3 span {
+    float: left;
+    height: 28px;
+    background-image: url(images/themes/green/bg_tab_title.png);
+}
+
+.green .tab-t1,
+.green .tab-t2,
+.green .tab-t3 {
+    display: inline;
+    clear: both;
+    margin: 0;
+    padding: 0 29px 0 0;
+    font-size: 14px;
+    background-repeat: no-repeat;
+}
+
+.green .tab-t1 span,
+.green .tab-t2 span,
+.green .tab-t3 span {
+    line-height: 28px;
+    padding: 0 10px 0 30px;
+    color: #fff;
+    background-repeat: repeat-x;
+}
+
+.green .tab-t1 {
+    background-color: #206000;
+    background-position: 100% 40%;
+}
+
+.green .tab-t1 span {
+    background-position: 0 -87px;
+}
+
+.green .tab-t2 {
+    background-color: #002742;
+    background-position: 100% -58px;
+}
+
+.green .tab-t2 span {
+    background-position: 0 -87px;
+}
+
+.green .tab-t3 {
+    background-color: #015B5E;
+    background-position: 100% -58px;
+}
+
+.green .tab-t3 span {
+    background-position: 0 -87px;
+}
+
+/*--------------------- Tab Titles END -------------------------*/
+
+.green a.btn:hover {
+    color: #398642;
+}
+
+/*--------------------- Select List BEGIN ----------------------*/
+
+.green ul.select-list li a:hover, .green ul.select-list li.act a {
+    background-color: #71d9c1;
+}
+
+/*--------------------- Select List END ------------------------*/
+
+/*--------------------- Zebra BEGIN ----------------------------*/
+.green .zebra th {
+    padding: 5px 10px 4px;
+    color: #00375e;
+    text-align: left;
+    background-image: url(images/themes/green/bg_zebra_th.png);
+    background-repeat: repeat-x;
+    background-position: 0 -23px;
+    background-color: #71d9c1;
+}
+
+.green .zebra th.act {
+    background-position: 0 0;
+    background-color: #71d9c1;
+}
+
+.green .zebra .stronger td {
+    background-color: #71d9c1;
+}
+
+.green .zebra td ul li a {
+    color: #298d9d;
+}
+
+.green .zebra th,
+.green .zebra td {
+    border-right: 1px solid #d5d5d5;
+}
+
+/*--------------------- Zebra END ------------------------------*/
+
+/*--------------------- Steps BEGIN ----------------------------*/
+.green .steps li span,
+.green .steps li span em {
+    float: left;
+    /*background-image: url(images/themes/green/bg_steps_reporting.png);*/
+}
+
+.green .steps li span {
+    height: 30px;
+    padding: 3px 34px 3px 10px;
+    text-decoration: none !important;
+    color: #fff;
+    background-position: 0 -252px;
+    background-repeat: repeat-x;
+    background-color: #298d9d;
+}
+
+.green .steps li span.act {
+    color: #000;
+    background-position: 0 -216px;
+    background-color: #015B5E;
+    cursor: inherit;
+}
+
+/*.green .steps li span em {
+    position: absolute;
+    top: 0;
+    width: 29px;
+    height: 45px;
+    background-repeat: no-repeat;
+}*/
+
+.green .steps li span em.right-angle {
+    right: 0;
+    background-position: 0 -288px;
+}
+
+.green .steps li span.act em.right-angle {
+    background-position: 0 0;
+}
+
+.green .steps li span em.left-angle {
+    left: -29px;
+}
+
+.green .steps li span.first-step em.left-angle {
+    background-position: 0 -108px;
+}
+
+.green .steps li span.first-step.act em.left-angle {
+    background-position: 0 -72px;
+}
+
+.green .steps li span em.left-angle {
+    display: none;
+}
+
+.green .steps li span.act em.left-angle {
+    display: block;
+    background-position: 0 -415px;
+}
+
+.green .steps li span.act em.left-angle {
+    display: block;
+    background-position: 0 -36px;
+}
+
+.green .steps li span.last-step em.right-angle {
+    background-position: 0 -180px;
+}
+
+.green .steps li span.last-step.act em.right-angle {
+    background-position: 0 -144px;
+}
+
+/*--------------------- Steps END ------------------------------*/
+
+/*--------------------- Columns BEGIN --------------------------*/
+.green .colums tr th,
+.green .colums tr.thead th {
+    height: 25px;
+    text-align: left;
+    vertical-align: middle;
+    background-image: url(images/themes/green/bg_htitle.png);
+    background-repeat: repeat-x;
+}
+
+.green .colums tr th {
+    font-size: 12px;
+    padding: 0 20px;
+    color: #298d9d;
+    background-position: 0 -29px;
+    background-color: #9f9f9f;
+}
+
+.green .colums tr th a {
+    font-size: 11px;
+    color: #298d9d;
+}
+
+.green .colums tr.thead th {
+    color: #fff;
+    background-position: 0 0;
+    background-color: #298d9d;
+}
+
+.green .colums tr.thead th a {
+    color: #fff;
+}
+
+/*--------------------- Columns END -------------------------*/
+
+/*--------------------- Plates BEGIN ------------------------*/
+.green .plate-1, .plate-1-outer {
+    background-image: url(images/themes/green/bg_plate1.png);
+    background-repeat: no-repeat;
+}
+
+.green .plate-1 {
+    width: 944px;
+    margin: 0 0 20px;
+    padding: 0 0 5px;
+    background-position: -945px 100%;
+}
+
+.green .plate-1-outer {
+    padding: 5px 0 0;
+    background-position: 0 0;
+}
+
+.green .plate-1-inner {
+    padding: 10px 20px;
+    border-right: 1px solid #d9ebe9;
+    border-left: 1px solid #d9ebe9;
+    background: #d9ebe9 url(images/themes/green/bg_plate1_inner.png) repeat-x 0 0;
+}
+
+.green .plate-1 form {
+    font-size: 11px;
+}
+
+.green .plate-1 form select {
+    width: 180px;
+}
+
+.green .plate-1 form a {
+    font-weight: bold;
+    color: #ff7300;
+}
+
+/* .plate-1 */
+
+/* .plate-2 */
+.green .plate-2,
+.green .plate-2-outer {
+    background-image: url(images/themes/green/bg_plate2.png);
+    background-repeat: no-repeat;
+}
+
+.green .plate-2 {
+    width: 270px;
+    padding: 0 0 5px;
+    background-position: -271px 100%;
+}
+
+.green .plate-2-outer {
+    padding: 5px 0 0;
+    background-position: 0 0;
+}
+
+.green .plate-2-inner {
+    padding: 12px 16px;
+    border-right: 1px solid #e6e6e6;
+    border-left: 1px solid #e6e6e6;
+    background: #ebebeb url(images/themes/green/bg_plate2_inner.png) repeat-x 0 0;
+}
+
+/* END .plate-2 */
+
+/* .plate-3 */
+.green .plate-3,
+.green .plate-3-outer {
+    background-image: url(images/themes/green/bg_plate3.png);
+    background-repeat: no-repeat;
+}
+
+.green .plate-3 {
+    width: 377px;
+    padding: 0 0 5px;
+    overflow: hidden;
+    zoom: 1;
+    background-position: -378px 100%;
+}
+
+.green .plate-3-outer {
+    padding: 5px 0 0;
+    background-position: 0 0;
+}
+
+.green .plate-3-inner {
+    padding: 12px 16px;
+    border-right: 1px solid #d9ebe9;
+    border-left: 1px solid #d9ebe9;
+    background: #d9ebe9 url(images/themes/green/bg_plate3_inner.png) repeat-x 0 0;
+}
+
+/* END .plate-3 */
+
+/* plate-4 */
+.green .plate-4 {
+    width: 269px;
+    padding: 12px 0 0;
+    margin: 0 0 20px;
+    background: #fef7d6 url(images/themes/green/bg_plate4.png) no-repeat 0 0;
+}
+
+.green .plate-4-outer {
+    background: url(images/themes/green/bg_plate4_outer.png) repeat-y 0 0;
+}
+
+.green .plate-4-inner {
+    padding: 0 12px 12px;
+    background: url(images/themes/green/bg_plate4_inner.png) no-repeat 0 100%;
+}
+
+/*--------------------- Plates END --------------------------*/
+
+/*--------------------- Header BEGIN ------------------------*/
+.green #header {
+    position: relative;
+    height: 76px;
+    background: url(mainStyles/themes/green/green-gradient-bg-logo.png) repeat-x 0 0; /*background: url(mainStyles/themes/green/top2.gif);*/
+    /*font-weight: bold;*/
+    color: #549778;
+}
+
+.green .f3 input.btn {
+    width: 60px;
+    height: 24px;
+    border: 0;
+    font-weight: bold;
+    background: #ff9a00 url(images/themes/green/bg_f3_btn.png) no-repeat 0 0;
+}
+
+.green .theader .gheader {
+    font-size: 12px;
+    padding: 0 20px;
+    color: #298d9d;
+    background-repeat: repeat-x;
+    background-position: 0 -29px;
+    background-color: #f1fff2;
+    vertical-align: middle;
+    color: #456e4a;
+
+}
+
+.green .theader .gheader a {
+    font-size: 11px;
+    color: #298d9d;
+}
+
+.green .theader .bheader {
+    color: #fff;
+    background-image: url(images/themes/green/report-btn.png);
+    background-repeat: repeat-x;
+    background-position: 0 0;
+    background-color: #298d9d;
+    vertical-align: middle;
+}
+
+.green .theader .bheader a {
+    color: #fff;
+}
+
+/*--------------------- Header END --------------------------*/
+
+/*--------------------- Report List BEGIN -------------------*/
+.green .report-list tr td {
+    padding: 2px 5px;
+    vertical-align: middle;
+    border: 1px solid black /*#298d9d*/;
+
+}
+
+.green .report-list .title {
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    background: #015B5E; /*#ff9a00;*/
+}
+
+.green .report-list .title a {
+    color: white;
+    text-decoration: none;
+}
+
+.green .report-list .total {
+    /*font-weight:bold;*/
+    background: #298d9d /*#fac743*/;
+}
+
+.green .sub-total {
+    background: #007b72;
+    border-top-color: #298d9d;
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-bottom-color: #298d9d;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-left: 1px solid #007b72;
+    border-right: 1px solid #007b72;
+}
+
+/*--------------------- Report List END ---------------------*/
+
+.green .order-table .column {
+    border: 1px solid #015B5E;
+}
+
+.green .order-table .column-title {
+    text-align: center;
+    background: #007b72;
+    padding: 2px 5px;
+    border: 1px solid #015B5E;
+    color: #fff;
+}
+
+/* Dialog Box begin style */
+.green .gwt-DialogBox .Caption {
+    background: #bbbbbb url(images/themes/green/bg_htitle.png) repeat-x 0 -28px;
+    padding: 4px 4px 4px 8px;
+    cursor: default;
+    font-weight: bold;
+    border-bottom: 1px solid #298d9d;
+    border-top: 1px solid #298d9d;
+}
+
+.green .gwt-DialogBox .dialogContent {
+    background: white;
+}
+
+.green .gwt-DialogBox .dialogMiddleCenter {
+    padding: 10px;
+    background: white;
+    height: 100%;
+}
+
+.green .gwt-DialogBox .dialogBottomCenter {
+    background: #298d9d; /*height:2px;*/
+}
+
+.green .gwt-DialogBox .dialogMiddleLeft {
+    background: #298d9d;
+}
+
+.green .gwt-DialogBox .dialogMiddleRight {
+    background: #298d9d;
+}
+
+.green .gwt-DialogBox .dialogTopLeft {
+    background: #298d9d;
+}
+
+.green .gwt-DialogBox .dialogTopRight {
+    background: #298d9d;
+}
+
+.green .gwt-DialogBox .dialogBottomLeft {
+    background: #298d9d;
+}
+
+.green .gwt-DialogBox .dialogBottomRight {
+    background: #298d9d;
+}
+
+.green .drs-export {
+    color: #015B5E;
+    cursor: pointer;
+    text-decoration: underline;
+    vertical-align: middle;
+}
+
+.green .drs-loading-panel {
+    color: #015B5E;
+    font-weight: bold;
+    position: fixed !important;
+    text-align: center;
+    vertical-align: middle;
+    padding: 5px 10px;
+}
+
+/* export link style end*/
+
+.green .logoutLink {
+    color: #000000;
+    cursor: pointer;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-decoration: underline;
+}
+
+.green .noLink {
+    color: #000000;
+    padding-left: 10px;
+}
+
+.green .companyNameStyle {
+    color: #015B5E;
+    padding-left: 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.green .maxLogoHeight {
+    max-height: 53px;
+    height: auto !important;
+    height: 53px;
+}
+
+.green .tabularInfo {
+    background: url("/images/themes/green/tabularInfo.png") no-repeat;
+}
+
+.green .summariesInfo {
+    background: url("/images/themes/green/Select-Grouping-img.jpg") no-repeat scroll 0 0 transparent;
+}
+
+.green .cw-StackPanelHeader {
+    background-color: #f1fff2;
+    border-bottom: 1px solid #b3dcb6;
+    border-top: 1px solid #b3dcb6;
+    color: #1c4f22;
+    font: bold 16px Arial, sans-serif;
+    padding: 3px 24px 0 30px;
+    text-transform: uppercase;
+}
+
+.green .cw-StackPanelHeader em {
+    padding-left: 20px;
+    font: bold 16px Arial, sans-serif;
+}
+
+.green .cw-StackPanelHeader .colapse {
+    background: url("/images/themes/green/arrow-down-green.png") no-repeat scroll 0 40% #f1fff2;
+}
+
+.green .cw-StackPanelHeader .expand {
+    background: url("/images/themes/green/arrow-up-green.png") no-repeat scroll 0 40% #f1fff2;
+}
+
+.green .other-reports {
+    background-color: #b3dcb6;
+}
+
+.green .folder-content .f-table td.f-header {
+    background-color: #015B5E;
+}
+
+.green .table-reportList {
+    border: 1px solid #015B5E;
+}
+
+.green .help-sub-title {
+    color: #015B5E;
+}
+
+.green .order-panel > div > .gwt-Caption {
+    background-image: url("images/themes/green/report-btn.png");
+}
+
+.green .dragdrop-dropTarget tr td div:hover {
+    background-color: #398642;;
+}
+
+.green .tsub-header .odd {
+    color: #015B5E;
+
+}
+
+.green .table-List td {
+    color: #FFFFFF;
+    vertical-align: middle;
+    background-color: #e6e6e6;
+}
+
+.green .table-List td.thead {
+    border-left: 1px solid #69b37f;
+    border-right: 1px solid #2c5639;
+    color: #FFFFFF;
+    line-height: 16px;
+    background-color: #398642;
+}
+
+.green .table-List tr.odd td {
+    background-color: #edf7ed;
+}
+
+.green .table-List {
+    border-left: 1px solid #F3F3F3;
+    border-right: 1px solid #F3F3F3;
+    color: #FFFFFF;
+    line-height: 16px;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid #C5C5C5;
+
+}
+
+.green .steps .act, .green .steps div:hover {
+    background: url("/mainStyles/images/default/bg/bg_gradX_green-1.png") repeat-x scroll 0 0 #DADADA;
+    text-shadow: 2px 2px 2px #015B5E;
+}
+
+.green .massData td .thead {
+    background-color: #398642;
+    background-repeat: repeat-x;
+    border-left: 1px solid #2c5639;
+    border-right: 1px solid #69b37f;
+}
+
+.green #button-panel-inner .btn-1 {
+    color: #FFFFFF !important;
+}
+
+.green em.optBtn {
+    color: #015B5E !important;
+}
+
+.green .markNewReport {
+    background: url("images/themes/green/bg_markSuggestNew.png") no-repeat scroll 5px 50% transparent;
+}
+
+.green .markImport {
+    background: url("images/themes/green/bg_markImport.png") no-repeat scroll 8px 50% transparent;
+}
+
+.green .tablularImg {
+    background-image: url(images/themes/green/tabular.jpg);
+    width: 386px;
+    height: 173px;
+}
+
+.green .summariesImg {
+    background-image: url(images/themes/green/summaries.jpg);
+    width: 386px;
+    height: 173px;
+}
+
+.green .summariesColImg {
+    background-image: url(images/themes/green/summariesCol.jpg);
+    width: 297px;
+    height: 275px;
+}
+
+.green .dotted-label {
+    border: 1px dotted #015B5E !important;
+}
+
+.green .draggable-columns {
+    border: 1px dotted #015B5E !important;
+}
+
+.green .draggable-columns:hover {
+    background-color: #F1FFF2;
+    color: #000000 !important;
+}
+
+.green .markModify {
+    color: #398642 !important;
+}
+
+.green .massData tbody tr.odd td {
+    background-color: #edf7ed;
+}
+
+.green .markFolder {
+    background: url("/images/themes/green/add-folder.png") no-repeat scroll 8px 50% transparent;
+}
+
+.green .markShare {
+    background: url("/images/themes/green/bg_markShare.png") no-repeat scroll 10px 50% transparent;
+}
+
+.green .markModify {
+    background: url("/images/themes/green/bg_markModify.png") no-repeat scroll 10px 50% transparent;
+}
+
+.green .mailing-list {
+    background: url("/images/themes/green/mailinglist.png") no-repeat scroll 10px 50% transparent;
+}
+
+.green .sub-title {
+    color: #398642
+}

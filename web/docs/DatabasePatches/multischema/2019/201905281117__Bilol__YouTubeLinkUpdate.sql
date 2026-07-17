@@ -1,0 +1,2 @@
+UPDATE listpanelguidesettings set youtubeurl = 'https://www.youtube.com/embed/5M-eaijMs08' where paneltype = 'LeaveRequestApprove';
+UPDATE listpanelguidesettings set youtubeurl = 'https://www.youtube.com/embed/CB7IPSIcHgo' where paneltype = 'MeetingMinutesListPanel';

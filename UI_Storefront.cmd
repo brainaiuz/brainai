@@ -1,0 +1,1 @@
+ant Storefront -f ./web/AutoCompile.xml

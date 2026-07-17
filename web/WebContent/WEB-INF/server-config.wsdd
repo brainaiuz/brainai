@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+    <globalConfiguration>
+        <parameter name="sendMultiRefs" value="true"/>
+        <parameter name="disablePrettyXML" value="true"/>
+        <parameter name="adminPassword" value="admin"/>
+
+        <parameter name="dotNetSoapEncFix" value="true"/>
+        <parameter name="enableNamespacePrefixOptimization" value="false"/>
+        <parameter name="sendXMLDeclaration" value="true"/>
+        <parameter name="sendXsiTypes" value="true"/>
+        <parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
+        <requestFlow>
+            <handler type="java:org.apache.axis.handlers.JWSHandler">
+                <parameter name="scope" value="session"/>
+            </handler>
+            <handler type="java:org.apache.axis.handlers.JWSHandler">
+                <parameter name="scope" value="request"/>
+                <parameter name="extension" value=".jwr"/>
+            </handler>
+        </requestFlow>
+    </globalConfiguration>
+
+    <handler name="LocalResponder" type="java:org.apache.axis.transport.local.LocalResponder"/>
+    <handler name="URLMapper" type="java:org.apache.axis.handlers.http.URLMapper"/>
+    <handler name="Authenticate" type="java:org.apache.axis.handlers.SimpleAuthenticationHandler"/>
+    <service name="AdminService" provider="java:MSG">
+        <parameter name="allowedMethods" value="AdminService"/>
+        <parameter name="enableRemoteAdmin" value="false"/>
+        <parameter name="className" value="org.apache.axis.utils.Admin"/>
+        <namespace>http://xml.apache.org/axis/wsdd/</namespace>
+    </service>
+
+    <service name="Version" provider="java:RPC">
+        <parameter name="allowedMethods" value="getVersion"/>
+        <parameter name="className" value="org.apache.axis.Version"/>
+    </service>
+    <service name="SOAPMonitorService" provider="java:RPC">
+        <parameter name="allowedMethods" value="publishMessage"/>
+        <parameter name="scope" value="Application"/>
+        <parameter name="className" value="org.apache.axis.monitor.SOAPMonitorService"/>
+    </service>
+    <service name="QBWebConnectorService" provider="java:RPC" style="wrapped" use="literal">
+        <parameter name="wsdlTargetNamespace" value="http://developer.intuit.com/"/>
+        <!--<parameter name="wsdlServiceElement" value="QBWebConnectorSvc"/>-->
+        <parameter name="schemaQualified" value="http://developer.intuit.com/"/>
+        <parameter name="wsdlServicePort" value="QBWebConnectorSvcSoap"/>
+        <parameter name="className" value="com.edatasite.workforce.gwt.core.server.utils.quickbooksIntegrator.QBWebConnectorSvcSoapImpl"/>
+        <parameter name="wsdlPortType" value="QBWebConnectorSvcSoap"/>
+        <parameter name="typeMappingVersion" value="1.2"/>
+        <operation name="authenticate2" qname="operNS:authenticate2" xmlns:operNS="http://developer.intuit.com/"
+                   returnQName="retNS:authenticate2Result" xmlns:retNS="http://developer.intuit.com/"
+                   returnType="rtns:AuthResponse " xmlns:rtns="http://developer.intuit.com/"
+                   soapAction="http://developer.intuit.com/authenticate2 ">
+            <parameter qname="pns:strUserName" xmlns:pns="http://developer.intuit.com/" type="tns:string"
+                       xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+            <parameter qname="pns:strPassword" xmlns:pns="http://developer.intuit.com/" type="tns:string"
+                       xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        </operation>
+        <operation name="authenticate" qname="operNS:authenticate" xmlns:operNS="http://developer.intuit.com/"
+                   returnQName="retNS:authenticateResult" xmlns:retNS="http://developer.intuit.com/"
+                   returnType="rtns:ArrayOfString" xmlns:rtns="http://developer.intuit.com/"
+                   soapAction="http://developer.intuit.com/authenticate">
+            <parameter qname="pns:strUserName" xmlns:pns="http://developer.intuit.com/" type="tns:string"
+                       xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+            <parameter qname="pns:strPassword" xmlns:pns="http://developer.intuit.com/" type="tns:string"
+                       xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        </operation>
+        <operation name="sendRequestXML" qname="operNS:sendRequestXML" xmlns:operNS="http://developer.intuit.com/"
+                   returnQName="retNS:sendRequestXMLResult" xmlns:retNS="http://developer.intuit.com/"
+                   returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema"
+                   soapAction="http://developer.intuit.com/sendRequestXML">
+            <parameter qname="pns:ticket" xmlns:pns="http://developer.intuit.com/" type="tns:string"
+                       xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+            <parameter qname="pns:strHCPResponse" xmlns:pns="http://developer.intuit.com/" type="tns:string"
+                       xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+            <parameter qname="pns:strCompanyFileName" xmlns:pns="http://developer.intuit.com/" type="tns:string"
+                       xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+            <parameter qname="pns:qbXMLCountry" xmlns:pns="http://developer.intuit.com/" type="tns:string"
+                       xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+            <parameter qname="pns:qbXMLMajorVers" xmlns:pns="http://developer.intuit.com/" type="tns:int"
+                       xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+            <parameter qname="pns:qbXMLMinorVers" xmlns:pns="http://developer.intuit.com/" type="tns:int"
+                       xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        </operation>
+        <operation name="receiveResponseXML" qname="operNS:receiveResponseXML"
+                   xmlns:operNS="http://developer.intuit.com/" returnQName="retNS:receiveResponseXMLResult"
+                   xmlns:retNS="http://developer.intuit.com/" returnType="rtns:int"
+                   xmlns:rtns="http://www.w3.org/2001/XMLSchema"
+                   soapAction="http://developer.intuit.com/receiveResponseXML">
+            <parameter qname="pns:ticket" xmlns:pns="http://developer.intuit.com/" type="tns:string"
+                       xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+            <parameter qname="pns:response" xmlns:pns="http://developer.intuit.com/" type="tns:string"
+                       xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+            <parameter qname="pns:hresult" xmlns:pns="http://developer.intuit.com/" type="tns:string"
+                       xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+            <parameter qname="pns:message" xmlns:pns="http://developer.intuit.com/" type="tns:string"
+                       xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        </operation>
+        <operation name="connectionError" qname="operNS:connectionError" xmlns:operNS="http://developer.intuit.com/"
+                   returnQName="retNS:connectionErrorResult" xmlns:retNS="http://developer.intuit.com/"
+                   returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema"
+                   soapAction="http://developer.intuit.com/connectionError">
+            <parameter qname="pns:ticket" xmlns:pns="http://developer.intuit.com/" type="tns:string"
+                       xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+            <parameter qname="pns:hresult" xmlns:pns="http://developer.intuit.com/" type="tns:string"
+                       xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+            <parameter qname="pns:message" xmlns:pns="http://developer.intuit.com/" type="tns:string"
+                       xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        </operation>
+        <operation name="getLastError" qname="operNS:getLastError" xmlns:operNS="http://developer.intuit.com/"
+                   returnQName="retNS:getLastErrorResult" xmlns:retNS="http://developer.intuit.com/"
+                   returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema"
+                   soapAction="http://developer.intuit.com/getLastError">
+            <parameter qname="pns:ticket" xmlns:pns="http://developer.intuit.com/" type="tns:string"
+                       xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        </operation>
+        <operation name="closeConnection" qname="operNS:closeConnection" xmlns:operNS="http://developer.intuit.com/"
+                   returnQName="retNS:closeConnectionResult" xmlns:retNS="http://developer.intuit.com/"
+                   returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema"
+                   soapAction="http://developer.intuit.com/closeConnection">
+            <parameter qname="pns:ticket" xmlns:pns="http://developer.intuit.com/" type="tns:string"
+                       xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        </operation>
+        <parameter name="allowedMethods"
+                   value="receiveResponseXML connectionError closeConnection authenticate2 authenticate sendRequestXML getLastError"/>
+
+        <typeMapping
+                xmlns:ns="http://developer.intuit.com/"
+                qname="ns:AuthResponse"
+                type="java:com.edatasite.workforce.gwt.core.server.utils.quickbooksIntegrator.AuthResponse"
+                serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+                deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+                encodingStyle=""
+                />
+        <typeMapping
+                xmlns:ns="http://developer.intuit.com/"
+                qname="ns:ArrayOfString"
+                type="java:com.edatasite.workforce.gwt.core.server.utils.quickbooksIntegrator.ArrayOfString"
+                serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+                deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+                encodingStyle=""
+                />
+    </service>
+
+    <handler name="soapmonitor" type="java:org.apache.axis.handlers.SOAPMonitorHandler">
+        <parameter name="wsdlURL" value="/axis/SOAPMonitorService-impl.wsdl"/>
+        <parameter name="serviceName" value="SOAPMonitorService"/>
+        <parameter name="namespace" value="http://tempuri.org/wsdl/2001/12/SOAPMonitorService-impl.wsdl"/>
+        <parameter name="portName" value="Demo"/>
+    </handler>
+    <transport name="http">
+        <requestFlow>
+            <handler type="URLMapper"/>
+            <handler type="java:org.apache.axis.handlers.http.HTTPAuthHandler"/>
+
+            <!--comment following line for REMOVING wsdl spying via SOAPMonitor-->
+            <handler type="soapmonitor"/>
+        </requestFlow>
+        <responseFlow>
+            <!--comment following line for REMOVING wsdl spying via SOAPMonitor-->
+            <handler type="soapmonitor"/>
+        </responseFlow>
+        <parameter name="qs:list" value="org.apache.axis.transport.http.QSListHandler"/>
+        <parameter name="qs:wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+        <parameter name="qs.list" value="org.apache.axis.transport.http.QSListHandler"/>
+        <parameter name="qs.method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+        <parameter name="qs:method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+        <parameter name="qs.wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+    </transport>
+    <transport name="local">
+        <responseFlow>
+            <handler type="LocalResponder"/>
+        </responseFlow>
+    </transport>
+</deployment>

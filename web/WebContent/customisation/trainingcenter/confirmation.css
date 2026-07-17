@@ -1,0 +1,104 @@
+﻿/*CSS Document for */
+/**** START size determinators ****/
+.fullWidth {width:100%;}
+.half {width:48%;}
+.sectBig {margin-bottom:30px;}
+.sect {margin-bottom:10px;}
+
+
+.btnSet.r>input[type="submit"]
+	{
+		margin-left:10px;
+	}
+
+
+/**** START bordered frames ****/
+.frame_1
+	{
+	position:relative;
+	border:1px solid #4bf;
+	background:#fff;
+	min-height:100px;
+	}
+
+/**** END bordered frames ****/
+
+/**** START ****/
+.infoSet
+	{
+		position:relative;
+		margin-top:20px;
+		padding:20px 10px 10px;
+		/* border:1px solid #4bf; */
+	}
+
+.infoSetCaption
+	{
+		position:absolute;
+		top:-10px; left:20px;
+		padding:1px 5px;
+		background:#fff;
+		font:bold 14px Arial,sans-serif;
+	}
+/**** END ****/
+
+
+/**** START ****/
+.tableFree th
+,.tableFree td
+	{
+		border:0;
+		padding:8px;
+	}
+/**** END table without borders ****/
+
+
+
+/*/\/\ TABLE ZEBRA /\/\*/
+.zebra .odd>th
+,.zebra .odd>td
+	{
+	background-color:#F7F7F7;
+	}
+
+.zebra .even>th
+,.zebra .even>td
+	{
+	background-color:#fff;
+	}
+
+
+/*** TABLE massData ***/
+.massData {
+	font-size:12px; /* for strange Opera) */
+	}
+.massData thead {}
+.massData thead th 
+	{
+	padding:8px 5px;
+	border-bottom:1px solid #9eb174;
+	text-align:left;
+	font-weight:bold;
+	
+background-color:#ddd;
+	}
+
+.massData>tbody>tr>th
+	{
+	padding:9px 5px 9px 15px;
+	font-weight:bold;
+	text-align:left;
+	color:#5b8500;
+	}
+.massData>tbody>tr>td
+,.massData>tfoot>tr>td
+	{
+	padding-right:5px;
+	padding-left:5px;
+	}
+.massData>tbody>tr>td
+	{
+	padding-top:9px;
+	padding-bottom:9px;
+	}
+/**** END ****/

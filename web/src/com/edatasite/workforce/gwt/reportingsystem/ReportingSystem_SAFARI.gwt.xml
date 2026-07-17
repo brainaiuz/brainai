@@ -1,0 +1,4 @@
+<module rename-to="reportingsystem">
+    <inherits name='com.edatasite.workforce.gwt.reportingsystem.ReportingSystem'/>
+    <set-property name="user.agent" value="safari"/>
+</module>

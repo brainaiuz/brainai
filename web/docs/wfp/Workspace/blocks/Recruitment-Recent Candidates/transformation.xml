@@ -1,0 +1,20 @@
+<tr class="odd">
+    <th>
+        <a class="left" target="_blank" href='/Hrms.html?link=$rowItem.encryptURL("id","candidate|summary/")'
+           title="$rowItem.getStringValue(" candidateName")'">$rowItem.getValueLimit("candidateName",20)
+    </a>
+</th>
+
+<td title=$rowItem.getValue("email")>
+        $rowItem.getValueLimit("email", 15)
+        </td>
+
+<td>
+<span>$rowItem.getStringValue("status")</span>
+</td>
+
+<td>
+$rowItem.getValue("vacancy")
+</td>
+
+        </tr>

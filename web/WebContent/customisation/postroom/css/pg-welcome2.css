@@ -1,0 +1,322 @@
+/* COMMON */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+/* input group */
+.input-group {
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    border: 1px solid #cacaca;
+}
+
+.input-group-addon { /* padding: .5rem .75rem; */
+    margin-bottom: 0;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.25;
+    color: #464a4c;
+    text-align: center; /* background-color: #eceeef; *//* border: 1px solid rgba(0, 0, 0, .15); */
+    border-radius: .25rem;
+}
+
+.input-group .form-control {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    width: 1%;
+    margin-bottom: 0;
+}
+
+/* \1input group */
+
+/* MARKED FIELDS */
+[class*="field-mark--"] {
+    position: relative;
+}
+
+[class*="field-mark--"]:before {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 40px;
+    background-position-x: 50%;
+    background-repeat: no-repeat;
+    background-image: url('../img/field-marks__slice.png');
+}
+
+.field-mark--pass:before {
+    background-image: url('../img/mark-pass.png');
+    background-position-y: 50%;
+}
+
+.field-mark--name:before {
+    background-position-y: 16px;
+}
+
+.field-mark--email:before {
+    background-position-y: -70px;
+}
+
+.field-mark--company:before {
+    background-position-y: -114px;
+}
+
+.field-mark--phone:before {
+    background-position-y: -156px;
+}
+
+.field-mark--country:before {
+    background-position-y: -199px;
+}
+
+[class*="field-mark--"].input-group-addon,
+[class*="field-mark--"] > .form-control {
+    margin-bottom: 0;
+    padding-left: 40px;
+}
+
+[class*="field-mark--"] .form-control:focus {
+    outline: 1px solid #0facf4;
+}
+
+/* \ MARKED FIELDS */
+
+.btn-block {
+    width: 100%;
+}
+
+/* \ COMMON */
+
+/* WELCOME PAGE */
+.pg-welcome * {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.pg-welcome {
+    background: url("../img/photo_2017-10-03_10-28-58.jpg") 50% 0 no-repeat;
+    /* -webkit-background-size: cover; */
+    background-size: cover;
+}
+
+.welcome-logo {
+    display: block;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.welcome-logo img {
+    /*margin: 0 auto;*/
+}
+
+.pass-validation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 4px;
+    line-height: 1;
+}
+
+.pass-validation__view {
+}
+
+.pass-validation__text {
+    font-size: 12px;
+    color: #b7bbbd;
+}
+
+.pass-validation__view {
+    display: flex;
+    width: 70%;
+    flex-shrink: 0;
+    padding-top: 4px;
+}
+
+.pass-validation__view > * {
+    position: relative;
+    height: 5px;
+    width: 33.3%;
+    padding-right: 5px;
+    background-color: #f3f4f9;
+}
+
+.pass-validation__view > *:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: #fff;
+    width: 5px;
+}
+
+.pass-validation--state-3 .pass-validation__view__step-1,
+.pass-validation--state-2 .pass-validation__view__step-1,
+.pass-validation--state-1 .pass-validation__view__step-1 {
+    background: #ff8180;
+}
+
+.pass-validation--state-3 .pass-validation__view__step-2,
+.pass-validation--state-2 .pass-validation__view__step-2 {
+    background: #f9c575;
+}
+
+.pass-validation--state-3 .pass-validation__view__step-3 {
+    background: #6fc7a4;
+}
+
+.pass-validation__text > * {
+    display: none;
+}
+
+.pass-validation__text > .active,
+.pass-validation--state-1 .pass-validation__text .pass-validation__text__step-1,
+.pass-validation--state-2 .pass-validation__text .pass-validation__text__step-2,
+.pass-validation--state-3 .pass-validation__text .pass-validation__text__step-3 {
+    display: block;
+}
+
+.welcome-panel {
+    max-width: 522px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 9px;
+    background-color: #fff;
+    color: #424752;
+}
+
+.welcome-panel .panel-heading,
+.welcome-panel .panel-body,
+.welcome-panel .panel-footer {
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.welcome-panel .panel-heading {
+    padding-top: 27px;
+    padding-bottom: 21px;
+    text-align: center;
+}
+
+.welcome-panel .panel-title {
+    margin-bottom: 6px;
+    font-weight: bold;
+    font-size: 21px;
+    color: #5a7fb5;
+}
+
+.welcome-panel .panel-slogan {
+    max-width: 420px;
+    margin: 0 auto;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.welcome-panel .panel-body {
+    padding-bottom: 20px;
+}
+
+.welcome-panel .panel-footer {
+    padding-bottom: 40px;
+}
+
+.create-password {
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+    padding-right: 35px;
+    padding-left: 35px;
+    border-top: 1px solid #dfdfdf;
+}
+
+.create-pass-activate__title,
+.create-pass-thanks__title,
+.create-password__title {
+    font-weight: bold;
+    font-size: 21px;
+    text-align: center;
+}
+
+.create-password__slogan {
+    text-align: center;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+.create-pass-thanks .btn,
+.create-password .btn {
+    display: block;
+    width: 100%;
+    /* margin-bottom: 0; */
+}
+
+.btn-success {
+    background-color: #46da60;
+}
+
+.btn-success:hover, .btn-success:focus {
+    background-color: #3a964a;
+}
+
+.create-password .form-group {
+    margin-bottom: 20px;
+}
+
+/*CREATE-PASS-THANKS PAGE*/
+.create-pass-activate,
+.create-pass-thanks {
+    max-width: 460px;
+}
+
+.create-pass-activate .panel-body,
+.create-pass-thanks .panel-body {
+    text-align: center;
+}
+
+.create-pass-activate .panel-footer,
+.create-pass-activate .panel-body p,
+.create-pass-thanks .panel-body p {
+    margin-bottom: 0.5rem;
+    font-size: 13px;
+}
+
+.create-pass-activate .panel-footer {
+    text-align: center;
+}
+
+.create-pass-activate .panel-body p a,
+.create-pass-thanks .panel-body p a {
+    color: #73afaf;
+}
+
+.create-pass-thanks .panel-body p:last-child {
+    /*margin-bottom: 0;*/
+}
+
+.welcome-panel--details {
+
+}
+
+/* \WELCOME PAGE */

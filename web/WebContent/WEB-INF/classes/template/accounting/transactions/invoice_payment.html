@@ -1,0 +1,318 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style type="text/css">
+        body {
+            font-family: 'Arial', sans-serif;
+            font-weight: 300;
+            font-size: 9pt;
+            line-height: 1.4;
+        }
+        * {
+            word-wrap: break-word;
+        }
+        th {
+            text-align: left;
+        }
+        .sales-invoice-table-pdf th {
+            border-bottom: 1px solid black;
+            font-size: 9pt;
+        }
+        .sales-invoice-table-pdf td {
+            border-bottom: 1px solid #ced5db;
+            font-size: 9pt;
+        }
+        #sales-invoice__tmp * {
+            line-height: 1.4;
+        }
+        .sales-invoice-table-pdf tbody * {
+            word-wrap: break-word;
+        }
+        .currency_code__tmp {
+            font-size: 8px;
+            font-weight: normal;
+        }
+        .page-break {
+            display:inline-block ! important;
+            page-break-inside: auto ! important;
+        }
+        th, td {
+            padding: 3px;
+        }
+        .values {
+            text-align: right;
+        }
+        .refundData {
+            border-collapse: collapse;
+            margin-top: 30px;
+            width: 100%;
+            font-size: 8pt;
+            padding: 5px;
+            line-height: 1.3;
+        }
+        .refundData td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<div id="body sales-invoice__tmp">
+    <img alt="images"
+         src="https://workforcetrack.s3.amazonaws.com/000000000000/public/65159/a2113e82-397f-49fd-a58a-cdf4f4b93dff?AWSAccessKeyId=AKIAIROQMC77E5UKWBWQ"
+         style="display: none;"/>
+    #if($itextGenericPdfData.companyData.companyName == 'KPI Software Inc' or $itextGenericPdfData.companyData.companyLogoUrl == 'https://apps.kpi.com/customisation/kpi.com/images/kpilogo.png')
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="width: 88px;display: none;"/>
+    #else
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="max-width: 100%; max-height: 100%; display: none;"/>
+    #end
+
+    #set($paymentTable = $itextGenericPdfData.customData.get('PAYMENT_TABLE').rows)
+
+    #set($projectLabel = $paymentTable.get('PROJECT').get('COLUMN_NAME'))
+    #set($accountLabel = $paymentTable.get('ACCOUNT').get('COLUMN_NAME'))
+    #set($recPayLabel = $paymentTable.get('RECEIVABLE_PAYABLE').get('COLUMN_NAME'))
+    #set($noteLabel = $paymentTable.get('NOTE').get('COLUMN_NAME'))
+    #set($numberLabel = $paymentTable.get('NUMBER').get('COLUMN_NAME'))
+    #set($dateLabel = $paymentTable.get('DATE').get('COLUMN_NAME'))
+    #set($referenceLabel = $paymentTable.get('REFERENCE').get('COLUMN_NAME'))
+    #set($amountLabel = $paymentTable.get('AMOUNT').get('COLUMN_NAME'))
+    #set($appliedTotalLabel = $paymentTable.get('APPLIED_TOTAL').get('COLUMN_NAME'))
+    #set($currencyLabel = $paymentTable.get('CURRENCY').get('COLUMN_NAME'))
+    #set($amountInWordLabel = $paymentTable.get('AMOUNT_IN_WORD').get('COLUMN_NAME'))
+    #set($creatorLabel = $paymentTable.get('CREATOR').get('COLUMN_NAME'))
+
+    #set($sqNumberLabel = '')
+    #if ($paymentTable.get('SQ_NUMBER').get('COLUMN_NAME') != '')
+    #set($sqNumberLabel = $paymentTable.get('SQ_NUMBER').get('COLUMN_NAME'))
+    #end
+
+    #set($projectValue = $paymentTable.get('PROJECT').get('COLUMN_VALUE'))
+    #set($accountValue = $paymentTable.get('ACCOUNT').get('COLUMN_VALUE'))
+    #set($recPayValue = $paymentTable.get('RECEIVABLE_PAYABLE').get('COLUMN_VALUE'))
+    #set($noteValue = $paymentTable.get('NOTE').get('COLUMN_VALUE'))
+    #set($numberValue = $paymentTable.get('NUMBER').get('COLUMN_VALUE'))
+    #set($dateValue = $paymentTable.get('DATE').get('COLUMN_VALUE'))
+    #set($referenceValue = $paymentTable.get('REFERENCE').get('COLUMN_VALUE'))
+    #set($amountValue = $paymentTable.get('AMOUNT').get('COLUMN_VALUE'))
+    #set($appliedTotalValue = $paymentTable.get('APPLIED_TOTAL').get('COLUMN_VALUE'))
+    #set($currencyValue = $paymentTable.get('CURRENCY').get('COLUMN_VALUE'))
+    #set($amountInWordValue = $paymentTable.get('AMOUNT_IN_WORD').get('COLUMN_VALUE'))
+    #set($creatorValue = $paymentTable.get('CREATOR').get('COLUMN_VALUE'))
+    #set($sqNumberValue = $paymentTable.get('SQ_NUMBER').get('COLUMN_VALUE'))
+
+    #set($refTotalLabel = $paymentTable.get('REFUND_TOTAL').get('COLUMN_NAME'))
+    #set($refTotalValue = $paymentTable.get('REFUND_TOTAL').get('COLUMN_VALUE'))
+
+    #set($remBalanceLabel = $paymentTable.get('REMAINING_BALANCE').get('COLUMN_NAME'))
+    #set($remBalanceValue = $paymentTable.get('REMAINING_BALANCE').get('COLUMN_VALUE'))
+
+    #set($sqNumberValue = $paymentTable.get('SQ_NUMBER').get('COLUMN_VALUE'))
+
+    #set($billToAddressTable = $itextGenericPdfData.baseInvoice.customBillToAddress.rows)
+    #set($clientPhoneLabel=$billToAddressTable.get('PHONE').get('COLUMN_NAME'))
+    #set($clientEmailLabel=$billToAddressTable.get('EMAIL').get('COLUMN_NAME'))
+
+    #set($clientName=$billToAddressTable.get('CRM_ACCOUNT').get('COLUMN_VALUE'))
+    #set($clientAddress=$billToAddressTable.get('ADDRESS1').get('COLUMN_VALUE'))
+    #set($clientAddress2=$billToAddressTable.get('ADDRESS2').get('COLUMN_VALUE'))
+    #set($clientCity=$billToAddressTable.get('BILL_CITY').get('COLUMN_VALUE'))
+    #set($clientCountryName=$billToAddressTable.get('COUNTRY_NAME').get('COLUMN_VALUE'))
+    #set($clientZipcode=$billToAddressTable.get('BILL_ZIPCODE').get('COLUMN_VALUE'))
+
+    #set($clientPhone=$billToAddressTable.get('PHONE').get('COLUMN_VALUE'))
+    #set($clientEmail=$billToAddressTable.get('EMAIL').get('COLUMN_VALUE'))
+
+    #set($dateByCompanyFormat=$billToAddressTable.get('CURRENT_DATE_BY_COMPANY_FORMAT').get('COLUMN_VALUE'))
+    #set($currentTime=$billToAddressTable.get('CURRENT_TIME').get('COLUMN_VALUE'))
+
+    #set($customerLabel = $itextGenericPdfData.localizeLabels.get('CUSTOMER_LABEL'))
+    #set($supplierLabel = $itextGenericPdfData.localizeLabels.get('SUPPLIER_LABEL'))
+
+    #set($address1Exists = $clientAddress != '' && $clientAddress.length() > 0)
+    #set($address2Exists = $clientAddress2 != '' && $clientAddress2.length() > 0)
+
+    #set($appliedTransactionsTable = $itextGenericPdfData.customData.get('APPLIED_DOCUMENTS_TABLE'))
+
+
+    <table style="padding: 0; margin-bottom: 20px" width="100%">
+        <tr>
+            <td valign="top" style="width: 40%;">
+                <table width="100%" style="line-height: 1.4; font-size: 9pt">
+                    <tr>
+                        <td>
+                            <b>$customerLabel:</b> <span>$clientName</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>
+                            #if($address1Exists || $address2Exists)
+                                #if($clientAddress!='')
+                                    $clientAddress <br/>
+                                #end
+                                #if($clientAddress2!='')
+                                    $clientAddress2 <br/>
+                                #end
+                            #end
+                            #if($clientCity != '')
+                                $clientCity <br/>
+                            #end
+                            #if($clientZipcode != '')
+                                $clientZipcode <br/>
+                            #end
+                            #if($clientCountryName != '')
+                                $clientCountryName <br/>
+                            #end
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>$clientPhoneLabel:</b> <span> #if ($clientPhone != '' ) $clientPhone #end</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>$clientEmailLabel:</b> <span>#if ($clientEmail != '' ) $clientEmail #end</span>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td style="width: 10%; "></td>
+            <td style="width: 50%; " valign="top">
+                <table width="100%" style="font-size: 9pt;">
+                    <tr>
+                        <td ><b>$numberLabel:</b></td>
+                        <td style="text-align: right" class="values">#if ($numberValue != '' ) $numberValue #end</td>
+                    </tr>
+                    #if ($sqNumberLabel != '')
+                    <tr>
+                        <td ><b>$sqNumberLabel:</b></td>
+                        <td style="text-align: right" class="values">#if ($sqNumberValue != '' ) $sqNumberValue #end</td>
+                    </tr>
+                    #end
+                    <tr>
+                        <td ><b>$dateLabel:</b></td>
+                        <td style="text-align: right" class="values">#if ($dateValue != '' ) $dateValue #end</td>
+                    </tr>
+                    <tr>
+                        <td ><b>$creatorLabel:</b></td>
+                        <td style="text-align: right" class="values">#if ($creatorValue != '' ) $creatorValue #end</td>
+                    </tr>
+                    <tr>
+                        <td ><b>$referenceLabel:</b></td>
+                        <td style="text-align: right" class="values">#if ($referenceValue != '' ) $referenceValue #end</td>
+                    </tr>
+                    #if ($projectValue != '')
+                    <tr>
+                        <td ><b>$projectLabel:</b></td>
+                        <td style="text-align: right" class="values">$projectValue</td>
+                    </tr>
+                    #end
+                </table>
+            </td>
+        </tr>
+    </table>
+
+
+    #set($borderColor = '1px solid #ffffff')
+    #if($itextGenericPdfData.params.tableBorderEnabled)
+    #set($borderColor = '1px solid ' + $itextGenericPdfData.params.tableBorderColor)
+    #end
+    <table style="border: $borderColor; line-height: 1.4; font-size: 9pt; padding: 5px;" width="100%">
+        #if($accountValue != '')
+        <tr>
+            <td style="color: #0a0a0a; padding:4px 0; width:50%; word-wrap: break-word;">
+                <strong>$accountLabel:</strong>
+                <span>$accountValue</span>
+            </td>
+            <td style="width: 10%;" ></td>
+            <td style="text-align: left; color: #0a0a0a; padding:4px 0; width:50%; word-wrap: break-word;">
+                <strong>$amountLabel:</strong>
+                <span>
+                    #if ($amountValue != '')
+                    $amountValue
+                    #if($currencyValue != '')
+                    $currencyValue
+                    #end
+                    #else
+                    -
+                    #end
+                </span>
+            </td>
+        </tr>
+        #end
+        #if($amountInWordValue != '')
+        <tr>
+            <td colspan="2" align="left" style="border-top: #ffffff; color: #0a0a0a; padding:4px 0; width:100%; word-wrap: break-word;">
+                <b>$amountInWordLabel:</b>
+                <span style="font-style: italic" > $amountInWordValue </span>
+            </td>
+        </tr>
+        #end
+        #if($noteValue != '')
+        <tr>
+            <td colspan="2" align="left" style="border-top: #ffffff; color: #0a0a0a; padding:4px 0; width:100%; word-wrap: break-word;"><strong>$noteLabel:</strong>
+                <span>$noteValue</span></td>
+        </tr>
+        #end
+    </table>
+
+    #set($refundInformationVal = $itextGenericPdfData.baseInvoice.customProductTableList)
+    #if($refundInformationVal.size() > 0)
+    #set($refundInformation = $itextGenericPdfData.baseInvoice.customProductTableList.get(0).rows)
+    #set($accountLabels = $refundInformation.get('CRM_ACCOUNT').get('COLUMN_NAME'))
+    #set($refundLabel = $refundInformation.get('REFUND_NUMBER').get('COLUMN_NAME'))
+    #set($datesLabel = $refundInformation.get('DATE').get('COLUMN_NAME'))
+    #set($totalAmountLabel = $refundInformation.get('TOTAL_AMOUNT').get('COLUMN_NAME'))
+    #set($refundAmountLabel = $refundInformation.get('REFUND_AMOUNT').get('COLUMN_NAME'))
+    #set($currencyLabel = $refundInformation.get('CURRENCY').get('COLUMN_NAME'))
+    #set($currencyValueS = $refundInformation.get('CURRENCY').get('COLUMN_VALUE'))
+    #set($closeAmountLabel = $refundInformation.get('CLOSE_AMOUNT').get('COLUMN_NAME'))
+    #set($detailsLabel = $refundInformation.get('PAID_TO').get('COLUMN_NAME'))
+
+    #set($borderColor = '1px solid #ffffff')
+    #if($itextGenericPdfData.params.tableBorderEnabled)
+    #set($borderColor = '1px solid ' + $itextGenericPdfData.params.tableBorderColor)
+    #end
+    <table class="refundData" width="100%">
+        <tr>
+            <td style="font-weight: bold; border: $borderColor; text-align: center">$customerLabel</td>
+            <td style="font-weight: bold; border: $borderColor; text-align: center">$refundLabel #</td>
+            <td style="font-weight: bold; border: $borderColor; text-align: center">$datesLabel</td>
+            <td style="font-weight: bold; border: $borderColor; text-align: center">$totalAmountLabel</td>
+            <td style="font-weight: bold; border: $borderColor; text-align: center">$refundAmountLabel ($currencyValueS)</td>
+            <td style="font-weight: bold; border: $borderColor; text-align: center">$closeAmountLabel</td>
+            <td style="font-weight: bold; border: $borderColor; text-align: center">$detailsLabel</td>
+        </tr>
+        #foreach($row1 in $refundInformationVal)
+        <tr>
+            <td style="border: $borderColor;">$row1.rows.get('CRM_ACCOUNT').get('COLUMN_VALUE')</td>
+            <td style="border: $borderColor;">$row1.rows.get('REFUND_NUMBER').get('COLUMN_VALUE')</td>
+            <td style="border: $borderColor;">$row1.rows.get('DATE').get('COLUMN_VALUE')</td>
+            <td style="border: $borderColor; text-align: right" >$row1.rows.get('TOTAL_AMOUNT').get('COLUMN_VALUE') ($row1.rows.get('CURRENCY').get('COLUMN_VALUE'))</td>
+            <td style="border: $borderColor; text-align: right">$row1.rows.get('REFUND_AMOUNT').get('COLUMN_VALUE')</td>
+            <td style="border: $borderColor; text-align: right">$row1.rows.get('CLOSE_AMOUNT').get('COLUMN_VALUE')</td>
+            <td style="border: $borderColor;">$row1.rows.get('PAID_TO').get('COLUMN_VALUE')</td>
+        </tr>
+        #end
+    </table>
+    #end
+
+    #set($refundInformationVal = $itextGenericPdfData.baseInvoice.customProductTableList)
+    #if($refundInformationVal.size() > 0)
+    <table width="50%" valign="right" align="right" style="margin-top: 5px;">
+        <tr>
+            <td style="text-align: right; font-size: 12px">$refTotalLabel</td>
+            <td style="width: 10%; text-align: right; font-size: 12px">$refTotalValue</td>
+        </tr>
+        <tr>
+            <td style="text-align: right; font-size: 12px">$remBalanceLabel</td>
+            <td style="width: 10%; text-align: right; font-size: 12px">$remBalanceValue</td>
+        </tr>
+    </table>
+    #end
+
+</div>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<report>
+    <view>
+        <title>Projects Summary</title>
+        <name>Projects Summary</name>
+        <category>projectsSummary</category>
+        <sqlquery>
+            <select agregateFunc="distinct">
+                <table name="Project">
+                    <column name="id" title="id" type="integer" formattype="hidden"/>
+                    <column name="projectname" title="Project Name" type="string" formattype="string"/>
+                    <column name="managername" title="Manager" type="string" formattype="string"/>
+                    <column name="client" title="Client" type="string" formattype="string"/>
+                    <column name="taskCount" title="Task Count" type="number" formattype="number"/>
+                    <column name="notComplatedTaskCount" title="Not Completed Task Count" type="number" formattype="number"/>
+                    <column name="timeSpentByProject" title="Time Spent" type="time" formattype="time"/>
+                    <column name="complete" title="Complete" type="number" formattype="percent"/>
+                    <column name="timeleft" title="Time Left" type="string" formattype="string"/>
+                </table>
+            </select>
+            <from>(
+                select sts.name, pj.id,pj.name projectname, account.name client
+                ,coalesce(t.taskCount,0) taskCount
+                ,coalesce(notComplatedTaskCount,0) notComplatedTaskCount
+                ,coalesce(tsh.timeSpentByProject,0) timeSpentByProject,
+                coalesce(pj.percent,0) complete , coalesce(man.firstname,'')||' '||coalesce(man.lastname) managername
+                ,coalesce(coalesce(coalesce((case sts.code when 'ONGOING' then 1 end), (case false when isSystemReference then 2 end)), (case sts.code when 'PS_NOT_STARTED' then 3 end)),(case sts.code when 'PS_COMPLETED' then 4 end)) sorder
+                ,( case interval '1 day' >= (pj.duedate-now()) when true then to_char((pj.duedate-now()),'DD "d"') else to_char((pj.duedate-now()),'HH24"h" MI"m"') end )  timeleft
+                from "$".project pj left join "$".crmaccount account on pj.clientid = account.id
+                left join "$".myuser man on pj.managerid=man.id
+                left join (select count(t.id) taskCount,projectid
+                ,count(case when r.code not in ('COMPLETED','CLOSED','CANCELLED') then 1 end ) notComplatedTaskCount
+                from "$".task t
+                left join "$".reference r on t.statusid=r.id
+                where t.isIssue is not true and t.deleted is not true
+                group by projectid) t on pj.id=t.projectid
+                left join (select projectID, sum(timespent) timeSpentByProject
+                from "$".timesheet
+                group by projectID) tsh on pj.id=tsh.projectID
+                join "$".reference sts on pj.statusid=sts.id
+                left outer join "$".projectemployee pe on pj.id=pe.projectid
+                left outer join "$".teamemployee te on (pe.employeedepartmentid=te.id )
+                left outer join "$".myuser mu on (te.employeeid=mu.id)
+                left join "$".location l on mu.locationId=l.id
+                left join "$".clientcontact cc on mu.id=cc.id
+                left join "$".crmaccount ca on pj.clientid=ca.id
+                left join "$".crmcontact cc_cc on cc.crmcontactid=cc_cc.id
+                left join "$".crmAccount cc_ca on cc_cc.crmAccount=cc_ca.id
+
+                ,(select * from "$".myuser u  where u.id=#?user_id?# )u
+                left join "$".location ul on u.locationId=ul.id
+                ,(select  min(x)* min(y) xy from (select case r.code in ('ADMIN','DR') when true then 0 else 1 end x
+                , case r.code='ADMIN_LOCATION' when true then 1 else 0 end y from "$".myuser_role ur join "$".role r on ur.roles_id=r.id  where ur.users_id=#?user_id?#) a) roles
+                ,(select count(rp.rolecode) x
+                from permission p
+                join "$".rolepermission rp on p.code=rp.permissioncode
+                join "$".reference r on rp.priviledgeid=r.id
+                join "$".role rl on rp.rolecode=rl.code
+                join "$".myuser_role ur on r.id=ur.roles_id
+                where rp.permissioncode='PM_SEE_ALL_PROJECTS' and r.code='ALLOW') see_all
+                , (select  max(x) has from (select case r.code in ('ADMIN') when true then 1 else 0 end x
+                from "$".myuser_role ur
+                join "$".role r on ur.roles_id=r.id
+                where ur.users_id=#?user_id?#) a) isAdmin
+                where pe.isdeleted is not true and pj.isdeleted is not true and pj.parnetId is null
+                and (
+                (roles.xy=1 and see_all.x=0 and l.id=ul.id)/*1*/
+                or (roles.xy !=1 or see_all.x !=0 ) and ( (cc.id is not null and ca.id=cc_ca.id)/*2*/	or	(cc.id is null and mu.id=#?user_id?#)/*3*/ )
+                or isAdmin.has =1
+                )
+                and ( #?replacement?# )
+
+                order by sorder asc, timeSpentByProject desc
+
+                )t
+            </from>
+            <where>
+                <terms id="base" value="1=1"/>
+                <replacement id="userid" userid="#?user_id?#"/>
+                <replacement code="isAdmin" name="Admin" value="1=1" role="ADMIN,DR"/>
+                <replacement code="myProject" name="My Project" value="(cc.id is null and mu.id=#?user_id?#)" role="" blackRole="SUPPLIER,CLIENT"/>
+                <replacement code="adminLocation" name="Admin" value="(roles.xy=1 and see_all.x=0 and l.id=ul.id)" role="ADMIN_LOCATION" blackRole="ADMIN,DR"/>
+                <replacement code="seeAll" name="See All Projects" value="(roles.xy !=1 or see_all.x !=0 ) and ( (cc.id is not null and ca.id=cc_ca.id)" role="PM_SEE_ALL_PROJECTS" blackRole="ADMIN,DR"/>
+            </where>
+        </sqlquery>
+    </view>
+</report>

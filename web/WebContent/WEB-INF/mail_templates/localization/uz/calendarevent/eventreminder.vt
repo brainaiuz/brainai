@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+
+<p><b>Детали события:</b></p>
+
+<div style="background-color:lightblue; width:100%;">
+    <p>Название: $EVENT_NAME</p>
+
+    <p>Описание: $DESCRIPTION</p>
+
+    <p>Время: $DATE</p>
+</div>
+<p>Место: $WHERE</p>
+
+<p>Нажмите <a href="$LINK">здесь</a> для просмотра деталей Вашего события в календаре.<br/>
+    * Если Вы не можете нажать на ссылку, Вы можете скопировать и вставить следующий адрес в Ваш веб браузер:
+    <span style="color: #0033FF">$LINK</span></p>
+
+</body>
+</html>

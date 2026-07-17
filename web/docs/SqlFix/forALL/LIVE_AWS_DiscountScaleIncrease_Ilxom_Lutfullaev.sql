@@ -1,0 +1,1 @@
+update "63443".financialsettings set discountScale = 3;

@@ -1,0 +1,13 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head><body>
+
+<p>Dear $paymentcustomer, </p> </br>
+<p>This is a receive payment statement for the date of $paymentdate.
+Please see the attached receive payment statement for more details.</p> <p>Thank you for your business and please contact us at <b><u> $email </u></b>
+should you have any questions regarding this invoice statement.</p> </br>
+<p >Sincerely yours,</br>
+Accounting Department,</br>
+<b> $paymentcompanyname </b></p>
+
+</body></html>

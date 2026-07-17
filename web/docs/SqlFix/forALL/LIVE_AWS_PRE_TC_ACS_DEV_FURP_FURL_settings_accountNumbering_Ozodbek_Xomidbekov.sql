@@ -1,0 +1,2 @@
+UPDATE company SET isdeleted = FALSE WHERE isdeleted IS NULL AND (select setval('"anv".accountnumbersettings_id_seq',(select max(id) from "anv".accountnumbersettings ))) IS NOT NULL;
+insert into "anv".accountnumbersettings (endnumber,startnumber,accounttype_id) select 1499,1300,id from accountType where code='NON_CURRENT_ASSET' and (select count(id)<16 from  "anv".accountnumbersettings);

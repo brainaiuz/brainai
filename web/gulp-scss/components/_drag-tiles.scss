@@ -1,0 +1,271 @@
+$dragTileMargin: 3px;
+%dragTileSize {
+  min-height: $dragTileHeight;
+}
+.drag-tiles {
+  .dragdrop-positioner, .dragdrop-flow-panel-positioner {
+    @extend %dragTileSize;
+  }
+
+  &.customReport_tab_3__dnd_columns {
+    overflow: visible !important; // to prevent cutting https://prnt.sc/tGmOQbr-rCck
+  }
+  min-height: 80px;
+
+  .panel-w-switch__container & {
+    min-height: auto; // to prevent the extra height when "unused fields" panel is empty //https://prnt.sc/qv21ts
+  }
+}
+
+// customize form > unused fields
+.drag-tiles--inline {
+  display: flex;
+  flex-wrap: wrap;
+  //justify-content: space-between;
+  //margin-bottom: -$padding-y-base;
+}
+
+.drag-tile {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @extend %dragTileSize;
+  @include drag-tile-style;
+
+  .customReport_tab_3__dnd_columns & {
+    min-height: $quickAdd-tile-height; //transferred from reporting
+  }
+
+
+  &__grip {
+    @extend .ficon--;
+    &:before {
+      @extend .ficon--more-vert;
+    }
+  }
+
+  &--sm {
+    min-height: $input-height;
+  }
+
+  .drag-tiles--bordered & {
+    border: 1px solid $control-border-color;
+    dragdrop-draggable
+    .btn--icon {
+      margin-top: -1px;
+      margin-bottom: -1px;
+    }
+  }
+
+  *:not(.drag-tiles--inline) > & {
+    + .drag-tile {
+      margin-top: 10px;
+    }
+  }
+
+  /* if you have something else except switcher at the right part of drag-tile,
+then wrap the all right controls (including switcher) into the .drag-tile__actions */
+  &__actions {
+    display: flex;
+    align-items: center;
+    padding-left: 5px;
+    padding-right: 5px;
+    > .dropdown-button {
+      display: inline-flex !important;
+
+      .dropdown-content {
+        left: auto !important; //script bug-fix
+        right: -20px !important; //script bug-fix
+        width: auto !important; //script bug-fix
+      }
+    }
+    > * + * {
+      margin-left: 0.5rem;
+    }
+    .dropdown-button:hover {
+      background: transparent;
+    }
+    .btn--icon, .dropdown-button {
+      @include close-button;
+    }
+    .btn--icon {
+      &:last-child {
+        margin-right: -5px;
+        padding: 0 10px 0 5px !important;
+      }
+    }
+    .icon--x {
+      transform: scale(.8);
+    }
+  }
+  &__text + &__actions {
+    @media screen and (max-width: 1366px) { // https://prnt.sc/pixy3y
+      .grid-stack & {
+        padding-left: 0;
+        &:last-child {
+          padding-right: 0;
+          .btn--icon {
+            min-width: auto;
+          }
+        }
+      }
+    }
+  }
+
+  &__grip {
+    display: flex;
+    flex: 0 0 $dragTileGripWIdth;
+    justify-content: center;
+    align-items: center;
+    align-self: stretch;
+    cursor: move;
+
+    .grid-stack & {
+      @media screen and (max-width: 1366px) { // https://prnt.sc/pixy3y
+        flex: 0 0 ($dragTileHeight / 2);
+      }
+    }
+  }
+
+  &__text {
+    flex-grow: 1;
+    overflow: hidden;
+    .gwt-HTML {
+      @include txtTruncate();
+    }
+  }
+
+  &.state-on {
+    background: #fff;
+    .drag-tile__text {
+      color: $color-accent-2;
+      margin-right: 15px;
+    }
+  }
+  .state-off &,
+  &.state-off .icon-colors {
+    opacity: 0.4;
+  }
+
+  &--edit {
+    border-color: $drag-edit-coolor;
+    *:not(input) {
+      color: $drag-edit-coolor;
+    }
+    ::placeholder,
+    .form-control {
+      color: darken($drag-edit-coolor, 25%)
+    }
+  }
+
+  .panel-w-switch & {
+    justify-content: flex-start;
+    //margin-left: 0;
+
+    .dragdrop-handle {
+      //margin-right: 15px;
+    }
+
+    .drag-tile__text:first-child {
+      margin-left: 6px;
+    }
+  }
+
+  .drag-tile--edit & {
+  }
+}
+
+.draggable-group {
+  .collapsible-header + .collapsible-body {
+    padding-top: 0;
+  }
+}
+
+.tileDragTarget-posHolder {
+  padding-right: $fixedPanelPadding; //$padding-y-base
+  .slideDown-box.active {
+    padding-bottom: $fixedPanelPadding;
+  }
+}
+.tileDragTarget {
+  > tbody > tr > td {
+    vertical-align: top; // to prevent jumping when folding and unfolding
+    padding-top: 3px;
+  }
+
+  &__wrapper {
+    align-items: stretch;
+    border-color: $color-base-2;
+
+    .tileDragTarget > tbody > tr > td {
+    }
+  }
+
+  &-posHolder {
+  }
+
+  &__header {
+    min-height: $quickAdd-tile-height * 0.8;
+    align-items: center;
+
+    &.grid-row {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .customizeHeaderPanel-check {
+      display: flex;
+      padding-left: 0;
+      margin-left: -3px; //svg free space unshift
+    }
+    .action-listing__wrapper {
+      padding-right: $dragTileMargin;
+    }
+  }
+
+  &__body {
+    padding: $dragTileMargin !important;
+    margin: 0 !important;
+
+    &-wrapper {
+    }
+  }
+
+  &__target {
+    padding: 1px;
+    @include drag-tile-style(transparent, dashed);
+
+    &:before {
+      content: 'drag here';
+      position: absolute;
+      top: 30%;
+      width: 100%;
+      text-align: center;
+      color: $text-muted;
+
+      .tileDragTarget--hasChild & {
+        visibility: hidden;
+      }
+    }
+
+    .dragdrop-positioner {
+      max-width: 342px; // extra width fix https://prnt.sc/APW6OMmMX4if
+      //max-width: calc(#{100%} - #{$dragTileGripWIdth * 2});
+      background: $gray-new;
+
+      > div {
+        max-width: 100%;
+      }
+    }
+
+    &__tbl {
+      min-height: $quickAdd-tile-height;
+      background: $gray-lighter;
+    }
+  }
+}
+
+.field > .dragdrop-boundary > .dragdrop-movable-panel {
+  //background: rgba(pink, .25); //ToDo Test problem
+}

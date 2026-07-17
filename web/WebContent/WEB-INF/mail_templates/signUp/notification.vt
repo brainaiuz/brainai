@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<p><b>
+    <center>NOTIFICATION</center>
+</b></a><br/>
+<p>
+    HOST: $host
+</p>
+
+<p>Please be advised <b>$companyName</b> signed up to <b>$productName</b> on <b>$TIME</b><br/>
+    Please see company details below:  </a><br/></p>
+
+<p><b>Company Name:</b> $companyName<br/>
+    <b>Phone:</b> $user.company.phone<br/>
+    <b>Administrator:</b> $user.firstName $user.lastName<br/>
+    <b>Username:</b> $user.getUserName() </p>
+
+<b>Country:</b> $user.company.countryZone.country.name<br/>
+<b>Remote Address:</b>$remoteAddr<br/>
+</body>
+</html>

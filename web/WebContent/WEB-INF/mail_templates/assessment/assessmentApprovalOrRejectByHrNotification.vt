@@ -1,0 +1,66 @@
+## Assessment approve notification for HR
+## $assessment - EdsAssessment
+## $date - current date
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body><p>Dear $departmentLeader,</p>
+
+<p>The HR Manager $hr  has $status your period appraisals.
+    You can view the period appraisals by clicking this Click <a href="$host/Hrms.html?link=$link"
+                                                                 title="Review assessment" target="_blank">here</a><br>
+    * If you are not able to click on the link, you can instead copy and paste the following address in to your web
+    browser:
+    <span style="color: #0033FF">$host/Hrms.html?link=$link</span></p>
+</p>
+<p><b>List of $status employees:</b></p><br>
+
+<table border="0" width="100%" cellspacing="0" align="center" id="table2" style="border: solid 1px #979B98;">
+    <thead>
+    <tr>
+        <th bgcolor="#1c5b94" style="color:#fff; border-right: solid 1px #fff; border-bottom: solid 2px #787878">
+            Employee
+        </th>
+        <th bgcolor="#1c5b94" style="color:#fff; border-right: solid 1px #fff; border-bottom: solid 2px #787878">
+            Initiator
+        </th>
+        <th bgcolor="#1c5b94" style="color:#fff; border-right: solid 1px #fff; border-bottom: solid 2px #787878">
+            Reviewer
+        </th>
+        <th bgcolor="#1c5b94" style="color:#fff; border-right: solid 1px #fff; border-bottom: solid 2px #787878">
+            Status
+        </th>
+        <th bgcolor="#1c5b94" style="color:#fff; border-right: solid 1px #fff; border-bottom: solid 2px #787878">$status
+            date
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+        #foreach($assesmentList in $assesmentList)
+        <tr align="center">
+            <td style="border: solid 1px #979B98; text-align: left;">
+                $assesmentList.getKeyEmployeeAssessment().getEmployee().getName()
+            </td>
+            <td style="border: solid 1px #979B98;">
+                $assesmentList.getInitiator().getName()
+            </td>
+            <td style="border: solid 1px #979B98;">
+                $assesmentList.getReviewer().getName()
+            </td>
+            <td style="border: solid 1px #979B98;">
+                $assesmentList.getKeyEmployeeAssessment().getStatus().getName()
+            </td>
+            <td style="border: solid 1px #979B98;">
+                $dateFormat.format($assesmentList.getInititateDate())
+            </td>
+        </tr>
+        #end
+    </tbody>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,117 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:m='urn:import:gwt.material.design.client.ui'
+             xmlns:mhtml="urn:import:gwt.material.design.client.ui.html">
+    <g:HTMLPanel>
+        <div class="payment-gateway-panel">
+            <div class="payment-gateway-panel__main">
+                <div class="payment-gateway-panel__header" ui:field="payWithLabel">Pay with</div>
+                <div class="payment-gateway-panel__description" ui:field="shortDescLabel">
+                    Accept all global debit, credit card, Revolut.
+                </div>
+
+                <div class="payment-gateway-panel__options-list">
+
+                    <!--<div class="payment-gateway-panel__option">
+
+                        <m:MaterialRadioButton name="PAYMENT_METHOD" checked="true" debugId="payment-method-stripe" tabIndex="0" ui:field="radioStripe" text="Credit Card"/>
+
+                        <div class="payment-gateway-panel__option-content">
+                            <div class="payment-gateway-panel__option-cards">
+                                <img src="/mainStyles/new-ui/images/payment/VISA.png" />
+                                <img src="/mainStyles/new-ui/images/payment/mastercard.png" />
+                                <img src="/mainStyles/new-ui/images/payment/maestro.png" />
+                                <img src="/mainStyles/new-ui/images/payment/american express.png" />
+                                <img src="/mainStyles/new-ui/images/payment/discover.png" />
+                            </div>
+                        </div>
+
+                    </div>-->
+
+                    <div class="payment-gateway-panel__option">
+
+                        <m:MaterialRadioButton checked="true" name="PAYMENT_METHOD" debugId="payment-method-paypal"
+                                               tabIndex="0" ui:field="radioPaypal" text="Revolut"/>
+
+                        <div class="payment-gateway-panel__option-content">
+                            <div class="payment-gateway-panel__option-cards">
+                                <img src="/mainStyles/new-ui/images/payment/Revolut-Logo.wine.png"/>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <!--RIGHT PANEL-->
+            <g:HTMLPanel styleName="payment-gateway-panel__side payment-gateway-panel__side--stripe" ui:field="rightPanelWrapper">
+                <!--Stipe Right Panel-->
+                <!--<div class="payment-gateway-panel__side-item payment-gateway-panel__side-item&#45;&#45;stripe">
+                    <div class="payment-gateway-panel__side-top">
+                        <div class="payment-gateway-panel__side-logo">
+                            <img src="/mainStyles/new-ui/images/payment/stripe-big.png"/>
+                        </div>
+                        <p ui:field="stripeShortDesc">Click "Pay Now" to proceed. You will be redirected to the Stripe website where you can log in or create a Stripe account and update your payment method.</p>
+                    </div>
+                    <div class="payment-gateway-panel__side-bottom">
+                        <div class="payment-gateway-panel__side-price" ui:field="stripeToBePaid">
+                            $0.00
+                        </div>
+                        <div class="payment-gateway-panel__side-price-desc" ui:field="stripeToBePaidLabel">
+                            Amount to be paid
+                        </div>
+                        <m:MaterialLink styleName="btn btn-large btn&#45;&#45;white btn&#45;&#45;outline mb-3" ui:field="stripePayLink" text="Pay now"/>
+                        <g:HTMLPanel styleName="payment-gateway-panel__side-muted-text"><i class="ficon&#45;&#45;lock mr-1"></i> <mhtml:Text ui:field="stripeGuarantedLabel" text="Guaranteed Safe &amp; Secure"/></g:HTMLPanel>
+                    </div>
+                </div>-->
+                <!--Paypal Right Panel-->
+                <div class="payment-gateway-panel__side-item payment-gateway-panel__side-item--paypal">
+                    <div class="payment-gateway-panel__side-top">
+                        <div class="payment-gateway-panel__side-logo">
+                            <img src="/mainStyles/new-ui/images/payment/revolut-small.png"/>
+                        </div>
+                        <p ui:field="paypalShortDesc">Click "Pay Now" to proceed. You will be redirected to the Revolut
+                            website where you can log in or create a Revolut account and update your payment method.
+                        </p>
+                    </div>
+                    <div class="payment-gateway-panel__side-bottom">
+                        <div class="payment-gateway-panel__side-price" ui:field="paypalToBePaid">
+                            $0.00
+                        </div>
+                        <div class="payment-gateway-panel__side-price-desc" ui:field="paypalToBePaidLabel">
+                            Amount to be paid
+                        </div>
+                        <m:MaterialLink styleName="btn btn-large btn--white btn--outline mb-3" ui:field="paypalPayLink" text="Pay now"/>
+                        <g:HTMLPanel styleName="payment-gateway-panel__side-muted-text"><i class="ficon--lock mr-1"></i> <mhtml:Text ui:field="paypalGuarantedLabel" text="Guaranteed Safe &amp; Secure"/></g:HTMLPanel>
+                    </div>
+                </div>
+                <!--Wire Right Panel-->
+                <!--                <div class="payment-gateway-panel__side-item payment-gateway-panel__side-item&#45;&#45;wire">-->
+                <!--                    <div class="payment-gateway-panel__side-top">-->
+                <!--                        <div class="payment-gateway-panel__side-logo">-->
+                <!--                            <img src="/mainStyles/new-ui/images/payment/wt-big.png"/>-->
+                <!--                        </div>-->
+                <!--                        <p ui:field="wireShortDesc">A traditional wire transfer, please download PDF document, use bank details. Communication - Please use the "User Name or Login" as communication reference.</p>-->
+                <!--                    </div>-->
+                <!--                    <div class="payment-gateway-panel__side-bottom">-->
+                <!--                        <div class="payment-gateway-panel__side-price" ui:field="wireToBePaid">-->
+                <!--                            $0.00-->
+                <!--                        </div>-->
+                <!--                        <div class="payment-gateway-panel__side-price-desc" ui:field="wireToBePaidLabel">-->
+                <!--                            Amount to be paid-->
+                <!--                        </div>-->
+                <!--                        &lt;!&ndash;<a href="#" class="btn-large btn&#45;&#45;white btn&#45;&#45;outline mb-3">-->
+                <!--                            <i class="ficon&#45;&#45;file-pdf mr-3"></i> Download PDF-->
+                <!--                        </a>&ndash;&gt;-->
+                <!--                        <m:MaterialLink styleName="btn btn-large btn&#45;&#45;white btn&#45;&#45;outline mb-3" ui:field="wirePayLink">-->
+                <!--                            <mhtml:Icon styleName="ficon&#45;&#45;file-pdf mr-3"/>-->
+                <!--                            <mhtml:Text ui:field="wireDownloadPDFLabel" text="Download PDF"/>-->
+                <!--                        </m:MaterialLink>-->
+                <!--                        <g:HTMLPanel styleName="payment-gateway-panel__side-muted-text"><i class="ficon&#45;&#45;lock mr-1"></i> <mhtml:Text ui:field="wireGuarantedLabel" text="Guaranteed Safe &amp; Secure"/></g:HTMLPanel>-->
+                <!--                    </div>-->
+                <!--                </div>-->
+            </g:HTMLPanel>
+        </div>
+
+    </g:HTMLPanel>
+</ui:UiBinder>

@@ -1,0 +1,25 @@
+#header {
+    height: 108px !important;;
+    background: url(http://iperesearch.com/Content/images/bg_banner.png) repeat scroll 0 0 #112F53 !important;
+}
+
+#logo {
+    height: 108px !important;
+    background: url("http://iperesearch.com/Content/images/logo.png") no-repeat scroll 20px 15px transparent !important;
+}
+
+.help-menu li a {
+    color: #fff !important;
+}
+
+.logoutLink {
+    color: #fff !important;
+}
+
+.noLink {
+    color: #fff !important;
+}
+
+.companyNameStyle {
+    color: #fff !important;
+}

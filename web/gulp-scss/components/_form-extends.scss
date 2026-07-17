@@ -1,0 +1,59 @@
+%form-control-size {
+  //box-sizing: border-box;
+  white-space: nowrap;
+  height: $input-height;
+  line-height: $input-btn-line-height;
+}
+%form-control-size-small {
+  height: $button-height-small;
+  line-height: $button-line-height-small;
+  font-size: $button-font-size-small;
+}
+%form-control-size-medium {
+   height: $button-height-medium;
+   line-height: $button-line-height-medium;
+   font-size: $button-font-size-medium;
+ }
+%form-control-size-large {
+  height: $button-height-large;
+  line-height: $button-line-height-large;
+  font-size: $button-font-size-large;
+}
+
+%form-control-style {
+  @include form-control-style();
+}
+
+.from-control--action {
+  &.active,
+  &:hover {
+    @extend .z-depth-2;
+  }
+}
+
+.btn-default--action { // Used for btn "+" upload-file
+  transition: border-color .1s ease;
+  &:hover {
+    border-color: $button-border-color-default-hover;
+  }
+}
+
+
+%dropdown-content-size {
+  @include dropdown-content-size;
+}
+
+
+// COMMON LABELS
+@mixin form-label() {
+  min-height: $baseFontSize; // To force enpty label work as placeholder
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: rem(9px);
+  color: $text-color-base;
+}
+.form-label {
+  @include form-label();
+  display: block;
+  margin:0 0 rem(6px);
+}

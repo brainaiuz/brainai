@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head><body>
+
+<p>Dear $USER.firstName $USER.lastName,</a><br />
+
+<p>Please be advised that $REPORTER.firstName $REPORTER.lastName has resubmitted an Expense Claim for your attention 
+on $RESUBMIT_DATE.
+This report was originally declined by you on $DECLINE_DATE. The resubmitted Expense Claim details are as follows:</p>
+
+<p>Report Title: $REPORT_TITLE<br />
+Report Date: $REPORT_START_DATE <br />
+Amount: $REPORT_AMOUNT</p>
+
+<p>The PDF version of the Expense Claim is attached for your attention.</p>
+
+<p>Click <a href="$HOST/Accounting.html?link=$LINK&uid=$uid&cid=$companyid" title="Edit Expense Claim" target="_blank">here </a>
+to view the Expense Claim where you can approve or decline it.</p>
+
+<p>Once you approve or decline the report $REPORTER.firstName $REPORTER.lastName will receive email notification about its status.</p>
+
+<p><font color='red'>* </font>If you are not able to click on the link, you can copy and paste the following address into your web browser:<br />
+$HOST/Accounting.html?link=$LINK&uid=$uid&cid=$companyid</p>
+
+<p></p>
+
+</body></html>

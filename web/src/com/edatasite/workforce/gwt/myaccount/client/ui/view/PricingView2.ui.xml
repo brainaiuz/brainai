@@ -1,0 +1,155 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:wfm='urn:import:com.edatasite.workforce.gwt.core.client.ui' xmlns:components="urn:import:com.edatasite.workforce.gwt.core.client.ui.components">
+    <g:HTMLPanel>
+        <div id="contentPlace" class="clear-block">
+            <div id="main" class="c-box">
+                <div class="packagesBox">
+                    <!--begin first DIV-->
+                    <g:HTMLPanel addStyleNames="plateBox2 chooseOpt" ui:field="header">
+                        <g:HTMLPanel addStyleNames="pay-now-style" ui:field="headerDIV"/>
+                        <!--<table class="you-are-currently-table">
+                            <tbody>
+                                <tr>
+                                    <th scope="row"/>
+                                    <td ui:field="youAreCurrentlyOneMonth"/>
+                                    <td ui:field="youAreCurrentlyThreeMonth"/>
+                                    <td ui:field="youAreCurrentlySixMonth"/>
+                                    <td ui:field="youAreCurrentlyOneYear"/>
+                                </tr>
+                            </tbody>
+                        </table>-->
+                    </g:HTMLPanel>
+                    <!--end first DIV-->
+
+                    <!--begin second DIV-->
+                    <div class="plateBox2 chooseOpt">
+                        <label>
+                            <span ui:field="iWantToUseKPIDOTCOM"/>
+                            <span class="selectCover">
+                                <wfm:DataListBox ui:field="usersSelectItem" addStyleNames="user-select-list-box"/>
+                                <!--<span class="pseudoSelect" ui:field="pseudoSelectField"/>-->
+                            </span>
+                            <!--<wfm:PopUpDropDownBox ui:field="popupDropDown"/>-->
+                            <span ui:field="selectedUSERS"/>
+                        </label>
+
+                        <table class="chooseOptTable">
+                            <colgroup>
+                                <col class="col-1"/>
+                                <col class="col-2"/>
+                                <col class="col-3"/>
+                                <col class="col-4"/>
+                                <col class="col-5"/>
+                            </colgroup>
+                            <thead>
+                                <tr class="">
+                                    <th scope="row"/>
+                                    <th scope="row" class="colHead" ui:field="oneMonth"/>
+                                    <th scope="row" class="colHead" ui:field="threeMonth"/>
+                                    <th scope="row" class="colHead" ui:field="sixMonth"/>
+                                    <th scope="row" class="colHead" ui:field="oneYear"/>
+                                </tr>
+                            </thead>
+
+                            <tfoot>
+                                <tr>
+                                    <th scope="row"/>
+                                    <td colspan="4">
+                                        <g:HTML ui:field="forUKBasedVAT" addStyleNames="vatStyle"/>
+                                        <components:KpiCheckBox ui:field="taxCheck" addStyleNames="vatCheckBoxStyle"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"/>
+                                    <td class="slideBtn2">
+                                        <g:Button styleName="button" ui:field="buyNowOneMonth"/>
+                                    </td>
+                                    <td class="slideBtn2">
+                                        <g:Button styleName="button" ui:field="buyNowThreeMonth"/>
+                                    </td>
+                                    <td class="slideBtn2">
+                                        <g:Button styleName="button" ui:field="buyNowSixMonth"/>
+                                    </td>
+                                    <td class="slideBtn2">
+                                        <g:Button styleName="button" ui:field="buyNowOneYear"/>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                <tr class="odd">
+                                    <th class="oddRow" scope="row" ui:field="pricePerUserMonth"/>
+                                    <td>
+                                        <g:HTML ui:field="pricePerUserMonthOneMonth"/>
+                                    </td>
+                                    <td>
+                                        <g:HTML ui:field="pricePerUserMonthThreeMonth"/>
+                                    </td>
+                                    <td>
+                                        <g:HTML ui:field="pricePerUserMonthSixMonth"/>
+                                    </td>
+                                    <td>
+                                        <g:HTML ui:field="pricePerUserMonthOneYear"/>
+                                    </td>
+                                </tr>
+                                <tr class="odd2">
+                                    <th class="odd2Row" scope="row" ui:field="totalAmountPerUser"/>
+                                    <td>
+                                        <g:HTML ui:field="totalAmountTotalUserPerOneMonth"/>
+                                    </td>
+                                    <td>
+                                        <g:HTML ui:field="totalAmountTotalUserPerThreeMonth"/>
+                                    </td>
+                                    <td>
+                                        <g:HTML ui:field="totalAmountTotalUserPerSixMonth"/>
+                                    </td>
+                                    <td>
+                                        <g:HTML ui:field="totalAmountTotalUserPerOneYear"/>
+                                    </td>
+                                </tr>
+                                <tr class="odd totalRow">
+                                    <th scope="row" ui:field="discount"/>
+                                    <td>
+                                        <g:HTML ui:field="discountPercentPerOneMonth"/>
+                                    </td>
+                                    <td>
+                                        <g:HTML ui:field="discountPercentPerThreeMonth"/>
+                                    </td>
+                                    <td>
+                                        <g:HTML ui:field="discountPercentPerSixMonth"/>
+                                    </td>
+                                    <td>
+                                        <g:HTML ui:field="discountPercentPerOneYear"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+
+                            <tbody class="thRow">
+                                <tr>
+                                    <th scope="row" ui:field="priceAfterDiscount"/>
+                                    <td>
+                                        <g:HTML ui:field="priceAfterDiscountPerUserOneMonth"/>
+                                        <g:HTML ui:field="totalPricePerUserOneMonth"/>
+                                    </td>
+                                    <td>
+                                        <g:HTML ui:field="priceAfterDiscountPerUserThreeMonth"/>
+                                        <g:HTML ui:field="totalPricePerUserThreeMonth"/>
+                                    </td>
+                                    <td>
+                                        <g:HTML ui:field="priceAfterDiscountPerUserSixMonth"/>
+                                        <g:HTML ui:field="totalPricePerUserSixMonth"/>
+                                    </td>
+                                    <td>
+                                        <g:HTML ui:field="priceAfterDiscountPerUserOneYear"/>
+                                        <g:HTML ui:field="totalPricePerUserOneYear"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--end second DIV-->
+                </div>
+            </div>
+        </div>
+    </g:HTMLPanel>
+</ui:UiBinder>

@@ -1,0 +1,23 @@
+## Issue add notification
+## $report - Newly created issue
+## $date- Newly created issue
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+<h2>Bug Report for $report.assignee.getName()</h2>
+
+<p><b>Bug :</b> $report.bugDescription</p>
+<p><b>Status :</b> $report.status.name</p>
+<p><b>Report Date :</b> $date</p>
+<p><b>Company:</b> $companyName</p>
+<p><b>User :</b> $name</p>
+<p><b>email :</b> $report.email</p>
+<p><b>Section :</b> $report.createdFrom</p>
+<p><b>Comment :</b> $report.comment</p>
+<input type="hidden" value="$keywords"/>
+
+</body>
+</html>

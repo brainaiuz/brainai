@@ -1,0 +1,111 @@
+/*CSS Document for */
+
+/**** LAYOUOT ****/
+
+/* START #wrapper */
+#wrapper {
+    position: relative;
+}
+
+/* END #wrapper */
+
+/* START #cover */
+#cover {;
+    width: 990px;
+    margin: 0 auto;
+}
+
+/* END #cover */
+
+/* START #content */
+#content {
+    margin: 0 0 0 157px;
+
+    -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    -ms-box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    -o-box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+
+    background: #fff url(images/bg_content_shadow.png) no-repeat 50% 0;
+}
+
+#content.full-main {
+    margin: 0;
+}
+
+/* END #content */
+
+/* START #main */
+#main {
+    padding: 32px 20px 0;
+}
+
+/* END #main */
+
+/* START .sidebar */
+.sidebar {
+    width: 274px;
+}
+
+.sidebar.right {
+    margin: 0 0 0 40px;
+}
+
+/* END .sidebar */
+
+/* START header */
+header {
+    position: relative;
+    border-bottom: 1px solid #e3e3e4;
+    z-index: 2;
+
+    background-color: #ffffff;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#f9f9fa));
+    background-image: -webkit-linear-gradient(top, #ffffff, #f9f9fa);
+    background-image: -moz-linear-gradient(top, #ffffff, #f9f9fa);
+    background-image: -ms-linear-gradient(top, #ffffff, #f9f9fa);
+    background-image: -o-linear-gradient(top, #ffffff, #f9f9fa);
+    background-image: linear-gradient(top, #ffffff, #f9f9fa);
+    -pie-background: linear-gradient(#ffffff, #f9f9fa);
+}
+
+.page-parent header {
+    background-color: #ebf8ff;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#ebf8ff), to(#fff));
+    background-image: -webkit-linear-gradient(top, #ebf8ff, #fff);
+    background-image: -moz-linear-gradient(top, #ebf8ff, #fff);
+    background-image: -ms-linear-gradient(top, #ebf8ff, #fff);
+    background-image: -o-linear-gradient(top, #ebf8ff, #fff);
+    background-image: linear-gradient(top, #ebf8ff, #fff);
+    -pie-background: linear-gradient(#ebf8ff, #ffffff);
+}
+
+header .ZoneIn {
+    position: relative;
+    width: 964px;
+    margin: 0 auto;
+    background: url(images/bg_header.png) no-repeat 0 26px;
+}
+
+hgroup {
+    padding: 0 0 12px;
+}
+
+/* END .wrapBG */
+
+/* END header */
+
+/* START footer */
+footer {
+    padding: 25px 0 20px;
+    background: url(images/bg_footer.png) repeat 0 0;
+}
+
+/*END footer*/
+
+.welcomePage-footer {
+    height: 30px;
+}
+
+/**** LAYOUOT ****/

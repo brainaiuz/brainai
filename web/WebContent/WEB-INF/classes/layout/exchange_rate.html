@@ -1,0 +1,26 @@
+<div class="contentBar" style="padding:0 10px;">
+
+    <ul class="collapsible--panels collapsible--arrows-left collapsible collapsible--gwt required" data-collapsible="expandable">
+        <li class="slideDown-box group active">
+            <div class="collapsible-header active" onclick="var myclick=this.parentElement;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls; } var myclick=this;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls; }">
+                <a style="cursor: pointer;"><span>$$label:CONSOLIDATION_EXCHANGE_RATE$$</span></a>
+            </div>
+            <div class="collapsible-body">
+                <div class="grid-row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            $$input:CONSOLIDATION_MULTI_CURRENCY_TOP_PANEL$$
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            $$input:CONSOLIDATION_MULTI_CURRENCY$$
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,127 @@
+// Файл: _assessment-styles.scss
+
+$gapHorizontal: 24px; // Горизонтальный отступ между колонками на десктопе
+$gapVertical: 20px; // Вертикальный отступ между строками на десктопе
+
+// --- Стили по умолчанию (Mobile First) ---
+
+// 1. Главный контейнер по умолчанию - просто вертикальный flex
+.skills-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 32px; // Вертикальный отступ между блоками
+}
+
+.skillRateItem {
+  position: relative; // to position absolute Delete anchhor
+
+  > .skillRateItem-remove {
+    position: absolute;
+    top: -($baseFontSize / 2);
+    right: 0;
+    padding-right: 0;
+    &:hover {
+    }
+  }
+}
+
+// 2. Блок с формами по умолчанию тоже вертикальный
+.editablSkillRate {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+// --- Стили для больших экранов (Desktop) ---
+
+@media (min-width: 993px) {
+  // 1. Родитель отвечает ТОЛЬКО за строки. Ему нужна всего ОДНА колонка.
+  .skills-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $gapHorizontal 0;
+  }
+
+  // 2. .skillRateItem отвечает за колонки внутри себя.
+  .skillRateItem {
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr) minmax(0, 1fr);
+    gap: 0 $gapVertical;
+    position: relative;
+  }
+
+  // 2. Делаем промежуточные обертки "расплющенными" для сетки
+  .skillRatePanel,
+  .skillRatePanel__actions,
+  .editablSkillRate {
+    display: contents;
+  }
+
+  // Размещение кнопки через GRID (чище, чем absolute на десктопе):
+  .skillRateItem > .skillRateItem-remove {
+    //position: static;      // убираем absolute на десктопе
+    //grid-column: 3;        // ставим в 3-й столбец
+    //justify-self: end;
+    //align-self: start;
+    //margin-top: -$button-height-small;
+  }
+}
+.skillRateItem-addNew {
+  margin-top: $m-base;
+}
+
+
+// --- Остальные стили для BEM-блоков (почти без изменений) ---
+
+// Блок контента (всегда первая колонка на десктопе)
+.skillRatePanel__content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.skillRateDet {
+  display: flex;
+  justify-content: space-between;
+
+  &__skill {
+    h3 {
+      margin-top: 0;
+      font-size: $fontsize-2;
+      line-height: 1;
+    }
+    p {
+
+    }
+  }
+
+  &__weight {
+    flex-shrink: 0;
+    width: 110px;
+    margin-left: 8px;
+  }
+}
+
+.skillRateComment {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+
+  &__comment {
+    flex: 1 1 100%;
+    font: 12px Arial, sans-serif;
+    color: #333333;
+
+    &-client {
+      background: $gray-middle;
+      padding: 4px 8px;
+      border-radius: 4px;
+      margin-top: 4px;
+      display: inline-block;
+    }
+  }
+
+  &__rate {
+    flex: 0 0 260px;
+  }
+}

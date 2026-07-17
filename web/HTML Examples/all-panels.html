@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <title>
+        All Panels
+    </title>
+    <link rel="stylesheet" href="../WebContent/mainStyles/new-ui/css/materialize.css" />
+
+    <style>
+        .testPage__section {
+            padding: 0 10px 10px;
+            background: wheat
+        }
+        .testPage__section + .testPage__section {
+            margin-top: 10px;
+        }
+
+        .testPage > li > .collapsible-header > * {
+            display: inline-block;
+        }
+        .grid-row {
+            /*display: grid;*/
+            /*grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));*/
+        }
+        .col {
+            display: flex;
+            flex-direction: column;
+        }
+        h6 {font-weight: bold;}
+        .col > h6 {
+            flex: 1 0 auto;
+        }
+        .col  > h6 + div {
+            flex:0 1 auto;
+        }
+
+
+
+        .collapsible-header {
+            /*font-family: monospace, monospace;*/
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="frame__body" style="overflow: auto;">
+<h2 class="text-center">All Panels</h2>
+<div class="container">
+    <ul class="collapsible expandable collapsible--panels testPage">
+        <!--.PANEL-->
+        <li class="active">
+            <div class="collapsible-header">.panel</div>
+            <div class="collapsible-body">
+                <div class="testPage__section" style="">
+                    <div class="grid-row">
+                        <div class="col">
+                            <h6><code>div.panel</code></h6>
+                            <div class="panel">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim error eum quos sapiente vero? Expedita ipsa modi neque, officia pariatur rem sequi tempora! Assumenda deserunt eligendi harum quisquam unde velit?
+                            </div>
+                        </div>
+                        <div class="col">
+                            <h6><code>div.panel > .panel__body</code></h6>
+                            <div class="panel">
+                                <div class="panel__body">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda blanditiis, commodi consectetur cumque dolor dolore est exercitationem fuga hic itaque libero minima non nostrum perferendis, sint temporibus vero? Optio, voluptatibus.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <h6><code>div.panel > .panel__heading</code></h6>
+                            <div class="panel">
+                                <div class="panel__heading">
+                                    Panel Heading
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <h6><code>div.panel > .panel__footer</code></h6>
+                            <div class="panel">
+                                <div class="panel__footer">
+                                    Panel Footer
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="grid-row">
+                        <div class="col">
+                            <h6><code>div.panel > .panel__heading + .panel__body</code></h6>
+                            <div class="panel">
+                                <div class="panel__heading">
+                                    Panel Header
+                                </div>
+                                <div class="panel__body">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda blanditiis, commodi consectetur cumque dolor dolore est exercitationem fuga hic itaque libero minima non nostrum perferendis, sint temporibus vero? Optio, voluptatibus.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <h6><code>div.panel > .panel__heading + .panel__footer</code></h6>
+                            <div class="panel">
+                                <div class="panel__heading">
+                                    Panel Header
+                                </div>
+                                <div class="panel__footer">
+                                    Panel Footer
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <h6><code>div.panel > .panel__heading + .panel__body + .panel__footer</code></h6>
+                            <div class="panel">
+                                <div class="panel__heading">
+                                    Panel Header
+                                </div>
+                                <div class="panel__body">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda blanditiis, commodi consectetur cumque dolor dolore est exercitationem fuga hic itaque libero minima non nostrum perferendis, sint temporibus vero? Optio, voluptatibus.
+                                </div>
+                                <div class="panel__footer">
+                                    Panel Footer
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testPage__section">
+                    <div class="grid-row">
+                        <div class="col">
+                            <h6><code>div.panel.panel--md</code></h6>
+                            <div class="panel panel--md">
+                                <div class="panel__heading">
+                                    Panel Heading
+                                </div>
+                                <div class="panel__body">
+                                    Lorem ipsum dolor sit amet
+                                </div>
+                                <div class="panel__footer">
+                                    Panel Footer
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <h6><code>div.simple-panel</code></h6>
+                            <div class="simple-panel">
+                                simple-panel text content
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <h6><code>div.panelSect</code></h6>
+                            <div class="panelSect">
+                                <div class="panel__heading">
+                                    Panel Heading
+                                </div>
+                                <div class="panel__body">
+                                    Lorem ipsum dolor sit amet
+                                    </div>
+                                <div class="panel__footer">
+                                    Panel Footer
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <h6><code>div.alert-block</code></h6>
+                            <div class="alert-block">
+                                <div class="panel__heading">
+                                    Panel Heading
+                                </div>
+                                <div class="panel__body">
+                                    Lorem ipsum dolor sit amet
+                                    </div>
+                                <div class="panel__footer">
+                                    Panel Footer
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col"></div>
+                    </div>
+                </div>
+            </div>
+        </li>
+
+        <!--.Buttons Container-->
+        <li class="">
+            <div class="collapsible-header">Buttons Container </div>
+            <div class="collapsible-body">
+                <div class="testPage__section">
+                    <div class="grid-row">
+                        <div class="col"><h6>.stack-x</h6>
+                            <div class="stack-x">
+                                <button class="btn btn--primary">Button</button>
+                                <button class="btn btn--primary">Button</button>
+                                <button class="btn btn--primary">Button</button>
+                            </div>
+                        </div>
+                        <div class="col-2"><h6>.stack-y</h6>
+                            <div class="stack-y">
+                                <button class="btn-block btn--primary">Button block</button>
+                                <button class="btn-block btn--primary">Button block</button>
+                                <button class="btn-block btn--primary">Button block</button>
+                            </div>
+                        </div>
+                        <div class="col-2"><h6>.stack-y--sm</h6>
+                            <div class="stack-y--sm">
+                                <button class="btn-block btn--primary">Button block</button>
+                                <button class="btn-block btn--primary">Button block</button>
+                                <button class="btn-block btn--primary">Button block</button>
+                            </div>
+                        </div>
+                        <div class="col"><h6>.btns-group</h6>
+                            <div class="btns-group">
+                                <button class="btn-block btn--primary">Button block</button>
+                                <button class="btn-block btn--primary">Button block</button>
+                                <button class="btn-block btn--primary">Button block</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testPage__section">
+                    <h6><code>.panel-box .panel-box--right</code></h6>
+                    <div class="panel-box panel-box--right">
+                        <div class="panel-box__item">
+                            <button class="btn btn--primary"><span>Webhook</span></button>
+                        </div>
+                        <div class="panel-box__item">
+                            <button class="btn btn--primary" id="add_custom_field_button"><span>Add Custom Field</span>
+                            </button>
+                        </div>
+                        <div class="panel-box__item">
+                            <button class="btn btn--primary" id="apply_change_button"><span>Apply Changes</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testPage__section">
+
+                </div>
+            </div>
+        </li>
+
+        <!--.FORM GROUPS-->
+        <li class="">
+            <div class="collapsible-header">form group</div>
+            <div class="collapsible-body">
+                <div class="testPage__section">
+
+                </div>
+                <div class="testPage__section">
+
+                </div>
+            </div>
+        </li>
+
+        <!--.OTHER-->
+        <li class="active">
+            <div class="collapsible-header">.gwt-PopupPanel</div>
+            <div class="collapsible-body">
+                <br>
+                <br>
+                <br>
+                <div class="testPage__section">
+                    <div class="gwt-PopupPanel">
+                        <div class="popupContent">
+                            Test
+                        </div>
+                    </div>
+                </div>
+                <div class="testPage__section">
+
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<!--JS LIBS-->
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>-->
+<script type="text/javascript" src="../WebContent/mainStyles/new-ui/js/jquery.min.js"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>-->
+<script type="text/javascript" src="../WebContent/mainStyles/new-ui/js/materialize-1.0.0.min.js"></script>
+<!--\ JS LIBS-->
+<!--CUSTOM SCRIPTS-->
+<script src="static-html-examples.js" defer></script>
+<!--\ CUSTOM SCRIPTS-->
+<!--CURRENT PAGE SCRIPT-->
+<script type="text/javascript">
+
+</script>
+<!--\CURRENT PAGE SCRIPT-->
+</body>
+</html>

@@ -1,0 +1,15 @@
+## Assessment rate notification for initiator
+## $assessment - EdsAssessment
+## $date - current date
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head><body><p>Дорогой $employeeAssessment.assessment.reviewer.getName(),</p>
+
+<p>Пожалуйста примите к сведению что Вы пересмотрели оценку производительности работника для $employeeAssessment.employee.getName() в $date, уведомление по электронной почте информирующее об оценке производительности было отправлено Вашему работнику.</p>
+
+<p>Работник может пересмотреть Ваши комментарии и оценки и вернуть из Вам. Как только работник завершит собственный обзор Вы получите уведомление по электронной почте.</p>
+<p>PDF версия оценки производительности работника прикреплена.</p>
+
+<p></p>
+</body></html>

@@ -1,0 +1,1 @@
+delete from "anv".rolepermission where permissioncode = 'SEND_INVOICE_TO_ZATCA';

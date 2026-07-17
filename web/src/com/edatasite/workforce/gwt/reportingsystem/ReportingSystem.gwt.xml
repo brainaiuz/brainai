@@ -1,0 +1,8 @@
+<module rename-to="reportingsystem">
+    <inherits name='com.edatasite.workforce.gwt.crm.CRMMain'/>
+    <inherits name='com.edatasite.workforce.gwt.reportingsystem.ReportingSystemMain'/>
+
+    <entry-point class='com.edatasite.workforce.gwt.reportingsystem.client.ReportingSystem'/>
+    <inherits name="com.edatasite.workforce.gwt.Localization_properties"></inherits>
+    <inherits name="com.google.gwt.user.Debug"/>
+</module>

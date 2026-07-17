@@ -1,0 +1,50 @@
+<div class="contentBar" style="padding:0 10px;margin-top:2px;">
+
+
+    <ul class="collapsible--panels collapsible--arrows-left collapsible collapsible--gwt required"
+        data-collapsible="expandable">
+
+        <li class="slideDown-box group active">
+            <div class="collapsible-header active"
+                 onclick="var myclick=this.parentElement;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls; } var myclick=this;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls; }">
+                <a style="cursor: pointer;">
+                    <span>$$label:BASIC_DETAILS$$</span>
+                </a>
+            </div>
+            <div class="collapsible-body">
+                <div class="grid-row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:MY_CSV_FILE_HAS_HEADERS$$</div>
+                            <div class="form-group__content">$$input:MY_CSV_FILE_HAS_HEADERS$$</div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:DUPLICATE$$</div>
+                            <div class="form-group__content">$$input:DUPLICATE$$</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:EMPLOYEE$$</div>
+                            <div class="form-group__content">$$input:EMPLOYEE$$</div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:DATE$$</div>
+                            <div class="form-group__content">$$input:DATE$$</div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:SALARY_AMOUNT$$</div>
+                            <div class="form-group__content">$$input:SALARY_AMOUNT$$</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>

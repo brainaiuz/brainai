@@ -1,0 +1,1284 @@
+/*** GENERIC STYLES ***/
+.bt_area * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.bt_area *:before,
+.bt_area *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.bt_area input,
+.bt_area button,
+.bt_area select,
+.bt_area textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+/*\ .bt_area*/
+
+.img-responsive {
+    display: block;
+    max-width: 100%;
+}
+
+.width-full {
+    width: 100%;
+}
+
+.strong {
+    font-weight: bold;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+.small {
+    font-size: 80%;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.margin-bottom {
+    margin-bottom: 20px;
+}
+
+/*** \ GENERIC STYLES ***/
+
+/*** WSP AREA LAYOUT ***/
+.wsp-area {
+}
+
+.wsp-area em {
+    font-style: italic;
+}
+
+.wsp-area a {
+    color: #595959;
+}
+
+.wsp-area a:hover,
+.wsp-area a:focus {
+    color: #595959;
+}
+
+.link-more {
+    display: inline-block;
+    margin-top: 15px;
+    font-size: 1.2em;
+}
+
+.link-more.right {
+    clear: right;
+}
+
+.wsp-profile-col {
+    float: left;
+    width: 25%;
+    min-width: 255px;
+    padding: 20px 0 20px 20px;
+}
+
+.wsp-widgets-col {
+    float: left;
+    width: 75%;
+}
+
+/*** \ WSP AREA LAYOUT ***/
+
+/*** COMMON WSP PANEL ***/
+.wsp-panel {
+    border: 1px solid #595959;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+.wsp-panel .panel-heading {
+    float: left;
+    width: 100%;
+    clear: both; /*?*/
+    padding: 4px 12px;
+    line-height: 20px;
+    font-size: 12px;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    background-color: #595959;
+    color: #fff;
+}
+
+.wsp-panel .panel-heading .pseudoSelect-wrapper {
+    max-width: 50%;
+}
+
+.wsp-panel .panel-heading .pseudoSelect {
+    border: none;
+    height: auto;
+    width: 100%;
+    cursor: pointer;
+    vertical-align: middle;
+    white-space: normal;
+    text-align: right;
+}
+
+.wsp-panel .panel-heading .pseudoSelect .curValue:after {
+    background: none;
+}
+
+.wsp-panel .panel-heading .pseudoSelect .curValue {
+    height: auto;
+    text-decoration: underline;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    white-space: normal;
+    color: #fff;
+}
+
+.wsp-panel .panel-heading .pseudoSelect .curValue:hover,
+.wsp-panel .panel-heading .pseudoSelect .curValue:focus {
+    box-shadow: none;
+
+    outline: none;
+}
+
+.wsp-panel .panel-heading .pseudoSelect ul {
+    right: -10px;
+    margin-top: 6px;
+}
+
+.wsp-panel .panel-heading .pseudoSelect ul > li {
+
+}
+
+.panel-heading .attendance-datepicker {
+    width: 57%;
+    color: #000;
+}
+
+.panel-heading .attendance-datepicker .gwt-TextBox {
+    width: 100%;
+    height: 20px;
+}
+
+.panel-heading:after,
+.panel-body:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.wsp-panel .panel-heading a {
+    color: #fff;
+}
+
+.wsp-panel .panel-heading h3 {
+    margin: 0;
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: normal;
+}
+
+.wsp-panel .panel-body {
+    clear: both;
+    padding: 10px 12px;
+}
+
+#hrms_dashboard .wsp-panel .panel-body:before {
+    display: block;
+}
+
+#hrms_dashboard .panel-body .filterPanel input[type="radio"],
+#hrms_dashboard .panel-body .filterPanel label {
+    font-weight: normal;
+    margin: 1px;
+}
+
+.wsp-panel .panel-body.paddings-free {
+    padding: 0;
+}
+
+.wsp-panel .panel-body .todolist-table-wrapper > table {
+    width: 100% !important;
+}
+
+.wsp-panel .panel-body .todolist-table {
+    width: 100%;
+}
+
+.wsp-panel .panel-body .todolist-table table.innerTable-style .task-name-popup {
+    border: none;
+    overflow: auto;
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    resize: none;
+}
+
+.text-line-through {
+    text-decoration: line-through !important;
+}
+
+.wsp-panel .panel-body .todolist-table table.innerTable-style .gwt-Label .text-line-through {
+    font-weight: normal !important;
+    color: #000 !important;
+    text-decoration: line-through !important;
+}
+
+.wsp-panel .panel-body .todolist-table table.innerTable-style .gwt-Label {
+    font-weight: normal !important;
+    color: #000 !important;
+}
+
+.wsp-panel .panel-body .todolist-table table.innerTable-style .toDoContent > div {
+    font-weight: normal !important;
+    color: #000 !important;
+}
+
+.wsp-panel .panel-body .todolist-table table.innerTable-style .toDoContent .chBox {
+    padding-right: 5px;
+}
+
+.wsp-panel .panel-body .todolist-table table.innerTable-style > tbody > tr > td .chBox {
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.wsp-panel .panel-body .todolist-table table.innerTable-style > tbody > tr > td .chBox img + input {
+    position: absolute;
+}
+
+.wsp-panel .todolist-table .innerTable-style {
+    width: 100%;
+    display: table !important;
+}
+
+.wsp-panel .todolist-table .innerTable-style + .innerTable-style {
+    border-top: 1px solid #DEDEDE;
+}
+
+.wsp-panel .todolist-table .innerTable-style > tbody > tr > td:first-child {
+    width: 30px;
+    vertical-align: middle !important;
+}
+
+.wsp-panel .todolist-table .innerTable-style > tbody > tr > td:last-child {
+    width: 30px;
+}
+
+.wsp-panel .todolist-table .innerTable-style .toDoContent {
+}
+
+.todo-list-add-row {
+
+}
+
+.todo-list-add-row-action {
+}
+
+.new-todo-list {
+    padding-top: 5px;
+}
+
+.wsp-panel .panel-body .scroll-y {
+    overflow-x: hidden;
+}
+
+/*** \ COMMON WSP PANEL ***/
+
+.wsp-panel .panel-body td.visual > img {
+    max-width: 100%;
+}
+
+/** employee-short-info **/
+.employee-short-info .visual {
+    float: left;
+    max-width: 80px;
+    margin-right: 15px;
+}
+
+.employee-short-info .visual > img {
+    max-width: 100%;
+}
+
+.no-img-profile {
+    width: 40px;
+    height: 40px;
+}
+
+.img-profile {
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 3px solid #595959;
+    width: 40px;
+    height: 40px;
+}
+
+.emp-birthday-img {
+    padding-right: 8px;
+}
+
+.emp-birthday-scroll {
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.emp-birthday-information {
+    border-bottom: 1px solid #BDBDBD;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+.emp-birthday-email {
+    white-space: nowrap;
+    word-wrap: break-word;
+}
+
+.notification-icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background: url(notification-icon.png) 0 0 no-repeat;
+}
+
+.employee-short-info .textual {
+    overflow: hidden;
+    font-size: 1.1em;
+}
+
+@media (max-width: 1024px) {
+    .employee-short-info .visual {
+        margin-right: 10px;
+    }
+
+    .employee-short-info .textual {
+        font-size: 0.9em;
+    }
+}
+
+.employee-short-info .textual > * + * {
+    margin-top: 10px;
+}
+
+.link-text-emulation,
+.wsp-area .link-text-emulation,
+.employee-short-info .textual .empl-email {
+    display: inline-block;
+    color: #000;
+    text-decoration: none;
+}
+
+/** \ employee-short-info **/
+
+/** wsp-list-actions **/
+/** -------- HRMS DASHBOARD ------------ **/
+.wsp-panel .panel-body .hrms-wsp-list-actions {
+    margin-top: -10px;
+    margin-bottom: -10px;
+    margin-left: -12px;
+    margin-right: -12px;
+}
+
+.hrms-wsp-list-actions > li {
+    padding: 1px 0;
+}
+
+.hrms-wsp-list-actions > li + li {
+    border-top: 1px solid #595959;
+}
+
+.hrms-wsp-list-actions > li:before {
+}
+
+.hrms-wsp-list-actions > li > a {
+    position: relative;
+    display: block;
+    padding: 6px 10px 6px 40px;
+    color: #000;
+    text-decoration: none;
+}
+
+.hrms-wsp-list-actions > li > a:hover,
+.hrms-wsp-list-actions > li > a:hover:before {
+    background-color: #f7f7f7;
+}
+
+.hrms-wsp-list-actions > li > a:before,
+.hrms-wsp-list-actions > li > a:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: -1px;
+    width: 39px;
+}
+
+.hrms-wsp-list-actions > li > a:before {
+    bottom: -1px;
+    background-color: #FFFFFF;
+}
+
+.hrms-wsp-list-actions > li > a:hover:before {
+    bottom: -1px;
+}
+
+.hrms-wsp-list-actions > li > a:after {
+    overflow: hidden;
+    height: 29px;
+    background-image: url("hrms-action-icons.png");
+    background-repeat: no-repeat;
+}
+
+.hrms-wsp-action-1 > a:after {
+    background-position: 12px 5px;
+}
+
+.hrms-wsp-action-2 > a:after {
+    background-position: 12px -24px;
+}
+
+.hrms-wsp-action-3 > a:after {
+    background-position: 12px -54px;
+}
+
+.hrms-wsp-action-4 > a:after {
+    background-position: 12px -85px;
+}
+
+.hrms-wsp-action-5 > a:after {
+    background-position: 12px -115px;
+}
+
+.hrms-wsp-action-6 > a:after {
+    background-position: 12px -145px;
+}
+
+.hrms-wsp-action-7 > a:after {
+    background-position: 12px -175px;
+}
+
+.hrms-wsp-action-8 > a:after {
+    background-position: 12px -204px;
+}
+
+.hrms-wsp-action-9 > a:after {
+    background-position: 12px -234px;
+}
+
+.hrms-wsp-action-10 > a:after {
+    background-position: 12px -264px;
+}
+
+.hrms-wsp-action-11 > a:after {
+    background-position: 12px -294px;
+}
+
+.hrms-wsp-action-12 > a:after {
+    background-position: 12px -324px;
+}
+
+.hrms-wsp-action-13 > a:after {
+    background-position: 12px -356px;
+}
+
+.hrms-wsp-action-14 > a:after {
+    background-position: 12px -384px;
+}
+
+/** -------- ACCOUNTING DASHBOARD ------------ **/
+.wsp-panel .panel-body .accounting-wsp-list-actions {
+    margin-top: -10px;
+    margin-bottom: -10px;
+    margin-left: -12px;
+    margin-right: -12px;
+}
+
+.accounting-wsp-list-actions > li {
+    padding: 1px 0;
+}
+
+.accounting-wsp-list-actions > li + li {
+    border-top: 1px solid #595959;
+}
+
+.accounting-wsp-list-actions > li:before {
+}
+
+.accounting-wsp-list-actions > li > a {
+    position: relative;
+    display: block;
+    padding: 6px 10px 6px 40px;
+    color: #000;
+    text-decoration: none;
+}
+
+.accounting-wsp-list-actions > li > a:hover,
+.accounting-wsp-list-actions > li > a:hover:before {
+    background-color: #f7f7f7;
+}
+
+.accounting-wsp-list-actions > li > a:before,
+.accounting-wsp-list-actions > li > a:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: -1px;
+    width: 39px;
+}
+
+.accounting-wsp-list-actions > li > a:before {
+    bottom: -1px;
+    background-color: #FFFFFF;
+}
+
+.accounting-wsp-list-actions > li > a:hover:before {
+    bottom: -1px;
+}
+
+.accounting-wsp-list-actions > li > a:after {
+    overflow: hidden;
+    height: 29px;
+    background-image: url("accounting-action-icons.png");
+    background-repeat: no-repeat;
+}
+
+.accounting-wsp-action-1 > a:after {
+    background-position: 12px 2px;
+}
+
+.accounting-wsp-action-2 > a:after {
+    background-position: 12px -28px;
+}
+
+.accounting-wsp-action-3 > a:after {
+    background-position: 12px -58px;
+}
+
+.accounting-wsp-action-4 > a:after {
+    background-position: 12px -88px;
+}
+
+.accounting-wsp-action-5 > a:after {
+    background-position: 12px -118px;
+}
+
+.accounting-wsp-action-6 > a:after {
+    background-position: 12px -148px;
+}
+
+.accounting-wsp-action-7 > a:after {
+    background-position: 12px -176px;
+}
+
+.accounting-wsp-action-8 > a:after {
+    background-position: 12px -207px;
+}
+
+.accounting-wsp-action-9 > a:after {
+    background-position: 12px -236px;
+}
+
+.accounting-wsp-action-10 > a:after {
+    background-position: 12px -268px;
+}
+
+.accounting-wsp-action-11 > a:after {
+    background-position: 12px -298px;
+}
+
+.accounting-wsp-action-12 > a:after {
+    background-position: 12px -328px;
+}
+
+.accounting-wsp-action-13 > a:after {
+    background-position: 12px -358px;
+}
+
+.accounting-wsp-action-14 > a:after {
+    background-position: 12px -386px;
+}
+
+.accounting-wsp-action-15 > a:after {
+    background-position: 12px -416px;
+}
+
+.accounting-wsp-action-16 > a:after {
+    background-position: 12px -447px;
+}
+
+.accounting-wsp-action-17 > a:after {
+    background-position: 12px -477px;
+}
+
+/** ACCOUNTING DASHBOARD END  **/
+
+/** \ wsp-list-actions **/
+
+/** table-timeslot **/
+.table-timeslot {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    font-size: 0.8em;
+}
+
+.table-timeslot > thead > tr > *,
+.table-timeslot > tbody > tr > * {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.table-timeslot > thead {
+}
+
+.table-timeslot > thead > tr > * {
+    padding-bottom: 6px;
+}
+
+.table-timeslot > thead > tr > * > span {
+    display: inline-block;
+    width: 28px;
+    line-height: 26px;
+    border: 1px solid #595959;
+    color: #595959;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    font-weight: bold;
+}
+
+@media (max-width: 1296px) {
+    .table-timeslot {
+        font-size: 0.8em;
+    }
+
+    .table-timeslot > tbody > tr > td {
+        padding: 4px 1px;
+    }
+
+    .table-timeslot > thead > tr > * {
+        padding: 0 0 6px;
+    }
+
+    .table-timeslot > thead > tr > * > span {
+        width: 25px;
+        line-height: 22px;
+        font-size: 0.9em;
+    }
+}
+
+.table-timeslot > tbody {
+}
+
+.table-timeslot > tbody > tr > * {
+    padding: 4px;
+    border: 1px solid #000;
+}
+
+.table-timeslot > tfoot > tr > * {
+    padding-top: 6px;
+    text-transform: uppercase;
+    font-style: italic;
+    font-weight: bold;
+}
+
+/** \ table-timeslot **/
+.panel-cell {
+    position: relative;
+}
+
+@media (min-width: 1124px) {
+    .panel-cells-cover {
+        display: table;
+        table-layout: fixed;
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 20px;
+    }
+
+    .panel-cells-row {
+        display: table-row;
+    }
+
+    .panel-cell {
+        display: table-cell;
+        vertical-align: top;
+    }
+
+    .row-trio .panel-cell {
+        width: 33%;
+    }
+
+    /*clearfix bug into the table*/
+    /*.panel-cells-cover > *:before,*/
+    .panel-cells-cover .panel-heading:after,
+    .panel-cells-cover .panel-body:after,
+    .panel-cells-cover .clearfix:after {
+        /* display: inline-block; */
+        display: block;
+        /*border-collapse: collapse;*/
+        /*border-spacing: 0;;*/
+    }
+}
+
+/*** \ panel-cells-cover TABLE LAYOUT ***/
+
+@media (max-width: 1123px) {
+    .wsp-widgets-col {
+        overflow: hidden;
+        float: none;
+        max-width: none;
+        padding-top: 20px;
+        padding-left: 20px;
+
+        padding-right: 20px;
+    }
+
+    .row-trio .panel-cell {
+        min-height: 247px;
+        width: 48%;
+        margin-bottom: 20px;
+    }
+
+    .panel-cells-cover .row-trio:first-child .panel-cell:nth-child(1),
+    .panel-cells-cover .row-trio:first-child .panel-cell:nth-child(3),
+    .panel-cells-cover .row-trio:nth-child(2) .panel-cell:nth-child(2),
+    .panel-cells-cover .row-trio:nth-child(3) .panel-cell:nth-child(1),
+    .panel-cells-cover .row-trio:nth-child(3) .panel-cell:nth-child(3),
+    .panel-cells-cover .row-trio:nth-child(4) .panel-cell:nth-child(2) {
+        float: left;
+        clear: left;
+    }
+
+    .panel-cells-cover .row-trio:first-child .panel-cell:nth-child(2),
+    .panel-cells-cover .row-trio:nth-child(2) .panel-cell:nth-child(1),
+    .panel-cells-cover .row-trio:nth-child(2) .panel-cell:nth-child(3),
+    .panel-cells-cover .row-trio:nth-child(3) .panel-cell:nth-child(2),
+    .panel-cells-cover .row-trio:nth-child(4) .panel-cell:nth-child(1),
+    .panel-cells-cover .row-trio:nth-child(4) .panel-cell:nth-child(3) {
+        float: right;
+        clear: right;
+    }
+
+    /*.row-trio .panel-cell:nth-child(n+2) {*/
+    /*float: right;*/
+    /*clear: right;*/
+    /*}*/
+}
+
+.wsp-notification + .wsp-notification {
+    margin-top: 15px;
+    float: left;
+    width: 100%;
+}
+
+.wsp-notification .visual > img {
+    max-width: 100%;
+}
+
+.wsp-notification .visual {
+    float: left;
+    /*width: 24px;*/
+}
+
+.wsp-notification .textual {
+    margin-left: 34px;
+}
+
+.wsp-notification .textual .description {
+    font-size: 1.2em;
+    font-style: italic;
+    color: #595959;
+}
+
+.wsp-notification .textual .date {
+    padding: 8px 0 2px;
+    border-bottom: 1px solid #bdbdbd;
+    text-align: right;
+    font-weight: bold;
+}
+
+/*** \ wsp-notification ***/
+
+.table {
+    width: 100%;
+    white-space: nowrap;
+    border-spacing: 0;
+}
+
+.table > thead > tr > *,
+.table > tbody > tr > * {
+    padding: 4px;
+    vertical-align: middle;
+}
+
+.table > thead > tr > *:first-child,
+.table > tbody > tr > *:first-child {
+    padding-left: 0;
+}
+
+.table > thead > tr > *:last-child,
+.table > tbody > tr > *:last-child {
+    padding-right: 0;
+}
+
+.table > thead > tr > * {
+    padding-bottom: 5px;
+    border-bottom: 1px solid #525252;
+}
+
+/*** \ .table ***/
+
+.table-documents > thead > tr > th {
+
+}
+
+.table-documents > tbody > tr > td {
+    padding-top: 8px;
+}
+
+.table-documents > tbody > tr + tr > td {
+    padding-top: 12px;
+}
+
+.table-documents > tbody > tr > td:last-child {
+    width: 73px;
+}
+
+.table-documents {
+}
+
+/*** \ .table-documents ***/
+
+.border-bottom,
+.wsp-contact {
+    border-bottom: 1px solid #bdbdbd;
+}
+
+.wsp-contact {
+    padding-bottom: 10px;
+}
+
+.wsp-contact + .wsp-contact {
+    margin-top: 12px;
+}
+
+/*.wsp-birthdays {}*/
+.wsp-birthdays .panel-body {
+    max-height: 220px;
+    padding-top: 5px;
+}
+
+.table.employee-birthday .visual {
+    width: 59px;
+    padding-right: 10px;
+}
+
+.table.employee-birthday .visual + td,
+.table.employee-birthday .visual + td + td {
+    border-bottom: 1px solid #bdbdbd;
+}
+
+.table.employee-birthday > tbody > tr > td:last-child {
+    text-align: right;
+}
+
+.table.employee-birthday h3 {
+    max-width: 119px;
+    font-weight: bold;
+    font-size: 1em;
+    white-space: normal;
+}
+
+/*** \ .wsp-birthdays ***/
+
+.wsp-panel .panel-body.table-holidays-cover {
+    padding-top: 2px;
+    padding-bottom: 0;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+.table-holidays {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 10px;
+}
+
+.table-holidays > tbody > tr > td {
+    width: 33%;
+    padding: 5px;
+    border: 1px solid #595959;
+    text-align: center;
+}
+
+.table-holidays > tbody > tr > td.active {
+    background-color: #595959;
+    color: #fff;
+}
+
+/*** \ .table-holidays ***/
+
+.wsp-list-docs > li + li {
+    margin-top: 12px;
+}
+
+/*** \ .wsp-list-docs ***/
+
+.icon-comments {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    background: url(comment-icon.png) 0 0 no-repeat;
+}
+
+.comments-informer > * {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.wsp-news-item + .wsp-news-item {
+    margin-top: 12px;
+}
+
+.wsp-news-item h3 {
+    font-size: 1.1em;
+    color: #595959;
+}
+
+.news-footer {
+    margin-top: 5px;
+    padding-top: 4px;
+    border-top: 1px solid #bdbdbd;
+}
+
+/*** \ .wsp-news-item ***/
+
+.btn-wsp {
+    background-color: #595959;
+    color: #fff;
+}
+
+.wsp-endservice-calc {
+    font-size: 1.2em;
+}
+
+.wsp-endservice-calc .form-calc .form-control {
+    display: block;
+    width: 100%;
+    height: 30px;
+    padding: 6px 8px;
+    font-size: 14px;
+}
+
+.wsp-endservice-calc .form-calc tfoot > tr > td {
+    padding-top: 37px;
+}
+
+.wsp-endservice-calc .btn-wsp {
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+/*** \ .wsp-endservice-calc ***/
+
+.icon-check {
+    display: inline-block;
+    width: 11px;
+    height: 10px;
+    background: url(../bg_icon-check.png) 50% 45% no-repeat;
+}
+
+.icon-trash {
+    display: inline-block;
+    width: 18px;
+    height: 20px;
+    background: url(delete.png) 0 0 no-repeat;
+}
+
+.todo-item + .todo-item {
+    margin-top: 15px;
+}
+
+.todo-item {
+    position: relative;
+    padding-left: 30px;
+}
+
+.todo-item input[type=checkbox] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 22px;
+    height: 22px;
+    /* margin-right: 5px; */
+    opacity: 0;
+}
+
+.todo-item label {
+}
+
+.todo-item label .textual {
+    display: block;
+    padding-top: 4px;
+}
+
+.todo-item label i {
+}
+
+.todo-item label .icon-check {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 22px;
+    height: 22px;
+    border: 1px solid #8f8f8f;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    background-color: #fff;
+    background-image: none;
+}
+
+.todo-item input[type=checkbox]:checked + label .textual {
+    text-decoration: line-through;
+}
+
+.todo-item input[type=checkbox]:checked + label .icon-check {
+    background-color: #595959;
+    background-image: url(../bg_icon-check.png);
+}
+
+.todo-item label .icon-trash {
+    float: right;
+    margin-left: 5px;
+}
+
+/*** \ .todo-item ***/
+
+.news-subject-link {
+    text-decoration: none;
+}
+
+.empty-message-panel {
+    padding-top: 50px;
+    text-align: center;
+}
+
+/*** MY ATTENDACE CHART */
+.chartRotate {
+    position: relative;
+    /* padding-left: 20px; */
+}
+
+.chartRotate .time-marker-start {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    margin-left: -16px;
+}
+
+.chartRotate .time-marker-end {
+    position: absolute;
+    bottom: 7px;
+    left: 50%;
+    margin-left: -16px;
+}
+
+.chartRotate .my-attendance-late-msg {
+    position: absolute;
+    /* z-index: 999; */
+    top: 50%;
+    margin-top: -12px;
+    width: 100%;
+    text-align: center;
+}
+
+.chartRotate .my-attendance-late-msg > div {
+    display: inline-block;
+    max-width: 80px;
+}
+
+.chartRotate div[dir="ltr"] {
+    /* max-height: 80px; */
+    width: auto !important;
+    text-align: center;
+}
+
+.chartRotate svg {
+    max-width: 144px;
+    max-height: 172px;
+    /* transform: rotate(-90deg); */
+    /*-moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);*/
+    overflow: visible !important;
+}
+
+.chartRotate svg:before {
+}
+
+.chartRotate svg rect {
+    position: relative;
+    y: 28px !important;
+    width: 144px;
+
+    height: 144px;
+    fill: transparent;
+}
+
+.chartRotate svg rect + g {
+    display: none;
+}
+
+.leave-request-chart [dir="ltr"] {
+    width: 100% !important;
+}
+
+.leave-request-chart svg {
+    /* width: 100%; */
+
+    max-width: 100%;
+}
+
+.leave-request-chart defs + rect {
+
+}
+
+.leave-request-chart rect + g rect {
+}
+
+/*** \ MY ATTENDACE CHART */
+.customize-widget-button {
+    background-image: url("../icon-wsp-cog.png");
+    background-repeat: no-repeat;
+    display: block;
+    width: 20px;
+    height: 20px;
+    float: right;
+}
+
+.customize-widget-main-content {
+    display: none !important;
+}
+
+.dropdown-wrapper {
+    position: relative;
+}
+
+.panel-heading.dropdown-wrapper .customize-widget-main-content {
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+}
+
+.panel-heading.dropdown-wrapper .customize-widget-main-content.right {
+    right: 0;
+}
+
+.customize-widget-main-content {
+    min-width: 170px;
+    border-bottom: 1px solid #d8d8d8;
+    background: #fff;
+    /* margin: 1px 0 0; */
+    padding: 0 5px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    -moz-box-shadow: 0 3px 9px 0 rgba(0, 0, 0, 0.6);
+    -webkit-box-shadow: 0 3px 9px 0 rgba(0, 0, 0, 0.6);
+    box-shadow: 0 3px 9px 0 rgba(0, 0, 0, 0.6);
+    background-color: #fff;
+    color: #000;
+    max-height: 300px;
+    overflow-x: hidden;
+}
+
+.customize-widget-main-content .customize-widget-button-panel {
+    margin-top: 10px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    border-top: 1px solid #000;
+}
+
+.widget-loading {
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    width: 31px;
+    height: 31px;
+    margin: -15px 0 0 -15px;
+}
+.widget-title {
+    font-weight: bold;
+    margin-top: -35px;
+    opacity: 0.8;
+    text-align: center;
+}
+.nowrap-text{
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    max-width: 100%;
+}
+.panel-body .gwt-SuggestBox{
+    height: 19px;
+    width: 78px !important;
+}
+
+.panel-body .simpleGwt-ComboBox{
+    height: 19px;
+}
+.panel-heading-short{
+    max-width: 46%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.regTable th{
+    font-weight: normal !important;
+}
+.table-3cols td:first-child {
+    width: 30%;
+}
+
+.table-3cols td:last-child {
+    width: 30%;
+}
+
+.table-3cols td + td {
+    width: 30%;
+}
+
+.table-2cols td:first-child {
+    width: 45%;
+}
+
+.table-2cols td:last-child {
+    width: 45%;
+}
+.up-icon{
+    background-image: url("../up.png");
+    background-repeat: no-repeat;
+    display: block;
+    width: 16px;
+    height: 16px;
+}
+.down-icon{
+    background-image: url("../down.png");
+    background-repeat: no-repeat;
+    display: block;
+    width: 16px;
+    height: 16px;
+}

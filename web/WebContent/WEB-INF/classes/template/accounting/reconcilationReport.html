@@ -1,0 +1,131 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style type="text/css">
+        body {
+            font-family: 'Arial', sans-serif;
+            font-size: 9pt;
+            line-height: 1.4;
+        }
+
+        .sales-invoice-table-pdf th {
+            border-bottom: 1px solid black;
+            font-size: 9pt;
+        }
+
+        .sales-invoice-table-pdf td {
+            border-bottom: 1px solid #ced5db;
+            font-size: 9pt;
+        }
+
+        .page-break {
+            display: inline-block ! important;
+            page-break-inside: auto ! important;
+        }
+
+        #sales-invoice__tmp * {
+            line-height: 1.4;
+        }
+
+        th, td {
+            padding: 4px;
+        }
+
+    </style>
+<body>
+<div id="body sales-invoice__tmp">
+
+    #set($balanceRow = $itextGenericPdfData.getCustomData().get("BALANCE").getRows())
+    #set($reconcilateRow = $itextGenericPdfData.getCustomData().get("RECONCILATE").getRows())
+    #set($table_view = $itextGenericPdfData.getCustomData().get("VIEW_TABLE").getHeader())
+    #set($table_viewRow = $itextGenericPdfData.getCustomData().get("VIEW_TABLE").getRows())
+    #set($totalRow = $itextGenericPdfData.getCustomData().get("TOTAL").getRows())
+    #set($balanceAtBankRow = $itextGenericPdfData.getCustomData().get("BALANCE_AT_BANK").getRows())
+
+    #set($nameLabel = $table_view.get('NAME'))
+    #set($dateLabel = $table_view.get('DATE'))
+    #set($descriptionLabel = $table_view.get('DESCRIPTION'))
+    #set($referenceLabel = $table_view.get('REFERENCE'))
+    #set($amountLabel = $table_view.get('AMOUNTS'))
+
+    <table width="100%" class="product-table sales-invoice-table-pdf" style=" table-layout: fixed;
+         font-size: 9pt; width:100%;" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <th width="35%" style="padding-left: 0; text-align: left; vertical-align: top;">$dateLabel</th>
+            <th width="40%" style="text-align: left; vertical-align: top;">$descriptionLabel</th>
+            <th width="25%" style="vertical-align: top; text-align: right;" align="right">$amountLabel</th>
+        </tr>
+
+        #foreach($row in $balanceRow)
+        <tr>
+            <td style="padding-left: 0; word-wrap:break-word;">$row.get('Date')</td>
+            <td style="word-wrap:break-word;">$row.get('DESCRIPTION')</td>
+            <td style="padding-right:0; word-wrap:break-word;" align="right">$row.get('AMOUNTS')</td>
+        </tr>
+        #end
+    </table>
+    <table width="100%" class="product-table sales-invoice-table-pdf" style=" table-layout: fixed;
+         font-size: 9pt; width:100%;" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <th width="50%" style="padding-left: 0; text-align: left; vertical-align: top;">$descriptionLabel</th>
+            <th width="50%" style="vertical-align: top; text-align: right;" align="right">$amountLabel</th>
+        </tr>
+        #foreach($row in $reconcilateRow)
+        <tr>
+            <td style="padding-left: 0; word-wrap:break-word;">$row.get('DESCRIPTION')</td>
+            <td style="padding-right:0; word-wrap:break-word;" align="right">$row.get('AMOUNTS')</td>
+        </tr>
+        #end
+    </table>
+    <table width="100%" class="product-table sales-invoice-table-pdf" style=" table-layout: fixed;
+         font-size: 9pt; width:100%;" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <th width="20%" style="padding-left: 0; text-align: left; vertical-align: top;">$nameLabel</th>
+            <th width="15%" style="text-align: left; vertical-align: top;">$dateLabel</th>
+            <th width="25%" style="text-align: left; vertical-align: top;">$descriptionLabel</th>
+            <th width="20%" style="text-align: left; vertical-align: top;">$referenceLabel</th>
+            <th width="20%" style="vertical-align: top; text-align: right;" align="right">$amountLabel</th>
+        </tr>
+        #foreach($row in $table_viewRow)
+        <tr>
+            <td style="padding-left: 0; word-wrap:break-word;">$row.get('NAME')</td>
+            <td style="word-wrap:break-word;">$row.get('DATE')</td>
+            <td style="word-wrap:break-word;">$row.get('DESCRIPTION')</td>
+            <td style="word-wrap:break-word;">$row.get('REFERENCE')</td>
+            <td style="padding-right:0; word-wrap:break-word;" align="right">$row.get('AMOUNTS')</td>
+        </tr>
+        #end
+    </table>
+    <table width="100%" class="product-table sales-invoice-table-pdf" style=" table-layout: fixed;
+         font-size: 9pt; width:100%;" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <th width="50%" style="padding-left: 0; text-align: left; vertical-align: top;">$nameLabel</th>
+            <th width="50%" style="vertical-align: top; text-align: right;" align="right">$amountLabel</th>
+        </tr>
+        #foreach($row in $totalRow)
+        <tr>
+            <td style="padding-left: 0; word-wrap:break-word;">$row.get('NAME')</td>
+            <td style="padding-right:0; word-wrap:break-word;" align="right">$row.get('AMOUNTS')</td>
+        </tr>
+        #end
+    </table>
+
+    <table width="100%" class="product-table sales-invoice-table-pdf" style=" table-layout: fixed;
+         font-size: 9pt; width:100%;" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <th width="35%" style="padding-left: 0; text-align: left; vertical-align: top;">$dateLabel</th>
+            <th width="40%" style="text-align: left; vertical-align: top;">$descriptionLabel</th>
+            <th width="25%" style="vertical-align: top; text-align: right;" align="right">$amountLabel</th>
+        </tr>
+        #foreach($row in $balanceAtBankRow)
+        <tr>
+            <td style="padding-left: 0; word-wrap:break-word;">$row.get('Date')</td>
+            <td style="word-wrap:break-word;">$row.get('DESCRIPTION')</td>
+            <td style="padding-right:0; word-wrap:break-word;" align="right">$row.get('AMOUNTS')</td>
+        </tr>
+        #end
+    </table>
+</div>
+</body>
+</head>
+</html>

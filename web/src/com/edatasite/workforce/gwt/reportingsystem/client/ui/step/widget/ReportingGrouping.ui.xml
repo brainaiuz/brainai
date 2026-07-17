@@ -1,0 +1,39 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:w='urn:import:com.edatasite.workforce.gwt.core.client.ui'
+             xmlns:mh="urn:import:gwt.material.design.client.ui.html"
+        >
+    <g:HTMLPanel styleName="row">
+
+
+        <div id="customReport_tab_2" class="tab-pane active">
+            <div class="customReport_tab_2__rows">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <mh:Div styleName="input-group-text" ui:field="summarizeByLabel"></mh:Div>
+                    </div>
+                    <w:DataListBox ui:field="group11" styleName="form-control"/>
+                    <w:DataListBox ui:field="group12" styleName="form-control"/>
+                    <w:DataListBox ui:field="group13" styleName="form-control"/>
+                </div>
+                <div class="input-group" style="">
+                    <div class="input-group-prepend">
+                        <mh:Div styleName="input-group-text" ui:field="andThenByLabel1"></mh:Div>
+
+                    </div>
+                    <w:DataListBox ui:field="group21" styleName="form-control"/>
+                    <w:DataListBox ui:field="group22" styleName="form-control"/>
+                    <w:DataListBox ui:field="group23" styleName="form-control"/>
+                </div>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <mh:Div styleName="input-group-text" ui:field="andThenByLabel2"></mh:Div>
+                    </div>
+                    <w:DataListBox ui:field="group31" styleName="form-control"/>
+                    <w:DataListBox ui:field="group32" styleName="form-control"/>
+                    <w:DataListBox ui:field="group33" styleName="form-control"/>
+                </div>
+            </div>
+        </div>
+    </g:HTMLPanel>
+</ui:UiBinder>

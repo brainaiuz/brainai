@@ -1,0 +1,680 @@
+@font-face {
+  font-family: 'icomoon';
+  src: url('#{$fonticons-font-path}icomoon.eot');
+  src: url('#{$fonticons-font-path}icomoon.eot') format('embedded-opentype'),
+  url('#{$fonticons-font-path}icomoon.ttf') format('truetype'),
+  url('#{$fonticons-font-path}icomoon.woff') format('woff'),
+  url('#{$fonticons-font-path}icomoon.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.ficon--,
+[class^="ficon--"], [class*=" ficon--"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class*="ficon--"]:before,
+[class*="ficon--"] + :not(.dropdown-content, .btn, .btn--icon) {
+  display: inline-block;
+  line-height: 1;
+}
+
+[class*="ficon--"].material-icons {
+  //font-size: inherit;
+}
+
+// CHANGEABLE CLASSES
+.ficon--googledrive:before {
+  content: "\e978";
+}
+
+.ficon--lock:before {
+  content: "\e975";
+}
+
+.ficon--file-background:before {
+  content: "\e973";
+}
+
+.ficon--file-lines:before {
+  content: "\e974";
+}
+
+.ficon--mute:before {
+  content: "\e971";
+}
+
+.ficon--sms:before {
+  content: "\e96e";
+}
+
+.ficon--calendar2:before {
+  content: "\e96f";
+}
+
+.ficon--info2:before {
+  content: "\e970";
+}
+
+.ficon--check-circle:before {
+  content: "\e96d";
+}
+
+.ficon--minimize-bold:before {
+  content: "\e96c";
+}
+
+.ficon--paid:before {
+  content: "\e963";
+}
+
+.ficon--report-favorit:before {
+  content: "\e964";
+}
+
+.ficon--report-favorite:before {
+  content: "\e964";
+}
+
+.ficon--report-recruitment:before {
+  content: "\e965";
+}
+
+.ficon--report-timesheet:before {
+  content: "\e966";
+}
+
+.ficon--report-task:before {
+  content: "\e967";
+}
+
+.ficon--report-projects:before {
+  content: "\e968";
+}
+
+.ficon--report-leave-requests:before {
+  content: "\e969";
+}
+
+.ficon--report-issues:before {
+  content: "\e96a";
+}
+
+.ficon--report-employee-details:before {
+  content: "\e96b";
+}
+
+.ficon--completed:before {
+  content: "\e929";
+}
+
+.ficon--approved:before {
+  content: "\e929";
+}
+
+.ficon--recieved:before {
+  content: "\e929";
+}
+
+.ficon--check-double:before {
+  content: "\e929";
+}
+
+.ficon--converted:before {
+  content: "\e95a";
+}
+
+.ficon--assigned:before {
+  content: "\e95c";
+}
+
+.ficon--user-check:before {
+  content: "\e95c";
+}
+
+.ficon--terminated:before {
+  content: "\e95d";
+}
+
+.ficon--rejected:before {
+  content: "\e95d";
+}
+
+.ficon--thumb-down:before {
+  content: "\e95d";
+}
+
+.ficon--edited:before {
+  content: "\e95e";
+}
+
+.ficon--import:before {
+  content: "\e95f";
+}
+
+.ficon--uploaded:before {
+  content: "\e960";
+}
+
+.ficon--submited:before {
+  content: "\e961";
+}
+
+.ficon--waiting:before {
+  content: "\e961";
+}
+
+.ficon--phone2:before {
+  content: "\e956";
+}
+
+.ficon--at:before {
+  content: "\e957";
+}
+
+.ficon--report-focus-oncustomer:before {
+  content: "\e953";
+}
+
+.ficon--report-custom:before {
+  content: "\e954";
+}
+
+.ficon--report-tax:before {
+  content: "\e955";
+}
+
+.ficon--report-fin-statement:before {
+  content: "\e952";
+}
+
+.ficon--reset:before {
+  content: "\e951";
+}
+
+.ficon--plus-lg:before {
+  content: "\e94d";
+}
+
+.ficon--view-kanban:before {
+  content: "\e94e";
+}
+
+.ficon--view-list:before {
+  content: "\e94f";
+}
+
+.ficon--org-chart:before {
+  content: "\e950";
+}
+
+.ficon--file-csv:before {
+  content: "\e942";
+}
+
+.ficon--star:before {
+  content: "\e93f";
+}
+
+.ficon--mask-trapeze:before {
+  content: "\e93a";
+}
+
+.ficon--office365:before {
+  content: "\e935";
+}
+
+.ficon--calc:before {
+  content: "\e92a";
+}
+
+.ficon--wallet-bold:before {
+  content: "\e904";
+}
+
+.ficon--bar-chart-bold:before {
+  content: "\e905";
+}
+
+.ficon--users-bold:before {
+  content: "\e906";
+}
+
+.ficon--user-bold:before {
+  content: "\e906";
+}
+
+.ficon--server-bold:before {
+  content: "\e907";
+}
+
+.ficon--projects-bold:before {
+  content: "\e907";
+}
+
+.ficon--folder-bold:before {
+  content: "\e908";
+}
+
+.ficon--flag-bold:before {
+  content: "\e90c";
+}
+
+.ficon--flag:before {
+  content: "\e90c";
+}
+
+.ficon--menu-thin:before {
+  content: "\e91f";
+}
+
+.ficon--filter-bold:before {
+  content: "\e91a";
+}
+
+.ficon--check-thin:before {
+  content: "\e917";
+}
+
+.ficon--camera:before {
+  content: "\e915";
+}
+
+.ficon--bell:before {
+  content: "\e900";
+}
+
+.ficon--trial:before {
+  content: "\e901";
+}
+
+.ficon--check:before {
+  content: "\e902";
+}
+
+.ficon--list-open:before {
+  content: "\e903";
+}
+
+.ficon--settings:before {
+  content: "\e90a";
+}
+
+.ficon--edit:before {
+  content: "\e90b";
+}
+
+.ficon--settings-bold:before {
+  content: "\e90d";
+}
+
+.ficon--customize:before {
+  content: "\e90d";
+}
+
+.ficon--dashboard:before {
+  content: "\e90f";
+}
+
+.ficon--layout:before {
+  content: "\e90f";
+}
+
+.ficon--calendar:before {
+  content: "\e910";
+}
+
+.ficon--download-cloud:before {
+  content: "\e936";
+}
+
+.ficon--tag-down:before {
+  content: "\e937";
+}
+
+.ficon--order-accending:before {
+  content: "\e938";
+}
+
+.ficon--trash:before {
+  content: "\e939";
+}
+
+.ficon--file-excel:before {
+  content: "\e923";
+  color: #217346;
+}
+
+.ficon--file-outlook:before {
+  content: "\e924";
+  color: #0072c6;
+}
+
+.ficon--file-pp:before {
+  content: "\e925";
+  color: #d24726;
+}
+
+.ficon--file-word:before {
+  content: "\e926";
+  color: #2b579a;
+}
+
+.ficon--file-plus:before {
+  content: "\e909";
+}
+
+.ficon--log-in:before {
+  content: "\e90e";
+}
+
+.ficon--upload-cloud:before {
+  content: "\e976";
+}
+
+.ficon--eye:before {
+  content: "\e972";
+}
+
+.ficon--users:before {
+  content: "\e95b";
+}
+
+.ficon--copy:before {
+  content: "\e962";
+}
+
+.ficon--remove-circle:before {
+  content: "\e958";
+}
+
+.ficon--add-circle:before {
+  content: "\e959";
+}
+
+.ficon--timer:before {
+  content: "\e94c";
+}
+
+.ficon--textsms:before {
+  content: "\e93c";
+}
+
+.ficon--phone:before {
+  content: "\e93b";
+}
+
+.ficon--chevrons-right:before {
+  content: "\e930";
+}
+
+.ficon--chevrons-left:before {
+  content: "\e932";
+}
+
+.ficon--chevron-right:before {
+  content: "\e933";
+}
+
+.ficon--chevron-left:before {
+  content: "\e934";
+}
+
+.ficon--download:before {
+  content: "\e931";
+}
+
+.ficon--arrow-right:before {
+  content: "\e92d";
+}
+
+.ficon--sent:before {
+  content: "\e92d";
+}
+
+.ficon--arrow-left:before {
+  content: "\e92e";
+}
+
+.ficon--refunded:before {
+  content: "\e92e";
+}
+
+.ficon--minus:before {
+  content: "\e92b";
+}
+
+.ficon--plus:before {
+  content: "\e92c";
+}
+
+.ficon--plus-circle:before {
+  content: "\e927";
+}
+
+.ficon--minus-circle:before {
+  content: "\e928";
+}
+
+.ficon--repeat:before {
+  content: "\e922";
+}
+
+.ficon--filter:before {
+  content: "\e920";
+}
+
+.ficon--search:before {
+  content: "\e921";
+}
+
+.ficon--save:before {
+  content: "\e91e";
+}
+
+.ficon--menu:before {
+  content: "\e91d";
+}
+
+.ficon--close:before {
+  content: "\e91b";
+}
+
+.ficon--cancel:before {
+  content: "\e91c";
+}
+
+.ficon--unfold-more:before {
+  content: "\e919";
+}
+
+.ficon--mail-outline:before {
+  content: "\e918";
+}
+
+.ficon--keyboard-backspace:before {
+  content: "\e916";
+}
+
+.ficon--keyboard-arrow-up:before {
+  content: "\e913";
+}
+
+.ficon--keyboard-arrow-right:before {
+  content: "\e914";
+}
+
+.ficon--keyboard-arrow-down:before {
+  content: "\e912";
+}
+
+.ficon--info:before {
+  content: "\e911";
+}
+
+.ficon--file-html:before {
+  content: "\e944";
+}
+
+.ficon--file-txt:before {
+  content: "\e943";
+}
+
+.ficon--file-vcard:before {
+  content: "\e941";
+}
+
+.ficon--equalizer:before {
+  content: "\e93e";
+}
+
+.ficon--inbox:before {
+  content: "\e94b";
+}
+
+.ficon--drawer:before {
+  content: "\e94b";
+}
+
+.ficon--globe:before {
+  content: "\e94a";
+}
+
+.ficon--file-audio:before {
+  content: "\e945";
+}
+
+.ficon--file-video:before {
+  content: "\e946";
+}
+
+.ficon--file-zip:before {
+  content: "\e947";
+}
+
+.ficon--file-text:before {
+  content: "\e948";
+}
+
+.ficon--mail:before {
+  content: "\e92f";
+}
+
+.ficon--attachment:before {
+  content: "\e9cd";
+}
+
+.ficon--play:before {
+  content: "\ea1c";
+}
+
+.ficon--eject:before {
+  content: "\ea25";
+}
+
+.ficon--file-pdf:before {
+  content: "\eadf";
+}
+
+.ficon--file-code-o:before {
+  content: "\e949";
+}
+
+.ficon--toggle-on:before {
+  content: "\e940";
+}
+
+.ficon--file-img:before {
+  content: "\e93d";
+}
+
+// \ CHANGEABLE CLASSES
+
+//CUSTOM not from icomoon
+.ficon--tag-up:before {
+  @extend .ficon--tag-down:before;
+  transform: rotate(180deg);
+}
+
+.btn .ficon--check:before {
+  @extend .ficon--check-thin:before;
+}
+
+.ficon--more-horiz:before {
+  content: "\2022 \2022 \2022";
+}
+
+.ficon--more-vert:before {
+  content: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIHdpZHRoPSI4cHgiIGhlaWdodD0iMTJweCIgdmlld0JveD0iMCAwIDggMTIiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+ICAgICAgICA8dGl0bGU+bWVudS0xIGNvcHk8L3RpdGxlPiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4gICAgPGcgaWQ9IlBhZ2UtMSIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+ICAgICAgICA8ZyBpZD0iU2FsZXMtT3JkZXItQ29weS00IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtOTAuMDAwMDAwLCAtNDQ4LjAwMDAwMCkiIGZpbGw9IiMyRDNBNDUiIGZpbGwtcnVsZT0ibm9uemVybyI+ICAgICAgICAgICAgPHBhdGggZD0iTTkyLDQ0OCBDOTIuODAyNzgyMyw0NDggOTMuNDU4MjY1MSw0NDguNjc1MTI3IDkzLjQ1ODI2NTEsNDQ5LjUwNzYxNCBDOTMuNDU4MjY1MSw0NTAuMzQwMTAyIDkyLjgwNTIzNzMsNDUxLjAxNTIyOCA5Miw0NTEuMDE1MjI4IEM5MS4xOTQ3NjI3LDQ1MS4wMTUyMjggOTAuNTQxNzM0OSw0NTAuMzQwMTAyIDkwLjU0MTczNDksNDQ5LjUwNzYxNCBDOTAuNTQxNzM0OSw0NDguNjc1MTI3IDkxLjE5NzIxNzcsNDQ4IDkyLDQ0OCBaIE05Ni41NDE3MzQ5LDQ0OCBDOTcuMzQ0NTE3Miw0NDggOTgsNDQ4LjY3NTEyNyA5OCw0NDkuNTA3NjE0IEM5OCw0NTAuMzQwMTAyIDk3LjM0Njk3MjIsNDUxLjAxNTIyOCA5Ni41NDE3MzQ5LDQ1MS4wMTUyMjggQzk1LjczNjQ5NzUsNDUxLjAxNTIyOCA5NS4wODM0Njk3LDQ1MC4zNDAxMDIgOTUuMDgzNDY5Nyw0NDkuNTA3NjE0IEM5NS4wODM0Njk3LDQ0OC42NzUxMjcgOTUuNzM4OTUyNSw0NDggOTYuNTQxNzM0OSw0NDggWiBNOTIsNDUyLjQ5MjM4NiBDOTIuODAyNzgyMyw0NTIuNDkyMzg2IDkzLjQ1ODI2NTEsNDUzLjE2NzUxMyA5My40NTgyNjUxLDQ1NCBDOTMuNDU4MjY1MSw0NTQuODMyNDg3IDkyLjgwNTIzNzMsNDU1LjUwNzYxNCA5Miw0NTUuNTA3NjE0IEM5MS4xOTQ3NjI3LDQ1NS41MDc2MTQgOTAuNTQxNzM0OSw0NTQuODMyNDg3IDkwLjU0MTczNDksNDU0IEM5MC41NDE3MzQ5LDQ1My4xNjc1MTMgOTEuMTk3MjE3Nyw0NTIuNDkyMzg2IDkyLDQ1Mi40OTIzODYgWiBNOTYuNTQxNzM0OSw0NTIuNDkyMzg2IEM5Ny4zNDQ1MTcyLDQ1Mi40OTIzODYgOTgsNDUzLjE2NzUxMyA5OCw0NTQgQzk4LDQ1NC44MzI0ODcgOTcuMzQ2OTcyMiw0NTUuNTA3NjE0IDk2LjU0MTczNDksNDU1LjUwNzYxNCBDOTUuNzM2NDk3NSw0NTUuNTA3NjE0IDk1LjA4MzQ2OTcsNDU0LjgzMjQ4NyA5NS4wODM0Njk3LDQ1NCBDOTUuMDgzNDY5Nyw0NTMuMTY3NTEzIDk1LjczODk1MjUsNDUyLjQ5MjM4NiA5Ni41NDE3MzQ5LDQ1Mi40OTIzODYgWiBNOTIsNDU2Ljk4NDc3MiBDOTIuODAyNzgyMyw0NTYuOTg0NzcyIDkzLjQ1ODI2NTEsNDU3LjY2MjQzNyA5My40NTgyNjUxLDQ1OC40OTIzODYgQzkzLjQ1ODI2NTEsNDU5LjMyNDg3MyA5Mi44MDUyMzczLDQ2MCA5Miw0NjAgQzkxLjE5NDc2MjcsNDYwIDkwLjU0MTczNDksNDU5LjMyMjMzNSA5MC41NDE3MzQ5LDQ1OC40OTIzODYgQzkwLjU0MTczNDksNDU3LjY1OTg5OCA5MS4xOTcyMTc3LDQ1Ni45ODQ3NzIgOTIsNDU2Ljk4NDc3MiBaIE05Ni41NDE3MzQ5LDQ1Ni45ODQ3NzIgQzk3LjM0NDUxNzIsNDU2Ljk4NDc3MiA5OCw0NTcuNjYyNDM3IDk4LDQ1OC40OTIzODYgQzk4LDQ1OS4zMjQ4NzMgOTcuMzQ2OTcyMiw0NjAgOTYuNTQxNzM0OSw0NjAgQzk1LjczNjQ5NzUsNDYwIDk1LjA4MzQ2OTcsNDU5LjMyMjMzNSA5NS4wODM0Njk3LDQ1OC40OTIzODYgQzk1LjA4MzQ2OTcsNDU3LjY1OTg5OCA5NS43Mzg5NTI1LDQ1Ni45ODQ3NzIgOTYuNTQxNzM0OSw0NTYuOTg0NzcyIFoiIGlkPSJtZW51LTEtY29weSI+PC9wYXRoPiAgICAgICAgPC9nPiAgICA8L2c+PC9zdmc+);
+}
+
+.ficon--exclamation:before {
+  content: "\0021";
+}
+
+.ficon--order-descending:before {
+  @extend .ficon--order-accending:before;
+  transform: scaleX(-1);
+}
+
+.menu-bar .ficon--file-pdf:before {
+  color: #f00;
+}
+
+.ficon--upload:before {
+  @extend .ficon--download:before;
+  transform: rotate(180deg);
+}
+
+.ficon--equalizer {
+  transform: rotate(90deg);
+}
+
+// SPLIT ICONS
+[class^="ficon--"].ficon-shared {
+  position: relative;
+  &:after {
+    @extend .ficon--;
+    @extend .ficon--globe:before;
+    font-size: .5em;
+    color: #028bff;
+    color: #659bc8;
+    position: absolute;
+    z-index: 2;
+    top: -0.4em;
+    left: -0.4em;
+    background-color: #fff;
+    border-radius: 50%;
+    //text-shadow: 3px 3px 0 #028bff, -1px -1px 0 #028bff, 1px -1px 0 #028bff, -1px 1px 0 #028bff, 1px 1px 0 #028bff;
+    //-webkit-text-stroke: 1px #028bff;
+  }
+}
+
+.ficon--file-text2 {
+  position: relative;
+  &:before {
+    @extend .ficon--file-background:before;
+    color: $gray-new-light;
+  }
+  &:after {
+    @extend .ficon--file-lines:before;
+    position: absolute;
+    top: 0.6em;
+    left: 0.3em;
+    font-size: 0.5em;
+  }
+}
+
+// \ SPLIT ICONS

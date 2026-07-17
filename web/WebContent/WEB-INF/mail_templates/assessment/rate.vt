@@ -1,0 +1,14 @@
+## Assessment rate notification
+## $assessment - EdsAssessment
+## $date - current date
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head><body><p>Dear $employeeAssessment.employee.getName(),</p>
+<p>Please be advised that $employeeAssessment.assessment.reviewer.getName() has initiated an employee appraisal for you on $initDate. This appraisal has been reviewed by $employeeAssessment.assessment.reviewer.getName() on $date.</p>
+<p>You can review your appraisal, your manager's comments and rates and provide your own comments. If you have already done the self review then you have the opportunity to revise your comments and view the manager's review.</p>
+<p>The PDF version of the employee appraisal is attached for your attention.</p>
+<p>Click  <a href="$host/Hrms.html?link=$link" title="Review assessment" target="_blank">here</a> to review the appraisal.</p>
+<p>* If you are not able to click on the link, you can copy and paste the following address into your web browser:</p>
+<p><a href="$host/Hrms.html?link=$link" title="Review assessment" target="_blank">$host/Hrms.html?link=$link</a></p>
+</body></html>

@@ -1,0 +1,1 @@
+update defaultlayout set editform = true where formid ='COMPETENCY_FORM';

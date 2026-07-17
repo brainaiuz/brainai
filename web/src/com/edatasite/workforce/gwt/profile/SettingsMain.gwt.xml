@@ -1,0 +1,17 @@
+<module>
+    <inherits name='com.edatasite.workforce.gwt.core.Core'/>
+    <inherits name='com.edatasite.workforce.gwt.invoice.Invoice'/>
+    <inherits name='com.edatasite.workforce.gwt.accounting.AccountingMain'/>
+    <inherits name='com.edatasite.workforce.gwt.modulesettings.ModuleSettingsEmpty'/>
+    <inherits name='com.edatasite.workforce.gwt.payroll.PayrollMain'/>
+
+    <inherits name='com.edatasite.workforce.gwt.availability.AvailabilityMain'/>
+    <inherits name="com.edatasite.workforce.gwt.employee.Employee"/>
+    <inherits name="com.edatasite.workforce.gwt.issue.Issue"/>
+    <inherits name="com.edatasite.workforce.gwt.chart.Chart"/>
+    <inherits name="com.edatasite.workforce.gwt.location.Location"/>
+    <inherits name='com.edatasite.workforce.gwt.dashboardwidget.DashboardWidget'/>
+    <inherits name='com.edatasite.workforce.gwt.crm.CRMMain'/>
+    <inherits name='com.edatasite.workforce.gwt.contactcategory.ContactCategory'/>
+    <inherits name="com.edatasite.workforce.gwt.assessment.AssessmentEmpty"/>
+</module>

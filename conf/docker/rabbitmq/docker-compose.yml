@@ -1,0 +1,21 @@
+services:
+  kpi-rabbitmq:
+    extends:
+      file: compose.yml
+      service: rabbitmq
+    volumes:
+      - ./etc/definitions.json:/etc/rabbitmq/definitions.json:${VOLUME_SUFFIX:-ro}
+      - ./etc/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf:${VOLUME_SUFFIX:-ro}
+      - kpi-rabbitmq-data:/var/lib/rabbitmq/mnesia/rabbit@kpi-rabbitmq
+    networks:
+      - kpi-network
+
+volumes:
+  kpi-rabbitmq-data:
+    name: kpi-rabbitmq-data
+
+networks:
+  kpi-network:
+    name: kpi-network
+    driver: bridge
+    external: true

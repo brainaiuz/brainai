@@ -1,0 +1,491 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui' xmlns:components="urn:import:com.edatasite.workforce.gwt.core.client.ui.components"
+>
+    <ui:style>
+        .btn-group {
+            margin-bottom: 10px;
+        }
+
+    </ui:style>
+    <g:HTMLPanel>
+
+        <!--<div id="contentPlace" class="clear-block">-->
+        <div id="content" class="full-main">
+            <div id="main">
+                <div class="container-fluid myaccounting-pricing">
+                    <section>
+                        <article class="articleContent">
+                            <!--upgrade pay - begin-->
+                            <g:HTMLPanel addStyleNames="packFormWrap" ui:field="header">
+                                <g:HTMLPanel addStyleNames="pay-now-style12" ui:field="headerDIV"/>
+                            </g:HTMLPanel>
+                            <g:HorizontalPanel ui:field="testPanel" visible="false"/>
+                            <!--upgrade pay - end-->
+                            <!--new pricing package section - begin-->
+                            <h1 class="page_title" ui:field="pricingPackagesHeader"></h1>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h5 class="planSubTitle">CHOOSE ONE OF THE OFFERED BUNDLES OR
+                                        <a href="#customize">CUSTOMISE</a>
+                                        YOUR OWN SUBSCRIPTION PLAN
+                                    </h5>
+                                    <h1 class="planSubTitle" ui:field="smartBundlesTitle"></h1>
+                                </div>
+                            </div>
+                            <!--&lt;!&ndash;Smart Bundles' table - begin&ndash;&gt; -->
+                            <div id="hhh" class="bundlesFields row" style="overflow: visible;">
+                                <div class="columns column1">
+                                    <div class="insideColumn">
+                                        <div class="planHeaderName" ui:field="smartBundlesHeader1"></div>
+                                        <div class="planPriceField">
+                                            <h3 class="price" ui:field="smartBundlesRowNumber1"></h3>
+                                            <h3 class="priceType" ui:field="smartBundlesRowCost1"></h3>
+                                            <h3 class="priceType">(Billed Annually)</h3>
+                                        </div>
+                                        <div class="planAttributesField">
+                                            <ul class="planAttributes">
+                                                <li>Up to 2 Users</li>
+                                                <li>All Apps</li>
+                                            </ul>
+                                            <div class="btn-group {style.btn-group}">
+                                                <button type="button" ui:field="miniPackage"
+                                                        class="btn btn-primary btn-contact-trial-new dropdown-toggle col-md-12" data-toggle="dropdown" aria-expanded="false"></button>
+                                                <ul class="dropdown-menu" role="menu">
+                                                    <li>
+                                                        <g:Anchor ui:field="miniPackagePayPal">Paypal</g:Anchor>
+                                                    </li>
+                                                    <li>
+                                                        <g:Anchor ui:field="miniPackageWorldPay" visible="false">WorldPay</g:Anchor>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="columns column2">
+                                    <div class="insideColumn">
+                                        <div class="planHeaderName" ui:field="smartBundlesHeader2"/>
+                                        <div class="planPriceField">
+                                            <h3 class="price" ui:field="smartBundlesRowNumber2"/>
+                                            <h3 class="priceType" ui:field="smartBundlesRowCost2"/>
+                                            <h3 class="priceType">(Billed Annually)</h3>
+                                        </div>
+                                        <div class="planAttributesField">
+                                            <ul class="planAttributes">
+                                                <li>Up to 5 Users</li>
+                                                <li>All Apps</li>
+                                            </ul>
+
+                                            <div class="btn-group {style.btn-group}">
+                                                <button type="button" ui:field="smallPackage"
+                                                        class="btn btn-primary btn-contact-trial-new dropdown-toggle col-md-12" data-toggle="dropdown" aria-expanded="false"></button>
+                                                <ul class="dropdown-menu" role="menu">
+                                                    <li>
+                                                        <g:Anchor ui:field="smallPackagePayPal">Paypal</g:Anchor>
+                                                    </li>
+                                                    <li>
+                                                        <g:Anchor ui:field="smallPackageWorldPay" visible="false">WorldPay</g:Anchor>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="columns column3">
+                                    <div class="insideColumn">
+                                        <div class="planHeaderName" ui:field="smartBundlesHeader3"/>
+                                        <div class="planPriceField">
+                                            <h3 class="price" ui:field="smartBundlesRowNumber3"/>
+                                            <h3 class="priceType" ui:field="smartBundlesRowCost3"/>
+                                            <h3 class="priceType">(Billed Annually)</h3>
+                                        </div>
+                                        <div class="planAttributesField">
+                                            <ul class="planAttributes">
+                                                <li>Up to 10 users</li>
+                                                <li>All Apps</li>
+                                            </ul>
+
+                                            <div class="btn-group {style.btn-group}">
+                                                <button type="button" ui:field="standartPackage"
+                                                        class="btn btn-primary btn-contact-trial-new dropdown-toggle col-md-12" data-toggle="dropdown" aria-expanded="false"></button>
+                                                <ul class="dropdown-menu" role="menu">
+                                                    <li>
+                                                        <g:Anchor ui:field="standartPackagePayPal">Paypal</g:Anchor>
+                                                    </li>
+                                                    <li>
+                                                        <g:Anchor ui:field="standartPackageWorldPay" visible="false">WorldPay</g:Anchor>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="columns column4">
+                                    <div class="insideColumn">
+                                        <div class="planHeaderName" ui:field="smartBundlesHeader4"/>
+                                        <div class="planPriceField">
+                                            <h3 class="price" ui:field="smartBundlesRowNumber4"/>
+                                            <h3 class="priceType" ui:field="smartBundlesRowCost4"/>
+                                            <h3 class="priceType">(Billed Annually)</h3>
+                                        </div>
+                                        <div class="planAttributesField">
+                                            <ul class="planAttributes">
+                                                <li>Up to 25 users</li>
+                                                <li>All Apps</li>
+                                            </ul>
+                                            <div class="btn-group {style.btn-group}">
+                                                <button type="button" ui:field="silverPackage"
+                                                        class="btn btn-primary btn-contact-trial-new dropdown-toggle col-md-12" data-toggle="dropdown" aria-expanded="false"></button>
+                                                <ul class="dropdown-menu" role="menu">
+                                                    <li>
+                                                        <g:Anchor ui:field="silverPackagePayPal">Paypal</g:Anchor>
+                                                    </li>
+                                                    <li>
+                                                        <g:Anchor ui:field="silverPackageWorldPay" visible="false">WorldPay</g:Anchor>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="columns column5">
+                                    <div class="insideColumn">
+                                        <div class="planHeaderName" ui:field="smartBundlesHeader5"/>
+                                        <div class="planPriceField">
+                                            <h3 class="price" ui:field="smartBundlesRowNumber5"/>
+                                            <h3 class="priceType" ui:field="smartBundlesRowCost5"/>
+                                            <h3 class="priceType">(Billed Annually)</h3>
+                                        </div>
+                                        <div class="planAttributesField">
+                                            <ul class="planAttributes">
+                                                <li>Up to 50 users</li>
+                                                <li>All Apps</li>
+                                            </ul>
+
+                                            <div class="btn-group {style.btn-group}">
+                                                <button type="button" ui:field="enterPricePackage"
+                                                        class="btn btn-primary btn-contact-trial-new dropdown-toggle col-md-12"
+                                                        data-toggle="dropdown" aria-expanded="false">
+                                                </button>
+                                                <ul class="dropdown-menu" role="menu">
+                                                    <li>
+                                                        <g:Anchor ui:field="enterPricePackagePaypal">Paypal</g:Anchor>
+                                                    </li>
+                                                    <li>
+                                                        <g:Anchor ui:field="enterPricePackageWorldPay" visible="false">WorldPay
+                                                        </g:Anchor>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--CUSTOMISE YOUR PLAN-->
+                            <a id="customize"></a>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h1 class="customiseYourPlan">CUSTOMISE YOUR PLAN</h1>
+                                    <h5 class="planSubTitle">CUSTOMISE YOUR OWN SUBSCRIPTION PLAN<br/>GET MORE AND PAY
+                                        LESS!
+                                    </h5>
+                                </div>
+                            </div>
+                            <!--CUSTOMISE YOUR PLAN'S FORM -->
+                            <div class="planCustomizing" style="overflow:visible">
+                                <div class="users-column">
+                                    <div class="panel-column">
+                                        <div class="planHeaderName" ui:field="numberOfUsersTitle"/>
+                                        <div class="customField customField1">
+                                            <span class="pointer-icon-up pointer-show" ui:field="pointerUp"/>
+                                            <span class="pointer-icon-down pointer-show" ui:field="pointerDown"/>
+                                            <input type="text" name="number-of-users" class="number-of-users"
+                                                   ui:field="numberOfUsersInput" placeholder="Input number of users"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="left-panel">
+                                    <div class="panel-column">
+                                        <div class="kpiFeatures">
+                                            <div class="planHeaderName" ui:field="modulesOfFeature"/>
+                                            <div class="customField customField2">
+                                                <table class="table table-striped">
+                                                    <tbody>
+                                                        <tr>
+                                                            <th>Projects</th>
+                                                            <td>
+                                                                <components:KpiCheckBox ui:field="projectsCheckBox"/>
+                                                                <span class="spanPrices" ui:field="projectsPrice"/>
+                                                            </td>
+                                                            <td>user / month</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Accounting</th>
+                                                            <td>
+                                                                <components:KpiCheckBox ui:field="accountingCheckBox"/>
+                                                                <span class="spanPrices" ui:field="accountingPrice"/>
+                                                            </td>
+                                                            <td>user / month</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Sales</th>
+                                                            <td>
+                                                                <components:KpiCheckBox ui:field="crmCheckBox"/>
+                                                                <span class="spanPrices" ui:field="crmPrice"/>
+                                                            </td>
+                                                            <td>user / month</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Humans</th>
+                                                            <td>
+                                                                <components:KpiCheckBox ui:field="hrmsCheckBox"/>
+                                                                <span class="spanPrices" ui:field="hrmsPrice"/>
+                                                            </td>
+                                                            <td>user / month</td>
+                                                        </tr>
+                                                        <!--<tr>-->
+                                                        <!--<td colspan="3"-->
+                                                        <!--ui:field="messageMyWorspaceDocumentsEmailSupport"></td>-->
+                                                        <!--</tr>-->
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="right-panel">
+                                    <div class="panel-column">
+                                        <div class="planHeaderName" ui:field="yourSubscriptionTitle"></div>
+                                        <div class="customField  customField3">
+                                            <!-- Nav tabs -->
+                                            <ul class="nav nav-tabs">
+                                                <li style="width:50%">
+                                                    <g:Anchor ui:field="monthly"/>
+                                                </li>
+                                                <!--<li>-->
+                                                <!--<g:Anchor ui:field="quarterly"/>-->
+                                                <!--</li>-->
+                                                <!--<li>-->
+                                                <!--<g:Anchor ui:field="semiannual"/>-->
+                                                <!--</li>-->
+                                                <li style="width:50%">
+                                                    <g:Anchor ui:field="annual"/>
+                                                </li>
+                                            </ul>
+
+                                            <!-- Tab panes -->
+                                            <div class="tab-content calc-tab">
+                                                <!--<div class="num-of-users" ui:field="selectedNumberOfUsersTitle"/>-->
+                                                <!--<div class="consulting-service-type" ui:field="consultingServiceTitle"/>-->
+                                                <div class="tab-pane active" id="monthly">
+                                                    <h1 class="total-price" ui:field="totalPriceTitle"></h1>
+                                                    <a target="_blank" href="#"/>
+                                                    <!--<g:Button styleName="btn btn-primary btn-buy-now"-->
+                                                              <!--ui:field="buyNowTotalPrice"/>-->
+
+                                                    <div class="btn-group {style.btn-group}">
+                                                        <button type="button" ui:field="buyNowTotalPrice"
+                                                                class="btn btn-primary btn-contact-trial-new dropdown-toggle col-md-12" data-toggle="dropdown" aria-expanded="false"></button>
+                                                        <ul class="dropdown-menu" role="menu">
+                                                            <li>
+                                                                <g:Anchor ui:field="buyNowTotalPricePayPal">Paypal</g:Anchor>
+                                                            </li>
+                                                            <li>
+                                                                <g:Anchor ui:field="buyNowTotalPriceWorldPay" visible="false">WorldPay</g:Anchor>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--OUR OPTIONAL CONSULTING SERVICES LET US ASSIST YOU!-->
+                            <!--<div class="row-fluid">-->
+                            <!--<div class="col-md-12">-->
+                            <!--<h1 class="customiseYourPlan">OUR OPTIONAL CONSULTING SERVICES-->
+                            <!--<br/>-->
+                            <!--LET US ASSIST YOU!-->
+                            <!--</h1>-->
+                            <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="panelConsulting">-->
+                            <!--<table class="table table-bordered table-vhovered">-->
+                            <!--<colgroup></colgroup>-->
+                            <!--<colgroup class="slim" ui:field="contractorColColumn"/>-->
+                            <!--<colgroup class="slim" ui:field="smallBusinessColColumn"/>-->
+                            <!--<colgroup class="slim" ui:field="professionalColColumn"/>-->
+                            <!--<colgroup class="slim" ui:field="enterpriseColColumn"/>-->
+                            <!--<thead>-->
+                            <!--<tr>-->
+                            <!--<th></th>-->
+                            <!--<th ui:field="contractorTableHeader">Contractor-->
+                            <!--<g:RadioButton name="consulting" value="false"-->
+                            <!--ui:field="contractorRadioButton"/>-->
+                            <!--</th>-->
+                            <!--<th ui:field="smallBusinessTableHeader">Small business-->
+                            <!--<g:RadioButton name="consulting" value="false"-->
+                            <!--ui:field="smallBusinessRadioButton"/>-->
+                            <!--</th>-->
+                            <!--<th ui:field="professionalTableHeader">Professional-->
+                            <!--<g:RadioButton name="consulting" value="false"-->
+                            <!--ui:field="professionalRadioButton"/>-->
+                            <!--</th>-->
+                            <!--<th ui:field="enterpriseTableHeader">Enterprise-->
+                            <!--<g:RadioButton name="consulting" value="false"-->
+                            <!--ui:field="enterpriseRadioButton"/>-->
+                            <!--</th>-->
+                            <!--</tr>-->
+                            <!--</thead>-->
+                            <!--<tbody>     &lt;!&ndash;data-col="2" &ndash;&gt;-->
+                            <!--<tr class="one-off-prices-column">-->
+                            <!--<td class="hd-green" ui:field="oneOffPrice"/>-->
+                            <!--<td>-->
+                            <!--<span class="price" ui:field="priceOne"/>-->
+                            <!--</td>-->
+                            <!--<td>-->
+                            <!--<span class="price" ui:field="priceTwo"/>-->
+                            <!--</td>-->
+                            <!--<td>-->
+                            <!--<span class="price" ui:field="priceThree"/>-->
+                            <!--</td>-->
+                            <!--<td>-->
+                            <!--<span class="price" ui:field="priceFour"/>-->
+                            <!--</td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                            <!--<td ui:field="trainingSessions"/>-->
+                            <!--<td>1</td>-->
+                            <!--<td>Up to 2</td>-->
+                            <!--<td>Up to 3</td>-->
+                            <!--<td>Up to 7</td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                            <!--<td ui:field="onBoardingSupportPeriod"/>-->
+                            <!--<td>1-week</td>-->
+                            <!--<td>2-week</td>-->
+                            <!--<td>1-month</td>-->
+                            <!--<td>3-month</td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                            <!--<td ui:field="liveChatSupportDuringOnBoarding"/>-->
+                            <!--<td>Yes</td>-->
+                            <!--<td>Yes</td>-->
+                            <!--<td>Yes</td>-->
+                            <!--<td>Yes</td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                            <!--<td ui:field="addingNoAccessUsers"/>-->
+                            <!--<td>No</td>-->
+                            <!--<td>Yes</td>-->
+                            <!--<td>Yes</td>-->
+                            <!--<td>Yes</td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                            <!--<td ui:field="phoneIMSupport"/>-->
+                            <!--<td>No</td>-->
+                            <!--<td>Yes</td>-->
+                            <!--<td>Yes</td>-->
+                            <!--<td>Yes</td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                            <!--<td ui:field="customerAccess"/>-->
+                            <!--<td>No</td>-->
+                            <!--<td>Yes</td>-->
+                            <!--<td>Yes</td>-->
+                            <!--<td>Yes</td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                            <!--<td ui:field="scheduledBackup"/>-->
+                            <!--<td>No</td>-->
+                            <!--<td>Yes</td>-->
+                            <!--<td>Yes</td>-->
+                            <!--<td>Yes</td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                            <!--<td ui:field="additionalStorage"/>-->
+                            <!--<td>5GB</td>-->
+                            <!--<td>7GB</td>-->
+                            <!--<td>10GB</td>-->
+                            <!--<td>25GB</td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                            <!--<td ui:field="emailMarketing"/>-->
+                            <!--<td>500 per day</td>-->
+                            <!--<td>1000 per day</td>-->
+                            <!--<td>2000 per day</td>-->
+                            <!--<td>5000 per day*</td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                            <!--<td ui:field="customLoginSubdomain"></td>-->
+                            <!--<td>For Additional Fee</td>-->
+                            <!--<td>Yes</td>-->
+                            <!--<td>Yes</td>-->
+                            <!--<td>Yes</td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                            <!--<td ui:field="importingDocuments"/>-->
+                            <!--<td>For Additional Fee</td>-->
+                            <!--<td>For Additional Fee</td>-->
+                            <!--<td>Yes</td>-->
+                            <!--<td>Yes</td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                            <!--<td ui:field="customisePDFLayout"/>-->
+                            <!--<td>For Additional Fee</td>-->
+                            <!--<td>For Additional Fee</td>-->
+                            <!--<td>2</td>-->
+                            <!--<td>5</td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                            <!--<td ui:field="website"/>-->
+                            <!--<td>0</td>-->
+                            <!--<td>0</td>-->
+                            <!--<td>1</td>-->
+                            <!--<td>1</td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                            <!--<td ui:field="ecommerceWebsite"/>-->
+                            <!--<td>For Additional Fee</td>-->
+                            <!--<td>For Additional Fee</td>-->
+                            <!--<td>1 (simple)</td>-->
+                            <!--<td>1 with Inventory</td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                            <!--<td ui:field="customiseReport"/>-->
+                            <!--<td>For Additional Fee</td>-->
+                            <!--<td>For Additional Fee</td>-->
+                            <!--<td>For Additional Fee</td>-->
+                            <!--<td>For Additional Fee</td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                            <!--<td ui:field="additionalImplementationRate"/>-->
+                            <!--<td></td>-->
+                            <!--<td>$24 ph</td>-->
+                            <!--<td>$23.5 ph</td>-->
+                            <!--<td>$22.5 ph</td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                            <!--<td ui:field="onsiteSupport"/>-->
+                            <!--<td colspan="3" class="text-centered bgcolor"-->
+                            <!--ui:field="message449USDPerDayGlobally"></td>-->
+                            <!--<td class="bgcolor"></td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                            <!--<td colspan="5" class="text-centered bgcolor"-->
+                            <!--ui:field="messagePleaseContactUsforMore"></td>-->
+                            <!--</tr>-->
+                            <!--</tbody>-->
+                            <!--</table>-->
+                            <!--<p class="pull-right" ui:field="messageWeWillHaveToDisableMassMailing"/>-->
+                            <!--</div>-->
+                        </article>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </g:HTMLPanel>
+</ui:UiBinder>

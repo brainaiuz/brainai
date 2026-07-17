@@ -1,0 +1,317 @@
+/**
+ * Created by IntelliJ IDEA.
+ * User: Halim Kamolov
+ * Date: Aprel 20, 2012
+ * Time: 3:14:07 PM
+ * To change this template use File | Settings | File Templates.
+ */
+.subDivisions li.backend a {
+    background-image: url("backend/images/backend-sprite.png");
+    background-repeat: no-repeat;
+}
+
+/*backendListView*/
+.subDivisions .backendListView a {
+    background-position: 8px -18px;
+}
+
+/*backendListView*/
+.subDivisions .backendListView a:hover, .subDivisions .backendListView.active a {
+    background-position: 8px 8px;
+}
+
+/*backendHomeViewListView*/
+.subDivisions .backendHomeView a {
+    background-position: 8px -67px;
+}
+
+/*backendListView*/
+.subDivisions .backendHomeView a:hover, .subDivisions .backendHomeView.active a {
+    background-position: 8px -44px;
+}
+
+/*bugListSummaryView*/
+.subDivisions .bugListSummaryView a {
+    background-position: 8px -112px;
+}
+
+/*bugListSummaryView*/
+.subDivisions .bugListSummaryView a:hover, .subDivisions .bugListSummaryView.active a {
+    background-position: 8px -89px;
+}
+
+/*bugListPerSecView*/
+.subDivisions .bugListPerSecView a {
+    background-position: 8px -164px;
+}
+
+/*bugListPerSecView*/
+.subDivisions .bugListPerSecView a:hover, .subDivisions .bugListPerSecView.active a {
+    background-position: 8px -137px;
+}
+
+/*accessLogListView*/
+.subDivisions .accessLogListView a {
+    background-position: 8px -216px;
+}
+
+/*accessLogListView*/
+.subDivisions .accessLogListView a:hover, .subDivisions .accessLogListView.active a {
+    background-position: 8px -190px;
+}
+
+/*errorPageView*/
+.subDivisions .errorPageView a {
+    background-position: 8px -268px;
+}
+
+/*errorPageView*/
+.subDivisions .errorPageView a:hover, .subDivisions .errorPageView.active a {
+    background-position: 8px -242px;
+}
+
+/*overFeatListView*/
+.subDivisions .overFeatListView a {
+    background-position: 8px -321px;
+}
+
+/*overFeatListView*/
+.subDivisions .overFeatListView a:hover, .subDivisions .overFeatListView.active a {
+    background-position: 8px -295px;
+}
+
+/*accManListView*/
+.subDivisions .accManListView a {
+    background-position: 8px -375px;
+}
+
+/*accManListView*/
+.subDivisions .accManListView a:hover, .subDivisions .accManListView.active a {
+    background-position: 8px -348px;
+}
+
+/*cusFielManListView*/
+.subDivisions .cusFielManListView a {
+    background-position: 8px -420px;
+}
+
+/*cusFielManListView*/
+.subDivisions .cusFielManListView a:hover, .subDivisions .cusFielManListView.active a {
+    background-position: 8px -398px;
+}
+
+/*payRecListView*/
+.subDivisions .payRecListView a {
+    background-position: 8px -468px;
+}
+
+/*payRecListView*/
+.subDivisions .payRecListView a:hover, .subDivisions .payRecListView.active a {
+    background-position: 8px -443px;
+}
+
+/*blackListView*/
+.subDivisions .blackListView a {
+    background-position: 8px -521px;
+}
+
+/*blackListView*/
+.subDivisions .blackListView a:hover, .subDivisions .blackListView.active a {
+    background-position: 8px -495px;
+}
+
+/*wftPlaView*/
+.subDivisions .wftPlaView a {
+    background-position: 8px -570px;
+}
+
+/*wftPlaView*/
+.subDivisions .wftPlaView a:hover, .subDivisions .wftPlaView.active a {
+    background-position: 8px -547px;
+}
+
+/*subManView*/
+.subDivisions .subManView a {
+    background-position: 8px -614px;
+}
+
+/*subManView*/
+.subDivisions .subManView a:hover, .subDivisions .subManView.active a {
+    background-position: 8px -592px;
+}
+
+/*bugListView*/
+.subDivisions .bugListView a {
+    background-position: 8px -664px;
+}
+
+/*bugListView*/
+.subDivisions .bugListView a:hover, .subDivisions .bugListView.active a {
+    background-position: 8px -638px;
+}
+
+/*addEmailSet*/
+.subDivisions .addEmailSet a {
+    background-position: 8px -711px;
+}
+
+/*addEmailSet*/
+.subDivisions .addEmailSet a:hover, .subDivisions .addEmailSet.active a {
+    background-position: 8px -689px;
+}
+
+/*invTemListView*/
+.subDivisions .invTemListView a {
+    background-position: 8px -760px;
+}
+
+/*invTemListView*/
+.subDivisions .invTemListView a:hover, .subDivisions .invTemListView.active a {
+    background-position: 8px -734px;
+}
+
+/*cusPdfTemListView*/
+.subDivisions .cusPdfTemListView a {
+    background-position: 8px -812px;
+}
+
+/*cusPdfTemListView*/
+.subDivisions .cusPdfTemListView a:hover, .subDivisions .cusPdfTemListView.active a {
+    background-position: 8px -786px;
+}
+
+/*hostSet*/
+.subDivisions .hostSet a {
+    background-position: 8px -858px;
+}
+
+/*hostSet*/
+.subDivisions .hostSet a:hover, .subDivisions .hostSet.active a {
+    background-position: 8px -836px;
+}
+
+/*pdfLogSet*/
+.subDivisions .pdfLogSet a {
+    background-position: 8px -902px;
+}
+
+.subDivisions .pdfLogSet a:hover, .subDivisions .pdfLogSet.active a {
+    background-position: 8px -880px;
+}
+
+/*schemaListView*/
+.subDivisions .schemaListView a {
+    background-position: 8px -953px;
+}
+
+.subDivisions .schemaListView a:hover, .subDivisions .schemaListView.active a {
+    background-position: 8px -927px;
+}
+
+/*solrIndexView*/
+.subDivisions .solrIndexView a {
+    background-position: 8px -1002px;
+}
+
+.subDivisions .solrIndexView a:hover, .subDivisions .solrIndexView.active a {
+    background-position: 8px -977px;
+}
+
+/*solrMonitorView*/
+.subDivisions .solrMonitorView a {
+    background-position: 8px -1052px;
+}
+
+.subDivisions .solrMonitorView a:hover, .subDivisions .solrMonitorView.active a {
+    background-position: 8px -1026px;
+}
+
+/*cliendPermView*/
+.subDivisions .cliendPermView a {
+    background-position: 8px -1107px;
+}
+
+.subDivisions .cliendPermView a:hover, .subDivisions .cliendPermView.active a {
+    background-position: 8px -1081px;
+}
+
+/*activeChatView*/
+.subDivisions .activeChatView a {
+    background-position: 8px -1156px;
+}
+
+.subDivisions .activeChatView a:hover, .subDivisions .activeChatView.active a {
+    background-position: 8px -1132px;
+}
+
+/*recLogListView*/
+.subDivisions .recLogListView a {
+    background-position: 8px -1205px;
+}
+
+.subDivisions .recLogListView a:hover, .subDivisions .recLogListView.active a {
+    background-position: 8px -1180px;
+}
+
+/*firedRecurrenceLog*/
+.subDivisions .firedRecurrenceLog a {
+    background-position: 8px -1256px;
+}
+
+.subDivisions .firedRecurrenceLog a:hover, .subDivisions .firedRecurrenceLog.active a {
+    background-position: 8px -1231px;
+}
+
+/*lateRecurrenceLog*/
+.subDivisions .lateRecurrenceLog a {
+    background-position: 8px -1309px;
+}
+
+.subDivisions .lateRecurrenceLog a:hover, .subDivisions .lateRecurrenceLog.active a {
+    background-position: 8px -1282px;
+}
+
+/*serLogListView*/
+.subDivisions .serLogListView a {
+    background-position: 8px -1359px;
+}
+
+.subDivisions .serLogListView a:hover, .subDivisions .serLogListView.active a {
+    background-position: 8px -1334px;
+}
+
+/*xmlRepListView*/
+.subDivisions .xmlRepListView a {
+    background-position: 8px -1411px;
+}
+
+.subDivisions .xmlRepListView a:hover, .subDivisions .xmlRepListView.active a {
+    background-position: 8px -1386px;
+}
+
+/*xlsRepListView*/
+.subDivisions .xlsRepListView a {
+    background-position: 8px -1462px;
+}
+
+.subDivisions .xlsRepListView a:hover, .subDivisions .xlsRepListView.active a {
+    background-position: 8px -1436px;
+}
+
+/*reportXmlTemListView*/
+.subDivisions .reportXmlTemListView a {
+    background-position: 8px -1513px;
+}
+
+.subDivisions .reportXmlTemListView a:hover, .subDivisions .reportXmlTemListView.active a {
+    background-position: 8px -1487px;
+}
+
+/*reportListView*/
+.subDivisions .reportListView a {
+    background-position: 8px -1565px;
+}
+
+.subDivisions .reportListView a:hover, .subDivisions .reportListView.active a {
+    background-position: 8px -1539px;
+}

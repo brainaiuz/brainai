@@ -1,0 +1,42 @@
+<report>
+    <view>
+        <title>Employee information</title>
+        <name>Employee information</name>
+        <category>employee</category>
+        <sqlquery>
+            <select agregateFunc="distinct">
+                <!--  Please only enter type property {'number' or 'date or clock' }   -->
+                <table name="Employee">
+                    <column name="u.id" title="id" type="number" formattype="hidden"/>
+                    <column name="(u.firstname ||' '|| u.lastname)" title="Employee" type="string" formattype="string"/>
+                    <column name="profile.salaryamount" title="Salary Amount" type="number" formattype="number"/>
+                    <column name="bank.accountname" title="Account Name" type="string" formattype="string"/>
+                    <column name="bank.accountnumber" title="Account Number" type="string" formattype="string"/>
+                    <column name="bank.bankname" title="Bank Name" type="string" formattype="string"/>
+                    <column name="bank.sortcode" title="Sort Code" type="string" formattype="string"/>
+                    <column name="bank.ibancode" title="IBAN code" type="string" formattype="string"/>
+                    <column name="bank.swiftcode" title="Swift Code" type="string" formattype="string"/>
+                    <column name="bank.bankaddress" title="Bank Address" type="string" formattype="string"/>
+                    <column name="payslip.grosspayinperiod" title="Gross Pay" type="number" formattype="number"/>
+                    <column name="payslip.netpay" title="Net Pay" type="number" formattype="number"/>
+                    <column name="payslip.date" title="Date of Payment" type="date" formattype="date"/>
+                </table>
+
+            </select>
+            <from>
+                "$".myuser u
+                inner join "$".employeeprofile profile on u.id = profile.employeeId
+                left join "$".userBankAccount bank on u.id = bank.userid
+                left join "$".payslip payslip on payslip.employeeid = u.id
+            </from>
+            <where>
+                <terms id="base" value="1=1"/>
+                <!--  <terms id="client" clientid="cl.id"/>-->
+                <!--<terms id="userid" userid="" company="t.companyid"/>
+                <terms id="managerid" userid="" company="t.companyid"/>
+                <terms id="leaderid" userid="" company="t.companyid"/>
+                <terms id="admin" company="t.companyid"/>-->
+            </where>
+        </sqlquery>
+    </view>
+</report>

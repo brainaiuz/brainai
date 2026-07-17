@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="urlMapping"
+          class="org.gwtwidgets.server.spring.GWTHandler">
+        <property name="mappings">
+            <map>
+                <entry key="/coreService" value-ref="reportingCoreService"/>
+                <!--<entry key="/adminService" value-ref="reportingAdminService"/>-->
+                <!--<entry key="/statusService" value-ref="reportingStatusService"/>-->
+<!--                <entry key="/dashboardService" value-ref="reportingDashboardService"/>-->
+            </map>
+        </property>
+    </bean>
+</beans>

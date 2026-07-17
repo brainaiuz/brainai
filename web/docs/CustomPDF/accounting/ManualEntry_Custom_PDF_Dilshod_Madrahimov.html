@@ -1,0 +1,178 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style type="text/css" >
+        @page {
+            size: 8.3in 11.7in;
+            margin:160px 30px 140px 30px;
+            padding:0;
+            @top-center {
+                content: element(header);
+            }
+            @bottom-left {
+                content: element(footer);
+            }
+        }
+        #header {
+            margin:20px 10px;
+            display: block;
+            position: running(header);
+        }
+        #footer{
+            margin:20px 10px;
+            display: block;
+            position: running(footer);
+        }
+        #pagenumber:before {
+            content: counter(page);
+        }
+
+        #pagecount:before {
+            content: counter(pages);
+        }
+        .tableBorder{
+            border-top:1px solid #000000;
+            border-left:1px solid #000000;
+        }
+        .tableBorder td{
+            border-right:1px solid #000000;
+            border-bottom:1px solid #000000;
+        }
+        body{
+            font-family:Calibri;
+        }
+        th{
+            font-family:Calibri;
+            font-size:11px;
+            font-weight:lighter;
+        }
+        th,td{
+            padding:5px;
+        }
+
+        b,p,td,span,caption,hr,h1,h2,h3,h4,h5{font-family:Calibri;}
+        table {
+            -fs-table-paginate: paginate;
+        }
+        .title{
+            border-top:1px solid #000000;
+            border-bottom:1px solid #000000;
+        }
+
+    </style>
+</head>
+<body>
+#set($companyData = $itextGenericPdfData.getBaseInvoice().getCompanyData())
+#set($detailsData = $itextGenericPdfData.getBaseInvoice().getCustomBillToAddress().getRows())
+#set($itemData = $itextGenericPdfData.getBaseInvoice().getCustomProductTable().getRows())
+#set($totalData = $itextGenericPdfData.getBaseInvoice().getCustomTotalTable().getRows())
+
+<div id="header">
+    <table width="100%">
+        <tr>
+            <td width="50%" align="left">
+                <img src="$itextGenericPdfData.companyData.companyLogoUrl"/>
+            </td>
+            <td width="50%">
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div id="footer" style="border-top:1px solid #000000;font-size:11px">
+    <table width="100%" >
+        <tr>
+            <td align="center" style="font-size: 14px">
+                APSE IT Solution L.L.C, P O Box 213123 Dubai, UAE. T: +97143881662 F: +97143881652 E:acc@apse.co
+            </td>
+        </tr>
+
+    </table>
+</div>
+
+<div style="font-size:11px">
+    <table width="100%">
+        <tr>
+            <td style="font-size:14px;font-weight:bold;text-align:center;">
+                $detailsData.get('NUMBER').get('COLUMN_VALUE')
+            </td>
+        </tr>
+    </table>
+
+    <table width="100%">
+        <tr>
+            <td style="font-size:14px;text-align:right;">
+                <b>Date:</b> $detailsData.get('DATE').get('COLUMN_VALUE')
+            </td>
+        </tr>
+    </table>
+
+    <table width="100%" style="border-bottom: 1px solid #000000;">
+        <tr>
+            <td style="font-size:14px;font-weight:bold;text-align:center;">
+                JOURNAL VOUCHER
+            </td>
+        </tr>
+    </table>
+
+    <table width="100%" class="tableBorder" align="center" cellspacing="0" cellpadding="0" style="margin-top:20px;page-break-inside:avoid;">
+        <thead style="padding:2px;font-weight:bold;">
+        <tr align="center">
+            <td bgcolor="#BEB7C7" width="15%">ACCOUNT CODE</td>
+            <td bgcolor="#BEB7C7" width="20%">NAME OF ACCOUNT</td>
+            <td bgcolor="#BEB7C7" width="30%">DESCRIPTION</td>
+            <td bgcolor="#BEB7C7" width="10%">DEBIT AMT</td>
+            <td bgcolor="#BEB7C7" width="10%">CREDIT AMT</td>
+            <td bgcolor="#BEB7C7" width="15%">PROJECT</td>
+        </tr>
+        </thead>
+        <tbody>
+        #if ($itemData)
+        #foreach($item in $itemData)
+        <tr align="center" style="page-break-inside: avoid;">
+            <td>$item.get('ACCOUNT_CODE')</td>
+            <td>$item.get('ACCOUNT_NAME')</td>
+            <td>$item.get('DESCRIPTION')</td>
+            <td>$item.get('DEBIT')</td>
+            <td>$item.get('CREDIT')</td>
+            <td>$item.get('PROJECT')</td>
+        </tr>
+        #end
+        #end
+        </tbody>
+    </table>
+
+    #set($debitTotal=$totalData.get('DEBIT_TOTAL').get('COLUMN_NAME'))
+    #set($creditTotal=$totalData.get('DEBIT_TOTAL').get('COLUMN_NAME'))
+    #set($currency=$totalData.get('CURRENCY').get('COLUMN_NAME'))
+
+    #set($baseDebitTotal=$totalData.get('BASE_DEBIT_TOTAL').get('COLUMN_NAME'))
+    #set($baseCreditTotal=$totalData.get('BASE_CREDIT_TOTAL').get('COLUMN_NAME'))
+    #set($baseCurrency=$totalData.get('BASE_CURRENCY').get('COLUMN_NAME'))
+
+    <table width="100%" align="center" cellspacing="0" cellpadding="0">
+        <tr>
+            <td width="15%"></td>
+            <td width="20%"></td>
+            <td width="30%" align="center"><b>TOTAL</b></td>
+            <td width="10%" style="border-left: 1px solid #000000;border-bottom: 1px solid #000000;">$debitTotal</td>
+            <td width="10%" style="border-left: 1px solid #000000;border-bottom: 1px solid #000000;">$creditTotal</td>
+            <td width="15%" style="border-left: 1px solid #000000;border-bottom: 1px solid #000000;border-right: 1px solid #000000;"></td>
+        </tr>
+    </table>
+
+    <table width="100%" style="padding-top:40px;">
+        <tr>
+            <td width="50%"><b>Prepared By :</b>  ...........................................................</td>
+        </tr>
+        <br></br>
+        <tr>
+            <td width="50%"><b>Approved By :</b> .........................................................</td>
+        </tr>
+    </table>
+
+
+</div>
+
+</body>
+</html>

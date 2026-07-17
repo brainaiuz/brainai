@@ -1,0 +1,50 @@
+{
+  "customNumberAndDatesTable": {
+    "rows": {
+      "GDN_NUMBER": {
+        "COLUMN_NAME": "GDN No.",
+        "COLUMN_VALUE": "GDN0004"
+      },
+      "CLIENT": {
+        "COLUMN_NAME": "Customer",
+        "COLUMN_VALUE": "KPI Software Inc"
+      },
+      "SHIPPING_DATE": {
+        "COLUMN_NAME": "Ship Date",
+        "COLUMN_VALUE": "March 01, 2019"
+      },
+      "CLIENT_CONTACT": {
+        "COLUMN_NAME": "Contact",
+        "COLUMN_VALUE": "support@kpi.com"
+      },
+      "GRN_CREATOR": {
+        "COLUMN_NAME": "Creator",
+        "COLUMN_VALUE": "Doniyor Makhkamov"
+      },
+      "INV_NUMBER": {
+        "COLUMN_NAME": "Order No.",
+        "COLUMN_VALUE": "SO0084"
+      }
+    }
+  },
+  "customData": {
+    "ITEMS": {
+      "header": {
+        "NO": "No.",
+        "NAME": "Product/Service",
+        "DESCRIPTION": "Description",
+        "ALLOCATE": "Allocate",
+        "ITEM_QTY": "Qty"
+      },
+      "rows": {
+        "0": {
+          "NO": "1.",
+          "NAME": "Online Training",
+          "DESCRIPTION": "(Optional) online demo session through Webex (3 sessions- max 9 hours)",
+          "ALLOCATE": "1.00",
+          "ITEM_QTY": "1.00"
+        }
+      }
+    }
+  }
+}

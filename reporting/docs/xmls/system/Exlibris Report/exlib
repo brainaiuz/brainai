@@ -1,0 +1,49 @@
+<report>
+    <view>
+        <title>CRM Exlibris Custom Report</title>
+        <name>CRM Exlibris Custom Report</name>
+        <sqlquery>
+            <select>
+                <table name="Exlibris">
+                    <column name="t.projectname" title="Название проекта" type="string" formattype="string"/>
+                    <column name="t.casename" title="Тема" type="string" formattype="string"/>
+                    <column name="t.casestatus" title="Статус" type="string" formattype="string"/>
+                    <column name="t.casecount" title="Количество заявок" type="number" formattype="number"/>
+                    <column name="t.statuscount" title="Количество 'не подвержденных' заявок" type="number" formattype="number"/>
+                    <column name="t.procentageErrors" title="% не подтвержденных заявок" type="money" formattype="money"/>
+                </table>
+            </select>
+            <from>
+                (
+                SELECT  projectname, casename, r.name as casestatus, COALESCE(statuscount.scount, 0) as statuscount,
+                fullcount.casecount as casecount, statuscount.scount/cast(fullcount.casecount as float) as procentageErrors from
+                (SELECT fromid as projectid,fromname as projectname, toid as caseid, toname as casename from "38780".relation
+                where fromtype='PROJECT' and totype='case' group by fromid, fromname, toid, toname
+                union
+                SELECT toid as projectid,toname as projectname, fromid as caseid, fromname as casename from "38780".relation
+                where fromtype='case' and totype='PROJECT' group by fromid, fromname, toid, toname) b
+                left join "38780".crmcase c on b.caseid=c.id
+                left join "38780".reference r on c.status = r.id
+                left join (select g.projectid as prjid, count(r.name) as scount from
+                (SELECT fromid as projectid,toid as caseid from "38780".relation
+                where fromtype='PROJECT' and totype='case' group by fromid, fromname, toid, toname
+                union
+                SELECT toid as projectid, fromid as caseid from "38780".relation
+                where fromtype='case' and totype='PROJECT' group by fromid, fromname, toid, toname) g
+                left join "38780".crmcase c on g.caseid=c.id
+                left join "38780".reference r on c.status = r.id
+                where r.code='Не подвержден' group by g.projectid) statuscount on b.projectid=statuscount.prjid
+                left join (select d.projectid as prid,count(d.caseid) as casecount from
+                (SELECT fromid as projectid,toid as caseid from "38780".relation where fromtype='PROJECT' and totype='case' group by fromid,toid
+                union
+                SELECT toid as projectid, fromid as caseid from "38780".relation where fromtype='case' and totype='PROJECT' group by toid,fromid) d
+                group by d.projectid) fullcount on b.projectid=fullcount.prid
+                order by b.projectid
+                ) t
+            </from>
+            <where>
+                <terms id="base" value="1=1"/>
+            </where>
+        </sqlquery>
+    </view>
+</report>

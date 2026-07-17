@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="6294 758 48 48">
+    <defs>
+        <style>
+            .cls-1 {
+            fill: #fff;
+            }
+
+            .cls-2 {
+            fill: #3a559f;
+            fill-rule: evenodd;
+            }
+        </style>
+    </defs>
+    <g id="facebook" transform="translate(6010 -90)">
+        <circle id="Ellipse_50" data-name="Ellipse 50" class="cls-1" cx="24" cy="24" r="24"
+                transform="translate(284 848)"/>
+        <path id="Fill-4" class="cls-2"
+              d="M29.184,41h4.367V29.006h3.276l.648-3.748H33.551V22.542c0-.875.566-1.795,1.375-1.795h2.23V17H34.423v.017c-4.276.155-5.155,2.632-5.231,5.233h-.008v3.008H27v3.748h2.184Z"
+              transform="translate(276 843)"/>
+    </g>
+</svg>

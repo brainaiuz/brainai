@@ -1,0 +1,219 @@
+$collapsible-panel-padding-x: rem(30px);
+.collapsible {
+  //border-top: 1px solid $collapsible-border-color;
+  //border-right: 1px solid $collapsible-border-color;
+  //border-left: 1px solid $collapsible-border-color;
+  margin: 0 0 $element-bottom-margin 0;
+  //@extend .z-depth-1;
+
+  &--panels {
+    .collapsible-header,
+    .collapsible-body {
+      padding-left: $collapsible-panel-padding-x;
+      padding-right: $collapsible-panel-padding-x;
+
+    }
+  }
+}
+
+
+
+.collapsible-header {
+  position: relative; // to stick arrows
+  cursor: pointer;
+  min-height: $collapsible-height;
+  line-height: $collapsible-height;
+  background-color: $collapsible-header-color;
+  text-transform: uppercase; //By Munir request
+  &:not(.grid-row) {
+    display: block;
+  }
+
+  i {
+    width: 2rem;
+    font-size: 1.6rem;
+    line-height: $collapsible-height;
+    display: block;
+    float: left;
+    text-align: center;
+    margin-right: 1rem;
+  }
+
+  > * {
+    display: block;
+    padding: 1rem 0;
+    //font-weight: bold;
+    color: $color-accent-2;
+  }
+
+  ul:not(.updates-list).collapsible--arrows &,
+  ul:not(.updates-list).collapsible--arrows-left &,
+  ul:not(.updates-list).collapsible--edit & {
+    @include collapsible-arrow();
+  }
+
+  .collapsible--arrows & {
+    &:after {
+      right: 20px;
+      right: rem(20px);
+
+      .quick-add & {
+        right: 10px;
+        right: rem(10px);
+      }
+    }
+  }
+  .collapsible--arrows-left & {
+    &:after {
+      left: $collapsible-panel-padding-x;
+      margin-left: - .2em;
+    }
+    > *:first-child {
+      margin-left: $collapsible-panel-padding-x;
+    }
+  }
+
+  .collapsible--panels & {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-top: rem(15px);
+    padding-bottom: rem(15px);
+    @include border-top-radius($radius-big); // the same with panelStyle() is used for .panel
+
+    .has-frame__info & {
+      @include border-top-radius(0);
+    }
+
+    &:hover:not(.active) {
+      background-color: #f7f8fa;
+    }
+
+    > * {
+      font-weight: normal;
+      font-size: 15px;
+      font-size: rem(15px);
+      //text-transform: none;
+      text-decoration: none;
+    }
+  }
+  *:not(.active) > & {
+    @include border-bottom-radius($radius-big);
+  }
+
+  .collapsible.collapsible--edit & {
+    @extend %form-control-style;
+    @extend %form-control-size;
+    white-space: nowrap;
+    border: 1px solid white;
+    text-transform: none;
+
+    //@include common-input-mixin();
+    background-color: white;
+
+    > * {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    &.active {
+      box-shadow: 0 4px 7px rgba(0, 0, 0, 0.05);
+    }
+
+
+
+    &:after {
+      right: rem(15px);
+    }
+
+    &:not(.active):after {
+      @extend .ficon--edit:before;
+      font-size: 1.3rem;
+    }
+  }
+}
+
+.collapsible-body {
+  display: none;
+  border-bottom: 1px solid $collapsible-border-color;
+  box-sizing: border-box;
+
+  li[style*="pointer"] > & {
+    cursor: default;
+  }
+
+  p {
+    margin: 0;
+    //padding: 2rem; lead to "note-editor" extra spaces
+  }
+
+  .active & {
+    display: block;
+  }
+
+  &.item-open,
+  &.item-closed {
+    display: block !important; // because there is inline display style
+    @include collapsible-transition;
+  }
+  &.item-open {
+    opacity: 1;
+    .user-menu-settings & {
+      max-height: 600px !important;
+    }
+    > ul {
+      overflow-y: auto;
+    }
+  }
+  &.item-closed {
+    overflow: hidden;
+    max-height: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    opacity: 0;
+  }
+}
+
+// sideNav collapsible styling
+.side-nav:not(.user-menu-settings) {
+  .collapsible {
+    border: none;
+    box-shadow: none;
+
+    li {padding: 0;}
+  }
+
+  .collapsible-header {
+    background-color: transparent;
+    border: none;
+    line-height: inherit;
+    height: inherit;
+    //margin: 0 1rem;
+
+    i {line-height: inherit;}
+  }
+
+  .collapsible-body {
+    border: 0;
+    background-color: $collapsible-header-color;
+
+    li a {margin: 0 1rem 0 2rem;}
+  }
+}
+
+// Popout Collapsible
+
+.collapsible.popout {
+  border: none;
+  box-shadow: none;
+  > li {
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    // transform: scaleX(.92);
+    margin: 0 24px;
+    transition: margin .35s cubic-bezier(0.250, 0.460, 0.450, 0.940);
+  }
+  > li.active {
+    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+    margin: 16px 0;
+    // transform: scaleX(1);
+  }
+}

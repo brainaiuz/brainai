@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head><body><p>Дорогой $user.firstName $user.lastName</a><br />
+<p>
+$admin.firstName $admin.lastName недавно создал учетную запись для Вас в системе $productName ($HOST). Мы заметили что Ваша учетная запись все еще неактивирована.
+Если у Вас возникли какие либо трудности с активацией Вашей учетной записи и/или ознакомлением с  $productName вы можете связаться <a href="$HOST/content/contact-us">с нами </a>.
+<p/>
+<p>
+Для того чтобы активировать Вашу учетную запись пожалуйста <a href="$HOST/auth/account?uid=$uid&cid=$companyid&sid=$serviceid">нажмите здесь</a><br />
+(или скопируйте/вставьте следующую ссылку в Ваш веб браузер: $HOST/auth/account?uid=$uid&cid=$companyid&sid=$serviceid
+<p/>
+<p>
+Спасибо за Ваш интерес нашему продукту. Мы будем рады сотрудничать с Вами и помогать Вам открыть весь потенциал $productName.
+<p/>
+
+<p>С Уважением,<br/>
+Нилюфар Нурманова<br/>
+Команда поддержки $productName
+</p>
+$companyInfo
+  </body></html>

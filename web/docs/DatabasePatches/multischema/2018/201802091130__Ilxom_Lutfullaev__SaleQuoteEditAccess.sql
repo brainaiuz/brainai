@@ -1,0 +1,10 @@
+delete from "anv".rolepermission where permissioncode = 'ACCOUNTING_SALES_ORDER_EDIT';
+delete from "anv".rolepermission where permissioncode = 'ACCOUNTING_SALES_ORDER_FULL_EDIT_ACCESS';
+insert into "anv".rolepermission (access, permissioncode, rolecode) values('ALLOW', 'ACCOUNTING_SALES_ORDER_EDIT', 'DR');
+insert into "anv".rolepermission (access, permissioncode, rolecode) values('ALLOW', 'ACCOUNTING_SALES_ORDER_FULL_EDIT_ACCESS', 'DR');
+insert into "anv".rolepermission (access, permissioncode, rolecode) values('ALLOW', 'ACCOUNTING_SALES_ORDER_EDIT', 'ADMIN');
+insert into "anv".rolepermission (access, permissioncode, rolecode) values('ALLOW', 'ACCOUNTING_SALES_ORDER_FULL_EDIT_ACCESS', 'ADMIN');
+insert into "anv".rolepermission (access, permissioncode, rolecode) values('ALLOW', 'ACCOUNTING_SALES_ORDER_EDIT', 'MEM');
+insert into "anv".rolepermission (access, permissioncode, rolecode) values('ALLOW', 'ACCOUNTING_SALES_ORDER_FULL_EDIT_ACCESS', 'MEM');
+insert into "anv".rolepermission (access, permissioncode, rolecode) values('ALLOW', 'ACCOUNTING_SALES_ORDER_EDIT', 'SALESMAN');
+insert into "anv".rolepermission (access, permissioncode, rolecode) values('ALLOW', 'ACCOUNTING_SALES_ORDER_FULL_EDIT_ACCESS', 'SALESMAN');

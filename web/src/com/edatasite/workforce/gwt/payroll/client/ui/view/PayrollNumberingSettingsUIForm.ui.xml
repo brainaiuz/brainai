@@ -1,0 +1,9 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:f='urn:import:com.edatasite.workforce.gwt.core.client.ui.components.form'>
+    <g:HTMLPanel>
+        <div class="numbering-settings__wrapper">
+            <f:FormGroup ui:field="layoutBox"/>
+        </div>
+    </g:HTMLPanel>
+</ui:UiBinder>

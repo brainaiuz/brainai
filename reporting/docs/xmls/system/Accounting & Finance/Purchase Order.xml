@@ -1,0 +1,50 @@
+<report>
+    <view>
+        <title>Purchase Order</title>
+        <name>Purchase Order</name>
+        <category>purchase order</category>
+        <sqlquery>
+            <select agregateFunc="distinct">
+                <!--  Please only enter type property {'number' or 'date or clock' }   -->
+                <table name="Purchase Order">
+                    <column name="puor.id" title="id" type="number" formattype="hidden"/>
+                    <column name="puor.shippingterms" title="Shipping Terms" type="string" formattype="string"/>
+                    <column name="puor.paymentterms" title="Payment Terms" type="string" formattype="string"/>
+                    <column name="qt.number" title="PO Number" type="string" formattype="string"/>
+                    <column name="qt.invoicedate" title="PO Date" type="date" formattype="date"/>
+                    <column name="qt.duedate" title="Ship Date" type="date" formattype="date"/>
+                    <column name="qt.total" title="Total (base)" type="number" formattype="money"/>
+                    <column name="qt.totaltaxes" title="Total Taxes(base)" type="number" formattype="money"/>
+                    <column name="qt.totalininvoicecurrency" title="Prospect Amount" type="number" formattype="money"/>
+                    <column name="st.name" title="Status" type="string" formattype="string"/>
+                    <column name="su.name" title="Supplier Name" type="string" formattype="string"/>
+                </table>
+                <table name="Currency">
+                    <column name="cu.name" title="Currency" type="string" formattype="string"/>
+                </table>
+                <table name="Related Project">
+                    <column name="pj.name" title="Related Project" type="string" formattype="string"/>
+                    <column name="cl.name" title="Client Name" type="string" formattype="string"/>
+                </table>
+            </select>
+            <from>
+                "$".purchaseorder puor
+                inner join "$".quote qt on qt.id = puor.id
+                left join currency cu on cu.id = qt.currency_id
+                left join "$".project pj on pj.id = qt.relatedproject_id
+                left join "$".crmaccount cl on pj.clientid = cl.id
+                left join "$".paymentmethod pymt on pymt.id = puor.paymentmethod_id
+                left join "$".crmaccount su on su.id = puor.supplier_id
+                left join "reference" st on st.id= qt.status_id
+            </from>
+            <where>
+                <terms id="base" value="pj.isdeleted != true"/>
+                <terms id="client" clientid="cl.id"/>
+                <!--<terms id="userid" userid="" company="qt.company_id" />
+                    <terms id="managerid" userid="" company="qt.company_id" />
+                    <terms id="leaderid" userid="" company="qt.company_id" />
+                    <terms id="admin" company="qt.company_id" />-->
+            </where>
+        </sqlquery>
+    </view>
+</report>

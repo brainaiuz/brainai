@@ -1,0 +1,210 @@
+/* CSS Document */
+body {
+    margin: 0;
+    padding: 0;
+    /*font-family: Arial, Helvetica, sans-serif;*/
+    font-size: 13px;
+    color: #4c4c4c;
+    min-height: 100%;
+    height: auto !important;
+}
+
+#head {
+    background: url(images/head.gif);
+    background-repeat: repeat-x;
+    height: 67px;
+}
+
+#footer {
+    background: url(images/footer2.gif) repeat-x;
+    height: 80px;
+    width: 100%;
+    clear: both;
+}
+
+#contact {
+    height: 14px;
+    left: 622px;
+    margin-right: 40px;
+    width: 767px;
+}
+
+#title {
+
+
+}
+
+#foottext {
+    color: #FFFFFF;
+    width: 850px;
+    margin: 0 auto;
+}
+
+#toptext {
+    color: #FFFFFF;
+    float: right;
+    padding: 15px 9px 0 0;
+}
+
+#logo {
+    position: absolute;
+    width: 209px;
+    height: 67px;
+}
+
+a {
+    /*font-family:Verdana, Arial, Helvetica, sans-serif;*/
+    font-size: 12px;
+    color: #fff;
+    text-decoration: none;
+}
+
+a:hover {
+    /*font-family:Verdana, Arial, Helvetica, sans-serif;*/
+    font-size: 12px;
+    color: #fff;
+    text-decoration: underlined;
+}
+
+b {
+    color: #1f4f8f;
+    font-size: 13px;
+}
+
+.red {
+    color: #FF0000;
+}
+
+.bold {
+    color: #4c4c4c;
+    line-height: 25px;
+}
+
+span {
+    line-height: 25px;
+}
+
+.yelink {
+    /*font-family:Arial, Helvetica, sans-serif;*/
+    color: #cb7700;
+    text-decoration: underline;
+}
+
+.yelink:hover {
+    /*font-family:Arial, Helvetica, sans-serif;*/
+    color: #cb7700;
+    text-decoration: underline;
+}
+
+.formsize {
+    width: 185px;
+}
+
+/***greybox***/
+#topl {
+    background: url(images/topl.gif) no-repeat;
+    width: 6px;
+    height: 6px;
+}
+
+#top {
+    background: url(images/topc.gif) repeat-x;
+    height: 6px;
+    width: 688px;
+}
+
+#topr {
+    background: url(images/topr.gif) no-repeat;
+    width: 6px;
+    height: 6px;
+}
+
+#botl {
+    background: url(images/botl.gif) no-repeat;
+    width: 6px;
+    height: 6px;
+}
+
+#bot {
+    background: url(images/botc.gif) repeat-x;
+    height: 6px;
+    width: 688px;
+}
+
+#botr {
+    background: url(images/botr.gif) no-repeat;
+    width: 6px;
+    height: 6px;
+}
+
+#center {
+    background: url(images/center.gif) repeat-x;
+    height: 200px;
+    border-left: 1px solid #eee;
+    border-right: 1px solid #eee;
+}
+
+/***roundcorners*****/
+.spiffy {
+    display: block
+}
+
+.spiffy * {
+    display: block;
+    height: 1px;
+    overflow: hidden;
+    font-size: .01em;
+    background: #FFFFFF
+}
+
+.spiffy1 {
+    margin-left: 3px;
+    margin-right: 3px;
+    padding-left: 1px;
+    padding-right: 1px;
+    border-left: 1px solid #79a7c1;
+    border-right: 1px solid #79a7c1;
+    background: #c4d8e4
+}
+
+.spiffy2 {
+    margin-left: 1px;
+    margin-right: 1px;
+    padding-right: 1px;
+    padding-left: 1px;
+    border-left: 1px solid #2b749d;
+    border-right: 1px solid #2b749d;
+    background: #d2e1ea
+}
+
+.spiffy3 {
+    margin-left: 1px;
+    margin-right: 1px;
+    border-left: 1px solid #d2e1ea;
+    border-right: 1px solid #d2e1ea;
+}
+
+.spiffy4 {
+    border-left: 1px solid #79a7c1;
+    border-right: 1px solid #79a7c1
+}
+
+.spiffy5 {
+    border-left: 1px solid #c4d8e4;
+    border-right: 1px solid #c4d8e4
+}
+
+.spiffyfg {
+    overflow: hidden;
+    zoom: 1;
+    padding: 25px;
+    background: #FFFFFF
+}
+
+.error {
+    color: red;
+}
+
+.valid {
+    color: green;
+}

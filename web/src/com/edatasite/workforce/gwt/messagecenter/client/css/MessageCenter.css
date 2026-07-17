@@ -1,0 +1,439 @@
+/************************* --BEGIN-- ON FLY CSS STYLES FOR COO SIDE *******************/
+.coo .dialogbox-background {
+    background-color: #c0acd9; /*#a374eb;*/
+}
+
+.coo .inbox-options-style {
+    vertical-align: middle;
+    font-size: 12px;
+    height: 18px;
+    color: #a374eb;
+    color: darkorchid;
+    cursor: pointer;
+}
+
+.inbox-options-style {
+    vertical-align: middle;
+    font-size: 12px;
+    height: 18px;
+    color: #a374eb;
+    color: darkorchid;
+    cursor: pointer;
+}
+
+.coo .on-select {
+    background-color: whitesmoke;
+    font-weight: bold;
+}
+
+.coo .on-mouse-over {
+    text-decoration: underline;
+}
+
+.coo .compose-message-style {
+    color: #a374eb;
+    font-weight: bold;
+    font-size: 13px;
+    padding-left: 9px;
+    cursor: pointer;
+}
+
+.coo .inboxTabBarStyle {
+    overflow: scroll;
+    color: #a374eb;
+    font-weight: bold;
+    margin: 5px 5px 5px 5px;
+}
+
+.coo .hasRichTextToolbar {
+    border: 1px solid blueviolet;
+}
+
+.coo .inbox-table-item-style {
+    font-size: 12px;
+    color: #a374eb;
+    cursor: pointer;
+    padding-left: 9px;
+}
+
+.coo .inbox-message {
+    border: 1px solid #a374eb;
+}
+
+.coo .inbox-message-panel-header {
+    background-color: cornsilk;
+    height: 30px;
+    border: 1px solid cornsilk;
+}
+
+.coo .inbox-message-panel-content-border {
+    border-top: 1px solid cornflowerblue;
+    border-bottom: 1px solid cornflowerblue;
+}
+
+.coo .inbox-reply-background {
+    background-color: #DDDDDD;
+}
+
+.coo .inbox-reply-message {
+    background-color: white;
+    border: 1px solid blueviolet;
+    padding: 7px;
+}
+
+.coo .inbox-button {
+    font-size: x-small;
+    padding: 1px 9px;
+    cursor: pointer;
+}
+
+/************************* --END-- ON FLY CSS STYLES FOR COO SIDE *******************/
+
+/************************* --BEGIN-- ON FLY CSS STYLES FOR WORKFORCE SIDE *******************/
+.workforce .dialogbox-background {
+    background-color: #AAAAFF;
+}
+
+.workforce .inbox-options-style {
+    vertical-align: middle;
+    font-size: 12px;
+    height: 18px;
+    color: #c3daf9;
+    color: #6B90DA;
+    cursor: pointer;
+}
+
+.workforce .on-select {
+    background-color: whitesmoke;
+    font-weight: bold;
+}
+
+.workforce .on-mouse-over {
+    text-decoration: underline;
+}
+
+.workforce .compose-message-style {
+    color: #c3daf9;
+    font-weight: bold;
+    font-size: 13px;
+    padding-left: 9px;
+    cursor: pointer;
+}
+
+.workforce .inboxTabBarStyle {
+    overflow: scroll;
+    color: #c3daf9;
+    font-weight: bold;
+    margin: 5px 5px 5px 5px;
+}
+
+.workforce .hasRichTextToolbar {
+    border: 1px solid #6B90DA;
+}
+
+.workforce .inbox-table-item-style {
+    font-size: 12px;
+    color: #6B90DA;
+    cursor: pointer;
+    padding-left: 9px;
+}
+
+.workforce .inbox-message {
+    border: 1px solid /*#c3daf9*/ #FFFFFF;
+}
+
+.workforce .inbox-message-panel-header {
+    background-color: /*#c3daf9*/ #FFFFFF;
+    height: 30px;
+    border: 1px solid /*#c3daf9*/ #FFFFFF;
+}
+
+.workforce .inbox-message-panel-content-border {
+/*border-top: 1px solid cornflowerblue;*/
+/*border-bottom: 1px solid cornflowerblue;*/
+    border-top: 1px solid #A9BFD3;
+    border-bottom: 1px solid #A9BFD3;
+}
+
+.workforce .inbox-reply-background {
+    background-color: /*#c3daf9*/ #FFFFFF;
+    border-top: 1px solid #A9BFD3;
+}
+
+.workforce .inbox-reply-message {
+    background-color: white;
+    border: 1px solid /*#6B90DA*/ #A9BFD3;
+    padding: 7px;
+}
+
+.workforce .inbox-button {
+    font-size: x-small;
+    padding: 1px 9px;
+    cursor: pointer;
+}
+
+/************************* --END-- ON FLY CSS STYLES FOR WORKFORCE SIDE *******************/
+
+/************************* --BEGIN-- ON FLY CSS STYLES FOR ATM SIDE *******************/
+.atm .dialogbox-background {
+    background-color: #F3F3F3;
+}
+
+.atm .inbox-options-style {
+    vertical-align: middle;
+    font-size: 12px;
+    height: 18px;
+    color: #565656;
+    cursor: pointer;
+}
+
+.atm .on-select {
+    background-color: whitesmoke;
+    font-weight: bold;
+}
+
+.atm .on-mouse-over {
+    text-decoration: underline;
+}
+
+.atm .compose-message-style {
+    color: #565656;
+    font-weight: bold;
+    font-size: 13px;
+    padding-left: 9px;
+    cursor: pointer;
+}
+
+.atm .inboxTabBarStyle {
+    overflow: scroll;
+    color: #565656;
+    font-weight: bold;
+    margin: 5px 5px 5px 5px;
+}
+
+.atm .hasRichTextToolbar {
+    border: 1px solid #E3E3E3;
+}
+
+.atm .inbox-table-item-style {
+    font-size: 12px;
+    color: #565656;
+    cursor: pointer;
+    padding-left: 9px;
+}
+
+.atm .inbox-message {
+    border: 1px solid #E3E3E3;
+}
+
+.atm .inbox-message-panel-header {
+    background-color: #F1F1F1;
+    height: 30px;
+    border: 1px solid #E3E3E3;
+}
+
+.atm .inbox-message-panel-content-border {
+    border-top: 1px solid #E3E3E3;
+    border-bottom: 1px solid #E3E3E3;
+}
+
+.atm .inbox-reply-background {
+    background-color: #F1F1F1;
+}
+
+.atm .inbox-reply-message {
+    background-color: white;
+    border: 1px solid #E3E3E3;
+    padding: 7px;
+}
+
+.atm .inbox-button {
+    font-size: x-small;
+    padding: 1px 9px;
+    cursor: pointer;
+}
+
+/************************* --END-- ON FLY CSS STYLES FOR ATM SIDE *******************/
+
+/************************* --BEGIN-- ON FLY CSS STYLES FOR (KANOKLA)GREEN SIDE *******************/
+.green .dialogbox-background {
+    background-color: #F3F3F3;
+}
+
+.green .inbox-options-style {
+    vertical-align: middle;
+    font-size: 12px;
+    height: 18px;
+    color: #549778;
+    cursor: pointer;
+}
+
+.green .on-select {
+    background-color: whitesmoke;
+    font-weight: bold;
+}
+
+.green .on-mouse-over {
+    text-decoration: underline;
+}
+
+.green .compose-message-style {
+    color: #549778;
+    font-weight: bold;
+    font-size: 13px;
+    padding-left: 9px;
+    cursor: pointer;
+}
+
+.green .inboxTabBarStyle {
+    overflow: scroll;
+    color: #549778;
+    font-weight: bold;
+    margin: 5px 5px 5px 5px;
+}
+
+.green .hasRichTextToolbar {
+    border: 1px solid #E3E3E3;
+}
+
+.green .inbox-table-item-style {
+    font-size: 12px;
+    color: #549778;
+    cursor: pointer;
+    padding-left: 9px;
+}
+
+.green .inbox-message {
+    border: 1px solid #E3E3E3;
+}
+
+.green .inbox-message-panel-header {
+    background-color: #F1F1F1;
+    height: 30px;
+    border: 1px solid #E3E3E3;
+}
+
+.green .inbox-message-panel-content-border {
+    border-top: 1px solid #E3E3E3;
+    border-bottom: 1px solid #E3E3E3;
+}
+
+.green .inbox-reply-background {
+    background-color: #F1F1F1;
+}
+
+.green .inbox-reply-message {
+    background-color: white;
+    border: 1px solid #E3E3E3;
+    padding: 7px;
+}
+
+.green .inbox-button {
+    font-size: x-small;
+    padding: 1px 9px;
+    cursor: pointer;
+}
+
+/************************* --END-- ON FLY CSS STYLES FOR (KANOKLA) GREEN SIDE *******************/
+
+/************************* --BEGIN-- maroon STYLES *******************/
+.maroon .dialogbox-background {
+    background-color: #F3F3F3;
+}
+
+.maroon .inbox-options-style {
+    vertical-align: middle;
+    font-size: 12px;
+    height: 18px;
+    color: #549778;
+    cursor: pointer;
+}
+
+.maroon .on-select {
+    background-color: whitesmoke;
+    font-weight: bold;
+}
+
+.maroon .on-mouse-over {
+    text-decoration: underline;
+}
+
+.maroon .compose-message-style {
+    color: #549778;
+    font-weight: bold;
+    font-size: 13px;
+    padding-left: 9px;
+    cursor: pointer;
+}
+
+.maroon .inboxTabBarStyle {
+    overflow: scroll;
+    color: #549778;
+    font-weight: bold;
+    margin: 5px 5px 5px 5px;
+}
+
+.maroon .hasRichTextToolbar {
+    border: 1px solid #E3E3E3;
+}
+
+.maroon .inbox-table-item-style {
+    font-size: 12px;
+    color: #549778;
+    cursor: pointer;
+    padding-left: 9px;
+}
+
+.maroon .inbox-message {
+    border: 1px solid #E3E3E3;
+}
+
+.maroon .inbox-message-panel-header {
+    background-color: #F1F1F1;
+    height: 30px;
+    border: 1px solid #E3E3E3;
+}
+
+.maroon .inbox-message-panel-content-border {
+    border-top: 1px solid #E3E3E3;
+    border-bottom: 1px solid #E3E3E3;
+}
+
+.maroon .inbox-reply-background {
+    background-color: #F1F1F1;
+}
+
+.maroon .inbox-reply-message {
+    background-color: white;
+    border: 1px solid #E3E3E3;
+    padding: 7px;
+}
+
+.maroon .inbox-button {
+    font-size: x-small;
+    padding: 1px 9px;
+    cursor: pointer;
+}
+
+/************************* --END-- maroon STYLES *******************/
+
+.tree-action-icon {
+    float: right;
+    margin-right: 25px;
+    position: relative;
+    top: -11px;
+}
+
+.tree-addnewlink {
+    text-decoration: underline;
+    color: #7FB700;
+    font-weight: bolder;
+}
+
+.search-box {
+    height: 19px;
+    margin-right: 3px;
+    margin-top: 3px;
+    width: 150px;
+    float: left;
+}

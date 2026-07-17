@@ -1,0 +1,35 @@
+#* @vtlvariable name="timesheetapprovalsession" type="com.edatasite.workforce.core.domain.EdsTimeSheetApprovalSession" *#
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+Уважаемый(ая) $managername,<br/>
+
+<p>
+    Доводим до вашего сведения, что $timesheetapprovalsession.employee.getName() представил $startdate расписанию периода $enddate для Вашего одобрения.
+</p>
+
+<p>Вы можете просмотреть расписания, ожидающие вашего одобрения на разделе "Управления проектами">> "Расписания, ожидающие Вашего одобрения" подраздел</p>
+
+<p>ИЛИ</p>
+
+<p>Щелкая по следующему $host/ProjectManagement.html?link=$link</p>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

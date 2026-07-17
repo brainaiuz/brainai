@@ -1,0 +1,17 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<p>Dear $SUBMITTER,</p>
+
+<p>Please be advised that $APPROVER has approved the Purchase order ($PONUMBER) you submitted on $CREATION_DATE.</p>
+
+<p>Click <a href="$LINK" target="_blank">here</a> to view the Purchase Order.</p>
+
+If you are not able to click on the link, you can copy and paste the following address into your web browser: $LINK
+</body>
+</html>

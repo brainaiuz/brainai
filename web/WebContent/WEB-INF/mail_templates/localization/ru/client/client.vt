@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<p>Дорогой $CLIENTNAME, </p>
+
+#if($ACCESS_TYPE=='client' or $ACCESS_TYPE=='client/supplier')
+<p>Мы рады сообщить Вам что $MANAGER создал клиентскую учетную запись для Вас в $companyName</p>
+#elseif($ACCESS_TYPE=='supplier')
+<p>Мы рады сообщить Вам что $MANAGER создал учетную запись поставщика для Вас в $companyName</p>
+#end
+
+<p>Для активации Вашей учетной записи пожалуйста <a
+        href="$HOST/auth/account?uid=$id&cid=$companyid&sid=$serviceid">нажмите здесь</a><br/>
+    (или скопируйте и вставьте следующий адрес в Ваш веб браузер: $HOST/auth/account?uid=$id&cid=$companyid&sid=$serviceid)</p>
+
+</body>
+</html>
+

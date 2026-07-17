@@ -1,0 +1,17 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:m.html="urn:import:gwt.material.design.client.ui.html"
+             xmlns:grid="urn:import:com.edatasite.workforce.gwt.core.client.ui.components.dashboard">
+
+    <g:HTMLPanel addStyleNames="dashboard__container" ui:field="mainContent">
+        <m.html:Div class="dashboard__header margin-bottom fixed-content" ui:field="header"/>
+
+        <m.html:Div class="margin-bottom" ui:field="removeSampleContainer"/>
+
+        <g:HTMLPanel styleName="dashboard__content" ui:field="content">
+            <g:HTMLPanel styleName="grid-stack-item grid-stack__heading ui-draggable ui-resizable ui-resizable-autohide ui-draggable-disabled ui-resizable-disabled" ui:field="subContent"/>
+            <grid:GridStackPanel ui:field="container"></grid:GridStackPanel>
+       </g:HTMLPanel>
+        <m.html:Span ui:field="emptyMessage"/>
+    </g:HTMLPanel>
+</ui:UiBinder>

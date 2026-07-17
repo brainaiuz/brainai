@@ -1,0 +1,10 @@
+<svg width="65" height="80" viewBox="0 0 65 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="Canvas" transform="translate(-506 -649)">
+<g id="Mask Copy 2">
+<use xlink:href="#path0_fill" transform="translate(506 649)" fill="#00A8EA"/>
+</g>
+</g>
+<defs>
+<path id="path0_fill" fill-rule="evenodd" d="M 5.24833e-15 10.6967C 5.24833e-15 4.23567 6.03527 -0.52943 12.32 0.969526L 57.32 11.7024C 61.8228 12.7763 65 16.8004 65 21.4295L 65 58.3489C 65 62.978 61.8228 67.0021 57.32 68.076L 12.32 78.8089C 6.03527 80.3078 5.24833e-15 75.5427 5.24833e-15 69.0817L 5.24833e-15 10.6967Z"/>
+</defs>
+</svg>

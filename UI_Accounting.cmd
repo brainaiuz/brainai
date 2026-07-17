@@ -1,0 +1,1 @@
+ant Accounting -f ./web/AutoCompile.xml

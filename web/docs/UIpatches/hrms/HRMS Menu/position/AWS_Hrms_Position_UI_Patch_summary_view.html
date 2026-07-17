@@ -1,0 +1,49 @@
+<div class="contentBar" style="padding:0 10px; margin-top:2px;">
+
+    <div id="positionDetails" class="slideDown-box expand group">
+        <h3 onclick="var myclick=document.getElementById('positionDetails');if(myclick &amp;&amp; myclick.className){;
+}{var cls=myclick.className;if(cls.indexOf('expand')>=0){cls=cls.replace('expand','');}else{cls+=' expand';}myclick.className=cls;}"
+            class="slideDown-title">$$label:POSITION_DETAILS$$</h3>
+        <fieldset class="slideDown-content group labelLine">
+            <div class="halfSet-1 left">
+                <div class="row">$$label:POSITION_CODE$$
+                    <div class="field">$$input:POSITION_CODE$$</div>
+                </div>
+                <div class="row">$$label:POSITION_TITLE$$
+                    <div class="field">$$input:POSITION_TITLE$$</div>
+                </div>
+                <div class="row">$$label:DESCRIPTION$$
+                    <div class="field">$$input:DESCRIPTION$$</div>
+                </div>
+            </div>
+
+            <div class="halfSet-1 left">
+                <div class="row">$$label:STATUS$$
+                    <div class="field">$$input:STATUS$$</div>
+                </div>
+
+                <div class="row hideCustomField">$$label:WAGE_RATE$$
+                    <div class="field">$$input:WAGE_RATE$$</div>
+                </div>
+                <div class="row hideCustomField">$$label:CLIENT_CHARGE_RATE$$
+                    <div class="field">$$input:CLIENT_CHARGE_RATE$$</div>
+                </div>
+
+                <div class="row"> $$label:POSITION_VIEW_PDF$$
+                    <div class="field">$$input:POSITION_VIEW_PDF$$</div>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+
+
+    <div id="positionEmployees" class="slideDown-box expand group">
+        <h3 onclick="var myclick=document.getElementById('positionEmployees');if(myclick &amp;&amp; myclick.className){;
+}{var cls=myclick.className;if(cls.indexOf('expand')>=0){cls=cls.replace('expand','');}else{cls+=' expand';}myclick.className=cls;}"
+            class="slideDown-title">$$label:POSITION_EMPLOYEES$$</h3>
+        <fieldset class="slideDown-content group nobrd">
+            <div class="reachFullWidth">$$input:EMPLOYEES$$</div>
+        </fieldset>
+
+    </div>
+</div>

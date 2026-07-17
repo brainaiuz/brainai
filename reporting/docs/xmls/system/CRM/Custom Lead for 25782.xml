@@ -1,0 +1,66 @@
+<report>
+    <view>
+        <title>CRM Case Detailed</title>
+        <name>Cases Report</name>
+        <category>cases</category>
+        <sqlquery>
+            <select >
+
+                <table name="Case">
+
+                    <column name="leadName" title="Lead Name" type="string" formattype="string"/>
+                    <column name="crmAccount" title="Company Name" type="string" formattype="string"/>
+                    <column name="primaryEmail" title="Primary Email" type="string" formattype="string"/>
+                    <column name="statusNames" title="Status" type="string" formattype="string"/>
+                    <column name="assigneeName" title="Assignee" type="string" formattype="string"/>
+                    <column name="jobTitles" title="Job Title" type="string" formattype="string"/>
+                    <column name="street" title="Street" type="string" formattype="string"/>
+                    <column name="city" title="City" type="string" formattype="string"/>
+                    <column name="zipCode" title="Post Code" type="string" formattype="string"/>
+                    <column name="primaryPhone" title="Primary Phone" type="string" formattype="string"/>
+                    <column name="mobile" title="Mobile" type="string"/>
+                    <column name="website" title="Website" type="string"/>
+                    <column name="leadNote" title="Note" type="string" formattype="string"/>
+                </table>
+            </select>
+
+            <from>
+                (
+
+                select l.id, primaryEmail, sts.name statusNames, coalesce(ass.firstname,'')||' '||coalesce(ass.lastname,'') assigneeName,jobTitles
+                ,add.address street,add.city,add.zipCode,l.primaryPhone
+                ,case ip.id when mb.id then ip.value end mobile
+                ,case ip.id when wb.id then ip.value end website
+                ,nt.leadNote
+                ,coalesce(l.firstname,'')||' '||coalesce(l.lastname,'') leadName
+                ,ca.name crmAccount
+                from "25782".crmcontact l
+                left join "25782".reference sts on l.status=l.id
+                left join "25782".myuser ass on l.assignee=ass.id
+                left join "25782".crmaccount ca on l.crmAccount=ca.id
+                left join (select add.contactID, min(id) id from "25782".address add where add.deleted is not true and add.entitytype='contact' and add.relationType in (1,2,7) group by add.contactID) x on l.id=x.contactid
+                left join "25782".address add on x.id=add.id
+                left join (select min(id) id, contactid from "25782".crmcontactitemparams where paramid=1 and relationid=3 group by contactid) mb on l.id=mb.contactid
+                left join (select min(id) id, contactid from "25782".crmcontactitemparams where paramid=4 group by contactid) wb on l.id=wb.contactid
+                left join "25782".crmcontactitemparams  ip on ip.id in (mb.id,wb.id)
+                left join ( select related_id,array_to_string(array_agg(distinct nt.comment||
+
+                (case when ''!=coalesce(trim(nt.comment),'')  then ' {'||coalesce(u.firstname,'')||' '||coalesce(u.lastname,'')||'}' else '' end )
+
+                ),'&lt;br&gt;') leadNote
+                from  "25782".note nt
+                left join "25782".myuser u on nt.commentatorId=u.id
+                where nt.related_to=16 group by related_id) nt on l.id=nt.related_id
+                where l.deleted is not true and l.contactType=5
+
+                ) t
+            </from>
+
+            <where>
+                <terms id="base" value="1=1"/>
+
+            </where>
+
+        </sqlquery>
+    </view>
+</report>

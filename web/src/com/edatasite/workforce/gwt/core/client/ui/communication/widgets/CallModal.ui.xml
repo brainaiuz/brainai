@@ -1,0 +1,80 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:m='urn:import:gwt.material.design.client.ui.html'
+             xmlns:t='urn:import:gwt.material.design.client.ui'
+             xmlns:kpi='urn:import:com.edatasite.workforce.gwt.core.client.ui.wfmButton.buttonUtils'
+>
+    <g:HTMLPanel ui:field="mainPanel" styleName="wg_dial wg_dial--calling" debugId="call-modal">
+        <g:HTMLPanel ui:field="dialPad" styleName="wg_dial__pad">
+
+            <div class="wg_dial__number">
+                <div class="wg_dial__number-input">
+                    <input ui:field="phoneNumberInput" type="tel"/>
+                </div>
+            </div>
+            <g:HTMLPanel ui:field="padButtons" styleName="wg_dial__pad-buttons">
+            </g:HTMLPanel>
+            <div class="wg_dial__pad-footer">
+                <g:HTMLPanel ui:field="dialText" styleName="wg_dial__text">
+                </g:HTMLPanel>
+            </div>
+        </g:HTMLPanel>
+        <div class="wg_dial__notes">
+            <div class="wg_dial__info-tabs">
+                <div class="wg_dial__info-tabs-item">
+                    <m:Label ui:field="notelabel"/>
+                    <!--<a href="#wg-dial&#45;&#45;rencent">Write a note</a>-->
+                </div>
+            </div>
+            <div class="wg_dial__notes-content">
+                <g:TextArea styleName="wg_dial__notes-textarea" ui:field="note"></g:TextArea>
+
+            </div>
+        </div>
+        <g:HTMLPanel ui:field="callPanel" styleName="wg_dial__call">
+            <m:Table ui:field="callInfoTable" styleName="wg_dial__call-info">
+            </m:Table>
+
+            <div class="wg_dial__call-actions">
+                <g:HTMLPanel ui:field="callActionsIcon" styleName="wg_dial__call-actions__icon"></g:HTMLPanel>
+                <div>
+                    <t:MaterialPanel styleName="wg_dial__call-options wg_dial_more">
+                        <t:MaterialLink ui:field="moreIcon" styleName="dropdown-button" visible="false">
+                            <m:Icon styleName="ficon--more-horiz wg_dial_more_icon"/>
+                        </t:MaterialLink>
+                    </t:MaterialPanel>
+                    <g:HTMLPanel ui:field="toLabel" styleName="wg_dial__call-name"></g:HTMLPanel>
+                    <g:HTMLPanel ui:field="callStats" styleName="wg_dial__call-duration"></g:HTMLPanel>
+
+
+                    <g:HTMLPanel ui:field="actionButtons" styleName="wg_dial__call-actions__buttons">
+                        <kpi:WfmButton2 ui:field="endCallButton" styleName="btn-small btn--danger"></kpi:WfmButton2>
+                        <kpi:WfmButton2 ui:field="muteButton" styleName="btn-small btn--lightgrey"></kpi:WfmButton2>
+                        <kpi:WfmButton2 ui:field="keypadButton" styleName="btn-small btn--icon" title="open dial pad">
+                        </kpi:WfmButton2>
+                    </g:HTMLPanel>
+                </div>
+            </div>
+        </g:HTMLPanel>
+        <div class="wg_dial__sms">
+            <div class="wg_dial__sms-header">
+                <div class="wg_dial__sms-to-info">
+                    <div class="wg_dial__sms-name">Farrukh Nurmatov</div>
+                    <div class="wg_dial__sms-number">+998935286407</div>
+                </div>
+                <img class="wg_dial__flag" src="https://via.placeholder.com/16x10" alt=""/>
+            </div>
+            <div class="wg_dial__sms-content">
+
+            </div>
+            <div class="wg_dial__sms-footer">
+                <textarea class="wg_dial__sms-input" placeholder="Type here..."></textarea>
+                <div class="wg_dial__sms-send">
+                    <i class="ficon--keyboard-arrow-up"></i>
+                </div>
+                <div class="wg_dial__sms-chars">999</div>
+            </div>
+        </div>
+    </g:HTMLPanel>
+
+</ui:UiBinder>

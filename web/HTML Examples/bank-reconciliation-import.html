@@ -1,0 +1,758 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Bank reconciliation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--CSS-->
+    <link rel="stylesheet" href="../WebContent/mainStyles/new-ui/css/materialize.css">
+</head>
+
+<body class="frame__body fitted-content left-menu-closed  has-frame__info">
+<div class="frame has-scroll--vertical">
+    <div class="frame__header">
+        <div aria-hidden="true" class="frame__header__item-2" style="display: none;">
+            <div class="dropdown-select--arrow dropdown-kit--below dropdown-kit--edge-in"></div>
+        </div>
+        <div aria-hidden="true" class="frame__header__item-3" style="display: none;">
+            <div style="display:none" class="dropdown-select--arrow dropdown-kit--below dropdown-kit--edge-in"><a href="javascript:void(0);" class="btn gwt-uid-67 dropdown-button" data-activates="gwt-uid-67">
+                <ul id="gwt-uid-67" class="email-account dropdown-content"></ul>
+            </a></div>
+        </div>
+        <div class="header-tabs">
+            <ul class="tabs">
+                <li class="tab"><a href="#"><span title="Dashboard">Bank Accounts</span></a></li>
+                <div class="indicator" style="right: 993.864px; left: 107.156px;"></div>
+                <li class="tab"><a href="#" class="active"><span title="Import Statement">Import Statement</span><i class="close"></i></a></li>
+            </ul>
+        </div>
+        <div class="user-menu">
+            <div aria-hidden="true" class="frame__user__trial" style="display: none;">
+                <div class="trial-informer"><span></span> <button class="btn btn--trial"><span>Upgrade</span></button> </div>
+            </div>
+            <div class="user-menu-dynamic">
+                <div class="user-menu-item" data-delay="350" data-position="bottom" data-tooltip-id="8b0c411f-101a-4044-acc5-9c811fad5026" data-tooltip="Timer"><a class="button-collapse"><span class="user-menu-item__icon"><svg class=" icon--clock">
+                                    <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#clock"></use>
+                                </svg><span class="badge" aria-hidden="true" style="display: none;"></span></span></a></div>
+                <div class="user-menu-item" data-delay="350" data-position="bottom" data-tooltip-id="ca4170a8-c9e6-48d7-aea0-d1b4263bf863" data-tooltip="Call"><a class="button-collapse"><span class="user-menu-item__icon"><svg class=" icon--phone">
+                                    <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#phone"></use>
+                                </svg><span class="badge" aria-hidden="true" style="display: none;"></span></span></a></div>
+            </div>
+            <div class="user-menu-item"> <a class="button-collapse" data-delay="350" data-position="bottom" data-tooltip-id="fcae765f-b147-ca82-49cc-2697869d98da" data-tooltip="Notifications"><span class="user-menu-item__icon"> <svg class=" icon--bell">
+                                <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#bell"></use>
+                            </svg><span class="badge">1</span></span> </a> </div>
+            <div class="user-menu-item"><a class="button-collapse" data-delay="350" data-position="bottom" data-tooltip-id="1aec85c3-229b-9909-c2ba-b3a68ee54346" data-tooltip="Emails"><span class="user-menu-item__icon"><svg class=" icon--mail">
+                                <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#mail"></use>
+                            </svg><span class="badge" aria-hidden="true" style="display: none;"></span></span></a></div>
+            <div class="user-menu-item"><a class="button-collapse" data-delay="350" data-position="bottom" data-tooltip-id="6fc79d96-50b6-88f3-6a3a-59ef18882540" data-tooltip="Settings"><span class="icon-settings"></span> <svg class=" icon--settings">
+                <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#settings"></use>
+            </svg> </a></div>
+        </div>
+    </div>
+    <div class="frame__modules">
+        <div class="frame__nav"> </div>
+        <div class="main-modules">
+            <div>
+                <div class="user-profile"> <a class="user-profile__menu dropdown-button"> <span class="user-profile-img"> <img alt="" src="../WebContent/mainStyles/new-ui/images/kpilogo.svg"> </span> </a> </div>
+            </div>
+            <ul>
+                <li class="main-modules__item main-modules__item--workspace"> <a href="Workspace.html"> <svg class=" icon--home">
+                    <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#home"></use>
+                </svg> <span></span> </a> </li>
+                <li class="main-modules__item main-modules__item--accounting"><a> <svg class=" icon--accounting">
+                    <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#accounting"></use>
+                </svg> <span>Accounts</span></a></li>
+                <li class="main-modules__item main-modules__item--sales"><a> <svg class=" icon--sales">
+                    <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#sales"></use>
+                </svg> <span>Sales</span></a></li>
+                <li class="main-modules__item--active main-modules__item main-modules__item--humans"><a> <svg class=" icon--humans">
+                    <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#humans"></use>
+                </svg> <span>Humans</span></a></li>
+                <li class="main-modules__item main-modules__item--projects"><a> <svg class=" icon--projects">
+                    <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#projects"></use>
+                </svg> <span>Projects</span></a></li>
+                <li class="main-modules__item main-modules__item--payroll"><a> <svg class=" icon--payroll">
+                    <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#payroll"></use>
+                </svg> <span>Payroll</span></a></li>
+                <li class="main-modules__item main-modules__item--reports"><a> <svg class=" icon--reporting">
+                    <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#reporting"></use>
+                </svg> <span>Reports</span></a></li>
+                <li class="main-modules__item main-modules__item--docs"><a> <svg class=" icon--documents">
+                    <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#documents"></use>
+                </svg> <span>Docs</span></a></li>
+            </ul>
+            <div class="kpi-modules-overlay" style="display: none;"></div>
+        </div>
+        <div class="frame__modules__footer"><a class="left-menu-trigger"><i class="ficon--chevron-right"></i></a></div>
+    </div>
+    <div class="frame__content scrollbar-external_wrapper">
+        <div class="frame__content__body scrollbar-external">
+            <div class="whiteBGR">
+                <div class="workarea" id="workarea">
+                    <div class="section-box box-bg--1">
+                        <!--//START UPLOAD STEPS-->
+                        <div class="uploadSteps__wrapper">
+                            <div class="uploadSteps">
+                                <div class="uploadSteps__tabs">
+                                    <ul class="tabs step-tabs">
+                                        <li class="tab"> <a href="#test1" class="btn active"> <span class="badge">1</span> <span>Upload</span> </a> </li>
+                                        <li class="tab"> <a href="#test2" class="btn"> <span class="badge">2</span> <span>Import settings</span> </a> </li>
+                                        <li class="tab"> <a href="#test3" class="btn"> <span class="badge">3</span> <span>Review</span> </a> </li>
+                                    </ul>
+                                </div>
+                                <div class="uploadSteps__content">
+                                    <div id="test1">
+                                        <div class="uploadSteps__info">
+                                            <h3>Prepare file for upload</h3>
+                                            <p>Download bank statements from your online banking as an OFX (preferred), QFX, QIF, QBO, or CSV file.</p>
+                                            <p> Alternatively, create your own statement file with our CSV template. <br> <a href="#">Download System CSV template (CSV, 56 B)</a> <br> <a href="#">Learn more about importing transactions</a> </p>
+                                        </div>
+                                        <div class="uploadSteps__data uploadSteps__uploader">
+                                            <div class="dropzone" dir="ltr">
+                                                <div>
+                                                    <div class="kpi-upload__upload-icon"><img alt="" class="gwt-Image" src="/mainStyles/new-ui/images/upload.svg"> </div>
+                                                    <div class="dropzone-message kpi-upload__content-wrapper"><span>Drag and drop files here or </span><a class="gwt-Anchor" href="javascript:;">Browse</a></div>
+                                                    <div class="dropzone-submessage kpi-upload__content-wrapper">You can drag &amp; drop files from your desktop on this area </div>
+                                                </div> <input type="file" multiple="multiple" />
+                                            </div>
+                                            <div class="dropResults">
+                                                <div class="dropItem__row">
+                                                    <div class="dropItem">
+                                                        <div class="dropItem__icon"> <svg class="icon--paperclip">
+                                                            <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#paperclip"></use>
+                                                        </svg> </div>
+                                                        <div class="dropItem__txt"> Import_Transaction_Template.csv </div>
+                                                        <div class="dropItem__act"> <i> <svg class="icon--x">
+                                                            <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#x"></use>
+                                                        </svg> </i> </div>
+                                                    </div>
+                                                </div>
+                                                <div class="dropItem__row">
+                                                    <div class="dropItem">
+                                                        <div class="dropItem__icon"> <svg class="icon--paperclip">
+                                                            <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#paperclip"></use>
+                                                        </svg> </div>
+                                                        <div class="dropItem__txt"> 31-Maktab-SQ0035.pdf </div>
+                                                        <div class="dropItem__act"> <i> <svg class="icon--x">
+                                                            <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#x"></use>
+                                                        </svg> </i> </div>
+                                                    </div>
+                                                </div>
+                                                <div class="dropItem__row">
+                                                    <div class="dropItem">
+                                                        <div class="dropItem__icon"> <svg class="icon--paperclip">
+                                                            <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#paperclip"></use>
+                                                        </svg> </div>
+                                                        <div class="dropItem__txt"> 38-Maktab-SQ0044-test.pdf </div>
+                                                        <div class="dropItem__act"> <i> <svg class="icon--x">
+                                                            <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#x"></use>
+                                                        </svg> </i> </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="test2">
+                                        <div class="uploadSteps__info">
+                                            <h3>Set up transactions for import</h3>
+                                            <h4>Map and assign columns</h4>
+                                            <p> Assign column headings in your file to fields in System, to set how your transactions look. You only need to do this once, but you can edit them when you next import a CSV file. </p>
+                                        </div>
+                                        <div class="uploadSteps__data">
+                                            <div class="panel--bordered panel--rows uploadedCols">
+                                                <div class="panel__heading">
+                                                    <div class="grid-row">
+                                                        <div class="col"><i class="col-tag">A</i> <span>Column heading from csv file</span></div>
+                                                        <div class="col"><i class="col-tag">B</i> <span>Preview from csv file</span></div>
+                                                        <div class="col"><i class="col-tag">C</i> <span>Assign to a field in KPI</span></div>
+                                                        <div class="col-auto action"></div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="panel__body">
+                                                    <i class="row-tag">1</i>
+                                                    <div class="grid-row">
+                                                        <div class="col">
+
+                                                            <div class="uploadedCols__opt">
+                                                                <div class="col-auto">
+                                                                    <svg class="icon--list">
+                                                                        <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#list"></use>
+                                                                    </svg>
+                                                                </div>
+                                                                <div class="col">Date</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col">
+
+                                                            <div class="uploadedCols__opt">
+                                                                <div class="col-auto">
+                                                                    <svg class="icon--view">
+                                                                        <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#view"></use>
+                                                                    </svg>
+                                                                </div>
+                                                                <div class="col">01 / 08 / 23</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col">
+                                                            <div class="form-control input-field listbox-wrapper">
+                                                                <select class="select-wrapper gwt-ListBox">
+                                                                    <option value="1">Transaction date</option>
+                                                                    <option value="2">option</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-auto action">
+                                                            <a href="#" class="btn--icon icon-act">
+                                                                <svg class="icon--trash2">
+                                                                    <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#trash2"></use>
+                                                                </svg>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="panel__body">
+                                                    <i class="row-tag">2</i>
+                                                    <div class="grid-row">
+                                                        <div class="col">
+
+                                                            <div class="uploadedCols__opt">
+                                                                <div class="col-auto">
+                                                                    <svg class="icon--list">
+                                                                        <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#list"></use>
+                                                                    </svg>
+                                                                </div>
+                                                                <div class="col">Amount</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col">
+
+                                                            <div class="uploadedCols__opt">
+                                                                <div class="col-auto">
+                                                                    <svg class="icon--view">
+                                                                        <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#view"></use>
+                                                                    </svg>
+                                                                </div>
+                                                                <div class="col">400</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col">
+                                                            <div class="form-control input-field listbox-wrapper">
+                                                                <select class="select-wrapper gwt-ListBox">
+                                                                    <option value="1">Select matching column</option>
+                                                                    <option value="2">option</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-auto action">
+                                                            <a href="#" class="btn--icon icon-act">
+                                                                <svg class="icon--trash2">
+                                                                    <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#trash2"></use>
+                                                                </svg>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="panel__body">
+                                                    <i class="row-tag">3</i>
+                                                    <div class="grid-row">
+                                                        <div class="col">
+
+                                                            <div class="uploadedCols__opt">
+                                                                <div class="col-auto">
+                                                                    <svg class="icon--list">
+                                                                        <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#list"></use>
+                                                                    </svg>
+                                                                </div>
+                                                                <div class="col">Amount (another example)</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col">
+
+                                                            <div class="uploadedCols__opt">
+                                                                <div class="col-auto">
+                                                                    <svg class="icon--view">
+                                                                        <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#view"></use>
+                                                                    </svg>
+                                                                </div>
+                                                                <div class="col">400</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col">
+                                                            <div class="grid-row">
+                                                                <div class="col-6">
+                                                                    <div class="form-control input-field listbox-wrapper">
+                                                                        <select class="select-wrapper gwt-ListBox">
+                                                                            <option value="1">Select matching column</option>
+                                                                            <option value="2">option</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-6">
+                                                                    <div class="form-control input-field listbox-wrapper">
+                                                                        <select class="select-wrapper gwt-ListBox">
+                                                                            <option value="1">Select matching column</option>
+                                                                            <option value="2">option</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-auto action">
+                                                            <a href="#" class="btn--icon icon-act disabled">
+                                                                <svg class="icon--trash2">
+                                                                    <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#trash2"></use>
+                                                                </svg>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="panel__body">
+                                                    <i class="row-tag">4</i>
+                                                    <div class="grid-row">
+                                                        <div class="col">
+
+                                                            <div class="uploadedCols__opt">
+                                                                <div class="col-auto">
+                                                                    <svg class="icon--list">
+                                                                        <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#list"></use>
+                                                                    </svg>
+                                                                </div>
+                                                                <div class="col">Payee</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col">
+
+                                                            <div class="uploadedCols__opt">
+                                                                <div class="col-auto">
+                                                                    <svg class="icon--view">
+                                                                        <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#view"></use>
+                                                                    </svg>
+                                                                </div>
+                                                                <div class="col"></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col">
+                                                            <div class="form-control input-field listbox-wrapper">
+                                                                <select class="select-wrapper gwt-ListBox">
+                                                                    <option value="1">Select matching column</option>
+                                                                    <option value="2">option</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-auto action">
+                                                            <a href="#" class="btn--icon icon-act">
+                                                                <svg class="icon--trash2">
+                                                                    <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#trash2"></use>
+                                                                </svg>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="panel__body">
+                                                    <i class="row-tag">5</i>
+                                                    <div class="grid-row">
+                                                        <div class="col">
+
+                                                            <div class="uploadedCols__opt">
+                                                                <div class="col-auto">
+                                                                    <svg class="icon--list">
+                                                                        <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#list"></use>
+                                                                    </svg>
+                                                                </div>
+                                                                <div class="col">Description</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col">
+
+                                                            <div class="uploadedCols__opt">
+                                                                <div class="col-auto">
+                                                                    <svg class="icon--view">
+                                                                        <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#view"></use>
+                                                                    </svg>
+                                                                </div>
+                                                                <div class="col">Description one</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col">
+                                                            <div class="form-control input-field listbox-wrapper">
+                                                                <select class="select-wrapper gwt-ListBox">
+                                                                    <option value="1">Description </option>
+                                                                    <option value="2">option</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-auto action">
+                                                            <a href="#" class="btn--icon icon-act">
+                                                                <svg class="icon--trash2">
+                                                                    <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#trash2"></use>
+                                                                </svg>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="panel__body">
+                                                    <i class="row-tag">6</i>
+                                                    <div class="grid-row">
+                                                        <div class="col">
+
+                                                            <div class="uploadedCols__opt">
+                                                                <div class="col-auto">
+                                                                    <svg class="icon--list">
+                                                                        <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#list"></use>
+                                                                    </svg>
+                                                                </div>
+                                                                <div class="col">Reference</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col">
+
+                                                            <div class="uploadedCols__opt">
+                                                                <div class="col-auto">
+                                                                    <svg class="icon--view">
+                                                                        <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#view"></use>
+                                                                    </svg>
+                                                                </div>
+                                                                <div class="col">Ref-1000</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col">
+                                                            <div class="form-control input-field listbox-wrapper">
+                                                                <select class="select-wrapper gwt-ListBox">
+                                                                    <option value="1">Reference</option>
+                                                                    <option value="2">option</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-auto action">
+                                                            <a href="#" class="btn--icon icon-act">
+                                                                <svg class="icon--trash2">
+                                                                    <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#trash2"></use>
+                                                                </svg>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div><div class="panel__body">
+                                                <i class="row-tag">7</i>
+                                                <div class="grid-row">
+                                                    <div class="col">
+
+                                                        <div class="uploadedCols__opt">
+                                                            <div class="col-auto">
+                                                                <svg class="icon--list">
+                                                                    <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#list"></use>
+                                                                </svg>
+                                                            </div>
+                                                            <div class="col">Check number
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col">
+
+                                                        <div class="uploadedCols__opt">
+                                                            <div class="col-auto">
+                                                                <svg class="icon--view">
+                                                                    <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#view"></use>
+                                                                </svg>
+                                                            </div>
+                                                            <div class="col"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="form-control input-field listbox-wrapper">
+                                                            <select class="select-wrapper gwt-ListBox">
+                                                                <option value="1">Check No.</option>
+                                                                <option value="2">option</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-auto action">
+                                                        <a href="#" class="btn--icon icon-act">
+                                                            <svg class="icon--trash2">
+                                                                <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#trash2"></use>
+                                                            </svg>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div><div class="panel__body">
+                                                <i class="row-tag">8</i>
+                                                <div class="grid-row">
+                                                    <div class="col">
+                                                        <div class="grid-row">
+                                                            <div class="col-6">
+                                                                <div class="uploadedCols__opt">
+                                                                    <div class="col-auto">
+                                                                        <svg class="icon--list">
+                                                                            <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#list"></use>
+                                                                        </svg>
+                                                                    </div>
+                                                                    <div class="col"> Column 3</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-6">
+                                                                <div class="uploadedCols__opt">
+                                                                    <div class="col-auto"> <svg class="icon--list">
+                                                                        <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#list"></use>
+                                                                    </svg> </div>
+                                                                    <div class="col"> Column 3 </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="grid-row">
+                                                            <div class="col-6">
+                                                                <div class="uploadedCols__opt">
+                                                                    <div class="col-auto">
+                                                                        <svg class="icon--view">
+                                                                            <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#view"></use>
+                                                                        </svg>
+                                                                    </div>
+                                                                    <div class="col"> Item Name</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-6">
+                                                                <div class="uploadedCols__opt">
+                                                                    <div class="col-auto">
+                                                                        <svg class="icon--view">
+                                                                            <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#view"></use>
+                                                                        </svg>
+                                                                    </div>
+                                                                    <div class="col"> Item Name</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="grid-row">
+                                                            <div class="col-6">
+                                                                <div class="form-control input-field listbox-wrapper">
+                                                                    <select class="select-wrapper gwt-ListBox">
+                                                                        <option value="1">Please select</option>
+                                                                        <option value="2">option</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-6">
+                                                                <div class="form-control input-field listbox-wrapper">
+                                                                    <select class="select-wrapper gwt-ListBox">
+                                                                        <option value="1">Please select</option>
+                                                                        <option value="2">option</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-auto action">
+                                                        <a href="#" class="btn--icon icon-act">
+                                                            <svg class="icon--trash2">
+                                                                <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#trash2"></use>
+                                                            </svg>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                                <!--                                                <div class="panel__footer stack-x text-right">-->
+                                                <!--                                                    <span class="gwt-RadioButton">-->
+                                                <!--                                                        <input type="radio" name="reportType" value="on"-->
+                                                <!--                                                               id="gwt-uid-624"/>-->
+                                                <!--                                                        <label for="gwt-uid-624">-->
+                                                <!--                                                            <span>Debit/Credit</span>-->
+                                                <!--                                                        </label>-->
+                                                <!--                                                    </span>-->
+                                                <!--                                                    <span class="gwt-RadioButton">-->
+                                                <!--                                                        <input type="radio" name="reportType" value="on"-->
+                                                <!--                                                               id="gwt-uid-625"/>-->
+                                                <!--                                                        <label for="gwt-uid-625">-->
+                                                <!--                                                            <span>Ammount</span>-->
+                                                <!--                                                        </label>-->
+                                                <!--                                                    </span>-->
+                                                <!--                                                </div>-->
+                                            </div>
+                                            <!-- PAGINATION-->
+                                            <div class="paging-group text-right">
+                                                <div class="pagingStat__wrapper">
+                                                    <a tabindex="0" id="gwt-debug-total_link_id" data-activates="gwt-uid-775" class="gwt-uid-775 dropdown-button">
+                                                        <div class="gwt-HTML pagingStat"><span>0 - 0 of 0 </span></div>
+                                                        <ul class="dropdown-content" style="display: none;">
+                                                            <li ><a tabindex="0"><span>Newest</span></a></li>
+                                                            <li><a tabindex="0"><span>Oldest</span></a></li>
+                                                        </ul>
+                                                    </a>
+                                                </div>
+                                                <ul class="paging">
+                                                    <li class="paging__prevpage"><a tabindex="0" class="btn btn--white btn--icon">
+                                                        <svg class="icon--chevronLeft">
+                                                            <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#chevronLeft"></use>
+                                                        </svg>
+                                                    </a>
+                                                    </li>
+                                                    <li class="paging__currentpage"><input type="text" maxlength="255" class="form-control" autocomplete="off" placeholder="1"/></li>
+                                                    <li class="paging__nextpage">
+                                                        <a tabindex="0" class="btn btn--white btn--icon">
+                                                            <svg class="icon--chevronRight">
+                                                                <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#chevronRight"></use>
+                                                            </svg>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <div class="errorMessage"></div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <!-- //END PAGINATION-->
+                                        </div>
+                                    </div>
+                                    <div id="test3">
+                                        <div class="uploadSteps__info">
+                                            <h3>Review and complete import</h3>
+                                            <h4>Summary of transactions</h4>
+                                            <div class="icon-text"> <svg class="icon--check checked">
+                                                <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#check"></use>
+                                            </svg> <span>8 transaction(s) are ready to import</span> </div>
+                                            <p> KPI will check for duplicates when you complete the import, and any duplicates won't show for reconciliation <a href="#">Get help with importing bank transactions</a> </p>
+                                        </div>
+                                        <div class="uploadSteps__data">
+                                            
+                                            <h5 class="text-icon"> <svg class="icon--check checked">
+                                                <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#check"></use>
+                                            </svg> Ready to import </h5>
+                                            <table class="table thead-cols dataTable">
+                                                <colgroup>
+                                                    <col>
+                                                    <col>
+                                                    <col>
+                                                    <col>
+                                                    <col>
+                                                    <col>
+                                                    <col>
+                                                </colgroup>
+                                                <thead>
+                                                <tr>
+                                                    <td><span class="gwt-CheckBox selection-grid__checkbox--select-all" id="gwt-debug-select_all_checkbox"><input id="gwt-debug-select_all_checkbox-input" tabindex="0" type="checkbox" value="on"><label for="gwt-debug-select_all_checkbox-input" id="gwt-debug-select_all_checkbox-label"></label></span> </td>
+                                                    <td>
+                                                        <div>
+                                                            <span>Date</span>
+                                                            <svg class="icon--sortAsc">
+                                                                <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#sortAsc"></use>
+                                                            </svg>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div><span>Payee</span></div>
+                                                    </td>
+                                                    <td>
+                                                        <div><span>Description</span></div>
+                                                    </td>
+                                                    <td>
+                                                        <div><span>Reference</span></div>
+                                                    </td>
+                                                    <td>
+                                                        <div><span>Transaction Type</span></div>
+                                                    </td>
+                                                    <td>
+                                                        <div><span>Transctions amount</span></div>
+                                                    </td>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td><span class="cell-decorator"><label class="gwt-control control control--checkbox"><input type="checkbox"><span class="control__indicator"></span></label></span></td>
+                                                    <td><span class="cell-decorator"><span class="text-holder">22 Jan, 2023</span></span> </td>
+                                                    <td><span class="cell-decorator">&nbsp;</span></td>
+                                                    <td><span class="cell-decorator"><span class="text-holder">Description 1</span></span> </td>
+                                                    <td><span class="cell-decorator"><span class="text-holder">
+                                                                        <div>FEF1</div>
+                                                                    </span></span></td>
+                                                    <td><span class="cell-decorator"><span class="text-holder">Credit</span></span></td>
+                                                    <td><span class="cell-decorator"><span class="text-holder">UZS 250,000.000</span></span> </td>
+                                                </tr>
+                                                <tr class="selected">
+                                                    <td><span class="cell-decorator"><label class="gwt-control control control--checkbox"><input checked type="checkbox"><span class="control__indicator"></span></label></span></td>
+                                                    <td><span class="cell-decorator"><span class="text-holder">23 Jan, 2018</span></span> </td>
+                                                    <td><span class="cell-decorator">&nbsp;</span></td>
+                                                    <td><span class="cell-decorator"><span class="text-holder">Description 2</span></span> </td>
+                                                    <td><span class="cell-decorator"><span class="text-holder">
+                                                                        <div>REF2</div>
+                                                                    </span></span></td>
+                                                    <td><span class="cell-decorator"><span class="text-holder">Debit</span></span></td>
+                                                    <td><span class="cell-decorator"><span class="text-holder">UZS 250,000.000</span></span> </td>
+                                                </tr>
+                                                <tr class="selected">
+                                                    <td><span class="cell-decorator"><label class="gwt-control control control--checkbox"><input checked type="checkbox"><span class="control__indicator"></span></label></span></td>
+                                                    <td><span class="cell-decorator"><span class="text-holder">23 Jan, 2018</span></span> </td>
+                                                    <td><span class="cell-decorator">&nbsp;</span></td>
+                                                    <td><span class="cell-decorator"><span class="text-holder">Description 2</span></span> </td>
+                                                    <td><span class="cell-decorator"><span class="text-holder">
+                                                                        <div>REF2</div>
+                                                                    </span></span></td>
+                                                    <td><span class="cell-decorator"><span class="text-holder">Debit</span></span></td>
+                                                    <td><span class="cell-decorator"><span class="text-holder">UZS 250,000.000</span></span> </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="uploadSteps__footer"> </div>
+                            </div>
+                        </div>
+                        <div class="frame__info fixed-content">
+                            <div class="frame__info__actions"> <button class="btn btn--outline"> Back </button> <button class="btn btn--outline"> Edit import settings </button> </div>
+                            <div class="frame__info__actions">
+                                <div> 8 transaction(s) will be imported </div> <button class="btn btn--primary"><span>Next | Complete import</span></button>
+                            </div>
+                        </div>
+                        <!--//END UPLOAD STEPS-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--SCRIPTS-->
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>-->
+<script type="text/javascript" src="../WebContent/mainStyles/new-ui/js/jquery.min.js"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>-->
+<script type="text/javascript" src="../WebContent/mainStyles/new-ui/js/materialize-1.0.0.min.js"></script>
+<script src="static-html-examples.js" defer></script>
+<script>
+    $(document).ready(function () {
+        // объявляем переменную для хранения элемента, у которого был класс active до клика
+        var prev;
+        // добавляем обработчик события click для всех элементов <a> с классом "tab"
+        $('.step-tabs a').click(function () {
+            // добавляем класс passed к элементу, который сохранен в переменной prev
+            if (prev) {
+                prev.addClass('passed');
+            }
+            // сохраняем ссылку на элемент, по которому был сделан клик, в переменную prev
+            prev = $(this);
+            // убираем класс passed с элемента, по которому был сделан клик
+            $(this).removeClass('passed');
+        });
+    });
+
+
+    // Получаем все элементы с классом dropItem__act
+    let closeElements = document.getElementsByClassName("dropItem__act");
+    // Для каждого элемента добавляем обработчик события click
+    for (let i = 0; i < closeElements.length; i++) {
+        closeElements[i].addEventListener("click", function () {
+            // Получаем родительский элемент с классом dropItem
+            let dropItem = this.parentElement;
+            // Удаляем его из DOM
+            dropItem.remove();
+        });
+    }
+</script>
+</body>
+
+</html>

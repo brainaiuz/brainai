@@ -1,0 +1,1 @@
+update "anv".fingerprint fp set fingerprintid =(select fd.fingerprint_id from "anv".userfingerprintdevice fd where fp.employeeid=fd.userid and fp.deviceuuid=fd.device_id);

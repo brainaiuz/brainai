@@ -1,0 +1,45 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:w='urn:import:gwt.material.design.client.ui'
+             xmlns:c='urn:import:gwt.material.design.client.ui.html'>
+
+    <g:FlowPanel ui:field="container" styleName="profilePop__inner">
+        <g:FlowPanel ui:field="avatar" styleName="profilePop__avatar"/>
+        <c:UnorderedList styleName="profilePop__info">
+            <c:ListItem ui:field="employeeName" styleName="profilePop_name"/>
+            <c:ListItem styleName="profilePop__address">
+                <w:MaterialLink ui:field="emailLink" styleName="icon-text"/>
+                <g:Anchor ui:field="emailCopy" href="javascript:;">
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M0 3.5C0 3.22386 0.223858 3 0.5 3H3V0.5C3 0.223858 3.22386 0 3.5 0H11.5C11.7761 0 12 0.223858 12 0.5V8.5C12 8.77614 11.7761 9 11.5 9H9V11.5C9 11.7761 8.77614 12 8.5 12H0.5C0.223858 12 0 11.7761 0 11.5V3.5ZM9 3.5C9 3.22386 8.77614 3 8.5 3H4V1H11V8H9V3.5ZM1 4V11H8V4H1Z"
+                              fill="#BDBDBD"/>
+                    </svg>
+                </g:Anchor>
+            </c:ListItem>
+            <c:ListItem styleName="profilePop__address">
+                <w:MaterialLink ui:field="tgLink" styleName="extLink icon-text"/>
+                <g:Anchor ui:field="tgCopy" href="javascript:;">
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M0 3.5C0 3.22386 0.223858 3 0.5 3H3V0.5C3 0.223858 3.22386 0 3.5 0H11.5C11.7761 0 12 0.223858 12 0.5V8.5C12 8.77614 11.7761 9 11.5 9H9V11.5C9 11.7761 8.77614 12 8.5 12H0.5C0.223858 12 0 11.7761 0 11.5V3.5ZM9 3.5C9 3.22386 8.77614 3 8.5 3H4V1H11V8H9V3.5ZM1 4V11H8V4H1Z"
+                              fill="#BDBDBD"/>
+                    </svg>
+                </g:Anchor>
+            </c:ListItem>
+            <c:ListItem styleName="profilePop__address">
+                <w:MaterialLink ui:field="phoneLink" styleName="extLink icon-text"/>
+                <g:Anchor ui:field="phoneCopy" href="javascript:;">
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M0 3.5C0 3.22386 0.223858 3 0.5 3H3V0.5C3 0.223858 3.22386 0 3.5 0H11.5C11.7761 0 12 0.223858 12 0.5V8.5C12 8.77614 11.7761 9 11.5 9H9V11.5C9 11.7761 8.77614 12 8.5 12H0.5C0.223858 12 0 11.7761 0 11.5V3.5ZM9 3.5C9 3.22386 8.77614 3 8.5 3H4V1H11V8H9V3.5ZM1 4V11H8V4H1Z"
+                              fill="#BDBDBD"/>
+                    </svg>
+                </g:Anchor>
+            </c:ListItem>
+
+        </c:UnorderedList>
+        <g:FlowPanel ui:field="buttonContainer" styleName="profilePop__actions"/>
+    </g:FlowPanel>
+</ui:UiBinder>

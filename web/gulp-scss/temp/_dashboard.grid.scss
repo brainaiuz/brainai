@@ -1,0 +1,197 @@
+/*a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+margin: 0;
+padding: 0;
+border: 0;
+font-size: 100%;
+font: inherit;
+vertical-align: baseline
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+display: block
+}
+
+body {
+line-height: 1;
+font-size: 15px;
+font-family: Tahoma, sans-serif;
+min-width: 320px
+}
+
+ol, ul {
+list-style: none
+}
+
+blockquote, q {
+quotes: none
+}
+
+blockquote:after, blockquote:before, q:after, q:before {
+content: '';
+content: none
+}
+
+* {
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box
+}*/
+
+.grid-box, .grid-box * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box
+}
+.grid-box {
+    max-width: 1920px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 1.19048%;
+    padding-left: .59524%;
+    padding-right: .59524%
+}
+
+/*unnecessary extra space fix - http://prntscr.com/iqib27*/
+.collapsible-body > .grid-box {
+    padding-left: 0;
+    padding-right: 0;
+}
+.collapsible-body > .grid-box > .grid-box__row {}
+.collapsible-body > .grid-box > .grid-box__row > [class*="grid-box__col--"]:first-child,
+.collapsible-body > .grid-box > .grid-box__row > [class*="grid-box__col--"]:first-child > .grid-box__cell {
+    padding-left: 0;
+}
+.collapsible-body > .grid-box > .grid-box__row > [class*="grid-box__col--"]:last-child,
+.collapsible-body > .grid-box > .grid-box__row > [class*="grid-box__col--"]:last-child > .grid-box__cell {
+    padding-right: 0;
+}
+/* \ unnecessary extra space fix - http://prntscr.com/iqib27*/
+
+.grid-box:after {
+    content: " ";
+    display: block;
+    clear: both
+}
+
+.grid-box__col--1 {
+    width: 8.33333%;
+    float: left;
+    padding-left: .59524%;
+    padding-right: .59524%
+}
+
+.grid-box__col--2 {
+    width: 16.66667%;
+    float: left;
+    padding-left: .59524%;
+    padding-right: .59524%
+}
+
+.grid-box__col--3 {
+    width: 25%;
+    float: left;
+    padding-left: .59524%;
+    padding-right: .59524%
+}
+
+.grid-box__col--4 {
+    width: 33.33333%;
+    float: left;
+    padding-left: .59524%;
+    padding-right: .59524%
+}
+
+.grid-box__col--5 {
+    width: 41.66667%;
+    float: left;
+    padding-left: .59524%;
+    padding-right: .59524%
+}
+
+.grid-box__col--6 {
+    width: 50%;
+    float: left;
+    padding-left: .59524%;
+    padding-right: .59524%
+}
+
+.grid-box__col--7 {
+    width: 58.33333%;
+    float: left;
+    padding-left: .59524%;
+    padding-right: .59524%
+}
+
+.grid-box__col--8 {
+    width: 66.66667%;
+    float: left;
+    padding-left: .59524%;
+    padding-right: .59524%
+}
+
+.grid-box__col--9 {
+    width: 75%;
+    float: left;
+    padding-left: .59524%;
+    padding-right: .59524%
+}
+
+.grid-box__col--10 {
+    width: 83.33333%;
+    float: left;
+    padding-left: .59524%;
+    padding-right: .59524%
+}
+
+.grid-box__col--11 {
+    width: 91.66667%;
+    float: left;
+    padding-left: .59524%;
+    padding-right: .59524%
+}
+
+.grid-box__col--12 {
+    width: 100%;
+    float: left;
+    padding-left: .59524%;
+    padding-right: .59524%
+}
+
+.grid-box__cell {
+    margin-bottom: 20px;
+    border: 1px solid #e1e1e1;
+    min-height: 250px
+}
+
+.temp-box {
+    height: 150px
+}
+
+
+
+/*
+* Grid-box custom css
+*/
+.grid-box .panel-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.grid-box .panel-header .title{
+    flex-grow:1;
+    padding: 0 10px;
+}
+.grid-box .panel-header .filter{
+    flex-grow:1;
+}
+.grid-box .panel-header .filter input{
+    border-radius: 0;
+}
+.grid-box .panel-filter{
+    display:flex;
+}
+.grid-box__cell{
+    background-color: white;
+    padding:10px;
+}

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <style type="text/css">
+        /*<![CDATA[*/
+        body.c21 {
+            min-height: 580px;
+        }
+
+        div.c20 {
+            font-size: 11px;
+        }
+
+        table.c19 {
+            font-size: 11px;
+            margin-top: 60px;
+        }
+
+        td.c18 {
+            padding-top: 0;
+            margin-top: 0;
+        }
+
+        td.c17 {
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+        table.c16 {
+            margin-top: 45px;
+            font-size: 14px;
+            border: 1px solid #000;
+        }
+
+        td.c15 {
+            border-top: 1px solid #000;
+            border-left: 1px solid #000;
+        }
+
+        td.c14 {
+            border-top: 1px solid #000;
+        }
+
+        tr.c13 {
+            page-break-inside: avoid;
+        }
+
+        td.c12 {
+            border-left: 1px solid #000;
+        }
+
+        td.c11 {
+            border-left: 1px solid #000;
+            border-bottom: 1px solid #000;
+            padding: 2px;
+            font-weight: bold;
+        }
+
+        td.c10 {
+            border-left: 1px solid #000;
+            border-bottom: 1px solid #000;
+            padding: 2px;
+            font-weight: bold;
+        }
+
+        td.c9 {
+            border-bottom: 1px solid #000;
+            padding: 2px;
+            font-weight: bold;
+        }
+
+        table.c8 {
+            margin-top: 30px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        td.c7 {
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        span.c6 {
+            border-bottom: 2px solid #000;
+        }
+
+        table.c5 {
+            font-size: 10px;
+        }
+
+        table.c4 {
+            border-bottom: 1px solid #000000;
+        }
+
+        td.c3 {
+            font-size: 11px;
+            padding: 0;
+        }
+
+        td.c2 {
+            padding-top: 1px;
+        }
+
+        span.c1 {
+            color: #548ce7;
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        /*]]>*/
+    </style>
+</head>
+<body aria-disabled="false" style="min-height: 580px;">
+#set($shippingData = $itextGenericPdfData.baseInvoice.customNumberAndDatesTable.rows)
+
+#set($grnNumber=$numAndDatesTable.get("GRN_NUMBER").get("COLUMN_VALUE"))
+#set($poNumber=$numAndDatesTable.get("PO_NUMBER").get("COLUMN_VALUE"))
+#set($invNumber=$numAndDatesTable.get("INV_NUMBER").get("COLUMN_VALUE"))
+#set($projectNumber=$numAndDatesTable.get("PROJECT_NUMBER").get("COLUMN_VALUE"))
+
+<div id="header">
+
+    <table style="border-bottom: 1px solid #000000;" width="100%">
+        <tbody>
+        <tr>
+            <td style="font-size:11px;padding:0;" width="50%">#if($itextGenericPdfData.companyData.address != '')
+                #end #if($itextGenericPdfData.companyData.address2 != '') #end
+                #if($itextGenericPdfData.companyData.country != '') #end
+                #if($itextGenericPdfData.companyData.companyPhone!='') #end
+                #if($itextGenericPdfData.companyData.companyEmail!='') #end
+
+                <table cellpadding="0" cellspacing="0" width="100%">
+                    <tbody>
+                    <tr>
+                        <td><span style="color:#548ce7;font-weight:bold;font-size:15px;">$itextGenericPdfData.companyData.companyName</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top:1px;">$itextGenericPdfData.companyData.address</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top:1px;">$itextGenericPdfData.companyData.address2</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top:1px;">#if($itextGenericPdfData.companyData.city != '')
+                            $itextGenericPdfData.companyData.city, #end $itextGenericPdfData.companyData.postCode
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top:1px;">$itextGenericPdfData.companyData.country</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top:1px;">Phone: $itextGenericPdfData.companyData.companyPhone</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top:1px;">Email: $itextGenericPdfData.companyData.companyEmail</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td align="right" width="50%">
+                <img height="auto" src="%24itextGenericPdfData.companyData.companyLogoUrl"
+                     class="fr-fic fr-dii"/>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div id="footer">
+
+    <table style="font-size:10px;" width="100%">
+        <tbody>
+        <tr>
+            <td align="center" width="100%">Granduer General Trading LLC, Warehose No WH5B, Industrial Area 2, Jebel
+                Ali, Dubai, UAE, Post Code: 936090
+            </td>
+        </tr>
+        <tr>
+            <td align="right" width="100%"><span id="pagenumber">&#160;| Page&#160;</span></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div style="font-size:11px;">
+    <table width="100%">
+        <tbody>
+        <tr>
+            <td style="font-size:18px;font-weight:bold;text-align:center;"><span style="border-bottom: 2px solid #000;">&#160;Delivery Note&#160;</span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" style="margin-top:30px; font-size: 12px; font-weight: bold;" width="100%">
+        <tbody>
+        <tr>
+            <td width="10%"><strong>Client -</strong></td>
+            <td width="50%">
+                <!--Client Name-->#if($clientName!='') $clientName #end
+            </td>
+            <td width="10%"><strong>Date -&#160;</strong></td>
+            <td width="50%">#if($quoteDate != '') $quoteDate #end</td>
+        </tr>
+        <tr>
+            <td><strong>GRN -</strong></td>
+            <td>#if($grnNumber != '') $grnNumber #end</td>
+        </tr>
+        <tr>
+            <td><strong>Email -&#160;</strong></td>
+            <td>#if($clientEmail != '') $clientEmail #end</td>
+            <td><strong>LPO Ref -&#160;</strong></td>
+            <td>#if($poNumber != '') $poNumber #end</td>
+        </tr>
+        <tr>
+            <td><strong>Phone -&#160;</strong></td>
+            <td colspan="3">#if($clientPhone != '') $clientPhone #end</td>
+        </tr>
+        </tbody>
+    </table>
+    <table align="center" cellpadding="0" cellspacing="0"
+           style="margin-top:45px; font-size: 14px; border: 1px solid #000;" width="100%">
+        <tbody>
+        <tr align="center">
+            <td style="border-bottom: 1px solid #000; padding:2px;font-weight:bold;" width="15%">
+                No.
+            </td>
+            <td style="border-left: 1px solid #000; border-bottom: 1px solid #000; padding:2px;font-weight:bold;"
+                width="55%">
+                Description
+            </td>
+            <td style="border-left: 1px solid #000; border-bottom: 1px solid #000;padding:2px;font-weight:bold;"
+                width="15%">
+                UOM
+            </td>
+            <td style="border-left: 1px solid #000; border-bottom: 1px solid #000; padding:2px;font-weight:bold;"
+                width="15%">
+                Qty
+            </td>
+        </tr>
+        #foreach($row in $itextGenericPdfData.customData.get('ITEMS').rows)
+        <tr style="page-break-inside: avoid;">
+            <td valign="top">$row.get('NAME')</td>
+            <td style="border-left: 1px solid #000;" valign="top">$row.get('NAME') - $row.get('DESCRIPTION')</td>
+            <td align="center" style="border-left: 1px solid #000;" valign="top">$row.get('UNIT_MEASUREMENT')
+            </td>
+            <td align="right" style="border-left: 1px solid #000;" valign="top">$row.get('ITEM_QTY')</td>
+        </tr>
+        #end
+        </tbody>
+    </table>
+
+    <table border="0" cellpadding="0" cellspacing="0" style="font-size: 11px; margin-top: 60px;" width="100%">
+        <tbody>
+        <tr>
+            <td style="padding-bottom: 0; margin-bottom: 0;" width="70%"><strong>Received in Good Condition.</strong>
+            </td>
+            <td style="padding-bottom: 0; margin-bottom: 0;" width="30%"><strong>Supplier's Sign</strong></td>
+        </tr>
+        <tr>
+            <td style="padding-top: 0; margin-top: 0;"><strong>Quality &amp; Quanitity Checked.</strong></td>
+            <td style="padding-top: 0; margin-top: 0;">&#160;</td>
+        </tr>
+        <tr>
+            <td colspan="2">&#160; &#160; &#160;</td>
+        </tr>
+        <tr>
+            <td colspan="2">&#160; &#160; &#160;</td>
+        </tr>
+        <tr>
+            <td colspan="2">&#160; &#160; &#160;</td>
+        </tr>
+        <tr>
+            <td colspan="2">&#160; &#160; &#160;</td>
+        </tr>
+        <tr>
+            <td colspan="2"><strong>Reciver's Sign</strong></td>
+        </tr>
+        <tr>
+            <td colspan="2" style="padding-bottom: 0; margin-bottom: 0;">&#160; &#160;</td>
+        </tr>
+        <tr>
+            <td colspan="2"><strong>Date : $currentDate</strong></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

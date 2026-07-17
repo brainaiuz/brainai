@@ -1,0 +1,1 @@
+delete from defaultlayout_new_ui where formid = 'SOLUTION_FORM' and viewForm is true;

@@ -1,0 +1,23 @@
+<module rename-to="myaccount">
+    <inherits name="com.edatasite.workforce.gwt.core.Core"/>
+    <inherits name='com.edatasite.workforce.gwt.employee.Employee'/>
+    <inherits name="com.edatasite.workforce.gwt.newemployee.NewEmployee"/>
+    <inherits name="com.edatasite.workforce.gwt.contact.ContactEmpty"/>
+    <inherits name="com.edatasite.workforce.gwt.webforms.WebFormsMain"/>
+    <inherits name='com.edatasite.workforce.gwt.invoice.Invoice'/>
+    <inherits name="com.edatasite.workforce.gwt.contactcategory.ContactCategory"/>
+    <inherits name="com.edatasite.workforce.gwt.importfile.ImportFile"/>
+
+    <inherits name="com.edatasite.workforce.gwt.crm.CRMEmpty"/>
+
+
+    <inherits name='com.edatasite.workforce.gwt.pricing.PricingMain'/>
+
+    <entry-point class='com.edatasite.workforce.gwt.myaccount.client.Myaccount'/>
+    <set-property name="locale" value="default"/>
+    <extend-property name="locale" values="ru"/>
+    <extend-property name="locale" values="ar"/>
+    <extend-property name="locale" values="it"/>
+    <extend-property name="locale" values="es"/>
+    <extend-property name="locale" values="uz"/>
+</module>

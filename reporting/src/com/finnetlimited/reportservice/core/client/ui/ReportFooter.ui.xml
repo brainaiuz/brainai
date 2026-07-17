@@ -1,0 +1,40 @@
+<!DOCTYPE ui:UiBinder  SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+
+<ui:UiBinder
+        xmlns:ui='urn:ui:com.google.gwt.uibinder'
+        xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+
+    <g:HTMLPanel>
+        <div id="footer">
+            <div class="footer-outer">
+                <div class="footer-inner">
+                    <ul class="row-box left">
+                        <li>
+                            <g:Anchor href='javascript:;' ui:field='police'>
+                                Privacy Policy
+                            </g:Anchor>
+                        </li>
+                        <li>
+                            <g:Anchor href='javascript:;' ui:field='termsUs'>
+                                Terms of Use
+                            </g:Anchor>
+                        </li>
+                        <li class="nobrd">
+                            <g:Anchor href='javascript:;' ui:field='contactUs'>
+                                Contact Us
+                            </g:Anchor>
+                        </li>
+                    </ul>
+                    <p class="right">Copyright &copy; 2011
+                        <!--<g:Anchor  href='javascript:;' ui:field='reportingSys'>-->
+                        <u>Workforcetrack Reporting System</u>
+                        <!--</g:Anchor>&nbsp;-->
+                        All Rights Reserved
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </g:HTMLPanel>
+
+</ui:UiBinder>

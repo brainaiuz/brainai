@@ -1,0 +1,377 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:mhtml="urn:import:gwt.material.design.client.ui.html"
+             xmlns:kpi="urn:import:com.edatasite.workforce.gwt.core.client.ui"
+>
+    <g:HTMLPanel styleName="pg_planpricing">
+        <div class="pg_planpricing__main">
+            <div class="cp_planpricing-block cp_planpricing-block--dark">
+                <h2 ui:field="selectUserTitle">Select Users</h2>
+                <p class="mb-0" ui:field="specifyNumberOfUsers">Specify a number of users based on your business needs
+                </p>
+                <div class="cp_planpricing-block__content">
+                    <div class="cp_inc-field-container">
+                        <div class="cp_inc-field">
+                            <div class="holder">
+                                <mhtml:Div styleName="cp_inc-field__label" ui:field="fullUsersLabel"></mhtml:Div>
+                                <div class="cp_inc-field__input"><!--cp_inc-field__input-button&#45;&#45;disabled-->
+                                    <div class="cp_inc-field__input-button  cp_inc-field__input-button--dec">
+                                        <mhtml:Span ui:field="fullUsersDecrease">-</mhtml:Span>
+                                    </div>
+                                    <input type="text" ui:field="fullUsersCount"/>
+                                    <div class="cp_inc-field__input-button cp_inc-field__input-button--inc">
+                                        <mhtml:Span ui:field="fullUsersIncrease">+</mhtml:Span>
+                                    </div>
+                                </div>
+                                <div class="cp_inc-field__cost">
+                                    <div class="cp_inc-field__cost-total" ui:field="pricePerFullUser">$10</div>
+                                    <div class="cp_inc-field__cost-per" ui:field="fullUsersPerLabel">app/month</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cp_inc-field" ui:field="essUserContainer">
+                            <div class="holder">
+                                <mhtml:Div styleName="cp_inc-field__label" ui:field="essUsersLabel"></mhtml:Div>
+                                <div class="cp_inc-field__input">
+                                    <div class="cp_inc-field__input-button cp_inc-field__input-button--dec">
+                                        <mhtml:Span ui:field="essUsersDecrease">-</mhtml:Span>
+                                    </div>
+                                    <input type="text" ui:field="essUsersCount"/>
+                                    <div class="cp_inc-field__input-button cp_inc-field__input-button--inc">
+                                        <mhtml:Span ui:field="essUsersIncrease">+</mhtml:Span>
+                                    </div>
+                                </div>
+                                <div class="cp_inc-field__cost">
+                                    <div class="cp_inc-field__cost-total" ui:field="pricePerEssUser">$1</div>
+                                    <div class="cp_inc-field__cost-per" ui:field="essUsersPerLabel">app/month</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cp_inc-field" ui:field="nonUserContainer">
+                            <div class="holder">
+                                <!--<div class="hero-input hero-input&#45;&#45;text hero-input&#45;&#45;suffix cp_planpricing-block__user-count-input">
+                                    &lt;!&ndash;<label for="pricingPage_nonUser" class="hero-input__label">Non User (Employee Profiles)</label>&ndash;&gt;
+                                    <mhtml:Label class="hero-input__label" ui:field="nonUserLabel" text="Non User (Employee Profiles)"/>
+                                    <m:MaterialInput type="TEXT" ui:field="noAccessUsersCount" />
+                                    <div class="hero-input__suffix">
+                                        $0.25/monthly
+                                    </div>
+                                </div>-->
+                                <mhtml:Div styleName="cp_inc-field__label" ui:field="nonUserLabel"></mhtml:Div>
+                                <div class="cp_inc-field__input">
+                                    <div class="cp_inc-field__input-button cp_inc-field__input-button--dec">
+                                        <mhtml:Span ui:field="noAccessUsersDecrease">-</mhtml:Span>
+                                    </div>
+                                    <input type="text" ui:field="noAccessUsersCount"/>
+                                    <div class="cp_inc-field__input-button cp_inc-field__input-button--inc">
+                                        <mhtml:Span ui:field="noAccessUsersIncrease">+</mhtml:Span>
+                                    </div>
+                                </div>
+                                <div class="cp_inc-field__cost">
+                                    <div class="cp_inc-field__cost-total" ui:field="pricePerNoAccessUser">$0.25</div>
+                                    <div class="cp_inc-field__cost-per" ui:field="noAccessUsersPerLabel">user/monthly</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cp_planpricing-block">
+                <h2 ui:field="chooseYourAppsLabel">Choose your Apps</h2>
+                <p class="mb-0" ui:field="ourDedicatedStandaloneLabel">Our dedicated stand-alone apps that also work as
+                    suite is real deal for growing companies.
+                </p>
+                <div class="cp_planpricing-block__content">
+                    <div class="cp_modules-switch">
+                        <div class="cp_modules-switch__item" ui:field="accountsWrapper">
+                            <div class="cp_modules-switch__item-content">
+                                <div class="cp_modules-switch__logo">
+                                    <i class="ficon--calc"></i>
+                                </div>
+                                <div class="cp_modules-switch__title" ui:field="accountsLabel">Accounts</div>
+                                <div class="cp_modules-switch__switcher">
+                                    <div class="switch">
+                                        <label>
+                                            <span></span>
+                                            <input type="checkbox" ui:field="customAccounts"/>
+                                            <span class="lever"></span>
+                                            <span></span>
+                                        </label>
+                                        <span class="material-label" style="margin-top: 16px;"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cp_modules-switch__item" ui:field="salesWrapper">
+                            <div class="cp_modules-switch__item-content">
+                                <div class="cp_modules-switch__logo">
+                                    <i class="ficon--bar-chart-bold"></i>
+                                </div>
+                                <div class="cp_modules-switch__title" ui:field="salesLabel">Sales</div>
+                                <div class="cp_modules-switch__switcher">
+                                    <div class="switch">
+                                        <label>
+                                            <span></span>
+                                            <input type="checkbox" ui:field="customSales"/>
+                                            <span class="lever"></span>
+                                            <span></span>
+                                        </label>
+                                        <span class="material-label" style="margin-top: 16px;"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cp_modules-switch__item" ui:field="humansWrapper">
+                            <div class="cp_modules-switch__item-content">
+                                <div class="cp_modules-switch__logo">
+                                    <i class="ficon--users-bold"></i>
+                                </div>
+                                <div class="cp_modules-switch__title" ui:field="hrmsLabel">Humans</div>
+                                <div class="cp_modules-switch__switcher">
+                                    <div class="switch">
+                                        <label>
+                                            <span></span>
+                                            <input type="checkbox" ui:field="customHumans"/>
+                                            <span class="lever"></span>
+                                            <span></span>
+                                        </label>
+                                        <span class="material-label" style="margin-top: 16px;"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cp_modules-switch__item" ui:field="projectsWrapper">
+                            <div class="cp_modules-switch__item-content">
+                                <div class="cp_modules-switch__logo">
+                                    <i class="ficon--server-bold"></i>
+                                </div>
+                                <div class="cp_modules-switch__title" ui:field="projectManagementLabel">Projects</div>
+                                <div class="cp_modules-switch__switcher">
+                                    <div class="switch">
+                                        <label>
+                                            <span></span>
+                                            <input type="checkbox" ui:field="customProjects"/>
+                                            <span class="lever"></span>
+                                            <span></span>
+                                        </label>
+                                        <span class="material-label" style="margin-top: 16px;"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cp_modules-switch__item" ui:field="payrolWrapper">
+                            <div class="cp_modules-switch__item-content">
+                                <div class="cp_modules-switch__logo">
+                                    <i class="ficon--wallet-bold"></i>
+                                </div>
+                                <div class="cp_modules-switch__title" ui:field="payrollLabel">Payroll</div>
+                                <div class="cp_modules-switch__switcher">
+                                    <div class="switch">
+                                        <label>
+                                            <span></span>
+                                            <input type="checkbox" ui:field="customPayroll"/>
+                                            <span class="lever"></span>
+                                            <span></span>
+                                        </label>
+                                        <span class="material-label" style="margin-top: 16px;"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cp_modules-switch__item cp_modules-switch__item--active">
+                            <div class="cp_modules-switch__item-content">
+                                <div class="cp_modules-switch__logo">
+                                    <i class="ficon--flag-bold"></i>
+                                </div>
+                                <div class="cp_modules-switch__title" ui:field="reportsLabel">Reports</div>
+                                <div class="cp_modules-switch__subtitle cp_modules-switch__subtitle--green"
+                                     ui:field="reportsFreeLabel">Free
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cp_modules-switch__item cp_modules-switch__item--active">
+                            <div class="cp_modules-switch__item-content">
+                                <div class="cp_modules-switch__logo">
+                                    <i class="ficon--folder-bold"></i>
+                                </div>
+                                <div class="cp_modules-switch__title" ui:field="documentsLabel">Documents</div>
+                                <div class="cp_modules-switch__subtitle cp_modules-switch__subtitle--green"
+                                     ui:field="documentsFreeLabel">Free
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cp_modules-switch__item cp_modules-switch__item--fake"></div>
+                        <div class="cp_modules-switch__item cp_modules-switch__item--fake"></div>
+                        <div class="cp_modules-switch__item cp_modules-switch__item--fake"></div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="cp_planpricing-block">
+                <h2 ui:field="addonsTitle">Extra Add-ons</h2>
+                <p class="mb-0" ui:field="addonsDescription">Charge for one-time purchases.</p>
+                <div class="cp_planpricing-block__content">
+                    <div class="wizard-page__fields">
+
+
+                        <div class="hero-input hero-input--select">
+                            <label class="hero-input__label" ui:field="onlineTrainingLabel">Online Training</label>
+                            <kpi:DataListBox ui:field="addonOnlineTraining"></kpi:DataListBox>
+                        </div>
+
+                        <div class="hero-input hero-input--select">
+                            <!--<label>Initial Set Up Package</label>-->
+                            <mhtml:Label class="hero-input__label" ui:field="initialSetupLabel"
+                                         text="Initial Set Up Package"/>
+                            <kpi:DataListBox ui:field="addonInitialSetup"></kpi:DataListBox>
+                        </div>
+
+                        <div class="hero-input hero-input--select">
+                            <mhtml:Label class="hero-input__label" ui:field="premiumSupportLabel"
+                                         text="Premium Support"/>
+                            <kpi:DataListBox ui:field="addonDedicatedAccountManager"></kpi:DataListBox>
+                        </div>
+
+                        <div class="hero-input hero-input--select">
+                            <label class="hero-input__label" ui:field="customPDFTemplate">Custom PDF Template</label>
+                            <kpi:DataListBox ui:field="addonCustomPDFTemplate"></kpi:DataListBox>
+                        </div>
+
+                        <div class="hero-input hero-input--select">
+                            <label class="hero-input__label" ui:field="extraStorage">Extra Storage</label>
+                            <kpi:DataListBox ui:field="addonExtraStorage"></kpi:DataListBox>
+                        </div>
+
+                        <div class="hero-input hero-input--select">
+                            <label class="hero-input__label" ui:field="dedicatedDeveloper">Dedicated Developer</label>
+                            <kpi:DataListBox ui:field="addonDedicatedDeveloper"></kpi:DataListBox>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="pg_planpricing__sidebar">
+            <!--            <mhtml:Div ui:field="periods" class="cp_receipt__tabs">-->
+            <!--                <mhtml:Div styleName="cp_receipt__tab cp_receipt__tab&#45;&#45;active" ui:field="annual"></mhtml:Div>-->
+            <!--                <mhtml:Div styleName="cp_receipt__tab" ui:field="monthly"></mhtml:Div>-->
+            <!--            </mhtml:Div>-->
+            <div class="cp_receipt">
+                <form class="cp_receipt__filters form-row">
+                    <label class="col-auto">
+                        <g:RadioButton ui:field="byYear" name="duration" value="false"/>
+                    </label>
+                    <label class="col-auto">
+                        <g:RadioButton ui:field="byHalfYear" name="duration" value="false"/>
+                    </label>
+                    <label class="col-auto">
+                        <g:RadioButton ui:field="byQuarter" name="duration" value="false"/>
+                    </label>
+                    <label class="col-auto">
+                        <g:RadioButton ui:field="byMonth" name="duration" value="true" checked="true"/>
+                    </label>
+                </form>
+                <table>
+                    <tbody class="cp_receipt__list">
+                        <tr>
+                            <td ui:field="usersPerAppLabel">0 Users / 0 Apps</td>
+                            <td ui:field="fullUsersPrice">0.00</td>
+                        </tr>
+                        <tr ui:field="essUsersPerAppContainer">
+                            <td ui:field="essUsersPerAppLabel">ESS Users: 0</td>
+                            <td ui:field="essUsersPrice">0.00</td>
+                        </tr>
+                        <tr ui:field="noAccessUsersPerAppContainer">
+                            <td>
+                                <mhtml:Div ui:field="noAccessUsersPerAppLabel"/>
+                            </td>
+                            <td ui:field="noAccessUsersPrice">0.00</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <mhtml:Div ui:field="discountLabel"/>
+                            </td>
+                            <td class="cp_receipt__discount" ui:field="totalDiscount">-0.00</td>
+                        </tr>
+                    </tbody>
+                    <tbody class="cp_receipt__sumup">
+                        <tr>
+                            <td ui:field="subtotalSubscription">Subtotal / Subscription</td>
+                            <td ui:field="subscriptionTotal">0.00</td>
+                        </tr>
+                        <tr>
+                            <td ui:field="subtotalAddOn">Subtotal Add-on</td>
+                            <td ui:field="totalAddOnsPrice">0.00</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td ui:field="totalLabel">Total (USD)</td>
+                            <td ui:field="totalToBePaid">0.00</td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <div class="cp_receipt-cuts">
+                    <span class="cp_receipt-cut"></span>
+                    <span class="cp_receipt-cut"></span>
+                    <span class="cp_receipt-cut"></span>
+                    <span class="cp_receipt-cut"></span>
+                    <span class="cp_receipt-cut"></span>
+                    <span class="cp_receipt-cut"></span>
+                    <span class="cp_receipt-cut"></span>
+                    <span class="cp_receipt-cut"></span>
+                    <span class="cp_receipt-cut"></span>
+                    <span class="cp_receipt-cut"></span>
+                    <span class="cp_receipt-cut"></span>
+                    <span class="cp_receipt-cut"></span>
+                    <span class="cp_receipt-cut"></span>
+                    <span class="cp_receipt-cut"></span>
+                    <span class="cp_receipt-cut"></span>
+                    <span class="cp_receipt-cut"></span>
+                    <span class="cp_receipt-cut"></span>
+                    <span class="cp_receipt-cut"></span>
+                </div>
+            </div>
+            <div class="cp_receipt__footer">
+                <div class="cp_receipt__footer-content">
+                    <mhtml:Div styleName="btn btn--primary cp_receipt__buynow" ui:field="buyNowButtonContainer">
+                        <mhtml:Span ui:field="buyNowButton">Buy now</mhtml:Span>
+                    </mhtml:Div>
+                    <!--<div class="btn btn&#45;&#45;default cp_receipt__trynow">
+                        <span>
+                            <span>Try now</span>
+                            <span class="cp_receipt__trynow-subtitle">14 days Free trial</span>
+                        </span>
+                    </div>-->
+                </div>
+                <div class="cp_receipt-cuts">
+                    <span class="cp_receipt-cut"></span>
+                    <span class="cp_receipt-cut"></span>
+                    <span class="cp_receipt-cut"></span>
+                    <span class="cp_receipt-cut"></span>
+                    <span class="cp_receipt-cut"></span>
+                    <span class="cp_receipt-cut"></span>
+                    <span class="cp_receipt-cut"></span>
+                    <span class="cp_receipt-cut"></span>
+                    <span class="cp_receipt-cut"></span>
+                    <span class="cp_receipt-cut"></span>
+                    <span class="cp_receipt-cut"></span>
+                    <span class="cp_receipt-cut"></span>
+                    <span class="cp_receipt-cut"></span>
+                    <span class="cp_receipt-cut"></span>
+                    <span class="cp_receipt-cut"></span>
+                    <span class="cp_receipt-cut"></span>
+                    <span class="cp_receipt-cut"></span>
+                    <span class="cp_receipt-cut"></span>
+                </div>
+            </div>
+
+        </div>
+    </g:HTMLPanel>
+</ui:UiBinder>

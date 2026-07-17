@@ -1,0 +1,2 @@
+update "anv".attendancerawdata ad set date = (select from_date from datejoin where id = ad.dateid) where ad.date is NULL;
+update "anv".sickrequestduration s set date = (select from_date from datejoin where id = s.dateid) where date is NULL;

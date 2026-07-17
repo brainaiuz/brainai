@@ -1,0 +1,58 @@
+<ui:UiBinder
+        xmlns:ui='urn:ui:com.google.gwt.uibinder'
+        xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+
+    <g:HTMLPanel>
+
+        <div id="header">
+            <table style="width:100%">
+                <tr>
+                    <td style="vertical-align:middle;width:30%">
+                        <!--<div id="logo"> &lt;!&ndash;styleName="logo-site" ui:field='banner'&ndash;&gt;
+                            &lt;!&ndash;<img src="workforcelogo2.png" alt="Reporting System" height="53px"/>&ndash;&gt;
+                        </div>-->
+                        <g:HTMLPanel ui:field='companyLogo'></g:HTMLPanel>
+                    </td>
+                    <td class="companyNameStyle" style="vertical-align:middle;width:25%">
+                        <g:HTMLPanel ui:field='companyName'></g:HTMLPanel>
+                    </td>
+                    <td style="vertical-align:middle;width:53%">
+                        <ul class="help-menu right">
+                            <li class="noLink">
+                                <g:HTMLPanel ui:field='userName'></g:HTMLPanel>
+                            </li>
+                            <li class="noLink">
+                                <g:HTMLPanel>|</g:HTMLPanel>
+                            </li>
+                            <li class="logoutLink">
+                                <g:Anchor href='/logout.html' ui:field='logout'>
+                                    Logout
+                                </g:Anchor>
+                            </li>
+                            <li class="logoutLink">
+                                <g:Anchor href='/ReportingSystem.html' ui:field='report'>
+                                    Report
+                                </g:Anchor>
+                            </li>
+                            <li class="logoutLink">
+                                <g:Anchor href='/DashboardSystem.html' ui:field='dashboard'>
+                                    Dashboard
+                                </g:Anchor>
+                            </li>
+                            <li class="noLink">
+                                <g:HTMLPanel ui:field="manageUsersPipe">|</g:HTMLPanel>
+                            </li>
+                            <li class="noLink">
+                                <g:Anchor href='javascript:;' ui:field='manageUsers'>
+                                    Manage Users
+                                </g:Anchor>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </g:HTMLPanel>
+
+</ui:UiBinder>

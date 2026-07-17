@@ -1,0 +1,13 @@
+update dashboard_widget  set isadvancedmode = true where code = 'IN_OUT';
+update dashboard_widget  set isadvancedmode = true where code = 'INCIDENT';
+update dashboard_widget  set isadvancedmode = true where code = 'PAYROLL';
+update dashboard_widget  set isadvancedmode = true where code = 'CANDIDATE_PER_VACANCY';
+update dashboard_widget  set isadvancedmode = true where code = 'ONBOARDING';
+update dashboard_widget  set isadvancedmode = true where code = 'EXPENSES_BY_CATEGORIES';
+update dashboard_widget  set isadvancedmode = true where code = 'NEW_EMPLOYEE_JOINING';
+update dashboard_widget  set isadvancedmode = true where code = 'SALARY';
+update dashboard_widget  set isadvancedmode = true where code = 'INCENTIVES';
+update dashboard_widget  set isadvancedmode = true where code = 'EMPLOYEE_BY_STATUS';
+update dashboard_widget  set isadvancedmode = true where code = 'EXPIRED_DOCUMENTS';
+update dashboard_widget  set isadvancedmode = true where code = 'SALARY_RATIO';
+update dashboard_widget  set isadvancedmode = true where code = 'PAYSLIP';

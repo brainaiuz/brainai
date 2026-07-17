@@ -1,0 +1,10 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:mhtml='urn:import:gwt.material.design.client.ui.html'>
+    <g:HTMLPanel styleName="panel-w-switch__container custom-form-grid custom-form-grid--unused" ui:field="wrapper">
+        <g:HTMLPanel styleName="panel-w-switch__container-header">
+            <mhtml:Span ui:field="title"/>
+        </g:HTMLPanel>
+        <g:HTMLPanel styleName="grid-stack grid-stack-inactive" ui:field="mainPanel"></g:HTMLPanel>
+    </g:HTMLPanel>
+</ui:UiBinder>

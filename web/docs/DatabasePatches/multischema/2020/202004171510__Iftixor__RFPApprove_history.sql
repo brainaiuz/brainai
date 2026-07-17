@@ -1,0 +1,3 @@
+insert into myupdatetype (code, description, parentid) values ('RFP_SUBMITTED_TO_MANAGER',     'Records when user has submitted rfp',     (select id from myupdatetype where code='ACCOUNTING_REQUEST_FOR_PURCHASE'));
+insert into myupdatetype (code, description, parentid) values ('RFP_MANAGER_APPROVE',    'Records when user has approve rfp',    (select id from myupdatetype where code='ACCOUNTING_REQUEST_FOR_PURCHASE'));
+insert into myupdatetype (code, description, parentid) values ('RFP_MANAGER_REJECT',  'Records when user has rejected rfp',   (select id from myupdatetype where code='ACCOUNTING_REQUEST_FOR_PURCHASE'));

@@ -1,0 +1,4 @@
+<module>
+    <inherits name='com.edatasite.workforce.gwt.core.Core'/>
+    <inherits name="gwtupload.GWTUpload"/>
+</module>

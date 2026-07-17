@@ -1,0 +1,9 @@
+ALTER TABLE "anv".reference_locale
+    ALTER COLUMN arabic TYPE VARCHAR(1000),
+    ALTER COLUMN english TYPE VARCHAR(1000),
+    ALTER COLUMN russian TYPE VARCHAR(1000),
+    ALTER COLUMN uzbek TYPE VARCHAR(1000);
+
+
+ALTER TABLE "anv".team
+    ALTER COLUMN short_description TYPE VARCHAR(1000);

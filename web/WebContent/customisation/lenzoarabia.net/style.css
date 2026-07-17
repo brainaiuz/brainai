@@ -1,0 +1,252 @@
+﻿@import url(reset.css);
+/*CSS Document for */
+
+
+/**** START STANDART CONTENT ELEMENTS (TYPOGRAPHY)
+==============================================================================================================****/
+html {font-size: 100.01%;}
+body {font:normal .75em/1.2 "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;}
+
+		/*** headers H1, H2, H3.***/
+	h1,h2, h3 {font-weight:bold; margin: 0 0 0.25em 0;}
+	h1 { font-size: 166.67% }                     /* 20px */
+	h2 { font-size: 150% }                        /* 18px */
+	h3 { font-size: 133.33% }                     /* 16px */
+
+	p {line-height: 1.5em; margin: 0 0 1em 0;}
+	
+	address, em {font-style:normal}	
+	button, input.btn, .btn input {cursor:pointer;}
+
+		/*** hyperlinks ***/
+	a {}
+	a:hover, a:active {text-decoration:underline;}
+
+/**** END STANDART CONTENT ELEMENTS (TYPOGRAPHY)
+==============================================================================================================****/
+
+
+/**** START UNIVERSAL CLASSES
+==============================================================================================================****/
+.left {float:left !important}
+img.left {margin:0 10px 10px 0;}
+.right {float:right !important}
+img.right {margin:0 0 10px 10px;}
+.clear {display:block; clear:both;}
+table.clear {display:table;}
+.nobrd {border:none !important}
+.c {text-align:center;}
+
+
+.group:before, .group:after {content:"";display:table;}
+.group:after {clear:both;}
+*+html .group {zoom:1}
+
+			/**** Start UNIVERSAL CONTENT BLOCKS ****/
+
+			/**** End universal content blocks ****/
+
+
+
+/**** END UNIVERSAL CLASSES
+==============================================================================================================****/
+
+
+
+/**** START BASE LAYOUOT
+==============================================================================================================****/
+html {height:100%;}
+body {
+	position:relative; min-height:100%; color:#222;
+	background:url(images/bg_0.png) repeat;
+	}
+
+/* .c-box, #content {position:relative; width:984px; margin:0 auto;}
+
+#header {border-top:54px solid #225260;}
+
+#content {padding-bottom:86px;}
+
+#footer {position:absolute; bottom:0; left:0; width:100%;} */
+
+/**** END BASE LAYOUOT
+==============================================================================================================****/
+
+/**** START LOGIN PAGE
+==============================================================****/
+.loginPage {
+	padding:10% 2%;
+	text-align:center;
+	}
+
+#logo {
+	margin-bottom:38px;
+	}
+
+#loginForm {
+	width:565px;
+	height:266px;
+    padding: 1px 0 14px 0;
+	margin:0 auto 16px;
+	background:url(images/bg_loginForm.png) no-repeat;
+	color:#fff;
+	}
+#loginForm>div {
+	padding:0 48px 0 40px;
+	}
+
+#loginForm h2 {
+	margin:28px auto 30px;
+	font-weight:bold;
+	font-size:18px;
+	font:bold 20px/1em "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;;
+	text-transform:uppercase;
+	}
+
+#loginForm label {
+	position:relative;
+	float:right;
+	clear:both;
+	padding-right:322px;
+	line-height:34px;
+	margin-bottom:21px;
+	color:#bfbfbf;
+	background:url(images/bg_textField.png) no-repeat 100% 0;
+	}
+#loginForm label input {
+	position:absolute; right:0; top:0;
+	width:296px;
+	height:32px;
+	font-size:16px;
+	padding:0 2px;
+	border:0;
+	background:transparent;
+	}
+
+
+
+.submitGroup {
+	margin-top:12px;
+	line-height:31px;
+	}
+.submitGroup>:first-child {
+	display:inline-block;
+	vertical-align:top;
+	margin-right:6px;
+	font-size:12px;
+	text-shadow:1px 1px 1px rgba(0,0,0,0.75);
+	}
+.submitGroup a {
+	text-decoration:none;
+	color:#fff;
+	}
+
+.submitGroup-1 .icon {
+	display:inline-block;
+	height:30px;
+	width:30px;
+	margin:0 2px;
+	text-indent:-9999px;
+	background-repeat:no-repeat;
+	}
+.mini-facebook {
+	background-image:url(images/icon_fb.png);
+	}
+/* .mini-google {
+	background-image:url(images/icon_gPlus.png);	
+	}
+.mini-livemessager {
+	background-image:url(images/icon_win.png);		
+	}
+.mini-yahoo {
+	background-image:url(images/icon_yahoo.png);		
+	} */
+.mini-twitter {
+	background: url(images/icon_twitter.png) 0 0 no-repeat;
+	}
+.mini-utube {
+	background: url(images/icon_youTube.png) 0 0 no-repeat;
+	}
+.mini-linkedin {
+	background: url(images/icon_linkedin.png) 0 0 no-repeat;
+	}
+
+
+
+
+.submitGroup-1 a:hover {
+	background-position:0 -40px;
+	}
+
+
+
+/* END .useSocialBookMarking */
+
+
+
+
+#loginForm .submitGroup-1 {
+	float:left;
+	}
+#loginForm .submitGroup-1>:first-child {
+	line-height: 15px;
+	}
+
+#loginForm .submitGroup-1 a {margin-right:4px;}
+#loginForm .submitGroup-1 img {
+	width:30px;
+	}
+
+#loginForm .submitGroup-2 {
+	float:right;
+	
+	}
+#loginForm .submitGroup-2 input[type="submit"] {
+	width:73px;
+	height:31px;
+	text-indent:-9999px;
+	border:none;
+	background:url(images/bg_btn_liginForm-submit.png) no-repeat;
+	}
+
+.copy {
+	color:#808080;
+	}
+.copy strong {
+	color:#474749;
+	text-transform:uppercase;
+	}
+.copy a {
+	font-weight:bold;
+	text-decoration:none;
+	color:#474749;
+	}
+	
+
+/**** END LOGIN PAGE
+=================================================================****/
+
+
+/**** START HEADER CONTENT
+==============================================================****/
+
+/**** END HEADER CONTENT
+=================================================================****/
+
+
+
+
+
+/**** START FOOTER CONTENT
+==============================================================****/
+			/****  ****/
+
+			/****  ****/
+/**** END FOOTER CONTENT
+================================================================****/
+
+
+.error{
+    color: #f00;
+    text-transform: none !important;
+}

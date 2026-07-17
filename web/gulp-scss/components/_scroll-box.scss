@@ -1,0 +1,24 @@
+/*
+* Scroll-box
+*/
+.scroll-box{
+  overflow: auto;
+  height:200px;
+  padding:10px;
+  margin-bottom: 10px;
+  border:1px solid $gray-new-light;
+}
+.scroll-box--no-padding{
+  padding:0;
+  margin:0;
+}
+.scroll-box--height-x{
+  height:400px;
+}
+
+.scroll-box--x{
+  width: 100%;
+  padding-bottom: 10px;
+  overflow-x: auto;
+}
+

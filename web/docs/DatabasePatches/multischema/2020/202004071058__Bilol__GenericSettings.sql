@@ -1,0 +1,1 @@
+insert into "78999".genericsettings(key,value) values ('ENABLE_FORMAT_WITH_CALCULATION_SCALE', 'YES');

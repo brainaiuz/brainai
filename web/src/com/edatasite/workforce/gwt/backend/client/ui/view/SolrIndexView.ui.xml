@@ -1,0 +1,57 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:c='urn:import:com.edatasite.workforce.gwt.core.client.ui'
+             xmlns:m='urn:import:gwt.material.design.client.ui'
+             xmlns:mhtml='urn:import:gwt.material.design.client.ui.html'>
+    <g:HTMLPanel ui:field="panel">
+
+        <g:HTMLPanel styleName="grid-row">
+            <g:HTMLPanel styleName="col-6">
+                <g:HTMLPanel styleName="form-group">
+                    <mhtml:Label ui:field="coreLabel" styleName="form-group__label"/>
+                    <c:wfmDropdown.WfmDropdown ui:field="core"/>
+                </g:HTMLPanel>
+            </g:HTMLPanel>
+            <g:HTMLPanel styleName="col-6">
+                <g:HTMLPanel styleName="form-group">
+                    <mhtml:Label ui:field="schemaLabel" styleName="form-group__label"/>
+                    <g:HTMLPanel ui:field="schemaPanel"/>
+                </g:HTMLPanel>
+            </g:HTMLPanel>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="grid-row">
+            <g:HTMLPanel styleName="col-6">
+                <g:HTMLPanel styleName="form-group">
+                    <mhtml:Label ui:field="typeLabel" styleName="form-group__label"/>
+                    <g:HorizontalPanel ui:field="typePanel"/>
+                </g:HTMLPanel>
+            </g:HTMLPanel>
+            <g:HTMLPanel styleName="col-6">
+                <g:HTMLPanel styleName="form-group">
+                    <mhtml:Label ui:field="dateLabel" styleName="form-group__label"/>
+                    <g:HorizontalPanel ui:field="dateWidget"/>
+                </g:HTMLPanel>
+            </g:HTMLPanel>
+        </g:HTMLPanel>
+
+        <m:MaterialPanel styleName="grid-row">
+            <g:HTMLPanel styleName="col-4">
+                <g:HTMLPanel ui:field="reindexButtonPanel"/>
+            </g:HTMLPanel>
+            <g:HTMLPanel styleName="col-4">
+                <g:HTMLPanel ui:field="showInconsistencyButtonPanel"/>
+            </g:HTMLPanel>
+            <g:HTMLPanel styleName="col-4">
+                <g:HTMLPanel ui:field="fixInconsistencyButtonPanel"/>
+            </g:HTMLPanel>
+        </m:MaterialPanel>
+
+        <m:MaterialPanel styleName="grid-row" style="margin-top: 10px">
+            <g:HTMLPanel styleName="col-12">
+                <g:HTMLPanel ui:field="inconsistencyPanel"/>
+            </g:HTMLPanel>
+        </m:MaterialPanel>
+
+    </g:HTMLPanel>
+</ui:UiBinder>

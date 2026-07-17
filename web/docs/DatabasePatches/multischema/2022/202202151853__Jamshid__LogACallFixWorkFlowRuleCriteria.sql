@@ -1,0 +1,2 @@
+update modelfield set source = 'Completed;Scheduled;Current' where form_id = 'LOGACALL_FORM' and field_id = 'call_details';
+update modelfield set source = 'incoming;outgoing;missed' where form_id = 'LOGACALL_FORM' and field_id = 'call_type';

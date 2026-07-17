@@ -1,0 +1,37 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:core="urn:import:com.edatasite.workforce.gwt.core.client.ui"
+             xmlns:invoice="urn:import:com.edatasite.workforce.gwt.invoice.client.ui"
+             xmlns:m.html="urn:import:gwt.material.design.client.ui.html"
+             xmlns:lookup="urn:import:com.edatasite.workforce.gwt.core.client.ui.lookup">
+    <g:HTMLPanel ui:field="container">
+        <div class="form-group">
+            <m.html:Label ui:field="nameLabel" styleName="form-group__label"/>
+            <g:TextBox ui:field="txtName"/>
+        </div>
+        <div class="form-group">
+            <m.html:Label ui:field="descriptionLabel" styleName="form-group__label"/>
+            <g:TextArea ui:field="txtDescription"/>
+        </div>
+        <div class="form-group">
+            <m.html:Label ui:field="priceLabel" styleName="form-group__label"/>
+            <g:TextBox ui:field="txtPrice"/>
+        </div>
+        <div class="form-group">
+            <m.html:Label ui:field="currencyLabel" styleName="form-group__label"/>
+            <core:CurrencyWidget ui:field="currencyWidget"/>
+        </div>
+        <div class="form-group" style="margin-top: 50px;">
+            <m.html:Label ui:field="accountLabel" styleName="form-group__label"/>
+            <lookup:AccountsLookUp ui:field="accountLookUp"/>
+        </div>
+        <div class="form-group">
+            <m.html:Label ui:field="taxLabel" styleName="form-group__label"/>
+            <invoice:SmartTaxRateLookUp ui:field="taxLookUp"/>
+        </div>
+        <div class="form-group">
+            <m.html:Label ui:field="customerLabel" styleName="form-group__label"/>
+            <m.html:Div ui:field="pnlCustomer"/>
+        </div>
+    </g:HTMLPanel>
+</ui:UiBinder>

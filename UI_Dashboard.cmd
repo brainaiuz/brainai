@@ -1,0 +1,1 @@
+ant Dashboard -f ./web/AutoCompile.xml

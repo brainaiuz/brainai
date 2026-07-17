@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="6558 758 48 48">
+    <defs>
+        <style>
+            .cls-1 {
+            fill: #e64a19;
+            }
+
+            .cls-2 {
+            fill: #fff;
+            }
+        </style>
+    </defs>
+    <g id="office_365" data-name="office 365" transform="translate(6010 -90)">
+        <circle id="Ellipse_53" data-name="Ellipse 53" class="cls-1" cx="24" cy="24" r="24"
+                transform="translate(548 848)"/>
+        <path id="Path_572" data-name="Path 572" class="cls-2"
+              d="M6677.3,842.683h0V828.3l13.225-4.8,7.2,1.8-.017,20.408-7.2,1.788-13.192-4.8,13.192,1.8v-17.4l-8.392,1.788-.017,12.017-4.784,1.788"
+              transform="translate(-6115.3 36.5)"/>
+    </g>
+</svg>

@@ -1,0 +1,44 @@
+<div class="contentBar" style="padding:0 10px;padding-top:3px;">
+    <div id="click1" class="slideDown-box  group expand">
+        <h3 onclick="var myclick=document.getElementById('click1');if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('expand')>=0){cls=cls.replace('expand','');}else{cls+=' expand';}myclick.className=cls;}" class="slideDown-title">$$label:OVERTIME_DETAILS$$</h3>
+
+        <fieldset class="slideDown-content group labelLine">
+            <div class="halfSet-1 left">
+                <div class="row">
+                    $$label:OVERTIME_TYPE$$
+                    <div class="field">
+                        $$input:OVERTIME_TYPE$$
+                    </div>
+                </div>
+                <div class="row">
+                    $$label:OVERTIME_START_DATE$$
+                    <div class="field">
+                        $$input:OVERTIME_START_DATE$$
+                    </div>
+                </div>
+
+                <div class="row">
+                    $$label:OVERTIME_END_DATE$$
+                    <div class="field">
+                        $$input:OVERTIME_END_DATE$$
+                    </div>
+                </div>
+                <div class="row">
+                    $$label:OVERTIME_HOURS$$
+                    <div class="field">
+                        $$input:OVERTIME_HOURS$$
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+
+    <div id="click2" class="slideDown-box expand group">
+        <h3 onclick="var myclick=document.getElementById('click2');if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('expand')>=0){cls=cls.replace('expand','');}else{cls+=' expand';}myclick.className=cls;}" class="slideDown-title">$$label:OVERTIME_LIST$$</h3>
+        <fieldset class="slideDown-content group nobrd">
+            <div class="data-grid" style="height:300px;">
+                $$input:OVERTIME_LIST$$
+            </div>
+        </fieldset>
+    </div>
+</div>

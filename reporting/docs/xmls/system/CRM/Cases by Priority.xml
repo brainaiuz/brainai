@@ -1,0 +1,33 @@
+<report>
+    <view>
+        <title>Case</title>
+        <name>Case</name>
+        <category>leads</category>
+        <sqlquery>
+            <select>
+                <table name="Case">
+                    <column name="createdDate" title="Creater Date" type="date" formattype="date" customdateformat="YYYY-MM-DD" basicfilter="true"/>
+                    <column name="countOfCases" title="Count of Cases" type="number" formattype="number"/>
+                    <column name="countOfLow" title="Count of Low Priority" type="number" formattype="number"/>
+                    <column name="countOfMedium" title="Count of Medium Priority" type="number" formattype="number"/>
+                    <column name="countOfHigh" title="Count of High Priority" type="number" formattype="number"/>
+                </table>
+            </select>
+            <from>
+                (
+                select count(cs.id) countOfCases, date(cs.creationDate) createdDate
+                ,sum(case pr.code when 'CP_LOW' then 1 else 0 end) countOfLow
+                ,sum(case pr.code when 'CP_MEDIUM' then 1 else 0 end) countOfMedium
+                ,sum(case pr.code when 'CP_HIGH' then 1 else 0 end) countOfHigh
+                from "$".crmcase cs
+                left join "$".reference pr on cs.priority=pr.id
+                group by date(cs.creationDate)
+                order by date(cs.creationDate) desc
+                ) t
+            </from>
+            <where>
+                <terms id="base" value="1=1"/>
+            </where>
+        </sqlquery>
+    </view>
+</report>

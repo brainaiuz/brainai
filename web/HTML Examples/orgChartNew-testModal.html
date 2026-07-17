@@ -1,0 +1,162 @@
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <title>
+        OrgBoard Test Example
+    </title>
+    <link rel="stylesheet" href="../WebContent/googlegadget/select2.min.css">
+    <link rel="stylesheet" href="../WebContent/mainStyles/new-ui/css/materialize.css">
+    <!--    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />-->
+    <!--    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>-->
+
+    <style type="text/css">
+        .grid-row + .grid-row {
+            margin-top: 30px;
+        }
+
+
+        .col > h6 {
+        }
+
+        kbd {
+            padding: 2px 4px;
+            white-space: nowrap;
+            /*background-color: #edf1f5;*/
+            background-color: #bfe8ff;
+            color: #174da6;
+            font-family: system-ui, math;
+        }
+        code {
+            color: #930c53;
+            font-size: .9em;
+        }
+    </style>
+    <style>
+        /*
+        Для тестирования локально вам потребуются базовые стили
+        из вашего SCSS (например, $orgBoardPadding-x, $orgBoardPadding-y,
+        min-height, display: flex и т.д.)
+        */
+        body, html { height: 100%; margin: 0; padding: 0; }
+
+        .frame__content__body {
+            height: 100vh; /* Имитация родительского контейнера, дающего высоту */
+            padding: 0;
+        }
+
+        /* ОСНОВНАЯ ЛОГИКА ИЗ _orgChartNew-board.scss */
+        .orgBoard {
+        }
+
+        /* ЗАКРЕПЛЕНИЕ ВЕРХНИХ ЭЛЕМЕНТОВ */
+        .orgBoard__top {
+        }
+
+        .descriptRow {
+        }
+
+        /* ОБЛАСТЬ С КАРТОЧКАМИ */
+        .orgBoard__main {
+        }
+
+        .orgBoard-scrollX {
+        }
+
+        /* СТИЛИ КАРТОЧЕК И ЛИНИЙ */
+        .depTree {
+        }
+
+        .depNode {
+            /*outline: 1px solid crimson;*/
+        }
+
+        .depCard {
+            background-color: lavender;
+        }
+
+        .depChildren {
+            /*outline: 1px solid #0da88c;*/
+        }
+
+        .depCard::before {
+        }
+    </style>
+</head>
+<body class="" style="overflow: auto;" data-new-gr-c-s-check-loaded="14.1264.0" data-gr-ext-installed="">
+
+<div class="modal-holder active" style="position: absolute; inset: 0px;">
+    <div class="modal">
+        <div class="modal-wrapper form-compressed">
+            <div class="modal-header">
+                <div class="close-x">
+                    <svg class=" icon--x">
+                        <use href="mainStyles/new-ui/icons/sprite__panels.svg?v=3.1.0#x"></use>
+                    </svg>
+                </div>
+                <h5 class="modal-title">Создать оргструктуру</h5></div>
+            <div class="modal-content">
+                <div class="colorPickBox">
+                    <div class="colorPickBox__preview" style="background-color: rgb(227, 227, 227);"></div>
+                    <div class="colorPickList">
+                        <button type="button" class="colorPickItem active" data-color="#E3E3E3"
+                                style="background-color: rgb(227, 227, 227);"></button>
+                        <button type="button" class="colorPickItem" data-color="#D9F5FF"
+                                style="background-color: rgb(217, 245, 255);"></button>
+                        <button type="button" class="colorPickItem" data-color="#FFE3D0"
+                                style="background-color: rgb(255, 227, 208);"></button>
+                        <button type="button" class="colorPickItem" data-color="#DDFDD7"
+                                style="background-color: rgb(221, 253, 215);"></button>
+                        <button type="button" class="colorPickItem" data-color="#ECE6FF"
+                                style="background-color: rgb(236, 230, 255);"></button>
+                        <button type="button" class="colorPickItem" data-color="#FFF6CF"
+                                style="background-color: rgb(255, 246, 207);"></button>
+                        <button type="button" class="colorPickItem" data-color="#E5EAFF"
+                                style="background-color: rgb(229, 234, 255);"></button>
+                        <button type="button" class="colorPickItem" data-color="#FFE0F5"
+                                style="background-color: rgb(255, 224, 245);"></button>
+                        <button type="button" class="colorPickItem" data-color="#DDFDD7"
+                                style="background-color: rgb(221, 253, 215);"></button>
+                        <button type="button" class="colorPickItem" data-color="#D9F5FF"
+                                style="background-color: rgb(217, 245, 255);"></button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-group__label">Название</div>
+                    <div class="form-group__content"><input type="text" maxlength="1000" class="form-control"
+                                                            autocomplete="off"></div>
+                </div>
+                <div class="form-group">
+                    <div class="form-group__label">Описание</div>
+                    <div class="form-group__content"><input type="text" maxlength="1000" class="form-control"
+                                                            autocomplete="off"></div>
+                </div>
+            </div>
+            <div class="modal-footer text-right">
+                <button class="btn btn--primary disabled">Create</button>
+                <button class="btn btn--default">Cancel</button>
+            </div>
+        </div>
+    </div>
+    <div class="lean-overlay"></div>
+</div>
+
+<!--JS LIBS-->
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>-->
+<script type="text/javascript" src="../WebContent/mainStyles/new-ui/js/jquery.min.js"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>-->
+<script type="text/javascript" src="../WebContent/mainStyles/new-ui/js/materialize-1.0.0.min.js"></script>
+<script type="text/javascript" src="../WebContent/googlegadget/select2.min.js"></script>
+<!--\ JS LIBS-->
+<!--CUSTOM SCRIPTS-->
+<script src="static-html-examples.js" defer>
+    //see content to find colorPicker, tree-foldable, customModal... scripts
+</script>
+<script src="static-orgchart-assets.js" defer>
+    //see content to find colorPicker, tree-foldable, customModal... scripts
+</script>
+<!--\ CUSTOM SCRIPTS-->
+
+<!--\CURRENT PAGE SCRIPT-->
+</body>
+</html>

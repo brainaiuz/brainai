@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<project name="Accounting" basedir=".">
+
+    <import file="Base_build.xml"/>
+
+    <target name="Accounting">
+        <antcall target="MAIN">
+            <param name="permutation" value="com.edatasite.workforce.gwt.accounting.Accounting"/>
+        </antcall>
+    </target>
+
+</project>

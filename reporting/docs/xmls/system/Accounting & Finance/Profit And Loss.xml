@@ -1,0 +1,40 @@
+<report>
+    <view>
+        <title>Profit And Loss</title>
+        <name>Profit And Loss</name>
+        <category>Profit And Loss</category>
+        <sqlquery>
+            <select agregateFunc="distinct">
+                <table name="Products Sales">
+                    <column name="s.accountname" title="Account Name" type="string" formattype="string"/>
+                    <column name="s.accountdescription" title="Account Description" type="string" formattype="string"/>
+                    <column name="s.transactiondate" title="Transaction Date" type="date" formattype="date"/>
+                    <column name="s.debit" title="Debit" type="number" formattype="money"/>
+                    <column name="s.credit" title="Credit" type="number" formattype="money"/>
+                    <column name="s.category" title="Category" type="string" formattype="string"/>
+                    <column name="s.code" title="Code" type="string" formattype="string"/>
+                    <column name="s.projectname" title="Project Name" type="string" formattype="string"/>
+                </table>
+            </select>
+            <from>(SELECT ac.name accountname,
+                ac.description accountdescription,
+                tr.journaldate transactiondate,
+                ti.debit debit,
+                ti.credit credit,
+                at.category category,
+                at.code code,
+                p.name projectname
+                FROM "$".account ac
+                JOIN "$".transactionitem ti ON ti.accountid = ac.id
+                JOIN "$".transaction tr ON tr.id = ti.transactionid
+                JOIN "public".accounttype at ON at.id = ac.accounttypeid
+                LEFT JOIN "$".invoice i ON i.id = tr.invoiceid
+                LEFT JOIN "$".project p ON p.id = i.relatedproject_id
+                WHERE at.category='REVENUE' OR at.category ='EXPENSES') s
+            </from>
+            <where>
+                <terms id="base" value="1=1"/>
+            </where>
+        </sqlquery>
+    </view>
+</report>

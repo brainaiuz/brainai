@@ -1,0 +1,27 @@
+## Assessment approve notification. See: EdsMessageManager.sendAssessmentApproveNotification
+## $assessment - EdsAssessment
+## $date - current date
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body><p>Дорогой $employeeAssessment.assessment.reviewer.getName(),</p>
+
+<p>Пожалуйста примите к сведению, что Вы одобрили оценку результативности работника
+    для $employeeAssessment.employee.getName() в $date, уведомление по электронной почте с информацией об оценке
+    результативности было отправлено Вашему работнику.
+    Работник может видеть Ваши комментарии к этой оценке.</p>
+
+<p>PDF версия оценки результативности работника прикреплена.</p>
+
+<p>Нажмите <a href="$host/Hrms.html?link=$link" title="View assessment" target="_blank">здесь</a> для просмотра оценки
+    результативности.</p>
+
+<p>* Если у Вас не получается нажать на ссылку, Вы можете скопировать и вставить следующий адрес в Ваш веб браузер:</p>
+
+<p><a href="$host/Hrms.html?link=$link" title="View assessment" target="_blank">$host/Hrms.html?link=$link</a></p>
+</body>
+</html>

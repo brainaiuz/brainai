@@ -1,0 +1,45 @@
+<div class="contentBar" style="padding:0 10px; margin-top:2px;">
+
+    <div id="click1" class="slideDown-box expand group">
+        <h3 onclick="var myclick=document.getElementById('click1');if(myclick &amp;&amp; myclick.className){;
+}{var cls=myclick.className;if(cls.indexOf('expand')>=0){cls=cls.replace('expand','');}else{cls+=' expand';}myclick.className=cls;}"
+            class="slideDown-title">$$label:DETAILS$$</h3>
+        <fieldset class="slideDown-content group labelLine">
+            <div class="halfSet-1 left">
+                <div class="row">$$label:POSITION_CODE$$
+                    <div class="field">$$input:POSITION_CODE$$</div>
+                </div>
+                <div class="row">$$label:HEAD_COUNT_STATUS$$
+                    <div class="field">$$input:HEAD_COUNT_STATUS$$</div>
+                </div>
+                <div class="row">$$label:CURRENT_HEAD_COUNT$$
+                    <div class="field">$$input:CURRENT_HEAD_COUNT$$</div>
+                </div>
+            </div>
+
+            <div class="halfSet-1 left">
+                <div class="row">$$label:DEPARTMENT$$
+                    <div class="field">$$input:DEPARTMENT$$</div>
+                </div>
+                <div class="row">$$label:BUDGETED_HOURS_POSITION$$
+                    <div class="field">$$input:BUDGETED_HOURS_POSITION$$</div>
+                </div>
+                <div class="row">$$label:BUDGETED_PAY_POSITION$$
+                    <div class="field">$$input:BUDGETED_PAY_POSITION$$</div>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+
+    <div id="click2" class="slideDown-box  group expand">
+        <h3 onclick="var myclick=document.getElementById('click2');if(myclick && myclick.className){;
+}{var cls=myclick.className;if(cls.indexOf('expand')>=0){cls=cls.replace('expand','');}else{cls+=' expand';}myclick.className=cls;}"
+            class="slideDown-title">
+            $$label:ASSIGNEE$$
+        </h3>
+        <fieldset class="slideDown-content group nobrd">
+            <div class="reachFullWidth2">$$input:ASSIGNEES$$</div>
+        </fieldset>
+    </div>
+
+</div>

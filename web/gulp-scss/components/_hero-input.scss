@@ -1,0 +1,108 @@
+$hero-input-radius: 8px;
+$hero-padding-x: rem(24px);
+
+.hero-input {
+  position: relative;
+
+  &, & > .form-control {
+    min-height: 60px;
+  }
+
+  .form-control {
+    border-radius: $hero-input-radius;
+    background-color: $hero-input-bg;
+
+    > .select-wrapper {
+      height: 100%;
+    }
+
+    .caret {
+      @include border-right-radius($hero-input-radius);
+    }
+  }
+
+  .select-dropdown { //input
+    min-height: 100%;
+    //border: 1px solid lighten($control-border-color, 10%);
+    border-radius: $hero-input-radius;
+
+    &.active {
+
+    }
+  }
+
+  &--text {
+    background-color: white;
+  }
+
+  [class*="dropdown-kit--"] {
+    z-index: 3;
+    font-weight: normal;
+  }
+
+
+  &.hero-input--select {
+    .dropdown-content.select-dropdown {
+      right: 0 !important;
+      width: auto !important;
+      height: auto !important;
+      padding: 0 !important;
+    }
+  }
+
+  &__label {
+    position: absolute;
+    z-index: 2; //to overlapp the caret https://i.imgur.com/4fy8au6.png
+    top: 10px;
+    left: $hero-padding-x + $control-padding-x;
+    display: block;
+    color: $color-accent-2;
+  }
+
+  & + .hero-input {
+    margin-top: 10px;
+  }
+}
+
+.hero-input--text input,
+.hero-input--select input.select-dropdown {
+  //display: block;
+  //width: 100%;
+  //box-sizing: border-box;
+  //line-height: 30px;
+  //height: auto;
+  padding: 27px $hero-padding-x 5px $hero-padding-x;
+  border-radius: $hero-input-radius;
+  font-size: 1.25rem;
+  //outline: none;
+  //background-color: transparent;
+  color: $color-accent-2;
+}
+
+.hero-input--text {
+  &.hero-input--suffix input {
+    padding-right: 150px;
+  }
+
+  .hero-input__label {
+    cursor: text;
+  }
+}
+
+.hero-input__suffix {
+  font-size: 15px;
+  font-weight: bold;
+  position: absolute;
+  right: 20px;
+  bottom: 7px;
+}
+
+.hero-input--select .select2-container--default .select2-selection--single {
+  border: none;
+  background-color: transparent;
+  outline: none;
+}
+
+.hero-input--select .select2-container--default .select2-selection--single .select2-selection__arrow {
+  right: 10px;
+}

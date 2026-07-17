@@ -1,0 +1,1601 @@
+.maroon {
+}
+
+.maroon .mainBackground {
+    background-image: url("themes/maroon/gradient-bg-logo.png");
+    height: 53px;
+    background-repeat: repeat-x;
+}
+
+.maroon .border {
+    border: 1px solid #bb4748;
+    background-color: white;
+}
+
+.maroon .containerBackground {
+    background-color: #db2461;
+}
+
+.maroon .section-seleced {
+    /*Not Used IF*/
+    background: transparent url(themes/maroon/shortcut_selected_bgr.png) repeat-x;
+}
+
+.maroon .eds-shortcutitem-hdr {
+    width: 100%;
+    background: transparent url(themes/maroon/shortcut_bgr.png) repeat-x;
+    border-bottom: 1px solid #bb4748;
+    color: #901941;
+    font-weight: bold;
+    text-align: left;
+    cursor: pointer;
+}
+
+.maroon .eds-shortcutitem-active-hdr {
+    width: 100%;
+    background: transparent url(themes/maroon/shortcut_selected_bgr.png) repeat-x;
+    border-bottom: 1px solid #db2461;
+    color: #000000;
+    font-weight: bold;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.maroon .eds-shortcutitem-hdr-over {
+    width: 100%;
+    background: transparent url(themes/maroon/shortcut_mouseover_bgr.png) repeat-x;
+    border-bottom: 1px solid #db2461;
+    color: #901941;
+    font-weight: bold;
+    text-align: left;
+    cursor: pointer;
+}
+
+.maroon .maroon-header {
+    background: url(themes/maroon/top2.gif);
+    font-weight: bold;
+    color: #941943;
+}
+
+.table-maroon-header {
+    background: url(themes/maroon/top2.gif);
+    font-weight: bold;
+    color: #941943;
+}
+
+.maroon .wfm-my-tabfolder-header {
+    background: url(themes/maroon/tabs-orange.gif) repeat-x 0 -108px;
+    overflow: hidden;
+}
+
+.maroon .wfm-my-tabitem-over .wfm-my-tabitem-l {
+    background: url(themes/maroon/tabs-orange.gif) no-repeat 0 -27px;
+}
+
+.maroon .wfm-my-tabitem-over .wfm-my-tabitem-ml, .maroon .wfm-my-tabitem-over .wfm-my-tabitem-c {
+    background: url(themes/maroon/tabs-orange.gif) repeat-x 0 -81px;
+}
+
+.maroon .wfm-my-tabitem-over .wfm-my-tabitem-mr {
+    background: url(themes/maroon/tabs-orange.gif) repeat-x 0 -81px;
+}
+
+.maroon .wfm-my-tabitem-over .wfm-my-tabitem-r {
+    background: url(themes/maroon/tabs-orange.gif) no-repeat right -27px;
+}
+
+.maroon .wfm-my-tabitem-secondary .wfm-my-tabitem-l {
+    background: url(themes/maroon/tabs-orange.gif) no-repeat 0 -27px;
+}
+
+.maroon .wfm-my-tabitem-secondary .wfm-my-tabitem-ml, .maroon .wfm-my-tabitem-secondary .wfm-my-tabitem-c {
+    background: url(themes/maroon/tabs-orange.gif) repeat-x 0 -81px;
+}
+
+.maroon .wfm-my-tabitem-secondary .wfm-my-tabitem-mr {
+    background: url(themes/maroon/tabs-orange.gif) repeat-x 0 -81px;
+}
+
+.maroon .wfm-my-tabitem-secondary .wfm-my-tabitem-r {
+    background: url(themes/maroon/tabs-orange.gif) no-repeat right -27px;
+}
+
+.maroon .wfm-my-tabitem-sel .wfm-my-tabitem-text {
+    color: #15428B;
+}
+
+.maroon .wfm-my-tabitem-text {
+    display: block;
+    padding: 0 5px 0 3px;
+    color: #015B5E;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.maroon .wfm-my-tabitem-sel .wfm-my-tabitem-l {
+    background: url(themes/maroon/tabs-orange.gif) no-repeat;
+}
+
+.maroon .wfm-my-tabitem-sel .wfm-my-tabitem-ml, .maroon .wfm-my-tabitem-sel .wfm-my-tabitem-c {
+    background: url(themes/maroon/tabs-orange.gif) repeat-x 0 -54px;
+}
+
+.maroon .wfm-my-tabitem-sel .wfm-my-tabitem-mr {
+    background: url(themes/maroon/tabs-orange.gif) repeat-x 0 -54px;
+}
+
+.maroon .wfm-my-tabitem-sel .wfm-my-tabitem-r {
+    background: url(themes/maroon/tabs-orange.gif) no-repeat right 0;
+}
+
+.maroon .my-paging-toolbar {
+    background: url(themes/maroon/bg.gif) repeat-x;
+    border-top: 1px solid #ff3366;
+}
+
+.maroon .my-cpanel-frame .my-toolbar {
+    position: static;
+    background: url(themes/maroon/bg.gif) repeat-x;
+    border: 1px solid #db2461;
+    border-bottom: none;
+}
+
+.maroon .my-toolitem-mr div {
+    background: transparent url(themes/maroon/btn-arrow.gif) no-repeat scroll 0 3px;
+    width: 12px;
+    height: 21px;
+}
+
+.maroon .my-toolitem-seperator {
+    background: url(themes/maroon/split.gif) no-repeat 50% 50%;
+    border: 0 none;
+    cursor: default;
+    font-size: 1px;
+    height: 21px;
+    overflow: hidden;
+    width: 4px;
+}
+
+.maroon .my-toolbar {
+    background: url(themes/maroon/bg.gif) 0 0 repeat-x;
+}
+
+.maroon .wfm-my-toolbar {
+    background: url(themes/maroon/bg.gif) 0 0 repeat-x;
+}
+
+.maroon .my-cpanel-frame .wfm-my-toolbar {
+    position: static;
+    background: url(themes/maroon/bg.gif) repeat-x;
+    border: 1px solid #db2461;
+    border-bottom: none;
+}
+
+.maroon .my-toolitem-over .my-toolitem-l {
+    background: url(themes/maroon/tb-btn-sprite.gif) no-repeat;
+}
+
+.maroon .my-toolitem-over .my-toolitem-ml,
+.maroon .my-toolitem-over .my-toolitem-c {
+    background: url(themes/maroon/tb-btn-sprite.gif) repeat-x 0 -42px;
+}
+
+.maroon .my-toolitem-over .my-toolitem-ml,
+.maroon .my-toolitem-over .my-toolitem-c {
+    background: url(themes/maroon/tb-btn-sprite.gif) repeat-x 0 -42px;
+}
+
+.maroon .my-toolitem-over .my-toolitem-mr {
+    background: url(themes/maroon/tb-btn-sprite.gif) repeat-x 0 -42px;
+}
+
+.maroon .my-toolitem-split div {
+    background: transparent url(themes/maroon/btn-arrow.gif) no-repeat 0 -47px;
+    width: 12px;
+    height: 21px;
+}
+
+.maroon .wfm-tool-bar {
+    background: url("themes/maroon/bg.gif") repeat-x scroll 0 0 transparent;
+    margin: 0;
+    width: 100%;
+    border: medium none;
+}
+
+.maroon .my-toolbar {
+    background: url(themes/maroon/bg.gif) 0 0 repeat-x;
+    border-bottom: 0 solid #ff3366; /*TODO after bottom size if 1px*/
+}
+
+.maroon .my-toolitem-over .my-toolitem-r {
+    background: url(themes/maroon/tb-btn-sprite.gif) no-repeat 0 -21px;
+}
+
+.maroon .my-toolitem-down .my-toolitem-l {
+    background: url(themes/maroon/tb-btn-sprite.gif) no-repeat 0 -63px;
+}
+
+.maroon .my-toolitem-down .my-toolitem-ml,
+.maroon .my-toolitem-down .my-toolitem-c {
+    background: url(themes/maroon/tb-btn-sprite.gif) repeat-x 0 -105px;
+}
+
+.maroon .my-toolitem-down .my-toolitem-mr {
+    background: url(themes/maroon/tb-btn-sprite.gif) repeat-x 0 -105px;
+}
+
+.maroon .my-toolitem-down .my-toolitem-r {
+    background: url(themes/maroon/tb-btn-sprite.gif) no-repeat 0 -84px;
+}
+
+.maroon .my-toolitem-sel .my-toolitem-l {
+    background: url(themes/maroon/tb-btn-sprite.gif) no-repeat 0 -63px;
+}
+
+.maroon .my-toolitem-sel .my-toolitem-ml,
+.maroon .my-toolitem-sel .my-toolitem-c {
+    background: url(themes/maroon/tb-btn-sprite.gif) repeat-x 0 -105px;
+}
+
+.maroon .my-toolitem-sel .my-toolitem-mr {
+    background: url(themes/maroon/tb-btn-sprite.gif) repeat-x 0 -105px;
+}
+
+.maroon .my-toolitem-sel .my-toolitem-r {
+    background: url(themes/maroon/tb-btn-sprite.gif) no-repeat 0 -84px;
+}
+
+.maroon .wfm-my-toolitem-over .wfm-my-toolitem-l {
+    background: url(themes/maroon/tb-btn-sprite.gif) no-repeat;
+}
+
+.maroon .wfm-my-toolitem-over .wfm-my-toolitem-ml,
+.maroon .wfm-my-toolitem-over .wfm-my-toolitem-c {
+    background: url(themes/maroon/tb-btn-sprite.gif) repeat-x 0 -42px;
+}
+
+.maroon .wfm-my-toolitem-over .wfm-my-toolitem-ml, .wfm-my-toolitem-over .wfm-my-toolitem-c {
+    background: url(themes/maroon/tb-btn-sprite.gif) repeat-x 0 -42px;
+}
+
+.maroon .wfm-my-toolitem-over .wfm-my-toolitem-mr {
+    background: url(themes/maroon/tb-btn-sprite.gif) repeat-x 0 -42px;
+}
+
+.maroon .wfm-my-toolitem-over .wfm-my-toolitem-r {
+    background: url(themes/maroon/tb-btn-sprite.gif) no-repeat 0 -21px;
+}
+
+.maroon .wfm-my-toolitem-over {
+    height: 21px;
+    cursor: pointer;
+}
+
+.maroon .hasRichTextToolbar {
+    border: 1px solid #db2461;
+}
+
+/****************************** Applied to the decorator panel. *******************/
+.maroon .gwt-DecoratorPanel {
+}
+
+.maroon .gwt-DecoratorPanel .middleCenter {
+    height: 100%;
+    width: 100%;
+}
+
+.maroon .gwt-DecoratorPanel .topCenter,
+.maroon .gwt-DecoratorPanel .bottomCenter {
+    background: url(themes/maroon/hborder.png) repeat-x;
+}
+
+.maroon .gwt-DecoratorPanel .middleLeft,
+.maroon .gwt-DecoratorPanel .middleRight {
+    background: url(themes/maroon/vborder.png) repeat-y;
+}
+
+.maroon .gwt-DecoratorPanel .topLeftInner,
+.maroon .gwt-DecoratorPanel .topRightInner,
+.maroon .gwt-DecoratorPanel .bottomLeftInner,
+.maroon .gwt-DecoratorPanel .bottomRightInner {
+    width: 5px;
+    height: 5px;
+    zoom: 1;
+}
+
+.maroon .gwt-DecoratorPanel .topLeft {
+    background: url(themes/maroon/corner.png) no-repeat 0 0;
+    -background: url(themes/maroon/corner_ie6.png) no-repeat 0px 0px;
+}
+
+.maroon .gwt-DecoratorPanel .topRight {
+    background: url(themes/maroon/corner.png) no-repeat -5px 0;
+    -background: url(themes/maroon/corner_ie6.png) no-repeat -5px 0px;
+}
+
+.maroon .gwt-DecoratorPanel .bottomLeft {
+    background: url(themes/maroon/corner.png) no-repeat 0 -5px;
+    -background: url(themes/maroon/corner_ie6.png) no-repeat 0px -5px;
+}
+
+.maroon .gwt-DecoratorPanel .bottomRight {
+    background: url(themes/maroon/corner.png) no-repeat -5px -5px;
+    -background: url(themes/maroon/corner_ie6.png) no-repeat -5px -5px;
+}
+
+* html .maroon .gwt-DecoratorPanel .topLeftInner,
+* html .maroon .gwt-DecoratorPanel .topRightInner,
+* html .maroon .gwt-DecoratorPanel .bottomLeftInner,
+* html .maroon .gwt-DecoratorPanel .bottomRightInner {
+    width: 5px;
+    height: 5px;
+    overflow: hidden;
+}
+
+/*****************  gwt 1.5 Button  *************************/
+.maroon .gwt-Button {
+    margin: 0;
+    padding: 3px 5px;
+    text-decoration: none;
+    font-size: small;
+    cursor: pointer;
+    background: url("themes/maroon/hborder.png") repeat-x 0 -27px;
+    border: 1px outset #e90962;
+}
+
+.maroon .gwt-Button:active {
+    border: 1px inset #e90962;
+}
+
+.maroon .gwt-Button:hover {
+    border-color: #e90962 #d7235f #db2461 #c71585;
+}
+
+.maroon .gwt-Button[disabled] {
+    cursor: default;
+    color: #888;
+}
+
+.maroon .gwt-Button[disabled]:hover {
+    border: 1px outset #e90962;
+}
+
+/******************** Applied decoreted tab panel *******************/
+.maroon .gwt-DecoratedTabBar .tabTopCenter {
+    padding: 0;
+    background: #f6d0de;
+}
+
+.maroon .gwt-DecoratedTabBar .tabMiddleLeft,
+.maroon .gwt-DecoratedTabBar .tabMiddleRight {
+    width: 6px;
+    padding: 0;
+    background: #f6d0de;
+}
+
+.maroon .gwt-DecoratedTabBar .tabMiddleCenter {
+    padding: 0 4px 2px 4px;
+    cursor: pointer;
+    color: black;
+    font: 14px;
+    font-weight: bold;
+    text-align: center;
+    background: #f6d0de;
+}
+
+.maroon .gwt-DecoratedTabBar .gwt-TabBarItem-selected .tabTopCenter {
+    background: #eb96b4;
+}
+
+.maroon .gwt-DecoratedTabBar .gwt-TabBarItem-selected .tabMiddleLeft,
+.maroon .gwt-DecoratedTabBar .gwt-TabBarItem-selected .tabMiddleRight {
+    color: #074671;
+    background: #eb96b4;
+}
+
+.maroon .gwt-DecoratedTabBar .gwt-TabBarItem-selected .tabMiddleCenter {
+    cursor: default;
+    color: #074671;
+    background: #eb96b4;
+}
+
+/* html>body .maroon  */.gwt-DecoratedTabBar .tabTopLeft {
+    background-image: url(themes/maroon/corner.png);
+	background-repeat:no-repeat;
+                            background-position: 0 -55px;
+}
+
+/* html>body .maroon  */.gwt-DecoratedTabBar .tabTopRight {
+    background-image: url(themes/maroon/corner.png);
+	background-position:-6px -55px;
+	background-repeat:no-repeat;
+}
+
+* html .maroon .gwt-DecoratedTabBar .tabTopLeftInner {
+    width: 5px;
+    height: 61px;
+    margin-top: -55px;
+    overflow: hidden;
+    background: url(themes/maroon/corner.png);
+    -background: url(themes/maroon/corner_ie6.png);
+}
+
+* html .maroon .gwt-DecoratedTabBar .tabTopRightInner {
+    width: 12px;
+    height: 61px;
+    margin-top: -55px;
+    margin-left: -6px;
+    overflow: hidden;
+    background: url(themes/maroon/corner.png);
+    -background: url(themes/maroon/corner_ie6.png);
+}
+
+* html .maroon .gwt-DecoratedTabBar .gwt-TabBarItem-selected .tabTopLeftInner {
+    width: 5px;
+    height: 67px;
+    margin-top: -61px;
+    overflow: hidden;
+    background: url(themes/maroon/corner.png);
+    -background: url(themes/maroon/corner_ie6.png);
+}
+
+* html .maroon .gwt-DecoratedTabBar .gwt-TabBarItem-selected .tabTopRightInner {
+    width: 12px;
+    height: 67px;
+    margin-top: -61px;
+    margin-left: -6px;
+    overflow: hidden;
+    background: url(themes/maroon/corner.png);
+    -background: url(themes/maroon/corner_ie6.png);
+}
+
+.maroon .gwt-TabPanelBottom {
+    border-color: #eb96b4;
+    border-style: solid;
+    border-width: 1px 1px 1px 1px;
+    overflow: hidden; /*padding: 0px;*/
+}
+
+.maroon .gwt-DecoratedTabBar {
+
+}
+
+.maroon .gwt-DecoratedTabBar .gwt-TabBarFirst {
+    width: 5px; /* first tab distance from the left */
+}
+
+.maroon .gwt-DecoratedTabBar .gwt-TabBarRest {
+
+}
+
+.maroon .gwt-DecoratedTabBar .gwt-TabBarItem {
+    border-collapse: collapse;
+    margin-left: 6px;
+}
+
+.maroon .gwt-DecoratedTabBar .tabTopLeft,
+.maroon .gwt-DecoratedTabBar .tabTopRight {
+    padding: 0;
+    zoom: 1;
+}
+
+.maroon .gwt-DecoratedTabBar .tabTopLeftInner,
+.maroon .gwt-DecoratedTabBar .tabTopRightInner {
+    width: 6px;
+    height: 6px;
+}
+
+.maroon .gwt-DecoratedTabBar .tabMiddleLeftInner,
+.maroon .gwt-DecoratedTabBar .tabMiddleRightInner {
+    width: 1px;
+    height: 1px;
+}
+
+/* html>body .maroon  */.gwt-DecoratedTabBar .gwt-TabBarItem-selected .tabTopLeft {
+                            background-position: 0 -61px;
+}
+
+/* html>body .maroon  */.gwt-DecoratedTabBar .gwt-TabBarItem-selected .tabTopRight {
+    background-position: -6px -61px;
+}
+
+.maroon .gwt-TabPanel {
+    /*padding:0px;*/
+}
+
+/* DUBLICATE CODE .maroon .gwt-DecoratedTabBar {
+
+}
+
+.maroon .gwt-DecoratedTabBar .gwt-TabBarFirst {
+    width: 5px; 
+}
+
+.maroon .gwt-DecoratedTabBar .gwt-TabBarRest {
+}
+
+.maroon .gwt-DecoratedTabBar .gwt-TabBarItem {
+    border-collapse: collapse;
+    margin-left: 6px;
+}
+
+.maroon .gwt-DecoratedTabBar .tabTopLeft,
+.maroon .gwt-DecoratedTabBar .tabTopRight {
+    padding: 0px;
+    zoom: 1;
+}
+
+.maroon .gwt-DecoratedTabBar .tabTopLeftInner,
+.maroon .gwt-DecoratedTabBar .tabTopRightInner {
+    width: 6px;
+    height: 6px;
+}
+
+.maroon .gwt-DecoratedTabBar .tabMiddleLeftInner,
+.maroon .gwt-DecoratedTabBar .tabMiddleRightInner {
+    width: 1px;
+    height: 1px;
+}
+
+html>body .maroon .gwt-DecoratedTabBar .gwt-TabBarItem-selected .tabTopLeft {
+    background-position: 0px -61px;
+}
+
+html>body .maroon .gwt-DecoratedTabBar .gwt-TabBarItem-selected .tabTopRight {
+    background-position: -6px -61px;
+}
+
+.maroon .gwt-TabPanel {
+
+} */
+
+/******************** Styles end for decoreted tab panel *******************/
+
+/******************************************* Decorated Stack Panel **********************************************/
+
+.maroon .gwt-DecoratedStackPanel {
+    border-bottom: 1px solid #bbbbbb;
+}
+
+.maroon .gwt-DecoratedStackPanel .gwt-StackPanelContent {
+    border: 1px solid #bbbbbb;
+    border-bottom: 0;
+    background: white;
+    padding: 2px 2px 10px 5px;
+}
+
+.maroon .gwt-DecoratedStackPanel .gwt-StackPanelItem {
+    cursor: pointer;
+}
+
+.maroon .gwt-DecoratedStackPanel .stackItemTopLeft,
+.maroon .gwt-DecoratedStackPanel .stackItemTopRight {
+    height: 6px;
+    width: 6px;
+    zoom: 1;
+}
+
+.maroon .gwt-DecoratedStackPanel .stackItemTopLeftInner,
+.maroon .gwt-DecoratedStackPanel .stackItemTopRightInner {
+    width: 1px;
+    height: 1px;
+}
+
+.maroon .gwt-DecoratedStackPanel .stackItemMiddleLeftInner,
+.maroon .gwt-DecoratedStackPanel .stackItemMiddleRightInner {
+    width: 1px;
+    height: 1px;
+}
+
+.maroon .gwt-DecoratedStackPanel .gwt-StackPanelItem-first .stackItemTopRight,
+.maroon .gwt-DecoratedStackPanel .gwt-StackPanelItem-first .stackItemTopLeft {
+    border: 0;
+    background-color: white;
+}
+
+.maroon .gwt-DecoratedStackPanel .gwt-StackPanelItem-below-selected .stackItemTopLeft,
+.maroon .gwt-DecoratedStackPanel .gwt-StackPanelItem-below-selected .stackItemTopRight {
+    background-color: white;
+}
+
+html>body .maroon .gwt-DecoratedStackPanel {
+}
+
+* html .maroon .gwt-DecoratedStackPanel .stackItemTopLeftInner,
+* html .maroon .gwt-DecoratedStackPanel .stackItemTopRightInner {
+    width: 6px;
+    height: 6px;
+    overflow: hidden;
+}
+
+.maroon .cw-StackPanelHeader {
+    padding-left: 7px;
+    font-weight: bold;
+    font-size: 1.4em;
+}
+
+.maroon .gwt-DecoratedStackPanel .stackItemTopLeft {
+    border-left: 1px solid #bbbbbb;
+    background: #d3def6 url(themes/maroon/corner.png) no-repeat 0 -49px;
+    -background: #d3def6 url(themes/maroon/corner_ie6.png) no-repeat 0px -49px;
+}
+
+.maroon .gwt-DecoratedStackPanel .stackItemTopRight {
+    border-right: 1px solid #bbbbbb;
+    background: #d3def6 url(themes/maroon/corner.png) no-repeat -6px -49px;
+    -background: #d3def6 url(themes/maroon/corner_ie6.png) no-repeat -6px -49px;
+}
+
+.maroon .gwt-DecoratedStackPanel .stackItemTopCenter {
+    background: url(themes/maroon/hborder.png) 0 -21px repeat-x;
+}
+
+.maroon .gwt-DecoratedStackPanel .stackItemMiddleLeft {
+    background: #d3def6 url(themes/maroon/hborder.png) repeat-x 0 -989px;
+    border-left: 1px solid #bbbbbb;
+}
+
+.maroon .gwt-DecoratedStackPanel .stackItemMiddleRight {
+    background: #d3def6 url(themes/maroon/hborder.png) repeat-x 0 -989px;
+    border-right: 1px solid #bbbbbb;
+}
+
+.maroon .gwt-DecoratedStackPanel .stackItemMiddleCenter {
+    font-weight: bold;
+    font-size: 1.3em;
+    background: #d3def6 url(themes/maroon/hborder.png) repeat-x 0 -989px;
+}
+
+/******************** Styles end for decoreted stack panel *****************************************************/
+
+.maroon .docs-button-table {
+    height: 21px;
+    border-collapse: collapse;
+    border-spacing: 0;
+    cursor: pointer;
+    margin-left: 12px;
+}
+
+.maroon .docs-button-table tr td {
+    background: url("themes/maroon/tb-btn-sprite.gif") repeat-x 0 -42px;
+    padding: 0 !important;
+    border: 0 none !important;
+}
+
+.maroon .docs-button-table .left_bdr {
+    background: url("themes/maroon/tb-btn-sprite.gif") no-repeat 0 0 !important;
+}
+
+.maroon .docs-button-table .right_bdr {
+    background: url("themes/maroon/tb-btn-sprite.gif") no-repeat 100% -21px !important;
+}
+
+.maroon .topPanelCompanyNameStyle {
+    font-size: 14px;
+    color: #cc0066;
+    font-weight: bold;
+}
+
+.maroon .maxLogoHeight {
+    max-height: 53px;
+    height: auto !important;
+    height: 53px;
+}
+
+.maroon .gwt-ScrollTable .headerWrapper {
+    /* background: #e87da4 url(themes/maroon/bg_header_gradient.gif) repeat-x bottom left;*/
+    background-color: #6f0505;
+}
+
+.maroon .gwt-ScrollTable .headerTable td,
+.maroon .gwt-ScrollTable .footerTable td {
+    color: #fff;
+}
+
+.headerTable td, footerTable td {
+    /* border-right: 1px solid #a7594a;
+    border-left: 1px solid #4c2922; */
+    background-color: #6f0505;
+}
+
+.maroon .menu-button {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.maroon .menu-button-selected {
+    background-image: url(themes/maroon/popup-menu-uppertab.gif);
+    background-position: 0 48px;
+    cursor: pointer;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.maroon .my-cpanel-hdr-text {
+    padding: 0 4px;
+    color: #1F4F8F;
+    font-size: 11px;
+    font-size-adjust: none;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: bold;
+    line-height: 15px;
+}
+
+.maroon .my-cpanel-hdr-l {
+    background: url(themes/maroon/corners-sprite.gif) no-repeat 0 0;
+}
+
+.maroon .my-cpanel-hdr-c {
+    width: 100%;
+    background: url(themes/maroon/top-bottom.gif) repeat-x;
+}
+
+.maroon .my-cpanel-hdr-r {
+    width: 3px;
+    background: url(themes/maroon/corners-sprite.gif) no-repeat right 0;
+}
+
+.maroon .my-tool {
+    overflow: hidden;
+    width: 15px;
+    height: 15px;
+    float: right;
+    cursor: pointer;
+    background: transparent url(themes/maroon/tool-sprites.gif) no-repeat;
+    margin-left: 2px;
+    margin-right: 5px;
+}
+
+.maroon .wfm-my-toolitem-selected .wfm-my-toolitem-l {
+    background: url(themes/maroon/tb-btn-sprite-orange.gif) no-repeat;
+}
+
+.maroon .wfm-my-toolitem-selected .wfm-my-toolitem-ml,
+.maroon .wfm-my-toolitem-selected .wfm-my-toolitem-c {
+    background: url(themes/maroon/tb-btn-sprite-orange.gif) repeat-x 0 -42px;
+}
+
+.maroon .wfm-my-toolitem-selected .wfm-my-toolitem-ml,
+.maroon .wfm-my-toolitem-selected .wfm-my-toolitem-c {
+    background: url(themes/maroon/tb-btn-sprite-orange.gif) repeat-x 0 -42px;
+}
+
+.maroon .wfm-my-toolitem-selected .wfm-my-toolitem-mr {
+    background: url(themes/maroon/tb-btn-sprite-orange.gif) repeat-x 0 -42px;
+}
+
+.maroon .wfm-my-toolitem-selected .wfm-my-toolitem-r {
+    background: url(themes/maroon/tb-btn-sprite-orange.gif) no-repeat 0 -21px;
+}
+
+.maroon .logOut {
+    color: #015b5e;
+}
+
+.maroon .logOutLink {
+    color: #015b5e;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.maroon .inOutColor {
+    color: #015b5e;
+}
+
+.maroon .quickViewHeaderSome {
+    background: url(themes/maroon/header_bgr.jpg) repeat-x;
+    padding: 3px;
+    vertical-align: middle;
+    /*font-family: Tahoma, Verdana, Geneva, Arial, Helvetica, sans-serif;*/
+    font-size: 11px;
+    font-style: normal;
+    color: #ffffff;
+}
+
+.maroon .task-quickviewPanelCell {
+    background-color: #ebf3ff;
+}
+
+.maroon .menu-button-mouse-over-background {
+    background-image: url(themes/maroon/popup-menu-button-hover.png);
+    cursor: pointer;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.maroon .menu-button-mouse-over-right {
+    background-image: url(themes/maroon/popup-menu-button-right.png);
+    cursor: pointer;
+}
+
+.maroon .menu-button-mouse-over-left {
+    background-image: url(themes/maroon/popup-menu-button-left.png);
+    cursor: pointer;
+}
+
+.maroon .menu-button-selected-right {
+    background-image: url(themes/maroon/popup-menu-uppertab.gif);
+    background-position: 0 24px;
+    cursor: pointer;
+}
+
+.maroon .menu-button-selected-left {
+    background-image: url(themes/maroon/popup-menu-uppertab.gif);
+    background-position: 0 72px;
+    cursor: pointer;
+}
+
+.maroon .menu-popup-style {
+    background-color: #ebf3fe;
+    color: #000000;
+}
+
+.maroon .menu-item-right-shadow {
+    padding-top: 5px;
+    background: transparent url(themes/maroon/popup-menu-right.png) repeat-y;
+    width: 4px;
+}
+
+.maroon .menu-item-bottom-shadow {
+    padding-left: 5px;
+    background: transparent url(themes/maroon/popup-menu-bottom.png) repeat-x;
+    height: 4px;
+}
+
+.maroon .menu-item-corner-shadow {
+    background-image: url(themes/maroon/popup-menu-corner.png);
+    width: 4px;
+    height: 4px;
+}
+
+.maroon .menu-item-on-mouse-over-left {
+    background: url(themes/maroon/popup-menu-sprite.png) 0 42px;
+
+    cursor: pointer;
+}
+
+.maroon .menu-item-on-mouse-over-right {
+    background: url(themes/maroon/popup-menu-sprite.png) 0 63px;
+    cursor: pointer;
+}
+
+.maroon .menu-item-on-mouse-over-middle {
+    background: url(themes/maroon/popup-menu-sprite.png) 0 21px;
+    cursor: pointer;
+}
+
+.maroon .menu-item-arrow-down {
+    background: url(themes/maroon/popup-menu-arrow-down.png) no-repeat;
+}
+
+.maroon .menu-separator {
+    background: url(themes/maroon/popup-menu-separator.gif) repeat-y;
+}
+
+.maroon .split-bar-on-collapsed {
+    background-image: url(themes/maroon/split-bar-collapse-image.png);
+}
+
+.maroon .split-bar-on-expanded {
+    background-image: url(themes/maroon/split-bar-close-image.png);
+}
+
+.maroon .split-bar-on-disabled {
+    background-image: url(themes/maroon/split-bar-collapse-image-grey-closed.png);
+}
+
+.maroon .loading-image {
+    background-image: url("themes/maroon/maroon-loader.gif");
+}
+/*Begin WftSplitLayouPanel*/
+.maroon .SplitLayoutPanel-HDragger, .SplitLayoutPanel-VDragger {
+    background-color: #bb4748;
+}
+
+.maroon .SplitLayoutPanel-HDragger {
+    cursor: pointer;
+}
+
+.maroon .SplitLayoutPanel-HDragger {
+    cursor: pointer;
+}
+
+.maroon .SplitLayoutPanel-VDragger {
+    cursor: pointer;
+}
+
+/*End WftSplitLayouPanel*/
+
+/*GWT Menu*/
+.gwt-MenuBar {
+    cursor: default;
+}
+
+.gwt-MenuBar .gwt-MenuItem {
+
+}
+
+.gwt-MenuBar .menu-bar, .menu-bar .gwt-MenuItem-selected {
+    background: none !important;
+}
+
+/* 07.19 .gwt-MenuBar-horizontal .gwt-MenuItem {
+    padding: 0px 10px;
+    vertical-align: bottom;
+    color: #666666;
+    font-weight: bold;
+} 
+
+.gwt-MenuBar-horizontal .gwt-MenuItemSeparator {
+    width: 1px;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    border-left: 1px solid #888888;
+    background: white;
+}
+
+.gwt-MenuBar-horizontal .gwt-MenuItemSeparator .menuSeparatorInner {
+    width: 1px;
+    height: 1px;
+    background: white;
+}
+
+.gwt-MenuBar-vertical {
+    margin-top: 0;
+    margin-left: 0;
+    background: white;
+}
+
+.gwt-MenuBar-vertical table {
+    border-collapse: collapse;
+}
+
+.gwt-MenuBar-vertical .gwt-MenuItem {
+    padding: 4px 14px 4px 1px;
+}
+
+.gwt-MenuBar-vertical .gwt-MenuItemSeparator {
+    padding: 2px 0;
+}
+
+.gwt-MenuBar-vertical .gwt-MenuItemSeparator .menuSeparatorInner {
+    height: 1px;
+    padding: 0px;
+    border: 0px;
+    border-top: 1px solid #ccc;
+    overflow: hidden;
+}
+
+.gwt-MenuBar-vertical .subMenuIcon {
+    padding-right: 4px;
+}
+
+.gwt-MenuBar-vertical .subMenuIcon-selected {
+    background: #E3E8F3;
+}
+
+.gwt-MenuBarPopup {
+    margin: 0px 0px 0px 3px;
+}
+*/
+/* 07.24 - moved tro Core.cache.css .gwt-MenuBarPopup .menuPopupTopCenter {
+    background: url(themes/blue/hborder.png) 0px -12px repeat-x;
+}
+
+.gwt-MenuBarPopup .menuPopupBottomCenter {
+    background: url(themes/blue/hborder.png) 0px -13px repeat-x;
+    -background: url(themes/blue/hborder_ie6.png) 0px -13px repeat-x;
+}
+
+.gwt-MenuBarPopup .menuPopupMiddleLeft {
+    background: url(themes/blue/vborder.png) -12px 0px repeat-y;
+    -background: url(themes/blue/vborder_ie6.png) -12px 0px repeat-y;
+}
+
+.gwt-MenuBarPopup .menuPopupMiddleRight {
+    background: url(themes/blue/vborder.png) -13px 0px repeat-y;
+    -background: url(themes/blue/vborder_ie6.png) -13px 0px repeat-y;
+}
+
+.gwt-MenuBarPopup .menuPopupTopLeft {
+    background: url(themes/blue/corner.png) no-repeat 0px -36px;
+    -background: url(themes/blue/corner_ie6.png) no-repeat 0px -36px;
+}
+
+.gwt-MenuBarPopup .menuPopupTopRight {
+    background: url(themes/blue/corner.png) no-repeat -5px -36px;
+    -background: url(themes/blue/corner_ie6.png) no-repeat -5px -36px;
+}
+
+.gwt-MenuBarPopup .menuPopupBottomLeft {
+    background: url(themes/blue/corner.png) no-repeat 0px -41px;
+    -background: url(themes/blue/corner_ie6.png) no-repeat 0px -41px;
+}
+
+.gwt-MenuBarPopup .menuPopupBottomRight {
+    background: url(themes/blue/corner.png) no-repeat -5px -41px;
+    -background: url(themes/blue/corner_ie6.png) no-repeat -5px -41px;
+} */
+
+
+
+.maroon .toolBar-panel
+/* ,.maroon .dd-menu>ul>li */ {
+    color: #fff;
+    background-color: #6f0505;
+}
+
+.maroon .dd-menu>ul>li:hover, .dd-menu>ul>li.act {
+    background-color: #bb4748;
+}
+
+.maroon .dd-menu ul ul li:hover > a,
+.maroon .dd-menu ul ul li:hover > a.fly {
+    background-color: #f2f2f2;
+    color: #6f0505;
+}
+
+.maroon .dd-menu .toolBar .guideCard>a {
+    padding: 0 9px;
+    font-weight: bold;
+    color: #6f0505;
+    cursor: default;
+}
+
+.maroon .userMenu {
+    background-color: #6f0505;
+    float: right;
+}
+
+/*          X U S H N U D       */
+/**** START tabsPanel
+=================================================================****/
+.maroon .tabsPanel {
+    /* overflow:hidden; */
+    padding-top: 4px;
+    border-bottom: 3px solid #bb4748;
+    background-color: #6f0505;
+}
+
+.maroon .tabsPanel>span {
+    position: relative;
+    display: inline-block;
+}
+
+.maroon .tabsPanel>span * {
+    text-decoration: none;
+}
+
+.maroon .tabsPanel .tabItem, .maroon .tabsPanel .tabItem>span {
+    display: block;
+    font: 11px Arial, sans-serif;
+    background: #952d2e url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAACCCAMAAABWxpmJAAAAM1BMVEVzCAifLzC6RkecLCyzQEGNJSaRKSqFHR1xBwd/FRaPJyh+FRWHHh+RKClvBQWVLS67R0haU+ngAAAARklEQVQoz8XOOQKAMBBCUbJoXAP3P60htdoOxasoPvp5EDtJLOaOpI+9wrVtGI/LMJbPyAlKFZIkZKNI/ksnqgU+J5NDcx+IOx4eceZMyQAAAABJRU5ErkJggg==) no-repeat;
+}
+
+.maroon .tabsPanel .tabItem {
+    position: relative;
+    padding-left: 15px;
+    margin-left: 4px;
+    vertical-align: bottom;
+    text-align: center;
+    color: #fff;
+}
+
+.maroon .tabsPanel .tabItem>span {
+    min-height: 18px;
+    min-width: 36px;
+    padding: 6px 15px 0 0;
+    background-position: 100% -33px;
+}
+
+.maroon .tabsPanel .tabItem:hover,
+.maroon .tabsPanel .tabItem.act {
+    background-color: #bb4748;
+    background-position: 0 -67px;
+}
+
+.maroon .tabsPanel .tabItem:hover>span,
+.maroon .tabsPanel .tabItem.act>span {
+    background-color: #bb4748;
+    background-position: 100% -102px;
+}
+
+.maroon .tabsPanel .tabClosable .tabItem>span {
+    padding-right: 20px;
+}
+
+.maroon .tabsPanel .tabClosable>a:first-child {
+    /* position: absolute;
+    right: 2px;
+    top: 3px;
+    z-index: 1;
+    width: 11px;
+    height: 11px; */
+    background-image: url(/mainStyles/images/default/tabfolder/tab-close-maroon.png);
+    /* background-position: 0 0;
+    background-repeat: no-repeat; */
+}
+
+/* .maroon .tabsPanel .tabClosable>a:first-child:hover {
+    background-position: 0 -10px;
+}
+
+.maroon .tabsPanel .tabClosable>a:first-child:active {
+    background-position: 0 -23px;
+}
+
+.maroon .tabsPanel .tabClosable>a:first-child.act {
+    background-position: 0 -23px;
+} */
+
+.maroon .tabsPanel .markHome {
+    height: 25px;
+    width: 47px;
+    padding: 0;
+    /* background:url(images/bg_homeTab.png) no-repeat 0 -27px; */
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC8AAAA0CAMAAAAt6JHGAAAAk1BMVEUnkM8QleUCe8QFesGt3fq03PNgu/JwuOKg1/io1vFZq91GsO96x/W/4va64/uHxOidz+6T0vc3mdQfn+vU7v5Dn9cspO3W7vwCeMALjdocicqGzPYSgsYOkuESmekHhdCSyesPlOMBecHH6fwSg8YBeMEjjc0Li9gah8olj87K6Pkrk9EHhdEAd7/h9P8sk9ESmerNhlFuAAABIElEQVRIx9XU2Y7CIBgFYNSWrdWC+6zOvnPa93+6oUYNpihg9MJzxcV3Egg/ELN6biLT+3wx5K9JyI0hDyn+8Z30UnzT9/tJUUwiPc0ySqfAlMb5EhhBU6pBYz34yJa4r+D1LT9Q6Pq7DfcXOp7u+LpQBrx2OPDKoY970AxOMorQ/vd9+LyneF7Y8Hhfbi/uAl67Xoe9HeVi3i7mhWeo++d5L1fkTVrS/f13HRnytTTkrU7IrSEfKf53SUiKrwd+P5ZyHOlZnjO2ABYszlfAEIoxBRbrIYa2JHwFr2/5gULXP224v9DxbMfXhSrglcOBHwF13IPl7n+VM4T2v+/D5z3FC2kj4n21vbgLeOV6FfZ2lOWsXcykZ6gH53kv1+P/AbpWmWi8jQRLAAAAAElFTkSuQmCC) no-repeat 0 -27px;
+}
+
+.maroon .tabsPanel .markHome:hover, .maroon .tabsPanel .markHome.act {
+    background-position: 0 0;
+}
+
+/**** ================================### End HEADER PANELS ###============================== ****/
+
+/**** ### Start subDivisionsBar content ###
+==============================================================****/
+.maroon .subDivisionsBar {
+    float: left;
+    overflow: auto;
+    width: 214px;
+    height: 100%;
+    padding: 0;
+    border-right: 1px solid #ccc;
+}
+
+.maroon .subDivisionsBar.disable {
+    display: none;
+}
+
+.maroon .subDivisionsBar .sdb-inner {
+    padding-bottom: 30px;
+}
+
+/* SubDivisions navigation menu */
+.maroon .subDivisions {
+    margin: 0 0 18px;
+}
+
+.maroon .subDivisions li,
+.maroon .subDivisions li:hover,
+.maroon .subDivisions li.active {
+    height: 31px;
+    line-height: 31px;
+    font-weight: bold;
+    background-image: url(/mainStyles/themes/maroon/bg_subDivs-items.png);
+    background-repeat: repeat-x;
+}
+
+.maroon .subDivisions li:hover,
+.maroon .subDivisions li.active {
+    background-position: 0 100% !important;
+}
+
+.maroon .subDivisions li a {
+    display: block;
+    /*background-image: url(/mainStyles/images/default/bg/marks_subDivisions.png);*/
+    /*background-repeat: no-repeat;*/
+    text-decoration: none;
+    color: #515151;
+    padding-left: 30px;
+}
+
+.maroon .subDivisions li:hover a,
+.maroon .subDivisions li.active a {
+    color: #fff;
+}
+
+.maroon .subDivisions li img {
+    margin-left: 10px;
+    position: absolute;
+    margin-top: 8px;
+}
+
+/**** End subDivisionsBar content ****/
+
+address, em {
+    font-style: normal;
+}
+
+/*Internet Explorer problem on module loading, gwt iframe history visible*/
+#__gwt_historyFrame {
+    display: none;
+}
+
+/*halim's changes*/
+.maroon .customStyleTable {
+    border: 1px solid #bb4748;
+}
+
+.maroon .customStyleTable thead th {
+    background-color: #bb4748;
+    border-right: 1px solid #6f0505;
+    border-left: 1px solid #bb47a6;
+}
+
+.maroon .defaultRateStep-0 {
+    background: #c59b9b;
+}
+
+.maroon .defaultRateStep-1 {
+    background: #b78282;
+}
+
+.maroon .defaultRateStep-2 {
+    background: #a96969;
+}
+
+.maroon .defaultRateStep-3 {
+    background: #9a5050;
+}
+
+.maroon .defaultRateStep-4 {
+    background: #8c3737;
+}
+
+.maroon .defaultRateStep-5 {
+    background: #7d1e1e;
+}
+
+.maroon .defaultRateStep-6 {
+    background: #6f0a0a;
+}
+
+.maroon .defaultRateStep-7 {
+    background: #6f0000;
+}
+
+
+		/***### Start New!!! images COLORSCHEME MAROON ============================================ ###***/
+
+		/*** COLORS ***/
+a,
+.shortFAQ dt {
+    color:#6f0505;
+}
+a:visited, .btn:hover,
+.optBtn2:active,
+.optBtn2 button:active {
+    color:#690505;
+}
+
+.customTitle, .tabBarLinks a {
+	color:#6f0505;
+}
+
+.btn, .optBtn, .optBtn2,
+.labelLine .addFieldSet .addField {
+	color:#6f0505;
+	}
+/*  Exist above .btn:hover {} */
+
+/* Exist above .optBtn2:active,
+.optBtn2 button:active {} */
+
+
+/* .labelLine .addFieldSet .addField {} */
+
+		/* BG-COLORS, BORDERS */
+.title {}
+
+/* Oportunity accordeon string-title */
+.slideDown-title, .slideDown-title em,
+.slideDown-halfTitle, .slideDown-halfTitle em, .slideDown-halfTitle .gwt-HTML,
+.slideDown-title .gwt-HTML,
+/* NEW */
+.title-2, .subTitle,
+.noteTable a, .noteTable .noteOwner,
+.pairDate dt,
+.faceInfo .title,
+.sectTitle
+ {
+    color: #6f0505;
+}
+
+.slideDown-title {
+    border-color:#e2bcbc;
+    background: #fff1f1;
+}
+
+.slideDown-title:hover>em,
+.slideDown-title:hover .gwt-HTML {
+    color: #610303;
+}
+
+		/*** ICONS ***/
+
+/*** header of listing table ***/
+/* .gwt-ScrollTable .headerTable td, .gwt-ScrollTable .footerTable td {
+		border-left: 1px solid #a7594a;
+    border-right: 1px solid #4c2922;
+		} */
+
+/*** Buttons ***/
+.btn-1, a.btn-1,
+.blueBtn, .blueBtn span,
+.masterBtn,
+.boxTitle a,
+.rangeLine>.act, .rangeLine>div:hover {
+    background:url(images/theme-maroon/bg_gradX-1.png) repeat-x scroll 0 0 #dadada;
+    /* background: url(data:image/png;base64,) repeat-x scroll 0 0 #DADADA; */
+}
+
+
+.btn-1, a.btn-1 {
+    /* background:#068dc8 url(images/theme-maroon/bg_gradX-3.png) repeat-x; */
+}
+
+
+.masterBtn {
+    /* background:#002341 url(images/theme-maroon/bg_gradX-2.png) repeat-x; */
+    background-color: #6f0505;
+}
+
+.tabsPanel .tabClosable>a:first-child {
+    background-image: url(images/theme-maroon/bg_marks_tab-close-1.png);
+    /*background-image: url(data:imate/png;base64,); */
+    /* background-position: 0 0;
+    background-repeat: no-repeat; */
+}
+
+
+.subDivisions li,
+.subDivisions li:hover,
+.subDivisions li.active {
+    background-image: url(images/theme-maroon/bg_subDivs-items.png);
+    background-repeat: repeat-x;
+}
+
+
+.mark {
+    /* background:url(images/theme-maroon/marks-1.png) no-repeat; */
+}
+
+
+
+.mark2, .profileSubOptions>a, .key-slideBar {
+		background-image: url(images/theme-maroon/marks-2.png);
+}
+
+
+.markPlus {
+    padding-left:20px;
+    background: url(images/theme-maroon/bg_markPlus.png) no-repeat 0 50%;
+}
+
+.markCompetenciTemplate {
+    padding-left: 36px;
+    background: url(images/theme-maroon/bg_markAddCompetenciTemplate.png) no-repeat 10px 50%;
+}
+
+.markImport {
+    padding-left: 32px;
+    background: url(images/theme-maroon/bg_markImport.png) no-repeat 8px 50%;
+}
+
+
+/* ?? */
+.markCompetenci {
+    padding-left: 36px;
+    /* background: url(images/theme-maroon/bg_?.png) no-repeat 10px 50%; */
+}
+
+/* ?? */
+
+.markAddPerson {
+    padding-left: 36px;
+    background: url(images/theme-maroon/bg_markAddPerson.png) no-repeat 10px 50%;
+}
+
+.markAddProject {
+    padding-left: 36px;
+    background: url(images/theme-maroon/bg_markAddProject.png) no-repeat 10px 50%;
+}
+
+.markAddDepart {
+    padding-left: 36px;
+    background: url(images/theme-maroon/bg_markAddDepart.png) no-repeat 10px 50%;
+}
+
+.markAddBusiness {
+    padding-left: 36px;
+    background: url(images/theme-maroon/bg_markAddBusiness.png) no-repeat 10px 50%;
+}
+
+.markAdd2 {
+    padding-left: 26px;
+    background: url(images/theme-maroon/bg_markAdd2.png) no-repeat 5px 50%;
+}
+
+.markAddFrom {
+    padding-left: 26px;
+    background: url(images/theme-maroon/bg_markAddFrom.png) no-repeat 5px 50%;
+}
+
+.markNewReport {
+    padding-left: 26px;
+    background: url(images/theme-maroon/bg_markNewReport.png) no-repeat 5px 50%;
+}
+
+.markSuggestNew {
+    padding-left: 26px;
+    background: url(images/theme-maroon/bg_markSuggestNew.png) no-repeat 5px 50%;
+}
+
+.markBulletArrow {
+    padding-left: 31px;
+    background: url(images/theme-maroon/bg_markBulletArrow.png) no-repeat 5px 50%;
+}
+
+.markShare {
+    padding-left: 26px;
+    background: url(images/theme-maroon/bg_markShare.png) no-repeat 10px 50%;
+}
+
+.markModify {
+    padding-left: 26px;
+    background: url(images/theme-maroon/bg_markModify.png) no-repeat 10px 50%;
+}
+
+.markTickR {
+    padding-right: 34px;
+    background: url(images/theme-maroon/bg_markTickR.png) no-repeat 100% 50%;
+}
+
+
+.markDraftR {
+    padding-right: 34px;
+		background: url(images/theme-maroon/bg_markDraftR.png) no-repeat 100% 50%;
+    /* background: url(data:image/png;base64,) no-repeat 100% 50%; */
+}
+
+.markBack {
+    padding-left: 24px;
+    background: url(images/theme-maroon/bg_markBack.png) no-repeat 0 50%;
+}
+
+.markPrev {
+    padding-left: 24px;
+    background: url(images/theme-maroon/bg_markPrev.png) no-repeat 0 50%;
+}
+
+.markRunR {
+    padding-right: 24px;
+    background: url(images/theme-maroon/bg_markRun.png) no-repeat 100% 50%;
+}
+
+.markCloseR {
+    padding-right: 24px;
+    background: url(images/theme-maroon/bg_markClose.png) no-repeat 100% 50%;
+}
+
+.markNextR {
+    padding-right: 24px;
+    background: url(images/theme-maroon/bg_markNext.png) no-repeat 100% 50%;
+}
+
+/** Opportunity Buttons **/
+
+
+.markCloseR {
+    padding-right: 30px;
+    background: url(images/theme-maroon/bg_markCloseR.png) no-repeat 100% 50%;
+}
+
+.markConvertToR {
+    padding-right: 30px;
+    background: url(images/theme-maroon/bg_markConvertToR.png) no-repeat 100% 50%;
+}
+
+.markSaveCloseR {
+    padding-right: 30px;
+    background: url(images/theme-maroon/bg_markSaveCloseR.png) no-repeat 100% 50%;
+}
+
+
+.markUploadR {
+    padding-right: 20px;
+    background: url(images/theme-maroon/bg_markUploadR.png) no-repeat 100% 50%;
+}
+
+
+
+.markDownload {
+    padding-left: 16px;
+    background: url(images/theme-maroon/bg_markDownload.png) no-repeat;
+}
+
+.markDelete {
+    padding-left: 16px;
+    line-height: 1em;
+    background: url(images/theme-maroon/bg_markDelete.png) no-repeat;
+}
+
+
+.slideDown-title>em,
+.slideDown-title .gwt-HTML {
+    background:url(images/theme-maroon/bg_slideDown.png) no-repeat 5px 3px;
+}
+
+
+
+/* .labelLine .addFieldSet  *//* a is TEMP */
+a.addField, .addField a,
+.shortFAQ .gwt-DisclosurePanel a.header {
+    padding-left: 10px;
+    background:url(images/theme-maroon/bg_markLinkPlus.png) no-repeat 0 50%;
+}
+
+/* For sidebar Halp-List (expand and collapse) */
+.shortFAQ dt, .GTLP2WPH dt {
+    background:url(images/theme-maroon/bg_markLinkPlus2.png) no-repeat 0 50%;
+}
+
+.shortFAQ dt.expandElement, .GTLP2WPH dt.expandElement {
+    background:url(images/theme-maroon/bg_markLinkMinus.png) no-repeat 0 50%;
+}
+
+/** Keys - little buttons **/
+.keyRemove, .keyAdd {
+    /* width:14px; height:14px; */
+    background: url(images/theme-maroon/bg_key_add-remove.png) no-repeat;
+}
+
+.feedBackButton {
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAABYCAYAAAAN8yztAAAEMElEQVRo3u1aTUhUURjVmXeHUQKFIlJbFpHSIoNqES1KiXLVDzYYZYJYiWNQQZRoqxKKcWEQLSySBMlACgTNfqGxVURSQT9OhGkYVBspCMLpnOHd4fnmpW/Gd98LmcVh3rvinO+e+53v/szNyfX5c44LYYVAsxD7gV48fwJ+A/GFAnwBwA/k5liRg3APPsecILMgXwrkMYBZ5Hs1TQPxRRWkBvLVegCBJDllUE2sk5cDRUAwSd4kRLVqYp18M7CS0ifIIXcQf5jwhBy9PuQGsRW5LyxEv1fkzPBxr8gDdgtIA3AtHE5pPwpcqKmJR/v60iYP2o36oKbFH4Lg+dBQ4h3DFW8qLY3fQ9vMzEz8SyyWNnmeXfJakPd3dSWIPoyOxnsikfi3qanE+3d89ra1qSMnDiCA6OBgglDiKXreUlaW0ZjPS055z+LLJcKQWiowCanPV1aqIa9HT6+0ts7q6b/g+Jh7Sm4luxWUjbmVrzvhaz7XQZk7HR3qyanAESTby2g0KfFukNNuv6ankwEp9/kPELIthLYXCIZtH+F9ZeT7QDSOHktiK+/PJ7/j5MbeKyM3yj6BIB6hsj0A3kJu5bIT1QhAkhnBSteOSqfcapxaOzG1suePgbuwWqbzedrk5qJzGjhXUaF2ViNpA3xuJbvy+dxqOjViGMnois9PQubPeH4Ni/GZ2Z/JMiotchJSXqowguUUn7m8GgYxS6wrsjPTpedJ/BPESosME64eCcfev4Hch/EsSQm5sFRqtUaABYWfZzDeVMFOsjlGTl93w9c9gJ3Kpmz1SsTgfTsLCkcmFoJjT+vJcWceKPc5LSW3TeaqpyzbOaO9A4m5jEqfm+d5R1evp4BL6DF7zuxm2wn0+iqSTsl2Kbtp8GTTwFVLBONMW80FzmqOl1dPZafkzGiW0hvAzUgkUVReoaCw7Togp1M7a7mMfc71uXGrZCy5zyC5azsWY4K5smkwTiosKq5uGuRiYnxsLCXZlO9SJbgnv4XEk5sGV/bnRu9fhvcHUN9Z4+0SO76YYHHheRyT0LXDgfdILk6vJJdtrlmNc/h9jDc974rVPCW3kp2HQa6cycy1elWecP/F4UDW51mfZ32++HzOFUw6XlaybudRlzwKeYJnOxtDR8nN71ly5eT82ZJbJ+O70l3qoj8cmPbscABfHvPq2kLeMSEGvCIP1grR6NmFjWK/vxjST3lBzuthBdWaaPbkkg6QD5RA/m7XrycBAijM9/nXIIDbbpOz90FgObC2StNaMHVOukKu34fz6/KvYABLfP6tCKK9TogRBPK1WYg/KslzDQFQgVXAemALsB3YAewEdgFVGWKb5WU8UwAcgkKgWL82uA7YAGwENunRZ4LylGuIoVBoFvQcELoKBcAyfThKdMkyRVHKBUwzuSkITb8uGtT/aSEIGq+e/gWZVEFcDwTCnQAAAABJRU5ErkJggg==);
+}
+
+.nearSearchBtn>em {
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAMAQMAAABV3H//AAAABlBMVEX///9vBQUbVF+pAAAAAXRSTlMAQObYZgAAADFJREFUeF4NxTERgDAMAMA3jIaCMYKTSMhGh156ML2xiSYXNZnFSvrmPajrlPGI39E+BSUVYuoovxoAAAAASUVORK5CYII=);
+	}
+.nearSearchBtn1>em:before {
+    background-color: #6F0505;
+}
+			/***### \COLORSCHEME MAROON ###***/
+
+/******************************Tree Table styles BEGAN*****************************/
+
+.wfm-treeTable {
+    background: white;
+    overflow: hidden;
+    border: 1px solid #CCCCCC;
+}
+
+.wfm-treeTable-header {
+    color: #fff;
+    background-position: 100% 0;
+    background-color: #6f0505;
+}
+/******************************Tree Table styles END*****************************/
+
+.maroon .invoice-block .label,
+.maroon .invoice-type .label,
+.maroon .progress-invoicing .label {
+    color: #6F0505;
+}
+
+.maroon .invoice-block .titlelabel{
+    color: #6F0505;
+}
+.maroon .optionlabel{
+    color: #6F0505;
+}
+
+.myCompanyNameStyle {
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: 15%;
+    color: #6F0505 !important;
+}

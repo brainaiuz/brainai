@@ -1,0 +1,518 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style type="text/css">
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+        td {
+            padding: 3px;
+        }
+        .title {
+            font-size: 9pt;
+        }
+        .name {
+            font-size: 7pt;
+        }
+        .value {
+            font-size: 8pt;
+        }
+        .personalValue {
+            font-size: 7pt;
+        }
+        .capital {
+            text-transform: capitalize;
+        }
+    </style>
+</head>
+<body>
+<div id="body sales-invoice__tmp">
+    <img alt="images" src="https://workforcetrack.s3.amazonaws.com/000000000000/public/65159/a2113e82-397f-49fd-a58a-cdf4f4b93dff?AWSAccessKeyId=AKIAIROQMC77E5UKWBWQ" style="display: none;"/>
+    #if($itextGenericPdfData.companyData.companyName == 'KPI Software Inc' or $itextGenericPdfData.companyData.companyLogoUrl == 'https://apps.kpi.com/customisation/kpi.com/images/kpilogo.png')
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="width: 88px;display: none;"/>
+    #else
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="max-width: 100%; max-height: 100%; display: none;"/>
+    #end
+
+    #set($clientTable = $itextGenericPdfData.customData.get('SUPPLIER_TABLE'))
+    #set($clientContactTable = $itextGenericPdfData.customData.get('SUPPLIER_CONTACT_TABLE'))
+    #set($billAddressTable = $itextGenericPdfData.customData.get('BILL_ADDRESS_TABLE'))
+    #set($mailAddressTable = $itextGenericPdfData.customData.get('MAIL_ADDRESS_TABLE'))
+    #set($customFieldTable = $itextGenericPdfData.customData.get('CUSTOM_FIELD'))
+
+    #set($nameLable = $clientTable.rows.get('NAME').get('COLUMN_NAME'))
+    #set($clientCodeLable = $clientTable.rows.get('CLIENT_CODE').get('COLUMN_NAME'))
+    #set($currencyLable = $clientTable.rows.get('CURRENCY').get('COLUMN_NAME'))
+    #set($clientVatLable = $clientTable.rows.get('CLIENT_VAT_NUMBER').get('COLUMN_NAME'))
+    #set($paymentMethodLable = $clientTable.rows.get('PAYMENT_METHOD').get('COLUMN_NAME'))
+    #set($name = $clientTable.rows.get('NAME').get('COLUMN_VALUE'))
+    #set($clientCode = $clientTable.rows.get('CLIENT_CODE').get('COLUMN_VALUE'))
+    #set($currency = $clientTable.rows.get('CURRENCY').get('COLUMN_VALUE'))
+    #set($clientVat = $clientTable.rows.get('CLIENT_VAT_NUMBER').get('COLUMN_VALUE'))
+    #set($paymentMethod = $clientTable.rows.get('PAYMENT_METHOD').get('COLUMN_VALUE'))
+
+    #set($first_nameLable = $clientContactTable.rows.get('FIRST_NAME').get('COLUMN_NAME'))
+    #set($last_nameLable = $clientContactTable.rows.get('LAST_NAME').get('COLUMN_NAME'))
+    #set($contactEmailLabel = $clientContactTable.rows.get('CONTACT_MIDDLE_NAME').get('COLUMN_NAME'))
+    #set($phoneLable = $clientContactTable.rows.get('PHONE').get('COLUMN_NAME'))
+    #set($address1Lable = $clientContactTable.rows.get('ADDRESS1').get('COLUMN_NAME'))
+    #set($first_name = $clientContactTable.rows.get('FIRST_NAME').get('COLUMN_VALUE'))
+    #set($last_name = $clientContactTable.rows.get('LAST_NAME').get('COLUMN_VALUE'))
+    #set($contactEmail = $clientContactTable.rows.get('EMAIL').get('COLUMN_VALUE'))
+    #set($phone = $clientContactTable.rows.get('PHONE').get('COLUMN_VALUE'))
+    #set($address1 = $clientContactTable.rows.get('ADDRESS1').get('COLUMN_VALUE'))
+
+    #set($bill_addressLable = $billAddressTable.rows.get('BILL_ADDRESS').get('COLUMN_NAME'))
+    #set($bill_address2Lable = $billAddressTable.rows.get('BILL_ADDRESS2').get('COLUMN_NAME'))
+    #set($bill_cityLable = $billAddressTable.rows.get('BILL_CITY').get('COLUMN_NAME'))
+    #set($bill_countryLable = $billAddressTable.rows.get('BILL_COUNTRY').get('COLUMN_NAME'))
+    #set($bill_stateLable = $billAddressTable.rows.get('BILL_STATE').get('COLUMN_NAME'))
+    #set($bill_zipcodeLable = $billAddressTable.rows.get('BILL_ZIPCODE').get('COLUMN_NAME'))
+    #set($bill_address = $billAddressTable.rows.get('BILL_ADDRESS').get('COLUMN_VALUE'))
+    #set($bill_address2 = $billAddressTable.rows.get('BILL_ADDRESS2').get('COLUMN_VALUE'))
+    #set($bill_city = $billAddressTable.rows.get('BILL_CITY').get('COLUMN_VALUE'))
+    #set($bill_country = $billAddressTable.rows.get('BILL_COUNTRY').get('COLUMN_VALUE'))
+    #set($bill_state = $billAddressTable.rows.get('BILL_STATE').get('COLUMN_VALUE'))
+    #set($bill_zipcode = $billAddressTable.rows.get('BILL_ZIPCODE').get('COLUMN_VALUE'))
+
+    #set($mail_addressLable = $mailAddressTable.rows.get('MAIL_ADDRESS').get('COLUMN_NAME'))
+    #set($mail_address2Lable = $mailAddressTable.rows.get('MAIL_ADDRESS2').get('COLUMN_NAME'))
+    #set($mail_cityLable = $mailAddressTable.rows.get('MAIL_CITY').get('COLUMN_NAME'))
+    #set($mail_countryLable = $mailAddressTable.rows.get('MAIL_COUNTRY').get('COLUMN_NAME'))
+    #set($mail_stateLable = $mailAddressTable.rows.get('MAIL_STATE').get('COLUMN_NAME'))
+    #set($mail_zipcodeLable = $mailAddressTable.rows.get('MAIL_ZIPCODE').get('COLUMN_NAME'))
+    #set($mail_address = $mailAddressTable.rows.get('MAIL_ADDRESS').get('COLUMN_VALUE'))
+    #set($mail_address2 = $mailAddressTable.rows.get('MAIL_ADDRESS2').get('COLUMN_VALUE'))
+    #set($mail_city = $mailAddressTable.rows.get('MAIL_CITY').get('COLUMN_VALUE'))
+    #set($mail_country = $mailAddressTable.rows.get('MAIL_COUNTRY').get('COLUMN_VALUE'))
+    #set($mail_state = $mailAddressTable.rows.get('MAIL_STATE').get('COLUMN_VALUE'))
+    #set($mail_zipcode = $mailAddressTable.rows.get('MAIL_ZIPCODE').get('COLUMN_VALUE'))
+
+    <div>
+        <table width="100%" cellspacing="0" cellpadding="0" border="0">
+            <tr>
+                <td dir="$clientTable.name" style="font-weight: bold;" class="title capital">$clientTable.name</td>
+            </tr>
+        </table>
+
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top: 10px;">
+            <tr>
+                <td width="15%" style="padding: 0; margin: 0;" valign="top">
+                    <table width="100%" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td dir="$clientCodeLable" class="name capital">$clientCodeLable</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;" class="value">
+                                #if($clientCode != '') $clientCode #else — #end
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td width="40%" style="padding: 0; margin: 0;" valign="top">
+                    <table width="100%" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td dir="$nameLable" class="name capital">$nameLable</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;" class="value">
+                                #if($name != '') $name #else — #end
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td width="10%" style="padding: 0; margin: 0;" valign="top">
+                    <table width="100%" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td dir="$currencyLable" class="name capital">$currencyLable</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;" class="value">
+                                #if($currency != '') $currency #else — #end
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td width="20%" style="padding: 0; margin: 0;" valign="top">
+                    <table width="100%" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td dir="$clientVatLable" class="name capital">$clientVatLable</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;" class="value">
+                                #if($clientVat != '') $clientVat #else — #end
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td width="15%" style="padding: 0; margin: 0;" valign="top">
+                    <table width="100%" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td dir="$paymentMethodLable" class="name capital">$paymentMethodLable</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;" class="value">
+                                #if($paymentMethod != '') $paymentMethod #else — #end
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+        <table width="100%" cellspacing="0" cellpadding="0" style="margin-top: 15px; border-bottom: 1px solid #000;">
+            <tr>
+                <td width="100%"></td>
+            </tr>
+        </table>
+
+        <table width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-top: 20px;">
+            <tr>
+                <td dir="$clientContactTable.name" style="font-weight: bold;" class="title capital">$clientContactTable.name</td>
+            </tr>
+        </table>
+
+        #if($clientContactTable.rows.size() > 0)
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top: 10px;">
+            <tr>
+                <td width="18%" dir="$clientContactTable.header.get('FIRST_NAME')" class="name capital">$clientContactTable.header.get('FIRST_NAME')</td>
+                <td width="18%" dir="$clientContactTable.header.get('LAST_NAME')" class="name capital" style="padding-left: 3pt">$clientContactTable.header.get('LAST_NAME')</td>
+                <td width="22%" dir="$clientContactTable.header.get('EMAIL')" class="name capital" style="padding-left: 3pt">$clientContactTable.header.get('EMAIL')</td>
+                <td width="16%" dir="$clientContactTable.header.get('PHONE')" class="name capital" style="padding-left: 3pt">$clientContactTable.header.get('PHONE')</td>
+                <td width="26%" dir="$clientContactTable.header.get('ADDRESS1')" class="name capital" style="padding-left: 3pt">$clientContactTable.header.get('ADDRESS1')</td>
+            </tr>
+            #foreach($row in $clientContactTable.rows.values())
+            <tr>
+                <td style="font-weight: bold;vertical-align: top;padding-bottom: 10pt;" class="value">
+                    #if($row.get('FIRST_NAME') != '')
+                        $row.get('FIRST_NAME')
+                    #else
+                        —
+                    #end
+                </td>
+                <td style="font-weight: bold;vertical-align: top;padding-bottom: 10pt;padding-left: 3pt" class="value">
+                    #if($row.get('LAST_NAME') != '')
+                        $row.get('LAST_NAME')
+                    #else
+                        —
+                    #end
+                </td>
+                <td style="font-weight: bold;vertical-align: top;padding-bottom: 10pt;padding-left: 3pt" class="value">
+                    #if($row.get('EMAIL') != '')
+                        $row.get('EMAIL')
+                    #else
+                        —
+                    #end
+                </td>
+                <td style="font-weight: bold;vertical-align: top;padding-bottom: 10pt;padding-left: 3pt" class="value">
+                    #if($row.get('PHONE') != '')
+                        $row.get('PHONE')
+                    #else
+                        —
+                    #end
+                </td>
+                <td style="font-weight: bold;vertical-align: top;padding-bottom: 10pt;padding-left: 3pt" class="value">
+                    #if($row.get('ADDRESS1') != '')
+                        $row.get('ADDRESS1')
+                    #else
+                        —
+                    #end
+                </td>
+            </tr>
+            #end
+        </table>
+        #else
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top: 10px;">
+            <tr>
+                <td width="20%" style="padding: 0; margin: 0;" valign="top">
+                    <table width="100%" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td dir="$clientContactTable.header.get('FIRST_NAME')" class="name capital">
+                                $clientContactTable.header.get('FIRST_NAME')
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;" class="value">
+                                —
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td width="20%" style="padding: 0; margin: 0;" valign="top">
+                    <table width="100%" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td dir="$clientContactTable.header.get('LAST_NAME')" class="name capital">
+                                $clientContactTable.header.get('LAST_NAME')
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;" class="value">
+                                —
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td width="20%" style="padding: 0; margin: 0;" valign="top">
+                    <table width="100%" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td dir="$clientContactTable.header.get('EMAIL')" class="name capital">
+                                $clientContactTable.header.get('EMAIL')
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;" class="value">
+                                —
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td width="20%" style="padding: 0; margin: 0;" valign="top">
+                    <table width="100%" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td dir="$clientContactTable.header.get('PHONE')" class="name capital">
+                                $clientContactTable.header.get('PHONE')
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;" class="value">
+                                —
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td width="20%" style="padding: 0; margin: 0;" valign="top">
+                    <table width="100%" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td dir="$clientContactTable.header.get('ADDRESS1')" class="name capital">
+                                $clientContactTable.header.get('ADDRESS1')
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;" class="value">
+                                —
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        #end
+
+        <table width="100%" cellspacing="0" cellpadding="0" style="margin-top: 15px; border-bottom: 1px solid #000;">
+            <tr>
+                <td width="100%"></td>
+            </tr>
+        </table>
+
+        <table width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-top: 20px;">
+            <tr>
+                <td dir="$billAddressTable.name" style="font-weight: bold;" class="title capital">$billAddressTable.name</td>
+            </tr>
+        </table>
+
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top: 10px;">
+            <tr>
+                <td width="33.3%" style="padding: 0; margin: 0;" valign="top">
+                    <table width="100%" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td dir="$bill_addressLable" class="name capital">$bill_addressLable</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;" class="value">
+                                #if($bill_address != '') $bill_address #else — #end
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td width="33.3%" style="padding: 0; margin: 0;" valign="top">
+                    <table width="100%" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td dir="$bill_address2Lable" class="name capital">$bill_address2Lable</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;" class="value">
+                                #if($bill_address2 != '') $bill_address2 #else — #end
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td width="33.3%" style="padding: 0; margin: 0;" valign="top">
+                    <table width="100%" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td dir="$bill_cityLable" class="name capital">$bill_cityLable</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;" class="value">
+                                #if($bill_city != '') $bill_city #else — #end
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top: 10px;">
+            <tr>
+                <td width="33.3%" style="padding: 0; margin: 0;" valign="top">
+                    <table width="100%" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td dir="$bill_countryLable" class="name capital">$bill_countryLable</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;" class="value">
+                                #if($bill_country != '') $bill_country #else — #end
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td width="33.3%" style="padding: 0; margin: 0;" valign="top">
+                    <table width="100%" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td dir="$bill_stateLable" class="name capital">$bill_stateLable</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;" class="value">
+                                #if($bill_state != '') $bill_state #else — #end
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td width="33.3%" style="padding: 0; margin: 0;" valign="top">
+                    <table width="100%" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td dir="$bill_zipcodeLable" class="name capital">$bill_zipcodeLable</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;" class="value">
+                                #if($bill_zipcode != '') $bill_zipcode #else — #end
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+        <table width="100%" cellspacing="0" cellpadding="0" style="margin-top: 15px; border-bottom: 1px solid #000;">
+            <tr>
+                <td width="100%"></td>
+            </tr>
+        </table>
+
+        <table width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-top: 20px;">
+            <tr>
+                <td dir="$mailAddressTable.name" style="font-weight: bold;" class="title capital">$mailAddressTable.name</td>
+            </tr>
+        </table>
+
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top: 10px;">
+            <tr>
+                <td width="33.3%" style="padding: 0; margin: 0;" valign="top">
+                    <table width="100%" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td dir="$mail_addressLable" class="name capital">$mail_addressLable</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;" class="value">
+                                #if($mail_address != '') $mail_address #else — #end
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td width="33.3%" style="padding: 0; margin: 0;" valign="top">
+                    <table width="100%" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td dir="$mail_address2Lable" class="name capital">$mail_address2Lable</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;" class="value">
+                                #if($mail_address2 != '') $mail_address2 #else — #end
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td width="33.3%" style="padding: 0; margin: 0;" valign="top">
+                    <table width="100%" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td dir="$mail_cityLable" class="name capital">$mail_cityLable</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;" class="value">
+                                #if($mail_city != '') $mail_city #else — #end
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top: 10px;">
+            <tr>
+                <td width="33.3%" style="padding: 0; margin: 0;" valign="top">
+                    <table width="100%" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td dir="$mail_countryLable" class="name capital">$mail_countryLable</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;" class="value">
+                                #if($mail_country != '') $mail_country #else — #end
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td width="33.3%" style="padding: 0; margin: 0;" valign="top">
+                    <table width="100%" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td dir="$mail_stateLable" class="name capital">$mail_stateLable</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;" class="value">
+                                #if($mail_state != '') $mail_state #else — #end
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td width="33.3%" style="padding: 0; margin: 0;" valign="top">
+                    <table width="100%" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td dir="$mail_zipcodeLable" class="name capital">$mail_zipcodeLable</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;" class="value">
+                                #if($mail_zipcode != '') $mail_zipcode #else — #end
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+        #if($customFieldTable.rows.size() > 0)
+        <table width="100%" cellspacing="0" cellpadding="0" style="margin-top: 15px; border-bottom: 1px solid #000;">
+            <tr>
+                <td width="100%"></td>
+            </tr>
+        </table>
+
+        <table width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-top: 20px;margin-bottom: 15px;">
+            <tr>
+                <td dir="$customFieldTable.name" style="font-weight: bold;" class="title capital">$customFieldTable.name</td>
+            </tr>
+        </table>
+
+        <div>
+            #foreach($row in $customFieldTable.rows.values())
+            <div style="width: 50%; float: left;">
+                <div class="name" style="padding-bottom: 3px; padding-left: 3px;">
+                    $row.get('COLUMN_NAME')
+                </div>
+                <div style="font-weight: bold; padding-top: 3px; padding-left: 3px; padding-bottom: 15px;" class="value">
+                    #if($row.get('COLUMN_VALUE') != '') $row.get('COLUMN_VALUE') #else — #end
+                </div>
+            </div>
+            #end
+        </div>
+        #end
+    </div>
+</div>
+</body>
+</html>

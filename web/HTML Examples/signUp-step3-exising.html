@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <title>Welcome to kpi.com!</title>
+    <link rel="shortcut icon" href="../WebContent/mainStyles/new-ui/login/img/favicon2.svg" type="image/svg">
+    <link rel="stylesheet" href="../WebContent/mainStyles/new-ui/login/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="../WebContent/mainStyles/new-ui/login/slick/slick.css">
+    <link rel="stylesheet" href="../WebContent/mainStyles/new-ui/css/pass-validation.css">
+    <link rel="stylesheet" href="../WebContent/mainStyles/new-ui/css/materialize.css">
+    <script>
+        var adPassEnabled = null;
+
+        function checkForPassEnter(value) {
+            console.log("======= here it comes =======")
+            document.getElementById('error').style.display = 'none';
+            if (value.length === 0) {
+                document.getElementById('step1').innerHTML = '';
+                // удаляем все классы, кроме "pass-validation"
+                document.getElementById('passStrength').className = 'pass-validation';
+                document.getElementById('step1').className = '';
+            }
+            if (value.length > 0) {
+                if (adPassEnabled) {
+                    code2word(passStrength(value, 15, 20, 1, 1, 1, 1, 11))
+                } else {
+                    code2word(passStrength(value, 8, 12, 1, 1, 1, 1, 4))
+                }
+            }
+        }
+
+        function checkForPassMatch(value) {
+            passwordsMatch(document.getElementById('pass1').value, value) ? document.getElementById('error2').style.display = 'none' : "";
+        }
+
+        function submitnewPassword() {
+            var error = 0;
+
+            var passwordStrength = document.getElementById('step1').textContent;
+
+            if (passwordStrength === 'Weak') {
+                document.getElementById('error').style.display = '';
+                document.getElementById('error').style.color = 'red';
+                document.getElementById('error').innerHTML = "Password is weak or too short (Min. " + (adPassEnabled ? 15 : 8) + " characters and must contain at least one uppercase, " +
+                    "lowercase letters, numbers, and special symbols such as $ % & ( @ # § = ')' , : ; - _ + ^ )";
+                error++;
+            }
+
+            var passwordMatches = passwordsMatch(document.getElementById('pass1').value, document.getElementById('pass2').value);
+            if (!passwordMatches) {
+                document.getElementById('error').innerHTML = "Make sure that the password matches!";
+                document.getElementById('error2').style.display = '';
+                error++;
+            }
+
+            if (error === 0) {
+                document.getElementById('formSubmit').submit();
+            }
+        }
+    </script>
+</head>
+<body class="signUpStep signUpStep--3">
+<div class="modal-holder active">
+    <div class="modal modal--md sign-up-step sign-up-step--3">
+        <div class="modal-wrapper">
+            <div class="modal-header">
+                <div class="hgroup">
+                    <h1 class="fs-4">
+                        Existing Account!
+                    </h1>
+                </div>
+            </div>
+            <div class="modal-content">
+                <div class="form-group" style="font-size: 14px">
+                    <form id="newCompany" commandname="newCompany" action="/signup/registerCompany" method="post">
+                        <input type="hidden" name="adminFName" value="testSignUpStep">
+                        <input type="hidden" name="adminLName" value="">
+                        <input type="hidden" name="adminEmail" value="anaconda87670@mailnuo.com">
+                        <input type="hidden" name="name" value="DEMO_COMPANY">
+                        <input type="hidden" name="adminActive" value="false">
+                        <input type="hidden" name="signedUpPage" value="my_workpsce">
+                        <input type="hidden" name="countryID" value="228">
+                        <input type="hidden" name="stateID" value="">
+                        <input type="hidden" name="workArea" value="">
+                        <input type="hidden" name="phone" value="232323">
+                        <input type="hidden" name="callCode" value="998">
+                        <input type="hidden" name="setUp" value="false">
+                        <input type="hidden" name="currencyID" value="">
+                        <input type="hidden" name="active" value="true">
+                        <input type="hidden" name="clientSingUpIPAddress" value="195.158.24.170, 10.0.0.123">
+                        <input type="hidden" name="agreeWithCondition" value="false">
+                        <input type="hidden" name="countryName" value="">
+                        <input type="hidden" name="googleAppsDomain" value="">
+                        <input type="hidden" name="companySignedUpFrom" value="https://dev.kpi.com/auth/signup.html">
+                        <input type="hidden" name="fromFederatedLogin" value="false">
+                        <input type="hidden" name="utm_campaign" value="">
+                        <input type="hidden" name="utm_source" value="">
+                        <input type="hidden" name="utm_medium" value="">
+                        <input type="hidden" name="utm_keyword" value="">
+                        <input type="hidden" name="utm_btn" value="">
+                        <input type="hidden" name="utm_content" value="">
+                        <input type="hidden" name="redirected" value="">
+                        <input type="hidden" name="referrer" value="https://dev.kpi.com/auth/login.html">
+                        <input type="hidden" name="gclid" value="">
+                        <input type="hidden" name="promoCode" value="">
+                        <input type="hidden" name="redirectToSettings" value="true">
+                        <p>
+                            You already have an account in our system. Click
+                            <a href="javascript:setCheked()" style="color:#0070f1;" onclick="this.addEventListener('click', clickStopper, false)">
+                                Continue
+                            </a>
+                            if you wish to create another account. If you are signing up through Google Marketplace, and want to bind your existing account with it, do NOT press 'Continue', instead please contact our support team.
+                        </p>
+                        <p>If you forgot your password, click
+                            <a href="/auth/forgotPassword.html" style="color:#0070f1;">
+                                I forgot my password.
+                            </a>
+                        </p>
+                        <p>
+                            Click cancel if you want to
+                            <a href="/index.html" style="color:#0070f1;">
+                                cancel
+                            </a>
+                            and go back to sign in page.
+                        </p>
+                    </form>
+                </div>
+
+                <a href="/index.html" class="btn btn--primary">Cancel</a>
+                <a href="javascript:setCheked()" onclick="initializeProgressPanel(); this.addEventListener('click', clickStopper, false); removeProgressPanel();" class="btn btn--primary">Continue To Sign Up
+                </a>
+
+            </div>
+        </div>
+    </div>
+    <div class="lean-overlay file--existingUser" id="materialize-lean-overlay-1" style="z-index: 1002; display: block; opacity: 0.5;"></div>
+</div>
+
+
+
+<!--JS LIBS-->
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>-->
+<script type="text/javascript" src="../WebContent/mainStyles/new-ui/js/jquery.min.js"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>-->
+<script type="text/javascript" src="../WebContent/mainStyles/new-ui/js/materialize-1.0.0.min.js"></script>
+<script type="text/javascript" src="../WebContent/passwordStrength.js"></script>
+<!--\ JS LIBS-->
+<!--CUSTOM SCRIPTS-->
+<!--<script src="static-html-examples.js" defer></script>-->
+<!--\ CUSTOM SCRIPTS-->
+<!--CURRENT PAGE SCRIPT-->
+<!--<script>-->
+<!--    jQuery(document).ready(function () {-->
+<!--        $('select').material_select();-->
+<!--    });-->
+<!--</script>-->
+<script type="text/javascript">
+    function code2word(code) {
+        document.querySelector('#strength').value = code;
+        console.log(code);
+        if (code === 'WEAK') {
+            document.getElementById('step1').innerHTML = 'Weak';
+        }
+        if (code === 'MEDIUM') {
+            document.getElementById('step1').innerHTML = 'Medium';
+        }
+        if (code === 'STRONG') {
+            document.getElementById('step1').innerHTML = 'Strong';
+        }
+        // удаляем все классы, кроме "pass-validation"
+        document.getElementById('passStrength').className = 'pass-validation';
+        document.getElementById('step1').className = '';
+        // добавляем класс в зависимости от силы пароля
+        switch (code) {
+            case 'WEAK':
+                document.getElementById('passStrength').classList.add('pass-validation--state-1');
+                document.getElementById('step1').classList.add('pass-validation__text__step-1');
+                break;
+            case 'MEDIUM':
+                document.getElementById('passStrength').classList.add('pass-validation--state-2');
+                document.getElementById('step1').classList.add('pass-validation__text__step-2');
+                break;
+            case 'STRONG':
+                document.getElementById('passStrength').classList.add('pass-validation--state-3');
+                document.getElementById('step1').classList.add('pass-validation__text__step-3');
+                break;
+            default:
+            // если code не равен ни одному из этих значений, ничего не делаем
+        }
+    }
+</script>
+
+<!--\CURRENT PAGE SCRIPT-->
+</body>
+</html>

@@ -1,0 +1,174 @@
+<div class="contentBar" style="padding:0 10px;padding-top:3px;">
+    <style type="text/css">
+            /*** TABLE SCORETABLE ***/
+        .scoreTable {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        .scoreTable th, .scoreTable td {
+            border: 1px solid #ccc;
+        }
+
+        .scoreTable th {
+            padding: 3px 14px 3px 6px;
+            color: #474747;
+        }
+
+        .scoreTable td {
+            padding: 3px 10px;
+        }
+
+        .scoreTable td input {
+            max-width: 100%;
+            /*float: left;*/
+        }
+
+    </style>
+    <div class="labelLine">
+        <div class="row">
+            $$label:FINANCIAL_YEAR$$
+            <div class="field">
+                $$input:FINANCIAL_YEAR$$
+            </div>
+        </div>
+        <div class="row">
+            $$label:BUDGET_ID$$
+            <div class="field">
+                $$input:BUDGET_ID$$
+            </div>
+        </div>
+        <div class="row">
+            $$label:BUDGET_YEAR$$
+            <div class="field">
+                $$input:BUDGET_YEAR$$
+            </div>
+        </div>
+        <div class="row">
+            $$label:FORCED_DISTRIBUTION$$
+            <div class="field">
+                $$input:FORCED_DISTRIBUTION$$
+            </div>
+        </div>
+    </div>
+
+    <div id="click1" class="slideDown-box expand group">
+        <h3 onclick="var myclick=document.getElementById('click1');if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('expand')&gt;=0){cls=cls.replace('expand','');}else{cls+=' expand';}myclick.className=cls;}" class="slideDown-title expand">$$label:BONUS_SETTINGS$$</h3>
+
+        <div class="slideDown-content">
+            <ul class="rowItems c-cols">
+                <li>
+                    <h3 class="labelTitle2">$$label:TITLE$$</h3>
+                    <table class="scoreTable">
+                        <tbody>
+                        <tr>
+                            <th>$$label:SCORE_A$$</th>
+                            <td>$$input:SCORE_A$$</td>
+                        </tr>
+
+                        <tr>
+                            <th>$$label:SCORE_B$$</th>
+                            <td>$$input:SCORE_B$$</td>
+                        </tr>
+
+                        <tr>
+                            <th>$$label:SCORE_C$$</th>
+                            <td>$$input:SCORE_C$$</td>
+                        </tr>
+
+                        <tr>
+                            <th>$$label:SCORE_D$$</th>
+                            <td>$$input:SCORE_D$$</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </li>
+
+
+                <li>
+                    <h3 class="labelTitle2">$$label:TITLE1$$</h3>
+                    <table class="scoreTable">
+                        <tbody>
+                        <tr>
+                            <th>$$label:SCORE1_A$$</th>
+                            <td>$$input:SCORE1_A$$%-$$input:SCORE11_A$$%</td>
+                        </tr>
+
+                        <tr>
+                            <th>$$label:SCORE1_B$$</th>
+                            <td>$$input:SCORE1_B$$%-$$input:SCORE11_B$$%</td>
+                        </tr>
+
+                        <tr>
+                            <th>$$label:SCORE1_C$$</th>
+                            <td>$$input:SCORE1_C$$%-$$input:SCORE11_C$$%</td>
+                        </tr>
+
+                        <tr>
+                            <th>$$label:SCORE1_D$$</th>
+                            <td>$$input:SCORE1_D$$%-$$input:SCORE11_D$$%</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </li>
+
+
+                <li>
+                    <h3 class="labelTitle2">$$label:TITLE2$$</h3>
+                    <table class="scoreTable">
+                        <tbody>
+                        <tr>
+                            <th>$$label:SCORE2_A$$</th>
+                            <td>$$input:SCORE2_A$$%</td>
+                        </tr>
+
+                        <tr>
+                            <th>$$label:SCORE2_B$$</th>
+                            <td>$$input:SCORE2_B$$%</td>
+                        </tr>
+
+                        <tr>
+                            <th>$$label:SCORE2_C$$</th>
+                            <td>$$input:SCORE2_C$$%</td>
+                        </tr>
+
+                        <tr>
+                            <th>$$label:SCORE2_D$$</th>
+                            <td>$$input:SCORE2_D$$%</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </li>
+
+
+                <li>
+                    <h3 class="labelTitle2">$$label:TITLE3$$</h3>
+                    <table class="scoreTable">
+                        <tbody>
+                        <tr>
+                            <th>$$label:SCORE3_A$$</th>
+                            <td>$$input:SCORE3_A$$%</td>
+                        </tr>
+
+                        <tr>
+                            <th>$$label:SCORE3_B$$</th>
+                            <td>$$input:SCORE3_B$$%</td>
+                        </tr>
+
+                        <tr>
+                            <th>$$label:SCORE3_C$$</th>
+                            <td>$$input:SCORE3_C$$%</td>
+                        </tr>
+
+                        <tr>
+                            <th>$$label:SCORE3_D$$</th>
+                            <td>$$input:SCORE3_D$$%</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>

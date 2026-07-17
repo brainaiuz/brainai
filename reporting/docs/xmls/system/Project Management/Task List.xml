@@ -1,0 +1,81 @@
+<report>
+    <view>
+        <title>Task List</title>
+        <name>Task List</name>
+        <category>task</category>
+        <sqlquery>
+            <select>
+                <!--  Please only enter type property {'number' or 'date or clock' }   -->
+                <table name="Task">
+                    <column name="t.id" title="id" type="number" formattype="hidden"/>
+                    <column name="t.taskname" title="Task Name" type="string" formattype="string"/>
+                    <column name="t.assignee" title="Assigneed To" type="string" formattype="string"/>
+                    <column name="t.description" title="Description" type="string" formattype="string"/>
+                    <column name="t.startdate" title="Start Date" type="date" formattype="date"/>
+                    <column name="t.duedate" title="Due Date" type="date" formattype="date"/>
+                    <column name="t.creationtime" title="Created Date" type="date" formattype="date"/>
+                    <column name="t.estimatedtime" title="Estimated Time" type="number" formattype="time"/>
+                    <column name="CAST(to_char(t.percent,'990.99') AS real)" title="% completed" type="number"
+                            formattype="percent"/>
+                    <column name="(CASE WHEN t.billable = true THEN 'yes' ELSE 'no' END)" title="Billable" type="string"
+                            formattype="string"/>
+                    <column name="t.taskstatus" title="Task Status" type="string" formattype="string"/>
+                    <column name="t.totaltime" title="Actual Time" type="number" formattype="time"/>
+                </table>
+                <table name="Project">
+                    <column name="t.projectname" title="Project Name" type="string" formattype="string"/>
+                    <column name="t.clientname" title="Client Name" type="string" formattype="string"/>
+                    <column name="t.workstreamname" title="Workstream Name" type="string" formattype="string"/>
+                    <column name="t.manager" title="Project Manager" type="string" formattype="string"/>
+                    <column name="t.backmanager" title="Backup Manager" type="string" formattype="string"/>
+                </table>
+            </select>
+            <from>(select distinct tk.name as taskname,tk.id,
+                mu.id as assigneeid,
+                (mu.firstName||' '||mu.lastname) as assignee,
+                tk.description,
+                tk.startdate,
+                tk.duedate,
+                tk.creationtime,
+                tk.estimatedtime,
+                tk.percent,
+                tk.billable,
+                st.name as taskstatus,
+                ts.totaltime,
+                pj.name as projectname,
+                wst.name as workstreamname,
+                cl.name as clientname,
+                ma.id as managerid,
+                (ma.firstname ||' '|| ma.lastname) as manager,
+                bma.id as backmanagerid,
+                (bma.firstname ||' '|| bma.lastname) as backmanager,
+                tm.leaderid
+                from
+                "$".task tk
+                LEFT JOIN "reference" st on st.id= tk.statusid
+                LEFT JOIN "$".employeetask emtk on emtk.taskid = tk.id
+                LEFT JOIN "$".projectemployee pjem on emtk.projectemployeeid = pjem.id
+                LEFT JOIN "$".project pj on pjem.projectid = pj.id
+                LEFT JOIN "$".teamemployee tmem on pjem.employeedepartmentid = tmem.id
+                LEFT JOIN "$".myuser mu on tmem.employeeid = mu.id
+                LEFT JOIN "$".team tm on tm.id = tmem.teamid
+                LEFT JOIN "$".myuser ma ON ma.id = pj.managerid
+                LEFT JOIN "$".myuser bma on bma.id = pj.backup_managerid
+                LEFT JOIN "$".workstream wst ON wst.id = tk.parentwsid
+                LEFT JOIN "$".crmaccount cl ON pj.clientid = cl.id
+                LEFT JOIN (select "$".timesheet.taskid,sum("$".timesheet.timespent) as totaltime from "$".timesheet
+                group by "$".timesheet.employeetaskid,timesheet.taskid) ts
+                ON ts.taskid = emtk.taskid
+                WHERE pj.isdeleted!=true AND tk.deleted!=true AND (tk.isissue is null OR tk.isissue!=true)) t
+            </from>
+            <where>
+                <terms id="base" value="1=1"/>
+                <terms id="client" clientid="t.clientid"/>
+                <!--<terms id="userid" userid="t.assigneeid" company="t.companyid" />
+                    <terms id="managerid" userid="t.managerid" company="t.companyid" />
+                    <terms id="leaderid" userid="t.leaderid" company="t.companyid" />
+                    <terms id="admin" company="t.companyid" />-->
+            </where>
+        </sqlquery>
+    </view>
+</report>

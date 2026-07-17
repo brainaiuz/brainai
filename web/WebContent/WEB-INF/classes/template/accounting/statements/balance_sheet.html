@@ -1,0 +1,418 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+    <style type="text/css">
+        /*COMMON STYLES*/
+        body {
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+            font-weight: 300;
+            font-size: 8pt;
+            line-height: 1.4;
+        }
+
+        table {
+            -fs-table-paginate: paginate;
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        th, td {
+            text-align: left;
+        }
+
+        th {
+            font-weight: 500;
+        }
+
+        [align="right"] {
+            text-align: right;
+        }
+
+        [align="center"] {
+            text-align: center;
+        }
+
+        table, b, p, td, span, div, caption, hr, h1, h2, h3, h4, h5 {
+            font-family: 'Calibri', sans-serif;
+            -webkit-print-color-adjust: exact;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000000;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        table {
+            /*page-break-inside: auto;*/
+            /*page-break-before: avoid;*/
+            /*page-break-after: avoid;*/
+        }
+
+        table, tr, td, th, tbody {
+            /*position: relative;*/
+            /*-webkit-column-break-inside: avoid;*/
+            /*page-break-before: avoid;*/
+            /*page-break-inside: auto;*/
+        }
+
+        /* \ COMMON STYLES*/
+        @media print {
+            .sales-invoice-mark {
+                background-color: #86ca41 !important;
+            }
+
+            .test-bg-1 {
+                background-color: olive !important;
+            }
+        }
+
+        /*BALANCE SHEET STYLES*/
+        table, tr, th, td {
+            padding: 0;
+            margin: 0;
+            vertical-align: top !important;
+        }
+
+        .balance-sheet-date {
+            padding: 0 0 4px;
+            font-size: 10pt;
+        }
+
+        .cols-separator {
+            border-left: 1px solid #ced5db;
+        }
+
+        .balance-sheet table {
+            width: 100%;
+        }
+
+        /*COMMON PADDINGS*/
+        .balance-sheet tr > * > div {
+            display: block;
+            padding-top: 3px;
+            padding-bottom: 3px;
+            -webkit-column-break-inside: avoid;
+            page-break-inside: avoid;
+        }
+
+        .balance-sheet > .thead > tr > *, .balance-sheet > .tfoot > tr > * > div,
+        .balance-sheet > .thead > tr > *, .balance-sheet > .tfoot > tr > * > div {
+            padding-top: 3px;
+            padding-bottom: 3px;
+        }
+
+        /*THEAD / TFOOT*/
+        .balance-sheet > .thead,
+        .balance-sheet > .tfoot {
+            /*display: table-row-group; !*extra paddings fix*!
+            -webkit-column-break-inside: avoid;
+            page-break-inside: avoid;*/
+        }
+
+        .balance-sheet .thead > tr > *, .balance-sheet .tfoot > tr > * {
+            font-weight: bold;
+        }
+
+        .balance-sheet .thead > tr > *:first-child, .balance-sheet .tfoot > tr > *:first-child {
+            padding-left: 0;
+        }
+
+        .balance-sheet > .thead > tr > *, .balance-sheet > .tfoot > tr > * {
+            text-transform: uppercase;
+            font-size: 9.5pt;
+        }
+
+        /*THEAD*/
+        .balance-sheet__nested > table > .thead > tr > * {
+            padding-top: 6px;
+            padding-bottom: 4px;
+        }
+
+        /*TFOOT*/
+        .balance-sheet > .tfoot > tr > * {
+            padding-top: 20px !important;
+        }
+
+        .balance-sheet .tfoot > tr > * {
+            padding-top: 6px;
+        }
+
+        .balance-sheet .tfoot > tr > * {
+            border-bottom: 1px solid #ced5db;
+        }
+
+        .balance-sheet .tfoot > tr > * div {
+            padding-top: 3px;
+            padding-bottom: 4px;
+            border-top: 1px solid #ced5db;
+        }
+
+        .balance-sheet > .tfoot > tr > * {
+            border-bottom: 4px double #ced5db;
+        }
+
+        .balance-sheet__nested > table > .tfoot > tr > * {
+            padding-top: 12px;
+        }
+
+        /*TBODY*/
+        .balance-sheet .tbody > tr > *:first-child {
+            padding-left: 12px;
+        }
+
+        .balance-sheet .tbody > tr > * {
+            font-size: 8pt;
+        }
+
+        .balance-sheet .tbody > tr > th + td {
+            width: 109px;
+            text-align: right;
+        }
+
+        /*NESTED*/
+        .balance-sheet__nested {
+            padding-bottom: 9px;
+            padding-left: 20px;
+            vertical-align: top;
+        }
+
+        .balance-sheet__nested .thead > tr > *, .balance-sheet__nested .tfoot > tr > * {
+            font-size: 10pt;
+        }
+
+        .balance-sheet__nested .balance-sheet__nested .thead > tr > *, .balance-sheet__nested .balance-sheet__nested .tfoot > tr > * {
+            font-size: 9.5pt;
+        }
+    </style>
+</head>
+
+
+<body>
+<div id="body">
+    #set($assetsTable = $itextGenericPdfData.customData.get('ASSETS'))
+    #set($assetsFooter = $assetsTable.header)
+    #set($liabTable = $itextGenericPdfData.customData.get('LIABILITY'))
+    #set($liabFooter = $liabTable.header)
+    #set($listData = $itextGenericPdfData.customListData)
+    #set($currentDate = $itextGenericPdfData.currentDate)
+    #set($assetsListTable = $listData.get('ASSETS'))
+    #set($liabListTable = $listData.get('LIABILITY'))
+
+    #if($itextGenericPdfData.companyData.companyName == 'KPI Software Inc' or $itextGenericPdfData.companyData.companyLogoUrl == 'https://apps.kpi.com/customisation/kpi.com/images/kpilogo.png')
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="width: 88px;display: none;"/>
+    #else
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="max-width: 100%; max-height: 100%; display: none;"/>
+    #end
+    <img alt="images"
+         src="https://workforcetrack.s3.amazonaws.com/000000000000/public/65159/a2113e82-397f-49fd-a58a-cdf4f4b93dff?AWSAccessKeyId=AKIAIROQMC77E5UKWBWQ"
+         style="display: none;"/>
+
+    <!--<img alt="images" src="https://newui.kpi.com/mainStyles/new-ui/images/new-kpi-logo.svg?v=2" style="width: 75px; height: 75px;display:none"/>-->
+
+
+    <table class="balance-sheet-cols" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;">
+        <tr>
+            <td width="47%" align="left" valign="top">
+                <div class="balance-sheet-date" style="text-align: left; margin-bottom: 10px;">&nbsp;</div>
+                <table class="balance-sheet" align="left" cellpadding="0" cellspacing="0" width="100%">
+                    <tbody class="thead">
+                    <tr>
+                        <th style="">
+                            <div>$assetsTable.name</div>
+                        </th>
+                        <td style=""></td>
+                    </tr>
+                    </tbody>
+
+                    <tbody class="tbody">
+                    #if($listData!='')
+                    #foreach($row in $assetsListTable)
+                    #foreach($innerRow in $row.values())
+                    #set($innerRowHeader = $innerRow.header)
+                    <tr>
+                        <td class="balance-sheet__nested" colspan="2" valign="top" style="padding: 0">
+                            <table>
+                                <tbody class="thead">
+                                <tr>
+                                    <th style="">
+                                        <div>$innerRow.name</div>
+                                    </th>
+                                    <td style=""></td>
+                                </tr>
+                                </tbody>
+
+                                <tbody class="tbody">
+                                #foreach($innerRow2 in $innerRow.rows.values())
+                                <tr>
+                                    <th style="">
+                                        <div>$innerRow2.get('COLUMN_NAME')</div>
+                                    </th>
+                                    <td>
+                                        <div style="text-align:right;">
+                                            <a>
+                                                $innerRow2.get('COLUMN_VALUE')
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                #end
+                                </tbody>
+
+                                <tbody class="tfoot">
+                                <tr>
+                                    <th style="">
+                                        <div>$innerRowHeader.get('COLUMN_NAME')</div>
+                                    </th>
+                                    <td style="">
+                                        <div style="text-align:right;">
+                                            $innerRowHeader.get('COLUMN_VALUE')
+                                        </div>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    #end
+                    #end
+                    #else
+                    #foreach($row in $assetsTable.rows.values())
+                    <tr>
+                        <th style="">
+                            <div>$row.get('COLUMN_NAME')</div>
+                        </th>
+                        <td style="">
+                            <div style="text-align:right;">
+                                <a>$row.get('COLUMN_VALUE')</a>
+                            </div>
+                        </td>
+                    </tr>
+                    #end
+                    #end
+                    </tbody>
+
+                    <tbody class="tfoot">
+                    <tr>
+                        <th style="">
+                            <div>$assetsFooter.get('COLUMN_NAME')</div>
+                        </th>
+                        <td style="">
+                            <div style="text-align:right;">
+                                $assetsFooter.get('COLUMN_VALUE')
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+
+            <td width="3%"><div style="position: relative; right: -20px; width: 15px; height: 37px; background-color: white;">&nbsp;</div></td>
+            <td class="cols-separator" width="3%">
+
+            </td>
+
+            <td width="47%" align="right" valign="top">
+                <div class="balance-sheet-date" style="text-align: right; margin-bottom: 10px;">$currentDate</div>
+                <table class="balance-sheet" align="right" cellpadding="0" cellspacing="0" width="100%">
+                    <tbody class="thead">
+                    <tr>
+                        <th style="">
+                            <div>$liabTable.name</div>
+                        </th>
+                        <th style=""></th>
+                    </tr>
+                    </tbody>
+
+                    <tbody class="tbody">
+                    #if($listData != '')
+                    #foreach($row in $liabListTable)
+                    #foreach($innerRow in $row.values())
+                    #set($innerRowHeader = $innerRow.header)
+                    <tr>
+                        <td class="balance-sheet__nested" colspan="2" valign="top">
+                            <table>
+                                <tbody class="thead">
+                                <tr>
+                                    <th style="">
+                                        <div>$innerRow.name</div>
+                                    </th>
+                                    <th style=""></th>
+                                </tr>
+                                </tbody>
+
+                                <tbody class="tbody">
+                                #foreach($innerRow2 in $innerRow.rows.values())
+                                <tr>
+                                    <th style="">
+                                        <div>$innerRow2.get('COLUMN_NAME')</div>
+                                    </th>
+                                    <td style="">
+                                        <div style="text-align:right;">
+                                            <a>
+                                                $innerRow2.get('COLUMN_VALUE')
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                #end
+                                </tbody>
+
+                                <tbody class="tfoot">
+                                <tr>
+                                    <th style="">
+                                        <div>$innerRowHeader.get('COLUMN_NAME')</div>
+                                    </th>
+                                    <th style="">
+                                        <div style="text-align:right;">
+                                            $innerRowHeader.get('COLUMN_VALUE')
+                                        </div>
+                                    </th>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    #end
+                    #end
+                    #else
+                    #foreach($row in $liabTable.rows.values())
+                    <tr>
+                        <th style="">
+                            <div>$row.get('COLUMN_NAME')</div>
+                        </th>
+                        <td style="">
+                            <div style="text-align:right;">
+                                <a>$row.get('COLUMN_VALUE')</a>
+                            </div>
+                        </td>
+                    </tr>
+                    #end
+                    #end
+                    </tbody>
+
+                    <tbody class="tfoot">
+                    <tr>
+                        <th style="">
+                            <div>$liabFooter.get('COLUMN_NAME')</div>
+                        </th>
+                        <th style="">
+                            <div style="text-align:right;">
+                                $liabFooter.get('COLUMN_VALUE')
+                            </div>
+                        </th>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+</body>
+</html>

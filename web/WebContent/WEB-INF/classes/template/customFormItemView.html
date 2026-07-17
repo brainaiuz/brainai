@@ -1,0 +1,151 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style type="text/css">
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+        td {
+            padding: 3px;
+        }
+        .name {
+            font-size: 10pt;
+        }
+        .value {
+            font-size: 11pt;
+        }
+        .nameCapital {
+            text-transform: capitalize;
+        }
+        .tableBorder{
+            border-top:1px solid #000000;
+            border-left:1px solid #000000;
+        }
+        .tableBorder td{
+            border-right:1px solid #000000;
+            border-bottom:1px solid #000000;
+        }
+        .title {
+             font-size: 13pt;
+             margin-bottom: 15px;
+         }
+
+        .table table {
+            border-bottom: 0.01em solid #000;
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+        .table table th {
+            font-size: 12px;
+            font-weight: 500;
+            text-transform: uppercase;
+            border-top: 0.01em solid #000;
+            border-bottom: 0.01em solid #000;
+            border-left: 0.01em solid #000;
+            padding: 10px;
+            text-align: left;
+        }
+        .table table th:last-child, .table table td:last-child {
+            border-right: 0.01em solid #000;
+        }
+        .table table td {
+            border-bottom: 0.01em solid #000;
+            border-left: 0.01em solid #000;
+            padding: 10px;
+            vertical-align: top;
+            font-size: 14px;
+            line-height: 1.42;
+        }
+        .table table td:first-child {
+            text-align: right;
+        }
+        .table {
+            position: relative;
+        }
+
+    </style>
+</head>
+<body>
+<div>
+    <img alt="images" src="https://workforcetrack.s3.amazonaws.com/000000000000/public/65159/a2113e82-397f-49fd-a58a-cdf4f4b93dff?AWSAccessKeyId=AKIAIROQMC77E5UKWBWQ" style="display: none;"/>
+    #if($itextGenericPdfData.companyData.companyName == 'KPI Software Inc' or $itextGenericPdfData.companyData.companyLogoUrl == 'https://apps.kpi.com/customisation/kpi.com/images/kpilogo.png')
+        <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="width: 88px; display: none;"/>
+    #else
+        <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="max-width: 100%; max-height: 100%; display: none;"/>
+    #end
+
+    #if($itextGenericPdfData.customListData.get('CUSTOM_FIELD').size()>0)
+        #foreach($membersList in $itextGenericPdfData.customListData.get('CUSTOM_FIELD'))
+            #foreach($members in $membersList.entrySet())
+                #if($members.key != '')
+                <table width="100%" cellpadding="0" cellspacing="0" border="0" class="title">
+                    <tr>
+                        <td width="100%"> &#160; </td>
+                    </tr>
+                    <tr>
+                        <td width="100%"> &#160; </td>
+                    </tr>
+                    <tr>
+                        <th align="left" style="text-transform: uppercase;">$members.key</th>
+                    </tr>
+                </table>
+                #end
+                #foreach($m in $members.value.rows)
+                    <div style="width: 25%; float: left; page-break-inside: avoid;">
+                        <div class="name" style="padding-bottom: 3px; padding-left: 3px;">
+                            $m.get('COLUMN_NAME')
+                        </div>
+                        <div style="font-weight: bold; padding-top: 3px; padding-left: 3px; padding-bottom: 15px;" class="value">
+                            $m.get('COLUMN_VALUE')
+                        </div>
+                    </div>
+                #end
+            #end
+        #end
+    #end
+
+    #foreach($itemTable in $itextGenericPdfData.baseInvoice.customProductTableList)
+    #set($name = $itemTable.name)
+    #set($productTableSize = $itemTable.rows.size())
+    #if($productTableSize > 0)
+
+    #if($name != '')
+    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+            <td width="100%"> &#160; </td>
+        </tr>
+        <tr>
+            <th align="left" class="title" style="text-transform: uppercase;">$name</th>
+        </tr>
+        <tr>
+            <td> &#160; </td>
+        </tr>
+    </table>
+    #end
+    <div class="table">
+        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+
+            <tr style="page-break-inside: avoid;">
+                #foreach($row in $itemTable.header)
+                    <th align="left" style="padding: 5px; font-weight: bold" class="name">$row</th>
+                #end
+            </tr>
+            #foreach($row in $itemTable.rows)
+            <tr style="page-break-inside: avoid;">
+                #foreach($rowHeader in $itemTable.columnOrder)
+                    <td valign="top" style="padding: 5px;" class="value">
+                        $row.get($rowHeader)
+                    </td>
+                #end
+            </tr>
+            #end
+
+        </table>
+    </div>
+    #end
+    #end
+
+</div>
+
+</body>
+</html>

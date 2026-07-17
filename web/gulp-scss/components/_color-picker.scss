@@ -1,0 +1,175 @@
+$colorPickListPaddingY: $table-cell-padding;
+$colorPicItemSize: calc(#{$input-height} - #{$colorPickListPaddingY} );
+
+// =========================================================================
+// OLD COLOR WIDGET + OrgChart adaptation
+// =========================================================================
+.color-widget {
+  &:not(.colorPickList) {
+    border-radius: $radius-base;
+    padding: 7px 10px 8px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 340px !important;
+    background-color: #F4F6F8;
+
+    @media only screen and (min-width: 1367px) {
+        padding: 8px 10px 9px;
+    }
+    @media only screen and (min-width: 1367px) {
+        padding: 8px 10px 9px;
+    }
+
+    .color-widget__button {
+      width: 32px;
+      height: 23px;
+      position: relative;
+      cursor: pointer;
+
+      :hover .color-widget__color-2,
+      &--selected .color-widget__color-2 {
+        opacity: 0.4;
+      }
+    }
+
+    .color-widget__color-1 {
+      width: 10px;
+      height: 10px;
+      border-radius: 100%;
+      top: 50%;
+      position: absolute;
+      left: 50%;
+      margin-top: -5px;
+      margin-left: -5px;
+    }
+
+    .color-widget__color-2 {
+      width: 20px;
+      height: 20px;
+      border-radius: 100%;
+      opacity: 0;
+      top: 50%;
+      transition: opacity 0.3s;
+      position: absolute;
+      left: 50%;
+      margin-top: -10px;
+      margin-left: -10px;
+    }
+  }
+}
+
+.color-panel-preview {
+  display: inline-flex;
+  align-items: center;
+  border: 0.07692rem solid #e1e5ec;
+  border-radius: $radius-base;
+  margin: 0 auto;
+  height: 40px;
+  padding: 0 20px;
+  position: relative;
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
+.color-panel-preview .gwt-control {
+  margin-right: 10px;
+}
+
+// =========================================================================
+// NEW COLOR PICKER orgChart vers 2026 + OrgChart Adaptation (Old Component -> New Look)
+// =========================================================================
+// Общий контейнер с превью + список
+.colorPickBox {
+  display: grid;
+  grid-template-columns: rem(48px) max-content; // Вторая колонка строго по контенту  align-items: center;
+  gap: rem(16px);
+  align-items: center;
+  margin-bottom: ($formGroupMargin * .75); //as .form-group on compressed form
+
+  &__preview {
+    width: rem(48px);
+    height: rem(48px);
+    border-radius: 50%;
+    border: 1px solid $color-base-2;
+    background-color: $color-base-contrast;
+  }
+}
+
+// Список кружочков (может жить как самостоятельно, так и внутри colorPickBox)
+.colorPickList {
+  //@include common-input-mixin($paddingY: $colorPickListPaddingY, $setLayout:false); // тот же базовый вид, что и у input
+  display: grid;
+  ///* Динамически создаем столько колонок, сколько кнопок, фиксированного размера */
+  grid-auto-flow: column;
+  // Задаем фиксированный размер для каждой колонки, которая появится
+  grid-auto-columns: #{$colorPicItemSize};
+  gap: $table-cell-padding-sm;
+  justify-content: center;// if there are not many els
+  align-content: center;
+}
+
+// Один кружок цвета
+.colorPickItem, .colorPickList .color-widget__button {
+  &,  > .color-widget__color-1 {
+    height: $colorPicItemSize;
+    width: $colorPicItemSize;
+    border-radius: 50%;
+    border: 1px solid transparent;
+    background-clip: padding-box;
+    transform: scale(1);
+    transition: transform 100ms;
+    @include base-transition(border-color, box-shadow, transform);
+    overflow: hidden; // for old version .color-widget__button > .color-widget__color-1
+  }
+  //&:hover:not(.active):not(.color-widget__button--selected) {
+  //  transform: scale(1.2);
+  //}
+  &.active, &.color-widget__button--selected {
+    border-color: $color-accent-2;
+    box-shadow: 0 0 3px 0px rgba($color-accent-2, .3);
+    cursor: default !important;
+  }
+}
+.colorPickItem:hover:not(.active), .colorPickList .color-widget__button:hover:not(.color-widget__button--selected) {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+.colorPickItem {
+  flex-shrink: 0; //prevent circle shrink and looks like an oval
+  background-color: var(--theme-color);
+
+}
+
+.colorContent {
+  .switch__label--right {
+    display: block;
+    font-size: $deepCardFontTitle-2; // 14px
+    > span {}
+    .colorPickItem {
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 4px;
+
+      &:hover {
+      }
+    }
+  }
+}
+
+.colorPickItemPopup {
+  // Увеличиваем зону чувствительности
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: -30px;
+    left: 0;
+    height: 30px;
+    width: 39px;
+    //width: $colorPicItemSize + $colorPicItemSize;
+  }
+
+  // Сдвигаем сам контент попапа чуть-чуть, если нужно визуально
+  // пододвинуть его к кнопке без изменения Java-кода
+  margin-top: -5px;
+}

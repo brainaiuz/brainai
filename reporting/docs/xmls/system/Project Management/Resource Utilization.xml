@@ -1,0 +1,47 @@
+<report>
+    <view>
+        <title>Resource Utilization</title>
+        <name>Resource Utilization</name>
+        <category>expence</category>
+        <sqlquery>
+            <select agregateFunc="distinct">
+                <table name="Resource Utilization">
+                    <column name="id" title="id" type="number" formattype="hidden"/>
+                    <column name="employeename" title="Employee" type="string" formattype="string"/>
+                    <column name="full_timespent" title="Time Spent" type="time" formattype="time"/>
+                    <column name="daterange" title="Date" type="date" formattype="date" customdateformat="YYYY-MM-DD"/>
+                    <column name="billabletimespent" title="Billable" type="time" formattype="time"/>
+                    <column name="nonbillabletimespent" title="Non Billable" type="time" formattype="time"/>
+                    <column name="nonutilized" title="Non Utilized" type="time" formattype="time"/>
+                </table>
+            </select>
+            <from>(
+                select id,employeename
+                ,user_timespent full_timespent,daterange,billabletimespent,nonbillabletimespent,
+                case (full_timespent-user_timespent)>0
+                when true then (full_timespent-user_timespent) else 0 end nonutilized
+                from (
+                select u.id,max(coalesce(u.firstname,'')||' '||coalesce(u.lastname,'')) employeename
+                , coalesce(max(case when dayOff is true or holiday is true then 0 else coalesce(ard.timeSlot,0)-coalesce(ard.leave,0) end),0) full_timespent
+                , max(dj.from_date) daterange
+                , coalesce(sum(case when t.billable then tsh.timeSpent end),0) billabletimespent
+                , coalesce(sum(case t.billable is not true when true then tsh.timeSpent end),0) nonbillabletimespent
+                , sum(tsh.timespent) user_timespent
+                from "$".myuser u
+                left join "$".timesheet tsh on u.id= tsh.employeeID and u.deleted is not true
+
+                join datejoin dj on date(tsh.date) =DATE(DJ.from_date)
+                left join "$".attendancerawdata ard on u.id=ard.employeeId and ard.dateID=dj.id
+
+                left join "$".employeetask et on tsh.employeetaskId=et.id
+                left join "$".task t on et.taskid=t.id
+                where u.deleted is not true and t.deleted is not true
+                group by u.id,dj.id ) t
+                )r
+            </from>
+            <where>
+                <terms id="base" value="1=1"/>
+            </where>
+        </sqlquery>
+    </view>
+</report>

@@ -1,0 +1,69 @@
+<report>
+    <view>
+        <title>Recruitment Vacancies</title>
+        <name>Recruitment Vacancies</name>
+        <category>hrms</category>
+        <sqlquery>
+            <select agregateFunc="distinct">
+                <table name="Recruitment Vacancies">
+                    <column name="vid" title="id" type="number" formattype="hidden"/>
+                    <column name="status" title="Status" type="string" formattype="string"/>
+                    <column name="jobtitle" title="Job Title" type="string" formattype="string"/>
+                    <column name="description" title="Description" type="string" formattype="string"/>
+                    <column name="position" title="Position" type="string" formattype="string"/>
+                    <column name="manager" title="Manager" type="string" formattype="string"/>
+                    <column name="location" title="Location" type="string" formattype="string"/>
+                    <column name="matchedcandidates" title="Matched Candidates" type="string" formattype="string"/>
+                    <column name="startdate" title="Start Date" type="date" formattype="date"
+                            customdateformat="Mon DD,YYYY"/>
+                    <column name="enddate" title="End Date" type="date" formattype="date"
+                            customdateformat="Mon DD,YYYY"/>
+                    <column name="updateddate" title="Updated Date" type="date" formattype="date"
+                            customdateformat="Mon DD,YYYY"/>
+                    <column name="amount" title="Amount" type="number" formattype="number"/>
+                </table>
+            </select>
+            <from>
+                (
+                SELECT v.id as vid, max(vst.code) as status, max(v.jobtitle) as jobtitle, max(v.description) as
+                description, max(po.name) as position,
+                max(coalesce(man.firstName,'')||' '||coalesce(man.lastname,'')) as manager,
+                max(replace((coalesce(cont.name,'')||','||coalesce(stat.name,'')||','||coalesce(loc.city,'')),',',''))
+                as location,
+                array_to_string(array_agg(coalesce(can.firstname,'')||' '||coalesce(can.lastname,'')), ',') as
+                matchedcandidates,
+                max(v.startdate) as startdate, max(v.enddate) as enddate, max(v.lastupdatedtime) as updateddate,
+                count(can.id) as amount
+                FROM "$".vacancy v
+                LEFT JOIN "$".candidate_vacancies cv ON (cv.vacancy_id=v.id)
+                LEFT JOIN "$".crmcontact can ON (cv.candidate_id=can.id)
+                LEFT OUTER JOIN "$".myUser man ON (man.id = v.manager_id)
+                LEFT OUTER JOIN "$".position po ON (po.id = v.position_id)
+                LEFT OUTER JOIN "$".location loc ON (loc.id = v.location_id)
+                LEFT OUTER JOIN "public".country cont ON (cont.id = loc.countryid)
+                LEFT OUTER JOIN "public".region stat ON (stat.id = loc.stateid)
+                LEFT OUTER JOIN "$".reference vst ON (vst.id = v.status_id)
+                LEFT OUTER JOIN "$".reference req ON (req.id = v.requireddegree_id),
+                (select u.id, max(case when r.code in ('ADMIN','DR','HR') then 1 else 0 end) isAdmin
+                from "$".myuser u
+                left join "$".myuser_role mu on mu.users_id=u.id
+                left join "$".role r on mu.roles_id=r.id
+                where u.id=#?user_id?#
+                group by u.id) x
+                WHERE v.deleted is not true
+                and
+                (
+                x.isAdmin=1
+                or
+                ( x.isAdmin != 1 and v.manager_id=x.id)
+                )
+                GROUP BY vid
+                ) t
+            </from>
+            <where>
+                <terms id="base" value="1=1"/>
+                <replacement id="userid" userid="#?user_id?#"/>
+            </where>
+        </sqlquery>
+    </view>
+</report>

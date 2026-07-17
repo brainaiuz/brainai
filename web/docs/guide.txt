@@ -1,0 +1,47 @@
+
+THIRD PARTY LIBRARIES AND COMPONENTS USED IN PROJECT
+
+WorkforceTrack is being developed using the following libraries:
+
+ GWT 1.4.special.1 - Based on Google Web Toolkit with the following additions: 
+
+ 	- Support for transparent security context propagation across RPC calls. It's supported through the
+ 	  following classes:
+
+ 	  ClientSecurityContext, being singleton via the static method get exposes public method setSessionId
+ 	  accepting String as the parameter. After the sessionId set it will be propagated to all GWT-RPC calls
+ 	  transparently.
+ 	  
+ 	  ServerSecurityContext, being abstract singleton class via the static method getInstance supports getUser
+ 	  public method returning Object. This methods return type depends on concrete ServerSecurityContext
+ 	  implementation stated in gwt_security.properties file located in class path root. In WorkforceTrack it
+ 	  returns EdsUser instance.
+ 	  
+ 	- Support, for GWT RemoteService's, asynchronious interface, to return Request object, supporting method 
+ 	  cancel so that request initiated during call could be canceled if needed.
+ 	    
+ MyGWT 0.5.0 RC1 (currently, it's in active development stage and updated regularly) - So.... look MyGWT 
+ reference.
+ 
+ Spring 2.5 -Used only for InversionOfControl and Request handling. Ones not knowing what is InversionOfControl
+ can type InversionOfControl in Google search and click first search result. Read an article top down...
+ For request handling facility look com.edatasite.workforce.gwt.core.server.servlets.WfmCommandHandler. 
+ Java docs coming soon.
+ 
+ Java Persistence API - Used for database persistence. Hibernate 3.x still used as backend.
+ 
+PROJECT STRUCTURE
+
+Nearly all project classes located in com.edatasite.workforce.gwt package and it's subpackages. Exception is
+domain model and some mygwt related classes located in bottom of com.edatasite.workforce.domain and 
+net.mygwt.ui.client.widget respectively. Let's explain com.edatasite.workforce.gwt package in detail:
+
+   com.edatasite.workforce.gwt.core - Serves as a foundation library for whole WorkforceTrack. Includes 
+   client-side ui compoents(in client.ui subpackage), common generic classes for transfer objects(in client.rpc
+   subpackage), server-side utilities and base classes and interfaces(in server subpackage and in bottom of it)        	  
+
+   com.edatasite.workforce.gwt.task - classes used primarily in task section.
+
+
+
+ 	   

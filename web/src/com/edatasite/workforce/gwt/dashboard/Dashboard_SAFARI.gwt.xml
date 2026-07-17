@@ -1,0 +1,7 @@
+<module rename-to="dashboard">
+    <inherits name='com.edatasite.workforce.gwt.dashboard.Dashboard'/>
+    <set-property name="user.agent" value="safari"/>
+</module>
+
+
+   

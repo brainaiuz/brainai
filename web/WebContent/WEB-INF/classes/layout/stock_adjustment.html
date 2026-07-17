@@ -1,0 +1,84 @@
+<div class="contentBar file--stock_adjustment" style="padding:0 10px;">
+    <style>
+        .reachFullWidth table {
+            border: none !important;
+        }
+    </style>
+
+    <ul class="collapsible--panels collapsible--arrows-left collapsible collapsible--gwt required" data-collapsible="expandable">
+        <li class="slideDown-box group active">
+            <div class="collapsible-header active" onclick="var myclick=this.parentElement;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls; } var myclick=this;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls; }">
+                <a style="cursor: pointer;"><span>$$label:TITLE_STOCKADJUSTMENT$$</span></a>
+            </div>
+            <div class="collapsible-body">
+                <div class="grid-row">
+                    <div class="col-4" id="account-name__and__notes-secion">
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:ACCOUNT_NAME$$</div>
+                            <div class="form-group__content">$$input:ACCOUNT_NAME$$</div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:NOTES$$</div>
+                            <div class="form-group__content">$$input:NOTES$$</div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:DATE_FIELD$$</div>
+                            <div class="form-group__content">$$input:DATE_FIELD$$</div>
+                        </div>
+                        <div class="form-group" id="approvers-section">
+                            <div class="form-group__label">$$label:APPROVERS$$</div>
+                            <div class="form-group__content">$$input:APPROVERS$$</div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:NUMBER$$</div>
+                            <div class="form-group__content">$$input:NUMBER$$</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-row margin-top">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:STOCKADJUSTMENT_PRODUCT_TABLE$$</div>
+                            <div class="form-group__content">$$input:STOCKADJUSTMENT_PRODUCT_TABLE$$</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+
+        <li class="slideDown-box group" id="attachments-section">
+            <div class="collapsible-header" onclick="var myclick=this.parentElement;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls;} var myclick=this;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls; }">
+                <a style="cursor: pointer;"><span>$$label:ATTACHMENTS_TITLE$$</span></a>
+            </div>
+            <div class="collapsible-body">
+                <div class="column">
+                    <div class="field">
+                        $$input:ATTACHMENTS$$
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="section-box">
+    <div id="inv__action-btns" class="group-box group-box--width-free group-box--align-right group-box--side-out">
+        <div class="group-box__items">
+            <div class="group-box__item invoice-btn-save">
+                $$input:saveAndCloseButton$$
+            </div>
+            <div class="group-box__item invoice-btn-default">
+                $$input:closeButton$$
+            </div>
+            <div class="group-box__item invoice-btn-default">
+                $$input:cancelButton$$
+            </div>
+            <div class="group-box__item invoice-btn-pdf">
+                $$input:pdfVersionButton$$
+            </div>
+        </div>
+    </div>
+</div>

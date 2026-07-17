@@ -1,0 +1,15 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:html="urn:import:gwt.material.design.client.ui.html">
+    <g:HTMLPanel styleName="data-import-guide" ui:field="container">
+        <div class="margin-bottom-lg panel">
+            <g:HTMLPanel styleName="panel__body" ui:field="mediaHeader"/>
+            <g:HTMLPanel styleName="panel__footer" ui:field="mediaBody"/>
+        </div>
+
+        <g:HTMLPanel styleName="side-nav-subtitle margin-bottom-lg" ui:field="importHeader"/>
+        <g:HTMLPanel styleName="bar-stack margin-bottom-lg" ui:field="importPanel"/>
+
+        <g:HTMLPanel styleName="side-nav-notice" ui:field="infoPanel"/>
+    </g:HTMLPanel>
+</ui:UiBinder>

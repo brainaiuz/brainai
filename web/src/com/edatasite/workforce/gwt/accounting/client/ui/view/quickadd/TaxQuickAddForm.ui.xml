@@ -1,0 +1,33 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:f='urn:import:com.edatasite.workforce.gwt.core.client.ui.components.form'
+             xmlns:dynamicTable="urn:import:com.edatasite.workforce.gwt.core.client.ui.dynamicTable">
+    <g:HTMLPanel ui:field="container">
+        <div class="grid-row">
+            <div class="col-12">
+                <f:FormGroup ui:field="nameInput"/>
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="col-12">
+                <f:FormGroup ui:field="faiInput"/>
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="col-12">
+                <f:FormGroup ui:field="faiPurchaseInput"/>
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="col-12">
+                <f:FormGroup ui:field="statusGroup"/>
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="col-12">
+                <f:FormGroup ui:field="multiTable"/>
+                <dynamicTable:TotalTable ui:field="totalTable"/>
+            </div>
+        </div>
+    </g:HTMLPanel>
+</ui:UiBinder>

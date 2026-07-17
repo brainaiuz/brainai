@@ -1,0 +1,688 @@
+.payroll-quickviewPanelCell {
+    background-color: #ebf3ff;
+    padding: 10px;
+}
+
+.payroll-greyPanelCell {
+    background-color: #fafafa;
+    font-size: 20px;
+    font-weight: bold;
+    color: #6d6d6d;
+    border: solid 1px #d4d4d4;
+    padding: 10px;
+}
+
+.payroll-padding {
+    padding: 5px;
+}
+
+.link {
+    text-decoration: underline;
+    color: #3333ff;
+    cursor: pointer;
+}
+
+/*
+* {
+    margin: 0;
+    padding: 0;
+}
+*/
+
+body {
+    /*position: absolute*/
+}
+
+/*
+#starter {
+    background: url(icons/starter.jpg) no-repeat
+}
+
+#starter .abs-link {
+    position: absolute;
+    height: 35px;
+    width: 150px;
+    top: 10px;
+    left: 15px;
+    font-size: 18px;
+}
+
+#addemp {
+    background: url(icons/addemployee.jpg) no-repeat;
+    margin-top: 8px
+}
+
+#addemp .abs-link {
+    position: absolute;
+    height: 35px;
+    width: 250px;
+    top: 95px;
+    left: 25px;
+    font-size: 18px;
+}
+
+#payemp {
+    background: url(icons/payemployee.jpg) no-repeat
+}
+
+#payemp .abs-link {
+    position: absolute;
+    height: 35px;
+    width: 130px;
+    top: 10px;
+    left: 25px;
+    font-size: 18px;
+}
+
+#leaver {
+    background: url(icons/leaver.jpg) no-repeat;
+    margin-top: 8px
+}
+
+#leaver .abs-link {
+    position: absolute;
+    height: 35px;
+    width: 270px;
+    top: 95px;
+    left: 5px;
+    font-size: 18px;
+}
+
+#payslip {
+    background: url(icons/payslip.jpg) no-repeat
+}
+
+#payslip .abs-link {
+    position: absolute;
+    height: 35px;
+    width: 170px;
+    top: 10px;
+    left: 0px;
+    font-size: 18px; */
+/* width:270px; height:137px*//*
+
+}
+
+#report {
+    background: url(icons/report.jpg) no-repeat;
+    margin-top: 8px
+}
+
+#report .abs-link {
+    position: absolute;
+    height: 35px;
+    width: 221px;
+    top: 95px;
+    left: 35px;
+    font-size: 18px; */
+/*width:270px; height:128px*//*
+
+}
+*/
+
+.bank-16 {
+    background: url("payroll/images/bank_16.png") no-repeat;
+}
+
+.payslip-16 {
+    background: url("payroll/images/payslips_16.png") no-repeat;
+}
+
+.aeo-icon {
+    background: url("payroll/images/aeo_16.png") no-repeat;
+}
+
+.checkBox {
+    vertical-align: top;
+}
+
+.p45form {
+    margin: 10px 10px; /*padding:10px 10px;#cbebbd;#99BBE8;bfd4f0;ebf3ff*/
+    background: #ebf3ff;
+    border: 0;
+}
+
+.innerP45 {
+    margin: 8px 8px; /*padding:15px 15px;*/
+    /*background:#dac29e;*/
+    border: 1px solid #13649B;
+}
+
+.details {
+    background: #ffb768;
+}
+
+.detailsText {
+    /*vertical-align:bottom;*/
+    margin: 7px 7px;
+}
+
+.p45text {
+    height: 20px;
+    padding: 1px 2px 1px 2px;
+    font-size: 10pt;
+    /*FONT-FAMILY: arial, sans-serif;*/
+    border-bottom: 1px solid #13649B;
+    border-left: 1px solid #13649B;
+}
+
+/* welcome page*/
+
+.transparent-block {
+    height: 100px;
+    position: relative;
+    width: 124px;
+
+}
+
+/*  images*/
+
+#efile-hrms .abs-link {
+    color: #1F4F8F;
+    font-size: 11px;
+    font-weight: bold;
+    height: 10px;
+    left: 1px;
+    text-decoration: none;
+    top: 2px;
+    width: 90px;
+    cursor: text;
+}
+
+#efile-hrms-p14 {
+    background: url("payroll/images/flow-charts/p14.jpg") no-repeat;
+}
+
+#efile-hrms-p14 .abs-link {
+    color: #1F4F8F;
+    font-size: 11px;
+    font-weight: bold;
+    height: 10px;
+    left: 1px;
+    text-decoration: none;
+    top: 2px;
+    width: 90px;
+    cursor: text;
+}
+
+#efile-hrms-checklist {
+    background: url("payroll/images/flow-charts/checklist.jpg") no-repeat;
+}
+
+#efile-hrms-checklist .abs-link {
+    color: #1F4F8F;
+    font-size: 11px;
+    font-weight: bold;
+    height: 10px;
+    left: 1px;
+    text-decoration: none;
+    top: 2px;
+    width: 90px;
+    cursor: text;
+}
+
+.welcome-row {
+    vertical-align: top;
+}
+
+.payroll-welcome {
+    background: url("payroll/images/payroll-welcome.png") no-repeat;
+}
+
+.payment-deduction {
+    background: url("payroll/images/payment-deduction.png") no-repeat;
+}
+
+.payslips {
+    background: url("payroll/images/payslip.png") no-repeat;
+}
+
+.forms-reports {
+    background: url("payroll/images/forms-reports.png") no-repeat;
+}
+
+.payroll-settings {
+    background: url("payroll/images/payroll-settings.png") no-repeat;
+}
+
+.reccur-payment-16 {
+    background: url("payroll/images/reccuring-payment_16.png") no-repeat;
+}
+
+.efile-hmrc {
+    background: url("payroll/images/efile.png") no-repeat;
+}
+
+.p32PaymentRecordsPanel {
+    border-top: 1px solid #8db2e3;
+    border-left: 1px solid #8db2e3;
+    padding: 0 0 0 0;
+}
+
+.p32PaymentRecordsPanel td {
+    border-bottom: 1px solid #8db2e3;
+    border-right: 1px solid #8db2e3;
+    padding: 5px;
+    text-align: center;
+}
+
+.p32PaymentRecordsPanelHeader {
+    background-color: #f0f6fd;
+    border-bottom: 1px solid #8db2e3;
+    border-right: 1px solid #8db2e3;
+    padding: 5px;
+    font-weight: bold;
+    text-align: center;
+    color: #15428b;
+}
+
+.p32PaymentMontNumRecords {
+    background-color: #f0f6fd;
+    border-bottom: 1px solid #8db2e3;
+    border-right: 1px solid #8db2e3;
+    padding: 5px;
+    text-align: center;
+    color: #15428b;
+}
+
+.p32PaymentQuoterRecords {
+    background-color: #f4f9ff;
+    border-bottom: 1px solid #8db2e3;
+    border-right: 1px solid #8db2e3;
+    padding: 5px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.cw-FlexTable-noborder td {
+    border: 0;
+}
+
+.p32Header {
+    background-color: #d9e5f4;
+    border: 1px solid #8db2e3;
+    height: 44px;
+
+}
+
+.p32Header td {
+    padding: 5px 20px 5px 20px;
+    vertical-align: middle !important;
+    font-weight: bold;
+    color: #15428b;
+}
+
+#employer-settings .abs-link {
+    color: #7D1616;
+    font-size: 14px;
+    height: 20px;
+    left: 8px;
+    position: absolute;
+    top: 5px;
+    width: 150px;
+}
+
+#employer-settings {
+    width: 242px;
+    height: 134px;
+    background: url("payroll/images/emp-set.jpg") no-repeat;
+}
+
+#pension-providers .abs-link {
+    bottom: 13px;
+    left: 40px;
+    color: #7D1616;
+    font-size: 14px;
+    height: 20px;
+    width: 160px;
+    position: absolute;
+}
+
+#pension-providers {
+    width: 242px;
+    height: 134px;
+    background: url("payroll/images/pension-provider.png") no-repeat;
+}
+
+#pension-scheme .abs-link {
+    top: 10px;
+    left: 12px;
+    color: #7D1616;
+    font-size: 14px;
+    height: 20px;
+    width: 160px;
+    position: absolute;
+}
+
+#pension-scheme {
+    width: 242px;
+    height: 134px;
+    background: url("payroll/images/scheme.jpg") no-repeat;
+}
+
+#paye-tax-bands .abs-link {
+    color: #7D1616;
+    font-size: 14px;
+    height: 20px;
+    left: 15px;
+    position: absolute;
+    top: 10px;
+    width: 145px;
+}
+
+#paye-tax-bands {
+    width: 242px;
+    height: 134px;
+    background: url("payroll/images/paye.jpg") no-repeat;
+}
+
+#ni-bands-rates .abs-link {
+    bottom: 24px;
+    left: 40px;
+    color: #7D1616;
+    font-size: 12px;
+    height: 20px;
+    width: 160px;
+    position: absolute;
+}
+
+#ni-bands-rates {
+    width: 242px;
+    height: 134px;
+    background: url("payroll/images/ni-ban.jpg") no-repeat;
+}
+
+#student-loan .abs-link {
+    bottom: 25px;
+    color: #7D1616;
+    font-size: 14px;
+    height: 20px;
+    left: 105px;
+    position: absolute;
+    width: 120px;
+}
+
+#student-loan {
+    width: 242px;
+    height: 134px;
+    background: url("payroll/images/loan.jpg") no-repeat;
+}
+
+#deduction-categories .abs-link {
+    bottom: 13px;
+    left: 32px;
+    color: #7D1616;
+    font-size: 14px;
+    height: 20px;
+    width: 200px;
+    position: absolute;
+}
+
+#deduction-categories {
+    width: 242px;
+    height: 134px;
+    background: url("payroll/images/deduction.jpg") no-repeat;
+}
+
+#payment-categories .abs-link {
+    bottom: 12px;
+    color: #7D1616;
+    font-size: 14px;
+    height: 20px;
+    left: 30px;
+    position: absolute;
+    width: 158px;
+}
+
+#payment-categories {
+    width: 242px;
+    height: 134px;
+    background: url("payroll/images/payment.jpg") no-repeat;
+}
+
+#payrun .abs-link {
+    bottom: 20px;
+    color: #7D1616;
+    font-size: 14px;
+    height: 20px;
+    left: 38px;
+    position: absolute;
+    width: 135px;
+}
+
+#payrun {
+    width: 242px;
+    height: 134px;
+    background: url("payroll/images/payrun.jpg") no-repeat;
+}
+
+#tax-code-changes .abs-link {
+    color: #7D1616;
+    font-size: 14px;
+    height: 20px;
+    left: 6px;
+    position: absolute;
+    width: 170px;
+    top: 2px;
+}
+
+#tax-code-changes {
+    width: 280px;
+    height: 145px;
+    background: url("payroll/images/tax-code-change.png") no-repeat;
+}
+
+#ni-category-changes .abs-link {
+    bottom: 30px;
+    color: #7D1616;
+    font-size: 14px;
+    height: 20px;
+    left: 60px;
+    position: absolute;
+    width: 180px;
+    }
+
+#ni-category-changes {
+    top: 15px;
+    left: 5px;
+    width: 270px;
+    height: 145px;
+    background: url("payroll/images/ni-category.png") no-repeat;
+}
+
+#p32form .abs-link {
+    bottom: 28px;
+    color: #7D1616;
+    font-size: 16px;
+    height: 20px;
+    left: 110px;
+    position: absolute;
+    width: 90px;
+    }
+
+#p32form {
+    width: 260px;
+    height: 143px;
+    background: url("payroll/images/p32-form.png") no-repeat;
+}
+#p35form .abs-link {
+    bottom: 20px;
+    color: #7D1616;
+    font-size: 16px;
+    height: 20px;
+    left: 110px;
+    position: absolute;
+    width: 90px;
+    }
+
+#p35form {
+    width: 260px;
+    height: 143px;
+    background: url("payroll/images/p32-form.png") no-repeat;
+}
+
+#p11form .abs-link {
+    bottom: 11px;
+    color: #7D1616;
+    font-size: 18px;
+    height: 20px;
+    left: 110px;
+    position: absolute;
+    width: 90px;
+}
+
+#p11form {
+    width: 242px;
+    height: 134px;
+    background: url("payroll/images/p11-form.png") no-repeat;
+}
+
+#p14form .abs-link {
+    bottom: 13px;
+    color: #7D1616;
+    font-size: 18px;
+    height: 20px;
+    left: 110px;
+    position: absolute;
+    width: 90px;
+}
+
+#p14form {
+    width: 242px;
+    height: 134px;
+    background: url("payroll/images/p14-form.png") no-repeat;
+}
+
+.efile-table {
+
+}
+
+.efile-column-header-1 {
+    background-color: #D6E3F3;
+    padding: 5px;
+    font-weight: bold;
+    text-align: left;
+    border: 1px solid #ACA899;
+}
+
+.efile-column-header {
+    background-color: #D6E3F3;
+    padding: 5px;
+    font-weight: bold;
+    text-align: left;
+    border-top: 1px solid #ACA899;
+    border-bottom: 1px solid #ACA899;
+    border-right: 1px solid #ACA899;
+}
+
+.efile-column-1 {
+    background-color: #D6E3F3;
+    padding: 5px;
+    font-weight: bold;
+    text-align: left;
+    border-left: 1px solid #ACA899;
+    border-right: 1px solid #ACA899;
+    border-bottom: 1px solid #ACA899;
+}
+
+.efile-column {
+    padding: 5px;
+    border-bottom: 1px solid #ACA899;
+    border-right: 1px solid #ACA899;
+}
+
+.p35TableTitle {
+    background-color: #8DB4E3;
+    color: #000000;
+    padding: 2px;
+    font-weight: bold;
+    text-align: left;
+    vertical-align: middle;
+    border-bottom: 2px solid #FFFFFF;
+}
+
+.p35TableDoubleBorder {
+    /*border-top: 1px solid #8DB4E3;
+    border-bottom: 2px double #8DB4E3;*/
+}
+
+.p35Numbers {
+    background-color: #000000;
+    color: #FFFFFF;
+    padding: 2px;
+    border-bottom: 2px solid #FFFFFF;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.p35checklistTable td {
+    /*vertical-align:top;*/
+}
+
+.checkListDelimeter {
+    background-color: #000000; /*vertical-align:top;*/
+}
+
+.efileResult {
+    padding: 10px;
+}
+
+.efileResult-1 {
+    padding: 10px;
+    border-bottom: 1px solid #ACA899;
+}
+
+.payroll-Gwt-DialogBox {
+    border: 4px solid #8DB4E3;
+    background-color: white;
+    nowrap: nowrap;
+}
+
+.payroll-Gwt-DialogBox .Caption {
+    background-color: #C3D9FF;
+    padding: 3px;
+    font-weight: bold;
+    cursor: default;
+    nowrap: nowrap;
+}
+
+.gwt-DialogBox td {
+    text-align: left;
+}
+
+.statutory-payments-PopupPanel {
+    border: 3px solid #C3D9FF; /*padding: 3px;*/
+    background: white;
+
+}
+
+.statutory-payments-PopupPanel .popupContent {
+    /*background-color: white;
+    border: 3px solid #C3D9FF;
+    padding: 3px;*/
+}
+
+/*.gwt-PopupPanelGlass {*/
+/*background-color: #000;*/
+/*opacity: 0.3;*/
+/*filter: alpha(opacity = 30);*/
+/*}*/
+
+.spap-popup-caption {
+    padding: 10px;
+    font-weight: bold;
+    text-align: center;
+    background-color: #C3D9FF;
+}
+
+#nostylelink {
+}
+
+#nostylelink .abs-link {
+    cursor: default;
+}
+
+.save-button-style {
+    padding-left: 150px;
+}

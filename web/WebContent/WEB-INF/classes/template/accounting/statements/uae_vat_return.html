@@ -1,0 +1,254 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            font-weight: 300;
+            font-size: 9pt;
+            line-height: 1.4;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        .title-section * {
+            font-weight: 300;
+        }
+        .title-section h3 {
+            font-size: 32px;
+            margin-bottom: 0;
+        }
+        .title-section h1 {
+            font-size: 25px;
+            margin-top: 7px;
+            margin-bottom: 0;
+        }
+        .title-section p {
+            font-size: 18px;
+            margin-top: 12px;
+            margin-bottom: 0;
+        }
+        .title-section p span {
+            font-weight: 600;
+        }
+        .table-section h4 {
+            font-size: 24px;
+            font-weight: 500;
+            margin-top: 50px;
+            margin-bottom: 10px;
+        }
+        .table table {
+            border-bottom: 0.01em solid #eee;
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+        .table table th {
+            color: #263035;
+            font-size: 12px;
+            font-weight: 500;
+            text-transform: uppercase;
+            border-top: 0.01em solid #ddd;
+            border-bottom: 0.01em solid #ddd;
+            border-left: 0.01em solid #ddd;
+            background-color: #f5f5f5;
+            padding: 10px;
+            text-align: left;
+        }
+        .table table th:last-child, .table table td:last-child {
+            border-right: 0.01em solid #ddd;
+        }
+        .table table th:not(:nth-child(-n+2)), .table table td:not(:nth-child(-n+2)) {
+            width: 15%;
+            text-align: right;
+        }
+        .table table td {
+            border-bottom: 0.01em solid #ddd;
+            border-left: 0.01em solid #ddd;
+            padding: 10px;
+            vertical-align: top;
+            font-size: 14px;
+            line-height: 1.42;
+        }
+        .table table td:first-child {
+            text-align: right;
+        }
+        .table table td a {
+            color: #428bca;
+            text-decoration: none;
+        }
+        .table table td span {
+            display: block;
+            white-space: normal;
+            color: #555;
+            margin-top: 5px;
+            font-size: 12px;
+        }
+        main {
+            margin-bottom: 40px;
+        }
+        .table table td.disable {
+            background: #f9f9f9;
+            white-space: nowrap;
+        }
+        .table table td .asbutton {
+            background-color: #2e8fda;
+            display: inline;
+            font-size: 75%;
+            color: #fff;
+            border-radius: .25em;
+            float: left;
+            margin: 0;
+            line-height: 1.3;
+            font-weight: 600;
+            padding: .2em .6em .1em;
+        }
+        .table.min-table table td:last-child {
+            width: 21%;
+        }
+        .table {
+            position: relative;
+        }
+        .date-section{
+            text-align: center;
+            margin: 0;
+            font-size: 16px;
+        }
+        .date-section span{
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+<section>
+    <img alt="images"
+         src="https://workforcetrack.s3.amazonaws.com/000000000000/public/65159/a2113e82-397f-49fd-a58a-cdf4f4b93dff?AWSAccessKeyId=AKIAIROQMC77E5UKWBWQ"
+         style="display: none;"/>
+    #if($itextGenericPdfData.companyData.companyName == 'KPI Software Inc' or
+    $itextGenericPdfData.companyData.companyLogoUrl == 'https://apps.kpi.com/customisation/kpi.com/images/kpilogo.png')
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="width: 88px;display: none;"/>
+    #else
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl"
+         style="max-width: 100%; max-height: 100%; display: none;"/>
+    #end
+
+    <div class="container">
+        <main>
+            <!--sales-table-->
+            <p class="date-section">$itextGenericPdfData.extraData</p>
+            #set($salesTable = $itextGenericPdfData.customData.get("SALES_TABLE"))
+            <div class="table-section">
+                <h4>VAT on Sales and all other Outputs</h4>
+                <div class="table">
+                    <table>
+                        <tr>
+                            <th>BOX#</th>
+                            <th>DESCRIPTION</th>
+                            <th>TAXABLE AMOUNT</th>
+                            <th>TAX AMOUNT</th>
+                            <th>ADJUSTMENTS</th>
+                        </tr>
+                        #foreach($salesRow in $salesTable.rows.values())
+                        <tr>
+                            <td>$salesRow.get("COLUMN_BOX")</td>
+                            <td>$salesRow.get("COLUMN_DESCRIPTION")</td>
+                            <td>
+                                #if($salesRow.get("COLUMN_TAXABLE_AMOUNT"))
+                                <a href="#">$salesRow.get("COLUMN_TAXABLE_AMOUNT")</a>
+                                #end
+                            </td>
+                            #if($salesRow.get("COLUMN_TAXABLE_AMOUNT"))
+                            <td>$salesRow.get("COLUMN_TAX_AMOUNT")</td>
+                            <td>$salesRow.get("COLUMN_ADJUSTMENTS")</td>
+                            #else
+                            <td class="disable">
+                                <p class="asbutton">A1</p>
+                                $salesRow.get("COLUMN_TAX_AMOUNT")
+                            </td>
+                            <td class="disable">
+                                <p class="asbutton">A2</p>
+                                $salesRow.get("COLUMN_ADJUSTMENTS")
+                            </td>
+                            #end
+                        </tr>
+                        #end
+                    </table>
+                </div>
+            </div>
+            <!--expense table-->
+            #set($expenseTable = $itextGenericPdfData.customData.get("EXPENSE_TABLE"))
+            <div class="table-section">
+                <h4>VAT on Expenses and all other Inputs</h4>
+                <div class="table">
+                    <table>
+                        <tr>
+                            <th>BOX#</th>
+                            <th>DESCRIPTION</th>
+                            <th>TAXABLE AMOUNT</th>
+                            <th>TAX AMOUNT</th>
+                            <th>ADJUSTMENTS</th>
+                        </tr>
+                        #foreach($expenseRow in $expenseTable.rows.values())
+                        <tr>
+                            <td>$expenseRow.get("COLUMN_BOX")</td>
+                            <td>$expenseRow.get("COLUMN_DESCRIPTION")</td>
+                            <td>
+                                #if($expenseRow.get("COLUMN_TAXABLE_AMOUNT"))
+                                <a href="#">$expenseRow.get("COLUMN_TAXABLE_AMOUNT")</a>
+                                #end
+                            </td>
+                            #if($expenseRow.get("COLUMN_TAXABLE_AMOUNT"))
+                            <td>$expenseRow.get("COLUMN_TAX_AMOUNT")</td>
+                            <td>$expenseRow.get("COLUMN_ADJUSTMENTS")</td>
+                            #else
+                            <td class="disable">
+                                <p class="asbutton">A3</p>
+                                $expenseRow.get("COLUMN_TAX_AMOUNT")
+                            </td>
+                            <td class="disable">
+                                <p class="asbutton">A4</p>
+                                $expenseRow.get("COLUMN_ADJUSTMENTS")
+                            </td>
+                            #end
+                        </tr>
+                        #end
+                    </table>
+                </div>
+            </div>
+            <!--Net VAT TABLE-->
+            #set($netVatTable = $itextGenericPdfData.customData.get("NET_TABLE"))
+            <div class="table-section">
+                <h4>Net VAT due</h4>
+                <div class="table">
+                    <table>
+                        <tr>
+                            <th>BOX#</th>
+                            <th>DESCRIPTION</th>
+                            <th>TAXABLE AMOUNT</th>
+                        </tr>
+                        #foreach($netRow in $netVatTable.rows.values())
+                        <tr>
+                            <td>$netRow.get("COLUMN_BOX")</td>
+                            <td>
+                                #if($netRow.get("COLUMN_FORMULA"))
+                                <span class="asbutton" style="float: right !important;">$netRow.get("COLUMN_FORMULA")</span>
+                                #end
+                                $netRow.get("COLUMN_DESCRIPTION")
+                            </td>
+                            <td>
+                                #if($netRow.get("COLUMN_TAXABLE_AMOUNT"))
+                                $netRow.get("COLUMN_TAXABLE_AMOUNT")
+                                #end
+                            </td>
+                        </tr>
+                        #end
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+</section>
+</body>
+</html>

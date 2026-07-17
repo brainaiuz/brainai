@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div align="center"><h2 style="font-style:italic;">DAILY ALERT</h2></div>
+<p>Dear Muzaffar Karabaev , </p>
+<p>Please be advised that as of &nbsp; <strong>$today</strong> </p>
+<div style="padding-left:30px;">
+  <p><strong>$newSignUpersCount </strong>companies have signed up 
+  <p><strong>$totalUsers</strong> users have used the system 
+  <p><strong>$empAddedCompaniesCount</strong> companies have added <strong>$companyAddedEmployeesCount</strong> Employees 
+  <p><strong>$projectAddedCompaniesCount</strong> companies have created <strong>$companyAddedProjectsCount</strong> Projects 
+  <p><strong>$taskAddedCompaniesCount</strong> companies have created <strong>$companyAddedTasksCount </strong> Tasks 
+  <p><strong>$timesheetUsedCompaniesCount</strong> companies have registered time for <strong>$timesheetUsedTasksCount</strong> Tasks 
+</div>
+Please see the details below:
+
+<h3 style="color:#000066"><u><strong>New Sign uppers </strong>:</u></h3>
+<table border="0" width="100%" cellspacing="0" align="center" id="table2" style="border: solid 1px #979B98;">
+	<thead>
+		<tr >
+			<th bgcolor="#A8A8A8" style="color:#fff; border-right: solid 1px #fff; border-bottom: solid 2px #787878">Company Name</th>
+			<th bgcolor="#A8A8A8" style="color:#fff; border-right: solid 1px #fff; border-bottom: solid 2px #787878">Indusrty</th>
+			<th bgcolor="#A8A8A8" style="color:#fff; border-right: solid 1px #fff; border-bottom: solid 2px #787878">Address</th>
+			<th bgcolor="#A8A8A8" style="color:#fff; border-right: solid 1px #fff; border-bottom: solid 2px #787878">Adminstrator</th>
+		</tr>
+	</thead>
+	<tbody>
+		#foreach($company in $newSignUPers)
+		<tr align="center">
+			<td style="border: solid 1px #979B98;">$company.getCompany().getName()</td>
+			<td style="border: solid 1px #979B98;">
+			#if($company.getCompany().getWorkArea().getName())
+			$company.getCompany().getWorkArea().getName()
+			#end
+			</td>
+			<td style="border: solid 1px #979B98;">
+			    #if($company.getCompany().getAddress1() )
+					$company.getCompany().getAddress1()
+				#end
+
+				#if($company.getCompany().getAddress2() )
+					<br> $company.getCompany().getAddress2()
+				#end
+
+				#if($company.getCompany().getCity() )
+				    <br> $company.getCompany().getCity(),
+				#end
+				$company.getCompany().getCountryZone().getCountry().getName()
+			</td>
+			<td style="border: solid 1px #979B98;">
+			#foreach($admin in $company.getCompanyAdmin())
+				$admin.getName() <br> $admin.getEmail()
+			#end
+			</td>
+		</tr>
+		#end
+	</tbody>
+</table>
+
+
+<h3 style="color:#000066"><u><strong>Companies which used $productName today</strong></u></h3>
+<table border="0" width="100%" cellspacing="0" align="center" id="table2" style="border: solid 1px #979B98;">
+	<thead>
+		<tr>
+			<th bgcolor="#A8A8A8" style="color:#fff; border-right: solid 1px #fff; border-bottom: solid 2px #787878">Company Name</th>
+			<th bgcolor="#A8A8A8" style="color:#fff; border-right: solid 1px #fff; border-bottom: solid 2px #787878">Indusrty</th>
+			<th bgcolor="#A8A8A8" style="color:#fff; border-right: solid 1px #fff; border-bottom: solid 2px #787878">Address</th>
+			<th bgcolor="#A8A8A8" style="color:#fff; border-right: solid 1px #fff; border-bottom: solid 2px #787878">Used Sections</th>
+		</tr>
+	</thead>
+	<tbody>
+		#foreach($companyReport in $logReport)
+		<tr align="center">
+			<td style="border: solid 1px #979B98;">$companyReport.getCompany().getName()</td>
+			<td style="border: solid 1px #979B98;">
+			#if($companyReport.getCompany().getWorkArea().getName())
+			$companyReport.getCompany().getWorkArea().getName()
+			#end
+			</td>
+			<td style="border: solid 1px #979B98;">
+			#if($companyReport.getCompany().getAddress1())
+				$companyReport.getCompany().getAddress1()
+			#end
+			#if($companyReport.getCompany().getAddress2())
+				<br> $companyReport.getCompany().getAddress2()
+			#end
+            #if($companyReport.getCompany().getCity())
+				<br> $companyReport.getCompany().getCity(),
+			#end
+			$companyReport.getCompany().getCountryZone().getCountry().getName()
+			</td>
+			<td style="border: solid 1px #979B98;">
+				#foreach($sections in $companyReport.getSections())
+					$sections &nbsp;section <br>
+				#end
+			</td>
+		</tr>
+		#end
+	</tbody>
+</table>
+
+<h3 style="color:#000066"><u><strong>Companies which have logged in but have not used any section today</strong></u></h3>
+<table border="0" width="100%" cellspacing="0" align="center" id="table2" style="border: solid 1px #979B98;">
+	<thead>
+		<tr >
+			<th bgcolor="#A8A8A8" style="color:#fff; border-right: solid 1px #fff; border-bottom: solid 2px #787878">Company Name</th>
+			<th bgcolor="#A8A8A8" style="color:#fff; border-right: solid 1px #fff; border-bottom: solid 2px #787878">Indusrty</th>
+			<th bgcolor="#A8A8A8" style="color:#fff; border-right: solid 1px #fff; border-bottom: solid 2px #787878">Address</th>
+			<th bgcolor="#A8A8A8" style="color:#fff; border-right: solid 1px #fff; border-bottom: solid 2px #787878">Adminstrator</th>
+		</tr>
+	</thead>
+	<tbody>
+		#foreach($company in $onlyLoginUsedUsers)
+		<tr align="center">
+			<td style="border: solid 1px #979B98;">$company.getCompany().getName()</td>
+			<td style="border: solid 1px #979B98;">
+			#if($company.getCompany().getWorkArea().getName())
+			$company.getCompany().getWorkArea().getName()
+			#end
+			</td>
+			<td style="border: solid 1px #979B98;">
+			    #if($company.getCompany().getAddress1() )
+					$company.getCompany().getAddress1()
+				#end
+
+				#if($company.getCompany().getAddress2() )
+					<br> $company.getCompany().getAddress2()
+				#end
+
+				#if($company.getCompany().getCity() )
+				    <br> $company.getCompany().getCity(),
+				#end
+				$company.getCompany().getCountryZone().getCountry().getName()
+			</td>
+			<td style="border: solid 1px #979B98;">
+			#foreach($admin in $company.getCompanyAdmin())
+				$admin.getName() <br> $admin.getEmail()
+			#end
+			</td>
+		</tr>
+		#end
+	</tbody>
+</table>
+<h3 style="color:#000066"><u><strong>Company Updates</strong></u></h3>
+<table border="0" width="100%" cellspacing="0" align="center" id="table3" style="border: solid 1px #979B98;">
+	<thead>
+		<tr>
+			<th bgcolor="#A8A8A8" style="color:#fff; border-right: solid 1px #fff; border-bottom: solid 2px #787878">Company Name</th>
+			<th bgcolor="#A8A8A8" style="color:#fff; border-right: solid 1px #fff; border-bottom: solid 2px #787878">New Employees</th>
+			<th bgcolor="#A8A8A8" style="color:#fff; border-right: solid 1px #fff; border-bottom: solid 2px #787878">New Projects</th>
+			<th bgcolor="#A8A8A8" style="color:#fff; border-right: solid 1px #fff; border-bottom: solid 2px #787878">New Tasks</th>
+			<th bgcolor="#A8A8A8" style="color:#fff; border-right: solid 1px #fff; border-bottom: solid 2px #787878">New Departments</th>
+			<th bgcolor="#A8A8A8" style="color:#fff; border-right: solid 1px #fff; border-bottom: solid 2px #787878">New Clients</th>
+			<th bgcolor="#A8A8A8" style="color:#fff; border-right: solid 1px #fff; border-bottom: solid 2px #787878">New Issues</th>
+			<th bgcolor="#A8A8A8" style="color:#fff; border-right: solid 1px #fff; border-bottom: solid 2px #787878">Time Entries</th>
+		</tr>
+	</thead>
+	<tbody>
+		#foreach($companyReport in $logReport)
+		<tr align="center">
+			<td style="border: solid 1px #979B98;">$companyReport.getCompany().getName()</td>
+			<td style="border: solid 1px #979B98;">$companyReport.getEmployees()</td>
+			<td style="border: solid 1px #979B98;">$companyReport.getProjects()</td>
+			<td style="border: solid 1px #979B98;">$companyReport.getTasks()</td>
+			<td style="border: solid 1px #979B98;">$companyReport.teams</td>
+			<td style="border: solid 1px #979B98;">$companyReport.clients</td>
+			<td style="border: solid 1px #979B98;">$companyReport.issues</td>
+			<td style="border: solid 1px #979B98;">$companyReport.getTimesheet()</td>
+		</tr>
+		#end
+	</tbody>
+</table>
+
+<h3 style="color:#000066"><u><strong>Performance apraisal</strong></u></h3>
+<table border="0" width="100%" cellspacing="0" align="center" id="table3" style="border: solid 1px #979B98;">
+	<thead>
+		<tr>
+			<th bgcolor="#A8A8A8" style="color:#fff; border-right: solid 1px #fff; border-bottom: solid 2px #787878">Company Name</th>
+			<th bgcolor="#A8A8A8" style="color:#fff; border-right: solid 1px #fff; border-bottom: solid 2px #787878">Initiated Assessment</th>
+			<th bgcolor="#A8A8A8" style="color:#fff; border-right: solid 1px #fff; border-bottom: solid 2px #787878">Reviewed Assessment</th>
+			<th bgcolor="#A8A8A8" style="color:#fff; border-right: solid 1px #fff; border-bottom: solid 2px #787878">Rated Assessment</th>
+			<th bgcolor="#A8A8A8" style="color:#fff; border-right: solid 1px #fff; border-bottom: solid 2px #787878">Viewed Assessment</th>
+		</tr>
+	</thead>
+	<tbody>
+		#foreach($record in $cPAReport)
+		<tr align="center">
+			<td style="border: solid 1px #979B98;">$record.getCompany().getName()</td>
+			<td style="border: solid 1px #979B98;">$record.initiated</td>
+			<td style="border: solid 1px #979B98;">$record.reviewed</td>
+			<td style="border: solid 1px #979B98;">$record.rated</td>
+			<td style="border: solid 1px #979B98;">$record.approved</td>
+		</tr>
+		#end
+	</tbody>
+</table>
+</body>
+</html>

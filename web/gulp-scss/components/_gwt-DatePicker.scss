@@ -1,0 +1,503 @@
+$datePickerCellSize: 36px;
+$datePickerCellSize-small: $datePickerCellSize * .7;
+
+.dateBoxPopup[style*="top: -"] {
+  margin-top: 90px;
+}
+// COMMON DATEPICKER
+.blue-date-picker,
+.gwt-DatePicker {
+  margin: 0 auto;
+  box-shadow: none;
+  border: none;
+  //.gwt-DatePicker.gwt-DatePicker-mod  //http://prntscr.com/nsafcs
+  border: 1px solid $gray-border;
+  box-shadow: $popupBoxShadow;
+
+  .calendarPopup & {
+    border: none;
+    box-shadow: none;
+  }
+
+  .blue-week-line td,
+  .blue-day-grid td,
+  .blue-day-grid-not-pointer td,
+  .datePickerDays td,
+  .datePickerMonthSelector td,
+  .datePickerDay {
+    width: $datePickerCellSize;
+    height: $datePickerCellSize;
+    line-height: $datePickerCellSize;
+    text-align: center;
+    white-space: nowrap; //for month line
+
+    .dateBoxPopup[style*="top: -"] & {
+      width: $datePickerCellSize;
+      height: $datePickerCellSize-small;
+      line-height: $datePickerCellSize-small;
+    }
+
+    .pg_leave__calendar & {
+      .left-menu-closed & {
+        //width: 40px;
+        //height: 40px;
+      }
+
+      .left-menu-open & {
+        width: 34px;
+        height: 34px;
+        line-height: 34px;
+      }
+    }
+  }
+
+  .blue-day-grid td,
+  .blue-day-grid-not-pointer td,
+  .datePickerDays td,
+  .datePickerDay {
+    &:not(.datePickerWeekdayLabel):not(.datePickerWeekendLabel) {
+      cursor: pointer;
+      .pg_leave__calendar-datepicker & {
+        cursor: auto;
+      }
+      &:hover {
+        @include dataPicker-highlight;
+      }
+    }
+  }
+
+  table.datePickerMonthSelector td,
+  .blue-week-line td,
+  .datePickerWeekendLabel,
+  .datePickerWeekdayLabel {
+    height: auto !important;
+    color: #000;
+  }
+  .blue-week-line td,
+  .datePickerWeekendLabel,
+  .datePickerWeekdayLabel {
+    position: relative;
+    padding-bottom: 4px;
+    color: $gray-mutted;
+  }
+
+  .datePickerMonthSelector,
+  .blue-month-line {
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+    td {
+      font-size: 14px;
+      cursor: pointer;
+
+      &[width="60%"] {
+        text-align: center;
+        padding-top: 4px;
+        padding-left: 10px;
+        padding-right: 10px;
+        > div {
+          min-width: 114px; //September month sizs - to prevent width jupming berween month
+        }
+      }
+      &:not([width="60%"]) {
+        //font-weight: 500;
+        font-size: 2em;
+      }
+      &:hover {
+        color: $link-color;
+      }
+      &:first-child,
+      &:last-child {
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+      &:first-child,
+      &:nth-child(2) {
+        text-align: left;
+      }
+      &:last-child,
+      &:nth-last-child(2) {
+        text-align: right;
+      }
+      &:nth-child(2) {
+        width: 10px;
+        padding-left: 14px;
+      }
+      &:nth-last-child(2) {
+        width: 10px;
+        padding-right: 14px;
+      }
+      .datePickerPreviousButton,
+      .html-face {
+        margin-top: -2px;
+      }
+    }
+  }
+
+  #datePicker-currentDay:not(.blue-current-month-selected):not(.blue-selected),
+  .blue-current-day:not(.blue-current-month-selected) {
+    @include dataPicker-current;
+  }
+}
+
+.gwt-DatePicker {
+  background-color: white;
+  font-size: 8pt;
+  > tbody > tr {
+    > td {
+      padding-left:7px;
+      padding-right:7px;
+
+      .calendarPopup & {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+    + tr > td {
+      padding-bottom:7px;
+    }
+
+
+    .dateBoxPopup[style*="top: -"] & {
+      > td {
+        padding-left:4px;
+        padding-right:4px;
+      }
+      + tr > td {
+        padding-bottom:4px;
+      }
+      &:first-child > td .datePickerMonthSelector {
+        margin: 0;
+        td {
+          line-height: $datePickerCellSize-small;
+        }
+      }
+    }
+  }
+
+
+  .datePickerMonthSelector {
+    table-layout: auto; //connected to width: 100%;
+    background-color: transparent;
+  }
+  .gwt-DatePicker .popupContent & {
+    border: 1px solid #dbdbdb;
+    border-radius: $radius-basePlus;
+    box-shadow: $popupBoxShadow;
+  }
+  .datePickerDayIsFiller {
+    color: $gray-mutted;
+  }
+}
+
+.datePickerMonth {
+  //text-align: center;
+  //padding-top: 10px;
+}
+
+.blue-day-grid-not-pointer {
+  .pg_leave__calendar & {
+    border-spacing: 5px;
+  }
+}
+
+.blue-day-grid-not-pointer,
+.gwt-DatePicker .datePickerDays {
+  table-layout: fixed;
+  width: auto;
+  border: none;
+  border-collapse: separate;
+  border-spacing: 3px;
+  //margin-left: 15px;
+}
+
+//.pg_leave__calendar
+.datePickerWeekdayLabel,
+.blue-date-picker .blue-day-grid td,
+.blue-date-picker .blue-day-grid-not-pointer td,
+.gwt-DatePicker .datePickerDay {
+  position: relative;
+  //border: 1px solid transparent;
+
+  vertical-align: middle;
+  //text-align: center;
+  border-radius: $radius-base;
+  //background: transpa-rent;
+  transition: width .25s ease, height .25s ease;
+
+
+
+}
+
+//.pg_leave__calendar
+.blue-current-month-other-day,
+.gwt-DatePicker .datePickerDay {
+  //color: $gray-darkest;
+}
+
+//.pg_leave__calendar
+.blue-date-picker .blue-week-line td,
+.datePickerWeekdayLabel,
+.datePickerWeekendLabel {
+  //padding: 10px 11px;
+  //color: $gray-darkest;
+  //font-weight: normal;
+  //text-transform: uppercase;
+  //background-color: transparent;
+}
+
+//.gwt-DatePicker
+.datePickerMonth,
+.datePickerPreviousButton,
+.datePickerNextButton,
+.datePickerPreviousYearButton,
+.datePickerNextYearButton,
+.blue-date-picker .blue-month-line .gwt-Label {
+  //color: $gray-darkest;
+  //font-weight: normal;
+  //font-size: 14px;
+}
+
+//.gwt-DatePicker
+.datePickerPreviousButton,
+.datePickerNextButton,
+.datePickerPreviousYearButton,
+.datePickerNextYearButton {
+  //width: 15px;
+  //text-align: center;
+  //cursor: pointer;
+}
+
+//.gwt-DatePicker
+.datePickerPreviousButton:hover,
+.datePickerNextButton:hover,
+.datePickerPreviousYearButton:hover,
+.datePickerNextYearButton:hover {
+  color: $color-accent-1;
+}
+
+.datePickerDayIsWeekend {
+  background-color: #eee;
+}
+
+.datePickerDayIsValue { // Add live period datePicker
+  @include dataPicker-select;
+}
+
+.datePickerDayIsHighlighted {
+  @include dataPicker-highlight;
+}
+
+.datePickerDayIsToday {
+  @include dataPicker-current;
+}
+
+// \ COMMON DATEPICKER
+
+//PG LEAVE CALENDAR
+.pg_leave__calendar {
+  &-datepicker {
+    .blue-month-line {
+      //width: auto !important; // to override the width="214px"
+    }
+  }
+
+  .highlighted-day:not(.blue-off-day):not(.blue-blue-day) {
+    box-shadow: 0 0 0 1px $color-leave;
+    //box-shadow: inset 1px 1px 0 1px $color-leave;
+  }
+
+  .blue-count-as-leave-day:not(.blue-blue-day) {
+    box-shadow: 0 0 0 1px $color-leave;
+    //box-shadow: inset 1px 1px 0 1px $color-leave;
+  }
+
+  &-mark-approved {
+    background-color: $color-leave;
+  }
+  &-mark-money {
+    background-color: $success2-color;
+  }
+  &-mark-holiday {
+    background-color: #FD5050;
+  }
+  .blue-other-day {
+    color: #aaa;
+  }
+  .blue-other-day.blue-blue-day,
+  .blue-current-month-other-day {
+    color: #000;
+  }
+  .blue-current-month-week-end {
+    background: none;
+  }
+  .blue-week-end {
+    color: #aaa;
+  }
+  .blue-current-month-week-end {
+    color: black;
+  }
+  .blue-week-end {
+    background: none;
+  }
+  .blue-current-day {
+    //background: #eaeaea;
+  }
+  .blue-off-day {
+    color: $color-accent-2;
+    background: #eeeef0;
+  }
+
+  .blue-day-grid {
+    font-size: 11px;
+    cursor: pointer;
+    td {
+      text-align: center;
+      padding: 10px 11px;
+      border-radius: 20px;
+    }
+  }
+}
+
+// \PG LEAVE CALENDAR
+
+.blue-date-picker, .blue-date-picker table {
+  table-layout: fixed;
+}
+
+// BLUE DATA PICKER
+//table
+.blue-date-picker {
+  width: auto !important;
+  //margin-left: -20px;
+  margin-top: 0px;
+  padding: 0 15px 15px;
+  border-radius: $radius-basePlus;
+  background: #fff;
+
+  //inner tables
+  .blue-week-line,
+  .blue-day-grid-not-pointer {
+    //width: auto !important;
+
+    .pg_leave__calendar & {
+      width: 296px !important;
+      .left-menu-open & {
+        width: 276px !important;
+      }
+    }
+  }
+
+  .blue-week-line, .blue-month-line {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  //http://prntscr.com/nrwk4p
+  .pg_leave__calendar-datepicker > & {
+    box-shadow: none;
+    border: none;
+  }
+
+  //:not(.blue-month-line)
+  table:not(.blue-month-line) {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 250px;
+  }
+  td.blue-current-month-selected:not(.blue-blue-day),
+  td.blue-selected.blue-current-day,
+  td.blue-selected {
+    @include dataPicker-select;
+  }
+  .blue-blue-day {
+    background: transparentize($color-leave, .6);
+
+    &.blue-current-month-selected {
+      @include dataPicker-select;
+    }
+  }
+
+  .blue-red-day {
+    background: #FD5050;
+    color: #fff;
+  }
+
+  //.blue-green-day {
+  //  background-color: $success2-color;
+  //  color: #fff;
+  //}
+
+  .blue-week-line {
+    font-weight: bold;
+    //margin-bottom: 15px;
+    //margin-top: 15px;
+    font-size: 11px;
+    text-align: center;
+    color: black;
+  }
+
+  .blue-month-line {
+    table-layout: auto;
+    white-space: nowrap;
+    .gwt-Label {
+      //text-align: center;
+      //color: #007de7;
+    }
+  }
+}
+
+// \ BLUE DATA PICKER
+
+// other from temp.scss
+.datepicker-field {
+  display: flex;
+  &__icon {
+    padding-left: 5px;
+    padding-right: 3px;
+    i {
+      line-height: 40px;
+    }
+  }
+}
+
+// \ other from temp.scss
+
+//FOOTER OF CALENDAR
+.pg_leave__calendar-mark,
+.pg_google__calendar-mark {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+$lr_colours: #2C74DB, #F1AB37, #337BE2, #99CA3A, #855099, #E73532, #59B378,
+#2E649E, #49943D, #6A4AA9, #47A7E6, #65B763, #ACDAED, #CC0000, #000000, #AEDACD,
+#D40CA2, #AA80C6, #22DA93, #D6955F, #1F90B3, #5F5F5F, #BDBDBD, #49BD06, #CA6957,
+#D8AC73, #7BDDAF, #6963B7, #EDACEA, #CCA700, #990033, #FD5050, #548ce7;
+
+@function isDark($color) {
+  @if (lightness($color) > 40) {
+    @return #000;
+  } @else {
+    @return #FFF;
+  }
+}
+
+
+@each $lr_colour in $lr_colours {
+
+  $class_name: str-slice(inspect($lr_colour), 2);
+  $class_name_lowercase: to-lower-case($class_name);
+
+  .leave-#{$class_name},
+  .leave-#{$class_name_lowercase} {
+    background-color: $lr_colour !important;
+    color: isDark($lr_colour) !important;
+
+    &.blue-current-month-selected {
+      background-color: transparentize($lr_colour, .6) !important;
+    }
+  }
+}

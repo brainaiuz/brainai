@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="Reporting - GWT Build" basedir=".">
+
+    <import file="../web/Base_build.xml"/>
+
+    <target name="Reporting_ALL">
+        <antcall target="report"/>
+        <antcall target="ReportingDashboard"/>
+    </target>
+
+    <target name="report">
+        <antcall target="MAIN">
+            <param name="permutation" value="com.finnetlimited.reportservice.report.Report"/>
+        </antcall>
+    </target>
+
+    <target name="ReportingDashboard">
+        <antcall target="MAIN">
+            <param name="permutation" value="com.finnetlimited.reportservice.dashboardsystem.DashboardSystem"/>
+        </antcall>
+    </target>
+    <!--<target name="drsystem" description="GWT compile to JavaScript">-->
+    <!--<java failonerror="true" fork="true" classname="com.google.gwt.dev.Compiler"-->
+    <!--classpathref="gwt.compiler.classpath">-->
+
+    <!--&lt;!&ndash;<arg line="-style PRETTY"/>&ndash;&gt;-->
+    <!--&lt;!&ndash; add jvmarg -Xss16M or similar if you see a StackOverflowError &ndash;&gt;-->
+    <!--<jvmarg value="-Xmx256M"/>-->
+    <!--&lt;!&ndash; Additional arguments like -style PRETTY or -logLevel DEBUG &ndash;&gt;-->
+    <!--<arg line=" -XdisableClassMetadata  -XdisableCastChecking -war ..\war -localWorkers 2 "/>-->
+    <!---->
+    <!--<arg value="com.finnetlimited.reportservice.drsystem.DRSystem"/>-->
+    <!--</java>-->
+    <!--</target>-->
+
+    <!--<target name="report" description="GWT compile to JavaScript">-->
+    <!--<java failonerror="true" fork="true" classname="com.google.gwt.dev.Compiler"-->
+    <!--classpathref="gwt.compiler.classpath">-->
+
+    <!--&lt;!&ndash;<classpath>&ndash;&gt;-->
+    <!--&lt;!&ndash;<pathelement location="src"/>&ndash;&gt;-->
+    <!--&lt;!&ndash;<path refid="gwt.class.path"/>&ndash;&gt;-->
+    <!--&lt;!&ndash;</classpath>&ndash;&gt;-->
+
+    <!--&lt;!&ndash;<arg line="-style PRETTY"/>&ndash;&gt;-->
+    <!--&lt;!&ndash; add jvmarg -Xss16M or similar if you see a StackOverflowError &ndash;&gt;-->
+    <!--<jvmarg value="-Xmx256M"/>-->
+    <!--&lt;!&ndash; Additional arguments like -style PRETTY or -logLevel DEBUG &ndash;&gt;-->
+    <!--<arg line=" -XdisableClassMetadata  -XdisableCastChecking -war out/exploded/Web -localWorkers 2 "/>-->
+    <!--&lt;!&ndash;-XdisableClassMetadata -XdisableCastChecking&ndash;&gt;-->
+    <!--<arg value="com.finnetlimited.reportservice.report.Report"/>-->
+    <!--</java>-->
+    <!--</target>-->
+
+    <!--<target name="ReportingAdmin" description="GWT compile to JavaScript">-->
+    <!--<java failonerror="true" fork="true" classname="com.google.gwt.dev.Compiler"-->
+    <!--classpathref="gwt.compiler.classpath">-->
+
+    <!--&lt;!&ndash;<classpath>&ndash;&gt;-->
+    <!--&lt;!&ndash;<pathelement location="src"/>&ndash;&gt;-->
+    <!--&lt;!&ndash;<path refid="gwt.class.path"/>&ndash;&gt;-->
+    <!--&lt;!&ndash;</classpath>&ndash;&gt;-->
+
+    <!--&lt;!&ndash;<arg line="-style PRETTY"/>&ndash;&gt;-->
+    <!--&lt;!&ndash; add jvmarg -Xss16M or similar if you see a StackOverflowError &ndash;&gt;-->
+    <!--<jvmarg value="-Xmx256M"/>-->
+    <!--&lt;!&ndash; Additional arguments like -style PRETTY or -logLevel DEBUG &ndash;&gt;-->
+    <!--<arg line=" -XdisableClassMetadata  -XdisableCastChecking -war out/exploded/Web -localWorkers 2 "/>-->
+    <!--&lt;!&ndash;-XdisableClassMetadata -XdisableCastChecking&ndash;&gt;-->
+    <!--<arg value="com.finnetlimited.reportservice.admin.Admin"/>-->
+    <!--</java>-->
+    <!--</target>-->
+
+    <!--<target name="ReportingDashboard" description="Dashboard GWT compile to JavaScript">-->
+    <!--<java failonerror="true" fork="true" classname="com.google.gwt.dev.Compiler"-->
+    <!--classpathref="gwt.compiler.classpath">-->
+
+    <!--&lt;!&ndash;<arg line="-style PRETTY"/>&ndash;&gt;-->
+    <!--&lt;!&ndash; add jvmarg -Xss16M or similar if you see a StackOverflowError &ndash;&gt;-->
+    <!--<jvmarg value="-Xmx256M"/>-->
+    <!--&lt;!&ndash; Additional arguments like -style PRETTY or -logLevel DEBUG &ndash;&gt;-->
+    <!--<arg line="-XdisableClassMetadata  -XdisableCastChecking -war ..\war -localWorkers 2 "/>-->
+    <!--&lt;!&ndash;-XdisableClassMetadata -XdisableCastChecking&ndash;&gt;-->
+    <!--<arg value="com.finnetlimited.reportservice.dashboardsystem.DashboardSystem"/>-->
+    <!--</java>-->
+    <!--</target>-->
+
+</project>

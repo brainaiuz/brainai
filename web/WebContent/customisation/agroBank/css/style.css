@@ -1,0 +1,552 @@
+@font-face {
+  font-family: ALS Agrofont Bold;
+  src: url(../assets/fonts/ALSAgrofont-Bold.ttf) format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: ALS Agrofont Medium;
+  src: url(../assets/fonts/ALSAgrofont-Medium.ttf) format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: ALS Agrofont Regular;
+  src: url(../assets/fonts/ALSAgrofont-Regular.ttf) format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  font-family: 'ALS Agrofont Medium', sans-serif;
+}
+
+.main_wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  min-height: 100vh;
+}
+
+.main_container {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  width: 100%;
+  height: 100%;
+  padding: 40px;
+  background-color: #fafafa;
+}
+
+.mobile_header {
+  display: none;
+}
+
+.left_container {
+  position: relative;
+  width: 65%;
+  max-height: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.left_container .slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  animation: slide 14s infinite;
+}
+
+.left_container .slide:nth-child(1) {
+  background-image: url('../assets/images/slider/slider_image-1.jpg');
+  animation-delay: 0;
+}
+
+.left_container .slide:nth-child(2) {
+  background-image: url('../assets/images/slider/slider_image-2.jpg');
+  animation-delay: -3.5s;
+}
+
+.left_container .slide:nth-child(3) {
+  background-image: url('../assets/images/slider/slider_image-3.jpg');
+  animation-delay: -7s;
+}
+
+.left_container .slide:nth-child(4) {
+  background-image: url('../assets/images/slider/slider_image-4.jpg');
+  animation-delay: -10.5s;
+}
+
+@keyframes slide {
+  0%,
+  21%,
+  100% {
+    transform: translateX(0);
+    animation-timing-function: ease;
+  }
+  25% {
+    transform: translateX(-100%);
+    animation-timing-function: step-end;
+  }
+  96% {
+    transform: translateX(100%);
+    animation-timing-function: ease;
+  }
+}
+
+.agro_clip_path {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: #414bd7 url('../assets/images/logo_not_animated.png') top;
+  background-size: 200px;
+  clip-path: polygon(70% 0, 0 76%, 28% 100%, 0 100%, 0 0);
+  filter: invert(33%) sepia(71%) saturate(1414%) hue-rotate(215deg) brightness(84%) contrast(102%);
+}
+
+.agro_clip_path:hover {
+  background: #414bd7 url('../assets/images/logo_animated.png') top;
+  background-size: 200px;
+}
+
+.main_header_title {
+  position: absolute;
+  font-family: 'ALS Agrofont Bold';
+  top: 43px;
+  left: 43px;
+  color: #fff;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.main_header_secondary_title {
+  position: absolute;
+  top: 73px;
+  left: 43px;
+  color: #fff;
+  font-size: 70px;
+  font-weight: 700;
+}
+
+.right_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 35%;
+  height: 100%;
+  gap: 80px;
+}
+
+.agrobank_logo {
+  width: 220px;
+  height: 50px;
+}
+
+.login_wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 438px;
+  min-height: 280px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 20px;
+  gap: 20px;
+  box-shadow: 0px 91px 200px 0px #06411333;
+  overflow: hidden;
+}
+
+.form_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.login_title {
+  font-size: 24px;
+  font-weight: 900;
+}
+
+.login_input {
+  height: 56px;
+  width: 100%;
+  padding: 16px;
+  background-color: #fafafa;
+  border: none;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.login_input:focus {
+  background-color: #fff;
+  border: 2px solid #00cd69;
+  border-radius: 12px;
+  padding: 14px;
+}
+
+.error_input {
+  border: 2px solid #fd4f4f;
+  padding: 14px;
+}
+
+.error_input:focus {
+  border: 2px solid #fd4f4f;
+}
+
+.error_text {
+  font-family: 'ALS Agrofont Regular', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #fd4f4f;
+  margin-top: 3px;
+  margin-left: 5px;
+}
+
+.login_container {
+  position: relative;
+  width: 100%;
+  height: 56px;
+}
+
+.password_container {
+  position: relative;
+  width: 100%;
+  height: 56px;
+}
+
+.password_input {
+  position: relative;
+  height: 56px;
+  width: 100%;
+  padding: 16px 50px 16px 16px;
+  background-color: #fafafa;
+  border: none;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.password_input:focus {
+  background-color: #fff;
+  border: 2px solid #00cd69;
+  border-radius: 12px;
+  padding: 14px;
+}
+
+.password_eye {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  cursor: pointer;
+}
+
+.login_button {
+  height: 56px;
+  width: 100%;
+  color: #fff;
+  padding: 8px;
+  border-radius: 12px;
+  border: none;
+  background-color: #86d7b0;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+@media only screen and (min-width: 2200px) {
+  .main_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 100vw;
+    height: 100vh;
+    padding: 111px;
+    background-color: #fafafa;
+  }
+
+  .left_container {
+    position: relative;
+    width: 50%;
+    max-height: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .right_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 20%;
+    height: 100%;
+    gap: 80px;
+  }
+
+  .main_header_title {
+    top: 30px;
+    left: 30px;
+    font-size: 32px;
+  }
+
+  .main_header_secondary_title {
+    top: 56px;
+    left: 30px;
+    font-size: 86px;
+  }
+}
+
+@media only screen and (max-width: 2200px) {
+  .main_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 100vw;
+    height: 100vh;
+    padding: 111px;
+    background-color: #fafafa;
+  }
+
+  .left_container {
+    position: relative;
+    width: 65%;
+    max-height: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .right_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 35%;
+    height: 100%;
+    gap: 80px;
+  }
+
+  .main_header_title {
+    top: 30px;
+    left: 30px;
+    font-size: 32px;
+  }
+
+  .main_header_secondary_title {
+    top: 56px;
+    left: 30px;
+    font-size: 86px;
+  }
+}
+
+@media only screen and (max-width: 1600px) {
+  .main_container {
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .left_container .slide {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    animation: slide 14s infinite;
+  }
+
+  .main_header_title {
+    top: 30px;
+    left: 30px;
+    font-size: 32px;
+  }
+
+  .main_header_secondary_title {
+    top: 70px;
+    left: 30px;
+    font-size: 58px;
+  }
+}
+
+@media only screen and (max-width: 1600px) {
+  .main_header_title {
+    top: 30px;
+    left: 30px;
+    font-size: 28px;
+  }
+
+  .main_header_secondary_title {
+    top: 70px;
+    left: 30px;
+    font-size: 56px;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .main_container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 100%;
+    max-height: 100%;
+    height: 100%;
+    padding: 16px;
+    background-color: #fff;
+  }
+
+  .mobile_header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 56px;
+    padding: 10px;
+    border-bottom: 1px solid #eeeff2;
+  }
+
+  .agro_clip_path {
+    height: 100%;
+    width: 100%;
+    background: #414bd7 url('../assets/images/logo_not_animated.png') top;
+    background-size: 100px;
+    clip-path: polygon(50% 0, 0 76%, 28% 100%, 0 100%, 0 0);
+    filter: invert(33%) sepia(71%) saturate(1414%) hue-rotate(215deg) brightness(84%) contrast(102%);
+  }
+
+  .agro_clip_path:hover {
+    background: #414bd7 url('../assets/images/logo_animated.png') top;
+    background-size: 100px;
+  }
+
+  .main_header_title {
+    top: 10px;
+    left: 10px;
+    font-size: 28px;
+  }
+
+  .main_header_secondary_title {
+    top: 40px;
+    left: 10px;
+    font-size: 52px;
+  }
+
+  .agrobank_logo {
+    display: none;
+  }
+
+  .left_container {
+    position: relative;
+    width: 100%;
+    min-height: 600px;
+    overflow: hidden;
+  }
+
+  .right_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-height: 1000px;
+    height: 100%;
+    gap: 80px;
+  }
+
+  .login_wrapper {
+    padding: 0;
+    box-shadow: none;
+  }
+}
+
+@media only screen and (max-width: 860px) {
+  .main_header_title {
+    top: 10px;
+    left: 10px;
+    font-size: 22px;
+  }
+
+  .main_header_secondary_title {
+    top: 40px;
+    left: 10px;
+    font-size: 32px;
+  }
+}
+
+@media only screen and (max-width: 690px) {
+  .main_header_title {
+    top: 10px;
+    left: 10px;
+    font-size: 18px;
+  }
+}
+
+@media only screen and (max-width: 590px) {
+  .left_container {
+    min-height: 500px;
+  }
+
+  .main_header_title {
+    top: 10px;
+    left: 10px;
+    font-size: 14px;
+  }
+
+  .main_header_secondary_title {
+    top: 30px;
+    left: 10px;
+    font-size: 22px;
+  }
+}
+
+@media only screen and (max-width: 472px) {
+  .agro_clip_path {
+    background-size: 80px;
+  }
+
+  .agro_clip_path:hover {
+    background-size: 80px;
+  }
+
+  .left_container {
+    min-height: 300px;
+  }
+
+  .login_title {
+    font-size: 24px;
+  }
+
+  .main_header_title {
+    top: 10px;
+    left: 10px;
+    font-size: 12px;
+  }
+
+  .main_header_secondary_title {
+    top: 30px;
+    left: 10px;
+    font-size: 26px;
+  }
+}
+
+@media only screen and (max-width: 472px) {
+  .main_header_title {
+    top: 10px;
+    left: 10px;
+    font-size: 10px;
+  }
+
+  .main_header_secondary_title {
+    top: 30px;
+    left: 10px;
+    font-size: 20px;
+  }
+}

@@ -1,0 +1,1 @@
+update "anv".modelField set hideIncustomizeForm = true where form_id in ('LEAD_FORM','CONTACT_FORM') and field_id in ('CRM_ACCOUNT_ORGANIZATION_TYPE','CRM_ACCOUNT_NUMBER_OF_EMPLOYEE','CRM_ACCOUNT_ANNUAL_REVENUE','CRM_ACCOUNT_OWNERSHIP');

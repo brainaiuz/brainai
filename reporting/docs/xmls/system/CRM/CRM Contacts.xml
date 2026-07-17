@@ -1,0 +1,166 @@
+<report>
+    <view>
+        <title>CRM Contacts Report</title>
+        <name>Contacts Report</name>
+        <category>contacts</category>
+        <sqlquery>
+            <select agregateFunc="distinct">
+                <table name="Contacts">
+                    <column name="firstname" title="First Name" type="string" formattype="string"/>
+                    <column name="lastname" title="Last Name" type="string" formattype="string"/>
+                    <column name="middlename" title="Middle Name" type="string" formattype="string"/>
+                    <column name="othername" title="Other Name" type="string" formattype="string"/>
+                    <!--<column name="t.companyname" title="Company" type="string" formattype="string"/>-->
+                    <column name="department" title="Department" type="string" formattype="string"/>
+                    <column name="position" title="Position" type="string" formattype="string"/>
+                    <column name="primaryphone" title="Phone" type="string" formattype="phone"/>
+                    <column name="primaryemail" title="Email" type="string" formattype="string"/>
+                </table>
+                <table name="IM Address">
+                    <column name="imaddress_G_GOOGLE_TALK" title="GOOGLE TALK" type="string"
+                            formattype="string"/>
+                    <column name="imaddress_AIM" title="AIM" type="string"
+                            formattype="string"/>
+                    <column name="imaddress_YAHOO" title="Yahoo" type="string" formattype="string"/>
+                    <column name="imaddress_SKYPE" title="Skype" type="string" formattype="string"/>
+                    <column name="imaddress_QQ" title="QQ" type="string" formattype="string"/>
+                    <column name="imaddress_MSN" title="MSN" type="string" formattype="string"/>
+                    <column name="imaddress_ISQ" title="ISQ" type="string" formattype="string"/>
+                    <column name="imaddress_JABBER" title="Jabber" type="string" formattype="string"/>
+                </table>
+                <table name="Web Address">
+                    <column name="webaddress_HOME" title="Home" type="string" formattype="string"/>
+                    <column name="webaddress_WORK" title="Work" type="string" formattype="string"/>
+                    <column name="webaddress_HOME_PAGE" title="Home Page" type="string" formattype="string"/>
+                    <column name="webaddress_FTP" title="FTP" type="string" formattype="string"/>
+                    <column name="webaddress_BLOG" title="BLOG" type="string" formattype="string"/>
+                    <column name="webaddress_PROFILE" title="Profile" type="string" formattype="string"/>
+                    <column name="webaddress_OTHER" title="Other" type="string" formattype="string"/>
+                </table>
+                <table name="Address">
+                    <column name="address_line" title="Address Line" type="string" formattype="string"/>
+                    <column name="address_city" title="City" type="string" formattype="string"/>
+                    <column name="address_zipcode" title="Zip Code" type="string" formattype="string"/>
+                    <column name="country" title="Country" type="string" formattype="string"/>
+                </table>
+                <table name="CRM Details">
+                    <column name="contacttype"
+                            title="Contact Type" type="string" formattype="string"/>
+                    <column name="contactemployee" title="Contact Employee" type="string"
+                            formattype="string"/>
+                    <column name="accountname" title="Account Name" type="string" formattype="string"/>
+                    <column name="campaignname" title="Campaign Name" type="string" formattype="string"/>
+                </table>
+            </select>
+            <from>
+                (select distinct cc.firstname,cc.lastname, cc.middlename, cc.othername, cc.department, cc.position,
+                cc.primaryphone, cc.primaryemail,
+                cm.name campaignname,
+
+                im_address.imaddress_G_GOOGLE_TALK, im_address.imaddress_AIM, im_address.imaddress_YAHOO,
+                im_address.imaddress_SKYPE,
+                im_address.imaddress_QQ, im_address.imaddress_MSN, im_address.imaddress_ISQ,
+                im_address.imaddress_JABBER,
+
+                web_address.webaddress_HOME, web_address.webaddress_WORK, web_address.webaddress_HOME_PAGE,
+                web_address.webaddress_FTP, web_address.webaddress_BLOG, web_address.webaddress_PROFILE,
+                web_address.webaddress_OTHER,
+
+                address.address_line, address.address_city, address.address_zipcode, address.country,
+
+                (CASE cc.contacttype WHEN 1 THEN 'CRM Contact' WHEN 2 THEN 'Client' WHEN 3 THEN 'Supplier' WHEN 4 THEN
+                'Employee' END) as contacttype
+                ,ca.name accountname, usr.firstname||' '||usr.lastname contactemployee
+                from
+                "$".crmcontact cc
+
+                left outer join "$".crmaccount ca on cc.crmaccount=ca.id
+                left outer join "$".myuser usr on cc.owner=usr.id
+                left outer join "$".campaign cm on cc.campaign=cm.id
+                left outer join
+                (select contactid, max(imaddress_G_GOOGLE_TALK) imaddress_G_GOOGLE_TALK, max(imaddress_AIM)
+                imaddress_AIM, max(imaddress_YAHOO) imaddress_YAHOO
+                ,max(imaddress_SKYPE) imaddress_SKYPE, max(imaddress_QQ) imaddress_QQ, max(imaddress_MSN) imaddress_MSN,
+                max(imaddress_ISQ) imaddress_ISQ,
+                max(imaddress_JABBER) imaddress_JABBER
+                from (select im.contactid,
+                case im.relationid when 12 then array_to_string(array_agg(im.value),'; ') end imaddress_G_GOOGLE_TALK,
+                case im.relationid when 13 then array_to_string(array_agg(im.value),'; ') end imaddress_AIM,
+                case im.relationid when 14 then array_to_string(array_agg(im.value),'; ') end imaddress_YAHOO,
+                case im.relationid when 15 then array_to_string(array_agg(im.value),'; ') end imaddress_SKYPE,
+                case im.relationid when 16 then array_to_string(array_agg(im.value),'; ') end imaddress_QQ,
+                case im.relationid when 17 then array_to_string(array_agg(im.value),'; ') end imaddress_MSN,
+                case im.relationid when 18 then array_to_string(array_agg(im.value),'; ') end imaddress_ISQ,
+                case im.relationid when 19 then array_to_string(array_agg(im.value),'; ') end imaddress_JABBER
+                from "$".crmcontactitemparams im where im.paramid=5 group by im.contactid, im.relationid) im_address
+                group by contactid
+                ) im_address on cc.id=im_address.contactid
+                left outer join
+                (select contactid, max(webaddress_HOME) webaddress_HOME,max(webaddress_WORK) webaddress_WORK,
+                max(webaddress_HOME_PAGE) webaddress_HOME_PAGE,
+                max(webaddress_FTP) webaddress_FTP, max(webaddress_BLOG) webaddress_BLOG, max(webaddress_PROFILE)
+                webaddress_PROFILE, max(webaddress_OTHER) webaddress_OTHER
+                from (
+                select im.contactid,
+                case im.relationid when 1 then array_to_string(array_agg(im.value),'; ') end webaddress_HOME,
+                case im.relationid when 2 then array_to_string(array_agg(im.value),'; ') end webaddress_WORK,
+                case im.relationid when 8 then array_to_string(array_agg(im.value),'; ') end webaddress_HOME_PAGE,
+                case im.relationid when 9 then array_to_string(array_agg(im.value),'; ') end webaddress_FTP,
+                case im.relationid when 10 then array_to_string(array_agg(im.value),'; ') end webaddress_BLOG,
+                case im.relationid when 11 then array_to_string(array_agg(im.value),'; ') end webaddress_PROFILE,
+                case im.relationid when 7 then array_to_string(array_agg(im.value),'; ') end webaddress_OTHER
+                from "$".crmcontactitemparams im where im.paramid=4
+                group by im.contactid, im.relationid) web_address
+                group by contactid) web_address on cc.id=web_address.contactid
+                left outer join
+                (select contactid,
+                coalesce(address,'')||' '||coalesce(addressb,'') address_line,
+                zipCode address_zipcode,
+                city address_city,
+                cn.name country
+                from "$".address add left outer join "public".country cn on add.countryid=cn.id
+                where entitytype='contact' and relationtype=1
+                ) address on cc.id=address.contactid
+
+
+                inner join
+                (
+                select distinct crmcontact_id from "$".crmcontact_contactcategory
+                where categories_id in
+                (
+                select distinct category.id from "$".contactcategoryrbac ccrbac
+                inner join "$".contactcategory category on ccrbac.contactCategory_id=category.id
+                where
+                (
+                category.doNotShow is null or category.doNotShow is not true
+                ) or
+                ccrbac.userid=#?user_id?# or category.owner_id=#?user_id?# or
+                (
+                ccrbac.groupid is not null and
+                ccrbac.groupid in
+                (
+                select distinct edsgroup6_.id from "$".trusteegroup edsgroup6_
+                inner join "$".trusteegroup_trustee members7_ on edsgroup6_.id=members7_.trusteegroup_id
+                inner join "$".trustee edstrustee8_ on members7_.members_id=edstrustee8_.id
+                inner join
+                (select distinct edstrustee9_.id
+                from "$".trustee edstrustee9_
+                where edstrustee9_.trusteeID=#?user_id?#
+                and edstrustee9_.trusteetype=2) abs on edstrustee8_.id=abs.id
+
+                )
+                )
+                )
+                ) as "contactids" on cc.id = "contactids".crmcontact_id
+
+
+                where cc.deleted is not true and cc.contacttype != 5 ) ccc
+
+            </from>
+            <where>
+                <terms id="base" value="1=1"/>
+                <replacement id="userid" userid="#?user_id?#"/>
+            </where>
+        </sqlquery>
+    </view>
+</report>

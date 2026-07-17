@@ -1,0 +1,1 @@
+ant OrphanWorkspace -f ./web/AutoCompile.xml

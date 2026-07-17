@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body><p>Dear #if($user.firstName!='') $user.firstName #end #if($user.lastName!='') $user.lastName #end,</p><br/>
+
+<p>Please be advised that $INVOICE_TYPE No. $INVOICE_NUMBER has been saved and an email notification with
+    $TYPE attached, in PDF form, has been sent to $CLIENT_CONTACT_NAME on $DATE.
+    You can find the message that was sent to $CLIENT_CONTACT_NAME below.
+    The $INVOICE_TYPE is also attached for your attention.</p>
+
+##$companyInfo
+
+<p>_______________________________________________________________________________________________</p>
+
+<p>$MESSAGE</p>
+
+##<p>
+##---------------------------------------<br />
+##Powered by WorkforceTrack.com
+##</p>
+
+</body>
+</html>

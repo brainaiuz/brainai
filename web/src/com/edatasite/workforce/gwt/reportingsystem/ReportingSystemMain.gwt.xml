@@ -1,0 +1,6 @@
+<module>
+    <!--<inherits name='com.google.gwt.user.User'/>-->
+    <inherits name="com.edatasite.workforce.gwt.core.Core"/>
+    <inherits name="com.google.gwt.user.Debug"/>
+    <inherits name="com.edatasite.workforce.gwt.contact.ContactEmpty"/>
+</module>

@@ -1,0 +1,71 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:m.html="urn:import:gwt.material.design.client.ui.html"
+             xmlns:u="urn:import:com.edatasite.workforce.gwt.core.client.ui">
+    <g:HTMLPanel>
+        <div class="form-row">
+            <div class="col">
+                <div class="form-group">
+                    <div class="form-group__label"/>
+                    <div class="form-group__content">
+                        <u:components.KpiCheckBox ui:field="vatRegistered"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <g:HTMLPanel styleName="form-row" ui:field="pnlContainer">
+            <g:HTMLPanel styleName="col" ui:field="pnlVatConfigContainer">
+                <div class="form-group">
+                    <div class="form-group__label form-label--required">
+                        <m.html:Span ui:field="vatLabel"/>
+                    </div>
+                    <div class="form-group__content form-row">
+                        <div class="col-2">
+                            <g:TextBox ui:field="txtTaxIdDisplayName"/>
+                        </div>
+                        <div class="col-2">
+                            <g:TextBox ui:field="txtTaxIdNumber"/>
+                        </div>
+                        <div class="col-6">
+                            <m.html:Span ui:field="vatNumberResult"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group form-row">
+                    <div class="col-2">
+                        <div class="form-group__label">
+                            <m.html:Span ui:field="vatRegisteredOnLabel"/>
+                        </div>
+                        <div class="form-group__content">
+                            <u:DatePicker ui:field="vatRegistrationDate"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-group__label">
+                        <m.html:Span ui:field="accountingBasisLabel"/>
+                    </div>
+                    <m.html:Div class="form-group__content" ui:field="accountingBasisContainer"></m.html:Div>
+                </div>
+                <div class="form-group">
+                    <div class="form-group__label">
+                        <m.html:Span ui:field="internationalTradeLabel"/>
+                    </div>
+                    <div class="form-group__content">
+                        <u:components.KpiCheckBox ui:field="enableTradeOutside"/>
+                        <br/>
+                        <small class="help-block help-block-dark">if you are doing business outside the United Kingdom, enable this option for handling your sales and purchases</small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-group__label">
+                        <m.html:Span ui:field="reverseChargeLabel"/>
+                    </div>
+                    <div class="form-group__content">
+                        <u:components.KpiCheckBox ui:field="enableReverseCharge"/>
+                    </div>
+                </div>
+            </g:HTMLPanel>
+        </g:HTMLPanel>
+    </g:HTMLPanel>
+</ui:UiBinder>

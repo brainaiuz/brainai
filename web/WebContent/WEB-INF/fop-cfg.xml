@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fop xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:noNamespaceSchemaLocation="http://svn.apache.org/viewvc/xmlgraphics/fop/trunk/src/foschema/fop-configuration.xsd?view=co">
+
+    <!-- Strict user configuration -->
+    <strict-configuration>true</strict-configuration>
+
+    <!-- Strict FO validation -->
+    <strict-validation>true</strict-validation>
+
+    <!-- Base URL for resolving relative URLs -->
+    <!--<base>http://192.168.0.26:8080/</base>-->
+
+    <!-- Font Base URL for resolving relative font URLs -->
+    <!--<font-base>http://192.168.0.26:8080/</font-base>-->
+
+    <!-- Source resolution in dpi (dots/pixels per inch) for determining the size of pixels in SVG and bitmap images, default: 72dpi -->
+    <!--<source-resolution>72</source-resolution>-->
+    <!-- Target resolution in dpi (dots/pixels per inch) for specifying the target resolution for generated bitmaps, default: 72dpi -->
+    <!--<target-resolution>72</target-resolution>-->
+
+    <!-- default page-height and page-width, in case
+value is specified as auto -->
+    <!--<default-page-settings height="11in" width="8.26in"/>-->
+
+    <!-- etc. etc..... -->
+
+    <renderers>
+        <renderer mime="application/pdf">
+            <filterList>
+                <!-- provides compression using zlib flate (default is on) -->
+                <value>flate</value>
+            </filterList>
+            <fonts>
+                <font kerning="yes" embed-url="arial.ttf">
+                    <font-triplet name="arial" style="normal" weight="normal"/>
+                    <font-triplet name="arialMT" style="normal" weight="normal"/>
+                </font>
+                <font kerning="yes" embed-url="times.ttf">
+                    <font-triplet name="times" style="normal" weight="normal"/>
+                    <font-triplet name="timesMT" style="normal" weight="normal"/>
+                </font>
+                <font kerning="yes" embed-url="verdana.ttf">
+                    <font-triplet name="verdana" style="normal" weight="normal"/>
+                    <font-triplet name="verdanaMT" style="normal" weight="normal"/>
+                </font>
+                <font kerning="yes" embed-url="comic.ttf">
+                    <font-triplet name="comic" style="normal" weight="normal"/>
+                    <font-triplet name="comicMT" style="normal" weight="normal"/>
+                </font>
+                <font kerning="yes" embed-url="tahoma.ttf">
+                    <font-triplet name="tahoma" style="normal" weight="normal"/>
+                    <font-triplet name="tahomaMT" style="normal" weight="normal"/>
+                </font>
+            </fonts>
+        </renderer>
+    </renderers>
+
+</fop>
+

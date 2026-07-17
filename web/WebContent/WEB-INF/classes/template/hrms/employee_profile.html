@@ -1,0 +1,950 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style type="text/css">
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+        td {
+            padding: 3px;
+        }
+        .title {
+            font-size: 9pt;
+        }
+        .name {
+            font-size: 7pt;
+        }
+        .value {
+            font-size: 8pt;
+        }
+        .personalValue {
+            font-size: 7pt;
+        }
+        .nameCapital {
+            text-transform: capitalize;
+        }
+
+    </style>
+</head>
+<body>
+<div>
+    <img alt="images" src="https://workforcetrack.s3.amazonaws.com/000000000000/public/65159/a2113e82-397f-49fd-a58a-cdf4f4b93dff?AWSAccessKeyId=AKIAIROQMC77E5UKWBWQ" style="display: none;"/>
+    #if($itextGenericPdfData.companyData.companyName == 'KPI Software Inc' or $itextGenericPdfData.companyData.companyLogoUrl == 'https://apps.kpi.com/customisation/kpi.com/images/kpilogo.png')
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="width: 88px; display: none;"/>
+    #else
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="max-width: 100%; max-height: 100%; display: none;"/>
+    #end
+
+    #set($employeeTable = $itextGenericPdfData.customData.get('EMPLOYEE_INFORMATION'))
+    #set($addressTable = $itextGenericPdfData.customData.get('ADDRESS_INFORMATION'))
+    #set($bankTable = $itextGenericPdfData.customData.get('BANK_INFORMATION'))
+    #set($personalTable = $itextGenericPdfData.customData.get('PERSONAL_INFORMATION'))
+    #set($homePhoneTable = $itextGenericPdfData.customData.get('HOME_PHONE'))
+    #set($corporatePhoneTable = $itextGenericPdfData.customData.get('CORPORATE_PHONE'))
+    #set($mobilePhoneTable = $itextGenericPdfData.customData.get('MOBILE_PHONE'))
+    #set($personalEmailTable = $itextGenericPdfData.customData.get('PERSONAL_EMAIL'))
+    #set($corporateEmailTable = $itextGenericPdfData.customData.get('CORPORATE_EMAIL'))
+    #set($otherEmailTable = $itextGenericPdfData.customData.get('OTHER_EMAIL'))
+
+    #set($empPhoto = $employeeTable.rows.get('EMPLOYEE_PHOTO').get('COLUMN_VALUE'))
+    #set($empGender = $employeeTable.rows.get('GENDER').get('COLUMN_VALUE'))
+    #set($contInfTitle = $employeeTable.rows.get('CONTACT_INFORMATION').get('COLUMN_NAME'))
+    #set($bankAccInfTitle = $employeeTable.rows.get('BANK_ACCOUNT_INFORMATION').get('COLUMN_NAME'))
+    #set($addInfTitle = $employeeTable.rows.get('ADDRESS_INFORMATION').get('COLUMN_NAME'))
+    #set($additionalInfTitle = $employeeTable.rows.get('ADDITIONAL_INFORMATION').get('COLUMN_NAME'))
+    #set($employmentInfTitle = $employeeTable.rows.get('EMPLOYMENT_INFORMATION').get('COLUMN_NAME'))
+
+
+    #set($homePhoneTitle = $homePhoneTable.header.get('HOME_PHONE'))
+    #set($corporatePhoneTitle = $corporatePhoneTable.header.get('CORPORATE_PHONE'))
+    #set($mobilePhoneTitle = $mobilePhoneTable.header.get('MOBILE_PHONE'))
+    #set($personalEmailTitle = $personalEmailTable.header.get('PERSONAL_EMAIL'))
+    #set($corporateEmailTitle = $corporateEmailTable.header.get('CORPORATE_EMAIL'))
+    #set($otherEmailTitle = $otherEmailTable.header.get('OTHER_EMAIL'))
+
+    <!-- address information -->
+
+    #set($empCodeLab = $employeeTable.rows.get('EMPLOYEE_CODE').get('COLUMN_NAME'))
+    #set($empModeLab = $employeeTable.rows.get('EMPLOYMENT_MODE').get('COLUMN_NAME'))
+    #set($dateOfBirthLab = $employeeTable.rows.get('DATE_OF_BIRTH').get('COLUMN_NAME'))
+    #set($marialStatusLab = $employeeTable.rows.get('MARITAL_STATUS').get('COLUMN_NAME'))
+    #set($supervisorLab = $employeeTable.rows.get('SUPERVISOR').get('COLUMN_NAME'))
+    #set($departmentLab = $employeeTable.rows.get('department').get('COLUMN_NAME'))
+    #set($locationLab = $employeeTable.rows.get('LOCATION').get('COLUMN_NAME'))
+    #set($hireDateLab = $employeeTable.rows.get('HIRE_DATE').get('COLUMN_NAME'))
+    #set($resignDateLab = $employeeTable.rows.get('RESIGNATION_DATE').get('COLUMN_NAME'))
+    #set($termsOfContractLab = $employeeTable.rows.get('TERMS_OF_CONTRACT').get('COLUMN_NAME'))
+    #set($hrmsSalaryGradeLab = $employeeTable.rows.get('HRMS_SALARY_GRADE').get('COLUMN_NAME'))
+    #set($basicSalaryLab = $employeeTable.rows.get('BASIC_SALARY').get('COLUMN_NAME'))
+    #set($qualificatLab = $employeeTable.rows.get('QUALIFICATION').get('COLUMN_NAME'))
+    #set($primaryEmailLab = $employeeTable.rows.get('PRIMARY_EMAIL').get('COLUMN_NAME'))
+    #set($positionLab = $employeeTable.rows.get('POSITION').get('COLUMN_NAME'))
+
+    #set($empCodeVal = $employeeTable.rows.get('EMPLOYEE_CODE').get('COLUMN_VALUE'))
+    #set($titleVal = $employeeTable.rows.get('TITLE').get('COLUMN_VALUE'))
+    #set($empNameVal = $employeeTable.rows.get('EMPLOYEE_NAME').get('COLUMN_VALUE'))
+    #set($empModeVal = $employeeTable.rows.get('EMPLOYMENT_MODE').get('COLUMN_VALUE'))
+    #set($dateOfBirthVal = $employeeTable.rows.get('DATE_OF_BIRTH').get('COLUMN_VALUE'))
+    #set($marialStatusVal = $employeeTable.rows.get('MARITAL_STATUS').get('COLUMN_VALUE'))
+    #set($supervisorVal = $employeeTable.rows.get('SUPERVISOR').get('COLUMN_VALUE'))
+    #set($departmentVal = $employeeTable.rows.get('department').get('COLUMN_VALUE'))
+    #set($locationVal = $employeeTable.rows.get('LOCATION').get('COLUMN_VALUE'))
+    #set($hireDateVal = $employeeTable.rows.get('HIRE_DATE').get('COLUMN_VALUE'))
+    #set($resignDateVal = $employeeTable.rows.get('RESIGNATION_DATE').get('COLUMN_VALUE'))
+    #set($termsOfContractVal = $employeeTable.rows.get('TERMS_OF_CONTRACT').get('COLUMN_VALUE'))
+    #set($hrmsSalaryGradeVal = $employeeTable.rows.get('HRMS_SALARY_GRADE').get('COLUMN_VALUE'))
+    #set($basicSalaryVal = $employeeTable.rows.get('BASIC_SALARY').get('COLUMN_VALUE'))
+    #set($qualificatVal = $employeeTable.rows.get('QUALIFICATION').get('COLUMN_VALUE'))
+    #set($primaryEmailVal = $employeeTable.rows.get('PRIMARY_EMAIL').get('COLUMN_VALUE'))
+    #set($positionVal = $employeeTable.rows.get('POSITION').get('COLUMN_VALUE'))
+
+    #set($homeAddressTitle = $addressTable.rows.get('HOME_ADDRESS_TITLE').get('COLUMN_NAME'))
+    #set($homeAddressName = $addressTable.rows.get('HOME_ADDRESS_NAME').get('COLUMN_VALUE'))
+    #set($homeAddressFull = $addressTable.rows.get('HOME_ADDRESS_FULL').get('COLUMN_VALUE'))
+    #set($homeAddress = $addressTable.rows.get('HOME_ADDRESS').get('COLUMN_VALUE'))
+    #set($homeAddress2 = $addressTable.rows.get('HOME_ADDRESS2').get('COLUMN_VALUE'))
+    #set($homeCity = $addressTable.rows.get('HOME_CITY').get('COLUMN_VALUE'))
+    #set($homeState = $addressTable.rows.get('HOME_STATE').get('COLUMN_VALUE'))
+    #set($homeCountry = $addressTable.rows.get('HOME_COUNTRY').get('COLUMN_VALUE'))
+    #set($homeZipcode = $addressTable.rows.get('HOME_ZIPCODE').get('COLUMN_VALUE'))
+
+    #set($homeAddFull = '—')
+    #if($homeAddress != '' and $homeAddress2 != '' and $homeZipcode != '' and $homeCity != '' and $homeState != '' and $homeCountry != '')
+    #set($homeAddFull = $homeAddress + ', ' + $homeAddress2 + ', ' + $homeZipcode + ', ' + $homeCity + ', ' + $homeState + ', ' + $homeCountry)
+    #elseif($homeAddress != '' and $homeAddress2 != '' and $homeZipcode != '' and $homeCity != '' and $homeState != '')
+    #set($homeAddFull = $homeAddress + ', ' + $homeAddress2 + ', ' + $homeZipcode + ', ' + $homeCity + ', ' + $homeState)
+    #elseif($homeAddress != '' and $homeAddress2 != '' and $homeZipcode != '' and $homeCity != '')
+    #set($homeAddFull = $homeAddress + ', ' + $homeAddress2 + ', ' + $homeZipcode + ', ' + $homeCity)
+    #elseif($homeAddress != '' and $homeAddress2 != '' and $homeZipcode != '')
+    #set($homeAddFull = $homeAddress + ', ' + $homeAddress2 + ', ' + $homeZipcode)
+    #elseif($homeAddress != '' and $homeAddress2 != '')
+    #set($homeAddFull = $homeAddress + ', ' + $homeAddress2)
+    #elseif($homeAddress != '' )
+    #set($homeAddFull = $homeAddress )
+    #elseif($homeAddress2 != '')
+    #set($homeAddFull = $homeAddress2)
+    #elseif($homeZipcode != '')
+    #set($homeAddFull = $homeZipcode)
+    #elseif($homeCity != '')
+    #set($homeAddFull = $homeCity)
+    #elseif($homeState != '')
+    #set($homeAddFull = $homeState)
+    #elseif($homeCountry != '')
+    #set($homeAddFull = $homeCountry)
+    #end
+
+    #set($corporateAddressTitle = $addressTable.rows.get('CORPORATE_ADDRESS_TITLE').get('COLUMN_NAME'))
+    #set($corporateAddressName = $addressTable.rows.get('CORPORATE_ADDRESS_NAME').get('COLUMN_VALUE'))
+    #set($corporateAddressFull = $addressTable.rows.get('CORPORATE_ADDRESS_FULL').get('COLUMN_VALUE'))
+    #set($corporateAddress = $addressTable.rows.get('CORPORATE_ADDRESS').get('COLUMN_VALUE'))
+    #set($corporateAddress2 = $addressTable.rows.get('CORPORATE_ADDRESS2').get('COLUMN_VALUE'))
+    #set($corporateCity = $addressTable.rows.get('CORPORATE_CITY').get('COLUMN_VALUE'))
+    #set($corporateState = $addressTable.rows.get('CORPORATE_STATE').get('COLUMN_VALUE'))
+    #set($corporateCountry = $addressTable.rows.get('CORPORATE_COUNTRY').get('COLUMN_VALUE'))
+    #set($corporateZipcode = $addressTable.rows.get('CORPORATE_ZIPCODE').get('COLUMN_VALUE'))
+
+    #set($corpAddFull = '—')
+    #if($corporateAddress != '' and $corporateAddress2 != '' and $corporateZipcode != '' and $corporateCity != '' and $corporateState != '' and $corporateCountry != '')
+    #set($corpAddFull = $corporateAddress + ', ' + $corporateAddress2 + ', ' + $corporateZipcode + ', ' + $corporateCity + ', ' + $corporateState + ', ' + $corporateCountry)
+    #elseif($corporateAddress != '' and $corporateAddress2 != '' and $corporateZipcode != '' and $corporateCity != '' and $corporateState != '')
+    #set($corpAddFull = $corporateAddress + ', ' + $corporateAddress2 + ', ' + $corporateZipcode + ', ' + $corporateCity + ', ' + $corporateState)
+    #elseif($corporateAddress != '' and $corporateAddress2 != '' and $corporateZipcode != '' and $corporateCity != '')
+    #set($corpAddFull = $corporateAddress + ', ' + $corporateAddress2 + ', ' + $corporateZipcode + ', ' + $corporateCity)
+    #elseif($corporateAddress != '' and $corporateAddress2 != '' and $corporateZipcode != '')
+    #set($corpAddFull = $corporateAddress + ', ' + $corporateAddress2 + ', ' + $corporateZipcode)
+    #elseif($corporateAddress != '' and $corporateAddress2 != '')
+    #set($corpAddFull = $corporateAddress + ', ' + $corporateAddress2)
+    #elseif($corporateAddress2 != '')
+    #set($corpAddFull = $corporateAddress2)
+    #elseif($corporateZipcode != '')
+    #set($corpAddFull = $corporateZipcode)
+    #elseif($corporateCity != '')
+    #set($corpAddFull = $corporateCity)
+    #elseif($corporateState != '')
+    #set($corpAddFull = $corporateState)
+    #elseif($corporateCountry != '')
+    #set($corpAddFull = $corporateCountry)
+    #end
+
+    <!-- passport and bank information -->
+
+    #set($passNoLab = $personalTable.rows.get('PASSPORT_NUMBER').get('COLUMN_NAME'))
+    #set($passIssueLab = $personalTable.rows.get('PASSPORT_ISSUE').get('COLUMN_NAME'))
+    #set($passIssueDateLab = $personalTable.rows.get('PASSPORT_ISSUE_DATE').get('COLUMN_NAME'))
+    #set($passExpireDateLab = $personalTable.rows.get('PASSPORT_EXPIRY_DATE').get('COLUMN_NAME'))
+    #set($insuranceNoLab = $personalTable.rows.get('INSURANCE_NUMBER').get('COLUMN_NAME'))
+    #set($insuranceExpDateLab = $personalTable.rows.get('INSURANCE_EXPIRY_DATE').get('COLUMN_NAME'))
+    #set($visaNoLab = $personalTable.rows.get('VISA_NUMBER').get('COLUMN_NAME'))
+    #set($visaIssueDateLab = $personalTable.rows.get('VISA_ISSUE_DATE').get('COLUMN_NAME'))
+    #set($visaExpDateLab = $personalTable.rows.get('VISA_EXPIRY_DATE').get('COLUMN_NAME'))
+
+    #set($passNoVal = $personalTable.rows.get('PASSPORT_NUMBER').get('COLUMN_VALUE'))
+    #set($passIssueVal = $personalTable.rows.get('PASSPORT_ISSUE').get('COLUMN_VALUE'))
+    #set($passIssueDateVal = $personalTable.rows.get('PASSPORT_ISSUE_DATE').get('COLUMN_VALUE'))
+    #set($passExpireDateVal = $personalTable.rows.get('PASSPORT_EXPIRY_DATE').get('COLUMN_VALUE'))
+    #set($insuranceNoVal = $personalTable.rows.get('INSURANCE_NUMBER').get('COLUMN_VALUE'))
+    #set($insuranceExpDateVal = $personalTable.rows.get('INSURANCE_EXPIRY_DATE').get('COLUMN_VALUE'))
+    #set($visaNoVal = $personalTable.rows.get('VISA_NUMBER').get('COLUMN_VALUE'))
+    #set($visaIssueDateVal = $personalTable.rows.get('VISA_ISSUE_DATE').get('COLUMN_VALUE'))
+    #set($visaExpDateVal = $personalTable.rows.get('VISA_EXPIRY_DATE').get('COLUMN_VALUE'))
+
+    <div style="width: 20%; float: left; margin-right: 5%; height: 835px;">
+        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+                <td style="padding: 0; margin: 0;">
+                    #if($empPhoto != '')
+                        <img width="100%" height="auto" src="$empPhoto"/>
+                    #elseif($empGender == 'Male' or $empGender == 'male')
+                        <img width="100%" height="auto" src="https://workforcetrack.s3.amazonaws.com/000000000000/public/65159/3ec000f4-7097-425f-9e11-a8629afe0b9c?AWSAccessKeyId=AKIAIROQMC77E5UKWBWQ"/>
+                    #elseif($empGender == 'Female' or $empGender == 'female')
+                        <img width="100%" height="auto" src="https://workforcetrack.s3.amazonaws.com/000000000000/public/65159/a0763544-4862-4bb3-b22a-a3d3d8857148?AWSAccessKeyId=AKIAIROQMC77E5UKWBWQ"/>
+                    #elseif($empGender == '')
+                        <img width="100%" height="auto" src="https://workforcetrack.s3.amazonaws.com/000000000000/public/65159/d21c6ca3-7c78-47ed-a297-76d74054dca4?AWSAccessKeyId=AKIAIROQMC77E5UKWBWQ"/>
+                    #end
+                </td>
+            </tr>
+        </table>
+
+        <table width="100%" cellspacing="0" align="left" cellpadding="0" style="background-color: #eeeeee; border-radius: 7px; margin-top: 20px;" border="0">
+            <tr>
+                <td width="10%" style="padding-top: 18px;"></td>
+                <td width="90%" style="padding-top: 18px;" class="name nameCapital">$empCodeLab</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td style="font-weight: bold;" class="value">
+                    #if($empCodeVal != '') #$empCodeVal #else — #end
+                </td>
+            </tr>
+            #if($titleVal != '')
+            <tr>
+                <td style="padding-top: 12px;"></td>
+                <td style="padding-top: 12px; font-weight: bold;" class="name">
+                    $titleVal
+                </td>
+            </tr>
+            #end
+            #if($titleVal != '')
+            <tr>
+                <td></td>
+                <td style="font-weight: bold;" class="value">
+                    #if($empNameVal != '') $empNameVal #else — #end
+                </td>
+            </tr>
+            #else
+            <tr>
+                <td style="padding-top: 12px;"></td>
+                <td style="font-weight: bold; padding-top: 12px;" class="value">
+                    #if($empNameVal != '') $empNameVal #else — #end
+                </td>
+            </tr>
+            #end
+            <tr>
+                <td style="padding-top: 12px;"></td>
+                <td style="padding-top: 12px;" class="name nameCapital">$positionLab</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td style="font-weight: bold;" class="value">
+                    #if($positionVal != '') $positionVal #else — #end
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-top: 12px;"></td>
+                <td style="padding-top: 12px;" class="name nameCapital">$empModeLab</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td style="font-weight: bold;" class="value">
+                    #if($empModeVal != '') $empModeVal #else — #end
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-top: 12px;"></td>
+                <td style="padding-top: 12px;" class="name nameCapital">$dateOfBirthLab</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td style="font-weight: bold;" class="value">
+                    #if($dateOfBirthVal != '') $dateOfBirthVal #else — #end
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-top: 12px;"></td>
+                <td style="padding-top: 12px;" class="name nameCapital">$marialStatusLab</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td style="font-weight: bold;" class="value">
+                    #if($marialStatusVal != '') $marialStatusVal #else — #end
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-top: 12px;"></td>
+                <td style="padding-top: 12px;" class="name nameCapital">$supervisorLab</td>
+            </tr>
+            <tr>
+                <td style="padding-bottom: 12px;"></td>
+                <td style="font-weight: bold; padding-bottom: 12px;" class="value">
+                    #if($supervisorVal != '') $supervisorVal #else — #end
+                </td>
+            </tr>
+        </table>
+
+        <!-- personal table -->
+
+        <table width="100%" cellspacing="0" align="left" cellpadding="0" style="background-color: #eeeeee; border-radius: 7px; margin-top: 20px;" border="0">
+            <tr>
+                <td width="10%" style="padding-top: 18px;"></td>
+                <td width="90%" style="padding-top: 18px;" class="name nameCapital">$passNoLab</td>
+            </tr>
+            <tr>
+                <td style="padding-top: 0;"></td>
+                <td style="font-weight: bold; padding-top: 0;" class="personalValue">
+                    #if($passNoVal != '') $passNoVal #else — #end
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-top: 10px;"></td>
+                <td style="padding-top: 10px;" class="name nameCapital">$passIssueLab</td>
+            </tr>
+            <tr>
+                <td style="padding-top: 0;"></td>
+                <td style="font-weight: bold; padding-top: 0;" class="personalValue">
+                    #if($passIssueVal != '') $passIssueVal #else — #end
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-top: 10px;"></td>
+                <td style="padding-top: 10px;" class="name nameCapital">$passIssueDateLab</td>
+            </tr>
+            <tr>
+                <td style="padding-top: 0;"></td>
+                <td style="font-weight: bold; padding-top: 0;" class="personalValue">
+                    #if($passIssueDateVal != '') $passIssueDateVal #else — #end
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-top: 10px;"></td>
+                <td style="padding-top: 10px;" class="name nameCapital">$passExpireDateLab</td>
+            </tr>
+            <tr>
+                <td style="padding-top: 0;"></td>
+                <td style="font-weight: bold; padding-top: 0;" class="personalValue">
+                    #if($passExpireDateVal != '') $passExpireDateVal #else — #end
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-top: 10px;"></td>
+                <td style="padding-top: 10px;" class="name nameCapital">$insuranceNoLab</td>
+            </tr>
+            <tr>
+                <td style="padding-top: 0;"></td>
+                <td style="font-weight: bold; padding-top: 0;" class="personalValue">
+                    #if($insuranceNoVal != '') $insuranceNoVal #else — #end
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-top: 10px;"></td>
+                <td style="padding-top: 10px;" class="name nameCapital">$insuranceExpDateLab</td>
+            </tr>
+            <tr>
+                <td style="padding-top: 0;"></td>
+                <td style="font-weight: bold; padding-top: 0;" class="personalValue">
+
+                    #if($insuranceExpDateVal != '') $insuranceExpDateVal #else — #end
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-top: 10px;"></td>
+                <td style="padding-top: 10px;" class="name nameCapital">$visaNoLab</td>
+            </tr>
+            <tr>
+                <td style="padding-top: 0;"></td>
+                <td style="font-weight: bold; padding-top: 0;" class="personalValue">
+                    #if($visaNoVal != '') $visaNoVal #else — #end
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-top: 10px;"></td>
+                <td style="padding-top: 10px;" class="name nameCapital">$visaIssueDateLab</td>
+            </tr>
+            <tr>
+                <td style="padding-top: 0;"></td>
+                <td style="font-weight: bold; padding-top: 0;" class="personalValue">
+                    #if($visaIssueDateVal != '') $visaIssueDateVal #else — #end
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-top: 10px;"></td>
+                <td style="padding-top: 10px;" class="name nameCapital">$visaExpDateLab</td>
+            </tr>
+            <tr>
+                <td style="padding-bottom: 12px; padding-top: 0;"></td>
+                <td style="font-weight: bold; padding-bottom: 12px; padding-top: 0;" class="personalValue">
+                    #if($visaExpDateVal != '') $visaExpDateVal #else — #end
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <table width="75%" cellspacing="0" align="right" cellpadding="0" border="0">
+        <tr>
+            <td width="75%" style="font-weight: bold;" class="title nameCapital">$contInfTitle </td>
+        </tr>
+    </table>
+
+     <table width="75%" cellspacing="0" align="right" cellpadding="0" style="margin-top: 10px;" border="0">
+        <tr>
+            <td width="33.3%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital"> $homePhoneTitle </td>
+                    </tr>
+                    #if($homePhoneTable.rows.size() > 0)
+                    #foreach($row in $homePhoneTable.rows.values())
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            $row.get('HOME_PHONE')
+                        </td>
+                    </tr>
+                    #end
+                    #else
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            —
+                        </td>
+                    </tr>
+                    #end
+                </table>
+            </td>
+            <td width="33.3%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital"> $corporatePhoneTitle </td>
+                    </tr>
+                    #if($corporatePhoneTable.rows.size() > 0)
+                    #foreach($row in $corporatePhoneTable.rows.values())
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            $row.get('CORPORATE_PHONE')
+                        </td>
+                    </tr>
+                    #end
+                    #else
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            —
+                        </td>
+                    </tr>
+                    #end
+                </table>
+            </td>
+            <td width="33.3%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital"> $mobilePhoneTitle </td>
+                    </tr>
+                    #if($mobilePhoneTable.rows.size() > 0)
+                    #foreach($row in $mobilePhoneTable.rows.values())
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            $row.get('MOBILE_PHONE')
+                        </td>
+                    </tr>
+                    #end
+                    #else
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            —
+                        </td>
+                    </tr>
+                    #end
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <table width="75%" cellspacing="0" cellpadding="0" align="right" style="margin-top: 10px;">
+        <tr>
+            <td width="33.3%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name"> $personalEmailTitle </td>
+                    </tr>
+                    #if($personalEmailTable.rows.size() > 0)
+                    #foreach($row in $personalEmailTable.rows.values())
+                    <tr>
+                        <td style="font-weight: bold; word-wrap: break-word;" class="value">
+                            $row.get('PERSONAL_EMAIL')
+                        </td>
+                    </tr>
+                    #end
+                    #else
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            —
+                        </td>
+                    </tr>
+                    #end
+                </table>
+            </td>
+            <td width="33.3%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name"> $corporateEmailTitle </td>
+                    </tr>
+                    #if($corporateEmailTable.rows.size() > 0)
+                    #foreach($row in $corporateEmailTable.rows.values())
+                    <tr>
+                        <td style="font-weight: bold; word-wrap: break-word;" class="value">
+                            $row.get('CORPORATE_EMAIL')
+                        </td>
+                    </tr>
+                    #end
+                    #else
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            —
+                        </td>
+                    </tr>
+                    #end
+                </table>
+            </td>
+            <td width="33.3%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name"> $otherEmailTitle </td>
+                    </tr>
+                    #if($otherEmailTable.rows.size() > 0)
+                    #foreach($row in $otherEmailTable.rows.values())
+                    <tr>
+                        <td style="font-weight: bold; word-wrap: break-word;" class="value">
+                            $row.get('OTHER_EMAIL')
+                        </td>
+                    </tr>
+                    #end
+                    #else
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            —
+                        </td>
+                    </tr>
+                    #end
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <table width="75%" cellspacing="0" cellpadding="0" align="right" style="margin-top: 15px; border-bottom: 1px solid #000;">
+        <tr>
+            <td width="100%"></td>
+        </tr>
+    </table>
+
+
+    <table width="75%" cellspacing="0" align="right" cellpadding="0" border="0" style="margin-top: 15px;">
+        <tr>
+            <td width="100%" style="font-weight: bold;" class="title nameCapital">$addInfTitle</td>
+        </tr>
+    </table>
+
+    <table width="75%" cellspacing="0" align="right" cellpadding="0" style="margin-top: 10px;" border="0">
+        <tr>
+            <td width="48%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital">$homeAddressTitle</td>
+                    </tr>
+                    #if($addressTable.rows.size() > 0)
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            $homeAddFull
+                        </td>
+                    </tr>
+                    #else
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            —
+                        </td>
+                    </tr>
+                    #end
+                </table>
+            </td>
+            <td width="2%"></td>
+            <td width="48%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital">$corporateAddressTitle</td>
+                    </tr>
+                    #if($addressTable.rows.size() > 0)
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            $corpAddFull
+                        </td>
+                    </tr>
+                    #else
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            —
+                        </td>
+                    </tr>
+                    #end
+                </table>
+            </td>
+            <td width="2%"></td>
+        </tr>
+    </table>
+
+    <table width="75%" cellspacing="0" cellpadding="0" align="right" style="margin-top: 15px; border-bottom: 1px solid #000;">
+        <tr>
+            <td width="100%"></td>
+        </tr>
+    </table>
+
+    <table width="75%" cellspacing="0" align="right" cellpadding="0" border="0" style="margin-top: 20px;">
+        <tr>
+            <td width="75%" style="font-weight: bold;" class="title nameCapital"> $employmentInfTitle </td>
+        </tr>
+    </table>
+
+    <table width="75%" cellspacing="0" align="right" cellpadding="0" style="margin-top: 10px;" border="0">
+        <tr>
+            <td width="33.3%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital">$empCodeLab</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($empCodeVal != '') $empCodeVal #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="33.3%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital">$departmentLab</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($departmentVal != '') $departmentVal #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="33.3%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital">$positionLab</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($positionVal != '') $positionVal #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td style="padding: 0; margin: 0; padding-top: 12px;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital">$locationLab</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($locationVal != '') $locationVal #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td style="padding: 0; margin: 0; padding-top: 12px;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital">$supervisorLab</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($supervisorVal != '') $supervisorVal #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td style="padding: 0; margin: 0; padding-top: 12px;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital" style="text-transform: capitalize;">$hireDateLab</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($hireDateVal != '') $hireDateVal #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td style="padding: 0; margin: 0; padding-top: 12px;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital">$resignDateLab</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($resignDateVal != '') $resignDateVal #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td style="padding: 0; margin: 0; padding-top: 12px;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital">$termsOfContractLab</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($termsOfContractVal != '') $termsOfContractVal #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td style="padding: 0; margin: 0; padding-top: 12px;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital">$empModeLab</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($empModeVal != '') $empModeVal #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td style="padding: 0; margin: 0; padding-top: 12px;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital">$hrmsSalaryGradeLab</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($hrmsSalaryGradeVal != '') $hrmsSalaryGradeVal #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td style="padding: 0; margin: 0; padding-top: 12px;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital">$basicSalaryLab</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($basicSalaryVal != '') $basicSalaryVal #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td style="padding: 0; margin: 0; padding-top: 12px;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital">$qualificatLab</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($qualificatVal != '') $qualificatVal #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <table width="75%" cellspacing="0" cellpadding="0" align="right" style="margin-top: 15px; border-bottom: 1px solid #000;">
+        <tr>
+            <td width="100%"></td>
+        </tr>
+    </table>
+
+
+    <!-- bank datas -->
+    #set($bankNameLab = $bankTable.rows.get('BANK_NAME').get('COLUMN_NAME'))
+    #set($accNoLab = $bankTable.rows.get('ACCOUNT_NUMBER').get('COLUMN_NAME'))
+    #set($accNameLab = $bankTable.rows.get('ACCOUNT_NAME').get('COLUMN_NAME'))
+    #set($bankAddressLab = $bankTable.rows.get('BANK_ADDRESS').get('COLUMN_NAME'))
+    #set($swiftBicLab = $bankTable.rows.get('SWIFT_BIC').get('COLUMN_NAME'))
+    #set($sortCodeLab = $bankTable.rows.get('SORT_CODE').get('COLUMN_NAME'))
+    #set($ibanCodeLab = $bankTable.rows.get('IBAN_CODE').get('COLUMN_NAME'))
+    #set($agentIdLab = $bankTable.rows.get('AGENT_ID').get('COLUMN_NAME'))
+
+
+    #set($bankNameVal = $bankTable.rows.get('BANK_NAME').get('COLUMN_VALUE'))
+    #set($accNoVal = $bankTable.rows.get('ACCOUNT_NUMBER').get('COLUMN_VALUE'))
+    #set($accNameVal = $bankTable.rows.get('ACCOUNT_NAME').get('COLUMN_VALUE'))
+    #set($bankAddressVal = $bankTable.rows.get('BANK_ADDRESS').get('COLUMN_VALUE'))
+    #set($swiftBicVal = $bankTable.rows.get('SWIFT_BIC').get('COLUMN_VALUE'))
+    #set($sortCodeVal = $bankTable.rows.get('SORT_CODE').get('COLUMN_VALUE'))
+    #set($ibanCodeVal = $bankTable.rows.get('IBAN_CODE').get('COLUMN_VALUE'))
+    #set($agentIdVal = $bankTable.rows.get('AGENT_ID').get('COLUMN_VALUE'))
+
+    <table width="75%" cellspacing="0" align="right" cellpadding="0" border="0" style="margin-top: 15px;">
+        <tr>
+            <td width="75%" style="font-weight: bold;" class="title nameCapital">$bankAccInfTitle</td>
+        </tr>
+    </table>
+
+    <table width="75%" cellspacing="0" align="right" cellpadding="0" style="margin-top: 10px;" border="0">
+        <tr>
+            <td width="33.3%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital">$bankNameLab</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($bankNameVal != '') $bankNameVal #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="33.3%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital">$accNoLab</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($accNoVal != '') $accNoVal #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="33.3%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital">$accNameLab</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($accNameVal != '') $accNameVal #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td style="padding: 0; margin: 0; padding-top: 12px;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital">$bankAddressLab</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($bankAddressVal != '') $bankAddressVal #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td style="padding: 0; margin: 0; padding-top: 12px;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital">$swiftBicLab</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($swiftBicVal != '') $swiftBicVal #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td style="padding: 0; margin: 0; padding-top: 12px;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital">$sortCodeLab</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($sortCodeVal != '') $sortCodeVal #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td style="padding: 0; margin: 0; padding-top: 12px;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital">$ibanCodeLab</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($ibanCodeVal != '') $ibanCodeVal #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td style="padding: 0; margin: 0; padding-top: 12px;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital">$agentIdLab</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($agentIdVal != '') $agentIdVal #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td style="padding: 0; margin: 0; padding-top: 12px;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name"> &#160; </td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            &#160;
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    #set($customFieldTable = $itextGenericPdfData.customData.get("CUSTOM_FIELD").customFields.get("EMPLOYEE"))
+
+    #if($customFieldTable.size() > 0)
+
+    <table width="75%" cellspacing="0" cellpadding="0" align="right" style="margin-top: 15px; border-bottom: 1px solid #000;">
+        <tr>
+            <td width="100%"></td>
+        </tr>
+    </table>
+
+    <table width="75%" cellspacing="0" align="right" cellpadding="0" border="0" style="margin-top: 20px; margin-bottom: 15px;">
+        <tr>
+            <td width="75%" style="font-weight: bold;" class="title nameCapital"> $additionalInfTitle </td>
+        </tr>
+    </table>
+
+    <div>
+        #foreach($row in $customFieldTable.values())
+            <div style="width: 25%; float: left;">
+                <div class="name" style="padding-bottom: 3px; padding-left: 3px;">
+                    $row.get('COLUMN_NAME')
+                </div>
+                <div style="font-weight: bold; padding-top: 3px; padding-left: 3px; padding-bottom: 15px;" class="value">
+                    $row.get('COLUMN_VALUE')
+                </div>
+            </div>
+        #end
+    </div>
+
+    #end
+
+</div>
+
+</body>
+</html>

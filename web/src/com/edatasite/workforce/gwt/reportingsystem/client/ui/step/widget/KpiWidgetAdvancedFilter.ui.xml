@@ -1,0 +1,40 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:mh="urn:import:gwt.material.design.client.ui.html"
+             xmlns:w="urn:import:com.edatasite.workforce.gwt.core.client.ui.components"
+             xmlns:u='urn:import:com.edatasite.workforce.gwt.reportingsystem.client.ui.step.widget.unit'>
+    <g:HTMLPanel>
+        <div class="panel-filters">
+            <div class="panel-filters__section">
+                <table class="table_report_filter table_rowManage"
+                       style="margin-bottom: 0;">
+
+                    <tfoot class="formula_edit parent_of_toggle nonactive" ui:field="tfooter">
+                        <tr>
+                            <th>
+                            </th>
+                            <th colspan="4">
+                                <div class="overHide">
+                                    <div class="input-group fullWidth">
+                                        <div class="input-group-prepend">
+                                            <mh:Div styleName="input-group-text" ui:field="criteriaLabel"></mh:Div>
+                                        </div>
+                                        <w:KpiTextBox
+                                                styleName="form-control toggle_of_parent formula_edit_control state_origin"
+                                                ui:field="textPattern"/>
+                                    </div>
+                                </div>
+                            </th>
+                        </tr>
+                    </tfoot>
+
+                    <u:RHTMLPanel styleName="inputs_sm" ui:field="container">
+
+                    </u:RHTMLPanel>
+
+                </table>
+            </div>
+        </div>
+
+    </g:HTMLPanel>
+</ui:UiBinder>

@@ -1,0 +1,17 @@
+<module rename-to="pricing">
+
+    <inherits name='com.edatasite.workforce.gwt.core.Core'/>
+    <inherits name='com.edatasite.workforce.gwt.myaccount.Myaccount'/>
+
+    <entry-point class='com.edatasite.workforce.gwt.pricing.client.Pricing'/>
+
+    <set-property name="locale" value="default"/>
+    <extend-property name="locale" values="ru"/>
+    <extend-property name="locale" values="ar"/>
+    <extend-property name="locale" values="it"/>
+    <extend-property name="locale" values="es"/>
+    <extend-property name="locale" values="uz"/>
+    <inherits name="com.google.gwt.user.Debug"/>
+
+
+</module>

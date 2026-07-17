@@ -1,0 +1,80 @@
+//Custom fields >Settings
+//Moved from invoice.scss: 2360
+.custom_field_title .customTitle {
+  padding: 20px 20px;
+  font-size: 18px;
+  font-weight: normal;
+}
+
+.pg_title {
+  margin-bottom: 1.4rem;
+  font-size: 1.3rem;
+  font-weight: 100;
+}
+
+.pg_custom_field {
+  &_preview {
+    border: 1px solid $gray-new-light;
+    padding: 15px;
+  }
+  .form-group {
+    margin-left: auto;
+    margin-right: auto;
+    //margin-bottom: 0px; lead to the following problem //https://prnt.sc/pxcggx
+
+    .form-group {
+      margin-bottom: 0;
+    }
+  }
+
+  .wfmform__container {
+    margin: 0 30px; //https://prnt.sc/q2q8w6
+  }
+
+  &_marg {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+
+    .gwt-TabBarFirst {
+      display: none;
+    }
+
+    > tbody > tr > td {
+      padding-top: $customFormTopPadding;
+    }
+
+    .gwt-TabBarItem .gwt-Label {
+      font-size: 11px;
+      text-transform: uppercase;
+      //margin-bottom: 10px; //https://prnt.sc/pxgavl
+    }
+  }
+}
+
+.pg_custom__preview_upload_table {
+  display: table !important;
+}
+
+.rowActionCell {
+  vertical-align: middle;
+
+  svg {
+    margin-left: 5px;
+    height: 16px;
+    width: 16px;
+    cursor: pointer;
+  }
+}
+
+// https://prnt.sc/q2ruqn
+.options-stack {
+  > tbody > tr > td {
+    padding-bottom: 8px;
+  }
+}
+//https://prnt.sc/tjvfdj
+.options-stack-top {
+  > tbody > tr + tr > td {
+    padding-top: $tableCellPadding-x;
+  }
+}

@@ -1,0 +1,502 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <style type="text/css">
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+
+        td {
+            padding: 3px;
+        }
+
+        .title {
+            font-size: 9pt;
+        }
+
+        .name {
+            font-size: 7pt;
+        }
+
+        .value {
+            font-size: 8pt;
+        }
+
+        .personalValue {
+            font-size: 7pt;
+        }
+
+        .nameCapital {
+            text-transform: capitalize;
+        }
+
+    </style>
+</head>
+<body>
+<div>
+    <img alt="images"
+         src="https://workforcetrack.s3.amazonaws.com/000000000000/public/65159/a2113e82-397f-49fd-a58a-cdf4f4b93dff?AWSAccessKeyId=AKIAIROQMC77E5UKWBWQ"
+         style="display: none;"/>
+    #if($itextGenericPdfData.companyData.companyName == 'KPI Software Inc' or
+    $itextGenericPdfData.companyData.companyLogoUrl == 'https://apps.kpi.com/customisation/kpi.com/images/kpilogo.png')
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="width: 88px; display: none;"/>
+    #else
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl"
+         style="max-width: 100%; max-height: 100%; display: none;"/>
+    #end
+
+    #set($numAndDatesTable = $itextGenericPdfData.baseInvoice.customNumberAndDatesTable.rows)
+
+    #set($addressTable = $itextGenericPdfData.customData.get('ADDRESS_INFORMATION'))
+
+    #set($customFields =
+    $itextGenericPdfData.customData.get('ADDITIONAL_INFORMATION').customFields.get('ADDITIONAL_INFORMATION'))
+
+    #set($homeAddressTitle = $addressTable.rows.get('HOME_ADDRESS_TITLE').get('COLUMN_NAME'))
+    #set($homeAddressName = $addressTable.rows.get('HOME_ADDRESS_NAME').get('COLUMN_VALUE'))
+    #set($homeAddressFull = $addressTable.rows.get('HOME_ADDRESS_FULL').get('COLUMN_VALUE'))
+    #set($homeAddress = $addressTable.rows.get('HOME_ADDRESS').get('COLUMN_VALUE'))
+    #set($homeAddress2 = $addressTable.rows.get('HOME_ADDRESS2').get('COLUMN_VALUE'))
+    #set($homeCity = $addressTable.rows.get('HOME_CITY').get('COLUMN_VALUE'))
+    #set($homeState = $addressTable.rows.get('HOME_STATE').get('COLUMN_VALUE'))
+    #set($homeCountry = $addressTable.rows.get('HOME_COUNTRY').get('COLUMN_VALUE'))
+    #set($homeZipcode = $addressTable.rows.get('HOME_ZIPCODE').get('COLUMN_VALUE'))
+
+    #set($homeAddFull = '—')
+    #if($homeAddress != '' and $homeAddress2 != '' and $homeZipcode != '' and $homeCity != '' and $homeState != '' and
+    $homeCountry != '')
+    #set($homeAddFull = $homeAddress + ', ' + $homeAddress2 + ', ' + $homeZipcode + ', ' + $homeCity + ', ' + $homeState
+    + ', ' + $homeCountry)
+    #elseif($homeAddress != '' and $homeAddress2 != '' and $homeZipcode != '' and $homeCity != '' and $homeState != '')
+    #set($homeAddFull = $homeAddress + ', ' + $homeAddress2 + ', ' + $homeZipcode + ', ' + $homeCity + ', ' +
+    $homeState)
+    #elseif($homeAddress != '' and $homeAddress2 != '' and $homeZipcode != '' and $homeCity != '')
+    #set($homeAddFull = $homeAddress + ', ' + $homeAddress2 + ', ' + $homeZipcode + ', ' + $homeCity)
+    #elseif($homeAddress != '' and $homeAddress2 != '' and $homeZipcode != '')
+    #set($homeAddFull = $homeAddress + ', ' + $homeAddress2 + ', ' + $homeZipcode)
+    #elseif($homeAddress != '' and $homeAddress2 != '')
+    #set($homeAddFull = $homeAddress + ', ' + $homeAddress2)
+    #elseif($homeAddress2 != '')
+    #set($homeAddFull = $homeAddress2)
+    #elseif($homeZipcode != '')
+    #set($homeAddFull = $homeZipcode)
+    #elseif($homeCity != '')
+    #set($homeAddFull = $homeCity)
+    #elseif($homeState != '')
+    #set($homeAddFull = $homeState)
+    #elseif($homeCountry != '')
+    #set($homeAddFull = $homeCountry)
+    #end
+
+    #set($corporateAddressTitle = $addressTable.rows.get('CORPORATE_ADDRESS_TITLE').get('COLUMN_NAME'))
+    #set($corporateAddressName = $addressTable.rows.get('CORPORATE_ADDRESS_NAME').get('COLUMN_VALUE'))
+    #set($corporateAddressFull = $addressTable.rows.get('CORPORATE_ADDRESS_FULL').get('COLUMN_VALUE'))
+    #set($corporateAddress = $addressTable.rows.get('CORPORATE_ADDRESS').get('COLUMN_VALUE'))
+    #set($corporateAddress2 = $addressTable.rows.get('CORPORATE_ADDRESS2').get('COLUMN_VALUE'))
+    #set($corporateCity = $addressTable.rows.get('CORPORATE_CITY').get('COLUMN_VALUE'))
+    #set($corporateState = $addressTable.rows.get('CORPORATE_STATE').get('COLUMN_VALUE'))
+    #set($corporateCountry = $addressTable.rows.get('CORPORATE_COUNTRY').get('COLUMN_VALUE'))
+    #set($corporateZipcode = $addressTable.rows.get('CORPORATE_ZIPCODE').get('COLUMN_VALUE'))
+
+    #set($corpAddFull = '—')
+    #if($corporateAddress != '' and $corporateAddress2 != '' and $corporateZipcode != '' and $corporateCity != '' and
+    $corporateState != '' and $corporateCountry != '')
+    #set($corpAddFull = $corporateAddress + ', ' + $corporateAddress2 + ', ' + $corporateZipcode + ', ' + $corporateCity
+    + ', ' + $corporateState + ', ' + $corporateCountry)
+    #elseif($corporateAddress != '' and $corporateAddress2 != '' and $corporateZipcode != '' and $corporateCity != ''
+    and $corporateState != '')
+    #set($corpAddFull = $corporateAddress + ', ' + $corporateAddress2 + ', ' + $corporateZipcode + ', ' + $corporateCity
+    + ', ' + $corporateState)
+    #elseif($corporateAddress != '' and $corporateAddress2 != '' and $corporateZipcode != '' and $corporateCity != '')
+    #set($corpAddFull = $corporateAddress + ', ' + $corporateAddress2 + ', ' + $corporateZipcode + ', ' +
+    $corporateCity)
+    #elseif($corporateAddress != '' and $corporateAddress2 != '' and $corporateZipcode != '')
+    #set($corpAddFull = $corporateAddress + ', ' + $corporateAddress2 + ', ' + $corporateZipcode)
+    #elseif($corporateAddress != '' and $corporateAddress2 != '')
+    #set($corpAddFull = $corporateAddress + ', ' + $corporateAddress2)
+    #elseif($corporateAddress2 != '')
+    #set($corpAddFull = $corporateAddress2)
+    #elseif($corporateZipcode != '')
+    #set($corpAddFull = $corporateZipcode)
+    #elseif($corporateCity != '')
+    #set($corpAddFull = $corporateCity)
+    #elseif($corporateState != '')
+    #set($corpAddFull = $corporateState)
+    #elseif($corporateCountry != '')
+    #set($corpAddFull = $corporateCountry)
+    #end
+
+    #set($contInfTitle = $numAndDatesTable.get("CONTACT_INFORMATION").get("COLUMN_NAME"))
+    #set($addInfTitle = $numAndDatesTable.get("ADDRESS_INFORMATION").get("COLUMN_NAME"))
+    #set($firstNameLable = $numAndDatesTable.get("FIRST_NAME").get("COLUMN_NAME"))
+    #set($birthDayLable = $numAndDatesTable.get("BIRTH_DAY").get("COLUMN_NAME"))
+    #set($statusLable = $numAndDatesTable.get("STATUS").get("COLUMN_NAME"))
+    #set($numberLable = $numAndDatesTable.get("NUMBER").get("COLUMN_NAME"))
+    #set($projectLable = $numAndDatesTable.get("CANDIDATE_PROJECT").get("COLUMN_NAME"))
+    #set($leadSourceLable = $numAndDatesTable.get("LEAD_SOURCE").get("COLUMN_NAME"))
+    #set($workExperienceLable = $numAndDatesTable.get("WORK_EXPERIENCE").get("COLUMN_NAME"))
+    #set($expectedSalaryLable = $numAndDatesTable.get("EXPECTED_SALARY").get("COLUMN_NAME"))
+    #set($locationLable = $numAndDatesTable.get("LOCATION").get("COLUMN_NAME"))
+    #set($currentEmployerLable = $numAndDatesTable.get("CURRENT_EMPLOYER").get("COLUMN_NAME"))
+    #set($languageLable = $numAndDatesTable.get("LANGUAGE").get("COLUMN_NAME"))
+    #set($skillsLable = $numAndDatesTable.get("SKILLS").get("COLUMN_NAME"))
+    #set($vacanciesLable = $numAndDatesTable.get("VACANCIES").get("COLUMN_NAME"))
+    #set($phoneLable = $numAndDatesTable.get("PHONE").get("COLUMN_NAME"))
+    #set($emailLable = $numAndDatesTable.get("EMAIL").get("COLUMN_NAME"))
+
+    #set($firstName = $numAndDatesTable.get("FIRST_NAME").get("COLUMN_VALUE"))
+    #set($birthDay = $numAndDatesTable.get("BIRTH_DAY").get("COLUMN_VALUE"))
+    #set($status = $numAndDatesTable.get("STATUS").get("COLUMN_VALUE"))
+    #set($number = $numAndDatesTable.get("NUMBER").get("COLUMN_VALUE"))
+    #set($project = $numAndDatesTable.get("CANDIDATE_PROJECT").get("COLUMN_VALUE"))
+    #set($leadSource = $numAndDatesTable.get("LEAD_SOURCE").get("COLUMN_VALUE"))
+    #set($workExperience = $numAndDatesTable.get("WORK_EXPERIENCE").get("COLUMN_VALUE"))
+    #set($expectedSalary = $numAndDatesTable.get("EXPECTED_SALARY").get("COLUMN_VALUE"))
+    #set($location = $numAndDatesTable.get("LOCATION").get("COLUMN_VALUE"))
+    #set($currentEmployer = $numAndDatesTable.get("CURRENT_EMPLOYER").get("COLUMN_VALUE"))
+    #set($language = $numAndDatesTable.get("LANGUAGE").get("COLUMN_VALUE"))
+    #set($skills = $numAndDatesTable.get("SKILLS").get("COLUMN_VALUE"))
+    #set($vacancies = $numAndDatesTable.get("VACANCIES").get("COLUMN_VALUE"))
+    #set($phone = $numAndDatesTable.get("PHONE").get("COLUMN_VALUE"))
+    #set($email = $numAndDatesTable.get("EMAIL").get("COLUMN_VALUE"))
+
+
+    <div style="width: 20%; float: left; margin-right: 5%; height: 835px;">
+
+        <!-- personal table -->
+
+        <table align="left" border="0" cellpadding="0" cellspacing="0"
+               style="background-color: #eeeeee; border-radius: 7px; margin-top: 10px;" width="100%">
+            #foreach($i in $customFields)
+            <tr>
+                <td style="padding-top: 18px;" width="10%"></td>
+                <td class="name nameCapital" style="padding-top: 18px;" width="90%">#if($i.get('COLUMN_NAME') != '')
+                    $i.get('COLUMN_NAME') #end
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-top: 0;"></td>
+                <td class="personalValue" style="font-weight: bold; padding-top: 0;">
+                    #if($i.get('COLUMN_VALUE') != '') $i.get('COLUMN_VALUE') #else — #end
+                </td>
+            </tr>
+            #end
+        </table>
+    </div>
+
+    <table align="right" border="0" cellpadding="0" cellspacing="0" width="75%">
+        <tr>
+            <td class="title nameCapital" style="font-weight: bold;" width="100%">$contInfTitle</td>
+        </tr>
+    </table>
+
+    <table align="right" border="0" cellpadding="0" cellspacing="0" style="margin-top: 10px;" width="75%">
+        <tr>
+            <td style="padding: 0; margin: 0;" valign="top" width="30%">
+                <table cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="name nameCapital" width="100%"> $firstNameLable</td>
+                    </tr>
+
+                    <tr>
+                        <td class="value" style="font-weight: bold;">
+                            #if($firstName != '') $firstName #else — #end
+                        </td>
+                    </tr>
+
+                </table>
+            </td>
+            <td width="5%"></td>
+            <td style="padding: 0; margin: 0;" valign="top" width="30%">
+                <table cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="name nameCapital" width="100%"> $birthDayLable</td>
+                    </tr>
+
+                    <tr>
+                        <td class="value" style="font-weight: bold;">
+                            #if($birthDay != '') $birthDay #else — #end
+                        </td>
+                    </tr>
+
+                </table>
+            </td>
+            <td width="5%"></td>
+            <td style="padding: 0; margin: 0;" valign="top" width="30%">
+                <table cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="name nameCapital" width="100%"> $statusLable</td>
+                    </tr>
+
+                    <tr>
+                        <td class="value" style="font-weight: bold;">
+                            #if($status != '') $status #else — #end
+                        </td>
+                    </tr>
+
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <table align="right" cellpadding="0" cellspacing="0" style="margin-top: 10px;" width="75%%">
+        <tr>
+            <td style="padding: 0; margin: 0;" valign="top" width="30%">
+                <table cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="name" width="100%"> $numberLable</td>
+                    </tr>
+
+                    <tr>
+                        <td class="value" style="font-weight: bold; word-wrap: break-word;">
+                            #if($number != '') $number #else — #end
+                        </td>
+                    </tr>
+
+                </table>
+            </td>
+            <td width="5%"></td>
+            <td style="padding: 0; margin: 0;" valign="top" width="30%">
+                <table cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="name" width="100%"> $projectLable</td>
+                    </tr>
+
+                    <tr>
+                        <td class="value" style="font-weight: bold; word-wrap: break-word;">
+                            #if($project != '') $project #else — #end
+                        </td>
+                    </tr>
+
+                </table>
+            </td>
+            <td width="5%"></td>
+            <td style="padding: 0; margin: 0;" valign="top" width="30%">
+                <table cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="name" width="100%"> $leadSourceLable</td>
+                    </tr>
+
+                    <tr>
+                        <td class="value" style="font-weight: bold; word-wrap: break-word;">
+                            #if($leadSource != '') $leadSource #else — #end
+                        </td>
+                    </tr>
+
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <table align="right" cellpadding="0" cellspacing="0" style="margin-top: 10px;" width="75%">
+        <tr>
+            <td style="padding: 0; margin: 0;" valign="top" width="30%">
+                <table cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="name" width="100%"> $workExperienceLable</td>
+                    </tr>
+
+                    <tr>
+                        <td class="value" style="font-weight: bold; word-wrap: break-word;">
+                            #if($workExperience != '') $workExperience #else — #end
+                        </td>
+                    </tr>
+
+                </table>
+            </td>
+            <td width="5%"></td>
+            <td style="padding: 0; margin: 0;" valign="top" width="30%">
+                <table cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="name" width="100%"> $expectedSalaryLable</td>
+                    </tr>
+
+                    <tr>
+                        <td class="value" style="font-weight: bold; word-wrap: break-word;">
+                            #if($expectedSalary != '') $expectedSalary #else — #end
+                        </td>
+                    </tr>
+
+                </table>
+            </td>
+            <td width="5%"></td>
+            <td style="padding: 0; margin: 0;" valign="top" width="30%">
+                <table cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="name" width="100%"> $locationLable</td>
+                    </tr>
+
+                    <tr>
+                        <td class="value" style="font-weight: bold; word-wrap: break-word;">
+                            #if($location != '') $location #else — #end
+                        </td>
+                    </tr>
+
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <table align="right" cellpadding="0" cellspacing="0" style="margin-top: 10px;" width="75%">
+        <tr>
+            <td style="padding: 0; margin: 0;" valign="top" width="30%">
+                <table cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="name" width="100%"> $currentEmployerLable</td>
+                    </tr>
+
+                    <tr>
+                        <td class="value" style="font-weight: bold; word-wrap: break-word;">
+                            #if($currentEmployer != '') $currentEmployer #else — #end
+                        </td>
+                    </tr>
+
+                </table>
+            </td>
+            <td width="5%"></td>
+            <td style="padding: 0; margin: 0;" valign="top" width="30%">
+                <table cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="name" width="100%"> $languageLable</td>
+                    </tr>
+
+                    <tr>
+                        <td class="value" style="font-weight: bold; word-wrap: break-word;">
+                            #if($language != '') $language #else — #end
+                        </td>
+                    </tr>
+
+                </table>
+            </td>
+            <td width="5%"></td>
+            <td style="padding: 0; margin: 0;" valign="top" width="30%">
+                <table cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="name" width="100%"> $skillsLable</td>
+                    </tr>
+
+                    <tr>
+                        <td class="value" style="font-weight: bold; word-wrap: break-word;">
+                            #if($skills != '') $skills #else — #end
+                        </td>
+                    </tr>
+
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <table align="right" cellpadding="0" cellspacing="0" style="margin-top: 10px;" width="75%">
+        <tr>
+            <td style="padding: 0; margin: 0;" valign="top" width="30%">
+                <table cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="name" width="100%"> $vacanciesLable</td>
+                    </tr>
+
+                    <tr>
+                        <td class="value" style="font-weight: bold; word-wrap: break-word;">
+                            #if($vacancies != '') $vacancies #else — #end
+                        </td>
+                    </tr>
+
+                </table>
+            </td>
+            <td width="5%"></td>
+            <td style="padding: 0; margin: 0;" valign="top" width="30%">
+                <table cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="name" width="100%"> $phoneLable</td>
+                    </tr>
+
+                    <tr>
+                        <td class="value" style="font-weight: bold; word-wrap: break-word;">
+                            #if($phone != '') $phone #else — #end
+                        </td>
+                    </tr>
+
+                </table>
+            </td>
+            <td width="5%"></td>
+            <td style="padding: 0; margin: 0;" valign="top" width="30%">
+                <table cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="name" width="100%"> $emailLable</td>
+                    </tr>
+
+                    <tr>
+                        <td class="value" style="font-weight: bold; word-wrap: break-word;">
+                            #if($email != '') $email #else — #end
+                        </td>
+                    </tr>
+
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <table align="right" cellpadding="0" cellspacing="0" style="margin-top: 15px; border-bottom: 1px solid #000;"
+           width="75%">
+        <tr>
+            <td width="100%"></td>
+        </tr>
+    </table>
+
+
+    <table align="right" border="0" cellpadding="0" cellspacing="0" style="margin-top: 15px;" width="75%">
+        <tr>
+            <td class="title nameCapital" style="font-weight: bold;" width="100%">$addInfTitle</td>
+        </tr>
+    </table>
+
+    <table align="right" border="0" cellpadding="0" cellspacing="0" style="margin-top: 10px;" width="75%">
+        <tr>
+            <td style="padding: 0; margin: 0;" valign="top" width="48%">
+                <table cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="name nameCapital" width="100%">$homeAddressTitle</td>
+                    </tr>
+                    #if($addressTable.rows.size() > 0)
+                    <tr>
+                        <td class="value" style="font-weight: bold;">
+                            $homeAddFull
+                        </td>
+                    </tr>
+                    #else
+                    <tr>
+                        <td class="value" style="font-weight: bold;">
+                            —
+                        </td>
+                    </tr>
+                    #end
+                </table>
+            </td>
+            <td width="2%"></td>
+            <td style="padding: 0; margin: 0;" valign="top" width="48%">
+                <table cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="name nameCapital" width="100%">$corporateAddressTitle</td>
+                    </tr>
+                    #if($addressTable.rows.size() > 0)
+                    <tr>
+                        <td class="value" style="font-weight: bold;">
+                            $corpAddFull
+                        </td>
+                    </tr>
+                    #else
+                    <tr>
+                        <td class="value" style="font-weight: bold;">
+                            —
+                        </td>
+                    </tr>
+                    #end
+                </table>
+            </td>
+            <td width="2%"></td>
+        </tr>
+    </table>
+
+
+</div>
+</body>
+</html>

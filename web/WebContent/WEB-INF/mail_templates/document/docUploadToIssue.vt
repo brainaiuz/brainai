@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+
+<p>Dear $assigneeName,</p>
+
+<p>Please be informed that $creatorName have added a new document to $documentUploadToIssueName issue
+    on $creationDate </p>
+
+<div style='background-color:lightblue; width:100%;'>
+    <p>Document name: $fileName</p>
+
+    <p>Description: $description</p>
+</div>
+
+<p>Click <a href="$host/ProjectManagement.html?link=$link" title="View issue">here</a> to view the document</p>
+
+<p>* If you are not able to click on the link, you can instead copy and paste the following address in to your web
+    browser:
+    <span style="color: #0033FF">$host/ProjectManagement.html?link=$link</span></p>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<report>
+    <view>
+        <title>Company Holidays</title>
+        <name>Company Holidays</name>
+        <category>hrms</category>
+        <sqlquery>
+            <select agregateFunc="distinct">
+                <table name="Company Holidays">
+                    <column name="id" title="id" type="number" formattype="hidden"/>
+                    <column name="companyHoliday" title="Holiday Name" type="string" formattype="string"/>
+                    <column name="fromdate" title="From" type="date" formattype="date" customdateformat="DD-MM-YYYY"/>
+                    <column name="todate" title="To" type="date" formattype="date" customdateformat="DD-MM-YYYY"/>
+                </table>
+            </select>
+            <from>
+                (
+                SELECT max(id) id, name as companyHoliday, min(date) as fromdate, min(enddate) as todate FROM
+                "$".holiday h
+                WHERE enddate>=now()
+                GROUP BY companyHoliday
+                ORDER BY fromdate
+                ) t
+            </from>
+            <where>
+                <terms id="base" value="1=1"/>
+            </where>
+        </sqlquery>
+    </view>
+</report>

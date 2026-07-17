@@ -1,0 +1,52 @@
+<report>
+    <view>
+        <title>Project Status</title>
+        <name>Project Status</name>
+        <category>clients</category>
+        <sqlquery>
+            <select agregateFunc="distinct">
+                <table name="client">
+                    <column name="t.id" title="id" type="number" formattype="hidden"/>
+                    <column name="t.clientname" title="Client" type="string" formattype="string"
+                            filterwidgettype="checkbox"/>
+                    <column name="t.project" title="Project" type="string" formattype="string"
+                            filterwidgettype="checkbox"/>
+                    <column name="t.market" title="Market" type="string" formattype="string"
+                            filterwidgettype="checkbox"/>
+                    <column name="t.statusdate" title="Status Date" type="date" formattype="date"/>
+                    <column name="t.currentstatus" title="Current Status" type="string" formattype="string"/>
+                    <column name="t.nextsteps" title="Next steps" type="string" formattype="string"
+                            filterwidgettype="checkbox"/>
+                    <column name="t.action" title="Action" type="string" formattype="string"
+                            filterwidgettype="checkbox"/>
+                    <column name="t.duedate" title="Due Date" type="string" formattype="string"/>
+                </table>
+            </select>
+            <from>
+                ( select
+                distinct ps.*,
+                ps.projectname as project,
+                (country.name ||','|| CASE WHEN region.name is not null THEN region.name ||','|| pl.city ELSE pl.city
+                END) as market
+
+                from
+                "$".projectstatus ps
+                inner join "$".location pl on pl.id = ps.locationid
+                left join "public".country on country.id = pl.countryid
+                left join "public".region on region.id = pl.stateid
+                ) t
+            </from>
+            <where>
+                <terms id="base" value="1 = 1"/>
+                <!--<terms id="client" clientid="t.clientid"/>-->
+            </where>
+        </sqlquery>
+        <actions>
+            <action name="addnew" title="Add New"
+                    url="ProjectManagement.html?isCustomParam=true&amp;style=mediacom&amp;isCloseWindow=true&amp;container=businessadd&amp;showleftmenu=false&amp;sections=addbusiness&amp;showheader=false#business|addbusiness/add"/>
+            <action name="edit" title="Edit"
+                    url="ProjectManagement.html?isCustomParam=true&amp;style=mediacom&amp;isCloseWindow=true&amp;container=business&amp;showleftmenu=false&amp;sections=edit&amp;showheader=false#business|edit/%t.id%"/>
+            <action name="delete" title="Delete" url="entityDelete?objectID=%t.id%&amp;objectType=projectstatus"/>
+        </actions>
+    </view>
+</report>

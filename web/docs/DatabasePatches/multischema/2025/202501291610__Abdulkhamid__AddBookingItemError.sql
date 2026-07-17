@@ -1,0 +1,1 @@
+update "anv".modelfield set field_id = 'LOCATION_FIELD' where form_id='BOOKING_ITEMS_ADD_VIEW' and field_id='LOCATION';

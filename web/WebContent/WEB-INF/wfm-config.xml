@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<property>
+
+    <task_xls_template>/data/task_template.xls</task_xls_template>
+
+    <resource>
+        <data>/usr/local/tomcat/projects/wfm/wfmuploads/</data>
+    </resource>
+
+</property>
+        

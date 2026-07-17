@@ -1,0 +1,350 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style type="text/css">
+        @page {
+            size: 8.3in 11.7in;
+            margin: 110px 50px 70px 70px;
+            padding: 0;
+            @top-center {
+                content: element(header);
+            }
+            @bottom-left {
+                content: element(footer);
+            }
+        }
+
+        #header {
+            margin: 20px 10px;
+            display: block;
+            position: running(header);
+        }
+
+        #footer {
+            margin: 20px 10px;
+            display: block;
+            position: running(footer);
+        }
+
+        #pagenumber:before {
+            content: counter(page);
+        }
+
+        #pagecount:before {
+            content: counter(pages);
+        }
+
+        .table {
+            border: 1px solid #ddd;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        body {
+            font-family: Calibri;
+        }
+
+        b, p, td, span, caption, hr, h1, h2, h3, h4, h5 {
+            font-family: Calibri;
+        }
+
+        table {
+            -fs-table-paginate: paginate;
+        }
+
+        th, td {
+            padding: 2px;
+        }
+
+    </style>
+</head>
+<body>
+
+
+#set($period=$headerData.get('PERIOD'))
+#set($driverNumber=$headerData.get('DRIVER_NUMBER'))
+#set($employeeName=$headerData.get('NAME'))
+#set($employeeNumber=$headerData.get('Number'))
+#set($processedDate=$headerData.get('PROCESSED_DATE'))
+#set($position=$headerData.get('POSITION'))
+#set($department=$headerData.get('department'))
+#set($fromDate=$headerData.get('PERIOD_START_DATE'))
+#set($toDate=$headerData.get('PERIOD_END_DATE'))
+#set($workedDays=$headerData.get('WORKED_DAYS'))
+#set($monthlySalik=$headerData.get('MONTHLY_SALIK'))
+#set($bonus=$headerData.get('BONUS'))
+#set($usedPetrol=$headerData.get('USED_PETROL'))
+#set($basicSalary=$headerData.get('BASIC_SALARY'))
+#set($grossCommission=$headerData.get('GROSS_COMMISSION'))
+#set($monthlyIncomeAfterSalikAndBonus=$headerData.get('MONTHLY_INCOME_AFTER_SALIK_AND_BONUS'))
+#set($monthlyIncome=$headerData.get('MONTHLY_INCOME'))
+#set($salikCharge=$headerData.get('SALIK_CHARGE'))
+#set($petrolCharge=$headerData.get('PETROL_CHARGE'))
+#set($petrolAndSalikChargeTotal=$headerData.get('SALIK_CHARGE_AND_PETROL_CHARGE_TOTAL'))
+#set($netCommission=$headerData.get('NET_COMMISSION'))
+#set($deductions=$headerData.get('DEDUCTIONS'))
+#set($commissionPayable=$headerData.get('COMMISSION_PAYABLE'))
+
+<!-- company-->
+#set($logoUrl=$itextGenericPdfData.companyData.companyLogoUrl)
+
+<div id="header">
+    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            #if($logoUrl != '')
+            <td width="20%">
+                <img src="$logoUrl"/>
+            </td>
+            <td width="80%" style="font-weight:bold;font-size: 18px" valign="center" align="center">
+                Salary Slip
+            </td>
+            #else
+            <td width="100%" style="font-weight:bold;font-size: 18px" valign="center" align="center">
+                Salary Slip
+            </td>
+            #end
+        </tr>
+    </table>
+
+    <table width="100%" border="0" cellpadding="0" cellspacing="0" style="background-color: #ddd;" class="table">
+        <tr>
+            <td width="100%" style="font-weight:bold;font-size: 12px" valign="center" align="center">
+                $period
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+<div style="font-size: 12px;">
+
+    <table width="100%" cellpadding="0" cellspacing="0" border="1" style="margin-top: 20px;">
+        <tr>
+            <td style="background-color:#ddd">
+                Employee ID
+            </td>
+            <td colspan="2">
+                #if($driverNumber != '') $driverNumber #end
+            </td>
+            <td style="background-color:#ddd" colspan="1">
+                Date
+            </td>
+            <td colspan="2">
+                #if($processedDate != '') $processedDate #end
+            </td>
+        </tr>
+        <tr>
+            <td style="background-color:#ddd">
+                Employee Name
+            </td>
+            <td colspan="5">
+                #if($employeeName != '') $employeeName #end
+            </td>
+        </tr>
+        <tr>
+            <td style="background-color:#ddd">
+                Designation
+            </td>
+            <td colspan="5">
+                #if($position != '') $position #end
+            </td>
+        </tr>
+        <tr>
+            <td style="background-color:#ddd">
+                Department
+            </td>
+            <td colspan="5">
+                #if($department != '') $department #end
+            </td>
+        </tr>
+        <tr>
+            <td class="bold" style="background-color:#ddd">
+                Days Worked
+            </td>
+            <td>
+                #if($workedDays != '') $workedDays #end
+            </td>
+            <td style="background-color:#ddd">
+                From
+            </td>
+            <td>
+                #if($fromDate != '') $fromDate #end
+            </td>
+            <td style="background-color:#ddd">
+                To
+            </td>
+            <td>
+                #if($toDate != '') $toDate #end
+            </td>
+        </tr>
+
+    </table>
+
+    <table width="100%" border="1" cellspacing="0" cellpadding="0" style="margin-top: 20px;">
+        <tr style="background-color:#ddd">
+            <td colspan="4" align="left" class="bold">Commission Details</td>
+        </tr>
+        <tr>
+            <td style="background-color:#ddd">
+                Monthly Income
+            </td>
+            <td>
+                #if($monthlyIncome != '') $monthlyIncome #end
+            </td>
+            <td style="background-color:#ddd">
+                Petrol Charge
+            </td>
+            <td>
+                $petrolCharge
+            </td>
+        </tr>
+        <tr>
+            <td style="background-color:#ddd">
+                Salik
+            </td>
+            <td>
+                #if($salik != '') $salik #end
+            </td>
+            <td style="background-color:#ddd">
+                Salik Charge
+            </td>
+            <td>
+                $salikCharge
+            </td>
+        </tr>
+        <tr>
+            <td style="background-color:#ddd">
+                Bonus
+            </td>
+            <td>
+                #if($bonus != '') $bonus #end
+            </td>
+            <td style="background-color:#ddd">
+
+            </td>
+            <td>
+
+            </td>
+        </tr>
+
+        <tr>
+            <td style="background-color:#ddd">
+                Monthly Income After Salik and Bonus
+            </td>
+
+            <td>
+                $monthlyIncomeAfterSalikAndBonus
+            </td>
+            <td style="background-color:#ddd">
+
+            </td>
+            <td>
+
+            </td>
+        </tr>
+
+
+        <tr>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+            <td>
+                Total
+            </td>
+            <td>
+                $petrolAndSalikChargeTotal
+            </td>
+        </tr>
+        <tr>
+            <td style="background-color:#ddd">
+                Gross Commission
+            </td>
+            <td>
+                #if($grossCommission != '') $grossCommission #end
+            </td>
+            <td style="background-color:#ddd">
+                Net Commission
+            </td>
+            <td>
+                #if($netCommission != '') $netCommission #end
+            </td>
+        </tr>
+
+    </table>
+
+    #set($deductionDetailsTableRows = $itextGenericPdfData.baseInvoice.customGroupTaxRateTable.rows.values())
+    #if($deductionDetailsTableRows)
+    <table width="100%" cellspacing="0" cellpadding="0" border="1" style="margin-top: 20px">
+        <tr style="background-color:#ddd">
+            <td colspan="6" class="bold">Deduction Details</td>
+        </tr>
+        <tr style="background-color: #ddd">
+            <td align="left">Details</td>
+            <td align="left">Opening</td>
+            <td align="left">This Month Add.</td>
+            <td align="left">Total</td>
+            <td align="left">This Month Ded.</td>
+            <td align="left">Closing</td>
+        </tr>
+        #foreach($row in $deductionDetailsTableRows)
+        <tr>
+            <td align="left" style="background-color: #ddd">$row.get('DETAILS')</td>
+            <td>$row.get('OPENING')</td>
+            <td>$row.get('THIS_MONTH_ADD')</td>
+            <td>$row.get('TOTAL')</td>
+            <td>$row.get('THIS_MONTH_DED')</td>
+            <td>$row.get('CLOSING')</td>
+        </tr>
+        #end
+    </table>
+    #end
+    <table width="50%" cellpadding="0" cellspacing="0" border="1" style="margin-top: 30px;">
+        <tr>
+            <td align="left" style="background-color: #ddd;">
+                Net commission
+            </td>
+            <td align="right">
+                #if($netCommission != '') $netCommission #end
+            </td>
+        </tr>
+        <tr>
+            <td align="left" style="background-color: #ddd;">
+                Deductions
+            </td>
+            <td align="right">
+                #if($deductions != '') $deductions #end
+            </td>
+        </tr>
+        <tr>
+            <td align="left" style="background-color: #ddd;">
+                Commission Payable
+            </td>
+            <td align="right">
+                #if($commissionPayable != '') $commissionPayable #end
+            </td>
+        </tr>
+
+    </table>
+
+    <p style="font-size: 12px; padding-top: 40px;"> Employee Signature ___________________________________________________</p>
+
+</div>
+
+
+<div id="footer">
+    <table width="100%" style="font-size:11px">
+        <tr>
+            <td width="10%" align="right">
+                Page <span id="pagenumber"/>
+            </td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>

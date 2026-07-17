@@ -1,0 +1,328 @@
+// FORM UPLOAD/
+$uploadedFile-minSize: $input-height;
+
+.form-upload,
+.form-upload__attached {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.form-upload__attached {
+  min-width: $uploadedFile-minSize + rem(10px);
+  display: inline-flex;
+  flex-wrap: wrap;
+  margin-top: -5px;
+  margin-left: -5px;
+  margin-right: -5px;
+}
+
+.form-upload__attached > * {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 5px;
+}
+
+.form-upload__attached,
+.btn-uploaded-img,
+.btn-uploaded {
+  min-width: $uploadedFile-minSize;
+}
+
+.btn-uploaded-img,
+.btn-uploaded,
+.btn-upload {
+  position: relative;
+  border-radius: $radius-basePlus;
+}
+
+.wg_notes__add-btn,
+.btn-uploaded,
+.btn-upload {
+  height: $uploadedFile-minSize;
+  width: $uploadedFile-minSize;
+  text-align: center;
+}
+
+.btn-uploaded-img,
+.btn-uploaded,
+.btn-upload--plus {
+  border: $btn-border-width solid $color-base-1;
+  background-color: #fff !important;
+}
+
+//.btn-uploaded-img,
+.btn-uploaded {
+  &:before {
+    @extend .ficon--;
+    @extend .ficon--download;
+    position: absolute;
+    z-index: 1;
+    bottom: 90%;
+    left: 50%;
+    margin-left: -.5em;
+    font-size: 28px;
+    border-radius: 50%;
+    opacity: 0;
+    transition: all .5s ease;
+  }
+  [class*="ficon--"] {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity .3s ease;
+  }
+  &:hover {
+    &:before {
+      bottom: 50%;
+      background-color: #fff;
+      margin-bottom: -.5em;
+      opacity: 1;
+    }
+
+    [class*="ficon--"] {
+      opacity: 0;
+      cursor: pointer;
+    }
+  }
+}
+.btn-uploaded-img .close {
+  background: #fff;
+  border-bottom-left-radius: $radius-base;
+}
+
+.btn-upload {
+  overflow: hidden; // to prevent generated table made scroll in modal  https://prnt.sc/qjyz9l
+  background-color: $gray-new-light;
+}
+
+.btn-upload [type="file"] {
+  opacity: 0;
+}
+
+.btn-upload__icon,
+.btn-upload__indicator {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  cursor: pointer;
+}
+
+.wg_notes__add-btn,
+.btn-uploaded,
+.btn-upload__icon,
+.btn-upload__indicator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-upload__icon .ficon--attachment:before {
+  font-size: 1.6em;
+}
+
+.btn-upload__indicator {
+  display: none;
+  width: 100%;
+  height: 100%;
+  min-height: $uploadedFile-minSize;
+  min-width: $uploadedFile-minSize;
+  font-size: 8px;
+  text-align: center;
+  border-radius: $radius-basePlus;
+  background-color: #8D9BA8;
+  //color: #d8d8d8;
+  &::after {
+    //content: url("/mainStyles/new-ui/images/attachment-loader.svg");
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    //background: url("https://newui.kpi.com/mainStyles/new-ui/images/attachment-loader.svg");
+    background: url("/mainStyles/new-ui/images/attachment-loader.svg");
+    background-size: contain;
+  }
+}
+
+.btn-upload__indicator.active {
+  display: flex;
+}
+
+.btn-uploaded-img .close,
+.btn-uploaded .close,
+.btn-upload .close {
+  position: absolute;
+  z-index: 3;
+  top: 1px;
+  right: 1px;
+
+  &:hover {
+    color: #000;
+  }
+}
+
+.btn-uploaded-img .close,
+.btn-uploaded .close {
+  opacity: 0;
+}
+
+.btn-uploaded-img:hover .close,
+.btn-uploaded:hover .close {
+  opacity: .6;
+}
+
+.btn-uploaded .close:before,
+.btn-upload .close:before {
+  font-size: 1.1rem;
+}
+
+.btn-uploaded--has-control {
+  /* margin-top: 10px; */
+}
+
+.btn-uploaded__control {
+  position: absolute;
+  z-index: 3;
+  left: -7px;
+  top: -8px;
+}
+
+.btn-uploaded-group {
+  display: flex;
+  flex-direction: column;
+
+  & ~ .btn-uploaded {
+    //align-self: flex-start;
+    margin-left: - 5px;
+  }
+
+  .btn-uploaded__title {
+    @include txtTruncate();
+    max-width: 90px;
+  }
+}
+
+.wg_notes__add-btn,
+.btn-upload--plus {
+  float: left;
+  //margin-top: 5px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+  border-radius: $control-border-radius;
+  border: 1px dashed $link-color;
+  color: $link-color;
+
+  [class*="ficon--"]:before {
+    font-size: 2em;
+  }
+
+  &:hover {
+    color: $link-hover-color;
+    border-color: $link-hover-color;
+    background-color: $color-base-contrast !important;
+  }
+}
+
+.btn-uploaded [class*="ficon--"]:before {
+  font-size: 1.6em;
+}
+
+
+//UPLOAD MODAL
+.dropzone {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  //min-width: 535px;
+  border: 2px dashed #ccc;
+  min-height: 70px;
+  text-align: center;
+  vertical-align: middle;
+  //padding-top: 25px;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+    border: 2px dashed transparent;
+    background-color: transparent;
+    transition: all 0.3s;
+  }
+
+  .dropzone__file,
+  input[type="file"]{
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  &.dropzoneHover:before {
+    border-color: $gray-middle;
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  > div { //https://i.imgur.com/KP9kvbZ.png
+    &:has(+input) {}
+    padding-bottom: $panel-padding;
+  }
+}
+
+//https://prnt.sc/sopmxe
+.gwt-FileUpload-container {
+  > tbody > tr {
+    &:first-child {}
+    + tr {
+      > td {
+        > table {
+          margin-top: 10px;
+          width: auto;
+          > tbody > tr {
+            > td {
+              > table {
+                > tbody > tr {
+                  > td + td {
+                    padding-left: 15px;
+                  }
+                  + tr > td {
+                    padding-top: 10px;
+                  }
+                }
+              }
+            }
+            + tr > td {
+              padding-top: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+}
+
+.dropResults {
+  .kpi-upload__upload-files-list {}
+}
+
+.summaryFileUpload {
+  &__action {
+    padding-top: 10px; //is equal to noteWidget__buttons
+  }
+}

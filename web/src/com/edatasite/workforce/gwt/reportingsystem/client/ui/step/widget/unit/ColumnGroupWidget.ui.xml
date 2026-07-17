@@ -1,0 +1,18 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:mw="urn:import:com.edatasite.workforce.gwt.core.client.ui.components"
+             xmlns:mh="urn:import:gwt.material.design.client.ui.html"
+             xmlns:w="urn:import:com.edatasite.workforce.gwt.core.client.ui.components"
+             xmlns:c="urn:import:com.edatasite.workforce.gwt.core.client.ui.components"
+>
+    <mh:ListItem styleName="slideDown-box group">
+        <mh:Div class="collapsible-header" ui:field="header">
+            <mh:Anchor style="cursor: pointer;">
+                <c:KpiCheckBox ui:field="selectAllWidget"></c:KpiCheckBox>
+                <mh:Span ui:field="titleSpan"></mh:Span>
+            </mh:Anchor>
+        </mh:Div>
+        <mh:Div class="collapsible-body">
+            <mh:Div ui:field="checkboxes" styleName="reporting-columns-settings-checkboxes"></mh:Div>
+        </mh:Div>
+    </mh:ListItem>
+</ui:UiBinder>

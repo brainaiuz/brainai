@@ -1,0 +1,946 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans
+        default-lazy-init="true"
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- ITEXT ITEXT ITEXT ITEXT ITEXT ITEXT ITEXT -->
+    <bean name="abstractITextBasepdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.AbstractITextBasePdfHandler"
+          abstract="true">
+    </bean>
+
+    <bean name="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.AbstractITextBasePdfHandler"
+          abstract="true" parent="abstractITextBasepdfHandler">
+        <property name="propertyEditorRegistrars">
+            <list>
+                <ref bean="wfmRegistrar"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean name="abstractITextCustomPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.AbstractITextBasePdfHandler"
+          abstract="true" parent="abstractITextBasepdfHandler">
+        <property name="propertyEditorRegistrars">
+            <list>
+                <ref bean="wfmRegistrar"/>
+            </list>
+        </property>
+    </bean>
+    <!-- PDF Localization -->
+    <bean id="pdfWfmMessageSource" class="org.springframework.context.support.WfmResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <value>WEB-INF/classes/localization/pdf/pdf</value>
+            </list>
+        </property>
+        <property name="defaultEncoding" value="UTF-8"/>
+    </bean>
+
+    <!-- PDF And Excel Localization for All-->
+    <bean id="allReferenceWfmMessageSource" class="org.springframework.context.support.WfmResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <value>WEB-INF/classes/localization/pdf/allreference</value>
+            </list>
+        </property>
+        <property name="defaultEncoding" value="UTF-8"/>
+    </bean>
+
+    <!-- FOP FOP FOP FOP FOP -->
+
+    <bean name="taxillaPDFProvider" class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.TaxillaPDFProvider"></bean>
+
+    <bean name="basePDFHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.BasePDFHandler"
+          abstract="true">
+        <property name="referenceManager" ref="referenceManager"/>
+        <property name="uploadManager" ref="uploadManager"/>
+        <property name="companyAttachmentManager" ref="companyAttachmentManager"/>
+<!--        <property name="uploadAmazonSettingsManager" ref="uploadAmazonSettingsManager"/>-->
+<!--        <property name="amazonManager" ref="amazonManager"/>-->
+        <property name="usagePlanManager" ref="usagePlanManager"/>
+
+    </bean>
+
+    <bean name="postPDFHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.PostPDFHandler"
+          abstract="true" parent="basePDFHandler">
+        <property name="propertyEditorRegistrars">
+            <list>
+                <ref bean="wfmRegistrar"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean name="taskListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.TaskListPDFHandler">
+        <property name="taskService" ref="taskService"/>
+    </bean>
+
+    <bean name="asteriskEmployeeListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.AsteriskEmployeeListPDFHandler">
+        <property name="profileService" ref="profileService"/>
+    </bean>
+
+    <bean name="taskViewPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.TaskViewPDFHandler">
+    </bean>
+
+    <bean name="timesheetApprovalListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.TimesheetApprovalListPDFHandler">
+        <property name="timesheetService" ref="timesheetService"/>
+    </bean>
+
+    <bean name="projectListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.ProjectListPDFHandler">
+        <property name="projectService" ref="projectService"/>
+    </bean>
+
+    <bean name="projectViewPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.ProjectViewPDFHandler">
+    </bean>
+
+    <bean name="brigadaViewPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.BrigadaViewPDFHandler">
+    </bean>
+
+    <bean name="contractViewPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.ContractViewPDFHandler">
+    </bean>
+
+    <bean name="clientListPDFHandler" parent="crmAccountListPDFHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.ClientListPDFHandler"/>
+
+    <bean name="clientViewPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.ClientViewPDFHandler">
+    </bean>
+
+    <bean name="employeeListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.EmployeeListPDFHandler">
+        <property name="employeeService" ref="employeeService"/>
+    </bean>
+
+    <bean name="groupPayrunListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.GroupPayrunListPDFHandler">
+
+    </bean>
+    <bean name="paymentMethodListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.PaymentMethodListPDFHandler">
+
+    </bean>
+
+    <bean name="employeeViewPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.EmployeeViewPDFHandler">
+    </bean>
+
+    <bean name="departmentListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.DepartmentListPDFHandler">
+        <property name="departmentService" ref="departmentService"/>
+    </bean>
+
+    <bean name="departmentViewPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.DepartmentViewPDFHandler">
+    </bean>
+
+    <bean name="timeSheetPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.TimeSheetPDFHandler">
+        <property name="timesheetService" ref="timesheetService"/>
+    </bean>
+
+    <bean name="expensesViewPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.ExpensesViewPDFHandler">
+    </bean>
+
+    <bean name="expensePaymentViewPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.ExpensePaymentViewPDFHandler">
+    </bean>
+
+    <bean name="bankTransferListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.BankTransferListPDFHandler">
+    </bean>
+    <bean name="invoicePaymentListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.InvoicePaymentListPDFHandler">
+    </bean>
+
+    <bean name="fixedAssetsCountPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.FixedAssetsCountPDFHandler">
+    </bean>
+
+    <bean name="fixedAssetViewPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.FixedAssetViewPDFHandler"/>
+
+    <bean name="expensesListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.ExpensesListPDFHandler">
+    </bean>
+
+    <bean name="goalListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.GoalListPDFHandler">
+        <property name="goalManager" ref="goalManager"/>
+
+    </bean>
+
+    <bean name="invoiceItemListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.InvoiceItemListPDFHandler">
+        <property name="itemManager" ref="itemManager"/>
+    </bean>
+
+    <bean name="pickViewPDFHandler" scope="prototype" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.PickViewPDFHandler">
+    </bean>
+
+    <!--  Accounting & Finance PDF Handlers  BEGIN-->
+    <bean name="baseInvoiceListPDFHandler" parent="abstractITextPostPdfHandler" scope="prototype"
+          abstract="true"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.BaseInvoiceListPDFHandler">
+    </bean>
+
+    <bean name="baseInvoicePdfHandler" abstract="true" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.BaseInvoicePdfHandler">
+        <property name="invoiceManager" ref="invoiceManager"/>
+        <property name="quoteManager" ref="quoteManager"/>
+        <property name="clientManager" ref="clientManager"/>
+        <property name="clientContactManager" ref="clientContactManager"/>
+        <property name="crmContactManager" ref="crmContactManager"/>
+        <property name="employeeManager" ref="employeeManager"/>
+        <property name="invoicingSettingsManager" ref="invoicingSettingsManager"/>
+        <property name="currencyManager" ref="currencyManager"/>
+        <property name="invoiceCircularResolver" ref="invoiceCircularResolver"/>
+        <property name="paymentMethodManager" ref="paymentMethodManager"/>
+        <property name="bankAccountManager" ref="bankAccountManager"/>
+        <property name="vatManager" ref="vatManager"/>
+        <property name="shippingMethodManager" ref="shippingMethodManager"/>
+        <property name="itemManager" ref="itemManager"/>
+        <property name="crmAccountManager" ref="crmAccountManager"/>
+        <property name="projectManager" ref="projectManager"/>
+        <property name="addressManager" ref="addressManager"/>
+        <property name="warehouseManager" ref="warehouseManager"/>
+    </bean>
+
+    <bean name="saleQuoteViewPDFHandler" parent="baseInvoicePdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.SaleQuoteViewPDFHandler">
+    </bean>
+    <bean name="saleOrderViewPDFHandler" parent="saleQuoteViewPDFHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.SaleOrderViewPDFHandler">
+    </bean>
+    <bean name="saleInvoceViewPDFHandler" parent="baseInvoicePdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.SaleInvoiceViewPDFHandler">
+    </bean>
+
+    <bean name="packingSlipPDFHandler" parent="baseInvoicePdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.PackingSlipPDFHandler">
+    </bean>
+
+    <bean name="salesReceiptViewPDFHandler" parent="baseInvoicePdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.SalesReceiptViewPDFHandler">
+    </bean>
+    <bean name="purchaseOrderViewPDFHandler" parent="baseInvoicePdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.PurchaseOrderViewPDFHandler">
+    </bean>
+    <bean name="purchaseInvoiceViewPDFHandler" parent="baseInvoicePdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.PurchaseInvoiceViewPDFHandler">
+    </bean>
+    <bean name="requestForQuotePDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.RequestForQuotePDFHandler">
+    </bean>
+    <bean name="dashBoardChartsPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.DashBoardChartsPDFHandler">
+    </bean>
+    <bean name="requestForPurchsePDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.RequestForPurchasePDFHandler"/>
+    <bean name="projectBaseInvoiceViewPDFHandler" parent="baseInvoicePdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.ProjectBaseInvoiceViewPDFHandler">
+    </bean>
+    <bean name="creditNoteViewPDFHandler" parent="baseInvoicePdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.CreditNoteViewPDFHandler">
+    </bean>
+    <bean name="receivableCreditNoteViewPDFHandler" parent="creditNoteViewPDFHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.ReceivableCreditNoteViewPDFHandler">
+    </bean>
+    <bean name="payableCreditNoteViewPDFHandler" parent="creditNoteViewPDFHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.PayableCreditNoteViewPDFHandler">
+    </bean>
+
+    <bean name="saleQuoteListPDFHandler" parent="baseInvoiceListPDFHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.SaleQuoteListPDFHandler">
+    </bean>
+    <bean name="saleInvoceListPDFHandler" parent="baseInvoiceListPDFHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.SaleInvoiceListPDFHandler">
+    </bean>
+
+    <bean name="batchPaymentListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.BatchPaymentListPDFHandler">
+    </bean>
+    <bean name="bankCheckListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.accounting.BankCheckListPDFHandler">
+    </bean>
+    <bean name="recurringInvoceListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.RecurringInvoiceListPDFHandler">
+        <property name="invoiceCircularResolver" ref="invoiceCircularResolver"/>
+    </bean>
+    <bean name="purchaseOrderListPDFHandler" parent="baseInvoiceListPDFHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.PurchaseOrderListPDFHandler">
+    </bean>
+
+    <bean name="requestForPurchaseListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.RequestForPurchaseListPDFHandler">
+    </bean>
+
+    <bean name="saleOrderListPDFHandler" parent="baseInvoiceListPDFHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.SaleOrderListPDFHandler">
+    </bean>
+    <bean name="purchaseInvoiceListPDFHandler" parent="baseInvoiceListPDFHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.PurchaseInvoiceListPDFHandler">
+    </bean>
+
+    <bean name="requestForQuoteListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.RequestForQuoteListPDFHandler">
+    </bean>
+
+    <bean name="shippingDataListPdfHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.ShippingDataListPDFHandler">
+    </bean>
+
+    <bean name="suppliersListPDFHandler" parent="crmAccountListPDFHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.SuppliersListPDFHandler"/>
+
+    <bean name="suppliersViewPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.SuppliersViewPDFHandler">
+        <property name="clientService" ref="clientService"/>
+    </bean>
+
+    <bean name="pickListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.PickListPDFHandler">
+        <property name="quoteService" ref="quoteService"/>
+    </bean>
+
+    <bean name="shippingMethodsListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.ShippingMethodsListPDFHandler">
+    </bean>
+
+    <bean name="unitMeasurementsListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.UnitMeasurementsListPDFHandler">
+        <property name="accountingService" ref="accountingService"/>
+    </bean>
+
+    <bean name="productCategoriesListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.ProductCategoriesListPDFHandler">
+        <property name="accountingService" ref="accountingService"/>
+    </bean>
+
+    <bean name="brandsListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.BrandsListPDFHandler">
+        <property name="accountingService" ref="accountingService"/>
+    </bean>
+
+    <!--<bean name="storeFrontsListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.StoreFrontsListPDFHandler">
+        <property name="storefrontService" ref="storefrontService"/>
+    </bean>-->
+
+    <bean name="accountingClientsListPDFHandler" parent="clientListPDFHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.AccountingAndFinanceClientsListPDFHandler">
+    </bean>
+
+    <bean name="transactionByPeriodPdfHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.TransactionByPeriodPdfHandler">
+    </bean>
+    <bean name="bankAccountsListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.BankAccountsListPDFHandler">
+        <property name="accountingService" ref="accountingService"/>
+    </bean>
+    <bean name="accountTransactionsListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.AccountTransactionsListPDFHandler">
+    </bean>
+
+    <bean name="taxRatesListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.TaxRatesListPDFHandler">
+        <property name="invoiceService" ref="invoiceService"/>
+    </bean>
+
+    <bean name="reservationPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.ReservationPDFHandler">
+        <property name="accountingService" ref="accountingService"/>
+    </bean>
+
+    <bean name="chartOfAccountListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.ChartOfAccountListPDFHandler">
+    </bean>
+
+    <bean name="manualTransactionListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.ManualTransactionListPDFHandler">
+    </bean>
+    <bean name="invoicePaymentViewPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.accounting.InvoicePaymentViewPDFHandler">
+        <property name="invoiceService" ref="invoiceService"/>
+    </bean>
+    <bean name="batchReceivePaymentViewPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.accounting.BatchReceivePaymentViewPDFHandler">
+    </bean>
+    <bean name="batchPayBillViewPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.accounting.BatchPayBillViewPDFHandler">
+    </bean>
+    <bean name="stockTransferViewPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.accounting.StockTransferViewPDFHandler">
+    </bean>
+    <bean name="transferMoneyViewPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.accounting.TransferMoneyViewPDFHandler">
+    </bean>
+    <!-- Saved invoices-->
+
+    <bean name="savedSaleQuoteViewPDFHandler" parent="saleQuoteViewPDFHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.SavedSaleQuoteViewPDFHandler">
+    </bean>
+    <bean name="savedSaleOrderViewPDFHandler" parent="saleQuoteViewPDFHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.SavedSaleOrderViewPdfHandler">
+    </bean>
+    <bean name="savedSaleInvoceViewPDFHandler" parent="saleInvoceViewPDFHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.SavedSaleInvoiceViewPDFHandler">
+    </bean>
+    <bean name="savedPackingSlipPDFHandler" parent="saleInvoceViewPDFHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.SavedPackingSlipPDFHandler">
+    </bean>
+    <bean name="savedSalesOrderPackingSlipPDFHandler" parent="saleInvoceViewPDFHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.SavedSalesOrderPackingSlipPDFHandler">
+    </bean>
+    <bean name="savedPurchaseOrderViewPDFHandler" parent="purchaseOrderViewPDFHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.SavedPurchaseOrderViewPDFHandler">
+    </bean>
+    <bean name="grnOrderViewPDFHandler"
+          parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.ShippingDataPDFHandler">
+        <constructor-arg value="true"/>
+    </bean>
+    <bean name="gdnOrderViewPDFHandler"
+          parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.ShippingDataPDFHandler">
+        <constructor-arg value="false"/>
+    </bean>
+    <bean name="savedPurchaseInvoiceViewPDFHandler" parent="purchaseInvoiceViewPDFHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.SavedPurchaseInvoiceViewPDFHandler">
+    </bean>
+    <bean name="savedProjectBaseInvoiceViewPDFHandler" parent="projectBaseInvoiceViewPDFHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.SavedProjectBaseInvoiceViewPDFHandler">
+    </bean>
+    <bean name="savedCreditNoteViewPDFHandler" parent="creditNoteViewPDFHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.SavedCreditNoteViewPDFHandler">
+    </bean>
+    <bean name="savedReceivableCreditNoteViewPDFHandler" parent="savedCreditNoteViewPDFHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.SavedReceivableCreditNoteViewPDFHandler">
+    </bean>
+    <bean name="savedPayableCreditNoteViewPDFHandler" parent="savedCreditNoteViewPDFHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.SavedPayableCreditNoteViewPDFHandler">
+    </bean>
+
+    <bean name="caseViewPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.crm.CaseViewPDFHandler">
+    </bean>
+
+    <!-- REPORTS -->
+    <bean name="trialBalancePDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.TrialBalancePDFHandler">
+    </bean>
+    <bean name="cashFlowPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.CashFlowPDFHandler">
+    </bean>
+    <bean name="stockValuationPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.StockValuationPDFHandler">
+    </bean>
+    <bean name="stockAdjustmentPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.StockAdjustmentPDFHandler">
+    </bean>
+    <bean name="profitLostViewPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.ProfitLostViewPDFHandler">
+        <property name="accountingService" ref="accountingService"/>
+    </bean>
+
+    <bean name="journalReportPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.JournalReportPDFHandler">
+    </bean>
+
+    <bean name="balanceSheetPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.BalanceSheetPDFHandler">
+        <property name="accountingService" ref="accountingService"/>
+        <property name="currencyManager" ref="currencyManager"/>
+    </bean>
+
+    <bean name="vatReturnPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.VatReturnPDFHandler">
+    </bean>
+    <bean name="uaeVatReturnPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.vatreturn.UAEVatReturnPDFHandler">
+    </bean>
+    <bean name="ksaVatReturnPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.vatreturn.KsaVatReturnPDFHandler">
+    </bean>
+    <bean name="checkPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.CheckPDFHandler">
+    </bean>
+    <bean name="agingSummaryPdfHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.AgingSummaryPdfHandler">
+    </bean>
+    <bean name="manualJournalViewPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.ManualJournalViewPDFHandler">
+    </bean>
+    <bean name="spendMoneyViewPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.accounting.SpendReceiveMoneyViewPDFHandler">
+    </bean>
+
+
+    <bean name="monthlyTimesheetViewPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.MonthlyTimesheetViewPDFHandler">
+    </bean>
+    <bean name="ukVatReturnPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.vatreturn.UKVatReturnPDFHandler">
+    </bean>
+
+    <!--Custom REPORTS  END-->
+
+    <!-- CRM PDF Handlers BEGIN-->
+    <bean name="leadListPDFHandler" parent="crmContactListPDFHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.crm.LeadListPDFHandler">
+        <property name="crmService" ref="crmService"/>
+    </bean>
+    <bean name="crmAccountListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.crm.CrmAccountListPDFHandler">
+        <property name="crmService" ref="crmService"/>
+    </bean>
+    <bean name="crmContactListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.crm.CrmContactListPDFHandler">
+        <property name="contactService" ref="contactService"/>
+    </bean>
+    <bean name="opportunitiesListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.crm.OpportunitiesListPDFHandler">
+        <property name="crmService" ref="crmService"/>
+    </bean>
+    <bean name="campaignListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.crm.CampaignListPDFHandler">
+        <property name="crmService" ref="crmService"/>
+    </bean>
+    <bean name="downloadCrmEventPDF" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.crm.EventListPDFHandler">
+    </bean>
+    <bean name="solutionListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.crm.SolutionListPDFHandler">
+        <property name="crmService" ref="crmService"/>
+    </bean>
+    <bean name="caseListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.crm.CaseListPDFHandler">
+        <property name="crmService" ref="crmService"/>
+    </bean>
+    <bean name="bouncedEmailListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.crm.BouncedEmailListPDFHandler">
+        <property name="massMailService" ref="massMailService"/>
+    </bean>
+    <!-- CRM PDF Handlers END-->
+    <bean name="usageHistoryListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.UsageHistoryListPDFHandler">
+        <property name="usageService" ref="myAccountService"/>
+    </bean>
+
+    <bean name="holidayListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.HolidayListPDFHandler">
+        <property name="availabilityService" ref="availabilityService"/>
+    </bean>
+
+    <bean name="employeeStepListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.EmployeeStepPDFHandler">
+        <property name="hrmsService" ref="hrmsService"/>
+    </bean>
+
+    <bean name="employeeStepViewPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.EmployeeStepViewPDFHandler">
+        <property name="commonService" ref="commonService"/>
+    </bean>
+
+    <bean name="sentMessagesListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.crm.SentMessagesListPDFHandler">
+        <property name="massMailService" ref="massMailService"/>
+    </bean>
+
+    <bean name="unsubscribedListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.crm.UnsubscribedListPDFHandler">
+        <property name="massMailService" ref="massMailService"/>
+    </bean>
+
+    <bean name="timeslotListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.TimeslotListPDFHandler">
+        <property name="availabilityService" ref="availabilityService"/>
+    </bean>
+
+    <bean name="timeslotSummaryViewPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.TimeslotSummaryViewPDFHandler">
+        <property name="availabilityService" ref="availabilityService"/>
+    </bean>
+
+    <bean name="recurringBillListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.RecurringBillListPDFHandler">
+    </bean>
+
+    <bean name="payslipPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.payroll.PayslipPDFHandler">
+        <property name="employeeManager" ref="employeeManager"/>
+        <property name="categoryManager" ref="categoryManager"/>
+        <property name="employeePayrollSettingsManager" ref="employeePayrollSettingsManager"/>
+        <property name="p11Manager" ref="p11Manager"/>
+        <property name="paymentDeductionManager" ref="paymentDeductionManager"/>
+    </bean>
+
+    <bean name="newsListPDFHanlder" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.NewsListPdfHandler">
+        <property name="newsService" ref="newsService"/>
+    </bean>
+
+    <!--<bean name="quickbookSynchHistoryPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.QuickbookSynchHistoryPDFHandler">
+    </bean>-->
+
+    <bean name="newsViewPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.NewsViewPdfHandler">
+    </bean>
+
+    <bean name="certificatePdfHandler" parent="abstractITextCustomPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.CertificateViewPdfHandler">
+    </bean>
+
+    <bean name="calendarAgendaListPDFHanlder" parent="postPDFHandler" scope="prototype"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.CalendarAgendaListPDFHanlder">
+    </bean>
+
+    <bean name="meetingMinutesPDFHandler" parent="abstractITextPostPdfHandler" scope="prototype"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.MeetingMinutesPDFHandler">
+    </bean>
+
+    <bean name="viewLeadFormPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.crm.LeadViewPDFHandler">
+    </bean>
+
+    <bean name="viewContactFormPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.crm.ContactViewPDFHandler">
+    </bean>
+
+    <bean name="positionListViewPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.PositionListViewPDFHandler">
+        <property name="hrmsService" ref="hrmsService"/>
+    </bean>
+
+    <bean name="positionListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.PositionListPDFHandler">
+        <property name="hrmsService" ref="hrmsService"/>
+    </bean>
+
+    <bean name="locationListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.LocationListPDFHandler">
+        <property name="locationService" ref="locationService"/>
+    </bean>
+
+    <bean name="contractListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.ContractListPDFHandler">
+        <property name="projectService" ref="projectService"/>
+    </bean>
+
+    <bean name="locationListViewPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.LocationListViewPDFHandler">
+    </bean>
+
+    <bean name="issueListViewPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.IssueListViewPDFHandler">
+        <property name="issueService" ref="issueService"/>
+    </bean>
+
+    <bean name="issueListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.IssueListPDFHandler">
+        <property name="issueService" ref="issueService"/>
+    </bean>
+
+    <bean name="employeeProfileSummaryViewPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.EmployeeProfileSummaryPDFHandler">
+    </bean>
+
+    <bean name="employeeLeaveRequestViewPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.EmployeeLeaveRequestViewPDFHandler">
+    </bean>
+    <bean name="leaveRequestListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.LeaveRequestListPdfHandler">
+    </bean>
+    <bean name="annualBalanceReportPdfHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.AnnualBalanceReportPdfHandler">
+    </bean>
+
+    <bean name="productsServicesListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.ProductsServicesListPDFHandler">
+    </bean>
+
+    <bean name="productsServicesStockListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.ProductsServicesStockListPDFHandler">
+        <property name="productService" ref="productService"/>
+    </bean>
+
+    <bean name="wareHousesListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.WareHousesListPDFHandler">
+        <property name="accountingService" ref="accountingService"/>
+    </bean>
+
+    <bean name="warehouseProductsListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.WarehouseProductsListPDFHandler">
+        <property name="accountingService" ref="accountingService"/>
+    </bean>
+
+    <bean name="workStreamListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.WorkStreamListPDFHandler">
+        <property name="wbsService" ref="wbsService"/>
+        <property name="commonService" ref="commonService"/>
+        <property name="projectManager" ref="projectManager"/>
+        <property name="taskManager" ref="taskManager"/>
+    </bean>
+
+    <bean name="crmAccountBalancePDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.CrmAccountBalancePDFHandler">
+    </bean>
+    <bean name="fixedAssetListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.FixedAssetListPDFHandler">
+    </bean>
+    <bean name="projectBudgetPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.ProjectBudgetPDFHandler">
+
+    </bean>
+
+    <bean name="projectBudgetSheetPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.ProjectBudgetSheetPDFHandler">
+    </bean>
+
+    <!--<bean name="customEntityPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.CustomEntityPdfHandler"/>-->
+
+    <bean name="vacancyListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.VacancyListPDFHandler">
+        <property name="recruitmentService" ref="recruitmentService"/>
+    </bean>
+
+    <bean name="shortListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.ShortListPDFHandler">
+        <property name="recruitmentService" ref="recruitmentService"/>
+    </bean>
+
+    <bean name="candidateListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.CandidateListPDFHandler">
+        <property name="recruitmentService" ref="recruitmentService"/>
+    </bean>
+
+    <bean name="placementListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.PlacementListPDFHandler">
+        <property name="recruitmentService" ref="recruitmentService"/>
+    </bean>
+
+    <bean name="shippingLabelPDFHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.ShippingLabelPDFHandler">
+    </bean>
+
+
+    <!--Training Center-->
+    <bean name="courseListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.CourseListPDFHandler"/>
+    <bean name="scheduledCourseListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.ScheduledCourseListPDFHandler"/>
+    <bean name="studentListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.StudentListPDFHandler"/>
+    <bean name="studentRegistratedListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.RegistratedStudentListPDFHandler"/>
+    <bean name="enquiryListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.EnquiryListPDFHandler"/>
+    <bean name="idCardGenerateHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.TrainingCenterIDCardGenerateHandler"/>
+    <bean name="downloadCourseUserPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.ScheduledCourseUserPDFHandler"/>
+    <bean name="courseBookingPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.CourseBookingPDFHandler"/>
+    <bean name="tcScheduledInvoicePDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.TCScheduledInvoicesViewPDFHandler"/>
+    <bean name="tcConsolidatedInvoicesPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.TCConsolidatedInvoicesViewPDFHandler"/>
+    <bean name="courseBookingListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.CourseBookingListPDFHandler"/>
+
+    <bean name="meetingMinutViewPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.MeetingMinutesViewPDFHandler">
+    </bean>
+    <bean name="singlePayrunPdfHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.payroll.SinglePayrunPdfHandler">
+    </bean>
+    <bean name="groupPayrunViewPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.payroll.GroupPayrunViewPDFHandler">
+    </bean>
+    <bean name="endOfServiceReportPdfHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.payroll.EndOfServiceReportPdfHandler">
+    </bean>
+
+    <bean name="cashAdvanceReportPdfHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.payroll.CashAdvanceReportPdfHandler">
+    </bean>
+
+    <bean name="cashAdvancePdfHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.payroll.CashAdvancePdfHandler">
+    </bean>
+
+    <bean name="cashAdvanceListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.payroll.CashAdvanceListPDFHandler">
+    </bean>
+
+    <bean name="singlePayrunListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.payroll.SinglePayrunListPDFHandler">
+    </bean>
+
+    <bean name="salaryReportPdfHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.payroll.SalaryReportPdfHandler">
+    </bean>
+
+    <bean name="additionalPaymentPdfHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.payroll.AdditionalPaymentPdfHandler">
+    </bean>
+
+    <bean name="additionalPaymentItemPdfHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.payroll.AdditionalPaymentItemPdfHandler">
+    </bean>
+
+    <bean name="additionalPaymentItemPdfHandl" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.payroll.AdditionalPaymentPDFHandl">
+    </bean>
+
+    <bean name="kpiPaymentViewPdfHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.KpiPaymentViewPDFHandler">
+    </bean>
+
+    <bean name="incidentListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.IncidentListPDFHandler">
+    </bean>
+
+    <bean name="assessmentListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.AssessmentListPDFHandler">
+        <property name="assessmentService" ref="assessmentService"/>
+    </bean>
+    <bean name="assessmentViewPDFHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.AssessmentViewPDFHandler2"
+          parent="abstractITextPostPdfHandler">
+    </bean>
+
+    <bean name="assessmentViewPDFHandler1" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.NewAssessmentViewPDFHandler">
+    </bean>
+
+    <bean name="appraisalTemplateListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.AppraisalTemplateListPDFHandler">
+        <property name="assessmentService" ref="assessmentService"/>
+    </bean>
+
+    <bean name="competenceListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.CompetenceListPDFHandler">
+        <property name="assessmentService" ref="assessmentService"/>
+    </bean>
+
+    <bean name="noteListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.NoteListPDFHandler">
+    </bean>
+
+    <bean name="notesPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.NotesPDFHandler">
+        <property name="noteService" ref="noteService"/>
+    </bean>
+
+    <bean name="customFormItemListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.CustomFormItemListPDFHandler">
+    </bean>
+
+    <bean name="customFormItemViewPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.invoice.CustomFormItemViewPDFHandler">
+    </bean>
+
+    <bean name="vacancyViewPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.VacancyViewPDFHandler">
+    </bean>
+    <bean name="placementInfoPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.PlacementInfoItemPDFHandler">
+    </bean>
+
+    <bean name="progressInvoicingViewPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.ProgressInvoicingViewPDFHandler">
+    </bean>
+
+    <bean name="productsBarcodePDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.barcodes.ProductsBarcodePDFHandler">
+    </bean>
+
+    <bean name="reconcilationReportPdfHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.accounting.ReconcilationReportPdfHandler">
+        <property name="accountingService" ref="accountingService"/>
+    </bean>
+    <bean name="organizationChartPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.OrganizationChartPDFHandler">
+    </bean>
+    <bean name="supervisorStructurePDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.SupervisorStructurePDFHandler">
+    </bean>
+
+    <bean name="opportunityViewPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.crm.OpportunityViewPDFHandler">
+    </bean>
+
+    <bean name="stockAdjustmentListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.StockAdjustmentListPDFHandler">
+    </bean>
+
+    <bean name="stockTransferListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.StockTransferListPDFHandler">
+    </bean>
+
+    <bean name="itemBatchHistoryListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.ItemBatchHistoryListPDFHandler">
+    </bean>
+
+    <bean name="benefitRequestListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.BenefitRequestListPDFHandler">
+    </bean>
+
+    <bean name="goalViewPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.GoalViewPDFHandler">
+    </bean>
+
+    <bean name="productRentalViewPdfHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.ProductRentalViewPDFHandler">
+    </bean>
+
+    <bean name="rentalOrderViewPdfHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.RentalOrderViewPDFHandler">
+    </bean>
+
+    <bean name="buildAssemblyViewPdfHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.BuildAssemblyViewPdfHandler">
+    </bean>
+
+    <bean name="candidateFormPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.CandidateFormPDFHandler">
+    </bean>
+
+    <bean name="shiftViewPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.template.ShiftViewPDFHandlaer">
+    </bean>
+    <bean name="rotationViewPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.template.RotationViewPDFHandler">
+    </bean>
+    <bean name="groupPlacementViewPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.template.GroupPlacementViewPDFHandler">
+    </bean>
+    <bean name="rotationListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.RotationListViewPDPHandler">
+    </bean>
+    <bean name="groupPlacementListPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.GroupPlacementListViewPDFHandler">
+    </bean>
+
+    <bean name="warehouseProductsViewPDFHandler" parent="abstractITextPostPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.WarehouseProductsViewPDFHandler">
+    </bean>
+</beans>

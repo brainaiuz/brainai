@@ -1,0 +1,46 @@
+<div class="contentBar" style="padding:0 10px;">
+    <div id="caseDescription" class="slideDown-box expand group">
+        <h3 onclick="var myclick=document.getElementById('caseDescription');if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('expand')>=0){cls=cls.replace('expand','');}else{cls+=' expand';}myclick.className=cls;}"
+            class="slideDown-title">$$label:DESCRIPTION$$</h3>
+        <fieldset class="slideDown-content group nobrd labelLine">
+            <div class="halfSet-1 left">
+                <div class="row hideCustomField">$$label:PROJECT$$
+                    <div class="field">$$input:PROJECT$$</div>
+                </div>
+                <div class="row hideCustomField">$$label:NUMBER$$
+                    <div class="field">$$input:NUMBER$$</div>
+                </div>
+                <div class="row hideCustomField">$$label:NAME$$
+                    <div class="field">$$input:NAME$$</div>
+                </div>
+                <div class="row hideCustomField">$$label:DESCRIPTION$$
+                    <div class="field">$$input:DESCRIPTION$$</div>
+                </div>
+                <div class="row hideCustomField">$$label:WORKFLOW_DATE$$
+                    <div class="field">$$input:WORKFLOW_DATE$$</div>
+                </div>
+            </div>
+        </fieldset>
+        <fieldset class="slideDown-content group nobrd labelLine">
+            <div class="halfSet-1 left">
+                <div class="row hideCustomField">$$label:PRIORITY$$
+                    <div class="field">$$input:PRIORITY$$</div>
+                </div>
+                <div class="row hideCustomField">$$label:STATUS$$
+                    <div class="field">$$input:STATUS$$</div>
+                </div>
+                <div class="row hideCustomField">$$label:TIME_SPENT$$
+                    <div class="field">$$input:TIME_SPENT$$</div>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+
+    <div id="crmActivitiesBlock" class="slideDown-box group"><h3
+            onclick="var myclick=document.getElementById('crmActivitiesBlock');if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('expand')>=0){cls=cls.replace('expand','');}else{cls+=' expand';}myclick.className=cls;}"
+            class="slideDown-title">$$label:WORKFLOW_TIME_BASED_HEADER$$</h3>
+        <fieldset class="slideDown-content group nobrd">
+            <div class="halfSet-1">$$input:WORKFLOW_TIME_BASED$$</div>
+        </fieldset>
+    </div>
+</div>

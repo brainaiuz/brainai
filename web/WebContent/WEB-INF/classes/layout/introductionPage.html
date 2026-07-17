@@ -1,0 +1,55 @@
+<div class="contentBar">
+
+    <ul class="collapsible--panels collapsible--arrows-left collapsible collapsible--gwt required"
+        data-collapsible="expandable">
+        <li class="slideDown-box group active">
+            <div class="collapsible-header active"
+                 onclick="var myclick=this.parentElement;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls; } var myclick=this;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls; }">
+                <a style="cursor: pointer;">
+                    <span>$$label:EDITOR_TITLE$$</span>
+                </a>
+            </div>
+            <div class="collapsible-body">
+                <div class="grid-row">
+                    <div class="col-12">
+                        <div class="form-group__content">$$input:INTRODUCTION_TITLE$$</div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="slideDown-box group active">
+            <div class="collapsible-header active"
+                 onclick="var myclick=this.parentElement;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls; } var myclick=this;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls; }">
+                <a style="cursor: pointer;">
+                    <span>$$label:CUSTOMIZE_BUTTONS$$</span>
+                </a>
+            </div>
+            <div class="collapsible-body">
+                <div class="grid-row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:CUSTOMIZE_OK_BUTTON$$</div>
+                            <div class="form-group__content">$$input:CUSTOMIZE_OK_BUTTON$$</div>
+                        </div>
+                    </div>
+                    <!--                    <div class="col-5">-->
+                    <!--                        <div class="form-group">-->
+                    <!--                            <div class="form-group__label">$$label:CUSTOMIZE_CANCEL_BUTTON$$</div>-->
+                    <!--                            <div class="form-group__content">$$input:CUSTOMIZE_CANCEL_BUTTON$$</div>-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
+                </div>
+
+                <div class="grid-row">
+                    <div class="col-1">
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:IS_ACTIVE$$</div>
+                            <div class="form-group__content">$$input:IS_ACTIVE$$</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </li>
+    </ul>
+</div>

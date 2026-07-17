@@ -1,0 +1,75 @@
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:m="urn:import:gwt.material.design.client.ui"
+             xmlns:g="urn:import:com.google.gwt.user.client.ui"
+             xmlns:ma="urn:import:gwt.material.design.addins.client"
+             xmlns:mhtml="urn:import:gwt.material.design.client.ui.html"
+             xmlns:kpi="urn:import:com.edatasite.workforce.gwt.core.client.ui"
+             xmlns:kpimaterialform="urn:import:com.edatasite.workforce.gwt.core.client.ui.newuiform" xmlns:components="urn:import:com.edatasite.workforce.gwt.core.client.ui.components">
+    <g:HTMLPanel>
+        <!--<div class="form-group">
+            <mhtml:Label class="form-group__label" ui:field="regionLabel" text="REGION" />
+            <m:MaterialInput class="text-input" type="TEL" debugId="region-tel" ui:field="regionTel"/>
+            &lt;!&ndash;<input class="text-input" id="region-tel" type="tel"/>&ndash;&gt;
+        </div>-->
+
+        <div class="form-group">
+            <div class="input-field">
+                <kpi:DataListBox ui:field="dwFeedBackType" />
+                <mhtml:Label ui:field="feedbackTypeLabel" text="SELECT YOUR FEEDBACK TYPE"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="input-field">
+                <!--<input class="validate" placeholder="Text here" id="gwt-uid-71" type="text"/>-->
+                <m:MaterialInput type="TEXT" debugId="subject" ui:field="subject"/>
+                <mhtml:Label ui:field="subjectLabel" text="SUBJECT"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="input-field">
+                <g:TextArea  visibleLines="7" ui:field="askYourQuestionHere"/><!--stylePrimaryName="materialize-textarea" if you add this class field will be autoresizable-->
+                <mhtml:Label ui:field="askYourQuestionHereLabel" text="ASK YOUR QUESTION HERE"></mhtml:Label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <m:MaterialCheckBox ui:field="anonymousFeedbackCheckBox" />
+        </div>
+
+        <components:MaterialFileUploadForm ui:field="attachments"/>
+
+        <!--<div class="form-group">
+            <mhtml:Label class="form-group__label" ui:field="attachmmentsUploadLabel" text="ATTACHMENTS UPLOAD" />
+
+            <div class="form-upload">
+
+                <mhtml:Div class="form-upload__attached" ui:field="uploadedFilesContainer">
+                    &lt;!&ndash;<mhtml:Div class="btn-uploaded">
+                        <mhtml:Italic class="ficon&#45;&#45;file-excel"></mhtml:Italic>
+                    </mhtml:Div>&ndash;&gt;
+                </mhtml:Div>
+
+                <mhtml:Div class="btn-upload" ui:field="attachButtonContainer">
+                    <kpi:WfmFormPanel action="/action/CreateAttachment" method="POST" ui:field="form" encoding="multipart/form-data">
+                        <g:FileUpload debugId="btn-upload-2"  ui:field="uploadFile" />
+                    </kpi:WfmFormPanel>
+                    <mhtml:Div class="btn-upload__icon">
+                        <mhtml:Italic class="ficon&#45;&#45;attachment" ui:field="uploadBtnIcon"></mhtml:Italic>
+                    </mhtml:Div>
+                </mhtml:Div>
+                &lt;!&ndash;<mhtml:Div class="btn-upload btn-upload&#45;&#45;plus" ui:field="plusButtonContainer">
+
+                    <m:MaterialInput debugId="btn-plus" type="FILE"/>
+
+                    <mhtml:Div class="btn-upload__icon">
+                        <mhtml:Italic class="ficon&#45;&#45;plus" />
+                    </mhtml:Div>
+                </mhtml:Div>&ndash;&gt;
+
+            </div>
+
+        </div>-->
+    </g:HTMLPanel>
+</ui:UiBinder>

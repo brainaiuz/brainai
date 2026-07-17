@@ -1,0 +1,331 @@
+
+//from invoice.scss [Abdukadirov]
+//https://prnt.sc/r1rjf5
+/*  Assignees Widget */
+.addAssignees,
+.selectPanelWidget {
+  flex-direction: column;
+  display: flex;
+}
+
+.single-column .addAssignees,
+.single-item .addAssignees,
+.one-column .addAssignees,
+.single-column .selectPanelWidget,
+.single-item .selectPanelWidget,
+.one-column .selectPanelWidget,
+.grid-box__col--12 .addAssignees,
+.grid-box__col--12 .selectPanelWidget,
+.col-12 .selectPanelWidget,
+.col-12 .addAssignees {
+  flex-direction: row;
+}
+
+.addAssignees .tree,
+.selectPanelWidget__tree {
+  margin-top: 0px;
+  margin-bottom: 20px;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+/*
+.single-column .addAssignees .tree,
+.single-item .addAssignees .tree,
+.one-column .addAssignees .tree,
+.single-column .selectPanelWidget__tree,
+.single-item .selectPanelWidget__tree,
+.one-column .selectPanelWidget__tree,
+.grid-box__col--12 .addAssignees .tree,
+.grid-box__col--12 .selectPanelWidget__tree,
+*/
+.col-12 .addAssignees .tree,
+.col-12 .selectPanelWidget__tree {
+  width: 40%;
+  padding-right: 20px;
+}
+
+.addAssignees .tree > div,
+.selectPanelWidget__tree > div {
+  margin-top: 0;
+  border-radius: $radius-basePlus;
+  border: 1px solid #e1e5ec;
+  width: 100%;
+}
+
+/*.single-column .addAssignees .tree > div,*/
+/*.single-item .addAssignees .tree > div,*/
+/*.one-column .addAssignees .tree > div,*/
+/*.single-column .selectPanelWidget__tree > div,*/
+/*.single-item .selectPanelWidget__tree > div,*/
+/*.one-column .selectPanelWidget__tree > div,*/
+/*.grid-box__col--12 .addAssignees  > div,*/
+/*.grid-box__col--12 .selectPanelWidget__tree > div,*/
+/*.col-12 .addAssignees > div,*/
+/*.col-12 .selectPanelWidget__tree > div {*/
+/*width: 300px;*/
+/*}*/
+
+.selectPanelWidget__tree > div {
+  padding: 5px;
+  height: 280px !important;
+
+  .skillsPopup & {
+    height: auto !important;
+  }
+}
+
+.addAssignees .selectedLabel {
+  position: relative;
+}
+
+.addAssignees .selectedLabel,
+.selectPanelWidget__table {
+  padding-left: 0;
+  padding-right: 0;
+  background: transparent;
+  width: auto;
+  border-radius: $radius-basePlus;
+  flex-grow: 1;
+  border: 1px solid #e1e5ec;
+  height: 280px;
+  position: relative;
+}
+
+.addAssignees .selectedLabel:before,
+.selectPanelWidget__table:before {
+  content: '\e912';
+  font-family: 'icomoon';
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  margin-left: -10px;
+  font-size: 20px;
+}
+
+.single-column .addAssignees .selectedLabel:before,
+.single-item .addAssignees .selectedLabel:before,
+.one-column .addAssignees .selectedLabel:before,
+.grid-box__col--12 .addAssignees .selectedLabel:before,
+.col-12 .addAssignees .selectedLabel:before,
+.single-column .selectPanelWidget__table:before,
+.single-item .selectPanelWidget__table:before,
+.one-column .selectPanelWidget__table:before,
+.grid-box__col--12 .selectPanelWidget__table:before,
+.col-12 .selectPanelWidget__table:before {
+  content: '\e914';
+  position: absolute;
+  top: 50%;
+  left: -10px;
+  margin-top: -10px;
+}
+
+.selectedLabel input[type="text"] {
+  width: 100%;
+  margin-right: 0;
+}
+
+.addAssignees .tree .cellTreeWidget,
+.selectPanelWidget__tree .gwt-Tree {
+  margin-top: 33px;
+  height: 190px;
+  overflow: auto;
+}
+
+.skillsPopup {
+  .selectPanelWidget__tree .gwt-Tree {
+    /*overflow: hidden;*/
+    height: auto;
+    margin-top: 0;
+
+    div[style*="white-space: nowrap"] {
+      //white-space: normal !important;
+      //word-break: break-word;
+    }
+    .gwt-TreeItem {
+      white-space: normal;
+    }
+  }
+}
+
+.addAssignees .tree .cellTreeWidget .cellTreeItemValue td:first-child,
+.selectPanelWidget__tree .gwt-TreeItem td:first-child {
+  width: 20px;
+}
+
+.addAssignees .tree .cellTreeItemImage img,
+.selectPanelWidget__expand img {
+  background: none !important;
+  display: none;
+}
+
+.addAssignees .tree .cellTreeItemImage:before,
+.selectPanelWidget__expand--plus:after {
+  content: '\e928';
+  position: absolute;
+  margin-left: 0px;
+  font-family: 'icomoon';
+  font-weight: normal;
+  color: $color-accent-2;
+}
+
+.addAssignees .cellTreeWidget [aria-expanded='false'] > div > div > .cellTreeItemImage:before,
+.selectPanelWidget__expand--minus:before {
+  content: '\e927';
+}
+
+.selectedLabel--fixed {
+  max-width: 400px;
+}
+
+.addAssignees .tree .selectOpt__search {
+  margin: 5px;
+}
+
+.addAssignees .selectOpt .gwt-TextBox {
+  width: 100%;
+  margin: 0;
+  padding-right: 30px;
+}
+
+
+//https://prnt.sc/xpum94
+.selectOpt__search,
+.selectPanelWidget__search {
+  position: relative;
+
+  .btn--icon {
+    position: absolute;
+    top: 1px;
+    bottom: 1px;
+    right: 1px;
+    width: 30px;
+    opacity: 1;
+    transition: opacity 0.2s ease-in;
+    cursor: pointer;
+    //display: block; //https://i.imgur.com/qJffFVw.png
+
+    &:not(button) {
+      display: inline-flex; // to align nested svg
+    }
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+
+  .ficon--cancel:last-child {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+
+.selectPanelWidget__tree {
+  .search-textbox {
+    margin-bottom: 0;
+    padding-right: 40px;
+  }
+
+  .treePanel-class > .gwt-CheckBox {
+    float: left;
+    font-size: 13px;
+    font-weight: bold;
+    margin-top: 7px;
+    margin-left: 20px;
+    //https://prnt.sc/r1rjf5
+
+    .skillsPopup & {
+      float: none;
+      margin-left: 0;
+      margin-top: 0;
+      font-weight: normal;
+    }
+  }
+
+  .gwt-TreeItem table {
+    table-layout: fixed;
+    .skillsPopup & {
+      table-layout: auto;
+    }
+  }
+
+  .gwt-Tree {
+    > div {
+      > table .gwt-HTML {
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+      > div > div {
+        padding-left: 14px !important;
+      }
+      > table:first-child td:first-child {
+        width: 20px;
+        img {
+          //vertical-align: -3px; lead to the follosing problem (SHARE THIS REPORT WITH modal) https://prnt.sc/qxv9jl
+          cursor: pointer;
+
+        }
+      }
+    }
+    .gwt-Checkbox, .gwt-HTML {
+      padding-top: 3px;
+      padding-bottom: 3px;
+
+      .skillsPopup & {
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+    }
+  }
+}
+
+.selectPanelWidget__table-body {
+
+  height: 238px;
+}
+
+.selectPanelWidget__table-body::-webkit-scrollbar {
+  /*display: block !important;*/
+}
+
+/*.selectPanelWidget__table {
+    max-width: 500px;
+}*/
+
+.selectPanelWidget__table td:last-child {
+  width: 100px;
+}
+
+.selectPanelWidget__table table {
+  table-layout: fixed;
+}
+
+.selectPanelWidget__expandCollapse {
+  width: 40px;
+  height: 40px;
+  line-height: 37px;
+  text-align: center;
+  cursor: pointer;
+  transition: opacity 0.3s;
+  border: 1px solid #e1e5ec;
+  border-radius: $radius-basePlus;
+  margin-left: auto;
+}
+
+.selectPanelWidget__expandCollapse:after {
+  content: '\e919';
+  font-family: 'icomoon';
+  font-size: 20px;
+
+}
+
+.selectPanelWidget__expandCollapse:hover {
+  opacity: 0.5;
+}
+
+.gwt-DisclosurePanel {
+  a.header > table > * > tr > * > img {
+    margin-right: 4px;//https://live.staticflickr.com/65535/54809460258_e155e555c4_c.jpg
+  }
+}

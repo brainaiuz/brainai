@@ -1,0 +1,1588 @@
+/*body {
+    background-color: white;
+    color: black;
+    !*font-family: tahoma, verdana, helvetica;*!
+    font-size: 12px; !*margin: 8px;*!
+}*/
+
+.buttonn {
+    margin: 10px 0 0 15px;
+}
+
+.headerBackground {
+    background-color: #F8F8F8;
+}
+
+.blueTab {
+    background-color: #D7E7FF;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 7px;
+}
+
+.paymentTab {
+    background-color: #D7E7FF;
+    margin-top: 10px;
+}
+
+.introText {
+    font-size: 12px;
+}
+
+.intro2Text {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.introTitle {
+    color: #1f4f8f;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.introTable {
+    margin: 5px 0 0 20px;
+}
+
+.margin10 {
+    margin-left: 10px;
+}
+
+.introMargin {
+    margin: 35px 0 0 20px;
+}
+
+.pdfIcon {
+    cursor: pointer;
+    margin: 15px 15px 0 5px;
+}
+
+.tourIcon {
+    margin-top: 17px;
+    cursor: pointer;
+}
+
+.helpIcon {
+    margin: 15px 15px 10px 5px;
+    cursor: pointer;
+}
+
+.tableLeftStyle {
+    margin-left: 7px;
+}
+
+.tableStyle {
+    margin: 10px;
+}
+
+/*storefront*/
+
+.icon-client-small {
+    background: url(accounting/images/customer-small.gif) no-repeat;
+}
+
+.icon-attachment {
+    background: url(accounting/images/attachment.png) no-repeat;
+}
+
+.icon-add-convert {
+    background: url(crm/icons/convert.png) no-repeat;
+}
+
+.icon-add-task {
+    background: url(crm/icons/add-task.png) no-repeat;
+}
+
+.icon-collapse {
+    /* background: url(accounting/images/icon_collapse.gif) no-repeat;*/
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAECAYAAABCxiV9AAAAKElEQVQIW2PIy8tLA+L/WHAaw////xmwKEgDiYMl0RSAJVAkYQqQ+QCbzUQ+6juMhwAAAABJRU5ErkJggg==) no-repeat 100% 50%;
+    width: 16px;
+    height: 16px;
+    padding-left: 2px !important;
+    margin-left: 4px;
+}
+
+
+.splitButtonLeft tbody > tr > td:first-child {
+    border-right: 1px solid #808080;
+}
+
+.icon-sales-quote-small {
+    background: url("accounting/images/sale-quotes-small.png") no-repeat;
+}
+
+.icon-move-to {
+    background: url(crm/icons/move-to.png) no-repeat;
+}
+
+.icon-puchase-invoise-small {
+    background: url("accounting/images/purchase-invoices-small.gif") no-repeat;
+}
+
+#measurements-settings .abs-link {
+    color: #7D1616;
+    font-size: 18px;
+    height: 20px;
+    left: 8px;
+    position: absolute;
+    top: 10px;
+    width: 165px;
+}
+
+#measurements-settings {
+    width: 242px;
+    height: 134px;
+    background: url("accounting/images/emp-set.jpg") no-repeat;
+}
+
+#inventory-settings {
+    width: 18px;
+    height: 18px;
+    background: url("accounting/images/inventory-settings.gif") no-repeat;
+}
+
+#pick-list {
+    width: 16px;
+    height: 16px;
+    background: url("accounting/images/pick-list.png") no-repeat;
+}
+
+#warehouse {
+    width: 16px;
+    height: 16px;
+    background: url("accounting/images/warehouse.png") no-repeat;
+}
+
+/* Import Bank Account Statements */
+.bankStatementLine {
+    border-top: 1px solid #8db2e3;
+    border-left: 1px solid #8db2e3;
+    padding: 0 0 0 0;
+    background-color: #FFFFFF;
+}
+
+.bankStatementLine td {
+    border-bottom: 1px solid #8db2e3;
+    border-right: 1px solid #8db2e3;
+    padding: 5px;
+    text-align: center;
+}
+
+.bankStatementLineTransparentPadding {
+    padding: 5px;
+}
+
+.bankStatementLineTransparentTop {
+    border-top: 1px solid #8db2e3;
+    border-left: 1px solid #8db2e3;
+    padding: 5px;
+}
+
+.bankStatementLineTransparentBtm {
+    border-bottom: 1px solid #8db2e3;
+    border-top: 1px solid #8db2e3;
+    border-left: 1px solid #8db2e3;
+    padding: 5px; /*text-align: center;*/
+}
+
+.bankStatementLineTransparentLeft {
+    border-left: 1px solid #8db2e3;
+    padding: 5px;
+}
+
+.bankStatementReconcileBackground {
+    background-color: #ccffcc;
+}
+
+/* Import Bank Account Statements */
+
+.editor {
+    background-color: white;
+    color: black;
+    /*font-family: tahoma, verdana, helvetica;*/
+    font-size: 12px; /*margin: 8px;*/
+}
+
+.icon-storefront {
+    background: url("accounting/images/storefront.png") no-repeat;
+}
+
+.icon-add-storefront {
+    background: url("accounting/images/add-storefront.png") no-repeat;
+}
+
+.icon-storefront-preview {
+    background: url("accounting/images/storefront-view.png") no-repeat;
+}
+
+.icon-storefront-summary {
+    background: url("accounting/images/storefront-summary.png") no-repeat;
+}
+
+.icon-storefront-edit {
+    background: url("accounting/images/edit-storefront.png") no-repeat;
+}
+
+.icon-add-navigation-menu {
+    background: url("accounting/images/add-navigation-menu.png") no-repeat;
+}
+
+.icon-navigation-menu-list {
+    background: url("accounting/images/navigation-menu.png") no-repeat;
+}
+
+.icon-add-custom-page {
+    background: url("accounting/images/add-custom-page.png") no-repeat;
+}
+
+.icon-custom-page-list {
+    background: url("accounting/images/custom-pages.png") no-repeat;
+}
+
+.icon-add-category {
+    background: url("accounting/images/add-category.png") no-repeat;
+}
+
+.icon-storefront-categories {
+    background: url("accounting/images/storefront-categories.png") no-repeat;
+}
+
+.icon-remove-storefront {
+    background: url("accounting/images/remove.png") no-repeat;
+}
+
+.icon-discount {
+    background: url("accounting/images/icon-discounts.png") no-repeat;
+}
+
+.icon-price-level {
+    background: url("accounting/images/price-levels.png") no-repeat;
+}
+
+.stock-warning {
+    background: url("accounting/images/warning.png") no-repeat;
+    height: 16px;
+    text-align: center;
+}
+
+.gwt-SuggestBoxPopup {
+    z-index: 7000 !important;
+}
+
+.accounting-guide-main {
+    min-height: 400px;
+}
+
+.flexTable {
+    border: 1px solid #99BBE8;
+    /*min-height: 400px;*/
+    width: 100%;
+    background-color: #fff;
+}
+
+.flexTable-td {
+    border-top: 1px solid #99BBE8;
+    border-left: 1px solid #99BBE8;
+    padding: 5px;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.flexTable-Label {
+    border-right: 1px solid #99BBE8;
+    background-color: #99BBE8;
+    color: #1F4F8F;
+    text-align: center;
+    padding: 5px;
+    height: 20px;
+}
+
+/*for accounting*/
+.subDivisions li.accountMark a {
+    background-image: url("accounting/images/accounting-sprite.png");
+    background-repeat: no-repeat;
+}
+
+/*welcome*/
+.subDivisions .af-welcome a {
+    background-position: 8px -74px;
+}
+
+/*purchase-order-list*/
+.subDivisions .purchase-order-list a {
+    background-position: 8px -778px;
+}
+
+/*new-client-list*//*
+.subDivisions .new-client-list a {
+    background-position: 8px -294px;
+}*/
+
+/*supplier-list*/
+.subDivisions .supplier-list a {
+    background-position: 8px -938px;
+}
+
+/*fixed-asset-reg-list*/
+.subDivisions .fixed-asset-reg-list a {
+    background-position: 8px -402px;
+}
+
+/* report-list*/
+.subDivisions .report-list a {
+    background-position: 8px -238px;
+}
+
+/*account-list*/
+.subDivisions .account-list a {
+    background-position: 8px -457px;
+}
+
+/*bank-accounts*/
+.subDivisions .bank-accounts a {
+    background-position: 8px -130px;
+}
+
+.subDivisions .account-Check a {
+    background-position: 8px -1730px;
+}
+
+/*reservation-list*/
+.subDivisions .reservation-list a {
+    background-position: 8px -22px;
+}
+
+/* manual-journals*/
+.subDivisions .manual-journals a {
+    background-position: 8px -22px;
+}
+
+/*budgetsheet*/
+.subDivisions .budgetsheet a {
+    background-position: 8px -185px;
+}
+
+/*trial-balance*/
+.subDivisions .trial-balance a {
+    background-position: 8px -1090px;
+}
+
+/*profit-and-loss*/
+.subDivisions .profit-and-loss a {
+    background-position: 8px -670px;
+}
+
+/* ac-type-num-settings*/
+.subDivisions .ac-type-num-settings a {
+    background-position: 8px -351px;
+}
+
+/*tax-list*/
+.subDivisions .tax-list a {
+    background-position: 8px -990px;
+}
+
+/*invoice-template-list*/
+.subDivisions .invoice-template-list a {
+    background-position: 8px -1144px;
+}
+
+/*price-livel-list*/
+.subDivisions .price-livel-list a {
+    background-position: 8px -1192px;
+}
+
+/*shipping-method-list*/
+.subDivisions .shipping-method-list a {
+    background-position: 8px -614px;
+}
+
+/*discount-list*/
+.subDivisions .discount-list a {
+    background-position: 8px -1244px;
+}
+
+/*welcome active hover*/
+.subDivisions .af-welcome a:hover, .subDivisions .af-welcome.active a {
+    background-position: 8px -49px;
+}
+
+/*purchase-order-list active hover*/
+.subDivisions .purchase-order-list a:hover, .subDivisions .purchase-order-list.active a {
+    background-position: 8px -750px;
+}
+
+/*new-client-list active hover*//*
+.subDivisions .new-client-list a:hover, .subDivisions .new-client-list.active a {
+    background-position: 8px -266px;
+}*/
+
+/*supplier-list active hover*/
+.subDivisions .supplier-list a:hover, .subDivisions .supplier-list.active a {
+    background-position: 8px -910px;
+}
+
+/*fixed-asset-reg-list active hover*/
+.subDivisions .fixed-asset-reg-list a:hover, .subDivisions .fixed-asset-reg-list.active a {
+    background-position: 8px -376px;
+}
+
+/* report-list active hover*/
+.subDivisions .report-list a:hover, .subDivisions .report-list.active a {
+    background-position: 8px -212px;
+}
+
+/*account-list*/
+.subDivisions .account-list a:hover, .subDivisions .account-list.active a {
+    background-position: 8px -429px;
+}
+
+/*bank-accounts active hover*/
+.subDivisions .bank-accounts a:hover, .subDivisions .bank-accounts .active a {
+    background-position: 8px -102px;
+}
+
+.subDivisions .account-Check a:hover, .account-Check .active a {
+    background-position: 8px -1708px;
+}
+
+/*reservation-list active hover*/
+.subDivisions .reservation-list a:hover, .subDivisions .reservation-list.active a {
+    background-position: 8px 6px;
+}
+
+/* manual-journals active hover*/
+.subDivisions .manual-journals a:hover, .subDivisions .manual-journals.active a {
+    background-position: 8px 6px;
+}
+
+/*budgetsheet active hover*/
+.subDivisions .budgetsheet a:hover, .subDivisions .budgetsheet.active a {
+    background-position: 8px -157px;
+}
+
+/*trial-balance active hover*/
+.subDivisions .trial-balance a:hover, .subDivisions .trial-balance.active a {
+    background-position: 8px -1062px;
+}
+
+/*profit-and-loss active hover*/
+.subDivisions .profit-and-loss a:hover, .subDivisions .profit-and-loss.active a {
+    background-position: 8px -642px;
+}
+
+/* ac-type-num-settings active hover*/
+.subDivisions .ac-type-num-settings a:hover, .subDivisions .innvoice-settings.active a {
+    background-position: 8px -323px;
+}
+
+/*tax-list active hover*/
+.subDivisions .tax-list a:hover, .subDivisions .tax-list.active a {
+    background-position: 8px -964px;
+}
+
+/*invoice-template-list active hover*/
+.subDivisions .invoice-template-list a:hover, .subDivisions .invoice-template-list.active a {
+    background-position: 8px -1118px;
+}
+
+/*price-livel-list active hover*/
+.subDivisions .price-livel-list a:hover, .subDivisions .price-livel-list.active a {
+    background-position: 8px -1168px;
+}
+
+/*shipping-method-list active hover*/
+.subDivisions .shipping-method-list a:hover, .subDivisions .shipping-method-list.active a {
+    background-position: 8px -588px;
+}
+
+/*discount-list*/
+.subDivisions .discount-list a:hover, .subDivisions .discount-list.active a {
+    background-position: 8px -1219px;
+}
+
+/*ac-notes*/
+.subDivisions .ac-notes a {
+    background-position: 8px -1385px;
+}
+
+.subDivisions .ac-notes a:hover, .subDivisions .ac-notes.active a {
+    background-position: 8px -1363px;
+}
+
+/*ac-edit*/
+.subDivisions .ac-edit a {
+    background-position: 8px -1482px;
+}
+
+.subDivisions .ac-edit a:hover, .subDivisions .ac-edit.active a {
+    background-position: 8px -1456px;
+}
+
+.subDivisions .icon-custom-field a {
+    background-position: 8px -884px;
+}
+
+/*inventory-stock*/
+.subDivisions .inventory-stock a {
+    background-position: 8px -1533px;
+}
+
+.subDivisions .inventory-stock a:hover, .subDivisions .inventory-stock.active a {
+    background-position: 8px -1507px;
+}
+
+/*product-comment*/
+.subDivisions .product-comment a {
+    background-position: 8px -1584px;
+}
+
+.subDivisions .product-comment a:hover, .subDivisions .product-comment.active a {
+    background-position: 8px -1559px;
+}
+
+/*example-table*/
+.subDivisions .example-table a {
+    background-position: 8px -1635px;
+}
+
+.subDivisions .example-table a:hover, .subDivisions .example-table.active a {
+    background-position: 8px -1608px;
+}
+
+/*product-category*/
+.subDivisions .product-category a {
+    background-position: 8px -1684px;
+}
+
+.subDivisions .product-category a:hover, .subDivisions .product-category.active a {
+    background-position: 8px -1660px;
+}
+
+/*accounting - dashboard*/
+.subDivisions .accounting-dashboard a {
+    background-position: 8px -1777px;
+}
+
+.subDivisions .accounting-dashboard a:hover, .subDivisions .accounting-dashboard.active a {
+    background-position: 8px -1752px;
+}
+/* ----------------------------------- Invoice Expense Style Start ----------------------------------------------- */
+
+.productstable #top {
+    background-repeat: repeat-x;
+    color: #FFFFFF;
+    font-weight: bold;
+    height: 25px;
+}
+
+.contentBar {
+    position: relative;
+    height: 100%;
+}
+
+.contentScroll {
+    height: 100%;
+}
+
+.mainBar {
+    min-height: 100%;
+    padding: 0 9px 0 14px;
+    vertical-align: top;
+}
+
+.mainBar2 {
+    min-height: 80%;
+    padding: 0 9px 0 14px;
+    vertical-align: top;
+}
+
+.mainBar .contentBox {
+}
+
+.mainBar > .group {
+    margin-bottom: 18px;
+}
+
+/*.invoice-block {
+    padding-bottom: 20px;
+}*/
+
+/*
+.invoice-project,
+.invoice-date,
+.invoice-customer {
+    margin-right: 20px;
+}
+
+.invoice-project,
+.invoice-date,
+.invoice-due-date,
+.invoice-customer {
+    float: left;
+}
+
+.invoice-type {
+    float: right;
+}
+
+.progress-invoicing {
+    float: right;
+    padding-top: 20px;
+}
+
+.progress-invoicing span input {
+    margin-right: 5px;
+}
+*/
+
+/*
+.invoice-customer .gwt-SuggestBox,
+.invoice-customer .x-form-invalid {
+    width: 170px !important;
+    height: 17px;
+    font-size: 12px;
+}
+
+.invoice-project .gwt-SuggestBox {
+    width: 150px !important;
+    height: 17px;
+    font-size: 12px;
+}
+
+.invoice-project .simpleGwt-ComboBox {
+    float: left;
+}
+*/
+
+/*
+.invoice-project .gwt-Button {
+    float: left;
+    margin-left: 10px;
+}
+*/
+
+.invoice-due-date .datePicker,
+.invoice-due-date .x-form-invalid,
+.invoice-date .datePicker,
+.invoice-date .x-form-invalid {
+    width: 80px;
+    height: 17px;
+    font-size: 12px;
+}
+
+.invoice-num .number {
+    height: 17px;
+    width: 187px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.invoice-block .titlelabel {
+    font-size: 15px;
+}
+
+.invoice-type .invoicetypelist {
+    /*height: 21px;*/
+    width: 130px;
+    font-size: 13px;
+}
+
+.invoice-num {
+    float: right;
+}
+
+.invoice-num .label {
+    float: left;
+    line-height: 20px;
+    margin-right: 10px;
+}
+
+.invoice-num .gwt-Label {
+    margin-top: 4px;
+    float: right;
+}
+
+.invoice-title {
+    float: left;
+    overflow: hidden;
+    font: bold 16px/24px Arial, sans-serif;
+    color: #002b6d;
+}
+
+.invoice-copyfrom {
+    float: left;
+    margin-left: 20px;
+    margin-top: 3px;
+}
+
+.invoice-bill-to,
+.invoice-ship-to {
+    min-width: 250px;
+    min-height: 114px;
+    border: 1px solid #737373;
+    overflow: hidden;
+}
+
+.addresshead {
+    background-color: #eaeaea;
+    padding: 5px;
+    overflow: hidden;
+    min-width: 250px;
+}
+
+.invoice-bill-to {
+    float: left;
+    position: relative;
+}
+
+.addresslabel,
+.addresslist,
+.mailAddressList,
+.add-edit-links .addresslink {
+    float: left;
+    margin-right: 8px;
+    line-height: 20px;
+}
+
+.addresslist {
+    max-width: 100px;
+}
+
+.add-edit-links {
+    float: left;
+}
+
+.add-edit-links .addresslink {
+}
+
+.addressdata {
+    padding: 5px;
+}
+
+.invoice-ship-to {
+    float: right;
+    position: relative;
+}
+
+.invoice-ship-via,
+.invoice-price-level,
+.invoice-amounts,
+.invoice-reference,
+.related-text {
+    float: right;
+    margin-left: 20px;
+}
+
+.invoice-ship-via input,
+.invoice-price-level input,
+.invoice-amounts select,
+.invoice-reference input,
+.related-text input {
+    width: 120px;
+}
+
+.invoice-add-introduction {
+    padding: 25px 5px 20px 0;
+}
+
+.optionlabel {
+    color: #002b6d;
+    font: bold 13px/19px Arial, sans-serif;
+    padding-left: 25px;
+    background: url(accounting/images/mark-add-intro.png) 0 50% no-repeat;
+    text-decoration: underline;
+    margin-bottom: 15px;
+}
+
+.invoice-add-introduction .introduction {
+    width: 100%;
+    height: 70px;
+}
+
+.invoice-products {
+    overflow: hidden;;
+    margin-bottom: 30px;
+}
+
+.invoice-products a {
+    font: bold 13px/19px Arial, sans-serif;
+    color: #237e3d;
+    text-decoration: underline;
+}
+
+.productstable {
+    border: 0;
+    margin-bottom: 5px;
+    word-wrap: break-word;
+    width: 100%;
+}
+
+.productstable > tbody > tr:first-child > td:first-child {
+    border-left: none;
+    width: 50px;
+}
+
+.productstable > tbody > tr:first-child > td {
+    background-color: #1286c3;
+    color: #ffffff;
+    border-right: 1px solid #003382;
+    border-left: 1px solid #3db9df;
+    font: bold 11px/24px Arial, sans-serif;
+}
+
+.productstable > tbody > tr > td {
+    padding: 3px;
+}
+
+.productstable .odd > td {
+    background-color: #f3f3f3;
+}
+
+.invoice-paymentpanel {
+    float: left;
+}
+
+.invoice-paymentexrate {
+    margin-top: 10px;
+}
+
+.overall-discount {
+    float: right;
+    position: relative;
+    margin-top: -30px;
+    margin-bottom: 10px;
+}
+
+.invoice-subtotal {
+    clear: right;
+    float: right;
+    position: relative;
+    background-color: #f2f2f2;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+.invoice-subtotal .corner {
+    background-image: url(accounting/images/corners-gray.png);
+    background-repeat: no-repeat;
+    width: 10px;
+    height: 10px;
+    display: block;
+    position: absolute;
+    /*z-index: 10;*/
+}
+
+.corner.lt {
+    background-position: 0 0;
+    top: 0;
+    left: 0;
+}
+
+.corner.rt {
+    background-position: 100% 0;
+    top: 0;
+    right: 0;
+}
+
+.corner.lb {
+    background-position: 0 100%;
+    bottom: 0;
+    left: 0;
+}
+
+.corner.rb {
+    background-position: 100% 100%;
+    bottom: 0;
+    right: 0;
+}
+
+.totalstable > tbody > tr > td {
+    padding: 5px;
+}
+
+.totalvalue {
+    /*font: 14px/20px Arial, sans-serif;*/
+    /*text-align: right;*/
+    /*color: #ffffff;*/
+    /*background-color: #1286c3;*/
+    /*padding: 0 5px 0 10px;*/
+    /*test: Accounting;*/
+}
+
+.totallabel {
+    /*color: #002b6d;*/
+    /*font: bold 14px/20px Arial, sans-serif;*/
+    /*text-align: left;*/
+    /*padding: 0 10px 0 0;*/
+    /*background-color: #f2f2f2;*/
+}
+
+.invoice-payment-instructions {
+    overflow: hidden;
+    margin-top: 45px;
+}
+
+.invoice-payment-instructions .termsinstruction {
+    width: 95%;
+}
+
+.invoice-payment-instructions .termstxtarea {
+    width: 95%;
+    height: 110px;
+}
+
+.termsinstruction .gwt-TextArea {
+    width: 100%;
+    height: 110px;
+}
+
+.paymenthistorypanel {
+    width: 670px;
+}
+
+.invoice-btn-expense button {
+    width: 115px;
+    margin-right: 15% !important;
+}
+
+.invoice-btns-row {
+    text-align: right;
+    margin-top: 20px;
+    clear: both;
+}
+
+.invoice-btns-row div + div {
+    margin-left: 10px;
+}
+
+.invoice-btns-row div {
+    display: inline;
+}
+
+/*.invoice-btns-row button {
+    background-color: transparent;
+    background-image: url(accounting/images/bg_btns-invoice.png);
+    background-repeat: no-repeat;
+    font: bold 12px Arial, sans-serif;
+    height: 29px;
+    border: none;
+    padding: 0;
+}
+
+.invoice-btn-default button {
+    width: 128px;
+    background-position: -103px 0;
+}
+
+.invoice-btn-save button {
+    background-position: 0 0;
+    width: 103px;
+    padding-left: 35px;
+}
+
+.invoice-btn-save-approve button {
+    width: 128px;
+    background-position: -103px 0;
+}
+
+.invoice-btn-approve button {
+    background-position: -231px 0;
+    width: 170px;
+    padding-left: 35px;
+}
+
+.invoice-btn-pdf button {
+    width: 103px;
+    padding-left: 20px;
+    background-position: 100% 0;
+}*/
+
+/**** START invoiceTable
+=================================================================****/
+.bindContent {
+    width: 100%;
+}
+
+.bindContent .sidebar {
+    min-width: 200px;
+    width: 220px;
+    border: 1px solid #ccc;
+    background: #f0ffe2;
+    vertical-align: top;
+}
+
+.sortBar {
+    padding-bottom: 15px;
+}
+
+.sortBar > li {
+    position: relative;
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+.sortBar > li + li {
+    margin-left: 18px;
+}
+
+.sortBar > li > label:first-child {
+    margin-left: 5px;
+    font: bold 12px Arial, sans-serif;
+    color: #002b6d;
+}
+
+.sortBar > li > select,
+.sortBar > li > input[type="text"] {
+    display: block;
+}
+
+.sortBar .addTerm {
+    position: absolute;
+}
+
+/* Start invoiceTable sidebar */
+.inv-OptBar {
+    padding: 10px 7px 0;
+    min-width: 210px;
+}
+
+/* .inv-OptBar table {margin:25px 0 0 0;} */
+.inv-OptBar table td {
+    padding: 5px 3px;
+}
+
+.inv-OptBar .customfields table td {
+    padding: 0;
+}
+
+.inv-OptBar .customfields .customTitle {
+    width: auto;
+    display: block;
+}
+
+.inv-OptBar .exRate input {
+    width: 55px;
+    height: 17px;
+    font-size: 12px;
+}
+
+.inv-OptBar .exRate select {
+    width: 60px;
+    /*height: 21px;*/
+    font-size: 13px;
+    margin-left: 5px;
+}
+
+.inv-OptBar .bankDetails select {
+    width: 120px;
+    /*height: 21px;*/
+    font-size: 13px;
+}
+
+.inv-OptBar .optBarTitle {
+    font-size: 14px;
+    line-height: 22px;
+    background-color: #0077bf;
+    font-weight: bold;
+    color: #fff;
+    padding-left: 12px;
+    border-bottom: 1px solid #238bc4;
+    border-top: 1px solid #097cc0;
+}
+
+.inv-OptBar .optBarBlock {
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.optBarBlock .colSortlist {
+    margin: 10px 0 0;
+    list-style: disc outside url(accounting/images/list-arrow.png);
+    margin-left: 20px;
+}
+
+.optBarBlock .colSortlist li {
+    position: relative;
+    font-size: 14px;
+    color: #004670;
+    padding: 5px 20px 5px 0;
+    border-bottom: 1px solid #a2c87e;
+}
+
+.optBarBlock .colSortlist li .btnRemove {
+    display: block;
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -7px;
+    background: url(accounting/images/marks-1.png) no-repeat -1px 100%;
+}
+
+.optBarBlock .uploadbutton {
+    background: url(accounting/images/bg_btn-upload.png) 0 0 no-repeat;
+    border: none;
+    margin-left: 30px;
+    margin-top: 20px;
+    padding-left: 30px;
+    padding-right: 10px;
+    font: bold 13px Arial, sans-serif;
+    color: #ffffff;
+    height: 28px;
+}
+
+.optBarBlock .btn-1 {
+    margin-left: 20px;
+}
+
+.inv-OptBar .addnote {
+    margin-left: 30px;
+    margin-top: 20px;
+    color: #237e3d;
+    font-size: 13px;
+    font-weight: bold;
+    text-decoration: none;
+    border-bottom: 1px solid #237e3d;
+}
+
+.inv-OptBar .currencyList,
+.inv-OptBar .exchangeRate,
+.inv-OptBar .baseExchangeRate {
+    width: 55px;
+    float: left;
+}
+
+.inv-OptBar .baseExchangeRate {
+    line-height: 25px;
+}
+
+.inv-OptBar .exchangeRate {
+    line-height: 25px;
+    margin-left: 5px;
+}
+
+.inv-OptBar .customTitle {
+    width: 60px;
+    display: block;
+}
+
+.inv-OptBar .customwidget {
+    width: 100px
+}
+
+.notespanel {
+    padding-top: 5px;
+    margin: 0 !important;
+    width: 100%;
+}
+
+.notespanel table {
+    margin: 0 !important;
+    width: 100%;
+}
+
+.notespanel table tr td:first-child {
+    background: url(accounting/images/list-arrow.png) 0 10px no-repeat;
+}
+
+.notespanel table td {
+    padding: 0;
+    border-bottom: 1px solid #a2c87e;
+    vertical-align: middle !important;
+}
+
+.notespanel .gwt-HTML {
+    position: relative;
+    font-size: 14px;
+    color: #004670;
+    padding: 5px 20px 5px 0;
+    margin-left: 12px;
+    width: 163px;
+    word-wrap: break-word;
+}
+
+/***************************** END inv-OptBar *******************************/
+
+/*********************************Expense Styles Start*******************************/
+
+.lineItem {
+    float: left;
+}
+
+.lineItem + .lineItem {
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+.lineItem.voidTopLabel {
+    margin-top: 24px;
+}
+
+.lineItem .datePicker,
+.lineItem .number,
+.lineItem .reference,
+.lineItem .exchangeRate,
+.lineItem .select,
+.lineItem .projectlist .gwt-SuggestBox {
+    font-size: 12px
+}
+
+.lineItem .number {
+    height: 20px;
+    width: 187px;
+    margin-left: 5px;
+}
+
+.lineItem .reference {
+    height: 20px;
+    width: 383px;
+    margin-left: 3px;
+}
+
+.lineItem .projectlist .gwt-SuggestBox {
+    height: 18px;
+}
+
+.lineItem select {
+    height: 25px;
+}
+
+.lineItem .exchangeRate {
+    height: 20px;
+    width: 150px;
+}
+
+.lineItem .enable-recurring input {
+    width: 40px !important;
+}
+
+.customwidget .gwt-RadioButton, .customwidget .gwt-CheckBox {
+    display: block;
+}
+
+/*Products Style*/
+
+.productcoloredpanel {
+    background-color: #F0FFE2;
+    width: 98%;
+    margin-top: 20px;
+}
+
+.productcoloredpanel > tbody > tr > td {
+    padding: 10px;
+}
+
+.productdescription {
+    width: 98%;
+    height: 70px;
+}
+
+.lineItem .producttype {
+    width: 125px;
+}
+
+.lineItem .productname,
+.lineItem .x-form-invalid,
+.lineItem input {
+    width: 204px;
+
+}
+
+.lineItem .productnumberpref {
+    width: 50px;
+    /*height: 21px;*/
+    margin-top: -2px;
+}
+
+.lineItem .productnumber {
+    width: 100px;
+    /*height: 21px;*/
+    margin-top: -2px;
+}
+
+.lineItem .productcategory,
+.lineItem .productlabelpanel {
+    width: 150px;
+}
+
+.lineItem .producttax .gwt-SuggestBox {
+    width: 120px;
+    /*height: 18px;*/
+}
+
+.doubleTax {
+    float: right;
+    margin-right: 20px;
+}
+
+.doubleTax .producttax .gwt-SuggestBox {
+    width: 120px;
+    /*height: 18px;*/
+}
+
+.productinventoryoptions {
+    width: 100%;
+}
+
+.productinventoryoptions .gwt-TextBox,
+.productinventoryoptions .gwt-ListBox,
+.productinventoryoptions .productlabelpanel {
+    width: 90%;
+}
+
+.productmoreoptions {
+    margin: 10px 0;
+}
+
+.productcontent .checkbox {
+    margin-top: 10px;
+    display: block;
+}
+
+.productcontent .checkbox label {
+    margin-left: 10px;
+}
+
+.productcontent .lineItem input,
+.productcontent .lineItem select {
+    font-size: 14px;
+}
+
+.productcontent .customlabel {
+    width: 90%;
+    display: block;
+}
+
+.c-block {
+    margin: 0 auto;
+}
+
+.invoice-width {
+    width: 1334px;
+}
+
+.rfp-width {
+    width: 1000px;
+}
+
+.saleInvoiceIcon {
+    background-image: url("/mainStyles/icons/sales-invoice-icons.png");
+    background-repeat: no-repeat;
+    background-position: 3px -1px;
+}
+
+.dropBtn-popup .popupContent td {
+    /*border: 1px solid #C0C0C0;*/
+}
+
+.labelLine .row * {
+    font-size: 12px;
+    letter-spacing: normal;
+    white-space: normal;
+}
+
+/* ----------------------------------- Invoice Expense Style End ----------------------------------------------- */
+
+/* ----------------------------------- Add-on View styles ----------------------------------------------- */
+.shortShowcase {
+}
+
+.shortShowcase .showcaseItem {
+    border-collapse: separate;
+    border-spacing: 10px;
+}
+
+.shortShowcase .showcaseItemArtFrame {
+    border-collapse: separate;
+    border-spacing: 7px;
+    background-color: #f6f6f6;
+    background-repeat: no-repeat;
+    border: 1px solid #c8c8c8;
+}
+
+.shortShowcase .priceHolder {
+    width: 58px;
+    height: 58px;
+    position: absolute;
+    left: -8px;
+    top: -8px;
+}
+
+.multiwarehouse .priceHolder {
+    background: url(/accounting/images/addons/multiwarehouseprice.png) no-repeat;
+}
+
+.serialnumbertrack .priceHolder {
+    background: url(/accounting/images/addons/serialnumbertrackprice.png) no-repeat;
+}
+
+.landedcost .priceHolder {
+    background: url(/accounting/images/addons/landedcostprice.png) no-repeat;
+}
+
+.doubleTax .priceHolder {
+    background: url(/accounting/images/addons/doubleTaxprice.png) no-repeat;
+}
+
+.shortShowcase .showcaseItemArtFrame:hover {
+    box-shadow: 0 0 3px 1px #c7c7c7;
+    background: #fff;
+}
+
+.shortShowcase .showcaseItemArtFrame .gwt-Anchor {
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.shortShowcase .showcaseItemArtFrame:hover .gwt-Anchor {
+    color: #0162a7;
+}
+
+.shortShowcase .showcaseItemArt {
+    position: relative;
+}
+
+.showcaseItemArt .addon-dark-mask {
+    position: absolute;
+    z-index: 1;
+}
+
+.showcaseItemArt .hoverText {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    padding: 10px;
+    color: #fff;
+}
+
+.showcaseItemArt .addon-dark-mask,
+.showcaseItemArt .hoverText {
+    display: none;
+}
+
+.showcaseItemArtFrame:hover .addon-dark-mask,
+.showcaseItemArtFrame:hover .hoverText {
+    display: block;
+}
+
+/*** Start greenBtn ***/
+.greenBtn, .greenBtn span {
+    /*background: url(images/bg_greenBtn.png) no-repeat;*/
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALYAAAAaCAIAAACVTDHGAAABfElEQVRo3u3bu0oDURAG4NnNIReSNWgslCjGzkIkGAufwEbwFX0HSxu7iGlFMNhYBAtTBHeTuLeZsQh7MbvGF/i/Rxh+Zn4OHGu+8Ebvd+PPRz/2CCBRN87x9mDQvbbun28n3nDbqVVsC3OBFIvOvGCvemnepk/7u7Xp4jXAFoGcmnE6zZPxZGRC/rYsx49cDAXy/Mi1m7QMXUNEqiSiGAqsUSVSXUVERRERKEZEicgQkahii0CRpBHBFoH/toigi0DZFhHKDg0jIrDp0Ai6CJQdGkkiwkrYIlDESmldFVmdHYBfdVXSuoouAqV1NXsXwaGB0rqaHBoWYRwaKHYREcqezrBFoKSL5J7OcGigrIskhyZmiWLGRGBNzJJFJIzRRWBDRARbBMoiIpI/NNgi8PcWYdaIEREoRCRWm8hUKw2X/XrFmQdfGAqkmrWtKJSWaZle+3zmPvQ6Z4Q/EpBSElaNpNs+NReHN3GgLx/DIFhiMpCq242jnX7/4OoHeS7tw6WcOTgAAAAASUVORK5CYII=) no-repeat;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    cursor: default;
+}
+
+.greenBtn:hover {
+    cursor: pointer;
+}
+
+.greenBtn {
+    display: inline-block;
+    padding: 0 0 0 10px;
+    color: #fff;
+    box-shadow: 0 2px 5px #d2d2d2;
+}
+
+.greenBtn span {
+    display: block;
+    height: 26px;
+    line-height: 26px;
+    padding-right: 10px;
+    background-position: 100% 0;
+}
+
+.multiTable td > div {
+    color: #1F4F8F;
+    font: bold 12px Arial, sans-serif;
+    margin-left: 4px;
+    display: block;
+}
+
+.gwt-RadioButton label, .gwt-CheckBox label {
+    margin: 0 auto;
+}
+
+.addon-dark-mask {
+    background: none repeat scroll 0 0 #000000;
+    height: 100%;
+    left: 0;
+    opacity: 0.5;
+    filter: alpha(opacity=20);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 98;
+}
+
+.exchange-rate {
+    border-top: 1px solid #99BBE8;
+    border-left: 1px solid #99BBE8;
+}
+
+.exchange-rate .header {
+    font-weight: bold;
+    background: #ffde6d;
+}
+
+.exchange-rate .date {
+    font-weight: bold;
+    color: #0D4372;
+    background: #E4F5FF;
+}
+
+.exchange-rate td {
+    border-right: 1px solid #99BBE8;
+    border-bottom: 1px solid #99BBE8;
+    padding: 3px 10px;
+}
+
+/*** End greenBtn ***/
+
+/*** Start Button ***/
+.journal-pager {
+}
+
+.journal-pager td {
+    padding: 7px;
+}
+
+.journal-pager td table td {
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+.showAllCheckBox {
+    /*float: left;*/
+    /*margin: 5px 10px 0 10px;*/
+}
+
+.dragon-drop-window {
+    border: 1px dashed #000000;
+    padding: 7px 15px 15px 15px;
+    height: 80px;
+}
+.exchange-rate-panel-title {
+    width: 100%;
+    text-align: left;
+    font-weight: bold;
+    color: #456166;
+    font-style: italic;
+}
+.exchange-rate-panel {
+    width: 100%;
+    text-align: left;
+    color: #456166;
+    font-style: italic;
+}
+/*** End Button ***/

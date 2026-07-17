@@ -1,0 +1,34 @@
+<report>
+    <view>
+        <title>Calendar Events</title>
+        <name>Calendar Events</name>
+        <category>calendar</category>
+        <sqlquery>
+            <select agregateFunc="distinct">
+                <!--  Please only enter type property {'number' or 'date or clock' }   -->
+                <table name="Events">
+                    <column name="t.id" title="id" type="number" formattype="hidden"/>
+                    <column name="t.eventname" title="Event Name" type="string" formattype="string"/>
+                    <column name="t.description" title="Event Description" type="string" formattype="string"/>
+                    <column name="t.startdate" title="Event Start Date" type="date" formattype="date"/>
+                    <column name="t.enddate" title="Event End Date" type="date" formattype="date"/>
+                    <column name="t.assignee" title="Assignee" type="string" formattype="string"/>
+                </table>
+            </select>
+            <from>
+                (select
+                distinct e.id, e.subject as eventname,
+                e.description as description,
+                e.startdate as startdate,
+                e.enddate as enddate,
+                 (mu.firstname ||' '|| mu.lastname || ' ' || mu.middlename) as assignee
+                from "$".event e
+                left join "$".employeeevent ee on e.id = ee.event_id
+                left join "$".myuser mu on ee.employee_id = mu.id where e.deleted != true) t
+            </from>
+            <where>
+                <terms id="base" value="1=1"/>
+            </where>
+        </sqlquery>
+    </view>
+</report>

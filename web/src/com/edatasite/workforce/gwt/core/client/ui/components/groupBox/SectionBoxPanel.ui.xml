@@ -1,0 +1,10 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+
+    <g:HTMLPanel styleName="section-box filters-account-reports fixed-content">
+        <g:HTMLPanel styleName="section-box__content" ui:field="contentPanel">
+
+        </g:HTMLPanel>
+
+    </g:HTMLPanel>
+</ui:UiBinder>

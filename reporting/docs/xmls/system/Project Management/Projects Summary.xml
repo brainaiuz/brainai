@@ -1,0 +1,43 @@
+<report>
+    <view>
+        <title>Task List</title>
+        <name>Task List</name>
+        <category>task</category>
+        <sqlquery>
+            <select>
+                <table name="Task">
+                    <column name="projectname" title="Project Name" type="string" formattype="string"/>
+                    <column name="taskname" title="Task Name" type="string" formattype="string"/>
+                    <column name="timespent" title="Total Hours" type="time" formattype="time"/>
+                    <column name="approvedTimeSpent" title="Approved Hours" type="time" formattype="time"/>
+                    <column name="projectmanager" title="Project Manager" type="string" formattype="string"/>
+                </table>
+            </select>
+            <from>
+                (
+                select p.name projectname, coalesce(u.firstname,'')||' '||coalesce(u.lastname,'') projectmanager,t.name taskname,
+                coalesce( xxx.timespent ,0) timespent, coalesce(xxx.approvedTimeSpent,0) approvedTimeSpent
+                from  "$".project p
+                left join "$".myuser u on p.managerid=u.id
+                left join "$".task t on p.id=t.projectid
+                left join (select et.taskId, sum(tsh.timeSpent) timeSpent
+                ,sum( case r.code when '_APPROVE' then tsh.timeSpent end) approvedTimeSpent
+                from  "$".employeetask et
+                join "$".timesheet tsh on et.id=tsh.employeetaskId
+                left join "$".reference r on tsh.statusid=r.id
+                group by et.taskid
+                ) xxx on t.id=xxx.taskId
+                where p.isDeleted is not true and t.deleted is not true
+                ) t
+            </from>
+            <where>
+                <terms id="base" value="1=1"/>
+                <!--<terms id="client" clientid="t.clientid"/>
+                <terms id="userid" userid="t.assigneeid" company="t.companyid" />
+                    <terms id="managerid" userid="t.managerid" company="t.companyid" />
+                    <terms id="leaderid" userid="t.leaderid" company="t.companyid" />
+                    <terms id="admin" company="t.companyid" />-->
+            </where>
+        </sqlquery>
+    </view>
+</report>

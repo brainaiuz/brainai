@@ -1,0 +1,747 @@
+/* (2012.07.16) .coo a {
+    color: #620A9E;
+} */
+
+.coo #logo {
+    height: 57px !important;
+    background: url("/mainStyles/themes/violet/mediacom-logo.png") no-repeat scroll 20px 5px transparent !important;
+}
+
+/*--------------------- Footer BEGIN -------------------------*/
+.coo #footer {
+    position: fixed;
+    bottom: 0; /*left:47%; margin-left:-471px;*/
+    /*   _left: 0;*/
+    left: 0; /*_margin-left: 0;*/
+    width: 100%;
+    height: 30px; /*_width: auto;*/
+    clear: both;
+    color: #fff;
+    background: #002641 url(../images/themes/violet/bg_footer.png) repeat-x 0 0;
+}
+
+.coo #footer a {
+    color: #fff;
+}
+
+.coo #footer p a {
+    text-decoration: underline;
+}
+
+.coo #footer ul li {
+    margin: 0 10px 0 0;
+    padding: 0 10px 0 0;
+    border-right: 1px solid #fff;
+}
+
+.coo .footer-inner {
+    overflow: hidden;
+    zoom: 1;
+    padding: 9px 29px 10px;
+}
+
+/*--------------------- Footer END -----------------------------*/
+
+/*--------------------- Titles BEGIN ---------------------------*/
+.coo .title {
+    font-size: 16px;
+    margin: 0 0 10px;
+    color: #620A9E;
+}
+
+.coo .sub-title {
+    font-size: 14px;
+    color: #620A9E;
+    margin: 0 0 15px;
+}
+
+/*--------------------- Titles END -----------------------------*/
+
+/*--------------------- Tab Titles BEGIN -----------------------*/
+.coo .tab-t1,
+.coo .tab-t2,
+.coo .tab-t3,
+.coo .tab-t1 span,
+.coo .tab-t2 span,
+.coo .tab-t3 span {
+    float: left;
+    height: 28px;
+    background-image: url(images/themes/violet/bg_tab_title.png);
+}
+
+.coo .tab-t1,
+.coo .tab-t2,
+.coo .tab-t3 {
+    display: inline;
+    clear: both;
+    margin: 0;
+    padding: 0 29px 0 0;
+    font-size: 14px;
+    background-repeat: no-repeat;
+}
+
+.coo .tab-t1 span,
+.coo .tab-t2 span,
+.coo .tab-t3 span {
+    line-height: 28px;
+    padding: 0 10px 0 30px;
+    color: #fff;
+    background-repeat: repeat-x;
+}
+
+.coo .tab-t1 {
+    background-color: #206000;
+    background-position: 100% 40%;
+}
+
+.coo .tab-t1 span {
+    background-position: 0 -87px;
+}
+
+.coo .tab-t2 {
+    background-color: #002742;
+    background-position: 100% -58px;
+}
+
+.coo .tab-t2 span {
+    background-position: 0 -87px;
+}
+
+.coo .tab-t3 {
+    background-color: #15428B;
+    background-position: 100% -58px;
+}
+
+.coo .tab-t3 span {
+    background-position: 0 -87px;
+}
+
+/*--------------------- Tab Titles END -------------------------*/
+
+/*--------------------- Select List BEGIN ----------------------*/
+.coo .select-list li a:hover, .coo .select-list li.act a {
+    background-color: #f3f3f3;
+}
+
+/*--------------------- Select List END ------------------------*/
+
+/*--------------------- Zebra BEGIN ----------------------------*/
+.coo .zebra th {
+    padding: 5px 10px 4px;
+    color: #00375e;
+    text-align: left;
+    background-image: url(images/themes/violet/bg_zebra_th.png);
+    background-repeat: repeat-x;
+    background-position: 0 -23px;
+    background-color: #b38cdd;
+}
+
+.coo .zebra th.act {
+    background-position: 0 0;
+    background-color: #b38cdd;
+}
+
+.coo .zebra .stronger td {
+    background-color: #b38cdd;
+}
+
+.coo .zebra td ul li a {
+    color: #204d89;
+}
+
+.coo .zebra th,
+.coo .zebra td {
+    border-right: 1px solid #d5d5d5;
+}
+
+/*--------------------- Zebra END ------------------------------*/
+
+/*--------------------- Steps BEGIN ----------------------------*/
+.coo .steps li span,
+.coo .steps li span em {
+    float: left;
+    /*background-image: url(images/themes/violet/bg_steps_reporting.png);*/
+}
+
+.coo .steps li span {
+    height: 30px;
+    padding: 3px 34px 3px 10px;
+    text-decoration: none !important;
+    color: #fff;
+    background-position: 0 -252px;
+    background-repeat: repeat-x;
+    background-color: #204d89;
+}
+
+.coo .steps li span.act {
+    color: #000;
+    background-position: 0 -216px;
+    background-color: #390c98;
+    cursor: inherit;
+}
+
+/*.coo .steps li span em {
+    position: absolute;
+    top: 0;
+    width: 29px;
+    height: 45px;
+    background-repeat: no-repeat;
+}*/
+
+.coo .steps li span em.right-angle {
+    right: 0;
+    background-position: 0 -288px;
+}
+
+.coo .steps li span.act em.right-angle {
+    background-position: 0 0;
+}
+
+.coo .steps li span em.left-angle {
+    left: -29px;
+}
+
+.coo .steps li span.first-step em.left-angle {
+    background-position: 0 -108px;
+}
+
+.coo .steps li span.first-step.act em.left-angle {
+    background-position: 0 -72px;
+}
+
+.coo .steps li span em.left-angle {
+    display: none;
+}
+
+.coo .steps li span.act em.left-angle {
+    display: block;
+    background-position: 0 -415px;
+}
+
+.coo .steps li span.act em.left-angle {
+    display: block;
+    background-position: 0 -36px;
+}
+
+.coo .steps li span.last-step em.right-angle {
+    background-position: 0 -180px;
+}
+
+.coo .steps li span.last-step.act em.right-angle {
+    background-position: 0 -144px;
+}
+
+/*--------------------- Steps END ------------------------------*/
+
+/*--------------------- Columns BEGIN --------------------------*/
+.coo .colums tr th,
+.coo .colums tr.thead th {
+    height: 25px;
+    text-align: left;
+    vertical-align: middle;
+    background-image: url(images/themes/violet/bg_htitle.png);
+    background-repeat: repeat-x;
+}
+
+.coo .colums tr th {
+    font-size: 12px;
+    padding: 0 20px;
+    color: #204d89;
+    background-position: 0 -29px;
+    background-color: #9f9f9f;
+}
+
+.coo .colums tr th a {
+    font-size: 11px;
+    color: #204d89;
+}
+
+.coo .colums tr.thead th {
+    color: #fff;
+    background-position: 0 0;
+    background-color: #204d89;
+}
+
+.coo .colums tr.thead th a {
+    color: #fff;
+}
+
+/*--------------------- Columns END -------------------------*/
+
+/*--------------------- Plates BEGIN ------------------------*/
+.coo .plate-1, .plate-1-outer {
+    background-image: url(images/themes/violet/bg_plate1.png);
+    background-repeat: no-repeat;
+}
+
+.coo .plate-1 {
+    width: 944px;
+    margin: 0 0 20px;
+    padding: 0 0 5px;
+    background-position: -945px 100%;
+}
+
+.coo .plate-1-outer {
+    padding: 5px 0 0;
+    background-position: 0 0;
+}
+
+.coo .plate-1-inner {
+    padding: 10px 20px;
+    border-right: 1px solid #ded9eb;
+    border-left: 1px solid #ded9eb;
+    background: #ded9eb url(images/themes/violet/bg_plate1_inner.png) repeat-x 0 0;
+}
+
+.coo .plate-1 form {
+    font-size: 11px;
+}
+
+.coo .plate-1 form select {
+    width: 180px;
+}
+
+.coo .plate-1 form a {
+    font-weight: bold;
+    color: #074671;
+}
+
+/* .plate-1 */
+
+/* .plate-2 */
+.coo .plate-2,
+.coo .plate-2-outer {
+    background-image: url(images/themes/violet/bg_plate2.png);
+    background-repeat: no-repeat;
+}
+
+.coo .plate-2 {
+    width: 270px;
+    padding: 0 0 5px;
+    background-position: -271px 100%;
+}
+
+.coo .plate-2-outer {
+    padding: 5px 0 0;
+    background-position: 0 0;
+}
+
+.coo .plate-2-inner {
+    padding: 12px 16px;
+    border-right: 1px solid #e6e6e6;
+    border-left: 1px solid #e6e6e6;
+    background: #ebebeb url(images/themes/violet/bg_plate2_inner.png) repeat-x 0 0;
+}
+
+/* END .plate-2 */
+
+/* .plate-3 */
+.coo .plate-3,
+.coo .plate-3-outer {
+    background-image: url(images/themes/violet/bg_plate3.png);
+    background-repeat: no-repeat;
+}
+
+.coo .plate-3 {
+    width: 377px;
+    padding: 0 0 5px;
+    overflow: hidden;
+    zoom: 1;
+    background-position: -378px 100%;
+}
+
+.coo .plate-3-outer {
+    padding: 5px 0 0;
+    background-position: 0 0;
+}
+
+.coo .plate-3-inner {
+    padding: 12px 16px;
+    border-right: 1px solid #ded9eb;
+    border-left: 1px solid #ded9eb;
+    background: #ded9eb url(images/themes/violet/bg_plate3_inner.png) repeat-x 0 0;
+}
+
+/* END .plate-3 */
+
+/* plate-4 */
+.coo .plate-4 {
+    width: 269px;
+    padding: 12px 0 0;
+    margin: 0 0 20px;
+    background: #fef7d6 url(images/themes/violet/bg_plate4.png) no-repeat 0 0;
+}
+
+.coo .plate-4-outer {
+    background: url(images/themes/violet/bg_plate4_outer.png) repeat-y 0 0;
+}
+
+.coo .plate-4-inner {
+    padding: 0 12px 12px;
+    background: url(images/themes/violet/bg_plate4_inner.png) no-repeat 0 100%;
+}
+
+/*--------------------- Plates END --------------------------*/
+
+/*--------------------- Header BEGIN ------------------------*/
+.coo #header {
+    position: relative;
+    height: 76px;
+    background: url(mainStyles/themes/violet/gradient-bg-logo-coo.jpg) repeat-x 0 0; /*background: url(mainStyles/themes/violet/top2.gif);*/
+    /*font-weight: bold;*/
+    color: #15428B;
+}
+
+.coo .f3 input.btn {
+    width: 60px;
+    height: 24px;
+    border: 0;
+    font-weight: bold;
+    background: #15428B url(images/themes/violet/bg_f3_btn.png) no-repeat 0 0;
+}
+
+.coo .theader .gheader {
+    font-size: 12px;
+    padding: 0 20px;
+    color: #620A9E;
+    background-position: 0 -29px;
+    background-color: #f4e3ff;
+    vertical-align: middle;
+}
+
+.coo .theader .gheader a {
+    font-size: 11px;
+    color: #204d89;
+}
+
+.coo .theader .bheader {
+    color: #fff;
+    background-image: url(images/themes/violet/report-btn.png);
+    background-repeat: repeat-x;
+    background-position: 0 0;
+    background-color: #204d89;
+    vertical-align: middle;
+}
+
+.coo .theader .bheader a {
+    color: #fff;
+}
+
+/*--------------------- Header END --------------------------*/
+
+/*--------------------- Report List BEGIN -------------------*/
+.coo .report-list tr td {
+    padding: 2px 5px;
+    vertical-align: middle;
+    border: 1px solid black /*#204d89*/;
+
+}
+
+.coo .report-list .title {
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    background: #15428B; /*#15428B;*/
+}
+
+.coo .report-list .title a {
+    color: white;
+    text-decoration: none;
+}
+
+.coo .report-list .total {
+    /*font-weight:bold;*/
+    background: #204d89 /*#15428B*/;
+}
+
+.coo .sub-total {
+    background: #15428B;
+    border-top-color: #204d89;
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-bottom-color: #204d89;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-left: 1px solid #15428B;
+    border-right: 1px solid #15428B;
+}
+
+/*--------------------- Report List END ---------------------*/
+
+.coo .order-table .column {
+    border: 1px solid #15428B;
+}
+
+.coo .order-table .column-title {
+    text-align: center;
+    background: #15428B;
+    padding: 2px 5px;
+    border: 1px solid #15428B;
+    color: #fff;
+}
+
+/* Dialog Box begin style */
+.coo .gwt-DialogBox .Caption {
+    background: #bbbbbb url(images/themes/violet/bg_htitle.png) repeat-x 0 -28px;
+    padding: 4px 4px 4px 8px;
+    cursor: default;
+    font-weight: bold;
+    border-bottom: 1px solid #204d89;
+    border-top: 1px solid #204d89;
+}
+
+.coo .gwt-DialogBox .dialogContent {
+    background: white;
+}
+
+.coo .gwt-DialogBox .dialogMiddleCenter {
+    padding: 10px;
+    background: white;
+    height: 100%;
+}
+
+.coo .gwt-DialogBox .dialogBottomCenter {
+    background: #204d89; /*height:2px;*/
+}
+
+.coo .gwt-DialogBox .dialogMiddleLeft {
+    background: #204d89;
+}
+
+.coo .gwt-DialogBox .dialogMiddleRight {
+    background: #204d89;
+}
+
+.coo .gwt-DialogBox .dialogTopLeft {
+    background: #204d89;
+}
+
+.coo .gwt-DialogBox .dialogTopRight {
+    background: #204d89;
+}
+
+.coo .gwt-DialogBox .dialogBottomLeft {
+    background: #204d89;
+}
+
+.coo .gwt-DialogBox .dialogBottomRight {
+    background: #204d89;
+}
+
+.coo .drs-export {
+    color: #15428B;
+    cursor: pointer;
+    text-decoration: underline;
+    vertical-align: middle;
+}
+
+.coo .drs-loading-panel {
+    color: #15428B;
+    font-weight: bold;
+    position: fixed !important;
+    text-align: center;
+    vertical-align: middle;
+    padding: 5px 10px;
+}
+
+/* export link style end*/
+
+.coo .logoutLink {
+    color: #000000;
+    cursor: pointer;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-decoration: underline;
+}
+
+.coo .noLink {
+    color: #000000;
+    padding-left: 10px;
+}
+
+.coo .companyNameStyle {
+    color: #620A9E;
+    padding-left: 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.coo .maxLogoHeight {
+    max-height: 53px;
+    height: auto !important;
+    height: 53px;
+}
+
+.coo .tabularInfo {
+    background: url("/images/themes/violet/tabularInfo.png") no-repeat;
+}
+
+.coo .summariesInfo {
+    background: url("/images/themes/violet/Select-Grouping-img.jpg") no-repeat;
+}
+
+.coo .cw-StackPanelHeader {
+    /*background: url("reporting/icons/bg_slideDown.png") no-repeat scroll 100% -32px #E4F5FF;*/
+    background-color: #f4e3ff;
+    border-bottom: 2px solid #ceb0e2;
+    border-top: 2px solid #ceb0e2;
+    color: #5f318a;
+    font: bold 16px Arial, sans-serif;
+    padding: 3px 24px 0 30px;
+    text-transform: uppercase;
+}
+
+.coo .cw-StackPanelHeader em {
+    padding-left: 20px;
+    font: bold 16px Arial, sans-serif;
+}
+
+.coo .cw-StackPanelHeader .colapse {
+    background: url("/images/themes/violet/arrow-down-violet.png") no-repeat scroll 0 40% #f4e3ff;
+}
+
+.coo .cw-StackPanelHeader .expand {
+    background: url("/images/themes/violet/arrow-up-violet.png") no-repeat scroll 0 40% #f4e3ff;
+}
+
+.coo .folder-content .f-table td.f-header {
+    background-color: #620A9E;
+}
+
+.coo .other-reports {
+    background-color: #ceb0e2;
+}
+
+.coo .table-reportList {
+    border: 1px solid #620A9E;
+}
+
+.coo .table-reportList tr.odd {
+    background-color: #f4e3ff;
+
+}
+
+.coo .help-sub-title {
+    color: #620A9E;
+}
+
+.coo .order-panel > div > .gwt-Caption {
+    background-image: url("images/themes/violet/report-btn.png");
+}
+
+.coo .dragdrop-dropTarget tr td div:hover {
+    background-color: #620A9E;
+}
+
+.coo .tsub-header odd {
+    color: #620A9E;
+}
+
+.coo .table-List td.thead {
+    border-left: 1px solid #A23FE8;
+    border-right: 1px solid #A23FE8;
+    color: #FFFFFF;
+    line-height: 16px;
+    background-color: #620A9E;
+}
+
+.coo .table-List td {
+    border-left: 1px solid #F3F3F3;
+    border-right: 1px solid #F3F3F3;
+    background-color: #e6e6e6;
+}
+
+.coo .table-List {
+    border-left: 1px solid #F3F3F3;
+    border-right: 1px solid #F3F3F3;
+    color: #FFFFFF;
+    line-height: 16px;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid #A23FE8;
+
+}
+
+.coo .table-List tr.odd td {
+    background-color: #f4e3ff;
+}
+
+.coo .steps .act, .coo .steps div:hover {
+    background: url("/mainStyles/images/default/bg/bg_gradX_violet-1.png") repeat-x scroll 0 0 #DADADA;
+    text-shadow: 2px 2px 2px #620A9E;
+}
+
+.coo .massData td .thead {
+    background-repeat: repeat-x;
+    background-color: url("images/themes/violet/bg_htitle.png");
+    background-color: #620A9E;
+    border-left: 1px solid #A23FE8;
+    border-right: 1px solid #A23FE8;
+}
+
+.coo em.optBtn {
+    color: #620A9E !important;
+}
+
+.coo .markNewReport {
+    background: url("images/themes/violet/bg_markSuggestNew.png") no-repeat scroll 5px 50% transparent;
+}
+
+.coo .markImport {
+    background: url("images/themes/violet/bg_markImport.png") no-repeat scroll 8px 50% transparent;
+}
+
+.coo .tablularImg {
+    background-image: url(images/themes/violet/tabular.jpg);
+    width: 386px;
+    height: 173px;
+}
+
+.coo .summariesImg {
+    background-image: url(images/themes/violet/summaries.jpg);
+    width: 386px;
+    height: 173px;
+}
+
+.coo .summariesColImg {
+    background-image: url(images/themes/violet/summariesCol.jpg);
+    width: 297px;
+    height: 275px;
+}
+
+.coo .dotted-label {
+    border: 1px dotted #620A9E !important;
+}
+
+.coo .draggable-columns {
+    border: 1px dotted #620A9E !important;
+}
+
+.coo .markModify {
+    color: #542482 !important;
+}
+
+.coo .massData tbody tr.odd td {
+    background-color: #F3F3F3;
+}
+
+.coo .markFolder {
+    background: url("/images/themes/violet/add-folder.png") no-repeat scroll 8px 50% transparent;
+}
+
+.coo .markShare {
+    background: url("/images/themes/violet/bg_markShare.png") no-repeat scroll 10px 50% transparent;
+}
+
+.coo .markModify {
+    background: url("/images/themes/violet/bg_markModify.png") no-repeat scroll 10px 50% transparent;
+}
+
+.coo .markfilter-act {
+    background: url("/images/themes/violet/bg_filter.png") no-repeat scroll 10px 50% transparent;
+}
+
+.coo .mailing-list {
+    background: url("/images/themes/violet/mailinglist.png") no-repeat scroll 10px 50% transparent;
+}

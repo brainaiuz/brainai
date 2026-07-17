@@ -1,0 +1,54 @@
+<report>
+    <view>
+        <title>Inventory Stock Status By Item</title>
+        <name>Inventory Stock Status By Item</name>
+        <category>Inventory Stock Status By Item</category>
+        <sqlquery>
+            <select agregateFunc="distinct">
+                <table name="Products Sales">
+                    <column name="s.category" title="Inventory Category" type="string" formattype="string"/>
+                    <column name="s.product" title="Inventory Name" type="string" formattype="string"/>
+                    <column name="s.description" title="Inventory Description" type="string" formattype="string"/>
+                    <column name="s.reorderpoint" title="Reorder Point" type="number" formattype="number"/>
+                    <column name="s.salesprice" title="Sales Price" type="number" formattype="money"/>
+                    <column name="s.transactiontype" title="Transaction Type" type="string" formattype="string"/>
+                    <column name="s.transactionquantity" title="Transaction Quantity" type="number" formattype="number"/>
+                    <column name="s.transactiondate" title="Transaction Date" type="date" formattype="date"/>
+                    <column name="s.quotetype" title="Quote Type" type="string" formattype="string"/>
+                    <column name="s.iscreditnote" title="Is Credit Note" type="string" formattype="string"/>
+                    <column name="s.invoicedate" title="Invoice Date" type="date" formattype="date"/>
+                    <column name="s.quantitysold" title="Quantity Sold or Returned" type="number" formattype="number"/>
+                </table>
+            </select>
+            <from>(SELECT
+                pc.name category,
+                i.name product,
+                i.description description,
+                i.global_reorder_point reorderpoint,
+                i.sellingprice salesprice,
+                its.transaction_code transactiontype,
+                its.quantity transactionquantity,
+                its.transaction_date transactiondate,
+                q.type quotetype,
+                qi.qty quontityordered,
+                si.iscreditnote iscreditnote,
+                inv.invoicedate invoicedate,
+                ii.qty quantitysold
+                FROM "$".item i
+                LEFT JOIN "$".productcategory pc on i.categoryid = pc.id
+                LEFT JOIN "$".item_stock its on i.id = its.item_id
+                LEFT JOIN "$".quoteitem qi on i.id = qi.item_id
+                LEFT JOIN "$".quote q on q.id = qi.quote_id
+                LEFT JOIN "$".invoiceitem ii on i.id = ii.item_id
+                LEFT JOIN "$".invoice inv on ii.invoice_id = inv.id AND inv.type = 'RECEIVABLE'
+                LEFT JOIN "$".saleinvoice si on ii.invoice_id = si.id
+                WHERE i.type = 1 --this is inventory item
+                AND i.deleted IS NOT TRUE
+                ORDER BY pc.name) s
+            </from>
+            <where>
+                <terms id="base" value="1=1"/>
+            </where>
+        </sqlquery>
+    </view>
+</report>

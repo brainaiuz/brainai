@@ -1,0 +1,1979 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+    <ModulePrefs title=""
+                 description=""
+                 height="0" author="kpi" author_email="oauth2@finnetlimited.com" author_location="Uzbekistan">
+        <Require feature="opensocial-0.9"/>
+        <Require feature="osapi"/>
+
+        <!-- Declare feature dependencies. -->
+
+        <!-- This one is not specific to Gmail contextual gadgets. -->
+        <Require feature="dynamic-height"/>
+
+        <!-- Disbale information sharing with other Gadgets on page -->
+        <Require feature="locked-domain"/>
+
+        <!-- The next feature, Caja, is optional, and is supported for
+      use only within test domains. Uncomment the tag only for
+      non-production gadgets. -->
+        <!-- <Require feature="caja"/> -->
+
+        <!-- Указываем наш экстрактор. SenderEmailExtractor -->
+        <Require feature="google.contentmatch">
+            <Param name="extractors">
+                google.com:SenderEmailExtractor
+            </Param>
+        </Require>
+
+    </ModulePrefs>
+
+    <!-- Define the content type and display location. Настройки "html" и "card" требуются для Gmail гаджетов. -->
+    <Content type="html" view="card">
+        <![CDATA[
+<div id="mainFrame" style="display:none;">
+    <div class="cTitlePanel">
+        <div class="cTitleInner">
+            <img class="cIcon" src="https://app.kpi.com/googlegadget/favicon.ico" width="16" height="16">
+            <span class="cTitle">kpi Gmail Gadget</span>
+            <span class="cDesc"> - kpi Gmail Contextual Gadget is an application that allows to work from Gmail account with ERP system app.kpi.com</span>
+        </div>
+    </div>
+    <div id="loadingKpi"></div>
+    <div id="authError" class="errorMessage" style="display: none;"></div>
+    <button id="addSignInButton" class="FormButton Green" style="display: none;">Sign in</button>
+    <select name="companys" id="companys" style="display: none;">
+
+    </select>
+    <ul id="addButtons" class="dropline" style="display: none;">
+        <li id="crm" class="cur">
+            <a href="#">CRM</a>
+            <ul>
+                <li><a id="addCaseButton" href="#">+ Case</a></li>
+                <li><a id="addLeadButton" href="#">+ Lead</a></li>
+                <li><a id="addContactButton" href="#">+ Contact</a></li>
+                <li><a id="addOpportunityButton" href="#">+ Opportunity</a></li>
+                <li><a id="addEmailLinkButton" href="#">+ Link To</a></li>
+            </ul>
+        </li>
+        <li id="pm">
+            <a href="#">PM</a>
+            <ul>
+                <li><a id="addTaskButton" href="#">+ Task</a></li>
+            </ul>
+        </li>
+        <li id="accounting">
+            <a href="#">Accounting & Finance</a>
+            <ul>
+                <li><a id="addSalesQuoteButton" href="#">+ Sales Quote</a></li>
+            </ul>
+        </li>
+    </ul>
+
+
+    <div class="clear"></div>
+    <div id="output"></div>
+</div>
+<link href="https://app.kpi.com/googlegadget/select2.css" rel="stylesheet" type="text/css"/>
+<link href="https://app.kpi.com/googlegadget/style.css" rel="stylesheet" type="text/css"/>
+<!--[if lte IE 8]>
+<link rel="stylesheet" href="https://app.kpi.com/googlegadget/ie8-andLeft.css" type="text/css"/><![endif]-->
+<link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet"
+      type="text/css"/>
+
+
+<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js'></script>
+<script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://app.kpi.com/googlegadget/select2.min.js"></script>
+
+<script type="text/javascript">
+var titleHeight = 50;
+var defaultHeight = 80 + titleHeight;
+//Extractor Vars
+var email_body;
+var email_subject;
+var sender_email;
+var recipient_to_email;
+var message_id;
+var companyIdVal;
+var projectId = "";
+var accountId = "";
+var type = "";
+var authUrl = "http://app.kpi.com/googleGadget/auth";
+var addTaskUrl = "http://app.kpi.com/googleGadget/addTask";
+var addCaseUrl = "http://app.kpi.com/googleGadget/addCase";
+var addLeadUrl = "http://app.kpi.com/googleGadget/addLead";
+var addContactUrl = "http://app.kpi.com/googleGadget/addContact";
+var addSalesQuoteUrl = "http://app.kpi.com/googleGadget/addSalesQuote";
+var addLinkUrl = "http://app.kpi.com/googleGadget/addLink";
+var addEmailLinkUrl = "http://app.kpi.com/googleGadget/addEmailLink";
+var addOpportunityUrl = "http://app.kpi.com/googleGadget/addOpportunity";
+matches = google.contentmatch.getContentMatches();
+
+function init() {
+console.log('print out app matches');
+console.log(matches);
+    for (var match in matches) {
+        for (var key in matches[match]) {
+            if (key == "email_body") {
+                email_body = matches[match][key];
+            }
+            if (key == "subject") {
+                email_subject = matches[match][key];
+            }
+            if (key == "sender_email") {
+                sender_email = matches[match][key];
+            }
+            if (key == "message_id") {
+                message_id = matches[match][key];
+            }
+            if (key == "recipient_to_email") {
+                recipient_to_email = matches[match][key];
+            }
+
+        }
+    }
+    console.log('set message id');
+    if (message_id == null) {
+        var uniqueString = new String();
+        uniqueString = email_subject + sender_email + email_body;
+        message_id = uniqueString.hashCode();
+        console.log('app message_id: ' + message_id);
+    }
+
+    var auth = new Authorization();
+    auth.startAuth();
+
+    var addTask = new Task();
+    var addCase = new Case();
+    var addLead = new Lead();
+    var addContact = new Contact();
+    var addSalesQuote = new SalesQuote();
+    var addEmailLink = new EmailLink();
+    var addOpportunity = new Opportunity();
+
+    $('#addTaskButton').click(function () {
+        addTask.addTask();
+        return false;
+    });
+    $('#addCaseButton').click(function () {
+        addCase.addCase();
+        return false;
+    });
+    $('#addLeadButton').click(function () {
+        addLead.addLead();
+        return false;
+    });
+    $('#addContactButton').click(function () {
+        addContact.addContact();
+        return false;
+    });
+    $('#addSalesQuoteButton').click(function () {
+        addSalesQuote.addSalesQuote();
+        return false;
+    });
+    $('#addEmailLinkButton').click(function () {
+        addEmailLink.addEmailLink();
+        return false;
+    });
+    $('#addOpportunityButton').click(function () {
+        addOpportunity.addOpportunity();
+        return false;
+    });
+}
+gadgets.window.adjustHeight(0);
+gadgets.util.registerOnLoadHandler(init);
+
+function Authorization() {
+    var self = this;
+
+    this.startAuth = function () {
+        var logonResource = authUrl;
+	    console.log(logonResource);
+	    var google_app_domain = gadgets.util.getUrlParameters()['parent'].match(/.+\/a\/(.+)\/html/)[1];
+        osapi.http.get({'href':logonResource + '?companyId=' + companyIdVal + '&google_app_domain=' + google_app_domain, 'format':'json', 'authz':'signed', 'refreshInterval':30}).execute(authorizationResponse);
+    };
+
+    var authorizationResponse = function (data) {
+        console.log("!app_check!");
+		console.log(data);
+        var responseData = data.content;
+        if (responseData && responseData.google_gadget_is_enable) {
+            $('#mainFrame').attr('style', 'display:block;');
+            if (responseData && responseData.user_exists && responseData.companyId == null) {
+                $('#authError').attr('style', 'display:none;');
+                checkPermissions(responseData);
+                $("#addSignInButton").attr('style', 'display:none;');
+                $('#companys').attr('style', 'display:none;');
+                $('#addButtons').attr('style', 'display:block;');
+                gadgets.window.adjustHeight(defaultHeight);
+            } else if (responseData && responseData.user_exists && responseData.companyId.length > 0) {
+                document.getElementById('authError').innerHTML = responseData.error_msg;
+
+                $("#addSignInButton").attr('style', 'display:none;');
+                $('#addButtons').attr('style', 'display:none;');
+                $('#output').hide();
+                $('#authError').attr('style', 'display:block;');
+
+                var companyWithId = responseData.companyId;
+                var companys = "<option value=\"\">Please Select</option>";
+
+                for (var i = 0; i < companyWithId.length; i++) {
+                    companys += "<option value=\"" + companyWithId[i].split('::')[0] + "\">" + companyWithId[i].split('::')[1] + "</option>";
+                }
+
+                document.getElementById('companys').innerHTML = companys;
+                $('#companys').attr('style', 'display:block;');
+
+                $('#companys').change(function () {
+                    companyIdVal = $('#companys option:selected').val();
+                    self.startAuth();
+                });
+                gadgets.window.adjustHeight(defaultHeight);
+            } else {
+                document.getElementById('authError').innerHTML = responseData.error_msg;
+
+                $('#addButtons').attr('style', 'display:none;');
+                $('#output').hide();
+                $('#authError').attr('style', 'display:block;');
+                $("#addSignInButton").attr('style', 'display:block;');
+
+
+                var url_root = responseData.openid_url;
+                var token = responseData.token;
+                var google_app_domain = gadgets.util.getUrlParameters()['parent'].match(/.+\/a\/(.+)\/html/)[1];
+                var url = url_root + '/' + google_app_domain + '/' + token;
+
+                $("#addSignInButton").attr('onclick', 'new Authorization().openPopup("' + url + '")');
+                gadgets.window.adjustHeight(defaultHeight);
+            }
+        } else {
+            gadgets.window.adjustHeight(0);
+            $('#mainFrame').attr('style', 'display:none;');
+        }
+    };
+
+    var checkPermissions = function (data) {
+        var count = 0;
+        if (data.permissions.CRM_MAIN_MENU) {
+            if (!data.permissions.CRM_CASE_ADD) {
+                //todo      $('#addCaseButton').remove();
+            }
+            if (!data.permissions.ADD_NEW_LEAD) {
+                $('#addLeadButton').remove();
+            }
+            if (!data.permissions.CRM_CONTACT_ADD) {
+                $('#addContactButton').remove();
+            }
+
+            if (!data.permissions.CRM_OPPORTUNITIES_ADD) {
+                //      $('#addOpportunityButton').remove();
+            }
+        } else {
+            count++;
+            $('#crm').remove();
+        }
+
+        if (data.permissions.PM_MAIN_MENU || data.permissions.CRM_TASKS_ADD) {
+            if (!data.permissions.PM_TASKS_ADD && !data.permissions.CRM_TASKS_ADD) {
+                $('#addTaskButton').remove();
+                $('#pm').remove();
+                count++;
+            }
+        } else {
+            count++;
+            $('#pm').remove();
+        }
+
+        if (data.permissions.ACCOUNTING_MAIN_MENU) {
+            if (!data.permissions.ACCOUNTING_SALES_QUOTE_ADD) {
+                $('#addSalesQuoteButton').remove();
+                $('#accounting').remove();
+                count++;
+            }
+        } else {
+            count++;
+            $('#accounting').remove();
+        }
+        if (count >= 3) {
+            document.getElementById('authError').innerHTML = "You don't have access!";
+            $('#authError').attr('style', 'display:block;');
+        }
+
+    };
+
+    this.openPopup = function (url) {
+        var popup = window.open(url, 'OpenID', 'height=800,width=800');
+
+        finishedInterval = setInterval(function () {
+        console.log(popup.closed);
+            if (popup.closed) {
+                self.startAuth();
+                clearInterval(finishedInterval);
+            }
+        }, 100);
+    };
+
+
+}
+
+function Case() {
+
+    this.addCase = function () {
+        var requestData = {getDefaultForm:true, companyId:companyIdVal};
+        var params = {};
+        params[gadgets.io.RequestParameters.AUTHORIZATION] = gadgets.io.AuthorizationType.SIGNED;//SIGNED
+        params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.POST;
+        params[gadgets.io.RequestParameters.POST_DATA] = gadgets.io.encodeValues(requestData);
+
+        $('#addButtons').find("li").removeClass("cur");
+        $('#addButtons').find("li").removeClass("curSub");
+        $('#crm').addClass("cur");
+        $('#addCaseButton').parent().addClass("curSub");
+
+        $('#loadingKpi').addClass('loadingMask');
+        gadgets.io.makeRequest(addCaseUrl, addCaseResponse, params);
+        gadgets.window.adjustHeight(430 + titleHeight);
+    };
+
+    var addCaseResponse = function (data) {
+        document.getElementById('output').innerHTML = data.text;
+        $('#infomessage').hide();
+        $('#output').show();
+        $("#caseSubject").val(email_subject);
+        $("#caseDescription").val(email_body);
+
+        var addLinks = new Link();
+        addLinks.addLink();
+
+        $('#cancelCaseButton').click(function () {
+            $('#output').hide();
+            gadgets.window.adjustHeight(defaultHeight);
+            return false;
+        });
+
+        $('#saveCaseButton').click(function () {
+            if (validate()) {
+                saveCase();
+            }
+            return false;
+        });
+
+        $("#topContentContainer").click(clearError);
+        $('#loadingKpi').removeClass('loadingMask');
+
+    };
+
+    var saveCase = function () {
+        $("#saveCase").val(true);
+        $("#companyId").val(companyIdVal);
+        $("#emailSubject").val(email_subject);
+        $("#emailDescription").val(email_body);
+        $("#emailFromEmail").val(sender_email);
+        $("#emailToEmail").val(recipient_to_email);
+        $("#emailEmailId").val(message_id);
+        var formData = $('#newTaskform').serialize();//todo set to newForm
+        var params = {};
+        params[gadgets.io.RequestParameters.AUTHORIZATION] = gadgets.io.AuthorizationType.SIGNED;//Singes
+        params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.POST;
+        params[gadgets.io.RequestParameters.POST_DATA] = formData;
+        $('#loadingKpi').addClass('loadingMask');
+        gadgets.io.makeRequest(addCaseUrl, saveCaseResponse, params);
+
+    };
+
+    var saveCaseResponse = function (data) {
+        var jsonStr = data.text;
+        if (jsonStr != null && jsonStr.length > 0) {
+            var responseData = gadgets.json.parse(jsonStr);
+            if (responseData.saved) {
+                alert('Case saved successfully');
+            } else {
+                alert('Failed to save case: ' + responseData.error_msg);
+            }
+        }
+        $('#loadingKpi').removeClass('loadingMask');
+        $('#output').hide();
+        $("#saveCase").val(false);
+        gadgets.window.adjustHeight(defaultHeight);
+
+    };
+
+    var validate = function () {
+        var errors = 0;
+        var size = 430 + titleHeight;
+
+        function isEmpty(val) {
+            if (val == null || val == "") {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        if (isEmpty($('#caseSubject').val())) {
+            $("#caseSubjectError").attr('style', 'display:block;');
+            size += 30;
+            errors++;
+        }
+        if (isEmpty($('#caseStatus').val())) {
+            $("#caseStatusError").attr('style', 'display:block;');
+            size += 30;
+            errors++;
+        }
+        gadgets.window.adjustHeight(size);
+        if (errors > 0) {
+            return false;
+        } else {
+            return true;
+        }
+
+    };
+
+    var clearError = function () {
+        $("#caseSubjectError").attr('style', 'display:none;');
+        $("#caseStatusError").attr('style', 'display:none;');
+        gadgets.window.adjustHeight(430 + titleHeight);
+    };
+
+
+}
+
+function Task() {
+    this.addTask = function () {
+        var requestData = {getDefaultForm:true, companyId:companyIdVal};
+        var params = {};
+        params[gadgets.io.RequestParameters.AUTHORIZATION] = gadgets.io.AuthorizationType.SIGNED;
+        params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.POST;
+        params[gadgets.io.RequestParameters.POST_DATA] = gadgets.io.encodeValues(requestData);
+
+        $('#addButtons').find("li").removeClass("cur");
+        $('#addButtons').find("li").removeClass("curSub");
+        $('#pm').addClass("cur");
+        $('#addTaskButton').parent().addClass("curSub");
+
+        $('#loadingKpi').addClass('loadingMask');
+        gadgets.io.makeRequest(addTaskUrl, addTaskResponse, params);
+        gadgets.window.adjustHeight(580 + titleHeight);
+    };
+
+    var addTaskResponse = function (data) {
+        document.getElementById('output').innerHTML = data.text;
+        $('#infomessage').hide();
+        $('#output').show();
+        $("#taskName").val(email_subject);
+        $("#description").val(email_body);
+        addTaskScript();
+        var addLinks = new Link();
+        addLinks.addLink();
+        $('#loadingKpi').removeClass('loadingMask');
+
+    };
+
+    var saveTask = function () {
+        $("#saveProject").val(true);
+        $("#companyId").val(companyIdVal);
+        $("#emailSubject").val(email_subject);
+        $("#emailDescription").val(email_body);
+        $("#emailFromEmail").val(sender_email);
+        $("#emailToEmail").val(recipient_to_email);
+        $("#emailEmailId").val(message_id);
+        var formData = $('#newTaskform').serialize();
+        var params = {};
+        params[gadgets.io.RequestParameters.AUTHORIZATION] = gadgets.io.AuthorizationType.SIGNED;//Singes
+        params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.POST;
+        params[gadgets.io.RequestParameters.POST_DATA] = formData;
+        $('#loadingKpi').addClass('loadingMask');
+        gadgets.io.makeRequest(addTaskUrl, saveTaskResponse, params);
+
+    };
+
+    var saveTaskResponse = function (data) {
+        var jsonStr = data.text;
+        if (jsonStr != null && jsonStr.length > 0) {
+            var responseData = gadgets.json.parse(jsonStr);
+            if (responseData.saved) {
+                alert('Task saved successfully');
+            } else {
+                alert('Failed to save task: ' + responseData.error_msg);
+            }
+        }
+        $('#loadingKpi').removeClass('loadingMask');
+        $('#output').hide();
+        $("#saveProject").val(false);
+        gadgets.window.adjustHeight(defaultHeight);
+
+    };
+
+    var validate = function () {
+        var errors = 0;
+        var size = 580 + titleHeight;
+
+        function isEmpty(val) {
+            if (val == null || val == "") {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function isNumber(n) {
+            return !isNaN(parseFloat(n)) && isFinite(n);
+        }
+
+        if (isEmpty($('#projectName').val())) {
+            $("#projectsListError").attr('style', 'display:block;');
+            size += 30;
+            errors++;
+        }
+        if (isEmpty($('#firstNumber').val()) || isEmpty($('#secondNumber').val())) {
+            $("#taskNumberError").attr('style', 'display:block;');
+            size += 30;
+            errors++;
+        }
+        if (isEmpty($('#taskName').val())) {
+            $("#taskNameError").attr('style', 'display:block;');
+            size += 30;
+            errors++;
+        }
+
+        $('.assignee-item #estimatedTime').each(function () {
+            if (isEmpty($(this).val())) {
+                $("#estimatedTimeError").attr('style', 'display:block;');
+                size += 30;
+                errors++;
+            } else if (typeof $(this).val().split(":") == 'undefined' || $(this).val().split(":").length <= 0) {
+                $("#estimatedTimeError").attr('style', 'display:block;');
+                size += 30;
+                errors++;
+            } else {
+                if (!isNumber($(this).val().split(":")[0]) || !isNumber($(this).val().split(":")[1])) {
+                    $("#estimatedTimeError").attr('style', 'display:block;');
+                    size += 30;
+                    errors++;
+                }
+            }
+        });
+
+        if (isEmpty($('#employeesList :checkbox').val()) || !$('#employeesList :checkbox').is(':checked')) {
+            $("#employeesPleaseChooseError").attr('style', 'display:block;');
+            size += 30;
+            errors++;
+        }
+
+        if (isEmpty($('#priority').val())) {
+            $("#priorityError").attr('style', 'display:block;');
+            size += 30;
+            errors++;
+        }
+        if (isEmpty($('#status').val())) {
+            $("#statusError").attr('style', 'display:block;');
+            size += 30;
+            errors++;
+        }
+
+        if (!isEmpty($('#startDate').val()) || !isEmpty($('#dueDate').val())) {
+            try {
+                var startDate = $.datepicker.parseDate('M d, yy', $('#startDate').val());
+                var dueDate = $.datepicker.parseDate('M d, yy', $('#dueDate').val());
+
+                if (dueDate < startDate) {
+                    size += 30;
+                    $("#dateDueStartError").attr('style', 'display:block;');
+                    $('#dueDate').datepicker('setDate', new Date(startDate));
+                    errors++;
+                }
+
+            } catch (e) {
+                $('#startDate').datepicker('setDate', new Date());
+                errors++;
+            }
+        } else {
+            if (isEmpty($('#startDate').val())) {
+                size += 30;
+                $("#dateStartError").attr('style', 'display:block;');
+            } else if (isEmpty($('#dueDate').val())) {
+                size += 30;
+                $("#dateDueError").attr('style', 'display:block;');
+            }
+            errors++;
+
+        }
+        gadgets.window.adjustHeight(size);
+        if (errors > 0) {
+            return false;
+        } else {
+            return true;
+        }
+
+    };
+
+    var clearError = function () {
+        $("#projectsListError").attr('style', 'display:none;');
+        $("#taskNumberError").attr('style', 'display:none;');
+        $("#taskNameError").attr('style', 'display:none;');
+        $("#estimatedTimeError").attr('style', 'display:none;');
+        $("#employeesPleaseChooseError").attr('style', 'display:none;');
+        $("#priorityError").attr('style', 'display:none;');
+        $("#statusError").attr('style', 'display:none;');
+        $("#dateDueStartError").attr('style', 'display:none;');
+        $("#dateStartError").attr('style', 'display:none;');
+        $("#dateDueError").attr('style', 'display:none;');
+        $("#employeesNotFoundError").attr('style', 'display:none;');
+        gadgets.window.adjustHeight(580 + titleHeight);
+    };
+
+    var addTaskScript = function () {
+        $('#cancelTaskButton').click(function () {
+            $('#output').hide();
+            gadgets.window.adjustHeight(defaultHeight);
+            return false;
+        });
+
+        $('#saveTaskButton').click(function () {
+            if (validate()) {
+                saveTask();
+            }
+            return false;
+        });
+
+        $('#projectName').change(function () {
+            getDataForTask();
+        });
+
+        $("#topContentContainer").click(clearError);
+
+        $("#startDate").datepicker({ showAnim:'fadeIn', showButtonPanel:true, dateFormat:'M d, yy', firstDay:1});
+        $("#dueDate").datepicker({ showAnim:'fadeIn', showButtonPanel:true, dateFormat:'M d, yy', firstDay:1});
+
+        $('#startDate').datepicker('setDate', new Date());
+        $('#dueDate').datepicker('setDate', new Date());
+
+
+    };
+
+    var getDataForTask = function () {
+        var id = $('#projectName option:selected').val();
+        var projectData = {getProjectId:id, companyId:companyIdVal};
+
+        var params = {};
+        params[gadgets.io.RequestParameters.AUTHORIZATION] = gadgets.io.AuthorizationType.SIGNED;//SIGNED
+        params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.JSON;
+        params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.POST;
+        params[gadgets.io.RequestParameters.POST_DATA] = gadgets.io.encodeValues(projectData);
+
+        $('#loadingKpi').addClass('loadingMask');
+        gadgets.io.makeRequest(addTaskUrl, getDataForTaskResponse, params);
+
+
+    };
+
+    var getDataForTaskResponse = function (obj) {
+        var employeeData = "<input type=\"checkbox\" id=\"selectAll\" name=\"emp\"/> <span class=\"label\"><strong>Select all</strong></span><br/>";
+        var jsonStr = obj.text;
+
+        if (jsonStr != null && jsonStr.length > 0) {
+            var responseData = gadgets.json.parse(jsonStr);
+            var employeesList = responseData.employeesList;
+            for (var i = 0; i < employeesList.length; i++) {
+                employeeData += "<div class=\"assignee-item\"><input type =\"checkbox\" value=\"" + employeesList[i].split('::')[0] + "\" name=\"employee\"/><span class=\"label\">" + employeesList[i].split('::')[1] + "</span><input value=\"00:00\" type=\"text\" id=\"estimatedTime\" name=\"estimatedTime\"/></div><br/>";
+            }
+            $("#firstNumber").val(responseData.firstNumber);
+            $("#secondNumber").val(responseData.secondNumber);
+
+            if (responseData.thirdNumber != "") {
+                $("#thirdNumber").val(responseData.thirdNumber);
+                $("#thirdNumber").attr('style', 'display:inline;');
+            } else {
+                $("#thirdNumber").attr('style', 'display:none;');
+            }
+
+        } else {
+            employeeData = "";
+            $("#firstNumber").val("");
+            $("#secondNumber").val("");
+        }
+
+        document.getElementById('employeesList').innerHTML = employeeData;
+
+        $('#selectAll').change(function () {
+            if ($(this).is(':checked')) {
+                $("#employeesList :checkbox").attr('checked', true);
+            } else {
+                $("#employeesList :checkbox").attr('checked', false);
+            }
+        });
+        $('#loadingKpi').removeClass('loadingMask');
+    };
+
+
+}
+
+function Lead() {
+
+    this.addLead = function () {
+        var requestData = {getDefaultForm:true, companyId:companyIdVal};
+        var params = {};
+        params[gadgets.io.RequestParameters.AUTHORIZATION] = gadgets.io.AuthorizationType.SIGNED;//SIGNED
+        params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.POST;
+        params[gadgets.io.RequestParameters.POST_DATA] = gadgets.io.encodeValues(requestData);
+
+        $('#addButtons').find("li").removeClass("cur");
+        $('#addButtons').find("li").removeClass("curSub");
+        $('#crm').addClass("cur");
+        $('#addLeadButton').parent().addClass("curSub");
+
+        $('#loadingKpi').addClass('loadingMask');
+        gadgets.io.makeRequest(addLeadUrl, addLeadResponse, params);
+        gadgets.window.adjustHeight(540 + titleHeight);
+    };
+
+    var addLeadResponse = function (data) {
+        document.getElementById('output').innerHTML = data.text;
+        $('#infomessage').hide();
+        $('#output').show();
+        $("#email").val(sender_email);
+        $("#note").val(email_body);
+        $('#cancelLeadButton').click(function () {
+            $('#output').hide();
+            gadgets.window.adjustHeight(defaultHeight);
+            return false;
+        });
+
+        $('#saveLeadButton').click(function () {
+            if (validate()) {
+                saveLead();
+            }
+            return false;
+        });
+
+        $("#topContentContainer").click(clearError);
+        $('#loadingKpi').removeClass('loadingMask');
+
+    };
+
+    var saveLead = function () {
+        $("#saveLead").val(true);
+        $("#companyId").val(companyIdVal);
+        $("#emailSubject").val(email_subject);
+        $("#emailDescription").val(email_body);
+        $("#emailFromEmail").val(sender_email);
+        $("#emailToEmail").val(recipient_to_email);
+        $("#emailEmailId").val(message_id);
+        var formData = $('#newTaskform').serialize();//todo set to newForm
+        var params = {};
+        params[gadgets.io.RequestParameters.AUTHORIZATION] = gadgets.io.AuthorizationType.SIGNED;//Singes
+        params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.POST;
+        params[gadgets.io.RequestParameters.POST_DATA] = formData;
+        $('#loadingKpi').addClass('loadingMask');
+        gadgets.io.makeRequest(addLeadUrl, saveLeadResponse, params);
+
+    };
+
+    var saveLeadResponse = function (data) {
+        var jsonStr = data.text;
+        if (jsonStr != null && jsonStr.length > 0) {
+            var responseData = gadgets.json.parse(jsonStr);
+            if (responseData.saved) {
+                alert('Lead saved successfully');
+            } else {
+                alert('Failed to save lead: ' + responseData.error_msg);
+            }
+        }
+        $('#loadingKpi').removeClass('loadingMask');
+        $('#output').hide();
+        $("#saveLead").val(false);
+        gadgets.window.adjustHeight(defaultHeight);
+
+    };
+
+    var validate = function () {
+        var errors = 0;
+        var size = 540 + titleHeight;
+
+        function isEmpty(val) {
+            if (val == null || val == "") {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        if (isEmpty($('#lastName').val())) {
+            $("#lastNameError").attr('style', 'display:block;');
+            size += 30;
+            errors++;
+        }
+        gadgets.window.adjustHeight(size);
+        if (errors > 0) {
+            return false;
+        } else {
+            return true;
+        }
+
+    };
+
+    var clearError = function () {
+        $("#lastNameError").attr('style', 'display:none;');
+        gadgets.window.adjustHeight(540 + titleHeight);
+    };
+
+}
+
+function Contact() {
+
+    this.addContact = function () {
+        var requestData = {getDefaultForm:true, companyId:companyIdVal};
+        var params = {};
+        params[gadgets.io.RequestParameters.AUTHORIZATION] = gadgets.io.AuthorizationType.SIGNED;//SIGNED
+        params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.POST;
+        params[gadgets.io.RequestParameters.POST_DATA] = gadgets.io.encodeValues(requestData);
+
+        $('#addButtons').find("li").removeClass("cur");
+        $('#addButtons').find("li").removeClass("curSub");
+        $('#crm').addClass("cur");
+        $('#addContactButton').parent().addClass("curSub");
+
+        $('#loadingKpi').addClass('loadingMask');
+        gadgets.io.makeRequest(addContactUrl, addContactResponse, params);
+        gadgets.window.adjustHeight(450 + titleHeight);
+    };
+
+    var addContactResponse = function (data) {
+        document.getElementById('output').innerHTML = data.text;
+        $('#infomessage').hide();
+        $('#output').show();
+        $("#email").val(sender_email);
+        $("#note").val(email_body);
+        $('#cancelContactButton').click(function () {
+            $('#output').hide();
+            gadgets.window.adjustHeight(defaultHeight);
+            return false;
+        });
+
+        $('#saveContactButton').click(function () {
+            if (validate()) {
+                saveContact();
+            }
+            return false;
+        });
+
+        $("#topContentContainer").click(clearError);
+        $('#loadingKpi').removeClass('loadingMask');
+
+    };
+
+    var saveContact = function () {
+        $("#saveContact").val(true);
+        $("#companyId").val(companyIdVal);
+        $("#emailSubject").val(email_subject);
+        $("#emailDescription").val(email_body);
+        $("#emailFromEmail").val(sender_email);
+        $("#emailToEmail").val(recipient_to_email);
+        $("#emailEmailId").val(message_id);
+        var formData = $('#newTaskform').serialize();//todo set to newForm
+        var params = {};
+        params[gadgets.io.RequestParameters.AUTHORIZATION] = gadgets.io.AuthorizationType.SIGNED;//Singes
+        params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.POST;
+        params[gadgets.io.RequestParameters.POST_DATA] = formData;
+        $('#loadingKpi').addClass('loadingMask');
+        gadgets.io.makeRequest(addContactUrl, saveContactResponse, params);
+
+    };
+
+    var saveContactResponse = function (data) {
+        var jsonStr = data.text;
+        if (jsonStr != null && jsonStr.length > 0) {
+            var responseData = gadgets.json.parse(jsonStr);
+            if (responseData.saved) {
+                alert('Contact saved successfully');
+            } else {
+                alert('Failed to save contact: ' + responseData.error_msg);
+            }
+        }
+        $('#loadingKpi').removeClass('loadingMask');
+        $('#output').hide();
+        $("#saveContact").val(false);
+        gadgets.window.adjustHeight(defaultHeight);
+
+    };
+
+    var validate = function () {
+        var errors = 0;
+        var size = 450 + titleHeight;
+
+        function isEmpty(val) {
+            if (val == null || val == "") {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        if (isEmpty($('#lastName').val())) {
+            $("#lastNameError").attr('style', 'display:block;');
+            size += 30;
+            errors++;
+        }
+        gadgets.window.adjustHeight(size);
+        if (errors > 0) {
+            return false;
+        } else {
+            return true;
+        }
+
+    };
+
+    var clearError = function () {
+        $("#lastNameError").attr('style', 'display:none;');
+        gadgets.window.adjustHeight(450 + titleHeight);
+    };
+
+}
+
+function SalesQuote() {
+    var tempItemObj = null;
+    this.addSalesQuote = function () {
+        var requestData = {getDefaultForm:true, companyId:companyIdVal};
+        var params = {};
+        params[gadgets.io.RequestParameters.AUTHORIZATION] = gadgets.io.AuthorizationType.SIGNED;
+        params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.POST;
+        params[gadgets.io.RequestParameters.POST_DATA] = gadgets.io.encodeValues(requestData);
+
+        $('#addButtons').find("li").removeClass("cur");
+        $('#addButtons').find("li").removeClass("curSub");
+        $('#accounting').addClass("cur");
+        $('#addSalesQuoteButton').parent().addClass("curSub");
+
+        $('#loadingKpi').addClass('loadingMask');
+        gadgets.io.makeRequest(addSalesQuoteUrl, addSalesQuoteResponse, params);
+        gadgets.window.adjustHeight(510 + titleHeight);
+    };
+
+    var addSalesQuoteResponse = function (data) {
+        document.getElementById('output').innerHTML = data.text;
+        $('#infomessage').hide();
+        $('#output').show();
+        addSalesQuoteScript();
+        $('#loadingKpi').removeClass('loadingMask');
+
+    };
+
+    var saveSalesQuote = function () {
+        $("#saveSalesQuote").val(true);
+        $("#companyId").val(companyIdVal);
+        var formData = $('#newTaskform').serialize();
+        var params = {};
+        params[gadgets.io.RequestParameters.AUTHORIZATION] = gadgets.io.AuthorizationType.SIGNED;//Singes
+        params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.POST;
+        params[gadgets.io.RequestParameters.POST_DATA] = formData;
+        $('#loadingKpi').addClass('loadingMask');
+        gadgets.io.makeRequest(addSalesQuoteUrl, saveSalesQuoteResponse, params);
+
+    };
+
+    var saveSalesQuoteResponse = function (data) {
+        var jsonStr = data.text;
+        if (jsonStr != null && jsonStr.length > 0) {
+            var responseData = gadgets.json.parse(jsonStr);
+            if (responseData.saved) {
+                alert('Sales Quote saved successfully');
+            } else {
+                alert('Failed to save Sales Quote: ' + responseData.error_msg);
+            }
+        }
+        $('#loadingKpi').removeClass('loadingMask');
+        $('#output').hide();
+        $("#saveSalesQuote").val(false);
+        gadgets.window.adjustHeight(defaultHeight);
+
+    };
+
+    var validate = function () {
+        var errors = 0;
+        var size = 510 + titleHeight;
+
+
+        var salesQuotePriceArr = $('.salesQuotePrice').map(
+                function () {
+                    return this.value;
+                }).get();
+        for (var i = 0; i < salesQuotePriceArr.length; i++) {
+            if (isEmpty(salesQuotePriceArr[i]) && !isNumber(salesQuotePriceArr[i])) {
+                $('.priceError').attr('style', 'display:block;');
+                size += 30;
+                errors++;
+
+            }
+        }
+
+        if ($('#dinamicContentSalesQuotePrototype').hasClass('salesQuoteItemDrop')) {
+            var salesQuoteItemArr = $('.salesQuoteItemDrop').map(
+                    function () {
+                        return this.value;
+                    }).get();
+            for (var i = 0; i < salesQuoteItemArr.length; i++) {
+                if (isEmpty(salesQuoteItemArr[i])) {
+                    $('.itemListError').attr('style', 'display:block;');
+                    size += 30;
+                    errors++;
+                }
+            }
+        }
+
+        if ($('#dinamicContentSalesQuotePrototype').hasClass('salesQuoteItemText')) {
+            if (isEmpty($('.salesQuoteItemText'))) {
+                $('.itemListError').attr('style', 'display:block;');
+                size += 30;
+                errors++;
+            }
+        }
+
+        var salesQuoteQtyArr = $('.salesQuoteQty').map(
+                function () {
+                    return this.value;
+                }).get();
+        for (var i = 0; i < salesQuoteQtyArr.length; i++) {
+            if (isEmpty(salesQuoteQtyArr[i]) && !isNumber(salesQuoteQtyArr[i])) {
+                $('.qtyError').attr('style', 'display:block;');
+                size += 30;
+                errors++;
+            }
+        }
+
+        if (isEmpty($('.salesQuoteDate'))) {
+            $('#dateError').attr('style', 'display:block;');
+            size += 30;
+            errors++;
+        }
+
+        if (isEmpty($('.salesQuoteValidUntil'))) {
+            $('#dateUntilError').attr('style', 'display:block;');
+            size += 30;
+            errors++;
+        }
+
+
+        if (isEmpty($('.salesQuoteCustomer'))) {
+            $('#customerError').attr('style', 'display:block;');
+            size += 30;
+            errors++;
+        }
+
+        if (isEmpty($('.salesQuoteCurrency'))) {
+            $('#currencyError').attr('style', 'display:block;');
+            size += 30;
+            errors++;
+        }
+
+        if (isEmpty($('.salesQuoteCurrencyValue')) && !isNumber($('.salesQuoteCurrencyValue'))) {
+            $('#currencyError').attr('style', 'display:block;');
+            size += 30;
+            errors++;
+        }
+
+        gadgets.window.adjustHeight(size);
+        if (errors > 0) {
+            return false;
+        } else {
+            return true;
+        }
+
+    };
+
+    var isEmpty = function (val) {
+        if (val == null || val == "") {
+            return true;
+        } else {
+            return false;
+        }
+    };
+
+    var isNumber = function (n) {
+        return !isNaN(parseFloat(n)) && isFinite(n);
+    };
+
+    var clearError = function () {
+        $(".itemListError").attr('style', 'display:none;');
+        $(".qtyError").attr('style', 'display:none;');
+        $(".priceError").attr('style', 'display:none;');
+        $(".dateError").attr('style', 'display:none;');
+        $(".customerError").attr('style', 'display:none;');
+        $(".currencyError").attr('style', 'display:none;');
+        gadgets.window.adjustHeight(510 + titleHeight);
+    };
+
+
+    var addSalesQuoteScript = function () {
+        type = "salesQuoteCustomer";
+        var salesQuoteCustomerLookUp = new LookUp();
+        salesQuoteCustomerLookUp.getLookUp(addSalesQuoteUrl, "salesQuoteCustomer", "Select Customer");
+
+
+        $('#cancelSalesQuoteButton').click(function () {
+            $('#output').hide();
+            gadgets.window.adjustHeight(defaultHeight);
+            return false;
+        });
+
+        $('#saveSalesQuoteButton').click(function () {
+            if (validate()) {
+                saveSalesQuote();
+            }
+            return false;
+        });
+
+
+        $("#topContentContainer").click(clearError);
+
+        $("#salesQuoteDate").datepicker({ showAnim:'fadeIn', showButtonPanel:true, dateFormat:'M d, yy', firstDay:1});
+        $('#salesQuoteDate').datepicker('setDate', new Date());
+
+        $("#salesQuoteValidUntil").datepicker({ showAnim:'fadeIn', showButtonPanel:true, dateFormat:'M d, yy', firstDay:1});
+        $('#salesQuoteValidUntil').datepicker('setDate', new Date());
+
+        var i = 0;
+        $('#addSalesQuoteFields').click(function () {
+            $("<fieldset id=\"dinamicContentSalesQuoteClone" + i + "\">" + $('#dinamicContentSalesQuotePrototype').html() + "</fieldset>").fadeIn('slow').appendTo('#dinamicContentSalesQuote');
+            i++;
+        });
+
+        $('#removeSalesQuoteFields').click(function () {
+            $('#dinamicContentSalesQuoteClone' + i + ':last').remove();
+            if (i > 0) {
+                i--;
+            }
+        });
+
+        $('.salesQuoteCustomer').live('change', function () {
+            if (!isEmpty($(this).val())) {
+                var customerId = $(this).val().split("::")[0];
+                getCustomerCurrencyAndExchangeRate(customerId);
+            }
+        });
+
+        $('#salesQuoteCurrency').live('change', function () {
+            if (!isEmpty($(this).val())) {
+                var currencyId = $(this).val();
+                getExchangeRate(currencyId);
+            }
+        });
+
+        $('.salesQuoteItemDrop').live('change', function () {
+            tempItemObj = $(this).parent().parent();
+            getDataForSalesQuote($(this).val());
+        });
+
+        $('.salesQuoteTax').live('change', function () {
+            calculateTotalValues();
+        });
+        $('.salesQuoteQty').live('keyup', function () {
+            calculateTotalValues();
+        });
+        $('.salesQuotePrice').live('keyup', function () {
+            calculateTotalValues();
+        });
+
+
+    };
+
+    var calculateTotalValues = function () {
+        var subTotal = 0.0;
+        var taxTotal = 0.0;
+
+        var salesQuoteQtyArr = $('.salesQuoteQty').map(
+                function () {
+                    return $(this).val();
+                }).get();
+
+        var salesQuotePriceArr = $('.salesQuotePrice').map(
+                function () {
+                    return $(this).val();
+                }).get();
+
+        var salesQuoteTaxArr = $('.salesQuoteTax  option:selected').map(
+                function () {
+                    return $(this).attr('percent');
+                }).get();
+
+        for (var i = 0; i < salesQuoteQtyArr.length; i++) {
+            var tax = 0;
+            if (!isEmpty(salesQuoteTaxArr[i])) {
+                tax = parseInt(salesQuoteTaxArr[i]);
+            }
+            if (!isEmpty(salesQuoteQtyArr[i]) && isNumber(salesQuoteQtyArr[i]) && !isEmpty(salesQuotePriceArr[i]) && isNumber(salesQuotePriceArr[i])) {
+                subTotal += salesQuoteQtyArr[i] * salesQuotePriceArr[i];
+                taxTotal += salesQuoteQtyArr[i] * salesQuotePriceArr[i] / 100 * tax;
+            }
+        }
+
+        $("#subTotal").text(subTotal);
+        $("#taxTotal").text(taxTotal);
+        $("#total").text((subTotal + taxTotal) / $("#salesQuoteCurrencyValue").val());
+        $("#totalInInvoiceCurrency").text((subTotal + taxTotal));
+        $("#totalInInvoiceCurrencyLabel").text("Total(" + $("#salesQuoteCurrency option:selected").text() + "):");
+
+        $("#salesQuoteSubTotalValue").val(subTotal);
+        $("#salesQuoteTaxTotalValue").val(taxTotal);
+        $("#salesQuoteTotalInInvoiceCurrency").val(subTotal + taxTotal);
+        $("#salesQuoteTotalValue").val((subTotal + taxTotal) / $("#salesQuoteCurrencyValue").val());
+
+    };
+    var getCustomerCurrencyAndExchangeRate = function (customerId) {
+        var salesQuoteData = {getCurrencyAndExchangeRate:true, salesQuoteCustomer:customerId, companyId:companyIdVal};
+
+        var params = {};
+        params[gadgets.io.RequestParameters.AUTHORIZATION] = gadgets.io.AuthorizationType.SIGNED;//SIGNED
+        params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.JSON;
+        params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.POST;
+        params[gadgets.io.RequestParameters.POST_DATA] = gadgets.io.encodeValues(salesQuoteData);
+
+        $('#loadingKpi').addClass('loadingMask');
+        gadgets.io.makeRequest(addSalesQuoteUrl, getCustomerCurrencyAndExchangeRateResponse, params);
+
+
+    };
+    var getCustomerCurrencyAndExchangeRateResponse = function (obj) {
+        var jsonStr = obj.text;
+        if (jsonStr != null && jsonStr.length > 0) {
+            var responseData = gadgets.json.parse(jsonStr);
+            $("#salesQuoteCurrencyValue").val(responseData.getExchangeRateValue);
+            $('#salesQuoteCurrency option[value=' + responseData.getCurrencyValue + ']').attr('selected', 'selected');
+            calculateTotalValues();
+        }
+        $('#loadingKpi').removeClass('loadingMask');
+    };
+
+    var getExchangeRate = function (currencyId) {
+        var salesQuoteData = {getExchangeRate:true, salesQuoteCurrency:currencyId, companyId:companyIdVal};
+
+        var params = {};
+        params[gadgets.io.RequestParameters.AUTHORIZATION] = gadgets.io.AuthorizationType.SIGNED;//SIGNED
+        params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.JSON;
+        params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.POST;
+        params[gadgets.io.RequestParameters.POST_DATA] = gadgets.io.encodeValues(salesQuoteData);
+
+        $('#loadingKpi').addClass('loadingMask');
+        gadgets.io.makeRequest(addSalesQuoteUrl, getExchangeRateResponse, params);
+
+
+    };
+
+    var getExchangeRateResponse = function (obj) {
+        var jsonStr = obj.text;
+        if (jsonStr != null && jsonStr.length > 0) {
+            var responseData = gadgets.json.parse(jsonStr);
+            $("#salesQuoteCurrencyValue").val(responseData.getExchangeRateValue);
+            calculateTotalValues();
+        }
+        $('#loadingKpi').removeClass('loadingMask');
+    };
+
+
+    var getDataForSalesQuote = function (salesQuoteItemId) {
+        var salesQuoteData = {getSalesQuoteItemId:salesQuoteItemId, companyId:companyIdVal};
+
+        var params = {};
+        params[gadgets.io.RequestParameters.AUTHORIZATION] = gadgets.io.AuthorizationType.SIGNED;//SIGNED
+        params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.JSON;
+        params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.POST;
+        params[gadgets.io.RequestParameters.POST_DATA] = gadgets.io.encodeValues(salesQuoteData);
+
+        $('#loadingKpi').addClass('loadingMask');
+        gadgets.io.makeRequest(addSalesQuoteUrl, getDataForSalesQuoteResponse, params);
+
+
+    };
+    var getDataForSalesQuoteResponse = function (obj) {
+        var jsonStr = obj.text;
+        if (jsonStr != null && jsonStr.length > 0) {
+            var responseData = gadgets.json.parse(jsonStr);
+            tempItemObj.closest('fieldset').find('.salesQuoteQty').val(responseData.salesQuoteQtyValue);
+            tempItemObj.closest('fieldset').find('.salesQuotePrice').val(responseData.salesQuotePriceValue);
+            tempItemObj.closest('fieldset').find('.salesQuoteTax').val(responseData.salesQuoteTaxValue);
+        } else {
+            tempItemObj.closest('fieldset').find('.salesQuoteQty').val("");
+            tempItemObj.closest('fieldset').find('.salesQuotePrice').val("");
+        }
+
+        calculateTotalValues();
+        $('#loadingKpi').removeClass('loadingMask');
+    };
+
+
+}
+
+function Link() {
+    var index = 0;
+    var type = null;
+    var relations = null;
+
+    this.addLink = function () {
+        var requestData = {getDefaultForm:true, companyId:companyIdVal};
+
+        var params = {};
+        params[gadgets.io.RequestParameters.AUTHORIZATION] = gadgets.io.AuthorizationType.SIGNED;
+        params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.POST;
+        params[gadgets.io.RequestParameters.POST_DATA] = gadgets.io.encodeValues(requestData);
+
+        $('#loadingKpi').addClass('loadingMask');
+        gadgets.io.makeRequest(addLinkUrl, addLinkResponse, params);
+    };
+
+    var addLinkResponse = function (data) {
+        clearAll();
+        $('#output').append("<div id=\"addLink\">" + data.text + "</div>");
+        $('#infomessage').hide();
+        addLinkScript();
+        $('#loadingKpi').removeClass('loadingMask');
+
+    };
+    var clearAll = function () {
+        $('#choosedLinks').html("");
+        $('#linkOtherDropdown').html("");
+        $('#linkProjectDropdown').html("");
+        $('#linkProject').attr("style", "display:none;");
+        $('#linkOther').attr("style", "display:none;");
+        relations = new Array();
+    };
+
+    var addLinkScript = function () {
+
+        popupMessage();
+
+        $('#linkTypeDropdown').change(function () {
+            if (!isEmpty($(this).val())) {
+                getDataForLinks();
+            }
+        });
+
+        $('#linkProjectDropdown').change(function () {
+            if (!isEmpty($(this).val())) {
+                getDataForLinks();
+            }
+        });
+
+
+        $("#link-button").click(function () {
+            $("#link-form").dialog("open");
+        });
+    };
+
+    var isEmpty = function (str) {
+        if (str != null && str != "" && str != 'undefined') {
+            return false
+
+        } else {
+            return true;
+        }
+    };
+
+    var getDataForLinks = function () {
+        type = $('#linkTypeDropdown option:selected').val();
+        var projectId = "";
+        if ($('#linkProjectDropdown option').length > 0) {
+            projectId = $('#linkProjectDropdown option:selected').val().split('::')[0];
+        }
+
+        var data = {linkTypeDropdown:type, companyId:companyIdVal, projectId:projectId};
+
+
+        var params = {};
+        params[gadgets.io.RequestParameters.AUTHORIZATION] = gadgets.io.AuthorizationType.SIGNED;//SIGNED
+        params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.JSON;
+        params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.POST;
+        params[gadgets.io.RequestParameters.POST_DATA] = gadgets.io.encodeValues(data);
+
+        $('#loadingKpi').addClass('loadingMask');
+        gadgets.io.makeRequest(addLinkUrl, getDataForLinksResponse, params);
+    };
+
+    var getDataForLinksResponse = function (obj) {
+        var jsonStr = obj.text;
+        var data = "<option value=\"\">Please Select</option>";
+        if (jsonStr != null && jsonStr.length > 0) {
+            var responseData = gadgets.json.parse(jsonStr);
+            var dataList = responseData.dataList;
+
+            for (var i = 0; i < dataList.length; i++) {
+                data += '<option value="' + dataList[i] + '">' + dataList[i].split('::')[1] + '</option>';
+            }
+        } else {
+            data = "";
+
+        }
+
+        if (type == "TASK") {
+            if ($('#linkProjectDropdown option').length <= 0) {
+                $('#linkProjectDropdown').html(data);
+                $("#linkProject").attr('style', 'display:block;');
+                $("#linkOther").attr('style', 'display:none;');
+            } else {
+                $('#linkOtherDropdownLabel').html("Task: ");
+                $('#linkOtherDropdown').html(data);
+                $("#linkProject").attr('style', 'display:block;');
+                $("#linkOther").attr('style', 'display:block;');
+                itemChangeListener();
+            }
+        } else if (type == "case") {
+            $('#linkOtherDropdownLabel').html("Case: ");
+            $('#linkOtherDropdown').html(data);
+            $("#linkOther").attr('style', 'display:block;');
+            $("#linkProject").attr('style', 'display:none;');
+            itemChangeListener();
+        }
+
+
+        $('#loadingKpi').removeClass('loadingMask');
+    };
+    var itemChangeListener = function () {
+        $('#linkOtherDropdown').off('change');
+        $('#linkOtherDropdown').change(function () {
+            var selectedItem = $('#linkOtherDropdown option:selected').val();
+            if (!isEmpty(selectedItem)) {
+                var data = type + "::" + selectedItem;
+
+                if ($.inArray(data, relations) < 0) {
+                    relations[index] = data;
+                    $('#choosedLinks').append('<div class="linkItem"><b>' + type + '</b>' + ' ' + selectedItem.split("::")[1] + '<a href="#" uniqId="' + index + '" class="linkRemove">Remove</a></div>');
+                    $('.linkRemove').live('click', function () {
+                        $(this).parent().remove();
+                        relations = relations.splice($(this).attr("uniqId"), 1);
+                    });
+                    index++;
+                }
+            }
+        });
+    };
+
+
+    var popupMessage = function () {
+
+
+        $("#link-form").dialog({
+            title:"Add Links",
+            autoOpen:false,
+            height:300,
+            width:500,
+            modal:true,
+            buttons:{
+                Save:function () {
+                    var hiddenRelationLinks = "";
+                    for (var i = 0; i < relations.length; i++) {
+                        hiddenRelationLinks += "<input type=\"hidden\" name=\"relations\" value=\"" + relations[i] + "\" />";
+                    }
+                    $('#relationLinks').html(hiddenRelationLinks);
+                    $(this).dialog("close");
+                    $("#linkProject").attr('style', 'display:none;');
+                    $("#linkOther").attr('style', 'display:none;');
+                },
+                Cancel:function () {
+                    relations = new Array();
+                    $('#choosedLinks').html("");
+                    $("#link-form").dialog("close");
+                    $("#linkProject").attr('style', 'display:none;');
+                    $("#linkOther").attr('style', 'display:none;');
+                }
+            },
+            close:function () {
+            }
+        });
+    };
+}
+
+
+function EmailLink() {
+    var itemObj = null;
+
+    this.addEmailLink = function () {
+        var requestData = {getDefaultForm:true, companyId:companyIdVal, emailEmailId:message_id};
+        var params = {};
+        params[gadgets.io.RequestParameters.AUTHORIZATION] = gadgets.io.AuthorizationType.SIGNED;
+        params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.POST;
+        params[gadgets.io.RequestParameters.POST_DATA] = gadgets.io.encodeValues(requestData);
+
+        $('#addButtons').find("li").removeClass("cur");
+        $('#addButtons').find("li").removeClass("curSub");
+        $('#crm').addClass("cur");
+        $('#addEmailLinkButton').parent().addClass("curSub");
+
+        $('#loadingKpi').addClass('loadingMask');
+        gadgets.io.makeRequest(addEmailLinkUrl, addEmailLinkResponse, params);
+        gadgets.window.adjustHeight(310 + titleHeight);
+    };
+
+    var addEmailLinkResponse = function (data) {
+        document.getElementById('output').innerHTML = data.text;
+        $('#infomessage').hide();
+        $('#output').show();
+        addEmailLinkScript();
+        $('#loadingKpi').removeClass('loadingMask');
+
+    };
+
+    var saveEmailLink = function () {
+        $("#saveEmailLink").val(true);
+        $("#companyId").val(companyIdVal);
+        $("#emailSubject").val(email_subject);
+        $("#emailDescription").val(email_body);
+        $("#emailFromEmail").val(sender_email);
+        $("#emailToEmail").val(recipient_to_email);
+        $("#emailEmailId").val(message_id);
+
+        var formData = $('#emailLinkForm').serialize();
+        var params = {};
+        params[gadgets.io.RequestParameters.AUTHORIZATION] = gadgets.io.AuthorizationType.SIGNED;
+        params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.POST;
+        params[gadgets.io.RequestParameters.POST_DATA] = formData;
+        $('#loadingKpi').addClass('loadingMask');
+        gadgets.io.makeRequest(addEmailLinkUrl, saveEmailLinkResponse, params);
+
+    };
+
+    var saveEmailLinkResponse = function (data) {
+        var jsonStr = data.text;
+        if (jsonStr != null && jsonStr.length > 0) {
+            var responseData = gadgets.json.parse(jsonStr);
+            if (responseData.saved) {
+                alert('Email Link saved successfully');
+            } else {
+                alert('Failed to save Email Link: ' + responseData.error_msg);
+            }
+        }
+        $('#loadingKpi').removeClass('loadingMask');
+        $('#output').hide();
+        $("#saveEmailLink").val(false);
+        gadgets.window.adjustHeight(defaultHeight);
+
+    };
+
+    var validate = function () {
+        var errors = 0;
+        var size = 310 + titleHeight;
+
+        var emailLinkItemArr = $("[class*='linkItemDropdown']").map(
+                function () {
+                    return this.value;
+                }).get();
+        if (emailLinkItemArr.length > 1) {
+            for (var i = 0; i < emailLinkItemArr.length; i++) {
+                if (isEmpty(emailLinkItemArr[i])) {
+                    $('.itemListError').attr('style', '');
+                    size += 30;
+                    errors++;
+                }
+            }
+        }
+
+        gadgets.window.adjustHeight(size);
+        if (errors > 0) {
+            return false;
+        } else {
+            return true;
+        }
+
+    };
+
+    var isEmpty = function (str) {
+        if (str != null && str != "" && str != 'undefined') {
+            return false
+        } else {
+            return true;
+        }
+    };
+
+
+    var clearError = function () {
+        $(".itemListError").attr('style', 'display:none;');
+        gadgets.window.adjustHeight(310 + titleHeight);
+    };
+
+
+    var addEmailLinkScript = function () {
+        projectId = "";
+        var projectLookUp = new LookUp();
+        projectLookUp.getLookUp(addEmailLinkUrl, "linkProjectDropdown", "Select Project");
+
+
+        var linkItemLookUp = new LookUp();
+        linkItemLookUp.getLookUp(addEmailLinkUrl, "linkItemDropdown", "Please Select");
+
+
+        $('#cancelEmailLinkButton').click(function () {
+            $('#output').hide();
+            gadgets.window.adjustHeight(defaultHeight);
+            return false;
+        });
+
+        $('#saveEmailLinkButton').click(function () {
+            if (validate()) {
+                saveEmailLink();
+            }
+            return false;
+        });
+
+
+        $(document).off('click', '.linkTypeDropdown');
+        $("select[class*='linkTypeDropdown']").live('change', function () {
+            if (!isEmpty($(this).val())) {
+                projectId = "";
+                itemObj = $(this).parent();
+                getDataForEmailLink();
+            }
+        });
+
+
+        $(document).off('click', '.linkProjectDropdown');
+        $("input[class*='linkProjectDropdown']").live('change', function () {
+            if (!isEmpty($(this).val())) {
+                itemObj = $(this).parent();
+                getDataForEmailLink();
+            }
+        });
+
+        $(document).off('click', '.linkProjectDropdown');
+        $("input[class*='linkProjectDropdown']").live('select2-opening', function () {
+            projectId = "";
+        });
+
+        var counter = 0;
+        $(document).off('click', '.addEmailLinkFields');
+        $('.addEmailLinkFields').live('click', function () {
+            counter++;
+            var html = getRowHtml(counter);
+            $("<fieldset>" + html + "</fieldset>").fadeIn('slow').appendTo('#dinamicContentEmailLink');
+            projectLookUp.getLookUp(addEmailLinkUrl, "linkProjectDropdown" + counter, "Select Project");
+            linkItemLookUp.getLookUp(addEmailLinkUrl, "linkItemDropdown" + counter, "Please Select");
+        });
+
+        $(document).off('click', '.removeEmailLinkFields');
+        $('.removeEmailLinkFields').live('click', function () {
+            counter--;
+            if ($(this).parent().parent().parent().find('fieldset').size() > 1) {
+                $(this).parent().parent().remove();
+            } else {
+                $(this).parent().parent().remove();
+                var html = getRowHtml(counter);
+                $("<fieldset class=\"clear\" id=\"dinamicContentEmailLinkPrototype\">" + html + "</fieldset>").fadeIn('slow').appendTo('#dinamicContentEmailLink');
+                projectLookUp.getLookUp(addEmailLinkUrl, "linkProjectDropdown" + counter, "Select Project");
+                linkItemLookUp.getLookUp(addEmailLinkUrl, "linkItemDropdown" + counter, "Please Select");
+            }
+
+        });
+
+
+        $("#topContentContainer").click(clearError);
+
+    };
+    var getRowHtml = function (counter) {
+        var html = "<div class=\"selectBlock\">";
+        html += "<label for=\"linkType\">Link To :</label>";
+        html += "<select name=\"linkTypeDropdown\" class=\"linkTypeDropdown\">";
+        html += "<option value=\"\">Please Select</option>";
+        html += "<option value=\"TASK\">Task</option>";
+        html += "<option value=\"case\">Case</option>";
+        html += "<option value=\"lead\">Lead</option>";
+        html += "<option value=\"opportunity\">Opportunity</option>";
+        html += "<option value=\"contact\">Contact</option>";
+        html += "<option value=\"account\">Account</option>";
+        html += "</select>";
+        html += "<input style=\"display:none;\" type=\"hidden\"  tabindex=\"-1\" class=\"select2-offscreen linkProjectDropdown" + counter + "\"+ name=\"linkProjectDropdown\"/>";
+        html += "<input style=\"display:none;\" type=\"hidden\"  tabindex=\"-1\" class=\"select2-offscreen linkItemDropdown" + counter + "\" name=\"linkItemDropdown\"/>";
+        html += "<a class=\"addEmailLinkFields\" href=\"#\">+</a>";
+        html += "<a class=\"removeEmailLinkFields\" href=\"#\">-</a>";
+        html += "<div style=\"display:none;\" class=\"errorMessage itemListError\">Please, choose Item</div>";
+        html += "</div>";
+        return html;
+    };
+
+    var getDataForEmailLink = function () {
+        var idWithName = itemObj.find("input[class*='linkProjectDropdown']").val();
+        type = itemObj.find("[class*='linkTypeDropdown'] option:selected").val();
+
+        if (type == "TASK" && !isEmpty(idWithName)) {
+            projectId = idWithName.split('::')[0];
+        }
+
+        if (type == "TASK") {
+            itemObj.find("[class*='linkProjectDropdown']").attr('style', '');
+            itemObj.find("[class*='linkItemDropdown']").attr('style', '');
+
+        } else {
+            itemObj.find("[class*='linkProjectDropdown']").attr('style', 'display:none;');
+            itemObj.find("[class*='linkItemDropdown']").attr('style', '');
+
+        }
+
+    };
+
+}
+
+function Opportunity() {
+
+    this.addOpportunity = function () {
+        var requestData = {getDefaultForm:true, companyId:companyIdVal};
+        var params = {};
+        params[gadgets.io.RequestParameters.AUTHORIZATION] = gadgets.io.AuthorizationType.SIGNED;//SIGNED
+        params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.POST;
+        params[gadgets.io.RequestParameters.POST_DATA] = gadgets.io.encodeValues(requestData);
+
+        $('#addButtons').find("li").removeClass("cur");
+        $('#addButtons').find("li").removeClass("curSub");
+        $('#crm').addClass("cur");
+        $('#addOpportunityButton').parent().addClass("curSub");
+
+        $('#loadingKpi').addClass('loadingMask');
+        gadgets.io.makeRequest(addOpportunityUrl, addOpportunityResponse, params);
+        gadgets.window.adjustHeight(585 + titleHeight);
+    };
+
+    var addOpportunityResponse = function (data) {
+        document.getElementById('output').innerHTML = data.text;
+        $('#infomessage').hide();
+        $('#output').show();
+        $("#opportunityName").val(email_subject);
+        $("#opportunityDescription").val(email_body);
+        addOpportunityScript();
+        $("#topContentContainer").click(clearError);
+        $('#loadingKpi').removeClass('loadingMask');
+
+    };
+
+    var addOpportunityScript = function () {
+        var accountLookUp = new LookUp();
+        accountLookUp.getLookUp(addOpportunityUrl, "opportunityAccountName", "Please Select");
+
+        var contactLookUp = new LookUp();
+        contactLookUp.getLookUp(addOpportunityUrl, "opportunityContactName", "Please Select");
+
+        var compaignLookUp = new LookUp();
+        compaignLookUp.getLookUp(addOpportunityUrl, "opportunityCompaignSource", "Please Select");
+
+        $("#opportunityDate").datepicker({ showAnim:'fadeIn', showButtonPanel:true, dateFormat:'M d, yy', firstDay:1});
+        $('#opportunityDate').datepicker('setDate', new Date());
+
+
+        $(".opportunityAccountName input").on("focus", function () {
+            type = "account";
+        });
+
+        $(".opportunityContactName input").on("focus", function () {
+            accountId = $("#opportunityAccountName").val();
+            type = "contact";
+        });
+
+
+        $(".opportunityCompaignSource input").on("focus", function () {
+            type = "compaign";
+        });
+
+
+        $('#cancelOpportunityButton').click(function () {
+            $('#output').hide();
+            gadgets.window.adjustHeight(defaultHeight);
+            return false;
+        });
+
+        $('#saveOpportunityButton').click(function () {
+            if (validate()) {
+                saveOpportunity();
+            }
+            return false;
+        });
+
+        $('#opportunityAmount').live('keyup', function () {
+            calculateTotalValues();
+        });
+        $('#opportunityStage').live('change', function () {
+            if (isCloseWon()) {
+                $("#contactNameAsterisk").attr('style', '');
+            } else {
+                $("#contactNameAsterisk").attr('style', 'display:none;');
+            }
+            calculateTotalValues();
+        });
+
+    };
+
+    var calculateTotalValues = function () {
+        var percent = $('#opportunityStage option:selected').attr('percent');
+        var amount = $('#opportunityAmount').val();
+        if (isNumber(percent) && isNumber(amount)) {
+            $("#opportunityProbability").val(percent);
+            $("#opportunityExpectedRevenue").val(amount * percent / 100);
+
+        }
+    };
+
+    function isEmpty(val) {
+        if (val == null || val == "") {
+            return true;
+        } else {
+            return false;
+        }
+    };
+
+    var isNumber = function (n) {
+        return !isNaN(parseFloat(n)) && isFinite(n);
+    };
+
+
+    var saveOpportunity = function () {
+        $("#saveOpportunity").val(true);
+        $("#companyId").val(companyIdVal);
+        $("#emailSubject").val(email_subject);
+        $("#emailDescription").val(email_body);
+        $("#emailFromEmail").val(sender_email);
+        $("#emailToEmail").val(recipient_to_email);
+        $("#emailEmailId").val(message_id);
+        var formData = $('#newOpportunityform').serialize();
+
+        var params = {};
+        params[gadgets.io.RequestParameters.AUTHORIZATION] = gadgets.io.AuthorizationType.SIGNED;//Singes
+        params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.POST;
+        params[gadgets.io.RequestParameters.POST_DATA] = formData;
+        $('#loadingKpi').addClass('loadingMask');
+        gadgets.io.makeRequest(addOpportunityUrl, saveOpportunityResponse, params);
+
+    };
+
+    var saveOpportunityResponse = function (data) {
+        var jsonStr = data.text;
+        if (jsonStr != null && jsonStr.length > 0) {
+            var responseData = gadgets.json.parse(jsonStr);
+            if (responseData.saved) {
+                alert('Opportunity saved successfully');
+            } else {
+                alert('Failed to save opportunity: ' + responseData.error_msg);
+            }
+        }
+        $('#loadingKpi').removeClass('loadingMask');
+        $('#output').hide();
+        $("#saveOpportunity").val(false);
+        gadgets.window.adjustHeight(defaultHeight);
+
+    };
+    var isCloseWon = function () {
+        return $('#opportunityStage option:selected').val() === '393' || $('#opportunityStage option:selected').text() === 'Closed Won';
+    }
+
+
+    var validate = function () {
+        var errors = 0;
+        var size = 585 + titleHeight;
+
+
+        if (isEmpty($('#opportunityAssignee option:selected').val())) {
+            $("#opportunityAssigneeError").attr('style', 'display:block;');
+            size += 30;
+            errors++;
+        }
+        if (isEmpty($('#opportunityName').val())) {
+            $("#opportunityNameError").attr('style', 'display:block;');
+            size += 30;
+            errors++;
+        }
+
+        if (isEmpty($('#opportunityAccountName').val())) {
+            $("#opportunityAccountNameError").attr('style', 'display:block;');
+            size += 30;
+            errors++;
+        }
+        if (isEmpty($('#opportunityDate').val())) {
+            $("#opportunityDateError").attr('style', 'display:block;');
+            size += 30;
+            errors++;
+        }
+        if (isEmpty($('#opportunityStage  option:selected').val())) {
+            $("#opportunityStageError").attr('style', 'display:block;');
+            size += 30;
+            errors++;
+        }
+        if (isCloseWon()) {
+            if (isEmpty($('#opportunityContactName').val())) {
+                $("#opportunityContactNameError").attr('style', 'display:block;');
+                size += 30;
+                errors++;
+            }
+        }
+
+        gadgets.window.adjustHeight(size);
+        if (errors > 0) {
+            return false;
+        } else {
+            return true;
+        }
+
+    };
+
+    var clearError = function () {
+        $("#opportunityAssigneeError").attr('style', 'display:none;');
+        $("#opportunityNameError").attr('style', 'display:none;');
+        $("#opportunityAccountNameError").attr('style', 'display:none;');
+        $("#opportunityDateError").attr('style', 'display:none;');
+        $("#opportunityStageError").attr('style', 'display:none;');
+        $("#opportunityContactNameError").attr('style', 'display:none;');
+        gadgets.window.adjustHeight(585 + titleHeight);
+    };
+
+
+}
+
+
+function LookUp() {
+
+
+    this.getLookUp = function (url, className, placeHolder) {
+        $("." + className).select2({
+            placeholder:placeHolder,
+            minimumInputLength:1,
+            query:function (query) {
+                var dataResult = {results:[]};
+
+                var data = {lookUpType:type, companyId:companyIdVal, projectId:projectId, accountId:accountId, searchKeyword:query.term };
+
+                var params = {};
+                params[gadgets.io.RequestParameters.AUTHORIZATION] = gadgets.io.AuthorizationType.SIGNED;
+                params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.JSON;
+                params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.POST;
+                params[gadgets.io.RequestParameters.POST_DATA] = gadgets.io.encodeValues(data);
+
+
+                gadgets.io.makeRequest(url, function (data) {
+                    if (data.text != null && data.text.length > 0) {
+                        var dataList = gadgets.json.parse(data.text).dataList;
+                        dataResult.results = $.map(dataList, function (item) {
+                            return {
+                                id: item,
+                                text: item.split("::")[1]
+                            };
+                        });
+                        query.callback(dataResult);
+
+                    }
+
+                }, params);
+
+            }
+
+        });
+    }
+
+
+}
+
+String.prototype.hashCode = function() {
+  var hash = 0, i, chr, len;
+  if (this.length === 0) return hash;
+  for (i = 0, len = this.length; i < len; i++) {
+    chr   = this.charCodeAt(i);
+    hash  = ((hash << 5) - hash) + chr;
+    hash |= 0; // Convert to 32bit integer
+  }
+  return hash;
+};
+</script>
+
+]]>
+    </Content>
+</Module>

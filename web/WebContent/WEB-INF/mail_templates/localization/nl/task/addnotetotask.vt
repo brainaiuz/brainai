@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body><p>Beste $userTo,</p>
+
+<p>$creatorNote heeft een notitie toegevoegd aan "$taskOrProjectName" $taskOrProject op $createdDate:<br>
+    $taskOrProject nummer: $taskOrProjectNumber
+</p>
+
+<p>$noteBody</p>
+
+Klik <a href="$host/ProjectManagement.html?link=$link">hier</a> of kopieer onderstaande regel naar uw browser om deze te bekijken<br/>
+
+<p>$host/ProjectManagement.html?link=$link</p>
+
+</body>
+</html>

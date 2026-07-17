@@ -1,0 +1,4 @@
+<module rename-to="accounting">
+    <inherits name="com.edatasite.workforce.gwt.accounting.Accounting"/>
+    <set-property name="user.agent" value="safari"/>
+</module>

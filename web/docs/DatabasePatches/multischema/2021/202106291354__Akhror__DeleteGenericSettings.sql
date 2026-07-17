@@ -1,0 +1,1 @@
+delete from "anv".genericsettings where key = 'ENABLE_VALIDATE_DUPLICATE_PHONE';

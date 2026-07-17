@@ -1,0 +1,4 @@
+<module rename-to="documents">
+    <inherits name='com.edatasite.workforce.gwt.documents.Documents'/>
+    <set-property name="user.agent" value="gecko1_8"/>
+</module>

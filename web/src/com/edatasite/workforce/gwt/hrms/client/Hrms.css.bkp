@@ -1,0 +1,1544 @@
+#add-company-goal {
+    background: url("hrms/images/company-goal.png") no-repeat 9px 0;
+}
+
+#add-smart-goal {
+    background: url("hrms/images/departmen-goal.png") no-repeat;
+}
+
+#track-prograss {
+    background: url("hrms/images/add-dep-goal.png") no-repeat;
+}
+
+#goal-view-reports {
+    background: url("hrms/images/project-goal.png") no-repeat;
+}
+
+.dotted-line {
+    border-bottom: 1px dotted #CCCCCC;
+    width: 100%;
+    padding-bottom: 2px;
+    margin-top: -3px;
+}
+
+.dotted-line2 {
+    border-bottom: 1px dotted #CCCCCC;
+    width: 100%;
+    padding-bottom: 4px;
+}
+
+.dotted-line3 {
+    border-bottom: 1px dotted #CCCCCC;
+    width: 100%;
+    padding-bottom: 0;
+    margin-top: -3px;
+}
+
+.paddingUnavailEmpl {
+    padding: 0 3px;
+}
+
+.paddingRight {
+    padding-right: 6px;
+}
+
+.not-image-smalls {
+    background: #FFFFFF none repeat scroll 0 0;
+    border: 1px solid #CCCCCC;
+    padding: 1px;
+}
+
+#add-company-goal .abs-link {
+    bottom: 10px;
+    right: 63px;
+    width: 212px;
+    height: 44px;
+}
+
+#add-smart-goal .abs-link {
+    bottom: 10px;
+    right: 20px;
+    width: 234px;
+    height: 47px;
+}
+
+#track-prograss .abs-link {
+    bottom: 115px;
+    right: 84px;
+    width: 222px;
+    height: 51px;
+}
+
+#goal-view-reports .abs-link {
+    bottom: -8px;
+    right: 80px;
+    width: 200px;
+    height: 55px;
+}
+
+#goal-view-reports .abs-link:lang(ru) {
+    bottom: -1px;
+    right: 80px;
+    width: 200px;
+    height: 55px;
+}
+
+/* welcome page*/
+
+/*(after) welcome page*/
+
+.pcmsIframes {
+    margin-left: 0;
+    margin-top: 0;
+    padding: 0;
+    border: 0;
+}
+
+.icon-hrms {
+    background: url(hrms/images/hrms.png) no-repeat;
+}
+
+.icon-position {
+    background: url(hrms/images/position.png) no-repeat;
+}
+
+.icon-position-small {
+    background: url(hrms/images/position-small.png) no-repeat;
+}
+
+.icon-activeposition {
+    background: url(hrms/images/activeposition.png) no-repeat;
+}
+
+.icon-eliminatedposition {
+    background: url(hrms/images/eliminatedposition.png) no-repeat;
+}
+
+.icon-frozenposition {
+    background: url(hrms/images/frozenposition.png) no-repeat;
+}
+
+.icon-salary-grade {
+    background: url(hrms/images/salary-grade.png) no-repeat;
+}
+
+.icon-salary-grade-small {
+    background: url(hrms/images/salary-grade-small.png) no-repeat;
+}
+
+.icon-dependants {
+    background: url(hrms/images/dependants.png) no-repeat;
+}
+
+.icon-employee-summary {
+    background: url(hrms/images/employee-summary.png) no-repeat;
+}
+
+.icon-employment-history {
+    background: url(hrms/images/employment-history.png) no-repeat;
+}
+
+.icon-company-goal {
+    background: url(hrms/images/business-goals.png) no-repeat;
+}
+
+.icon-company-goal-small {
+    background: url(hrms/images/business-goals-small.png) no-repeat;
+}
+
+.icon-department-goal {
+    background: url(hrms/images/department-goals.png) no-repeat;
+}
+
+.icon-department-goal-small {
+    background: url(hrms/images/department-goals-small.png) no-repeat;
+}
+
+.icon-personal-goal {
+    background: url(hrms/images/personal-goals.png) no-repeat;
+}
+
+.icon-personal-goal-small {
+    background: url(hrms/images/personal-goals-small.png) no-repeat;
+}
+
+.icon-project-goal {
+    background: url(hrms/images/project-goals.png) no-repeat;
+}
+
+.icon-project-goal-small {
+    background: url(hrms/images/project-goals-small.png) no-repeat;
+}
+
+.icon-talent-profile {
+    background: url(hrms/images/talent-profile.png) no-repeat;
+}
+
+.icon-business-goal {
+    background: url(hrms/images/business-goal.png) no-repeat;
+}
+
+.icon-business-goal-small {
+    background: url(hrms/images/business-goal-small.png) no-repeat;
+}
+
+#job-openning .abs-link {
+    margin-top: 48;
+    color: #1F4F8F;
+    font-size: 12px;
+    font-weight: bold;
+    left: 8px;
+    width: 80px;
+}
+
+#job-openning {
+    background: url("hrms/images/job-opening.png") no-repeat;
+}
+
+#recieve-applicant-website .abs-link {
+    bottom: 22px;
+    color: #1F4F8F;
+    font-size: 12px;
+    font-weight: lighter;
+    height: 55px;
+    left: 72px;
+    width: 85px;
+    cursor: text;
+}
+
+#recieve-applicant-website {
+    background: url("hrms/images/receive-applicants.png") no-repeat;
+}
+
+#publish-wfm-network .abs-link {
+    bottom: 22px;
+    color: #1F4F8F;
+    font-size: 12px;
+    font-weight: normal;
+    height: 57px;
+    left: 4px;
+    width: 93px;
+    cursor: text;
+}
+
+#publish-wfm-network {
+    background: url("hrms/images/workforcetrack.png") no-repeat;
+}
+
+#schedule-interview .abs-link {
+    margin-top: 48;
+    color: #1F4F8F;
+    font-size: 12px;
+    font-weight: bold;
+    left: 8px;
+    width: 80px;
+}
+
+#schedule-interview {
+    background: url("hrms/images/schedule-interv.png") no-repeat;
+}
+
+#send-offer .abs-link {
+    color: #1F4F8F;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 48;
+    left: 8px;
+    width: 80px;
+}
+
+#send-offer {
+    background: url("hrms/images/send-offer.png") no-repeat;
+}
+
+#hire-employee .abs-link {
+    color: #1F4F8F;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 48;
+    left: 8px;
+    width: 80px;
+}
+
+#hire-employee {
+    background: url("hrms/images/hire-employee.png") no-repeat;
+}
+
+#add-applicant .abs-link {
+    margin-top: 50;
+    color: #1F4F8F;
+    font-size: 12px;
+    font-weight: bold;
+    left: 74px;
+    width: 86px;
+}
+
+#add-applicant {
+    background: url("hrms/images/add-appl.png") no-repeat;
+}
+
+.not-image0 {
+    height: 79px;
+    width: 85px;
+}
+
+.not-image1 {
+    height: 79px;
+    width: 115px;
+}
+
+/*Core*/
+
+.icon-fulldetails-profile {
+    background: url("hrms/images/fulldetails.gif") no-repeat;
+}
+
+.icon-fulldetails {
+    background: url("hrms/images/fulldetails.gif") no-repeat;
+}
+
+.lightBlueBackground {
+    background-color: #cfdfef;
+}
+
+.icon-expense-report-small {
+    background-image: url("hrms/images/expense-report-small.gif");
+}
+
+.countEmployeeProfile {
+    color: darkgray;
+    font-size: 13px;
+}
+
+.addingLinksEmployeeProfile, .addingLinksEmployeeProfile a {
+    color: cornflowerblue;
+    font-size: 13px;
+}
+
+.fontTahoma, .fontTahoma a, .fontTahoma * {
+    /*font-family: tahoma;*/
+    font-size: 13px;
+    color: #4f4f4f;
+}
+
+.subDivisions li.bgMark a {
+    background-image: url("hrms/images/hrms-sprite.png");
+    background-repeat: no-repeat;
+}
+/*for crm*/
+.subDivisions li.hrms a {
+    background-image: url("hrms/images/tabicons-sprite.png");
+    background-repeat: no-repeat;
+}
+
+/*welcome*/
+.subDivisions .goal-welcome a {
+    background-position: 8px -819px;
+}
+
+/*welcome  hover and active*/
+.subDivisions .goal-welcome a:hover, .subDivisions .goal-welcome.active a {
+    background-position: 8px -794px;
+}
+
+/*personal-goal*/
+.subDivisions .personal-goal a {
+    background-position: 8px -363px;
+}
+
+/*personal-goal  hover and active*/
+.subDivisions .personal-goal a:hover, .subDivisions .personal-goal.active a {
+    background-position: 8px -337px;
+}
+
+/*department-goal*/
+.subDivisions .department-goal a {
+    background-position: 8px -1078px;
+}
+
+/*department-goal  hover and active*/
+.subDivisions .department-goal a:hover, .subDivisions .department-goal.active a {
+    background-position: 8px -1052px;
+}
+
+/*project-goal*/
+.subDivisions .project-goal a {
+    background-position: 8px -210px;
+}
+
+/*project-goal  hover and active*/
+.subDivisions .project-goal a:hover, .subDivisions .project-goal.active a {
+    background-position: 8px -185px;
+}
+
+/*business-goal*/
+.subDivisions .business-goal a {
+    background-position: 8px -1183px;
+}
+
+/*business-goal  hover and active*/
+.subDivisions .business-goal a:hover, .subDivisions .business-goal.active a {
+    background-position: 8px -1157px;
+}
+
+/*comapany-goal-list*/
+.subDivisions .comapany-goal-list a {
+    background-position: 8px -1130px;
+}
+
+/*comapany-goal-list  hover and active*/
+.subDivisions .comapany-goal-list a:hover, .subDivisions .comapany-goal-list.active a {
+    background-position: 8px -1104px;
+}
+
+/*employee-profile-summary*/
+.subDivisions .employee-profile-summary a {
+    background-position: 8px -1130px;
+}
+
+/*employee-profile-summary  hover and active*/
+.subDivisions .employee-profile-summary a:hover, .subDivisions .employee-profile-summary.active a {
+    background-position: 8px -1104px;
+}
+
+/*hrms-expense-report-list*/
+.subDivisions .hrms-expense-report-list a {
+    background-position: 8px -872px;
+}
+
+/*hrms-expense-report-list  hover and active*/
+.subDivisions .hrms-expense-report-list a:hover, .subDivisions .hrms-expense-report-list.active a {
+    background-position: 8px -846px;
+}
+
+/*employees-goal-list*/
+.subDivisions .employees-goal-list a {
+    background-position: 8px -820px;
+}
+
+/*employees-goal-list  hover and active*/
+.subDivisions .employees-goal-list a:hover, .subDivisions .employees-goal-list.active a {
+    background-position: 8px -794px;
+}
+/*company-news list*/
+.subDivisions li.news-detail a {
+    background-image: url("hrms/images/companyNews.png");
+    background-repeat: no-repeat;
+}
+
+.subDivisions .news-detail a {
+    background-position: 8px -11px;
+}
+
+/*company-news list  hover and active*/
+.subDivisions .news-detail a:hover, .subDivisions .news-detail.active a {
+    background-position: 8px 10px;
+}
+
+/*talent-profile-list*/
+.subDivisions .talent-profile-list a {
+    background-position: 8px -718px;
+}
+
+/*talent-profile-list  hover and active*/
+.subDivisions .talent-profile-list a:hover, .subDivisions .talent-profile-list.active a {
+    background-position: 8px -696px;
+}
+
+/*incident-list*/
+.subDivisions .incident-list a {
+    background-position: 8px -1233px;
+}
+
+/*incident-list  hover and active*/
+.subDivisions .incident-list a:hover, .subDivisions .incident-list.active a {
+    background-position: 8px -1207px;
+}
+
+/*org-chart*/
+.org-chart a {
+    background-image: url('/mainStyles/icons/dash_icons/crmBW.png');
+    background-repeat: no-repeat;
+    background-position: 8px 6px;
+}
+
+/*org-chart hover and active*/
+.org-chart a:hover, .org-chart.active a {
+    background-image: url("/mainStyles/icons/dash_icons/crm.png");
+    background-repeat: no-repeat;
+    background-position: 8px 6px;
+}
+/*org-chartPie*/
+.org-chartPie a {
+    background-image: url('/mainStyles/icons/dash_icons/pie-chartBW.png');
+    background-repeat: no-repeat;
+    background-position: 8px 6px;
+}
+
+/*org-chartPie hover and active*/
+.org-chartPie a:hover, .org-chart.active a {
+    background-image: url("/mainStyles/icons/dash_icons/pie-chart.png");
+    background-repeat: no-repeat;
+    background-position: 8px 6px;
+}
+/*org-BefinitReq*/
+.org-benifitRequest a {
+    background-image: url('/mainStyles/icons/dash_icons/coinsBW.png');
+    background-repeat: no-repeat;
+    background-position: 8px 6px;
+}
+
+/*org-BenifitReq hover and active*/
+.org-benifitRequest a:hover, .org-chart.active a {
+    background-image: url("/mainStyles/icons/dash_icons/coins.png");
+    background-repeat: no-repeat;
+    background-position: 8px 6px;}
+
+/*employee-profile-document*/
+.subDivisions .employee-profile-document a {
+    background-position: 8px -1286px;
+}
+
+/*employee-profile-document  hover and active*/
+.subDivisions .employee-profile-document a:hover, .subDivisions .employee-profile-document.active a {
+    background-position: 8px -1261px;
+}
+
+/*welcome*/
+.subDivisions .welcome a {
+    background-position: 8px -674px;
+}
+
+/*welcome  hover and active*/
+.subDivisions .welcome a:hover, .subDivisions .welcome.active a {
+    background-position: 8px -647px;
+}
+/*team-list*/
+.subDivisions .team-list a {
+    background-position: 8px -1027px;
+}
+
+/*team-list  hover and active*/
+.subDivisions .team-list a:hover, .subDivisions .team-list.active a {
+    background-position: 8px -1002px;
+}
+
+/*salary-grade-list*/
+.subDivisions .salary-grade-list a {
+    background-position: 8px -111px;
+}
+
+/*salary-grade-list  hover and active*/
+.subDivisions .salary-grade-list a:hover, .subDivisions .salary-grade-list.active a {
+    background-position: 8px -88px;
+}
+
+/*position-list*/
+.subDivisions .position-list a {
+    background-position: 8px -312px;
+}
+
+/*position-list  hover and active*/
+.subDivisions .position-list a:hover, .subDivisions .position-list.active a {
+    background-position: 8px -290px;
+}
+
+/*meetingMinutes-list*/
+.subDivisions .meetingMinutes-list a {
+    background-position: 8px -1391px;
+}
+
+/*position-list  hover and active*/
+.subDivisions .meetingMinutes-list a:hover, .subDivisions .meetingMinutes-list.active a {
+    background-position: 8px -1365px;
+}
+
+/*past-emloyment-list*/
+.subDivisions .past-emloyment-list a {
+    background-position: 8px -925px;
+}
+
+.subDivisions .past-emloyment-list a:hover, .subDivisions .past-emloyment-list.active a {
+    background-position: 8px -899px;
+}
+
+/*hrms-edit*/
+.subDivisions .hrms-edit a {
+    background-position: 8px -1391px;
+}
+
+.subDivisions .hrms-edit a:hover, .subDivisions .hrms-edit.active a {
+    background-position: 8px -1365px;
+}
+
+/*add-edit-depent*/
+.subDivisions .add-edit-depent a {
+    background-position: 8px -1598px;
+}
+
+.subDivisions .add-edit-depent:hover a, .subDivisions .add-edit-depent.active a {
+    background-position: 8px -1572px;
+}
+
+.subDivisions .recruitment a {
+    /*background: url("hrms/images/hrms-sprite.png") no-repeat !important;*/
+    background-position: 8px -20px;
+}
+
+.subDivisions .recruitment:hover a, .subDivisions .recruitment.active a {
+    /*background: url("hrms/images/hrms-sprite.png") no-repeat !important;*/
+    background-position: 8px 8px;
+}
+
+.subDivisions .candidates a {
+    /*background: url("hrms/images/hrms-sprite.png") no-repeat !important;*/
+    background-position: 8px -275px;
+}
+
+.subDivisions .candidates:hover a, .subDivisions .candidates.active a {
+    /*background: url("hrms/images/hrms-sprite.png") no-repeat !important;*/
+    background-position: 8px -250px;
+}
+
+.subDivisions .shortlists a {
+    /*background: url("hrms/images/hrms-sprite.png") no-repeat !important;*/
+    background-position: 8px -118px;
+}
+
+.subDivisions .shortlists:hover a, .subDivisions .shortlists.active a {
+    /*background: url("hrms/images/hrms-sprite.png") no-repeat !important;*/
+    background-position: 8px -94px;
+}
+
+.subDivisions .recruitmentHome a {
+    background-position: 8px -320px;
+}
+
+.subDivisions .recruitmentHome:hover a, .subDivisions .recruitmentHome.active a {
+    background-position: 8px -296px;
+}
+
+.subDivisions .vacancyAnnouncements a {
+    background-position: 8px -120px;
+}
+
+.subDivisions .vacancyAnnouncements:hover a, .subDivisions .vacancyAnnouncements.active a {
+    background-position: 8px -94px;
+}
+
+/*past-emloyement-add*/
+.subDivisions .past-emloyement-add a {
+    background-position: 8px -1649px;
+}
+
+.subDivisions .past-emloyement-add:hover a, .subDivisions .past-emloyement-add.active a {
+    background-position: 8px -1624px;
+}
+
+/*add-leave-request*/
+.subDivisions .add-leave-request a {
+    background-position: 8px -1700px;
+}
+
+.subDivisions .add-leave-request:hover a, .subDivisions .add-leave-request.active a {
+    background-position: 8px -1674px;
+}
+/*company-list*/
+.subDivisions .company-list a {
+    background-position: 8px -1131px;
+}
+
+.subDivisions .company-list:hover a, .subDivisions .company-list.active a {
+    background-position: 8px -1105px;
+}
+
+/*hr-dashboard*/
+.subDivisions .hr-dashboard a {
+    background-position: 8px -1805px;
+}
+
+/*hr-dashboard  hover and active*/
+.subDivisions .hr-dashboard a:hover, .subDivisions .hr-dashboard.active a {
+    background-position: 8px -1779px;
+}
+
+/*employee-dashboard*/
+.subDivisions .employee-dashboard a {
+    background-position: 8px -1754px;
+}
+
+/*hr-dashboard  hover and active*/
+.subDivisions .employee-dashboard a:hover, .subDivisions .employee-dashboard.active a {
+    background-position: 8px -1728px;
+}
+
+
+
+/* ----------------------------------- Expense Style Start ----------------------------------------------- */
+
+.productstable #top {
+    background-repeat: repeat-x;
+    color: #FFFFFF;
+    font-weight: bold;
+    height: 25px;
+}
+
+.contentBar {
+    position: relative;
+    height: 100%;
+}
+
+.contentScroll {
+    height: 100%;
+}
+
+.mainBar {
+    min-height: 100%;
+    padding: 0 9px 0 14px;
+    vertical-align: top;
+}
+
+.mainBar .contentBox {
+}
+
+.mainBar>.group {
+    margin-bottom: 18px;
+}
+
+.invoice-block {
+    padding-bottom: 20px;
+}
+
+.invoice-block .label,
+.invoice-type .label,
+.progress-invoicing .label {
+    font: bold 12px/24px Arial, sans-serif;
+    color: #002b6d;
+}
+
+.invoice-project,
+.invoice-date,
+.invoice-customer {
+    margin-right: 20px;
+}
+
+.invoice-project,
+.invoice-date,
+.invoice-due-date,
+.invoice-customer {
+    float: left;
+}
+
+.invoice-type {
+    float: right;
+}
+
+.progress-invoicing {
+    float: right;
+    padding-top: 20px;
+}
+
+.progress-invoicing span input {
+    margin-right: 5px;
+}
+
+.invoice-customer .gwt-SuggestBox {
+    width: 170px !important;
+    height: 17px;
+    font-size: 12px;
+}
+
+.invoice-project .gwt-SuggestBox {
+    width: 150px !important;
+    height: 17px;
+    font-size: 12px;
+}
+
+.invoice-due-date .datePicker,
+.invoice-date .datePicker {
+    width: 80px;
+    height: 17px;
+    font-size: 12px;
+}
+
+.invoice-num .number {
+    height: 17px;
+    width: 187px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.invoice-block .titlelabel {
+    font-size: 15px;
+}
+
+.invoice-type .invoicetypelist {
+    height: 21px;
+    width: 130px;
+    font-size: 13px;
+}
+
+.invoice-num {
+    float: right;
+}
+
+.invoice-num .label {
+    float: left;
+    line-height: 20px;
+    margin-right: 10px;
+}
+
+.invoice-num .gwt-Label {
+    margin-top: 4px;
+    float: right;
+}
+
+.invoice-title {
+    float: left;
+    overflow: hidden;
+    font: bold 16px/24px Arial, sans-serif;
+    color: #002b6d;
+}
+
+.invoice-copyfrom {
+    float: left;
+    margin-left: 20px;
+    margin-top: 3px;
+}
+
+.invoice-bill-to,
+.invoice-ship-to {
+    min-width: 250px;
+    min-height: 114px;
+    border: 1px solid #737373;
+    overflow: hidden;
+}
+
+.addresshead {
+    background-color: #eaeaea;
+    padding: 5px;
+    overflow: hidden;
+    min-width: 250px;
+}
+
+.invoice-bill-to {
+    float: left;
+    position: relative;
+}
+
+.addresslabel,
+.addresslist,
+.mailAddressList,
+.add-edit-links .addresslink {
+    float: left;
+    margin-right: 8px;
+    line-height: 20px;
+}
+
+.add-edit-links {
+    float: left;
+}
+
+.add-edit-links .addresslink {
+}
+
+.addressdata {
+    padding: 5px;
+}
+
+.invoice-ship-to {
+    float: right;
+    position: relative;
+}
+
+.invoice-ship-via,
+.invoice-price-level,
+.invoice-amounts,
+.invoice-reference,
+.related-text {
+    float: right;
+    margin-left: 20px;
+}
+
+.invoice-ship-via input,
+.invoice-price-level input,
+.invoice-amounts select,
+.invoice-reference input,
+.related-text input {
+    width: 120px;
+}
+
+.invoice-add-introduction {
+    padding: 25px 5px 20px 0;
+}
+
+.invoice-payment-instructions .instructionlabel,
+.invoice-add-introduction .introductionlabel {
+    color: #002b6d;
+    font: bold 13px/19px Arial, sans-serif;
+    padding-left: 25px;
+    background: url(accounting/images/mark-add-intro.png) 0 50% no-repeat;
+    text-decoration: underline;
+    margin-bottom: 15px;
+}
+
+.invoice-add-introduction .introduction {
+    width: 100%;
+    height: 70px;
+}
+
+.invoice-products {
+    overflow: hidden;;
+    margin-bottom: 30px;
+}
+
+.invoice-products a {
+    font: bold 13px/19px Arial, sans-serif;
+    color: #237e3d;
+    text-decoration: underline;
+}
+
+.productstable {
+    border: 0;
+    margin-bottom: 5px;
+    word-wrap: break-word;
+}
+
+.productstable > tbody > tr:first-child > td:first-child {
+    border-left: none;
+    width: 50px;
+}
+
+.productstable > tbody > tr:first-child > td {
+    background-color: #1286c3;
+    color: #ffffff;
+    border-right: 1px solid #003382;
+    border-left: 1px solid #3db9df;
+    font: bold 11px/24px Arial, sans-serif;
+}
+
+.productstable > tbody > tr > td {
+    padding: 3px;
+}
+
+.productstable .odd > td {
+    background-color: #f3f3f3;
+}
+
+.invoice-paymentpanel {
+    float: left;
+}
+
+.invoice-paymentexrate {
+    margin-top: 10px;
+}
+
+.invoice-subtotal {
+    float: right;
+    position: relative;
+    background-color: #f2f2f2;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+.invoice-subtotal .corner {
+    background-image: url(accounting/images/corners-gray.png);
+    background-repeat: no-repeat;
+    width: 10px;
+    height: 10px;
+    display: block;
+    position: absolute;
+    /*z-index: 10;*/
+}
+
+.corner.lt {
+    background-position: 0 0;
+    top: 0;
+    left: 0;
+}
+
+.corner.rt {
+    background-position: 100% 0;
+    top: 0;
+    right: 0;
+}
+
+.corner.lb {
+    background-position: 0 100%;
+    bottom: 0;
+    left: 0;
+}
+
+.corner.rb {
+    background-position: 100% 100%;
+    bottom: 0;
+    right: 0;
+}
+
+.totalstable > tbody > tr > td {
+    padding: 5px;
+}
+
+.totalvalue {
+    font: 14px/20px Arial, sans-serif;
+    text-align: right;
+    color: #ffffff;
+    background-color: #1286c3;
+    padding: 0 5px 0 10px;
+    test: Hrms;
+}
+
+.totallabel {
+    color: #002b6d;
+    font: bold 14px/20px Arial, sans-serif;
+    text-align: left;
+    padding: 0 10px 0 0;
+    background-color: #f2f2f2;
+}
+
+.invoice-payment-instructions {
+    overflow: hidden;
+}
+
+.invoice-payment-instructions .termsinstruction {
+    width: 95%;
+}
+
+.invoice-payment-instructions .termstxtarea {
+    width: 95%;
+    height: 110px;
+}
+
+.termsinstruction .gwt-TextArea {
+    width: 100%;
+    height: 110px;
+}
+
+.invoice-btn-expense button {
+    width: 115px;
+    margin-right: 15% !important;
+}
+
+.invoice-btns-row {
+    text-align: right;
+    margin-top: 20px;
+    clear: both;
+}
+
+.invoice-btns-row div + div {
+    margin-left: 10px;
+}
+
+.invoice-btns-row div {
+    display: inline;
+}
+
+.invoice-btns-row button {
+    background-color: transparent;
+    background-image: url(accounting/images/bg_btns-invoice.png);
+    background-repeat: no-repeat;
+    font: bold 12px Arial, sans-serif;
+    height: 29px;
+    border: none;
+    padding: 0;
+}
+
+.invoice-btn-default button {
+    width: 128px;
+    background-position: -103px 0;
+}
+
+.invoice-btn-save button {
+    background-position: 0 0;
+    width: 103px;
+    padding-left: 35px;
+}
+
+.invoice-btn-save-approve button {
+    width: 128px;
+    background-position: -103px 0;
+}
+
+.invoice-btn-approve button {
+    background-position: -231px 0;
+    width: 170px;
+    padding-left: 35px;
+}
+
+.invoice-btn-pdf button {
+    width: 103px;
+    padding-left: 20px;
+    background-position: 100% 0;
+}
+
+/**** START invoiceTable
+=================================================================****/
+.bindContent .sidebar {
+    min-width: 191px;
+    border: 1px solid #ccc;
+    background: #f0ffe2;
+    vertical-align: top;
+}
+
+.sortBar {
+    padding-bottom: 15px;
+}
+
+.sortBar>li {
+    position: relative;
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+.sortBar>li+li {
+    margin-left: 18px;
+}
+
+.sortBar>li>label:first-child {
+    margin-left: 5px;
+    font: bold 12px Arial, sans-serif;
+    color: #002b6d;
+}
+
+.sortBar>li>select,
+.sortBar>li>input[type="text"] {
+    display: block;
+}
+
+.sortBar .addTerm {
+    position: absolute;
+}
+
+/* Start invoiceTable sidebar */
+.inv-OptBar {
+    padding: 10px 7px 0;
+    min-width: 210px;
+}
+
+/* .inv-OptBar table {margin:25px 0 0 0;} */
+.inv-OptBar table td {
+    padding: 5px 3px;
+}
+
+.inv-OptBar .exRate input {
+    width: 55px;
+    height: 17px;
+    font-size: 12px;
+}
+
+.inv-OptBar .exRate select {
+    width: 60px;
+    height: 21px;
+    font-size: 13px;
+    margin-left: 5px;
+}
+
+.inv-OptBar .bankDetails select {
+    width: 120px;
+    height: 21px;
+    font-size: 13px;
+}
+
+.inv-OptBar .optBarTitle {
+    font-size: 14px;
+    line-height: 22px;
+    background-color: #0077bf;
+    font-weight: bold;
+    color: #fff;
+    padding-left: 12px;
+    border-bottom: 1px solid #238bc4;
+    border-top: 1px solid #097cc0;
+}
+
+.inv-OptBar .optBarBlock {
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.optBarBlock .colSortlist {
+    margin: 10px 0 0;
+    list-style: disc outside url(accounting/images/list-arrow.png);
+    margin-left: 20px;
+}
+
+.optBarBlock .colSortlist li {
+    position: relative;
+    font-size: 14px;
+    color: #004670;
+    padding: 5px 20px 5px 0;
+    border-bottom: 1px solid #a2c87e;
+}
+
+.optBarBlock .colSortlist li .btnRemove {
+    display: block;
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -7px;
+    background: url(accounting/images/marks-1.png) no-repeat -1px 100%;
+}
+
+.optBarBlock .uploadbutton {
+    background: url(accounting/images/bg_btn-upload.png) 0 0 no-repeat;
+    border: none;
+    margin-left: 30px;
+    margin-top: 20px;
+    padding-left: 30px;
+    padding-right: 10px;
+    font: bold 13px Arial, sans-serif;
+    color: #ffffff;
+    height: 28px;
+}
+
+.optBarBlock .btn-1 {
+    margin-left: 20px;
+}
+
+.inv-OptBar .addnote {
+    margin-left: 30px;
+    margin-top: 20px;
+    color: #237e3d;
+    font-size: 13px;
+    font-weight: bold;
+    text-decoration: none;
+    border-bottom: 1px solid #237e3d;
+}
+
+.inv-OptBar .currencyList,
+.inv-OptBar .exchangeRate,
+.inv-OptBar .baseExchangeRate {
+    width: 55px;
+    float: left;
+    margin-right: 5px;
+}
+
+.inv-OptBar .baseExchangeRate {
+    line-height: 25px;
+}
+
+.inv-OptBar .customTitle {
+    width: 60px;
+    display: block;
+}
+
+.inv-OptBar .customwidget {
+    width: 100px
+}
+
+.notespanel {
+    padding-top: 5px;
+    margin: 0 !important;
+    width: 100%;
+}
+
+.notespanel table {
+    margin: 0 !important;
+    width: 100%;
+}
+
+.notespanel table tr td:first-child {
+    background: url(accounting/images/list-arrow.png) 0 10px no-repeat;
+}
+
+.notespanel table td {
+    padding: 0;
+    border-bottom: 1px solid #a2c87e;
+    vertical-align: middle !important;
+}
+
+.notespanel .gwt-HTML {
+    position: relative;
+    font-size: 14px;
+    color: #004670;
+    padding: 5px 20px 5px 0;
+    margin-left: 12px;
+    width: 163px;
+    word-wrap: break-word;
+}
+
+/***************************** END inv-OptBar *******************************/
+
+/*********************************Expense Styles Start*******************************/
+
+.lineItem {
+    float: left;
+}
+
+.lineItem+.lineItem {
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+.lineItem.voidTopLabel {
+    margin-top: 24px;
+}
+
+.lineItem .datePicker,
+.lineItem .number,
+.lineItem .reference,
+.lineItem .exchangeRate,
+.lineItem .select,
+.lineItem .projectlist .gwt-SuggestBox {
+    font-size: 12px
+}
+
+.lineItem .number {
+    height: 20px;
+    width: 187px;
+}
+
+.lineItem .reference {
+    height: 20px;
+    width: 400px;
+}
+
+.lineItem .projectlist .gwt-SuggestBox {
+    height: 18px;
+}
+
+.lineItem select {
+    height: 25px;
+}
+
+.lineItem .exchangeRate {
+    height: 20px;
+}
+
+.customwidget .gwt-RadioButton, .customwidget .gwt-CheckBox {
+    display: block;
+}
+
+/* ----------------------------------- Expense Style End ----------------------------------------------- */
+
+/* ----------------------------------- OPTIMO PERIOD TABLES ----------------------------------------------- */
+.optimoPeriods>tbody>tr>td {width:40%}
+.optimoPeriods>tbody>tr>td+td {width:40%}
+.optimoPeriods>tbody>tr>td+td+td {width:25%}
+.optimoPeriods>tbody>tr>td+td+td+td {width:31px}
+
+/*OrgChart style begin*/
+div.orgChart {
+    /*border                : 1px solid #cccccc;
+    background-color      : #ffffe8;*/
+    margin: 10px;
+    padding: 20px;
+}
+
+div.orgChart table {
+    width: 100%;
+}
+
+div.orgChart tr.tlines td.tline {
+    width: 1px;
+    height: 20px;
+}
+
+div.orgChart tr.tlines td.ttop {
+    border-top: 2px solid #4f88bb;
+}
+
+div.orgChart tr.tlines td.tleft {
+    border-right: 1px solid #4f88bb;
+}
+
+div.orgChart tr.tlines td.tright {
+    border-left: 1px solid #4f88bb;
+}
+
+div.orgChart td {
+    text-align: center;
+    vertical-align: top;
+    padding: 0 2px;
+}
+
+div.orgChart div.node {
+    cursor: default;
+    border: 2px solid #4f88bb;
+    display: inline-block;
+    padding: 4px;
+    min-width: 150px;
+    min-height: 48px;
+    text-align: left;
+    background-color: #ffffcf;
+    line-height: 1.2em;
+    border-radius: 8px;
+    box-shadow: 4px 4px 6px #888888;
+    -moz-border-radius: 8px;
+    -moz-box-shadow: 4px 4px 6px #888888;
+    -webkit-border-radius: 8px;
+    -webkit-box-shadow: 4px 4px 6px #888888;
+}
+
+div.orgChart div.hasChildren {
+    background-color: #FFFFFF;
+}
+
+div.orgChart.interactive div.hasChildren {
+    cursor: pointer;
+}
+
+div.orgChart div.node.hover {
+    background-color: white;
+}
+
+div.orgChart div.adjunct.node {
+    position: absolute;
+    margin-top: 8px;
+    margin-left: -110px;
+    width: 80px;
+    height: 40px;
+    background-color: white;
+}
+
+div.orgChart div.adjunct-link {
+    display: inline-block;
+    position: absolute;
+    margin-left: -20px;
+    margin-top: 25px;
+    width: 20px;
+    border: 2px dashed #4f88bb;
+}
+
+div.orgChart .overhide {
+    overflow: hidden;
+}
+
+div.orgChart em {
+    font-size: 10px;
+    font-weight: normal;
+    color: rgb(128, 128, 128);
+}
+
+div.orgChart h2 {
+    margin: 0;
+    font-size: 11px;
+    font-weight: bold;
+    color: rgb(64, 64, 64);
+}
+
+div.orgChart .circular-portrait {
+    position: relative;
+    float: left;
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    margin-right: 5px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+}
+
+div.orgChart .circular-portrait img {
+    width: 100%;
+    height: auto;
+}
+
+div.orgChart .ttree, .ttree ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+div.orgChart .ttree li {
+    margin: 0;
+    padding: 0 10px;
+    position: relative;
+    left: 10px;
+    font-size: 11px;
+    font-weight: normal;
+}
+
+div.orgChart .ttree li::before, .ttree li::after {
+    content: '';
+    position: absolute;
+    left: 0;
+}
+
+/* horizontal line on inner list items */
+div.orgChart .ttree li::before {
+    /*border-top: 1px solid #B5A8FD;*/
+    top: 10px;
+    width: 12px;
+    height: 0;
+}
+
+/* vertical line on list items */
+div.orgChart .ttree li:after {
+    /*border-left: 1px solid #B5A8FD;*/
+    height: 100%;
+    width: 0;
+    top: -10px;
+}
+
+/* lower line on list items from the first level because they don't have parents */
+div.orgChart .ttree > li::after {
+    top: 10px;
+}
+
+/* hide line from the last of the first level list items */
+div.orgChart .ttree > li:last-child::after {
+    display: none;
+}
+
+/*OrgChart style end*/
+
+.ttree-dropbtn {
+    color: white;
+    padding: 0 4px;
+    border: none;
+    cursor: pointer;
+    display: block;
+    overflow: hidden;
+    background-color: #fff;
+    background-image: url('/mainStyles/down.png');
+    background-repeat: no-repeat;
+    background-position: 3px 5px;
+}
+
+.ttree-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.ttree-dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #fff;
+    min-width: 120px;
+    font-size: 11px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.ttree-dropdown-content a {
+    color: black;
+    padding: 8px 6px 8px 20px;
+    text-decoration: none;
+    display: block;
+    white-space: nowrap;
+    background-repeat: no-repeat !important;
+    background-position: 3px 6px;
+}
+
+.ttree-dropdown-content a:hover {
+    background-color: #f1f1f1
+}
+
+.ttree-dropdown:hover .ttree-dropdown-content {
+    display: block;
+}
+
+.ttree-wrapword {
+    white-space: -moz-pre-wrap !important; /* Mozilla, since 1999 */
+    white-space: -webkit-pre-wrap; /*Chrome & Safari */
+    white-space: -pre-wrap; /* Opera 4-6 */
+    white-space: -o-pre-wrap; /* Opera 7 */
+    white-space: pre-wrap; /* css-3 */
+    word-wrap: break-word; /* Internet Explorer 5.5+ */
+    word-break: break-all;
+    white-space: normal;
+}

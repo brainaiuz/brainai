@@ -1,0 +1,1 @@
+update "anv".autoresponse set startDate = now() where startDate is null;

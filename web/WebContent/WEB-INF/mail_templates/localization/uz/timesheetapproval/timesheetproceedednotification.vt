@@ -1,0 +1,36 @@
+#* @vtlvariable name="timesheetapprovalsession" type="com.edatasite.workforce.core.domain.EdsTimeSheetApprovalSession" *#
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+Уважаемый(ая) $timesheetapprovalsession.employee.getName(),<br/>
+
+<p>Спасибо за использование $productName. Доводим до вашего сведения, ваши последние записи расписания за
+    $timesheetapprovalsession.project.name был рассмотрен $managername</p>
+
+    #if($approved.size()>0)
+    <p>Одобрено:</p>
+        #foreach($timesheet in $approved)
+            $timesheet.getNumber() | $timesheet.getDate() | $timesheet.getTaskName() | $timesheet.getTimespent() <br/>
+        #end
+    <p>Пожалуйста, отметьте, что Вы не будете в состоянии отредактировать или заменить любые записи расписания в течение одобренного периода.</p>
+    #end
+
+    #if($rejected.size()>0)
+    <p>Отклонен: </p>
+        #foreach($timesheet in $rejected)
+            $timesheet.getNumber() | $timesheet.getDate() | $timesheet.getTaskName() | $timesheet.getTimespent()
+        - $timesheet.getComment() <br/>
+        #end
+    #end
+
+</body>
+</html>
+
+
+
+
+

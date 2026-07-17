@@ -1,0 +1,46 @@
+<report>
+    <view>
+        <title>Project Involvement</title>
+        <name>Project Involvement</name>
+        <category>projectsSummary</category>
+        <sqlquery>
+            <select agregateFunc="distinct">
+                <table name="Project">
+                    <column name="id" title="id" type="integer" formattype="hidden"/>
+                    <column name="projectname" title="Project Name" type="string" formattype="string"/>
+                    <column name="timeSheet" title="Complete" type="number" formattype="percent"/>
+                </table>
+            </select>
+            <from>(
+
+                with temp as (select p.id, p.name, coalesce(sum(tsh.timespent), 0) timespent from "$".project p
+                left join "$".timesheet tsh on tsh.projectid = p.id
+                left join "$".reference r on r.id = p.statusid,
+
+                (select max(x) has from (select case r.code in ('ADMIN','DR') when true then 1 else 0 end x
+                from "$".myuser_role ur
+                join "$".role r on ur.roles_id=r.id
+                where ur.users_id = #?user_id?# ) a) isAdmin
+
+                ,(select te.teamid from "$".teamemployee te where te.employeeid = #?user_id?#  and te.isdeleted is not true) teamleader
+
+                where r.code not in ('PS_NOT_STARTED' ,'PS_COMPLETED') and p.isdeleted is not true
+                and ( isAdmin.has = 1 or (tsh.teamid = teamleader.teamid))
+                and (tsh.date between currentyearfirstday() and currenttimstamp())
+                group by p.id, p.name
+                order by timespent desc)
+
+                select t.id, t.name projectname, cast(to_char((t.timespent * 100) / timesheet.total, '990.99') as float) timeSheet
+                from temp t
+                join (select sum(t.timespent) total from temp t) timesheet on 1=1
+
+
+                )t
+            </from>
+            <where>
+                <terms id="base" value="1=1"/>
+                <replacement id="userid" userid="#?user_id?#"/>
+            </where>
+        </sqlquery>
+    </view>
+</report>

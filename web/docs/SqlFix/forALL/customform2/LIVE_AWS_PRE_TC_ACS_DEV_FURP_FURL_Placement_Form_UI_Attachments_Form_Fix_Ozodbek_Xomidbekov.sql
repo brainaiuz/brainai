@@ -1,0 +1,2 @@
+update modelfield set halfsetstyle = 'halfSet-1' where form_id = 'PLACEMENT_FORM' and field_id = 'PLACEMENT_FILES';
+update "anv".modelfield set halfsetstyle = 'halfSet-1' where form_id = 'PLACEMENT_FORM' and field_id = 'PLACEMENT_FILES';

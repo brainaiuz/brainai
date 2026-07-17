@@ -1,0 +1,35 @@
+{
+  "vhosts": [
+    {
+      "name": "/"
+    }
+  ],
+  "users": [
+    {
+      "name": "admin",
+      "password": "1e8UGAOTJn5SwzfD",
+      "tags": "administrator"
+    },
+    {
+      "name": "kpimq",
+      "password": "K7jLh3DxY9D2lDAVEPI",
+      "tags": "administrator"
+    }
+  ],
+  "permissions": [
+    {
+      "user":"admin",
+      "vhost":"/",
+      "configure":".*",
+      "write":".*",
+      "read":".*"
+    },
+    {
+      "user": "kpimq",
+      "vhost": "/",
+      "configure": ".*",
+      "write": ".*",
+      "read": ".*"
+    }
+  ]
+}

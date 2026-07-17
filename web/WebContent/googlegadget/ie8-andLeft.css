@@ -1,0 +1,14 @@
+.formbutton ul>li {
+    border-left:1px solid #ddd;
+    border-right:1px solid #ddd;
+}
+
+*+html .dropline li,
+*+html .labelLine>label, *+html .labelLine>select, *+html .labelLine>textarea, *+html .labelLine>option, *+html .labelLine>input[type="text"] {
+    display:inline;
+    zoom:1;
+}
+
+*+html .dropline *:hover ul {
+    z-index:100;
+}

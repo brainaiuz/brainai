@@ -1,0 +1,2 @@
+INSERT INTO "0".Reference (code, isactive, issystemreference, name, sorder, parentid) VALUES ('DRAFT', true, true, 'Draft', 5, 118);
+INSERT INTO "anv".Reference (code, isactive, issystemreference, name, sorder, parentid) VALUES ('DRAFT', true, true, 'Draft', 5, 118);

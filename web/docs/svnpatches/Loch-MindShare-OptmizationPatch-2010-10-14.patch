@@ -1,0 +1,385 @@
+Index: src/com/edatasite/workforce/gwt/project/server/app/ProjectServiceImpl.java
+===================================================================
+--- src/com/edatasite/workforce/gwt/project/server/app/ProjectServiceImpl.java	(revision 14998)
++++ src/com/edatasite/workforce/gwt/project/server/app/ProjectServiceImpl.java	(working copy)
+@@ -87,7 +87,12 @@
+     private SolrManager solrManager;
+     private AttachmentUtilsManager attachmentUtilsManager;
+     private AttachmentManager attachmentManager;
++    private JpaTemplate jpaTemplate;
+ 
++    public void setJpaTemplate(JpaTemplate jpaTemplate) {
++        this.jpaTemplate = jpaTemplate;
++    }
++
+     public void setSolrManager(SolrManager solrManager) {
+         this.solrManager = solrManager;
+     }
+@@ -644,6 +649,7 @@
+ 
+     public void updateProject(EditProject editProject) {
+         try {
++            Date timer = new Date();
+             final EdsUser user = (EdsUser) employeeManager.getUser();
+             List<EdsProjectEmployee> companyemployees = projectManager.getEmployeesByProject(editProject.getObjectId());
+             final EdsProject project = projectManager.get(editProject.getObjectId());
+@@ -782,16 +788,20 @@
+                     }
+                 }
+ 
++                System.out.println("-->> 1. Project Members Took: " + ((new Date()).getTime()-timer.getTime()));
+ 
+                 if (mem.length > 0) {
+                     newMemberAdded = true;
+                     if (editProject.isCopyNewEmployeesToProjectTasks()) {
+                         //TODO for Robert Madi's company only
++                        timer = new Date();
+                         taskServiceLocal.addNewProjectMembersAndAssignTasks(editProject.getObjectId(), mem);
++                        System.out.println("---->> Robert Members Took: " + ((new Date()).getTime()-timer.getTime()));
+                     } else {
+                         addMembers(editProject.getObjectId(), mem);
+                     }
+                 }
++                timer = new Date();
+                 if (membersForDel.size() > 0) {
+                     memberDeleted = true;
+                 }
+@@ -803,23 +813,38 @@
+                     i++;
+                 }
+                 removeEmployees(editProject.getObjectId(), memDel);
++                System.out.println("-->> MembersForDel Took: " + ((new Date()).getTime()-timer.getTime()));
++
+                 if (mem.length > 0 || memDel.length > 0) {
+                     //Reindex project folder
++                    timer = new Date();
+                     commonService.reIndexProjectDocument(editProject.getObjectId());
++                    System.out.println("-->> reInedProjectDocuments Took: " + ((new Date()).getTime()-timer.getTime()));
++
+                 }
+             }
++            timer = new Date();
+             // we should reindex all tasks if we deleted member or added new member and want to assigne him to all tasks
+             if (memberDeleted || (newMemberAdded && editProject.isCopyNewEmployeesToProjectTasks())) {
+                 List<EdsTask> tasks = taskManager.getProjectTasks(project);
+-                for (EdsTask task : tasks) {
++                int k = 0;
++                for (EdsTask itask : tasks) {
++                    EdsTask task = taskManager.get(itask.getObjectID());
++
+                     taskRbacManager.addRbacEntries(task);
+                     if (!project.isSolrSensitiveFieldsChanged()) {// if project changed some filed projectsolrsensitivedatachangelistener will reindex all task anyway
+                         // so there is no need to reindex it
+                         baseEventPostProcessor.registerEvent(TaskEventListenerImpl.TYPE, BaseEventsPostProcessorImpl.EVENT_TYPE_EDIT, task, user);
+                     }
+ 
++                    if(k++>=1){
++                        k=0;
++                        jpaTemplate.flushEntireSessionAndClear();
++                    }
++
+                 }
+             }
++           System.out.println("-->> Reindex TaskRBAC Took: " + ((new Date()).getTime()-timer.getTime()));
+ 
+             baseEventPostProcessor.registerEvent(ProjectEventListenerImpl.TYPE, BaseEventsPostProcessorImpl.EVENT_TYPE_EDIT, project, user);
+             if (project.isSolrSensitiveFieldsChanged()) {
+@@ -868,11 +893,11 @@
+         List<EdsEmployeeTask> empTasks = employeeTaskManager.getEmployeeTask(pEmpl);
+         for (EdsEmployeeTask emplTask : empTasks) {
+             emplTask.setDeleted(true);
+-            String TASK_STATUS = emplTask.getTask().getTaskLastStatus();
+-            EdsReference status = referenceManager.findReference(EdsTask.TASK_STATUS, TASK_STATUS);
+-            if (status != null) {
+-                emplTask.getTask().setStatus(status);
+-            }
++//            String TASK_STATUS = emplTask.getTask().getTaskLastStatus(); // TODO LOCHIN Perforance Issue
++//            EdsReference status = referenceManager.findReference(EdsTask.TASK_STATUS, TASK_STATUS);
++//            if (status != null) {
++//                emplTask.getTask().setStatus(status);
++//            }
+ 
+ //            baseEventPostProcessor.registerEvent(EmployeeTaskEventListenerImpl.TYPE, BaseEventsPostProcessorImpl.EVENT_TYPE_DELETE, emplTask, user);//register event post processor
+ //              To update every time on change we have to reindex to RBAC and to solr
+Index: src/com/edatasite/workforce/gwt/task/server/app/TaskServiceImpl.java
+===================================================================
+--- src/com/edatasite/workforce/gwt/task/server/app/TaskServiceImpl.java	(revision 14998)
++++ src/com/edatasite/workforce/gwt/task/server/app/TaskServiceImpl.java	(working copy)
+@@ -5098,7 +5098,7 @@
+         //To change body of created methods use File | Settings | File Templates.
+     }
+ 
+-    @Transactional(propagation = Propagation.REQUIRES_NEW)
++//    @Transactional(propagation = Propagation.REQUIRES_NEW)
+ //    @InvokeSubActions
+ public void addNewProjectMembersAndAssignTasks(Integer projectId, ProjectMember[] members) {
+         EdsUser user = userManager.getUser();
+@@ -5121,9 +5121,12 @@
+         }
+         IdTime[] newAssignees = assignees.toArray(new IdTime[]{});
+         List<EdsTask> tasks = taskManager.getProjectTasks(project);
+-        for (EdsTask task : tasks) {
++        for (EdsTask itask : tasks) {
++            EdsTask task = taskManager.get(itask.getObjectID());
+             saveTaskAssignees(user, task, newAssignees, null);
+             updateTaskStatus(task);
++            jpaTemplate.flushEntireSessionAndClear();
++
+ //            if(registerReindexEvent){
+ //                taskRbacManager.addRbacEntries(task);
+ //                baseEventPostProcessor.registerEvent(TaskEventListenerImpl.TYPE, BaseEventsPostProcessorImpl.EVENT_TYPE_EDIT, task, user);
+@@ -5153,46 +5156,46 @@
+             for (int i = 0; i < projectEmployees.length; i++) {
+                 EdsProjectEmployee pe = projectEmployeeManager.get(projectEmployees[i].getId());
+                 EdsEmployeeTask empTask = new EdsEmployeeTask(task, pe);
+-                if (projectEmployees[i].getTime() != null) {
+-                    taskEstimatedTime = taskEstimatedTime + projectEmployees[i].getTime().intValue();
+-                    empTask.setEstimatedTime(projectEmployees[i].getTime());
+-                    updateBudgetByEstimatedTime(task.getParentWS(), empTask, projectEmployees[i].getTime());
+-                    Set<EdsTimeSlotItem> timeSlotItem = pe.getEmployeeDepartment().getEmployee().getTimeSlot().getItems();
+-                    Map<Integer, Integer> available = new HashMap<Integer, Integer>();
+-                    for (EdsTimeSlotItem item : timeSlotItem) {
+-                        available.put(item.getDay(), item.getEndTime() - item.getStartTime());
+-                    }
+-                    Calendar startDate = Calendar.getInstance();
+-                    Calendar dueDate = Calendar.getInstance();
+-                    startDate.setTime(task.getStartDate());
+-                    dueDate.setTime(task.getDueDate());
+-                    int k = 0;
+-                    while (ServerUtils.dateFormat(dueDate.getTime(), shortDateFormat).compareTo(ServerUtils.dateFormat(startDate.getTime(), shortDateFormat)) >= 0) {
+-                        if (available.containsKey(startDate.get(Calendar.DAY_OF_WEEK) - 1)
+-                                && available.get(startDate.get(Calendar.DAY_OF_WEEK) - 1) != null && available.get(startDate.get(Calendar.DAY_OF_WEEK) - 1) != 0) {
+-                            k++;
+-                        }
+-                        startDate.add(Calendar.DAY_OF_YEAR, 1);
+-                    }
+-                    if (k == 0) {
+-                        k = 1;
+-                    }
+-                    empTask.setDailyLoad(projectEmployees[i].getTime() / k);
+-
+-                }
++//                if (projectEmployees[i].getTime() != null) {                        // TODO LOCHIN Performance Issue
++//                    taskEstimatedTime = taskEstimatedTime + projectEmployees[i].getTime().intValue();
++//                    empTask.setEstimatedTime(projectEmployees[i].getTime());
++//                    updateBudgetByEstimatedTime(task.getParentWS(), empTask, projectEmployees[i].getTime());
++//                    Set<EdsTimeSlotItem> timeSlotItem = pe.getEmployeeDepartment().getEmployee().getTimeSlot().getItems();
++//                    Map<Integer, Integer> available = new HashMap<Integer, Integer>();
++//                    for (EdsTimeSlotItem item : timeSlotItem) {
++//                        available.put(item.getDay(), item.getEndTime() - item.getStartTime());
++//                    }
++//                    Calendar startDate = Calendar.getInstance();
++//                    Calendar dueDate = Calendar.getInstance();
++//                    startDate.setTime(task.getStartDate());
++//                    dueDate.setTime(task.getDueDate());
++//                    int k = 0;
++//                    while (ServerUtils.dateFormat(dueDate.getTime(), shortDateFormat).compareTo(ServerUtils.dateFormat(startDate.getTime(), shortDateFormat)) >= 0) {
++//                        if (available.containsKey(startDate.get(Calendar.DAY_OF_WEEK) - 1)
++//                                && available.get(startDate.get(Calendar.DAY_OF_WEEK) - 1) != null && available.get(startDate.get(Calendar.DAY_OF_WEEK) - 1) != 0) {
++//                            k++;
++//                        }
++//                        startDate.add(Calendar.DAY_OF_YEAR, 1);
++//                    }
++//                    if (k == 0) {
++//                        k = 1;
++//                    }
++//                    empTask.setDailyLoad(projectEmployees[i].getTime() / k);
++//
++//                }
+                 empTask.setStartDate(new Date());
+                 empTask.setLastModifiedDate(new Date());
+                 if (user.getObjectID().equals(pe.getEmployeeDepartment().getEmployee().getObjectID())) {
+                     if (percentCompleted != null) {
+                         empTask.setPercent(percentCompleted);
+-                        Float average = task.getTaskAveragePercentCompleted();
+-                        task.setPercent(average);
++//                        Float average = task.getTaskAveragePercentCompleted();      //TODO LOCHIN Performance Issue
++//                        task.setPercent(average);
+ 
+-                        EdsProject project = new EdsProject();
+-                        project = task.getProject();
+-                        Float averageProjectTasks = task.getProject().getProjectTasksAveragePercentCompleted();
+-                        project.setPercent(average);
+-                        projectManager.update(project); // There was Bug!!! create was used instead of update
++//                        EdsProject project = new EdsProject();
++//                        project = task.getProject();
++//                        Float averageProjectTasks = task.getProject().getProjectTasksAveragePercentCompleted();      //TODO LOCHIN Performance Issue
++//                        project.setPercent(average);
++//                        projectManager.update(project); // There was Bug!!! create was used instead of update
+                     }
+                     if (statusId != null && referenceManager.getReference(statusId) != null) {
+                         empTask.setStatus(referenceManager.getReference(statusId));
+@@ -5207,7 +5210,7 @@
+                 task.getAssignments().add(empTask);
+             }
+         }
+-        task.setEstimatedTime(taskEstimatedTime);
++//        task.setEstimatedTime(taskEstimatedTime);
+     }
+ 
+     @Transactional
+Index: src/com/edatasite/workforce/gwt/timesheet/server/app/TimesheetServiceImpl.java
+===================================================================
+--- src/com/edatasite/workforce/gwt/timesheet/server/app/TimesheetServiceImpl.java	(revision 14998)
++++ src/com/edatasite/workforce/gwt/timesheet/server/app/TimesheetServiceImpl.java	(working copy)
+@@ -389,17 +389,17 @@
+ 
+             EdsProject domainProject = employeeTask.getProjectEmployee().getProject();
+             SelectItem project = new SelectItem(domainProject.getObjectID(), domainProject.getName());
+-            if (!projects.contains(project)) {
++            /*if (!projects.contains(project)) {
+                 projects.add(project);
+-            }
+-            EdsClient client = domainProject.getClient();
++            }*/
++            /*EdsClient client = domainProject.getClient();
+             if (client != null) {
+                 SelectItem clientItem = new SelectItem(client.getObjectID(), client.getName());
+                 if (!clients.contains(clientItem)) {
+                     clients.add(clientItem);
+                 }
+-            }
+-            EdsWorkStream domainWorkStream = employeeTask.getTask().getParent();
++            }*/
++            /*EdsWorkStream domainWorkStream = employeeTask.getTask().getParent();
+             if (domainWorkStream != null) {
+                 SelectItem workstream = new SelectItem(domainWorkStream.getObjectID(), domainWorkStream.getName());
+                 if (workstreamsMap.get(domainWorkStream.getName()) == null) {
+@@ -407,7 +407,7 @@
+                 }
+ //                if (!workstreams.contains(workstream))
+ //                    workstreams.add(workstream);
+-            }
++            }*/
+ 
+             if (employeeTask.getTask() instanceof EdsIssue) {
+                 transferTasks[i].setIsIssue(true);
+@@ -456,7 +456,7 @@
+                 emplTaskEnd.set(Calendar.MILLISECOND, 0);
+                 transferTasks[i].setEndDate(emplTaskEnd.getTime());
+             }
+-            transferTasks[i].setTotalMinutes(totalTime(transferTasks[i].getTaskId(), employee.getObjectID()));//todo extract thisk calculation and obtain from separate request
++            transferTasks[i].setTotalMinutes(0/*totalTime(transferTasks[i].getTaskId(), employee.getObjectID())*/);//todo extract thisk calculation and obtain from separate request
+             i++;
+         }
+         SelectItem[] projectItems = projects.toArray(new SelectItem[]{});
+@@ -497,9 +497,19 @@
+ 
+         TimesheetDataItem[] items = new TimesheetDataItem[timesheets.size()];
+         i = 0;
+-        EdsReference approved = referenceManager.findReference("_TIME_SHEET_ENTRY_STATUS", "_APPROVE");
+-        EdsReference waiting = referenceManager.findReference("_TIME_SHEET_ENTRY_STATUS", "_WAITING");
+-        EdsReference rejected = referenceManager.findReference("_TIME_SHEET_ENTRY_STATUS", "_REJECT");
++        List<EdsReference> statusList = referenceManager.listReferences(null, "_TIME_SHEET_ENTRY_STATUS", false);
++        EdsReference approved = null;/*referenceManager.findReference("_TIME_SHEET_ENTRY_STATUS", "_APPROVE");*/
++        EdsReference waiting = null;/*referenceManager.findReference("_TIME_SHEET_ENTRY_STATUS", "_WAITING");*/
++        EdsReference rejected = null;/*referenceManager.findReference("_TIME_SHEET_ENTRY_STATUS", "_REJECT");*/
++        for (EdsReference reference : statusList) {
++            if ("_APPROVE".equals(reference.getCode())) {
++                approved = reference;
++            }else if ("_WAITING".equals(reference.getCode())) {
++                waiting = reference;
++            }else if ("_REJECT".equals(reference.getCode())) {
++                rejected = reference;
++            }
++        }
+         for (EdsTimeSheet timesheet : timesheets) {
+             items[i] = new TimesheetDataItem();
+             items[i].setDate(new Date(timesheet.getDate().getTime()));  // Non Convertable date is being used inside the TimeSheetDataItem
+@@ -531,8 +541,10 @@
+         result.setYesterday(new DateNonConvertable(ytdCal.getTime()));
+ 
+         result.setDailyStatistics(getDailyStatistics(dates, employee, null)); //statistics should be calculated for all projects not per project for Robert mainly
+-        result.setWeeklyStatistics(getWeeklyStatistics(dates[0].getNonConvertedDate(), employee, null));//todo extract thisk calculation and obtain from separate request
+-        result.setMonthlyStatistices(getMonthlyStatistics(dates[0].getNonConvertedDate(), employee, null));//todo extract thisk calculation and obtain from separate request
++//        result.setWeeklyStatistics(getWeeklyStatistics(dates[0].getNonConvertedDate(), employee, null));//todo extract thisk calculation and obtain from separate request
++        result.setWeeklyStatistics(new TimesheetReport[]{});
++//        result.setMonthlyStatistices(getMonthlyStatistics(dates[0].getNonConvertedDate(), employee, null));//todo extract thisk calculation and obtain from separate request
++        result.setMonthlyStatistices(new TimesheetReport[]{});
+ 
+         int plannedTimes[] = new int[7];
+         for (EdsTimeSlotItem item : employee.getTimeSlot().getItems()) {
+@@ -1391,11 +1403,11 @@
+     private int[] getDailyStatistics(DateNonConvertable[] day, EdsEmployee employee, Integer projectID) {
+         int[] sum = new int[day.length];
+         for (int i = 0; i < day.length; i++) {
+-            TimesheetReport[] items = getStatistics(day[i].getNonConvertedDate(), employee, projectID, "");
++//            TimesheetReport[] items = getStatistics(day[i].getNonConvertedDate(), employee, projectID, "");
+             sum[i] = 0;
+-            for (int j = 0; j < items.length; j++) {
+-                sum[i] += items[j].getSum();
+-            }
++//            for (int j = 0; j < items.length; j++) {
++//                sum[i] += items[j].getSum();
++//            }
+         }
+         return sum;
+     }
+Index: WebContent/WEB-INF/backgroundServices.xml
+===================================================================
+--- WebContent/WEB-INF/backgroundServices.xml	(revision 14998)
++++ WebContent/WEB-INF/backgroundServices.xml	(working copy)
+@@ -89,8 +89,8 @@
+         <property name="triggers">
+             <list>
+                 <!--<ref bean="efilingTrigger"/>-->
+-                <ref bean="prefMailerTrigger"/>
+-                <ref bean="nonPrefMailerTrigger"/>
++                <!--<ref bean="prefMailerTrigger"/>-->
++                <!--<ref bean="nonPrefMailerTrigger"/>-->
+                 <!--<ref bean="dailyReportTrigger"/>
+                 <ref bean="resourceWorkloadTrigger"/>
+@@ -205,33 +205,33 @@
+     </bean>
+ 
+     <!--this bean used for on/off Recurrence functionality in Recurrence Server-->
+-    <bean id="recurringJobsManager"
++    <!--<bean id="recurringJobsManager"
+           class="com.edatasite.workforce.scheduler.RecurringJobsManager"
+           init-method="initManager" destroy-method="closeManager">
+         <property name="scheduler" ref="schedFactoryBean"/>
+         <property name="recurrenceManager" ref="recurrenceManager"/>
+-    </bean>
++    </bean>-->
+ 
+     <!--this bean used for on/off Recurring Service-->
+-    <bean id="recurringServiceJobsManager"
++    <!--<bean id="recurringServiceJobsManager"
+           class="com.edatasite.workforce.scheduler.RecurringServiceJobsManager"
+           init-method="initManager" destroy-method="closeManager">
+         <property name="scheduler" ref="schedFactoryBean"/>
+-    </bean>
++    </bean>-->
+ 
+     <!--this bean used for on/off Case Management recurrence-->
+-    <bean id="caseManagementJobsManager"
++    <!--<bean id="caseManagementJobsManager"
+           class="com.edatasite.workforce.scheduler.CaseManagementJobsManager"
+           init-method="initManager" destroy-method="closeManager">
+         <property name="scheduler" ref="schedFactoryBean"/>
+-    </bean>
++    </bean>-->
+ 
+     <!--this bean used for on/off Case Management recurrence-->
+-    <bean id="messageCenterEmailJobsManager"
++    <!--<bean id="messageCenterEmailJobsManager"
+           class="com.edatasite.workforce.scheduler.MessageCenterEmailJobsManager"
+           init-method="initManager" destroy-method="closeManager">
+         <property name="scheduler" ref="schedFactoryBean"/>
+-    </bean>
++    </bean>-->
+ 
+     <!--End Of Recurrence System-->
+ 
+Index: WebContent/WEB-INF/services.xml
+===================================================================
+--- WebContent/WEB-INF/services.xml	(revision 14998)
++++ WebContent/WEB-INF/services.xml	(working copy)
+@@ -286,6 +286,7 @@
+         <property name="fileHeaderManager" ref="fileHeaderManager"/>
+         <property name="solrManager" ref="solrManager"/>
+         <property name="attachmentUtilsManager" ref="attachmentUtilsManager"/>
++        <property name="jpaTemplate" ref="jpaTemplate"/>
+     </bean>
+ 
+     <bean name="projectCostService"

@@ -1,0 +1,367 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style type="text/css">
+        @page {
+            size: 8.3in 11.7in;
+            margin: 150px 20px 100px 20px;
+            padding: 0;
+            @top-center {
+                content: element(header);
+            }
+            @bottom-left {
+                content: element(footer);
+            }
+        }
+
+        #header {
+            margin: 20px 10px 0 10px;
+            display: block;
+            position: running(header);
+            width: 100%;
+            border-bottom: 2px solid black;
+        }
+
+        #footer {
+            margin: 20px 10px;
+            display: block;
+            position: running(footer);
+        }
+
+        #pagenumber:before {
+            content: counter(page);
+        }
+
+        #pagecount:before {
+            content: counter(pages);
+        }
+
+        .tableBorder tr {
+            border-top: 2px solid #000000;
+            border-left: 2px solid #000000;
+        }
+
+        .tableBorder td {
+            border-right: 2px solid #000000;
+            border-bottom: 2px solid #000000;
+        }
+
+        body {
+            font-family: Arial;
+        }
+
+        th {
+            font-family: Arial;
+            font-size: 11px;
+            font-weight: lighter;
+        }
+
+        th, td {
+            padding: 3px;
+        }
+
+        b, p, td, span, caption, hr, h1, h2, h3, h4, h5 {
+            font-family: Arial;
+        }
+
+        table {
+            -fs-table-paginate: paginate;
+        }
+
+    </style>
+</head>
+<body>
+    #set($currencyName=$itextGenericPdfData.baseInvoice.currencyName)
+    #set($curSymbol = $itextGenericPdfData.baseInvoice.currency)
+    #set($numAndDatesTable = $itextGenericPdfData.baseInvoice.customNumberAndDatesTable.rows)
+    #set($billToAddressTable = $itextGenericPdfData.baseInvoice.customBillToAddress.rows)
+    #set($clientName=$billToAddressTable.get('NAME').get('COLUMN_VALUE'))
+    #set($clientContacName=$billToAddressTable.get('CLIENT_CONTACT').get('COLUMN_VALUE'))
+    #set($clientAddress=$billToAddressTable.get('BILL_ADDRESS').get('COLUMN_VALUE'))
+    #set($clientAddress2=$billToAddressTable.get('BILL_ADDRESS2').get('COLUMN_VALUE'))
+    #set($clientPhone=$billToAddressTable.get("CLIENT_PHONE").get("COLUMN_VALUE"))
+    #set($invNumLabel=$numAndDatesTable.get('INV_NUMBER').get('COLUMN_NAME'))
+    #set($invDateLabel=$numAndDatesTable.get('INV_DATE').get('COLUMN_NAME'))
+    #set($dueDateLabel=$numAndDatesTable.get('INV_DUE_DATE').get('COLUMN_NAME'))
+    #if($billToAddressTable.get('BILL_CITY').get('COLUMN_VALUE')!='' and
+        $billToAddressTable.get('BILL_ZIPCODE').get('COLUMN_VALUE')!='')
+        #set($clientCityZip=$billToAddressTable.get('BILL_CITY').get('COLUMN_VALUE') + ',' +
+            $billToAddressTable.get('BILL_ZIPCODE').get('COLUMN_VALUE'))
+    #elseif($billToAddressTable.get('BILL_CITY').get('COLUMN_VALUE')!='')
+        #set($clientCityZip=$billToAddressTable.get('BILL_CITY').get('COLUMN_VALUE'))
+    #elseif($billToAddressTable.get('BILL_ZIPCODE').get('COLUMN_VALUE')!='')
+        #set($clientCityZip=$billToAddressTable.get('BILL_ZIPCODE').get('COLUMN_VALUE'))
+    #end
+
+    #set($clientMailAddress=$billToAddressTable.get('MAIL_ADDRESS').get('COLUMN_VALUE'))
+    #set($clientMailAddress2=$billToAddressTable.get('MAIL_ADDRESS2').get('COLUMN_VALUE'))
+
+    #set($quoteNumLabel=$numAndDatesTable.get('QT_NUMBER').get('COLUMN_NAME'))
+    #set($poNumLabel=$numAndDatesTable.get('PO_NUMBER').get('COLUMN_NAME'))
+    #set($referenceLabel=$numAndDatesTable.get('REFERENCE').get('COLUMN_NAME'))
+
+    #set($vatNumberLabel=$numAndDatesTable.get('COMP_VAT_NUMBER').get('COLUMN_NAME'))
+
+    #set($invNumber=$numAndDatesTable.get('INV_NUMBER').get('COLUMN_VALUE'))
+    #set($quoteNumber=$numAndDatesTable.get('QT_NUMBER').get('COLUMN_VALUE'))
+    #set($poNumber=$numAndDatesTable.get('PO_NUMBER').get('COLUMN_VALUE'))
+    #set($reference=$numAndDatesTable.get('REFERENCE').get('COLUMN_VALUE'))
+    #set($invoiceDate=$numAndDatesTable.get('INV_DATE').get('COLUMN_VALUE'))
+    #set($dueDate=$numAndDatesTable.get('INV_DUE_DATE').get('COLUMN_VALUE'))
+    #set($vatNumber=$numAndDatesTable.get('COMP_VAT_NUMBER').get('COLUMN_VALUE'))
+
+    #if($billToAddressTable.get('MAIL_CITY').get('COLUMN_VALUE')!='' and
+        $billToAddressTable.get('MAIL_ZIPCODE').get('COLUMN_VALUE')!='')
+        #set($clientMailCityZip=$billToAddressTable.get('MAIL_CITY').get('COLUMN_VALUE') + ',' +
+            $billToAddressTable.get('MAIL_ZIPCODE').get('COLUMN_VALUE'))
+    #elseif($billToAddressTable.get('MAIL_CITY').get('COLUMN_VALUE')!='')
+        #set($clientMailCityZip=$billToAddressTable.get('MAIL_CITY').get('COLUMN_VALUE'))
+    #elseif($billToAddressTable.get('MAIL_ZIPCODE').get('COLUMN_VALUE')!='')
+        #set($clientMailCityZip=$billToAddressTable.get('MAIL_ZIPCODE').get('COLUMN_VALUE'))
+    #end
+
+    #set($clientMailCountry=$billToAddressTable.get('MAIL_COUNTRY').get('COLUMN_VALUE'))
+    #set($clientVatNumber=$billToAddressTable.get('CLIENT_VAT_NUMBER').get('COLUMN_VALUE'))
+    #set($clientCountry=$billToAddressTable.get('BILL_COUNTRY').get('COLUMN_VALUE'))
+    #set($clientVatNumber=$billToAddressTable.get('CLIENT_VAT_NUMBER').get('COLUMN_VALUE'))
+    #set($companyData=$itextGenericPdfData.companyData)
+    #set($customTotalTable=$itextGenericPdfData.baseInvoice.customTotalTable.rows)
+    #set($totalInWord=$customTotalTable.get('TOTAL_WORD_ALL').get('COLUMN_VALUE'))
+    #set($total=$customTotalTable.get('TOTAL').get('COLUMN_VALUE'))
+    #set($totalInBase=$customTotalTable.get('TOTAL_IN_BASE').get('COLUMN_VALUE'))
+    #set($discount=$customTotalTable.get('DISCOUNT_TOTAL').get('COLUMN_VALUE'))
+    #set($subTotal=$customTotalTable.get('SUBTOTAL').get('COLUMN_VALUE'))
+<div id="header">
+    <div width="100%" style="display: inline-block;" align="right">
+        <img style="width: 100%;"
+             src="https://workforcetrack.s3.amazonaws.com/000000000000/public/62442/6a8f3860-bb0f-441c-900b-19c6ff5d22f4?AWSAccessKeyId=AKIAIROQMC77E5UKWBWQ"/>
+    </div>
+</div>
+
+<div id="footer">
+    <table width="100%" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+            <td width="100%">
+                <img src="https://workforcetrack.s3.amazonaws.com/000000000000/public/62442/e0bf560d-6ca7-47f7-92e3-5c33afc50b0d?AWSAccessKeyId=AKIAIROQMC77E5UKWBWQ"
+                     width="100%"/>
+            </td>
+        </tr>
+    </table>
+
+</div>
+
+<div style="font-size: 11px; width: 100%;">
+    <div style="width: 100%; text-align: center; font-weight: 900; font-size: 16pt; font-family: 'Arial Black', Arial, sans-serif;letter-spacing: 3px;">
+        SALES INVOICE
+    </div>
+    <table style="border-collapse: collapse; margin-top: 30px; width: 100%;" cellpadding="0"
+           cellspacing="0" border="0">
+        <tr>
+            <td width="40%" style="vertical-align: top;" align="left">
+                <div style="width: 100%;">
+                    <table cellpadding="0" cellspacing="0" style="border-collapse: collapse;width: 100%;">
+                        <tr>
+                            <td style="font-weight: bold;">Customer;</td>
+                        </tr>
+                        <tr>
+                            <td>#if($clientAddress != '') $clientAddress #end</td>
+                        </tr>
+                        <tr>
+                            <td>#if($clientAddress2 != '') $clientAddress2 #end</td>
+                        </tr>
+                        #if($clientCityZip != '')
+                            <tr>
+                                <td> $clientCityZip</td>
+                            </tr>
+                        #end
+                        <tr>
+                            <td>#if($clientPhone != '') P: $clientPhone #end</td>
+                        </tr>
+                    </table>
+                </div>
+            </td>
+            <td width="30%">
+                &#160; &#160; &#160;
+            </td>
+            <td width="30%" align="right">
+                <div style="width: 100%;" align="right">
+                    <table class="tableBorder" cellpadding="0" width="100%" cellspacing="0"
+                           style="border-collapse: collapse;">
+                        <tr>
+                            <td width="40%"
+                                style="text-align:left;border-left: 2px solid #000000;border-top: 2px solid #000000;padding-right: 5px;background-color: #DDDDDD;">
+                                INV Number
+                            </td>
+                            <td width="60%" style="border-top: 2px solid #000000;margin-left: 5px;">#if($invNumber !=
+                                '') $invNumber #end</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left;border-left: 2px solid #000000;padding-right: 5px;background-color: #DDDDDD;">
+                                INV Date
+                            </td>
+                            <td style="margin-left: 5px;">#if ($invoiceDate != '') $invoiceDate #end</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left;border-left: 2px solid #000000;padding-right: 5px;background-color: #DDDDDD;">
+                                Due Date
+                            </td>
+                            <td style="margin-left: 5px;">#if($dueDate != '') $dueDate #end</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left;border-left: 2px solid #000000;padding-right: 5px;background-color: #DDDDDD;">
+                                PO Number
+                            </td>
+                            <td style="margin-left: 5px;">#if($poNumber != '') $poNumber #end</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left;border-left: 2px solid #000000;padding-right: 5px;background-color: #DDDDDD;">
+                                Shipment Ref
+                            </td>
+                            <td style="margin-left: 5px;">#if($reference != '') $reference #end</td>
+                        </tr>
+                    </table>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <!--Product Table-->
+    <table align="left" width="100%" style="margin-top:20px">
+        <tr>
+            <td style="font-weight: 900;">Order Description</td>
+        </tr>
+    </table>
+    <table width="100%" class="tableBorder" align="center" cellspacing="0" cellpadding="0" style="margin-top:50px">
+        <thead style="padding:2px;font-weight:bold;">
+        <tr align="center">
+            <td bgcolor="#CCCCCC" style="border-left: 2px solid #000000;border-top: 2px solid #000000;" width="4%">
+                No.:
+            </td>
+            <td bgcolor="#CCCCCC" style="border-top: 2px solid #000000;" width="17%">Product/Service</td>
+            <td bgcolor="#CCCCCC" style="border-top: 2px solid #000000;" width="40%">Description</td>
+            <td bgcolor="#CCCCCC" style="border-top: 2px solid #000000;" width="7%">Qty</td>
+            <td bgcolor="#CCCCCC" style="border-top: 2px solid #000000;" width="10%">Unit Price #if($curSymbol != '')
+                ($curSymbol) #end</td>
+            <td bgcolor="#CCCCCC" style="border-top: 2px solid #000000;" width="10%">Net Amount #if($curSymbol != '')
+                ($curSymbol) #end</td>
+            <td bgcolor="#CCCCCC" style="border-top: 2px solid #000000;" width="12%">Total Amount #if($curSymbol != '')
+                ($curSymbol) #end</td>
+        </tr>
+        </thead>
+
+        #foreach($row in $itextGenericPdfData.baseInvoice.customProductTable.rows.values())
+            <tr>
+                <td style="border-left: 2px solid #000000;"> $row.get('NO')</td>
+                <td> $row.get('NAME')</td>
+                <td> $row.get('DESCRIPTION')</td>
+                <td style="text-align: right;"> $row.get('QTY_HRS')</td>
+                <td align="right"> $row.get('UNIT_PRICE')</td>
+                <td align="right"> $row.get('NET_AMOUNT')</td>
+                <td align="right"> $row.get('TOTAL_AMOUNT')</td>
+            </tr>
+        #end
+        <tr>
+            <td style="text-align: left; border-left: 2px solid #000000;" colspan="4" rowspan="2"><span
+                    style="font-weight: bold;">Amount in words:</span> $totalInWord #if($currencyName !=
+                '') $currencyName only #end
+            </td>
+            <td style="text-align: left; background-color: #CCCCCC; font-weight: bold;" colspan="2">Subtotal</td>
+            <td style="text-align: right;">$subTotal</td>
+        </tr>
+        <tr>
+            <td style="text-align: left; background-color: #CCCCCC; font-weight: bold;" colspan="2">Discount Amount</td>
+            <td style="text-align: right;">#if($discount != '') $discount #else 0.00 #end</td>
+        </tr>
+        #if('AED'!=$currencyName)
+            <tr>
+                <td colspan="4" style=" border-bottom: none;"></td>
+                <td colspan="2"
+                    style="text-align: left; background-color: #CCCCCC; font-weight: bold;">
+                    Net Amount in $currencyName</td>
+                <td style="text-align: right;"><b>($curSymbol) $total</b></td>
+            </tr>
+        #end
+        <tr>
+            <td colspan="4" style="border-bottom: none;"></td>
+            <td colspan="2"
+                style="text-align: left; background-color: #CCCCCC; font-weight: bold;">
+                Net Amount in AED
+            </td>
+            <td style="text-align: right;"><b>(AED) $totalInBase</b></td>
+        </tr>
+    </table>
+    #set($termRows = $itextGenericPdfData.baseInvoice.customTermsConditions.rows.values())
+    #set($accountRows = $itextGenericPdfData.baseInvoice.customAccountTable.rows)
+    #set($bankName=$itextGenericPdfData.baseInvoice.customBankTable.rows.get('BANK_NAME').get('COLUMN_VALUE'))
+    #set($accountName=$accountRows.get('ACCOUNT_NAME').get('COLUMN_VALUE'))
+    #set($accountNumber=$accountRows.get('ACCOUNT_NUMBER').get('COLUMN_VALUE'))
+    #set($ibanCode=$accountRows.get('IBAN_CODE').get('COLUMN_VALUE'))
+    #set($swiftCode=$accountRows.get('SWIFT_BIC').get('COLUMN_VALUE'))
+    #set($accountCurrency=$itextGenericPdfData.baseInvoice.customBankTable.rows.get('CURRENCY').get('COLUMN_VALUE'))
+
+    <table width="100%" class="tableBorder" align="center" cellspacing="0" cellpadding="0"
+           style="margin-top:25px; margin-top: 40px;width: 100%;">
+
+            <tr>
+                <td colspan="4" bgcolor="#CCCCCC" align="left"
+                    style="border-left: 2px solid #000000; border-top: 2px solid #000000;padding:5px;font-weight:bold;">
+                    Payment Terms and Conditions
+                </td>
+            </tr>
+        #if($termRows.size()>0)
+            <tr>
+                <td colspan="4" style="border-left:2px solid #000000;padding-top:5px;padding-bottom:10px;">
+                    #foreach($row in $termRows)
+                    $row.get('COLUMN_VALUE').replaceAll("\n", "<br/>")
+                #end
+                </td>
+            </tr>
+            #else
+                <tr>
+                    <td colspan="4" style="border-left:2px solid #000000;padding-top:5px;padding-bottom:10px;color:#ffffff;background: #ffffff;">
+                        payment terms and conditions
+                    </td>
+                </tr>
+        #end
+        <tr>
+            <td colspan="4"
+                style="border-left: 2px solid #000000; background-color: #CCCCCC; font-weight: 900;">
+                All payment should be made on favor of:
+            </td>
+        </tr>
+        <tr>
+            <td colspan="1" style="border-left: 2px solid #000000; background-color: #CCCCCC; width: 50%;">Bank Name
+            </td>
+            <td colspan="3" style="width: 50%;">#if($bankName != '') $bankName #end</td>
+        </tr>
+        <tr>
+            <td colspan="1" style="border-left: 2px solid #000000; background-color: #CCCCCC;width: 50%;">Account Name
+            </td>
+            <td colspan="3" style="width: 50%;">#if($accountName != '') $accountName #end</td>
+        </tr>
+        <tr>
+            <td style="border-left: 2px solid #000000; background-color: #CCCCCC;width: 10%;">Account Number</td>
+            <td style="width: 25%;">#if($accountNumber != '') $accountNumber #end</td>
+            <td style="background-color: #CCCCCC;width: 10%;">IBAN</td>
+            <td style="width: 25%;">#if($ibanCode != '') $ibanCode #end</td>
+        </tr>
+        <tr>
+            <td style="border-left: 2px solid #000000; background-color: #CCCCCC;width: 10%;">Swift Code</td>
+            <td style="width: 25%;">#if($swiftCode != '') $swiftCode #end</td>
+            <td style="background-color: #CCCCCC;width: 10%;">Currency</td>
+            <td style="width: 25%;">#if($accountCurrency != '') $accountCurrency #end</td>
+        </tr>
+    </table>
+    <div style="font-size: 10px; margin-top: 40px; width: 100%; text-align: center;">
+        THANK YOU FOR YOUR BUSINESS
+    </div>
+    <table style="width: 100%; margin-top: 20px;">
+        <tr>
+            <td style="font-size: 10px; text-align: left; padding-bottom: 2px;" align="left"><span
+                    style="border-bottom: 1px solid #000000; padding-bottom: 2px;">Authorized signature</span></td>
+            <td style="font-size: 10px; text-align: right;" align="right"><span
+                    style="border-bottom: 1px solid #000000; padding-bottom: 2px;">Customer Signature</span></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

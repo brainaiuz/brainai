@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+
+    <title>Service Temporarily Unavailable</title>
+    <link type="image/x-icon" href="/maintenance-favicon.ico" rel="shortcut icon">
+    <link type="image/x-icon" href="/maintenance-favicon.ico" rel="icon">
+    <style type="text/css">
+        body {
+            background: none repeat scroll 0 0 #F9F9FA;
+            /*color: #4A4A4A;*/
+            /*font: 0.8175em Verdana,Arial,sans-serif;*/
+            height: auto !important;
+            margin: 0 auto;
+            min-height: 100%;
+        }
+
+        .main {
+            width: 100%;
+            text-align: center;
+            padding-top: 50px;
+            /*font-family: Verdana;*/
+            font-size: 23px;
+            font-weight: bold;
+            color: #2568ac;
+        }
+
+        .message {
+            color: #585A25;
+            /*font-family: Verdana;*/
+            font-size: 12px;
+            margin: -49px 0 0;
+            padding: 8px 0 0;
+        }
+
+        #myDiv {
+            width: 300px;
+            height: 58px;
+            background: no-repeat;
+            margin-left: 22px
+        }
+
+
+        #wrapper {
+            position: relative;
+        }
+
+        .page-thankYou {
+            background: url("customisation/preprod.kpi.com/images/bg_header_thankyouPage.png") no-repeat scroll 50% 0 rgba(0, 0, 0, 0);
+        }
+
+    </style>
+    <script>
+        function myFunction() {
+            var currentPageUrl = "kpi.com";
+
+            currentPageUrl = location.hostname.toString().toLowerCase();
+
+
+//            document.getElementById("website").textContent = currentPageUrl;
+            document.getElementById("myDiv").style.background = "no-repeat";
+
+            if (currentPageUrl == "localhost") {
+                document.getElementById("myDiv").style.backgroundImage = "url('customisation/kpi.com/images/kpilogo.png')";
+
+            } else if ((currentPageUrl == "aws.enfion.com") || (currentPageUrl == "app.enfion.com")) {
+
+                document.getElementById("myDiv").style.backgroundImage = "url('customisation/enfion/images/logo.png')";
+
+            } else if ((currentPageUrl == "aws.1erp.sa") || (currentPageUrl == "app.1erp.sa")) {
+
+                document.getElementById("myDiv").style.backgroundImage = "url('customisation/1erp.sa/images/logo.png')";
+
+            } else if ((currentPageUrl == "aws.kpi.com.ru") || (currentPageUrl == "app.kpi.com.ru")) {
+
+                document.getElementById("myDiv").style.backgroundImage = "url('customisation/kpi/images/kpilogo.png')";
+
+            } else if ((currentPageUrl == "aws.smebu.com") || (currentPageUrl == "app.smebu.com")) {
+
+                document.getElementById("myDiv").style.backgroundImage = "url('customisation/smebu/images/smebulogo.png')";
+
+            } else if ((currentPageUrl == "aws.appiev.com") || (currentPageUrl == "erp.appiev.com")) {
+
+                document.getElementById("myDiv").style.backgroundImage = "url('customisation/appiev/images/logo.png')";
+
+            } else if ((currentPageUrl == "aws.telemanaged.com") || (currentPageUrl == "app.telemanaged.com")) {
+
+                document.getElementById("myDiv").style.backgroundImage = "url('customisation/telemanaged.com/images/logo.png')";
+
+            } else if ((currentPageUrl == "aws.ezyadmin.com") || (currentPageUrl == "app.ezyadmin.com")) {
+
+                document.getElementById("myDiv").style.backgroundImage = "url('customisation/ezyadmin/images/ezyadminlogo.png')";
+
+            } else if ((currentPageUrl == "aws.tjilo.com") || (currentPageUrl == "app.tjilo.com")) {
+
+                document.getElementById("myDiv").style.backgroundImage = "url('customisation/tjilo.com/images/tjilo_logo.png')";
+
+            } else if ((currentPageUrl == "aws.kah.sa") || (currentPageUrl == "app.kah.sa")) {
+
+                document.getElementById("myDiv").style.backgroundImage = "url('customisation/kah+erp/images/logo.png')";
+
+            } else if ((currentPageUrl == "aws.upshott.com") || (currentPageUrl == "erp.upshott.com")) {
+
+                document.getElementById("myDiv").style.backgroundImage = "url('customisation/kah+erp/images/logo.png')";
+
+            } else if ((currentPageUrl == "aws.omandatapark.com") || (currentPageUrl == "app.omandatapark.com")) {
+
+                document.getElementById("myDiv").style.backgroundImage = "url('customisation/oman+data+park+cloud+erp/images/logo.png')";
+
+            } else {
+
+                document.getElementById("myDiv").style.backgroundImage = "url('no-logo.png')";
+
+            }
+        }    </script>
+</head>
+
+<body onload="myFunction()">
+<div id="wrapper" class="land-CRM page-thankYou">
+
+
+    <div id="myDiv"></div>
+
+
+    <div class="main">
+        <img src="/MaintenanceLogo.png" width="300px" alt="Under Maintenance"/>
+    </div>
+
+    <div class="main">
+        <p class="message"> Temporarily Unavailable </p>
+        Sorry for the inconvenience but we're improving the system<br/>
+        We'll be back on line shortly ...
+    </div>
+</div>
+</body>
+</html>

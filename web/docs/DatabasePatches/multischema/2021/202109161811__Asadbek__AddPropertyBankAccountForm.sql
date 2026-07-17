@@ -1,0 +1,236 @@
+delete  from "anv".form_property where form_id ='BANK_ACCOUNT_FORM';
+insert into "anv".form_property (form_id, settingsjsondata)
+values ('BANK_ACCOUNT_FORM',
+        '[
+  {
+    "code": "BANK_NAME",
+    "title": "Name",
+    "aliasName": "BANK_NAME",
+    "changed": false,
+    "required": true,
+    "widget": "TextBox",
+    "selectedId": null,
+    "defaultValue": "",
+    "disabled": false
+  },
+  {
+    "code": "ACCOUNT_NUMBER",
+    "title": "Account Number",
+    "aliasName": "ACCOUNT_NUMBER",
+    "changed": false,
+    "required": true,
+    "widget": "TextBox",
+    "selectedId": null,
+    "defaultValue": "",
+    "disabled": false
+  },
+  {
+    "code": "OWNER",
+    "title": "Owners",
+    "aliasName": "OWNER",
+    "changed": false,
+    "required": false,
+    "widget": "LOOKUP",
+    "selectedId": null,
+    "defaultValue": "",
+    "disabled": false
+  },
+  {
+    "code": "ACCOUNT_CODE",
+    "title": "Account Code",
+    "aliasName": "ACCOUNT_CODE",
+    "changed": false,
+    "required": true,
+    "widget": "TextBox",
+    "selectedId": null,
+    "defaultValue": "",
+    "disabled": false
+  },
+  {
+    "code": "ACCOUNT_NAME",
+    "title": "Account Name",
+    "aliasName": "ACCOUNT_NAME",
+    "changed": false,
+    "required": false,
+    "widget": "TextBox",
+    "selectedId": null,
+    "defaultValue": "",
+    "disabled": false
+  },
+  {
+    "code": "BANK_BRANCH",
+    "title": "Bank Branch",
+    "aliasName": "BANK_BRANCH",
+    "changed": false,
+    "required": false,
+    "widget": "TextBox",
+    "selectedId": null,
+    "defaultValue": "",
+    "disabled": false
+  },
+  {
+    "code": "ACTIVE",
+    "title": "Active",
+    "aliasName": "ACTIVE",
+    "changed": false,
+    "required": false,
+    "widget": "CheckBox",
+    "selectedId": null,
+    "defaultValue": "",
+    "disabled": false
+  },
+  {
+    "code": "STREET_ADDRESS",
+    "title": "Street Address",
+    "aliasName": "STREET_ADDRESS",
+    "changed": false,
+    "required": false,
+    "widget": "TextBox",
+    "selectedId": null,
+    "defaultValue": "",
+    "disabled": false
+  },
+  {
+    "code": "CITY",
+    "title": "City",
+    "aliasName": "CITY",
+    "changed": false,
+    "required": false,
+    "widget": "TextBox",
+    "selectedId": null,
+    "defaultValue": "",
+    "disabled": false
+  },
+  {
+    "code": "COUNTRY",
+    "title": "Country",
+    "aliasName": "COUNTRY",
+    "changed": false,
+    "required": false,
+    "widget": "LOOKUP",
+    "selectedId": null,
+    "defaultValue": "",
+    "disabled": false
+  },
+  {
+    "code": "STATE",
+    "title": "State",
+    "aliasName": "STATE",
+    "changed": false,
+    "required": false,
+    "widget": "LOOKUP",
+    "selectedId": null,
+    "defaultValue": "",
+    "disabled": false
+  },
+  {
+    "code": "POST_CODE",
+    "title": "Post Code",
+    "aliasName": "POST_CODE",
+    "changed": false,
+    "required": false,
+    "widget": "TextBox",
+    "selectedId": null,
+    "defaultValue": "",
+    "disabled": false
+  },
+  {
+    "code": "PHONE_NUMBER",
+    "title": "Phone Number",
+    "aliasName": "PHONE_NUMBER",
+    "changed": false,
+    "required": false,
+    "widget": "TextBox",
+    "selectedId": null,
+    "defaultValue": "",
+    "disabled": false
+  },
+  {
+    "code": "SWIFT_CODE",
+    "title": "Swift/BIC code",
+    "aliasName": "SWIFT_CODE",
+    "changed": false,
+    "required": false,
+    "widget": "TextBox",
+    "selectedId": null,
+    "defaultValue": "",
+    "disabled": false
+  },
+  {
+    "code": "SORT_CODE",
+    "title": "Sort code",
+    "aliasName": "SORT_CODE",
+    "changed": false,
+    "required": false,
+    "widget": "TextBox",
+    "selectedId": null,
+    "defaultValue": "",
+    "disabled": false
+  },
+  {
+    "code": "IBAN_CODE",
+    "title": "IBAN code",
+    "aliasName": "IBAN_CODE",
+    "changed": false,
+    "required": false,
+    "widget": "TextBox",
+    "selectedId": null,
+    "defaultValue": "",
+    "disabled": false
+  },
+  {
+    "code": "ABA_CODE",
+    "title": "Financial code/ABA Code",
+    "aliasName": "ABA_CODE",
+    "changed": false,
+    "required": false,
+    "widget": "TextBox",
+    "selectedId": null,
+    "defaultValue": "",
+    "disabled": false
+  },
+  {
+    "code": "AGENT_ID",
+    "title": "Agent ID",
+    "aliasName": "AGENT_ID",
+    "changed": false,
+    "required": false,
+    "widget": "TextBox",
+    "selectedId": null,
+    "defaultValue": "",
+    "disabled": false
+  },
+  {
+    "code": "CURRENCY",
+    "title": "Currency",
+    "aliasName": "CURRENCY",
+    "changed": false,
+    "required": false,
+    "widget": "LOOKUP",
+    "selectedId": null,
+    "defaultValue": "",
+    "disabled": false
+  },
+  {
+    "code": "OPENING_BALANCE_DATE",
+    "title": "Opening balance as of date",
+    "aliasName": "OPENING_BALANCE_DATE",
+    "changed": false,
+    "required": false,
+    "widget": null,
+    "selectedId": null,
+    "defaultValue": "",
+    "disabled": false
+  },
+  {
+    "code": "ATTACHMENTS",
+    "title": "Attachments",
+    "aliasName": "ATTACHMENTS",
+    "changed": false,
+    "required": false,
+    "widget": "Unknown",
+    "selectedId": null,
+    "defaultValue": "",
+    "disabled": false
+  },
+]');

@@ -1,0 +1,4 @@
+<module rename-to="dashboard">
+    <inherits name="com.edatasite.workforce.gwt.dashboard.Dashboard"/>
+    <inherits name="com.edatasite.workforce.gwt.Localization_properties"></inherits>
+</module>

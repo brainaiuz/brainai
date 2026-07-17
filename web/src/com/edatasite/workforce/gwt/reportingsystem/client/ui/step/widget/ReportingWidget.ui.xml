@@ -1,0 +1,93 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:m.html="urn:import:gwt.material.design.client.ui.html"
+             xmlns:form="urn:import:com.edatasite.workforce.gwt.core.client.ui.components.form"
+             xmlns:m="urn:import:gwt.material.design.client.ui" xmlns:unit="urn:import:com.edatasite.workforce.gwt.reportingsystem.client.ui.step.widget.unit">
+    <g:HTMLPanel>
+        <m.html:Div class="panel-filters">
+            <!--Chart type list-->
+            <m.html:UnorderedList class="chart-view" ui:field="widgetTypeList"/>
+
+            <m.html:Div ui:field="kpiWidgetContainer">
+
+                <m.html:Div class="panel-filters__section chart-main-options">
+
+                    <m.html:Div class="grid-row" ui:field="mainWidgetConfigRow">
+
+                        <m.html:Div class="col-3">
+                            <form:FormGroup ui:field="kpiWidgetTitleField"/>
+                        </m.html:Div>
+                        <m.html:Div style="flex: 0 0 5.333%;">
+                            <form:FormGroup ui:field="widgetTitleColorField"/>
+                        </m.html:Div>
+                        <m.html:Div class="col-3">
+                            <form:FormGroup ui:field="kpiWidgetScaleField"/>
+                        </m.html:Div>
+                        <m.html:Div class="col-3">
+                            <form:FormGroup ui:field="kpiWidgetSuffixField"/>
+                        </m.html:Div>
+                        <m.html:Div class="col-3" ui:field="negativeAndPosiveTypeDiv">
+                            <form:FormGroup ui:field="negativeAndPosiveType"/>
+                        </m.html:Div>
+                        <m.html:Div class="col-6">
+                            <form:FormGroup ui:field="kpiWidgetMetricField"/>
+                        </m.html:Div>
+                        <m.html:Div class="col-3">
+                            <form:FormGroup ui:field="groupingField"/>
+                        </m.html:Div>
+
+                        <m.html:Div class="col-6">
+                            <form:FormGroup ui:field="widgetModulesField"/>
+                        </m.html:Div>
+                        <m.html:Div class="col-3">
+                            <form:FormGroup ui:field="pageSizeField"/>
+                        </m.html:Div>
+
+                        <m.html:Div class="col-3">
+                            <form:FormGroup ui:field="widgetSortingField"/>
+                        </m.html:Div>
+
+                        <m.html:Div class="col-2">
+                            <form:FormGroup ui:field="comparisionTitle"/>
+                        </m.html:Div>
+                        <m.html:Div class="col-2">
+                            <form:FormGroup ui:field="increaseColor"/>
+                        </m.html:Div>
+                        <m.html:Div class="col-3">
+                            <form:FormGroup ui:field="differentForm"/>
+                        </m.html:Div>
+
+                    </m.html:Div>
+
+                    <m.html:Div class="grid-row" ui:field="firstRowContainer">
+
+                        <m.html:Div class="col-10">
+                            <form:FormGroup ui:field="filterContainer"/>
+                        </m.html:Div>
+                        <m.html:Div class="col-2">
+                            <form:FormGroup ui:field="advancedFilter"/>
+                        </m.html:Div>
+
+                    </m.html:Div>
+
+                    <m.html:Div class="grid-row" ui:field="seconRowContainer">
+
+                        <m.html:Div class="col-10">
+                            <form:FormGroup ui:field="filterContainerComparision"/>
+                        </m.html:Div>
+                        <m.html:Div class="col-2">
+                            <form:FormGroup ui:field="advancedFilterTwo"/>
+                        </m.html:Div>
+
+
+                    </m.html:Div>
+
+                </m.html:Div>
+
+            </m.html:Div>
+
+        </m.html:Div>
+
+
+    </g:HTMLPanel>
+</ui:UiBinder>

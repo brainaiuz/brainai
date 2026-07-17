@@ -1,0 +1,568 @@
+// stylelint-disable selector-no-qualifying-type
+
+//
+// Base styles
+//
+
+.input-group {
+  position: relative;
+  display: flex;
+  //flex-wrap: wrap; // For form validation feedback
+  flex-wrap: nowrap;
+  align-items: stretch;
+  width: 100%;
+
+  .inCol-input-group & {
+    justify-content: stretch;
+    > * {
+      &:has(.form-control:only-child) {
+        flex-grow: 2;
+      }
+      > .form-control:only-child {
+        width: 100%;
+      }
+    }
+  }
+
+  //> .wfm-dropdown,
+  > .input-field,
+  > .input-group-content,
+    //> .input-field,
+    //> .gwt-TextBox,
+    //> .gwt-ListBox,
+  > .form-control
+    //> .custom-select,
+    //> .custom-file
+  {
+    position: relative; // For focus state's z-index
+    flex: 1 1 auto;
+    // Add width 1% and flex-basis auto to ensure that button will not wrap out
+    // the column. Applies to IE Edge+ and Firefox. Chrome does not require this.
+
+    &[class*="col-"], //todo: check for using and remove
+    &[style*="width:"] {
+      flex-grow: 0;
+      flex-shrink: 0;
+    }
+    margin-bottom: 0;
+    &:not([style*="width"]):not(.width-auto) { //https://prnt.sc/pwg5rb
+      width: 1% !important; // Need for Firefox > http://prntscr.com/myndl7
+    }
+
+    // Bring the "active" form control to the top of surrounding elements
+    &:focus {
+      z-index: 3;
+    }
+    + .input-group-content,
+      //+ .input-field,
+      //+ .gwt-TextBox,
+      //+ .gwt-ListBox,
+    + .form-control
+      //+ .custom-select,
+      //+ .custom-file
+    {
+      margin-left: -$input-border-width;
+      //margin-left: -$input-border-radius; //https://prnt.sc/qyvm8r don't use it lead to the artifacts https://prnt.sc/qzbovl
+    }
+    + .input-group-content.input-group-text {
+      border-left: none;
+    }
+  }
+
+  //> .wfm-dropdown,
+  > .input-field,
+  > .input-group-content,
+    //> .input-field,
+    //> .gwt-TextBox,
+    //> .gwt-ListBox,
+  > .form-control
+    // > .custom-select
+  {
+    &:not(:last-child) {
+      html:not([dir="rtl"]) & {
+        @include border-right-radius(0);
+        + .input-group > .form-control {
+          @include border-left-radius(0);
+          margin-left: -1px; //https://prnt.sc/taw4a9
+        }
+      }
+    }
+    &:not(:first-child) {
+      html:not([dir="rtl"]) & {
+        @include border-left-radius(0);
+      }
+    }
+
+    //not finished input:display:none + input #hack
+    &[style*="display: none"]:first-child { //first-child added by the following reason -> https://prnt.sc/pdccms
+      & + * {
+        html:not([dir="rtl"]) & {
+          border-top-left-radius: $control-border-radius !important;
+          border-bottom-left-radius: $control-border-radius !important;
+        }
+      }
+      & + *:last-child {
+        html:not([dir="rtl"]) & {
+          border-top-left-radius: 0 !important;
+          border-bottom-left-radius: 0 !important;
+        }
+      }
+      &:last-child {
+        display: block !important;
+        overflow: hidden;
+        z-index: 3;
+        max-width: rem(1px);
+        border-left: none;
+        padding-left: 0;
+        padding-right: rem(4px);
+        margin-left: rem(-2px);
+        font-size: 0;
+        text-indent: 999px;
+      }
+    }
+  }
+
+  > .simpleGwt-ComboBox {
+    flex-grow: 1;
+    &:not(:last-child) {
+      .form-control {
+        html:not([dir="rtl"]) & {
+          @include border-right-radius(0);
+        }
+      }
+    }
+    &:not(:first-child) {
+      .form-control {
+        html:not([dir="rtl"]) & {
+          @include border-left-radius(0);
+        }
+      }
+    }
+  }
+
+  // Custom file inputs have more complex markup, thus requiring different
+  // border-radius overrides.
+  > .custom-file {
+    display: flex;
+    align-items: center;
+
+    &:not(:last-child) .custom-file-label,
+    &:not(:last-child) .custom-file-label::before {
+      html:not([dir="rtl"]) & {
+        @include border-right-radius(0);
+      }
+    }
+    &:not(:first-child) .custom-file-label,
+    &:not(:first-child) .custom-file-label::before {
+      html:not([dir="rtl"]) & {
+        @include border-left-radius(0);
+      }
+    }
+  }
+
+  .multiwidget-sub { // GWT inline prevent
+    margin-top: 0 !important;
+    //margin-bottom: 0 !important;
+  }
+
+  &--separate {
+    > * + * {
+      margin-left: 4px;
+    }
+  }
+
+  > .input-group + .input-group { //https://prnt.sc/r64nre
+    margin-left: 10px;
+  }
+}
+
+// Prepend and append
+//
+// While it requires one extra layer of HTML for each, dedicated prepend and
+// append elements allow us to 1) be less clever, 2) simplify our selectors, and
+// 3) support HTML5 form validation.
+
+.input-group-prepend,
+.input-group-append {
+  display: flex;
+
+  // Ensure buttons are always above inputs for more visually pleasing borders.
+  // This isn't needed for `.input-group-text` since it shares the same border-color
+  // as our inputs.
+  .btn {
+    position: relative;
+    z-index: 2;
+    border-width: rem(1px);
+    border-color: $control-border-color;
+  }
+
+  .btn + .btn,
+  .input-group-text + .btn,
+  .form-control + .btn,
+  .btn + .input-group-text,
+  .input-group-text + .input-group-text,
+  .form-control + .input-group-text,
+  .input-group-text + .form-control,
+  .btn + .form-control,
+  .form-control + .form-control {
+    margin-left: -$input-border-width;
+  }
+
+  .btn--icon {
+    &:not(.btn--white) {
+      @extend %btn--lightgrey;
+    }
+  }
+}
+
+.input-group-prepend {
+  margin-right: -$input-border-width;
+}
+
+.input-group-append {
+  margin-left: -$input-border-width;
+
+  button:not(:first-child) {
+    padding-left: 10px;
+  } // from temp.scss > Rahimov
+}
+
+//.input-group .input-field,
+.input-group-content {
+  display: flex;
+  flex: 1 1 auto;
+  //height: $button-height;
+  height: $input-height;
+
+  &:not(:last-child) {
+    border-right: none !important; //https://prnt.sc/s1cmwt
+  }
+
+  ///* addFieldSet */ from invoice.scss Mirisoev changes
+  //display: block !important; // lead to alignments problem //https://prnt.sc/qdx69i
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  .text-ellipsis {
+
+  }
+
+  &.input-group-text {
+    background-color: transparent;
+  }
+  .input-group-text {
+    border-radius: 0;
+    border: none;
+    height: 100%;
+  }
+
+  &.width-auto {
+    flex: 0 0 auto;
+    width: auto; //https://prnt.sc/pwg5rb
+  }
+
+  input[type=text],
+  input[type=password] {
+    border: none;
+    background-color: transparent !important;
+  }
+}
+
+.input-group .input-field {
+  background-color: #fff;
+  .select-wrapper {
+    width: 100% !important;
+    padding: 0 !important;
+  }
+  label {
+    display: none; // to prevent above space
+  }
+}
+
+// Textual addons
+//
+// Serves as a catch-all element for any text or radio/checkbox input you wish
+// to prepend or append to an input.
+
+.input-group .input-field,
+.input-group-content,
+.input-group-text {
+  display: flex;
+  align-items: center;
+  border: $control-border-width solid $input-group-addon-border-color;
+  @include border-radius($control-border-radius);
+}
+.input-group .wfm-dropdown {
+  align-items: inherit;
+  .select2-container {
+    width: auto !important;
+  }
+}
+
+.input-group-text {
+  padding: $button-padding-y $input-padding-x;
+  margin-bottom: 0; // Allow use of <label> elements by overriding our default margin-bottom
+  font-size: $control-font-size; // Match inputs
+  //font-weight: $font-weight-normal;
+  //line-height: $button-line-height;
+  color: $input-group-addon-color;
+  text-align: center;
+  white-space: nowrap;
+  background-color: $input-group-addon-bg;
+
+  .input-group-append > & {
+    margin-left: -1px; //CRM Activity Event Information Edit  https://prnt.sc/s1cla5
+  }
+
+  .switch {
+    margin-top: -($button-padding-y);
+    margin-bottom: -($button-padding-y);
+  }
+
+  .group-box__item-content & {
+    border: none;
+  }
+
+  // Nuke default margins from checkboxes and radios to vertically center within.
+  input[type="radio"],
+  input[type="checkbox"] {
+    margin-top: 0;
+  }
+
+  .control,
+  .gwt-CheckBox,
+  .gwt-RadioButton {
+    //margin-bottom: rem(3px); //alignment fix
+  }
+
+  .control__indicator + span,
+  .gwt-CheckBox label > span,
+  .gwt-RadioButton label > span {
+
+  }
+  .control__indicator + span {
+    position: relative;
+    top: rem(1px);
+  }
+  .gwt-CheckBox label > span {
+
+  }
+
+  i {
+    color: $color-base-2;
+  }
+
+  //~ .wfm-dropdown,
+  ~  .input-field,
+  ~ .simpleGwt-ComboBox { //https://prnt.sc/qyuywf
+    margin-left: -1px;
+    .form-control {
+      @include border-left-radius(0);
+    }
+  }
+
+  > .btn-group {
+    margin-top: -$button-padding-y;
+    margin-bottom: -$button-padding-y;
+  }
+}
+.simpleGwt-ComboBox + .input-field {
+  margin-left: -3px;
+}
+// Sizing
+//
+// Remix the default form control sizing classes into new ones for easier
+// manipulation.
+
+.input-group-lg > .form-control,
+.input-group-lg > .input-group-prepend > .input-group-text,
+.input-group-lg > .input-group-append > .input-group-text,
+.input-group-lg > .input-group-prepend > .btn,
+.input-group-lg > .input-group-append > .btn {
+
+}
+
+.input-group-sm > .form-control,
+.input-group-sm > .input-group-prepend > .input-group-text,
+.input-group-sm > .input-group-append > .input-group-text,
+.input-group-sm > .input-group-prepend > .btn,
+.input-group-sm > .input-group-append > .btn {
+
+}
+
+// Prepend and append rounded corners
+//
+// These rulesets must come after the sizing ones to properly override sm and lg
+// border-radius values when extending. They're more specific than we'd like
+// with the `.input-group >` part, but without it, we cannot override the sizing.
+
+.input-group > .input-group-prepend > .btn,
+.input-group > .input-group-prepend > .gwt-ListBox,
+.input-group > .input-group-prepend > .input-group-text,
+.input-group > .input-group-prepend > .input-group-content,
+.input-group > .input-group-prepend > .input-field,
+.input-group > .input-group-append:not(:last-child) > .btn,
+.input-group > .input-group-append:not(:last-child) > .gwt-ListBox,
+.input-group > .input-group-append:not(:last-child) > .input-group-text,
+.input-group > .input-group-append:not(:last-child) > .input-group-content,
+.input-group > .input-group-append:not(:last-child) > .input-field,
+.input-group > .input-group-append:last-child > .btn:not(:last-child):not(.dropdown-toggle),
+.input-group > .input-group-append:last-child > .input-group-text:not(:last-child),
+.input-group > .input-group-append:last-child > .input-group-content:not(:last-child),
+.input-group > .input-group-append:last-child > .input-field:not(:last-child) {
+  html:not([dir="rtl"]) & {
+    @include border-right-radius(0);
+  }
+}
+.form-control + .input-group-content:not(.form-control) {
+  //border-left: none; //https://prnt.sc/re51nv
+}
+
+.input-group > .input-group-append > .btn,
+.input-group > .input-group-append > .input-group-text,
+.input-group > .input-group-append > .input-group-content,
+.input-group > .input-group-append > .input-field,
+.input-group > .input-group-prepend:not(:first-child) > .btn,
+.input-group > .input-group-prepend:not(:first-child) > .input-group-text,
+.input-group > .input-group-prepend:not(:first-child) > .input-group-content,
+.input-group > .input-group-prepend:not(:first-child) > .input-field,
+.input-group > .input-group-prepend:first-child > .btn:not(:first-child),
+.input-group > .input-group-prepend:first-child > .input-group-text:not(:first-child),
+.input-group > .input-group-prepend:first-child > .input-group-content:not(:first-child),
+.input-group > .input-group-prepend:first-child > .input-field:not(:first-child) {
+  html:not([dir="rtl"]) & {
+    @include border-left-radius(0);
+  }
+}
+
+.add-email-group {
+  .gwt-ListBox {
+    width: 1%;
+    min-width: rem(70px);
+    // settings for group with Telephone widget
+    padding-right: rem(20px);
+    padding-left: .55rem;
+    background-position: 110% 1.30769rem;
+  }
+  .gwt-RadioButton label > span {
+    max-width: rem(42px);
+  }
+}
+
+.input-group .intl-tel-input {
+  input[type="tel"] {
+    background-color: transparent;
+    border: none;
+  }
+  .flag-container {
+    padding: rem(1px) 0;
+  }
+  .selected-flag {
+    border-right: $control-border-width solid $input-group-addon-border-color;
+    background-color: $input-group-addon-bg;
+  }
+}
+
+//
+.input-group-append input[type="text"] {
+  border-radius: 0;
+  &:first-child {
+    border-right: 0;
+  }
+  &:last-child {
+    html:not([dir="rtl"]) & {
+      @include border-right-radius($radius-base);
+    }
+    border-left: 0;
+  }
+}
+
+//BUTTONS GROUP
+/*phone number old field*/
+.input-group-btn { /*phone number old field*/
+  position: relative;
+  flex-shrink: 0;
+  -ms-flex-align: stretch;
+  font-size: 0;
+  white-space: nowrap;
+
+  .side-nav & {
+    .input-field { //ToDo Test It
+      max-width: 160px;
+    }
+  }
+
+  &:first-child {
+    html:not([dir="rtl"]) & {
+      @include border-left-radius($radius-base);
+    }
+  }
+  &:not(:last-child) .select-dropdown,
+  &:not(:last-child) > .btn,
+  &:not(:last-child) > .btn-group,
+  &:not(:last-child) .gwt-ListBox {
+    box-shadow: none;
+
+    html:not([dir="rtl"]) & {
+      @include border-right-radius(0);
+    }
+  }
+  > .btn {
+    position: relative;
+    width: 100%;
+  }
+}
+.fieldset__phone-number .input-group-btn .input-field {
+  width: 126px; //Abdukadirov
+}
+
+.input-group__input {
+  overflow: hidden;
+  margin: 0;
+
+  &:last-child {
+    flex-grow: 1;
+    .input-field > .text-input {
+      html:not([dir="rtl"]) & {
+        @include border-right-radius($radius-base);
+      }
+    }
+  }
+
+  &.country-code {
+    flex-shrink: 1;
+    flex-grow: 1;
+
+    .input-field {
+      min-width: 45px;
+
+      .text-input {
+        padding-right: 0;
+        border-right: none;
+      }
+    }
+    + .input-group__input .input-field .text-input {
+      margin-left: -1px;
+      padding-left: 6px;
+    }
+
+  }
+
+  .input-field > .text-input {
+    border-radius: 0;
+    border-left: none;
+    outline: none;
+  }
+}
+
+
+.input-group.input-group--plus {
+  &-off {
+    > input.form-control:not(:last-child) {
+      @include border-right-radius($control-border-radius);
+    }
+    .input-group-append {
+      display: none;
+    }
+  }
+}

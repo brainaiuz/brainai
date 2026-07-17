@@ -1,0 +1,93 @@
+// Выпадающий кастомный селект, который может содержать treeFold, списки и т.п.
+.customSelect {
+  position: relative;
+  display: block;
+
+
+  // внутри формы — растягиваем на всю ширину
+  .form-group__content & {
+    width: 100%;
+  }
+
+  // триггер (наш simpleGwt-ComboBox)
+  .simpleGwt-ComboBox[data-custom-select-trigger] {
+    width: 100%;
+    cursor: pointer;
+  }
+
+  // сама "коробка" дропа
+  &-dropBox {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    @include panelStyle($radius: $radius-base, $padding-x: 10px, $bordered: true);
+    margin-top: rem(2px);
+
+
+    transform: translateY(rem(4px));
+    z-index: 1200; // ниже gwt-попапов, но выше формы
+    box-shadow: $popupBoxShadow; //$bigPanelBoxShadow;
+
+    @include base-transition(opacity, max-height, transform);
+
+    // закрытое состояние
+    .customSelect:not(.is-open) & {
+      opacity: 0;
+      overflow-y: hidden;
+      max-height: 0;
+      //pointer-events: none;
+    }
+
+    // открытое состояние
+    .customSelect.is-open & {
+      opacity: 1;
+      overflow-y: auto;
+      max-height: rem(320px);
+      transform: translateY(0);
+      //Don't use !pointer-events: none;
+    }
+  }
+}
+
+
+//элемент эмулирующий select и не связанный с gwt material
+
+.customControl {
+  position: relative; // for .caret position
+
+  .form-control {
+    padding-right: $dropdown-caret-width; //caret space
+  }
+
+  .controlClear,
+  .caret {
+    color: $contol-placeholder-color;
+    fill: $contol-placeholder-color;
+  }
+  .caret {
+    @include caretSign();
+
+    .customSelect.customSelect--choosed & {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+
+  .controlClear {
+    .customSelect:not(.customSelect--choosed) & {
+        display: none !important;
+    }
+  }
+
+  //open but not have choosed item
+  //.customControl--search
+  &.customControl--search {
+    .caret {
+      &:before {
+        @extend .ficon--;
+        @extend .ficon--search:before;
+      }
+    }
+  }
+}

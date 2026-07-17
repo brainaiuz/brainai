@@ -1,0 +1,1 @@
+ALTER TABLE "anv".adjustment_item alter COLUMN price type numeric(25,5);

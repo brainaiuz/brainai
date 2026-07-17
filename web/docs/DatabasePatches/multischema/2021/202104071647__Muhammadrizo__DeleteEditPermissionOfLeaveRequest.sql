@@ -1,0 +1,1 @@
+delete from permission where code = 'HRMS_LEAVE_REQUESTS_EDIT_TYPE';

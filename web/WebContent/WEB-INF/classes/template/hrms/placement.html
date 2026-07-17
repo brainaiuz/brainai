@@ -1,0 +1,307 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <style type="text/css">
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+
+        td {
+            padding: 3px;
+        }
+
+        .title {
+            font-size: 9pt;
+        }
+
+        .name {
+            font-size: 7pt;
+        }
+
+        .value {
+            font-size: 8pt;
+        }
+
+        .personalValue {
+            font-size: 7pt;
+        }
+
+        .nameCapital {
+            text-transform: capitalize;
+        }
+
+    </style>
+</head>
+<body>
+<div>
+    <img alt="images"
+         src="https://workforcetrack.s3.amazonaws.com/000000000000/public/65159/a2113e82-397f-49fd-a58a-cdf4f4b93dff?AWSAccessKeyId=AKIAIROQMC77E5UKWBWQ"
+         style="display: none;"/>
+    #if($itextGenericPdfData.companyData.companyName == 'KPI Software Inc' or
+    $itextGenericPdfData.companyData.companyLogoUrl == 'https://apps.kpi.com/customisation/kpi.com/images/kpilogo.png')
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="width: 88px; display: none;"/>
+    #else
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl"
+         style="max-width: 100%; max-height: 100%; display: none;"/>
+    #end
+
+    #set($numAndDatesTable = $itextGenericPdfData.baseInvoice.customNumberAndDatesTable.rows)
+
+    #set($candidateLabel =$numAndDatesTable.get("CANDIDATE").get("COLUMN_NAME"))
+    #set($departmentLabel =$numAndDatesTable.get("DEPARTMENT").get("COLUMN_NAME"))
+    #set($locationLabel =$numAndDatesTable.get("LOCATION").get("COLUMN_NAME"))
+    #set($placementCodeLabel =$numAndDatesTable.get("PLACEMENT_CODE").get("COLUMN_NAME"))
+    #set($positionLabel =$numAndDatesTable.get("POSITION").get("COLUMN_NAME"))
+    #set($dateOfferedLabel =$numAndDatesTable.get("DATE_OFFERED").get("COLUMN_NAME"))
+    #set($matchedVacanciesLabel =$numAndDatesTable.get("MATCHED_VACANCIES").get("COLUMN_NAME"))
+    #set($fullNameLabel =$numAndDatesTable.get("FULL_NAME").get("COLUMN_NAME"))
+    #set($addressLabel =$numAndDatesTable.get("ADDRESS").get("COLUMN_NAME"))
+    #set($passportNumberLabel =$numAndDatesTable.get("PASSPORT_NUMBER").get("COLUMN_NAME"))
+    #set($passportIssueDateLabel =$numAndDatesTable.get("PASSPORT_ISSUE_DATE").get("COLUMN_NAME"))
+    #set($timeslotLabel =$numAndDatesTable.get("TIMESLOT").get("COLUMN_NAME"))
+    #set($hireDateLabel =$numAndDatesTable.get("HIRE_DATE").get("COLUMN_NAME"))
+
+    #set($candidateValue =$numAndDatesTable.get("CANDIDATE").get("COLUMN_VALUE"))
+    #set($departmentValue =$numAndDatesTable.get("DEPARTMENT").get("COLUMN_VALUE"))
+    #set($locationValue =$numAndDatesTable.get("LOCATION").get("COLUMN_VALUE"))
+    #set($positionValue =$numAndDatesTable.get("POSITION").get("COLUMN_VALUE"))
+    #set($placementCodeValue =$numAndDatesTable.get("PLACEMENT_CODE").get("COLUMN_VALUE"))
+    #set($matchedVacanciesValue =$numAndDatesTable.get("MATCHED_VACANCIES").get("COLUMN_VALUE"))
+    #set($dateOfferedValue =$numAndDatesTable.get("DATE_OFFERED").get("COLUMN_VALUE"))
+    #set($fullNameValue =$numAndDatesTable.get("FULL_NAME").get("COLUMN_VALUE"))
+    #set($addressValue =$numAndDatesTable.get("ADDRESS").get("COLUMN_VALUE"))
+    #set($passportNumberValue =$numAndDatesTable.get("PASSPORT_NUMBER").get("COLUMN_VALUE"))
+    #set($passportIssueDateValue =$numAndDatesTable.get("PASSPORT_ISSUE_DATE").get("COLUMN_VALUE"))
+    #set($timeslotValue =$numAndDatesTable.get("TIMESLOT").get("COLUMN_VALUE"))
+    #set($hireDateValue =$numAndDatesTable.get("HIRE_DATE").get("COLUMN_VALUE"))
+
+    <br>
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+            <td style="padding: 0; margin: 0;" valign="top" width="25%">
+                <table cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="name nameCapital" width="100%"> $candidateLabel</td>
+                    </tr>
+                    <tr>
+                        <td class="value" style="font-weight: bold;">
+                            #if($candidateValue != '') $candidateValue #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td style="padding: 0; margin: 0;" valign="top" width="25%">
+                <table cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="name nameCapital" width="100%"> $departmentLabel</td>
+                    </tr>
+                    <tr>
+                        <td class="value" style="font-weight: bold;">
+                            #if($departmentValue != '') $departmentValue #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td style="padding: 0; margin: 0;" valign="top" width="25%">
+                <table cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="name nameCapital" width="100%"> $placementCodeLabel</td>
+                    </tr>
+                    <tr>
+                        <td class="value" style="font-weight: bold;">
+                            #if($placementCodeValue != '') $placementCodeValue #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <br>
+    <br>
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+            <td style="padding: 0; margin: 0;" valign="top" width="25%">
+                <table cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="name nameCapital" width="100%"> $dateOfferedLabel</td>
+                    </tr>
+                    <tr>
+                        <td class="value" style="font-weight: bold;">
+                            #if($dateOfferedValue != '') $dateOfferedValue #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td style="padding: 0; margin: 0;" valign="top" width="25%">
+                <table cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="name nameCapital" width="100%"> $positionLabel</td>
+                    </tr>
+                    <tr>
+                        <td class="value" style="font-weight: bold;">
+                            #if($positionValue != '') $positionValue #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td style="padding: 0; margin: 0;" valign="top" width="25%">
+                <table cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="name nameCapital" width="100%"> $locationLabel</td>
+                    </tr>
+                    <tr>
+                        <td class="value" style="font-weight: bold;">
+                            #if($locationValue != '') $locationValue.replaceAll('\n', '<br/><br/>')
+                            #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <br>
+    <br>
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+            <td style="padding: 0; margin: 0;" valign="top" width="25%">
+                <table cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="name nameCapital" width="100%"> $matchedVacanciesLabel</td>
+                    </tr>
+                    <tr>
+                        <td class="value" style="font-weight: bold;">
+                            #if($matchedVacanciesValue != '') $matchedVacanciesValue.replaceAll('\n', '<br/><br/>')
+                            #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <br>
+
+    #set($customFieldTable =
+    $itextGenericPdfData.customData.get("EMPLOYEE_INFO").getCustomFields().get("EMPLOYEE_INFO"))
+    #if($customFieldTable.size() > 6 )
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+            <td style="padding: 0; margin: 0;" valign="top" width="25%">
+                <table cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="name nameCapital" width="100%"> $fullNameLabel</td>
+                    </tr>
+                    <tr>
+                        <td class="value" style="font-weight: bold;">
+                            #if($fullNameValue != '') $fullNameValue #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td style="padding: 0; margin: 0;" valign="top" width="25%">
+                <table cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="name nameCapital" width="100%"> $addressLabel</td>
+                    </tr>
+                    <tr>
+                        <td class="value" style="font-weight: bold;">
+                            #if($addressValue != '') $addressValue.replaceAll('\n', '<br/>') #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td style="padding: 0; margin: 0;" valign="top" width="25%">
+                <table cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="name nameCapital" width="100%"> $timeslotLabel</td>
+                    </tr>
+                    <tr>
+                        <td class="value" style="font-weight: bold;">
+                            #if($timeslotValue != '') $timeslotValue #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <br>
+    <br>
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+            <td style="padding: 0; margin: 0;" valign="top" width="25%">
+                <table cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="name nameCapital" width="100%"> $passportNumberLabel</td>
+                    </tr>
+                    <tr>
+                        <td class="value" style="font-weight: bold;">
+                            #if($passportNumberValue != '') $passportNumberValue #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td style="padding: 0; margin: 0;" valign="top" width="25%">
+                <table cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="name nameCapital" width="100%"> $passportIssueDateLabel</td>
+                    </tr>
+                    <tr>
+                        <td class="value" style="font-weight: bold;">
+                            #if($passportIssueDateValue != '') $passportIssueDateValue #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td style="padding: 0; margin: 0;" valign="top" width="25%">
+                <table cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="name nameCapital" width="100%"> $hireDateLabel</td>
+                    </tr>
+                    <tr>
+                        <td class="value" style="font-weight: bold;">
+                            #if($hireDateValue != '') $hireDateValue #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    #end
+    <br>
+    <br>
+
+
+    #set($customFieldTable = $itextGenericPdfData.customData.get("CUSTOM_FIELD"))
+
+    #if($customFieldTable.rows.size() > 0)
+    <table border="0" cellpadding="0" cellspacing="0" style="margin-top: 20px; margin-bottom: 15px;" width="100%">
+        <tr>
+            <td class="title nameCapital" dir="$customFieldTable.name" style="font-weight: bold;" width="100%">
+                $customFieldTable.name
+            </td>
+        </tr>
+    </table>
+
+    <div>
+        #foreach($row in $customFieldTable.rows.values())
+        <div style="width: 25%; float: left;">
+            <div class="name" style="padding-bottom: 3px; padding-left: 3px;">
+                $row.get('COLUMN_NAME')
+            </div>
+            <div class="value" style="font-weight: bold; padding-top: 3px; padding-left: 3px; padding-bottom: 15px;">
+                #if($row.get('TYPE') == 'ProfileImageWidget' and $row.get('COLUMN_VALUE') != '')
+                <img src="$row.get('COLUMN_VALUE')" style="width: 150px; height: auto;"/>
+                #elseif($row.get('COLUMN_VALUE') != '')
+                $row.get('COLUMN_VALUE')
+                #else
+                —
+                #end
+            </div>
+        </div>
+        #end
+    </div>
+
+    #end
+
+</div>
+</body>
+</html>

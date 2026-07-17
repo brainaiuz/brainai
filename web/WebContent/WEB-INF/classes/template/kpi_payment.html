@@ -1,0 +1,327 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style type="text/css">
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+        #mainTable td {
+            padding: 10px;
+        }
+
+        #totalTable td {
+            padding: 5px;
+        }
+        .title {
+            font-size: 9pt;
+        }
+        .name {
+            font-size: 7pt;
+        }
+        .value {
+            font-size: 8pt;
+        }
+        .personalValue {
+            font-size: 7pt;
+        }
+        .nameCapital {
+            text-transform: capitalize;
+        }
+        .border-bottom {
+            border-bottom: 1px solid #000;
+        }
+        .text-right {
+            text-align: right;
+        }
+        .parentTitle {
+            text-transform: uppercase;
+            background-color: #F6F7F9;
+            color: black;
+        }
+        .tdFirst {
+            background-color: #F6F7F9;
+            color: #536677;
+        }
+        .tdOther {
+            background-color: #F6F7F9;
+            color: #536677;
+        }
+        .oneBorderRadius {
+            border-radius: 5px;
+        }
+        .firstBorderRadius {
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+        }
+        .lastBorderRadius {
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+        .bankTextColor {
+            /*color: #8D9BA8;*/
+            color: #000;
+        }
+
+    </style>
+</head>
+<body>
+<div>
+    <img alt="images" src="https://workforcetrack.s3.amazonaws.com/000000000000/public/65159/a2113e82-397f-49fd-a58a-cdf4f4b93dff?AWSAccessKeyId=AKIAIROQMC77E5UKWBWQ" style="display: none;"/>
+    <!--<img alt="logo kpi" src="https://workforcetrack.s3.amazonaws.com/000000000000/public/65159/7689b4d4-7d84-46e3-bf48-45935d55f8c9?AWSAccessKeyId=AKIAIROQMC77E5UKWBWQ" style="width: 88px; display: none;"/>-->
+    #if($itextGenericPdfData.companyData.companyName == 'KPI Software Inc' or $itextGenericPdfData.companyData.companyLogoUrl == 'https://apps.kpi.com/customisation/kpi.com/images/kpilogo.png')
+        <img alt="logo kpi" src="https://apps.kpi.com/customisation/kpi.com/images/kpilogo.png" style="width: 88px;display: none;"/>
+    #else
+        <img alt="logo kpi" src="https://apps.kpi.com/customisation/kpi.com/images/kpilogo.png" style="width: 88px;display: none;"/>
+    #end
+    #set($reccurSubscripTable = $itextGenericPdfData.customData.get('RECCURING_SUBSCRIPTION_TABLE'))
+    #set($addonsTable = $itextGenericPdfData.customData.get('ADDONS_TABLE'))
+    #set($totalTable = $itextGenericPdfData.customData.get('TOTAL_TABLE'))
+
+    <!-- reccuring subscription table -->
+    <!-- reccuring subscription title -->
+    #set($reccurSubscripTitle = $reccurSubscripTable.rows.get('RECCURING_SUBSCRIPTION_TITLE').get('COLUMN_VALUE'))
+    <!-- users -->
+    #set($usersItem = $reccurSubscripTable.rows.get('USERS_ITEM').get('COLUMN_VALUE'))
+    #set($usersUnitPrice = $reccurSubscripTable.rows.get('USERS_UNIT_PRICE').get('COLUMN_VALUE'))
+    #set($usersQty = $reccurSubscripTable.rows.get('USERS_QTY').get('COLUMN_VALUE'))
+    #set($usersTotalYear = $reccurSubscripTable.rows.get('USERS_TOTAL_YEAR').get('COLUMN_VALUE'))
+
+    <!-- ess -->
+    #set($essItem = $reccurSubscripTable.rows.get('ESS_ITEM').get('COLUMN_VALUE'))
+    #set($essUnitPrice = $reccurSubscripTable.rows.get('ESS_UNIT_PRICE').get('COLUMN_VALUE'))
+    #set($essQty = $reccurSubscripTable.rows.get('ESS_QTY').get('COLUMN_VALUE'))
+    #set($essTotalYear = $reccurSubscripTable.rows.get('ESS_TOTAL_YEAR').get('COLUMN_VALUE'))
+
+    <!-- nonuser -->
+    #set($nonUserItem = $reccurSubscripTable.rows.get('NON_USER_ITEM').get('COLUMN_VALUE'))
+    #set($nonUserUnitPrice = $reccurSubscripTable.rows.get('NON_USER_UNIT_PRICE').get('COLUMN_VALUE'))
+    #set($nonUserQty = $reccurSubscripTable.rows.get('NON_USER_QTY').get('COLUMN_VALUE'))
+    #set($nonUserTotalYear = $reccurSubscripTable.rows.get('NON_USER_TOTAL_YEAR').get('COLUMN_VALUE'))
+
+    <!-- addons table -->
+    <!-- addons title -->
+    #set($addonsTitle = $addonsTable.rows.get('ADDONS_TITLE').get('COLUMN_VALUE'))
+
+    <!-- addons online training item -->
+    #set($addonsOnlineTrainingItem = $addonsTable.rows.get('ADDONS_ONLINE_TRAINING_ITEM').get('COLUMN_VALUE'))
+    #set($addonsOnlineTrainingQty = $addonsTable.rows.get('ADDONS_ONLINE_TRAINING_QTY').get('COLUMN_VALUE'))
+    #set($addonsOnlineTrainingTotalYear = $addonsTable.rows.get('ADDONS_ONLINE_TRAINING_TOTAL_YEAR').get('COLUMN_VALUE'))
+
+    <!-- addons initial set up package -->
+    #set($addonsInitialSetUpPackageItem = $addonsTable.rows.get('ADDONS_INITIAL_SET_UP_PACKAGE_ITEM').get('COLUMN_VALUE'))
+    #set($addonsInitialSetUpPackageQty = $addonsTable.rows.get('ADDONS_INITIAL_SET_UP_PACKAGE_QTY').get('COLUMN_VALUE'))
+    #set($addonsInitialSetUpPackageTotalYear = $addonsTable.rows.get('ADDONS_INITIAL_SET_UP_PACKAGE_TOTAL_YEAR').get('COLUMN_VALUE'))
+
+    <!-- addons premium support -->
+    #set($addonsPremiumSupportItem = $addonsTable.rows.get('ADDONS_PREMIUM_SUPPORT_ITEM').get('COLUMN_VALUE'))
+    #set($addonsPremiumSupportQty = $addonsTable.rows.get('ADDONS_PREMIUM_SUPPORT_QTY').get('COLUMN_VALUE'))
+    #set($addonsPremiumSupportTotalYear = $addonsTable.rows.get('ADDONS_PREMIUM_SUPPORT_TOTAL_YEAR').get('COLUMN_VALUE'))
+
+    <!-- addons custom pdf -->
+    #set($addonsCustomPDFItem = $addonsTable.rows.get('ADDONS_CUSTOM_PDF_ITEM').get('COLUMN_VALUE'))
+    #set($addonsCustomPDFQty = $addonsTable.rows.get('ADDONS_CUSTOM_PDF_QTY').get('COLUMN_VALUE'))
+    #set($addonsCustomPDFTotalYear = $addonsTable.rows.get('ADDONS_CUSTOM_PDF_TOTAL_YEAR').get('COLUMN_VALUE'))
+
+    <!-- addons extra storage -->
+    #set($addonsExtraStorageItem = $addonsTable.rows.get('ADDONS_EXTRA_STORAGE_ITEM').get('COLUMN_VALUE'))
+    #set($addonsExtraStorageQty = $addonsTable.rows.get('ADDONS_EXTRA_STORAGE_QTY').get('COLUMN_VALUE'))
+    #set($addonsExtraStorageTotalYear = $addonsTable.rows.get('ADDONS_EXTRA_STORAGE_TOTAL_YEAR').get('COLUMN_VALUE'))
+
+    <!-- addons dedicated developer -->
+    #set($addonsDedicatedDeveloperItem = $addonsTable.rows.get('ADDONS_DEDICATED_DEVELOPER_ITEM').get('COLUMN_VALUE'))
+    #set($addonsDedicatedDeveloperQty = $addonsTable.rows.get('ADDONS_DEDICATED_DEVELOPER_QTY').get('COLUMN_VALUE'))
+    #set($addonsDedicatedDeveloperTotalYear = $addonsTable.rows.get('ADDONS_DEDICATED_DEVELOPER_TOTAL_YEAR').get('COLUMN_VALUE'))
+
+    <table width="100%" cellpadding="0" cellspacing="0" style="font-size: 9pt; border-left: 4px solid #0070f0;">
+        <tr>
+            <td style="padding: 0 0 0 7px; font-size: 9pt; height: 25px;">
+                Pending, Your order is not validated yet. We are waiting for your payment.
+            </td>
+        </tr>
+    </table>
+    <table width="100%" cellspacing="0" cellpadding="0" class="title" border="0" style="border-spacing: 0px 5px; border-collapse: unset;" id="mainTable">
+        <tr>
+            <td width="48%" align="left" style="font-weight: bold; text-transform: uppercase;">Item</td>
+            <td width="20%" align="left" style="font-weight: bold; text-transform: uppercase;">Unit Price</td>
+            <td width="17%" align="right" style="font-weight: bold; text-transform: uppercase;">Quantity</td>
+            <td width="15%" align="right" style="font-weight: bold; text-transform: uppercase;">Total/year</td>
+        </tr>
+        <tr>
+            <td class="parentTitle oneBorderRadius" colspan="4">
+                $reccurSubscripTitle
+            </td>
+        </tr>
+        <tr>
+            <td class="tdFirst firstBorderRadius" style="padding-left: 30px;"> $usersItem </td>
+            <td class="tdOther"> $usersUnitPrice </td>
+            <td class="tdOther" align="right"> $usersQty </td>
+            <td class="tdOther lastBorderRadius" align="right"> $usersTotalYear </td>
+        </tr>
+        <tr>
+            <td class="tdFirst firstBorderRadius" style="padding-left: 30px;"> $essItem </td>
+            <td class="tdOther"> $essUnitPrice </td>
+            <td class="tdOther" align="right"> $essQty </td>
+            <td class="tdOther lastBorderRadius" align="right"> $essTotalYear </td>
+        </tr>
+        <tr>
+            <td class="tdFirst firstBorderRadius" style="padding-left: 30px;"> $nonUserItem </td>
+            <td class="tdOther"> $nonUserUnitPrice </td>
+            <td class="tdOther" align="right"> $nonUserQty </td>
+            <td class="tdOther lastBorderRadius" align="right"> $nonUserTotalYear </td>
+        </tr>
+        #if($addonsTitle != '')
+        <tr>
+            <td class="parentTitle oneBorderRadius" colspan="4">
+                $addonsTitle
+            </td>
+        </tr>
+        #if($addonsOnlineTrainingItem != '')
+        <tr>
+            <td class="tdFirst firstBorderRadius" style="padding-left: 30px;"> $addonsOnlineTrainingItem </td>
+            <td class="tdOther" colspan="2" align="right"> $addonsOnlineTrainingQty </td>
+            <td class="tdOther lastBorderRadius" align="right"> $addonsOnlineTrainingTotalYear </td>
+        </tr>
+        #end
+        #if($addonsInitialSetUpPackageItem != '')
+        <tr>
+            <td class="tdFirst firstBorderRadius" style="padding-left: 30px;"> $addonsInitialSetUpPackageItem </td>
+            <td class="tdOther" colspan="2" align="right"> $addonsInitialSetUpPackageQty </td>
+            <td class="tdOther lastBorderRadius" align="right"> $addonsInitialSetUpPackageTotalYear </td>
+        </tr>
+        #end
+        #if($addonsPremiumSupportItem != '')
+        <tr>
+            <td class="tdFirst firstBorderRadius" style="padding-left: 30px;"> $addonsPremiumSupportItem </td>
+            <td class="tdOther" colspan="2" align="right"> $addonsPremiumSupportQty </td>
+            <td class="tdOther lastBorderRadius" align="right"> $addonsPremiumSupportTotalYear </td>
+        </tr>
+        #end
+        #if($addonsCustomPDFItem != '')
+        <tr>
+            <td class="tdFirst firstBorderRadius" style="padding-left: 30px;"> $addonsCustomPDFItem </td>
+            <td class="tdOther" colspan="2" align="right"> $addonsCustomPDFQty </td>
+            <td class="tdOther lastBorderRadius" align="right"> $addonsCustomPDFTotalYear </td>
+        </tr>
+        #end
+        #if($addonsExtraStorageItem != '')
+        <tr>
+            <td class="tdFirst firstBorderRadius" style="padding-left: 30px;"> $addonsExtraStorageItem </td>
+            <td class="tdOther" colspan="2" align="right"> $addonsExtraStorageQty </td>
+            <td class="tdOther lastBorderRadius" align="right"> $addonsExtraStorageTotalYear </td>
+        </tr>
+        #end
+        #if($addonsDedicatedDeveloperItem != '')
+        <tr>
+            <td class="tdFirst firstBorderRadius" style="padding-left: 30px;"> $addonsDedicatedDeveloperItem </td>
+            <td class="tdOther" colspan="2" align="right"> $addonsDedicatedDeveloperQty </td>
+            <td class="tdOther lastBorderRadius" align="right"> $addonsDedicatedDeveloperTotalYear </td>
+        </tr>
+        #end
+        #end
+    </table>
+
+    <table width="100%" cellpadding="0" cellspacing="0" style="font-size: 9pt; border-left: 4px solid #0070f0; margin-top: 10px;">
+        <tr>
+            <td style="padding: 0 0 0 10px; font-size: 9pt; height: 25px;">
+                Please use the following transfer details.
+            </td>
+        </tr>
+    </table>
+
+    <!-- total table -->
+    <!-- users discount title and total -->
+    #set($usersDiscountTitle = $totalTable.rows.get('USERS_DISCOUNT_TITLE').get('COLUMN_VALUE'))
+    #set($usersDiscountTotal = $totalTable.rows.get('USERS_DISCOUNT_TOTAL').get('COLUMN_VALUE'))
+
+    <!-- total subscription title and total -->
+    #set($totalSubscriptionTitle = $totalTable.rows.get('TOTAL_SUBSCRIPTION_TITLE').get('COLUMN_VALUE'))
+    #set($totalSubscriptionTotal = $totalTable.rows.get('TOTAL_SUBSCRIPTION_TOTAL').get('COLUMN_VALUE'))
+
+    <!-- total addon title and total -->
+    #set($totalAddonTitle = $totalTable.rows.get('TOTAL_ADDON_TITLE').get('COLUMN_VALUE'))
+    #set($totalAddonTotal = $totalTable.rows.get('TOTAL_ADDON_TOTAL').get('COLUMN_VALUE'))
+
+    <!-- tobe paid title and total -->
+    #set($tobePaidTitle = $totalTable.rows.get('TOBE_PAID_TITLE').get('COLUMN_VALUE'))
+    #set($tobePaidTotal = $totalTable.rows.get('TOBE_PAID_TOTAL').get('COLUMN_VALUE'))
+
+    #set($tobePaidTotalWord = $totalTable.rows.get('PAID_TOTAL_WORD_ALL').get('COLUMN_VALUE'))
+
+    <table width="100%" style="margin-top: 20px" cellspacing="0" cellpadding="0">
+        <tr>
+            <td width="45%" valign="top" style="background: #f4f4f4; border-radius: 5px;">
+                <table align="left" border="0" cellpadding="6" cellspacing="0" style="border: 4pt solid #f4f4f4; border-radius: 5px; font-size: 9pt;" width="100%">
+                    <tbody>
+                    <tr>
+                        <td width="35%" style="font-weight: bold;" class="bankTextColor">Bank:</td>
+                        <td width="65%" class="bankTextColor"> Silicon Valley Bank </td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="bankTextColor">Account Name:</td>
+                        <td class="bankTextColor">KPI Software Inc.</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="bankTextColor">Account No.:</td>
+                        <td class="bankTextColor"> 3302229396 </td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="bankTextColor"> SWIFT/BIC: </td>
+                        <td class="bankTextColor"> SVBKUS6S </td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="bankTextColor"> Routing No.: </td>
+                        <td class="bankTextColor"> 121140399 </td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="bankTextColor" valign="top"> Bank Address: </td>
+                        <td class="bankTextColor"> HF 105 3003 Tasman Drive Santa Clara, California CA 95054 United States Of America </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td width="10%"></td>
+            <td width="45%" valign="top" style="background: #f4f4f4; border-radius: 5px;">
+                <table align="right" border="0" cellpadding="6" cellspacing="0" style="font-size: 9pt; border: 4pt solid #f4f4f4; border-radius: 5px; font-weight: bold;" width="100%">
+                    <tr>
+                        <td width="55%" align="right" style="font-size: 10pt; color: #000;">
+                            #if($usersDiscountTitle != '') $usersDiscountTitle: #else Users Discount: #end
+                        </td>
+                        <td width="45%" align="right" style="font-size: 10pt; color: red;">
+                            #if($usersDiscountTotal != '') $usersDiscountTotal #else 0.00 #end
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right" style="font-size: 10pt; color: #000;">$totalSubscriptionTitle:</td>
+                        <td align="right" style="font-size: 10pt; color: #000;">$totalSubscriptionTotal</td>
+                    </tr>
+                    <tr>
+                        <td align="right" style="font-size: 10pt; color: #000;">$totalAddonTitle:</td>
+                        <td align="right" style="font-size: 10pt; color: #000;">$totalAddonTotal</td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 12pt; color: #000;" align="right">$tobePaidTitle:</td>
+                        <td style="font-size: 12pt; color: #000;" align="right">$tobePaidTotal</td>
+                    </tr>
+                    #if($tobePaidTotalWord != '')
+                    <tr>
+                        <td colspan="2" align="right" style="padding-right: 12pt; padding-top:4px; padding-bottom:8px;">
+                            <div style="font-size: 7pt; color: #000; text-transform: capitalize;" dir="$tobePaidTotalWord">($tobePaidTotalWord)</div>
+                        </td>
+                    </tr>
+                    #end
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <table width="100%" cellpadding="0" cellspacing="0" style="font-size: 9pt; border-left: 4px solid #0070f0; margin-top: 10px;">
+        <tr>
+            <td style="padding: 0 0 0 10px; font-size: 9pt; height: 40px;">
+                Communication <br/>
+                Please use the order number as communication reference.
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

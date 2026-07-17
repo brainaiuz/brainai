@@ -1,0 +1,35 @@
+<report>
+    <view>
+        <title>Top Customers by Sale</title>
+        <name>Top Customers by Sale</name>
+        <category>top customers</category>
+        <sqlquery>
+            <select agregateFunc="distinct">
+                <table name="Invoice">
+                    <column name="t.id" title="id" type="number" formattype="hidden"/>
+                    <column name="t.fullname" title="Customer's Name" type="string" formattype="string"/>
+                    <column name="t.date" title="Sales Date" type="date" formattype="date"/>
+                    <column name="t.sales" title="Sales" type="number" formattype="money"/>
+                </table>
+            </select>
+            <from> (SELECT
+                (COALESCE(cc.firstname, '') || ' ' || COALESCE(cc.lastname, '')) as fullname,
+                t.journaldate as date, ti.id,
+                (COALESCE(ti.debit, 0) - COALESCE(ti.credit, 0))/1000 as sales
+                from "$".transactionItem ti
+                LEFT JOIN "$".transaction t ON t.id = ti.transactionid
+                JOIN "$".account a ON a.id = ti.accountid
+                LEFT JOIN "$".saleinvoice i ON i.id = t.invoiceid
+                LEFT JOIN "$".crmaccount ca ON ca.id = i.client_id
+                INNER JOIN "$".crmAccount_types typeIDs on typeIDs.crmaccount_id = ca.id
+                INNER JOIN "$".reference types on types.id = typeIDs.type_id
+                LEFT JOIN "$".crmContact cc on cc.crmAccount = ca.id
+                where types.code = 'CUSTOMER' and a.accountcode='0100'
+                and cc.deleted = false and ca.deleted = false) t
+            </from>
+            <where>
+                <terms id="base" value="1=1"/>
+            </where>
+        </sqlquery>
+    </view>
+</report>

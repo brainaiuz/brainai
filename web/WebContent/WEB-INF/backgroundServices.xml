@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--DO NOT COMMIT TO SVN UNCOMMENTING THE SERVICES-->
+    <!--YOU CAN UNCOMMENT ON YOUR LOCAL MACHINE, ON SVN VERSION MAKE SURE EVERY SERVICE/TRIGGER IS COMMENTED-->
+    <context:annotation-config/>
+    <context:component-scan base-package="com.edatasite.workforce.core.config.datasource"/>
+
+    <bean id="schedFactoryBean" class="com.edatasite.workforce.scheduler.KpiSchedulerFactoryBean" lazy-init="false">
+        <property name="dataSource" ref="qrtzDataSource"/>
+<!--        <property name="transactionManager" ref="qrtzTransactionManager"/>-->
+        <!--TO ENABLE AUTO LOADING ALL BACKGROUND JOBS WE MUST SET THIS VALUE AS TRUE IN PROPERTIES FILE OTHERWISE JOBS WILL NOT BE LOADED-->
+        <property name="autoStartup" value="${bg_autoStartup}"/>
+        <property name="overwriteExistingJobs" value="true"/>
+        <property name="schedulerName" value="WFMRecurrence"/>
+        <property name="waitForJobsToCompleteOnShutdown" value="true"/>
+        <property name="applicationContextSchedulerContextKey" value="applicationContext"/>
+        <property name="quartzProperties">
+            <props>
+                <!--# Configure Main Scheduler Properties-->
+                <prop key="org.quartz.scheduler.instanceName">WFMQuartzScheduler</prop>
+                <prop key="org.quartz.scheduler.instanceId">AUTO</prop>
+
+                <!--# Configure ThreadPool-->
+                <prop key="org.quartz.threadPool.class">org.quartz.simpl.SimpleThreadPool</prop>
+                <prop key="org.quartz.threadPool.threadCount">80</prop>
+                <prop key="org.quartz.threadPool.threadPriority">5</prop>
+
+                <!--# Configure JobStore-->
+                <prop key="org.quartz.jobStore.misfireThreshold">900000</prop>
+                <prop key="org.quartz.jobStore.driverDelegateClass">org.quartz.impl.jdbcjobstore.PostgreSQLDelegate
+                </prop>
+
+                <prop key="org.quartz.jobStore.isClustered">true</prop>
+                <prop key="org.quartz.jobStore.clusterCheckinInterval">20000</prop>
+                <prop key="org.quartz.jobstore.tablePrefix">qrtz_</prop>
+
+                <prop key="org.quartz.scheduler.rmi.export">false</prop>
+                <prop key="org.quartz.scheduler.rmi.proxy">false</prop>
+                <prop key="org.quartz.scheduler.wrapJobExecutionInUserTransaction">false</prop>
+                <prop key="org.quartz.threadPool.threadsInheritContextClassLoaderOfInitializingThread">true</prop>
+
+                <prop key="org.quartz.jobStore.txIsolationLevelSerializable">true</prop>
+                <prop key="org.quartz.scheduler.skipUpdateCheck">true</prop>
+
+                <prop key="org.quartz.scheduler.jmx.export">true</prop>
+            </props>
+        </property>
+
+        <property name="jobFactory">
+            <bean class="com.edatasite.workforce.scheduler.AutowiringSpringBeanJobFactory"/>
+        </property>
+
+        <property name="triggers">
+            <list>
+                <ref bean="#{${bg_efilingTrigger} ? 'efilingTrigger' : 'defaultTrigger'}"/>
+                <ref bean="#{${bg_smsSenderTrigger} ? 'smsSenderTrigger' : 'defaultTrigger'}"/>
+                <ref bean="#{${bg_prefMailerTrigger} ? 'prefMailerTrigger' : 'defaultTrigger'}"/>
+                <ref bean="#{${bg_nonPrefMailerTrigger} ? 'nonPrefMailerTrigger' : 'defaultTrigger'}"/>
+                <ref bean="#{${bg_workflowMailerTrigger} ? 'workflowMailerTrigger' : 'defaultTrigger'}"/>
+                <ref bean="#{${bg_dailyReportTrigger} ? 'dailyReportTrigger' : 'defaultTrigger'}"/>
+                <!--<ref bean="#{${bg_dailySubscriptionTrigger} ? 'dailySubscriptionTrigger' : 'defaultTrigger'}"/>-->
+                <ref bean="#{${bg_recurrencesUpdateTrigger} ? 'recurrencesUpdateTrigger' : 'defaultTrigger'}"/>
+                <ref bean="#{${bg_eventpostprocessorTrigger} ? 'eventpostprocessorTrigger' : 'defaultTrigger'}"/>
+                <ref bean="#{${bg_cooTrigger} ? 'cooTrigger' : 'defaultTrigger'}"/>
+                <ref bean="#{${bg_messageCenterTrigger} ? 'messageCenterTrigger' : 'defaultTrigger'}"/>
+                <ref bean="#{${bg_solrOptimizeAllCoresTrigger} ? 'solrOptimizeAllCoresTrigger' : 'defaultTrigger'}"/>
+                <ref bean="#{${bg_weeklySubsciptionReportTrigger} ? 'weeklySubsciptionReportTrigger' : 'defaultTrigger'}"/>
+                <ref bean="#{${bg_subscriptionExpireReportTrigger} ? 'subscriptionExpireReportTrigger' : 'defaultTrigger'}"/>
+                <ref bean="#{${bg_productCountTrigger} ? 'productCountTrigger' : 'defaultTrigger'}"/>
+                <ref bean="#{${bg_heartBeatTrigger} ? 'heartBeatTrigger' : 'defaultTrigger'}"/>
+                <ref bean="#{${bg_fireLateRecurrencesTrigger} ? 'fireLateRecurrencesTrigger' : 'defaultTrigger'}"/>
+                <ref bean="#{${bg_invoiceUpdateStatusTrigger} ? 'invoiceUpdateStatusTrigger' : 'defaultTrigger'}"/>
+                <ref bean="#{${bg_postedTransactioinTrigger} ? 'postedTransactioinTrigger' : 'defaultTrigger'}"/>
+                <ref bean="#{${bg_massMailingBouncedEmailHandlerJobTrigger} ? 'massMailingBouncedEmailHandlerJobTrigger' : 'defaultTrigger'}"/>
+                <ref bean="#{${bg_emailSessionClearTrigger} ? 'emailSessionClearTrigger' : 'defaultTrigger'}"/>
+                <ref bean="#{${bg_createRecurringEventInstancesTrigger} ? 'createRecurringEventInstancesTrigger' : 'defaultTrigger'}"/>
+                <ref bean="#{${bg_createRecurringTaskInstancesTrigger} ? 'createRecurringTaskInstancesTrigger' : 'defaultTrigger'}"/>
+                <ref bean="#{${bg_createRecurringHolidayInstancesTrigger} ? 'createRecurringHolidayInstancesTrigger' : 'defaultTrigger'}"/>
+                <ref bean="#{${bg_expireTemporaryLockTrigger} ? 'expireTemporaryLockTrigger' : 'defaultTrigger'}"/>
+                <ref bean="#{${bg_backendStatisticsUpdateJobTrigger} ? 'backendStatisticsUpdateJobTrigger' : 'defaultTrigger'}"/>
+                <ref bean="#{${bg_tcScheduledTaskTrigger} ? 'tcScheduledTaskTrigger' : 'defaultTrigger'}"/>
+                <ref bean="#{${bg_dailyCreateSchemasTrigger} ? 'dailyCreateSchemasTrigger' : 'defaultTrigger'}"/>
+                <ref bean="#{${bg_dailyGWDSyncTrigger} ? 'dailyGWDSyncTrigger' : 'defaultTrigger'}"/>
+                <ref bean="#{${bg_createXmlBackupTrigger} ? 'createXmlBackupTrigger' : 'defaultTrigger'}"/>
+                <ref bean="#{${bg_endOfYearTrigger} ? 'endOfYearTrigger' : 'defaultTrigger'}"/>
+                <ref bean="#{${bg_generateTemplateSchemaTrigger} ? 'generateTemplateSchemaTrigger' : 'defaultTrigger'}"/>
+            </list>
+        </property>
+    </bean>
+
+    <!--DO NOT COMMIT TO SVN UNCOMMENTING THE SERVICES-->
+    <!--YOU CAN UNCOMMENT ON YOUR LOCAL MACHINE, ON SVN VERSION MAKE SURE EVERY SERVICE/TRIGGER IS COMMENTED-->
+
+    <!--this bean used for on/off Recurrence functionality in Recurrence Server-->
+    <bean id="recurringJobsManager" class="com.edatasite.workforce.scheduler.RecurringJobsManager">
+        <property name="scheduler" ref="schedFactoryBean"/>
+        <property name="recurrenceManager" ref="recurrenceManager"/>
+        <!-- import all existing recurrences to jdbc job store. EXECUTE ONE TIME ONLY-->
+        <property name="initEnabled" value="false"/>
+    </bean>
+
+    <!-- Empty trigger-->
+    <bean name="defaultTrigger" id="defaultTrigger"
+          class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="name" value="defaultTrigger"/>
+        <property name="jobDetail" ref="defaultTriggerJobClass"/>
+        <!-- Runs every 2 minutes -->
+        <property name="cronExpression" value="0 0/2 * * * ?"/>
+    </bean>
+
+    <bean id="defaultTriggerJobClass" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+        <property name="jobClass" value="com.edatasite.workforce.mail.DefaultJobService"/>
+        <property name="durability" value="true"/>
+    </bean>
+
+    <!-- Efile Service -->
+    <bean name="efileSubmitterBean" class="com.edatasite.workforce.scheduler.EfileSubmitterJob">
+    </bean>
+
+    <bean name="efileService" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+        <property name="jobClass" value="com.edatasite.workforce.scheduler.EfileService"/>
+        <property name="durability" value="true"/>
+    </bean>
+
+    <bean name="efilingTrigger" id="efilingTrigger"
+          class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="name" value="efilingTrigger"/>
+        <property name="jobDetail" ref="efileService"/>
+        <!-- Runs every 2 minutes -->
+        <property name="cronExpression" value="0 0/2 * * * ?"/>
+    </bean>
+    <!-- End Of Efile Service -->
+
+    <!-- End of Year Service -->
+    <bean name="endOfYearServiceBean" class="com.edatasite.workforce.scheduler.EndOfYearServiceJob">
+    </bean>
+
+    <bean name="endOfYearService" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+        <property name="jobClass" value="com.edatasite.workforce.scheduler.EndOfYearService"/>
+        <property name="durability" value="true"/>
+    </bean>
+
+    <bean name="endOfYearTrigger" id="endOfYearTrigger"
+          class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="name" value="endOfYearTrigger"/>
+        <property name="jobDetail" ref="endOfYearService"/>
+        <!-- Runs every 2 minutes -->
+        <property name="cronExpression" value="0 0 0 1 1 ?"/>
+    </bean>
+    <!-- End of EndOfYear Service -->
+
+    <!-- Daily Reports-->
+    <bean name="baseDailyReport" class="com.edatasite.workforce.mail.BaseDailyReport">
+        <property name="messageManager" ref="messageManager"/>
+    </bean>
+
+    <bean name="dailyReports" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+        <property name="jobClass" value="com.edatasite.workforce.mail.DailyReportService"/>
+        <property name="durability" value="true"/>
+    </bean>
+
+    <bean id="dailyReportTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="dailyReports"/>
+        <!-- run every day at 23:57 -->
+        <property name="cronExpression" value="0 57 23 * * ?"/>
+    </bean>
+
+    <!-- EVENT POST PROCESSOR TRIGGER  | BEGIN-->
+    <bean id="eventpostprocessorTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerFactoryBean">
+        <property name="jobDetail" ref="eventPostProcessorJob"/>
+        <property name="startDelay" value="120000"/>
+        <!--Runs every 10 minute -->
+        <property name="repeatInterval" value="60000"/>
+    </bean>
+    <bean name="eventPostProcessorJob" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+        <property name="jobClass" value="com.edatasite.workforce.mail.StandbyBusinessEventDisposer"/>
+        <property name="durability" value="true"/>
+        <!--<property name="concurrent" value="false"/>-->
+    </bean>
+    <!-- EVENT POST PROCESSOR TRIGGER  |  END -->
+
+    <!--Trigger for weekly optimizes and indxes data in solr-->
+    <bean id="solrOptimizeAllCoresTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="solrOptimizeService"/>
+        <!-- run every sunday at 03:15 -->
+        <property name="cronExpression" value="0 59 3 ? * SUN"/>
+    </bean>
+
+    <bean id="solrOptimizeService" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+        <property name="jobClass" value="com.edatasite.workforce.gwt.core.server.db.impl.rbac.OptimizeSolrCores"/>
+        <property name="durability" value="true"/>
+    </bean>
+
+    <!-- Trigger for weekly new users report -->
+
+    <bean id="weeklySubsciptionReportTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="weeklySubscriptionReportService"/>
+        <!-- run every sunday at 03:15 -->
+        <property name="cronExpression" value="0 30 19 ? * SUN"/>
+    </bean>
+
+    <bean id="weeklySubscriptionReportJob" class="com.edatasite.workforce.mail.WeeklySubscriptionReportJob">
+        <property name="messageManager" ref="messageManager"/>
+        <property name="excelBAOSHandler" ref="weeklySubscriptionExcelReportHandler"/>
+    </bean>
+
+    <bean id="weeklySubscriptionReportService" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+        <property name="jobClass" value="com.edatasite.workforce.mail.WeeklyReportService"/>
+        <property name="durability" value="true"/>
+    </bean>
+
+    <!--this is email fetcher for subscription expire report -->
+    <bean id="subscriptionExpireReportTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="subscriptionExpireReportJobClass"/>
+        <!--<property name="cronExpression" value="0 0/01 * * * ? *"/>-->
+        <property name="cronExpression" value="0 0 * * * ? *"/>
+    </bean>
+
+    <bean name="subscriptionExpireReportJobClass" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+        <property name="jobClass" value="com.edatasite.workforce.mail.SubscriptionExpirationReportJob"/>
+        <property name="durability" value="true"/>
+    </bean>
+
+    <!--this is updater for changed Recurrences-->
+    <bean id="recurrencesUpdateTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="recurrencesUpdateJobClass"/>
+        <property name="cronExpression" value="0/10 * * * * ? *"/>
+    </bean>
+
+    <bean name="recurrencesUpdateJobClass" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+        <property name="jobClass" value="com.edatasite.workforce.scheduler.CheckingForUpdatesRecurrenceJob"/>
+        <property name="durability" value="true"/>
+    </bean>
+
+    <!--this is updater for product count-->
+    <bean id="productCountTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="productCountUpdateJobClass"/>
+        <property name="cronExpression" value="0 50 23 * * ?"/>
+    </bean>
+
+    <bean name="productCountUpdateJobClass" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+        <property name="jobClass" value="com.edatasite.workforce.scheduler.CheckingForProductsJob"/>
+        <property name="durability" value="true"/>
+    </bean>
+
+    <!--this is generator template schema-->
+    <bean id="generateTemplateSchemaTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="generateTemplateSchemaJobClass"/>
+        <!--<property name="cronExpression" value="0 0 0/12 * * ? *"/>-->
+        <property name="cronExpression" value="${bg_generateTemplateSchema.cron}"/>
+    </bean>
+
+    <bean name="generateTemplateSchemaJobClass" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+        <property name="jobClass" value="com.edatasite.workforce.scheduler.GenerateTemplateSchemaJob"/>
+        <property name="durability" value="true"/>
+    </bean>
+
+    <!--This trigger schedules the invoice update status job to run every 4 hours,
+    starting at midnight (00:00, 04:00, 08:00, 12:00, 16:00, 20:00).
+    It uses a Quartz cron expression to define the timing.-->
+    <bean id="invoiceUpdateStatusTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="invoiceUpdateStatusJobClass"/>
+        <property name="cronExpression" value="0 0 0/4 * * ?"/>
+    </bean>
+
+    <bean name="invoiceUpdateStatusJobClass" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+        <property name="jobClass" value="com.edatasite.workforce.scheduler.InvoiceUpdateStatusRecurrenceJob"/>
+        <property name="durability" value="true"/>
+    </bean>
+
+    <bean id="postedTransactioinTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="postedTransactionJobClass"/>
+        <property name="cronExpression" value="0 10 * * * ? *"/>
+    </bean>
+
+    <bean name="postedTransactionJobClass" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+        <property name="jobClass" value="com.edatasite.workforce.scheduler.PostedTransactionRecurrenceJob"/>
+        <property name="durability" value="true"/>
+    </bean>
+
+    <!-- Bounced Email Catcher by Anvar Akramov -->
+    <bean id="massMailingBouncedEmailHandlerJobTrigger"
+          class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="massMailingBouncedEmailHandlerJobClass"/>
+        <property name="cronExpression" value="1 * * * * ?"/>
+    </bean>
+
+    <bean id="massMailingBouncedEmailHandlerJobClass"
+          class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+        <property name="jobClass" value="com.edatasite.workforce.scheduler.MassMailerBouncedEmailHandler"/>
+        <property name="durability" value="true"/>
+    </bean>
+
+    <!--this is email session clear trigger-->
+    <bean id="emailSessionClearTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="emailSessionClearJobClass"/>
+        <property name="cronExpression" value="0 0/30 * * * ?"/>
+    </bean>
+
+    <bean name="emailSessionClearJobClass" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+        <property name="jobClass" value="com.edatasite.workforce.scheduler.EmailSessionClearRecurrenceJob"/>
+        <property name="durability" value="true"/>
+    </bean>
+
+    <!--this is recurring event featured instances creator trigger-->
+    <bean id="createRecurringEventInstancesTrigger"
+          class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="createRecurringEventInstancesJobClass"/>
+        <property name="cronExpression" value="0 0 0 * * ? *"/>
+    </bean>
+
+    <bean name="createRecurringEventInstancesJobClass"
+          class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+        <property name="jobClass" value="com.edatasite.workforce.scheduler.RecurringEventRecurrenceJob"/>
+        <property name="durability" value="true"/>
+    </bean>
+
+    <!--this is recurring task featured instances creator trigger-->
+    <bean id="createRecurringTaskInstancesTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="createRecurringTaskInstancesJobClass"/>
+        <property name="cronExpression" value="0 0 0 * * ? *"/>
+    </bean>
+
+    <bean name="createRecurringTaskInstancesJobClass"
+          class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+        <property name="jobClass" value="com.edatasite.workforce.scheduler.RecurringTaskRecurrenceJob"/>
+        <property name="durability" value="true"/>
+    </bean>
+
+    <!--this is recurring holiday featured instances creator trigger-->
+    <bean id="createRecurringHolidayInstancesTrigger"
+          class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="createRecurringHolidayInstancesJobClass"/>
+        <property name="cronExpression" value="0 0 0 * * ? *"/>
+    </bean>
+
+    <bean name="createRecurringHolidayInstancesJobClass"
+          class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+        <property name="jobClass" value="com.edatasite.workforce.scheduler.RecurringHolidayRecurrenceJob"/>
+        <property name="durability" value="true"/>
+    </bean>
+
+
+    <bean id="expireTemporaryLockTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="expireTemporaryLockJobClass"/>
+        <!-- run every 1 minutes -->
+        <property name="cronExpression" value="0 0/10 * * * ?"/>
+    </bean>
+    <bean name="expireTemporaryLockJobClass" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+        <property name="jobClass" value="com.edatasite.workforce.scheduler.ExpireTemporaryLockRecurrenceJob"/>
+        <property name="durability" value="true"/>
+    </bean>
+
+    <!-- Backend statistic-->
+    <bean id="backendStatisticsUpdateJobTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="backendStatisticsUpdateJobClass"/>
+        <!-- Collects statistisc for companies every sunday at 01:00 -->
+        <property name="cronExpression" value="0 0 1 ? * SUN"/>
+    </bean>
+
+    <bean id="backendStatisticsUpdateJobClass" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+        <property name="jobClass" value="com.edatasite.workforce.scheduler.BackendStatisticsUpdateRecurrenceJob"/>
+        <property name="durability" value="true"/>
+    </bean>
+
+    <bean id="dailyCreateSchemasTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="dailyCreateSchemasJobClass"/>
+        <!--run every day at 05:01 am-->
+        <property name="cronExpression" value="1 01 05 * * ? *"/>
+    </bean>
+
+    <bean id="dailyGWDSyncTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="dailySyncGWDJob"/>
+        <!--run every day at 00:00 am-->
+        <property name="cronExpression" value="0 0/2 * * * ?"/>
+    </bean>
+
+
+    <bean id="dailyCreateSchemasJobClass" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+        <property name="jobClass" value="com.edatasite.workforce.scheduler.CreateSchemaRecurrenceJob"/>
+        <property name="durability" value="true"/>
+    </bean>
+
+    <bean id="dailySyncGWDJob" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+        <property name="jobClass" value="com.edatasite.workforce.scheduler.GWDSyncRecurrenceJob"/>
+        <property name="durability" value="true"/>
+    </bean>
+
+    <bean id="createXmlBackupTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="createXmlBackupJob"/>
+        <!--run every day at 05:01 am-->
+        <property name="cronExpression" value="1 01 05 * * ? *"/>
+
+    </bean>
+
+    <bean id="createXmlBackupJob" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+        <property name="jobClass" value="com.edatasite.workforce.scheduler.CreateXmlBackupJob"/>
+        <property name="durability" value="true"/>
+    </bean>
+
+    <import resource="mailService.xml"/>
+</beans>

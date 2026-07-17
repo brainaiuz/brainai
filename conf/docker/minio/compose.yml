@@ -1,0 +1,26 @@
+
+services:
+  minio:
+    image: "${KPI_MINIO_IMAGE}"
+    container_name: "${KPI_MINIO_HOST}"
+    hostname: "${KPI_MINIO_HOST}"
+    restart: always
+    command: server /container/vol --console-address ":9001"
+    ports:
+      - "${KPI_MINIO_CONSOLE}:9000"
+      - "${KPI_MINIO_API}:9001"
+    environment:
+      MINIO_DOMAIN: "${KPI_MINIO_DOMAIN}"
+      MINIO_BROWSER_REDIRECT_URL: "${KPI_MINIO_REDIRECT_URL}"
+      MINIO_ROOT_USER: "${KPI_MINIO_ROOT_USER}"
+      MINIO_ROOT_PASSWORD: "${KPI_MINIO_ROOT_PASSWORD}"
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:9000/minio/health/live" ]
+      interval: 30s
+      timeout: 20s
+      retries: 3
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "10"
+        max-size: "100m"

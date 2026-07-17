@@ -1,0 +1,19 @@
+## $employeeName - Employee Name
+## $companyName - Company Name
+## $startDate - Period start date
+## $endDate - Period end date
+## $weekMonthNo - Week Month Number
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<p>Beste $employeeName,</p>
+Bijgesloten vindt u uw loonstrook in PDF voor de periode
+    $startDate - $endDate ( $weekMonthNo ).
+<p>Neem gerust contact met de HR afdeling als u vragen heeft.</p>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<div class="contentBar" style="padding:0 10px;margin-top:2px;">
+    <!-- Recruitment Integrations -->
+    <div class="paymentGatewayPanels">
+        <div>
+            <div class="paymentGatewayPanel paymentGatewayPanel--stripe">
+                <div class="paymentGatewayPanel__heading">
+                    <div>
+                        <img alt="image"
+                             src="https://tech.hh.ru/api/logos/min-hh-red.png"/>
+                    </div>
+                    <p>Head Hunter.</p>
+                </div>
+
+                <div class="paymentGatewayPanel__body">
+                    <!-- Head Hunter account -->
+
+                    <div class="grid-row">
+                        <div class="col-12">
+                            <div class="form-group">
+                                <div class="form-group__label">$$label:HH_CLIENT_ID$$</div>
+                                <div class="form-group__content">$$input:HH_CLIENT_ID$$</div>
+                            </div>
+                            <div>
+                                <div class="form-group__label">$$label:HH_CLIENT_SECRET$$</div>
+                                <div class="form-group__content">$$input:HH_CLIENT_SECRET$$</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="paymentGatewayPanel__footer">
+                    <div>$$input:HH_SAVE_BUTTON$$</div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="paymentGatewayPanel paymentGatewayPanel--stripe">
+                <div class="paymentGatewayPanel__heading">
+                    <div>
+                        <img alt="image"
+                             src="data:image/png;base64,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"/>
+                    </div>
+                    <p>LinkedIn.</p>
+                </div>
+
+                <div class="paymentGatewayPanel__body">
+                    <!-- LinkedIn account -->
+
+                    <div class="grid-row">
+                        <div class="col-9">
+                            <div class="form-group">
+                                <div class="form-group__label">$$label:LINKEDIN_CLIENT_ID$$</div>
+                                <div class="form-group__content">$$input:LINKEDIN_CLIENT_ID$$</div>
+                            </div>
+                            <div>
+                                <div class="form-group__label">$$label:LINKEDIN_CLIENT_SECRET$$</div>
+                                <div class="form-group__content">$$input:LINKEDIN_CLIENT_SECRET$$</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="paymentGatewayPanel__footer">
+                    <div>$$input:LINKEDIN_SAVE_BUTTON$$</div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="paymentGatewayPanel paymentGatewayPanel--stripe">
+                <div class="paymentGatewayPanel__heading">
+                    <div>
+                        <img alt="image"
+                             src="https://ishapi.mehnat.uz/storage/image/logo-uz.png"/>
+                    </div>
+                    <p>Ish.mehnat.uz.</p>
+                </div>
+
+                <div class="paymentGatewayPanel__body">
+                    <!-- LinkedIn account -->
+
+                    <div class="grid-row">
+                        <div class="col-9">
+                            <div class="form-group">
+                                <div class="form-group__label">$$label:MEHNAT_UZ_CLIENT_ID$$</div>
+                                <div class="form-group__content">$$input:MEHNAT_UZ_CLIENT_ID$$</div>
+                            </div>
+                            <div>
+                                <div class="form-group__label">$$label:MEHNAT_UZ_CLIENT_SECRET$$</div>
+                                <div class="form-group__content">$$input:MEHNAT_UZ_CLIENT_SECRET$$</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="paymentGatewayPanel__footer">
+                    <div>$$input:MEHNAT_UZ_SAVE_BUTTON$$</div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="paymentGatewayPanel paymentGatewayPanel--stripe">
+                <div class="paymentGatewayPanel__heading">
+                    <div>
+                        <img alt="image"
+                             src="https://marketplace.zoom.us/competition/images/zoom.png"/>
+                    </div>
+                    <p>Zoom.</p>
+                </div>
+
+                <div class="paymentGatewayPanel__body">
+                    <!-- Zoom account -->
+
+                    <div class="grid-row">
+                        <div class="col-9">
+                            <div class="form-group">
+                                <div class="form-group__label">$$label:ZOOM_CLIENT_ID$$</div>
+                                <div class="form-group__content">$$input:ZOOM_CLIENT_ID$$</div>
+                            </div>
+                            <div>
+                                <div class="form-group__label">$$label:ZOOM_CLIENT_SECRET$$</div>
+                                <div class="form-group__content">$$input:ZOOM_CLIENT_SECRET$$</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="paymentGatewayPanel__footer">
+                    <div>$$input:ZOOM_SAVE_BUTTON$$</div>
+                </div>
+            </div>
+        </div>
+
+
+        <!--    Telegram bot -->
+        <div>
+            <div class="paymentGatewayPanel paymentGatewayPanel--stripe">
+                <div class="paymentGatewayPanel__heading">
+                    <div>
+                        <img alt="image" src="https://telegram.org/img/t_logo.png" width="50px"/>
+                    </div>
+                    <p>Telegram HR Bot.</p>
+                </div>
+
+                <div class="paymentGatewayPanel__body">
+                    <!-- Telegram HR Bot account -->
+
+                    <div class="grid-row">
+                        <div class="col-9">
+                            <div class="form-group">
+                                <div class="form-group__label">$$label:TELEGRAM_BOT_TOKEN$$</div>
+                                <div class="form-group__content">$$input:TELEGRAM_BOT_TOKEN$$</div>
+                            </div>
+                            <div>
+                                <div class="form-group__label">$$label:TELEGRAM_BOT_USERNAME$$</div>
+                                <div class="form-group__content">$$input:TELEGRAM_BOT_USERNAME$$</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="paymentGatewayPanel__footer">
+                    <div>$$input:TELEGRAM_BOT_SAVE_BUTTON$$</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

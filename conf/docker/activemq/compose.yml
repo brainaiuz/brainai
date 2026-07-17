@@ -1,0 +1,16 @@
+
+services:
+  activemq:
+    image: "${KPI_ACTIVEMQ_IMAGE}"
+    container_name: "${KPI_ACTIVEMQ_HOST}"
+    hostname: "${KPI_ACTIVEMQ_HOST}"
+    ports:
+      - "${KPI_ACTIVEMQ_CONSOLE}:8161"
+      - "${KPI_ACTIVEMQ_API}:61616"
+    environment:
+      ACTIVEMQ_ADMIN_LOGIN: "${KPI_ACTIVEMQ_ADMIN_LOGIN}"
+      ACTIVEMQ_ADMIN_PASSWORD: "${KPI_ACTIVEMQ_ADMIN_PASSWORD}"
+      ACTIVEMQ_CONFIG_MINMEMORY: "64"
+      ACTIVEMQ_CONFIG_MAXMEMORY: "256"
+      TZ: "GMT"
+    restart: always

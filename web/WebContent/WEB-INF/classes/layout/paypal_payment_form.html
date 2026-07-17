@@ -1,0 +1,245 @@
+<div class="contentBar" style="padding:0 10px;margin-top:2px;">
+    <!-- Payment gateways -->
+    <div class="paymentGatewayPanels">
+        <div>
+            <div class="paymentGatewayPanel paymentGatewayPanel--payPal">
+                <div class="paymentGatewayPanel__heading">
+                    <!--                    <div>$$input:LOGO_PAYPAL$$</div>-->
+                    <div>
+                        <img alt="image"
+                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKQAAAAqCAYAAAA9D/DpAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQ1IDc5LjE2MzQ5OSwgMjAxOC8wOC8xMy0xNjo0MDoyMiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTkgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjJGM0E2NEFFNEQ5RTExRUFCRkIwQTE3OUQyQzYyRjJFIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjJGM0E2NEFGNEQ5RTExRUFCRkIwQTE3OUQyQzYyRjJFIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MkYzQTY0QUM0RDlFMTFFQUJGQjBBMTc5RDJDNjJGMkUiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MkYzQTY0QUQ0RDlFMTFFQUJGQjBBMTc5RDJDNjJGMkUiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6tExQoAAAY5UlEQVR42uxd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"/>
+                    </div>
+                    <p>PayPal is a faster, safer way to send money, make an online payment, receive money or set up a
+                        merchant account.</p>
+                </div>
+
+                <div class="paymentGatewayPanel__body">
+                    <!-- Paypal account -->
+
+                    <div class="grid-row">
+                        <div class="col-9">
+                            <div class="form-group">
+                                <div class="form-group__label">$$label:PAYPAL_ACCOUNT$$</div>
+                                <div class="form-group__content">$$input:PAYPAL_ACCOUNT$$</div>
+                            </div>
+                            <div>
+                                <div class="form-group__label">$$label:PAYPAL_BANK_ACCOUNT$$</div>
+                                <div class="form-group__content">$$input:PAYPAL_BANK_ACCOUNT$$</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Evalon account-->
+                    <div>
+                        $$input:EVALON_MERCHANT$$
+                        $$input:EVALON_USER$$
+                        $$input:EVALON_PIN$$
+                        $$input:EVALON_BANK_ACCOUNT$$
+                    </div>
+                </div>
+                <div class="paymentGatewayPanel__footer">
+                    <div>$$input:PAYPAL_SAVE_BUTTON$$</div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="paymentGatewayPanel paymentGatewayPanel--stripe">
+                <div class="paymentGatewayPanel__heading">
+                    <div>
+                        <img alt="image"
+                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAqCAYAAABFsP5IAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQ1IDc5LjE2MzQ5OSwgMjAxOC8wOC8xMy0xNjo0MDoyMiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTkgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjVCMTQ4M0FEMzQ4MDExRUFBMkExREZGREFCRjhDNjg4IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjVCMTQ4M0FFMzQ4MDExRUFBMkExREZGREFCRjhDNjg4Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6NUIxNDgzQUIzNDgwMTFFQUEyQTFERkZEQUJGOEM2ODgiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6NUIxNDgzQUMzNDgwMTFFQUEyQTFERkZEQUJGOEM2ODgiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz58O5exAAARBElEQVR42uRa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"/>
+                    </div>
+                    <!--                <div>$$input:STRIPE_PUBLIC_KEY$$</div>-->
+                    <p>
+                        Stripe is an online payment processing platform that allows you to receive one-time and
+                        recurring payments
+                        securely from customers. It also manages all your payments and makes reconciliation a breeze.
+                        You can set it
+                        up in no time and get paid faster.
+                    </p>
+                </div>
+
+                <div class="paymentGatewayPanel__body">
+                    <!-- Stripe account -->
+                    <div class="grid-row">
+                        <div class="col-9">
+                            <div class="form-group">
+                                <div class="form-group__label">$$label:STRIPE_BANK_ACCOUNT$$</div>
+                                <div class="form-group__content">$$input:STRIPE_BANK_ACCOUNT$$</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Evalon account-->
+                    <div>
+                        $$input:STRIPE_EVALON_MERCHANT$$
+                        $$input:STRIPE_EVALON_USER$$
+                        $$input:STRIPE_EVALON_PIN$$
+                        $$input:STRIPE_EVALON_BANK_ACCOUNT$$
+                    </div>
+                </div>
+
+                <div class="paymentGatewayPanel__footer">
+                    <div class="frame__info__actions">
+                        $$input:STRIPE_SETUP_BUTTON$$
+                        $$input:STRIPE_SAVE_BUTTON$$
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="paymentGatewayPanel paymentGatewayPanel--stripe">
+                <div class="paymentGatewayPanel__heading">
+                    <div>
+                        <img alt="image"
+                             src="https://cdn.paycom.uz/documentation_assets/payme_03.svg"
+                             style="background-color: #33CCCC; width: 140px; padding: 5px; margin-bottom: 0px; border-radius: 5px"/>
+                    </div>
+                    <p>
+                        Payme is easy management and many useful features for your card. Uzcard, HUMO, UnionPay,
+                        finance, card blocking, card-to-card transfers, interbank transfers, local payments, loan
+                        repayments, online payments, payment history
+                    </p>
+                </div>
+
+                <div class="paymentGatewayPanel__body">
+                    <div class="grid-row">
+                        <div class="col-12">
+                            $$input:PAYME_MERCHANT_ID$$
+                            <div class="grid-row">
+                                <div class="col-6">
+                                    $$input:PAYME_BANK_ACCOUNT$$
+                                </div>
+                                <div class="col-6">
+                                    $$input:PAYME_EXPENSE_BANK_ACCOUNT$$
+                                </div>
+                            </div>
+                            <div class="grid-row">
+                                <div class="col-7">
+                                    $$input:PAYME_SERVICE_ID$$
+                                </div>
+                                <div class="col-5">
+                                    $$input:PAYME_SERVICE_FEE$$
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="paymentGatewayPanel__footer">
+                    <div class="frame__info__actions">
+                        $$input:PAYME_SAVE_BUTTON$$
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="paymentGatewayPanel paymentGatewayPanel--stripe">
+                <div class="paymentGatewayPanel__heading">
+                    <div>
+                        <img alt="image" src="https://docs.click.uz/wp-content/themes/click_help/assets/images/logo.png"
+                             style="background-color: #fff; width: 140px; padding: 5px; margin-bottom: 0px; border-radius: 5px"/>
+                    </div>
+                    <p>
+                        Click is easy management and many useful features for your card. Uzcard, HUMO, UnionPay,
+                        finance, card blocking, card-to-card transfers, interbank transfers, local payments, loan
+                        repayments, online payments, payment history
+                    </p>
+                </div>
+
+                <div class="paymentGatewayPanel__body">
+                    <div class="grid-row">
+                        <div class="col-9">
+                            $$input:CLICK_MERCHANT_ID$$
+                            $$input:CLICK_BANK_ACCOUNT$$
+                            $$input:CLICK_SERVICE_ID$$
+                        </div>
+                    </div>
+                </div>
+
+                <div class="paymentGatewayPanel__footer">
+                    <div class="frame__info__actions">
+                        $$input:CLICK_SAVE_BUTTON$$
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="paymentGatewayPanel paymentGatewayPanel--payPal">
+                <div class="paymentGatewayPanel__heading">
+                    <div>
+                        <img alt="image" src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Logo_Revolut.png"
+                             style="background-color: #fff; width: 140px; padding: 5px; margin-bottom: 0px; border-radius: 5px"/>
+                    </div>
+                    <p>Revolut Pay is a payment method available to all customers holding a personal Revolut account.
+                        It allows paying for a product or service from a merchant that offers the Revolut Pay payment
+                        method as an option when checking out.
+                    </p>
+                </div>
+
+                <div class="paymentGatewayPanel__body">
+                    <div class="grid-row">
+                        <div class="col-9">
+                            $$input:REVOLUT_EMAIL$$
+                            <div class="grid-row">
+                                <div class="col-6">
+                                    $$input:REVOLUT_BANK_ACCOUNT$$
+                                </div>
+                                <div class="col-6">
+                                    $$input:REVOLUT_EXPENSE_BANK_ACCOUNT$$
+                                </div>
+                            </div>
+                            $$input:REVOLUT_SECRET_API_KEY$$
+                        </div>
+                    </div>
+                </div>
+
+                <div class="paymentGatewayPanel__footer">
+                    <div class="frame__info__actions">
+                        $$input:REVOLUT_SAVE_BUTTON$$
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+    <ul class="collapsible--panels collapsible--arrows-left collapsible collapsible--gwt required"
+        data-collapsible="expandable">
+        <!-- Master card -->
+        <li class="slideDown-box group hideCustomField">
+            <div class="collapsible-header"
+                 onclick="var myclick=this.parentElement;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls;} var myclick=this;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls; }">
+                <a style="cursor: pointer;"><span>$$label:MASTERCARD_DETAILS$$</span></a>
+            </div>
+            <div class="collapsible-body">
+                <div class="grid-row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:MASTERCARD_MERCHANT$$</div>
+                            <div class="form-group__content">$$input:MASTERCARD_MERCHANT$$</div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:MASTERCARD_BANK_ACCOUNT$$</div>
+                            <div class="form-group__content">$$input:MASTERCARD_BANK_ACCOUNT$$</div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:MASTERCARD_KEY$$</div>
+                            <div class="form-group__content">$$input:MASTERCARD_KEY$$</div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:MASTERCARD_CODE$$</div>
+                            <div class="form-group__content">$$input:MASTERCARD_CODE$$</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+
+</div>

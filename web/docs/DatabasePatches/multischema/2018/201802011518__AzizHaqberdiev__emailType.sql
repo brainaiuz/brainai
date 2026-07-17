@@ -1,0 +1,1 @@
+update "anv".email_folder set type = code;

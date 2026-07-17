@@ -1,0 +1,1209 @@
+.payroll-quickviewPanelCell {
+    background-color: #ebf3ff;
+    padding: 10px;
+}
+
+.payroll-greyPanelCell {
+    background-color: #fafafa;
+    font-size: 20px;
+    font-weight: bold;
+    color: #6d6d6d;
+    border: solid 1px #d4d4d4;
+    padding: 10px;
+}
+
+.payroll-padding {
+    padding: 5px;
+}
+
+.link {
+    text-decoration: underline;
+    color: #3333ff;
+    cursor: pointer;
+}
+
+.blueTab {
+    background-color: #D7E7FF;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 7px;
+}
+
+.flexTable {
+    border: 1px solid #99BBE8;
+    /*min-height: 400px;*/
+    width: 100%;
+    background-color: #fff;
+}
+
+.flexTable-Label {
+    border-right: 1px solid #99BBE8;
+    background-color: #99BBE8;
+    color: #1F4F8F;
+    text-align: center;
+    padding: 5px;
+    height: 20px;
+}
+
+.flexTable-td {
+    border-top: 1px solid #99BBE8;
+    border-left: 1px solid #99BBE8;
+    padding: 5px;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.flexTable-td-relative {
+    border-top: 1px solid #99BBE8;
+    border-left: 1px solid #99BBE8;
+    padding: 5px;
+    white-space: nowrap;
+}
+
+    /** {
+        margin: 0;
+        padding: 0;
+    }*/
+
+body {
+    /*position: absolute*/
+}
+
+    /*
+#starter {
+  background: url(icons/starter.jpg) no-repeat
+}
+
+#starter .abs-link {
+  position: absolute;
+  height: 35px;
+  width: 150px;
+  top: 10px;
+  left: 15px;
+  font-size: 18px;
+}
+
+#addemp {
+  background: url(icons/addemployee.jpg) no-repeat;
+  margin-top: 8px
+}
+
+#addemp .abs-link {
+  position: absolute;
+  height: 35px;
+  width: 250px;
+  top: 95px;
+  left: 25px;
+  font-size: 18px;
+}
+
+#payemp {
+  background: url(icons/payemployee.jpg) no-repeat
+}
+
+#payemp .abs-link {
+  position: absolute;
+  height: 35px;
+  width: 130px;
+  top: 10px;
+  left: 25px;
+  font-size: 18px;
+}
+
+#leaver {
+  background: url(icons/leaver.jpg) no-repeat;
+  margin-top: 8px
+}
+
+#leaver .abs-link {
+  position: absolute;
+  height: 35px;
+  width: 270px;
+  top: 95px;
+  left: 5px;
+  font-size: 18px;
+}
+
+#payslip {
+  background: url(icons/payslip.jpg) no-repeat
+}
+
+#payslip .abs-link {
+  position: absolute;
+  height: 35px;
+  width: 170px;
+  top: 10px;
+  left: 0px;
+  font-size: 18px; */
+    /* width:270px; height:137px*//*
+
+}
+
+#report {
+  background: url(icons/report.jpg) no-repeat;
+  margin-top: 8px
+}
+
+#report .abs-link {
+  position: absolute;
+  height: 35px;
+  width: 221px;
+  top: 95px;
+  left: 35px;
+  font-size: 18px; */
+    /*width:270px; height:128px*//*
+
+    }
+    */
+
+.bank-16 {
+    background: url("payroll/images/bank_16.png") no-repeat;
+}
+
+.payslip-16 {
+    background: url("payroll/images/payslips_16.png") no-repeat;
+}
+
+.aeo-icon {
+    background: url("payroll/images/aeo_16.png") no-repeat;
+}
+
+.checkBox {
+    vertical-align: top;
+}
+
+.p45form {
+    margin: 10px 10px; /*padding:10px 10px;#cbebbd;#99BBE8;bfd4f0;ebf3ff*/
+    background: #ebf3ff;
+    border: 0;
+}
+
+.innerP45 {
+    margin: 8px 8px; /*padding:15px 15px;*/
+    /*background:#dac29e;*/
+    border: 1px solid #13649B;
+}
+
+.details {
+    background: #ffb768;
+}
+
+.detailsText {
+    /*vertical-align:bottom;*/
+    margin: 7px 7px;
+}
+
+.p45text {
+    height: 20px;
+    padding: 1px 2px 1px 2px;
+    font-size: 10pt;
+    /*FONT-FAMILY: arial, sans-serif;*/
+    border-bottom: 1px solid #13649B;
+    border-left: 1px solid #13649B;
+}
+
+    /* welcome page*/
+
+.transparent-block {
+    height: 100px;
+    position: relative;
+    width: 124px;
+
+}
+
+    /*  images*/
+
+#efile-hrms .abs-link {
+    color: #1F4F8F;
+    font-size: 11px;
+    font-weight: bold;
+    height: 10px;
+    left: 1px;
+    text-decoration: none;
+    top: 2px;
+    width: 90px;
+    cursor: text;
+}
+
+#efile-hrms-p14 {
+    background: url("payroll/images/flow-charts/p14.jpg") no-repeat;
+}
+
+#efile-hrms-p14 .abs-link {
+    color: #1F4F8F;
+    font-size: 11px;
+    font-weight: bold;
+    height: 10px;
+    left: 1px;
+    text-decoration: none;
+    top: 2px;
+    width: 90px;
+    cursor: text;
+}
+
+#efile-hrms-checklist {
+    background: url("payroll/images/flow-charts/checklist.jpg") no-repeat;
+}
+
+#efile-hrms-checklist .abs-link {
+    color: #1F4F8F;
+    font-size: 11px;
+    font-weight: bold;
+    height: 10px;
+    left: 1px;
+    text-decoration: none;
+    top: 2px;
+    width: 90px;
+    cursor: text;
+}
+
+.welcome-row {
+    vertical-align: top;
+}
+
+.payroll-welcome {
+    background: url("payroll/images/payroll-welcome.png") no-repeat;
+}
+
+.payment-deduction {
+    background: url("payroll/images/payment-deduction.png") no-repeat;
+}
+
+.payslips {
+    background: url("payroll/images/payslip.png") no-repeat;
+}
+
+.forms-reports {
+    background: url("payroll/images/forms-reports.png") no-repeat;
+}
+
+.payroll-settings {
+    background: url("payroll/images/payroll-settings.png") no-repeat;
+}
+
+.reccur-payment-16 {
+    background: url("payroll/images/reccuring-payment_16.png") no-repeat;
+}
+
+.efile-hmrc {
+    background: url("payroll/images/efile.png") no-repeat;
+}
+
+.p32PaymentRecordsPanel {
+    border-top: 1px solid #8db2e3;
+    border-left: 1px solid #8db2e3;
+    padding: 0 0 0 0;
+}
+
+.p32PaymentRecordsPanel td {
+    border-bottom: 1px solid #8db2e3;
+    border-right: 1px solid #8db2e3;
+    padding: 5px;
+    text-align: center;
+}
+
+.p32PaymentRecordsPanelHeader {
+    background-color: #f0f6fd;
+    border-bottom: 1px solid #8db2e3;
+    border-right: 1px solid #8db2e3;
+    padding: 5px;
+    font-weight: bold;
+    text-align: center;
+    color: #15428b;
+}
+
+.p32PaymentMontNumRecords {
+    background-color: #f0f6fd;
+    border-bottom: 1px solid #8db2e3;
+    border-right: 1px solid #8db2e3;
+    padding: 5px;
+    text-align: center;
+    color: #15428b;
+}
+
+.p32PaymentQuoterRecords {
+    background-color: #f4f9ff;
+    border-bottom: 1px solid #8db2e3;
+    border-right: 1px solid #8db2e3;
+    padding: 5px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.cw-FlexTable-noborder td {
+    border: 0;
+}
+
+.p32Header {
+    background-color: #d9e5f4;
+    border: 1px solid #8db2e3;
+    height: 44px;
+
+}
+
+.p32Header td {
+    padding: 5px 20px 5px 20px;
+    vertical-align: middle !important;
+    font-weight: bold;
+    color: #15428b;
+}
+
+#employer-settings .abs-link {
+    color: #7D1616;
+    font-size: 18px;
+    height: 20px;
+    left: 8px;
+    position: absolute;
+    top: 10px;
+    width: 165px;
+}
+
+#employer-settings {
+    width: 242px;
+    height: 134px;
+    background: url("payroll/images/emp-set.jpg") no-repeat;
+}
+
+#pension-providers .abs-link {
+    bottom: 13px;
+    left: 40px;
+    color: #7D1616;
+    font-size: 18px;
+    height: 20px;
+    width: 160px;
+    position: absolute;
+}
+
+#pension-providers {
+    width: 242px;
+    height: 134px;
+    background: url("payroll/images/pension-provider.png") no-repeat;
+}
+
+#pension-scheme .abs-link {
+    top: 10px;
+    left: 12px;
+    color: #7D1616;
+    font-size: 18px;
+    height: 20px;
+    width: 160px;
+    position: absolute;
+}
+
+#pension-scheme {
+    width: 242px;
+    height: 134px;
+    background: url("payroll/images/scheme.jpg") no-repeat;
+}
+
+#paye-tax-bands .abs-link {
+    color: #7D1616;
+    font-size: 18px;
+    height: 20px;
+    left: 15px;
+    position: absolute;
+    top: 10px;
+    width: 145px;
+}
+
+#paye-tax-bands {
+    width: 242px;
+    height: 134px;
+    background: url("payroll/images/paye.jpg") no-repeat;
+}
+
+#ni-bands-rates .abs-link {
+    bottom: 13px;
+    left: 40px;
+    color: #7D1616;
+    font-size: 18px;
+    height: 20px;
+    width: 160px;
+    position: absolute;
+}
+
+#ni-bands-rates {
+    width: 242px;
+    height: 134px;
+    background: url("payroll/images/ni-ban.jpg") no-repeat;
+}
+
+#student-loan .abs-link {
+    bottom: 20px;
+    color: #7D1616;
+    font-size: 18px;
+    height: 20px;
+    left: 105px;
+    position: absolute;
+    width: 120px;
+}
+
+#student-loan {
+    width: 242px;
+    height: 134px;
+    background: url("payroll/images/loan.jpg") no-repeat;
+}
+
+#deduction-categories .abs-link {
+    bottom: 13px;
+    left: 32px;
+    color: #7D1616;
+    font-size: 18px;
+    height: 20px;
+    width: 200px;
+    position: absolute;
+}
+
+#deduction-categories {
+    width: 242px;
+    height: 134px;
+    background: url("payroll/images/deduction.jpg") no-repeat;
+}
+
+#payment-categories .abs-link {
+    bottom: 12px;
+    color: #7D1616;
+    font-size: 18px;
+    height: 20px;
+    left: 30px;
+    position: absolute;
+    width: 158px;
+}
+
+#payment-categories {
+    width: 242px;
+    height: 134px;
+    background: url("payroll/images/payment.jpg") no-repeat;
+}
+
+#payrun .abs-link {
+    bottom: 15px;
+    color: #7D1616;
+    font-size: 18px;
+    height: 20px;
+    left: 38px;
+    position: absolute;
+    width: 135px;
+}
+
+#payrun {
+    width: 242px;
+    height: 134px;
+    background: url("payroll/images/payrun.jpg") no-repeat;
+}
+
+#tax-code-changes .abs-link {
+    color: #7D1616;
+    font-size: 18px;
+    height: 20px;
+    left: 6px;
+    position: absolute;
+    top: 10px;
+    width: 170px;
+}
+
+#tax-code-changes {
+    width: 242px;
+    height: 134px;
+    background: url("payroll/images/tax-code-change.png") no-repeat;
+}
+
+#ni-category-changes .abs-link {
+    bottom: 12px;
+    color: #7D1616;
+    font-size: 18px;
+    height: 20px;
+    left: 55px;
+    position: absolute;
+    width: 190px;
+}
+
+#ni-category-changes {
+    width: 242px;
+    height: 134px;
+    background: url("payroll/images/ni-category.png") no-repeat;
+}
+
+#p32form .abs-link {
+    bottom: 15px;
+    color: #7D1616;
+    font-size: 18px;
+    height: 20px;
+    left: 110px;
+    position: absolute;
+    width: 90px;
+}
+
+#p32form {
+    width: 242px;
+    height: 134px;
+    background: url("payroll/images/p32-form.png") no-repeat;
+}
+
+#p35form .abs-link {
+    bottom: 28px;
+    color: #7D1616;
+    font-size: 16px;
+    height: 20px;
+    left: 110px;
+    position: absolute;
+    width: 90px;
+}
+
+#p35form {
+    width: 260px;
+    height: 143px;
+    background: url("payroll/images/p32-form.png") no-repeat;
+}
+
+#p11form .abs-link {
+    bottom: 11px;
+    color: #7D1616;
+    font-size: 18px;
+    height: 20px;
+    left: 110px;
+    position: absolute;
+    width: 90px;
+}
+
+#p11form {
+    width: 242px;
+    height: 134px;
+    background: url("payroll/images/p11-form.png") no-repeat;
+}
+
+#p14form .abs-link {
+    bottom: 13px;
+    color: #7D1616;
+    font-size: 18px;
+    height: 20px;
+    left: 110px;
+    position: absolute;
+    width: 90px;
+}
+
+#p14form {
+    width: 242px;
+    height: 134px;
+    background: url("payroll/images/p14-form.png") no-repeat;
+}
+
+.efile-table {
+
+}
+
+.efile-column-header-1 {
+    background-color: #D6E3F3;
+    padding: 5px;
+    font-weight: bold;
+    text-align: left;
+    border: 1px solid #ACA899;
+}
+
+.efile-column-header {
+    background-color: #D6E3F3;
+    padding: 5px;
+    font-weight: bold;
+    text-align: left;
+    border-top: 1px solid #ACA899;
+    border-bottom: 1px solid #ACA899;
+    border-right: 1px solid #ACA899;
+}
+
+.efile-column-1 {
+    background-color: #D6E3F3;
+    padding: 5px;
+    font-weight: bold;
+    text-align: left;
+    border-left: 1px solid #ACA899;
+    border-right: 1px solid #ACA899;
+    border-bottom: 1px solid #ACA899;
+}
+
+.efile-column {
+    padding: 5px;
+    border-bottom: 1px solid #ACA899;
+    border-right: 1px solid #ACA899;
+}
+
+.p35TableTitle {
+    background-color: #8DB4E3;
+    color: #000000;
+    padding: 2px;
+    font-weight: bold;
+    text-align: left;
+    vertical-align: middle;
+    border-bottom: 2px solid #FFFFFF;
+}
+
+.p35TableDoubleBorder {
+    /*border-top: 1px solid #8DB4E3;
+    border-bottom: 2px double #8DB4E3;*/
+}
+
+.p35Numbers {
+    background-color: #000000;
+    color: #FFFFFF;
+    padding: 2px;
+    border-bottom: 2px solid #FFFFFF;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.p35checklistTable td {
+    /*vertical-align:top;*/
+}
+
+.checkListDelimeter {
+    background-color: #000000; /*vertical-align:top;*/
+}
+
+.efileResult {
+    padding: 10px;
+}
+
+.efileResult-1 {
+    padding: 10px;
+    border-bottom: 1px solid #ACA899;
+}
+
+.payroll-Gwt-DialogBox {
+    border: 4px solid #8DB4E3;
+    background-color: white;
+    nowrap: nowrap;
+}
+
+.payroll-Gwt-DialogBox .Caption {
+    background-color: #C3D9FF;
+    padding: 3px;
+    font-weight: bold;
+    cursor: default;
+    nowrap: nowrap;
+}
+
+.gwt-DialogBox td {
+    text-align: left;
+}
+
+.statutory-payments-PopupPanel {
+    border: 3px solid #C3D9FF; /*padding: 3px;*/
+    background: white;
+
+}
+
+.statutory-payments-PopupPanel .popupContent {
+    /*background-color: white;
+    border: 3px solid #C3D9FF;
+    padding: 3px;*/
+}
+
+    /*.gwt-PopupPanelGlass {*/
+    /*background-color: #000;*/
+    /*opacity: 0.3;*/
+    /*filter: alpha(opacity = 30);*/
+    /*}*/
+
+.spap-popup-caption {
+    padding: 10px;
+    font-weight: bold;
+    text-align: center;
+    background-color: #C3D9FF;
+}
+
+#nostylelink {
+}
+
+#nostylelink .abs-link {
+    cursor: default;
+}
+
+.save-button-style {
+    padding-left: 150px;
+}
+
+    /*for payroll*/
+.subDivisions li.payroll a {
+    background-image: url("payroll/images/payroll-sprite.png");
+    background-repeat: no-repeat;
+}
+
+    /*welcome*/
+.subDivisions .welcome a {
+    background-position: 8px -122px;
+}
+
+    /*welcome  hover and active*/
+.subDivisions .welcome a:hover, .subDivisions .welcome.active a {
+    background-position: 8px -96px;;
+}
+
+    /*deduction-list*/
+.subDivisions .deduction-list a {
+    background-position: 8px -226px;
+}
+
+    /*deduction-list  hover and active*/
+.subDivisions .deduction-list a:hover, .subDivisions .deduction-list.active a {
+    background-position: 8px -200px;
+}
+
+    /*payslip-list*/
+.subDivisions .payslip-list a {
+    background-position: 8px -70px;
+}
+
+    /*payslip-list  hover and active*/
+.subDivisions .payslip-list a:hover, .subDivisions .payslip-list.active a {
+    background-position: 8px -44px;
+}
+
+    /*forms*/
+.subDivisions .forms a {
+    background-position: 8px -278px;
+}
+
+    /*forms  hover and active*/
+.subDivisions .forms a:hover, .subDivisions .forms.active a {
+    background-position: 8px -252px;
+}
+
+    /*settings*/
+.subDivisions .settings a {
+    background-position: 8px -174px;
+}
+
+    /*settings  hover and active*/
+.subDivisions .settings a:hover, .subDivisions .settings.active a {
+    background-position: 8px -148px;
+}
+
+/*numbering settings*/
+.subDivisions .ac-type-num-settings a {
+    background-position: 7px -22px;
+}
+
+/*numbering setings hover and active*/
+.subDivisions .ac-type-num-settings a:hover, .subDivisions .ac-type-num-settings.active a {
+    background-position: 7px 6px;
+}
+
+    /*efile-to-hmrc*/
+.subDivisions .efile-to-hmrc a {
+    background-position: 8px -18px;
+}
+
+    /*efile-to-hmrc  hover and active*/
+.subDivisions .efile-to-hmrc a:hover, .subDivisions .efile-to-hmrc.active a {
+    background-position: 8px 8px;
+}
+
+    /*pension-scheme*/
+.subDivisions .pension-scheme a {
+    background-position: 8px -410px;
+}
+
+.subDivisions .pension-scheme a:hover, .subDivisions .pension-scheme.active a {
+    background-position: 8px -350px;
+}
+
+    /*tax-changes*/
+.subDivisions .tax-changes a {
+    background-position: 8px -482px;
+}
+
+.subDivisions .tax-changes a:hover, .subDivisions .tax-changes.active a {
+    background-position: 8px -457px;
+}
+
+    /*ukni-bands-list*/
+.subDivisions .ukni-bands-list a {
+    background-position: 8px -532px;
+}
+
+.subDivisions .ukni-bands-list a:hover, .subDivisions .ukni-bands-list.active a {
+    background-position: 8px -507px;
+}
+
+    /*student-loan*/
+.subDivisions .student-loan a {
+    background-position: 8px -735px;
+}
+
+.subDivisions .student-loan a:hover, .subDivisions .student-loan.active a {
+    background-position: 8px -710px;
+}
+
+    /*payments-list*/
+.subDivisions .payments-list a {
+    background-position: 8px -584px;
+}
+
+.subDivisions .payments-list a:hover, .subDivisions .payments-list.active a {
+    background-position: 8px -558px;
+}
+
+    /*deduction-list*/
+.subDivisions .py-deduction-list a {
+    background-position: 8px -634px;
+}
+
+.subDivisions .py-deduction-list a:hover, .subDivisions .py-deduction-list.active a {
+    background-position: 8px -609px;
+}
+
+    /*add-new-payment*/
+.subDivisions .add-new-payment a {
+    background-position: 8px -382px;
+}
+
+.subDivisions .add-new-payment a:hover, .subDivisions .add-new-payment.active a {
+    background-position: 8px -356px;
+}
+
+    /*pension-scheme-list*/
+.subDivisions .pension-scheme-list a {
+    background-position: 8px -684px;
+}
+
+.subDivisions .pension-scheme-list a:hover, .subDivisions .pension-scheme-list.active a {
+    background-position: 8px -659px;
+}
+
+    /*efiled-p14*/
+.subDivisions .efiled-p14 a {
+    background-position: 8px -432px;
+}
+
+.subDivisions .efiled-p14 a:hover, .subDivisions .efiled-p14.active a {
+    background-position: 8px -408px;
+}
+
+    /*bank-details*/
+.subDivisions .bank-details a {
+    background-position: 8px -839px;
+}
+
+.subDivisions .bank-details a:hover, .subDivisions .bank-details.active a {
+    background-position: 8px -813px;
+}
+
+    /*aeo-list*/
+.subDivisions .aeo-list a {
+    background-position: 8px -786px;
+}
+
+.subDivisions .aeo-list a:hover, .subDivisions .aeo-list.active a {
+    background-position: 8px -760px;
+}
+
+    /* New Payslip Form start*/
+.contentBar {
+    position: relative;
+    height: 100%;
+}
+
+.c-block {
+    margin: 0 auto;
+}
+
+.payslip-width {
+    width: 1000px;
+}
+
+.bindContent {
+    width: 100%;
+}
+
+.bindContent .sidebar {
+    min-width: 175px;
+    width: 175px;
+    border: 1px solid #ccc;
+    background: #f0ffe2;
+    vertical-align: top;
+}
+
+.mainBar {
+    min-height: 100%;
+    padding: 0 9px 0 14px;
+    vertical-align: top;
+}
+
+.mainBar .contentBox {
+}
+
+.mainBar>.group {
+    margin-bottom: 18px;
+}
+
+.mainBar .label,
+.mainBar .totalLabel {
+    font-weight: bold;
+}
+
+.payslip-block {
+    padding-bottom: 20px;
+    width: 1115px;
+}
+
+.payslip-OptBar {
+    padding: 10px 7px 0;
+    /*width: 170px;*/
+}
+
+#templateListBox .gwt-ListBox {
+    width: 170px !important;
+}
+
+.payslip-OptBar .optBarTitle {
+    font-size: 14px;
+    line-height: 22px;
+    background-color: #0077bf;
+    font-weight: bold;
+    color: #fff;
+    padding-left: 12px;
+    border-bottom: 1px solid #238bc4;
+    border-top: 1px solid #097cc0;
+}
+
+.expenseTable .reachFullWidthFields {
+    width: 550px !important;
+}
+.payslip-OptBar .exRate input {
+    width: 55px;
+    height: 17px;
+    font-size: 12px;
+}
+
+.payslip-OptBar .exRate select {
+    width: 60px;
+    height: 21px;
+    font-size: 13px;
+    margin-left: 5px;
+}
+
+.payslip-OptBar table td {
+    padding: 5px 3px;
+}
+
+.inv-OptBar .optBarBlock {
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.optBarBlock .colSortlist {
+    margin: 10px 0 0;
+    /*list-style: disc outside url(accounting/images/list-arrow.png);*/
+    margin-left: 20px;
+}
+
+.optBarBlock .colSortlist li {
+    position: relative;
+    font-size: 14px;
+    color: #004670;
+    padding: 5px 20px 5px 0;
+    border-bottom: 1px solid #a2c87e;
+}
+
+.optBarBlock .colSortlist li .btnRemove {
+    display: block;
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -7px;
+    /*background: url(accounting/images/marks-1.png) no-repeat -1px 100%;*/
+}
+
+.optBarBlock .uploadbutton {
+    /*background: url(accounting/images/bg_btn-upload.png) 0 0 no-repeat;*/
+    border: none;
+    margin-left: 30px;
+    margin-top: 20px;
+    padding-left: 30px;
+    padding-right: 10px;
+    font: bold 13px Arial, sans-serif;
+    color: #ffffff;
+    height: 28px;
+}
+
+.optBarBlock .btn-1 {
+    margin-left: 20px;
+}
+
+.mainBar .optionlabel {
+    color: #002b6d;
+    font: bold 13px/19px Arial, sans-serif;
+    padding-left: 25px;
+    background: url(payroll/images/mark-advancepayments.png) 0 50% no-repeat;
+    text-decoration: underline;
+    margin-bottom: 15px;
+}
+
+.cell-widget {
+    overflow: hidden;;
+    margin-bottom: 20px;
+}
+
+.total-table {
+    float: right;
+    position: relative;
+    background-color: #f2f2f2;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+.total-table .corner {
+    background-image: url(accounting/images/corners-gray.png);
+    background-repeat: no-repeat;
+    width: 10px;
+    height: 10px;
+    display: block;
+    position: absolute;
+    /*z-index: 10;*/
+}
+
+.corner.lt {
+    background-position: 0 0;
+    top: 0;
+    left: 0;
+}
+
+.corner.rt {
+    background-position: 100% 0;
+    top: 0;
+    right: 0;
+}
+
+.corner.lb {
+    background-position: 0 100%;
+    bottom: 0;
+    left: 0;
+}
+
+.corner.rb {
+    background-position: 100% 100%;
+    bottom: 0;
+    right: 0;
+}
+
+.totalstable > tbody > tr > td {
+    padding: 5px;
+}
+
+.totalvalue {
+    /*font: 14px/20px Arial, sans-serif;*/
+    /*text-align: right;*/
+    /*color: #ffffff;*/
+    /*background-color: #1286c3;*/
+    /*padding: 0 5px 0 10px;*/
+    /*test: Payroll;*/
+}
+
+.totallabel {
+    /*color: #002b6d;*/
+    /*font: bold 14px/20px Arial, sans-serif;*/
+    /*text-align: left;*/
+    /*padding: 0 10px 0 0;*/
+    /*background-color: #f2f2f2;*/
+}
+
+.report-lookUp input {
+    min-height: 18px;
+    min-width: 150px;
+    width: inherit;
+    border: 0;
+}
+
+.report-lookUp-width input {
+    min-width: inherit;
+}
+
+.productstable #top {
+    background-repeat: repeat-x;
+    color: #FFFFFF;
+    font-weight: bold;
+    height: 25px;
+}
+
+.productstable {
+    border: 0;
+    margin-bottom: 5px;
+    word-wrap: break-word;
+}
+
+.productstable > tbody > tr:first-child > td:first-child {
+    border-left: none;
+    width: 50px;
+}
+
+.productstable > tbody > tr:first-child > td {
+    background-color: #1286c3;
+    color: #ffffff;
+    border-right: 1px solid #003382;
+    border-left: 1px solid #3db9df;
+    font: bold 11px/24px Arial, sans-serif;
+}
+
+.productstable > tbody > tr > td {
+    padding: 3px;
+}
+
+.productstable .odd > td {
+    background-color: #f3f3f3;
+}
+
+    /* New Payslip Form end*/
+.sick-settings {
+    margin: auto 5%;
+}
+.sick-settings .titleLabel {
+    font-size: 16px;
+    color: #0d47a1;
+    font-weight: bold;
+}
+.sick-settings .row {
+    width: 18%;
+    padding: 20px 0;
+}
+.sick-settings .column {
+    font-size: 14px;
+    color: #0d47a1;
+    display: inline-block;
+}
+.sick-settings .row .widget {
+    margin: 0 0 0 30px;
+}
+.width-40 {
+    width: 40px;
+}
+.sick-settings .column {
+    padding: 10px 0;
+}
+
+
+/*POPUP EDIT ON FOCUS*/
+.grid-column .data-cell.editable-cell button{
+    display: none;
+}
+.grid-column.selected-cell{
+    position:relative;
+}
+
+.grid-column.selected-cell .data-cell.editable-cell .saveable-cell{
+    position: absolute;
+    width: 125px;
+    display:flex;
+    align-items: center;
+    left:0;
+    top:0;
+    padding: 5px;
+    box-shadow: 0px 0px 5px 5px #cecece;
+    border-radius: 5px;
+    z-index: 99!important;
+}
+.grid-column.selected-cell .data-cell.editable-cell button{
+    margin-left:5px;
+    display: inline-block;
+}

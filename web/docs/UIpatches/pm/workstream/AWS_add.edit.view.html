@@ -1,0 +1,38 @@
+<div class="contentBar" style="padding:0 10px; margin-top:2px;">
+    <div id="click" class="slideDown-box expand group">
+        <h3 onclick="var myclick=document.getElementById('click');if(myclick &amp;&amp; myclick.className){;
+}{var cls=myclick.className;if(cls.indexOf('expand')>=0){cls=cls.replace('expand','');}else{cls+=' expand';}myclick.className=cls;}"
+            class="slideDown-title">$$label:WORKSTREAM_DETAILS$$</h3>
+        <fieldset class="slideDown-content group labelLine">
+            <div class="halfSet-1 left">
+                <div class="row">$$label:PROJECT$$
+                    <div class="field">$$input:PROJECT$$</div>
+                </div>
+                <div class="row">$$label:NUMBER$$
+                    <div class="field">$$input:NUMBER$$</div>
+                </div>
+                <div class="row">$$label:NAME$$
+                    <div class="field">$$input:NAME$$</div>
+                </div>
+                <div class="row">$$label:DESCRIPTION$$
+                    <div class="field">$$input:DESCRIPTION$$</div>
+                </div>
+            </div>
+
+            <div class="halfSet-1 left">
+                <div class="row">$$label:PARENT_WORKSTREAM$$
+                    <div class="field">$$input:PARENT_WORKSTREAM$$</div>
+                </div>
+                <div class="row">$$label:START_DATE$$
+                    <div class="field">$$input:START_DATE$$</div>
+                </div>
+                <div class="row">$$label:END_DATE$$
+                    <div class="field">$$input:END_DATE$$</div>
+                </div>
+                <div class="row">$$label:DUE_DATE_REMINDER$$
+                    <div class="field">$$input:DUE_DATE_REMINDER$$ $$input:DUE_DATE_REMINDER_ADD_LINK$$</div>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+## Project added notification
+## $project - project added
+## $recipient - recipient of the alert (Director/HR/Admin)
+## $user - User submitted this alert.
+## $date - Date of alert submission
+## $link --
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<p>
+
+<h3>Нерассмотренный список событий</h3>
+
+<table cellpadding=3 border=1>
+    <tr>
+        <td>Имя Процессора события</td>
+        <td>ID объекта</td>
+        <td>Исходный ID</td>
+        <td>Тип события</td>
+        <td>Время события</td>
+    </tr>
+
+    #foreach($event in $eventlist)
+       <tr>
+           <td>$event.getProcessorName()</td>
+           <td>$event.getEntityID()</td>
+           <td>$event.getSourceID()</td>
+           <td>$event.getEventType()</td>
+           <td>$event.getTime()</td>
+       </tr>
+    #end
+
+</table>
+
+
+
+</body>
+</html>

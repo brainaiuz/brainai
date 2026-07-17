@@ -1,0 +1,1 @@
+UPDATE "anv".crmContact SET kanban_order=65535 WHERE kanban_order is null;

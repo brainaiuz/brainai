@@ -1,0 +1,4 @@
+<module rename-to="pm">
+    <inherits name='com.edatasite.workforce.gwt.pm.PM'/>
+    <inherits name="com.edatasite.workforce.gwt.Localization_properties"/>
+</module>

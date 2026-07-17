@@ -1,0 +1,1 @@
+insert into "anv".permission_context (permissioncode, contextcode) values ('PM_PROJECT_ADD', 'ACCOUNTING');

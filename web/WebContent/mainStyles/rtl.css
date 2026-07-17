@@ -1,0 +1,431 @@
+html, body {
+    direction: rtl;
+}
+
+.left {
+    float: right !important;
+}
+
+.right {
+    float: left !important;
+}
+
+.collapsible--arrows-left .collapsible-header > *:first-child {
+    margin-left: 0;
+    margin-right: 2.5rem;
+}
+
+/* BASE LAYOUT */
+.prof-comp-list__mark i {
+    margin-left: 0;
+    margin-right: 0.76923rem;
+}
+
+.frame__nav {
+    border-right: 0;
+    border-left: 1px solid #eceff3;
+}
+.frame__content .external-scroll_y.scroll-scrolly_visible {
+    right: auto;
+    left: 0;
+}
+body:not(.fitted-content) .whiteBGR {
+    padding-right: 0;
+    padding-left: 1.66667rem;
+}
+
+/*HEADEER*/
+.header-tabs {
+    padding-right: 0;
+    padding-left: 40px;
+}
+.frame__header .user-menu-item {
+    margin-left: 0;
+    margin-right: 10px;
+}
+.btn--remove-light {
+    margin-right: 0;
+    margin-left: 15px;
+}
+
+
+.operPanel__btn-groups > * + *, .operPanel__advanced-filter > * + *, .operPanel__settings > * + *, .operPanel__actions > * + * {
+    margin-left: 0;
+    margin-right: 15px;
+}
+.attendanceReport__filters, .filters-account-reports, .operPanel--header, .page-opers, .resourceutilreportbigtable-filters {
+    padding-right: 1.66667rem;
+}
+.header-tabs .tab .close, .header-tabs .tab .close--2 {
+    right: auto;
+    left: -4px;
+    margin-right: 0;
+    margin-left: -9px;
+}
+.panel-box__item:not(:first-child) {
+    margin-left: 0;
+    margin-right: 0.76923rem;
+}
+
+
+.ficon--chevron-left,
+.ficon--chevron-right,
+.icon--chevronRight,
+.icon--chevronLeft {
+    transform: rotate(180deg);
+}
+
+.widget-heading .widget-row-head .widget__title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.noteWidget__buttons {
+    padding-right: 0; //Temp
+    /*padding-left: 30px;*/
+}
+.noteWidget__buttons>div:last-child {
+    margin-right: auto;
+    margin-left: 0;
+}
+
+/*widget header*/
+.widget-heading__action:last-child .btn--icon {
+    margin-right: 0;
+    margin-left: -0.83333rem;
+}
+.widget-heading__action:last-child .btn--icon .ficon--repeat {
+    margin-right: 0;
+    margin-left: -0.8em;
+}
+.calendar-box__icon {
+    padding-left: 0;
+    padding-right: 0.41667rem;
+}
+.widget__title h3 {
+    margin-right: 0;
+    margin-left: 0.83333rem;
+}
+
+
+/*MAIN MODULES*/
+.profile-card__opts figure svg {
+    margin-right: 0;
+    margin-left: 18px;
+}
+/*add new menu*/
+.frame__nav #frame__header__create-new {
+    left: auto !important;
+    right: 100% !important;
+}
+.frame__nav #frame__header__create-new > li .icon--plus {
+    margin-right: 0;
+    margin-left: 10px;
+}
+/* \add new menu*/
+
+
+.main-directories > li > .collapsible-body > ul {
+    padding-left: 0;
+    padding-right: 2px;
+}
+.main-directories > li > .collapsible-body > ul:before {
+    left: auto;
+    right: 8px;
+    border-left: 1px solid #ced5db;
+}
+.main-directories > li:not(.main-dir__dashboard) > .collapsible-body > ul > li {
+    padding-left: 8px;
+    padding-right: 14px;
+}
+.main-directories > li > .collapsible-body > ul > li {
+    margin-right: 0;
+    margin-right: 6px;
+}
+html[dir="rtl"] .main-dir__dashboard .collapsible-body > ul > li {
+    padding-right: 8px;
+    padding-left: 33px;
+}
+.main-directories__sublink {
+    right: auto;
+    left: 0;
+}
+.main-directories__sublink + a {
+    padding-right: 0;
+    padding-left: 2.01923rem;
+}
+.main-directories > li > .collapsible-body > ul > li:before, .main-directories > li > .collapsible-body > ul > li:after {
+    left: auto;
+    right: -1px;
+}
+.main-directories > li > .collapsible-body > ul > li:before, .main-directories > li > .collapsible-body > ul > li:after {
+    left: auto;
+    right: -1px;
+}
+.main-directories .collapsible-header a, .main-directories .main-dir__dashboard .collapsible-body > ul > li {
+    padding-left: 0;
+    padding-right: 8px;
+}
+.main-directories {
+    margin-left: 0;
+    margin-right: -2px;
+    /*padding-right: 20px;*/
+}
+/* \BASE LAYOUT */
+
+
+.frame__nav-title/*, .main-directories*/ {
+    padding-left: 20px;
+}
+.btn-aux--binary a .btn-aux__title {
+    margin-left: 0;
+    margin-right: 10px;
+}
+.trial-informer > .btn, .trial-informer > .btn--circle, .trial-informer > .btn--icon {
+    margin-left: 0;
+    margin-right: 20px;
+}
+
+/*COMMON FORMS ELS*/
+.btn > svg:first-child + span, .btn--circle > svg:first-child + span, .btn--icon > svg:first-child + span, .btn > i[class*="ficon--"] + span, .btn--circle > i[class*="ficon--"] + span, .btn--icon > i[class*="ficon--"] + span, .btn > span + i[class*="ficon--"], .btn--circle > span + i[class*="ficon--"], .btn--icon > span + i[class*="ficon--"] {
+    margin-left: 0;
+    margin-right: 0.5rem;
+}
+
+
+.btns-group > * + * {
+    margin-left: 0;
+    margin-right: 10px;
+}
+.btn-group:not(.dropdown-split__toggle) > .btn:not(:last-child):not(.dropdown-toggle),
+.btn-group:not(.dropdown-split__toggle) > .btn-group:not(:last-child) > .btn {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.btn-group > .btn:not(:first-child), .btn-group > .btn-group:not(:first-child) > .btn {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+
+
+
+.collapsible--arrows-left .collapsible-header:after {
+    left: auto;
+    right: 2.5rem;
+    margin-left: 0;
+    margin-right: -0.2em;
+}
+
+.gwt-CheckBox, .gwt-RadioButton, .control {
+    padding-left: 0;
+    padding-right: 1rem;
+}
+
+/*INPUT GROUPS*/
+.input-group {}
+.gwt-RadioButton input, .gwt-RadioButton label:before, .gwt-CheckBox input, .gwt-CheckBox label:before, .control input, .control__indicator:before {
+    left: auto;
+    right: 0;
+}
+.gwt-RadioButton input, .gwt-RadioButton label:before, .gwt-CheckBox input, .gwt-CheckBox label:before, .control input, .control__indicator:before {
+    left: auto;
+    right: 0;
+}
+.gwt-CheckBox label:after, .gwt-RadioButton label:after, .control__indicator:after {
+    left: 0;
+    right: -0.25em;
+}
+.gwt-RadioButton label:after, .control--radio .control__indicator:after {
+    left: auto;
+    right: 0.33333rem;
+}
+
+.input-group > .input-group-append > .btn, .input-group > .input-group-append > .btn--circle, .input-group > .input-group-append > .btn--icon, .input-group > .input-group-append > .input-group-text, .input-group > .input-group-append > .input-group-content, .input-group > .input-group-append > .input-field, .input-group > .input-group-prepend:not(:first-child) > .btn, .input-group > .input-group-prepend:not(:first-child) > .btn--circle, .input-group > .input-group-prepend:not(:first-child) > .btn--icon, .input-group > .input-group-prepend:not(:first-child) > .input-group-text, .input-group > .input-group-prepend:not(:first-child) > .input-group-content, .input-group > .input-group-prepend:not(:first-child) > .input-field, .input-group > .input-group-prepend:first-child > .btn:not(:first-child), .input-group > .input-group-prepend:first-child > .btn--circle:not(:first-child), .input-group > .input-group-prepend:first-child > .btn--icon:not(:first-child), .input-group > .input-group-prepend:first-child > .input-group-text:not(:first-child), .input-group > .input-group-prepend:first-child > .input-group-content:not(:first-child), .input-group > .input-group-prepend:first-child > .input-field:not(:first-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.input-group > .input-group-content:not(:last-child), .input-group > .form-control:not(:last-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.input-group > .input-group-content:not(:last-child), .input-group > .form-control:not(:last-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.input-group > .input-group-prepend > .btn, .input-group > .input-group-prepend > .btn--circle, .input-group > .input-group-prepend > .btn--icon, .input-group > .input-group-prepend > .gwt-ListBox, .input-group > .input-group-prepend > .input-group-text, .input-group > .input-group-prepend > .input-group-content, .input-group > .input-group-prepend > .input-field, .input-group > .input-group-append:not(:last-child) > .btn, .input-group > .input-group-append:not(:last-child) > .btn--circle, .input-group > .input-group-append:not(:last-child) > .btn--icon, .input-group > .input-group-append:not(:last-child) > .gwt-ListBox, .input-group > .input-group-append:not(:last-child) > .input-group-text, .input-group > .input-group-append:not(:last-child) > .input-group-content, .input-group > .input-group-append:not(:last-child) > .input-field, .input-group > .input-group-append:last-child > .btn:not(:last-child):not(.dropdown-toggle), .input-group > .input-group-append:last-child > .btn--circle:not(:last-child):not(.dropdown-toggle), .input-group > .input-group-append:last-child > .btn--icon:not(:last-child):not(.dropdown-toggle), .input-group > .input-group-append:last-child > .input-group-text:not(:last-child), .input-group > .input-group-append:last-child > .input-group-content:not(:last-child), .input-group > .input-group-append:last-child > .input-field:not(:last-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.input-group-prepend .btn + .btn, .input-group-prepend .btn--circle + .btn, .input-group-prepend .btn--icon + .btn, .input-group-prepend .btn + .btn--circle, .input-group-prepend .btn--circle + .btn--circle, .input-group-prepend .btn--icon + .btn--circle, .input-group-prepend .btn + .btn--icon, .input-group-prepend .btn--circle + .btn--icon, .input-group-prepend .btn--icon + .btn--icon, .input-group-prepend .input-group-text + .btn, .input-group-prepend .input-group-text + .btn--circle, .input-group-prepend .input-group-text + .btn--icon, .input-group-prepend .form-control + .btn, .input-group-prepend .form-control + .btn--circle, .input-group-prepend .form-control + .btn--icon, .input-group-prepend .btn + .input-group-text, .input-group-prepend .btn--circle + .input-group-text, .input-group-prepend .btn--icon + .input-group-text, .input-group-prepend .input-group-text + .input-group-text, .input-group-prepend .form-control + .input-group-text, .input-group-prepend .input-group-text + .form-control, .input-group-prepend .btn + .form-control, .input-group-prepend .btn--circle + .form-control, .input-group-prepend .btn--icon + .form-control, .input-group-prepend .form-control + .form-control, .input-group-append .btn + .btn, .input-group-append .btn--circle + .btn, .input-group-append .btn--icon + .btn, .input-group-append .btn + .btn--circle, .input-group-append .btn--circle + .btn--circle, .input-group-append .btn--icon + .btn--circle, .input-group-append .btn + .btn--icon, .input-group-append .btn--circle + .btn--icon, .input-group-append .btn--icon + .btn--icon, .input-group-append .input-group-text + .btn, .input-group-append .input-group-text + .btn--circle, .input-group-append .input-group-text + .btn--icon, .input-group-append .form-control + .btn, .input-group-append .form-control + .btn--circle, .input-group-append .form-control + .btn--icon, .input-group-append .btn + .input-group-text, .input-group-append .btn--circle + .input-group-text, .input-group-append .btn--icon + .input-group-text, .input-group-append .input-group-text + .input-group-text, .input-group-append .form-control + .input-group-text, .input-group-append .input-group-text + .form-control, .input-group-append .btn + .form-control, .input-group-append .btn--circle + .form-control, .input-group-append .btn--icon + .form-control, .input-group-append .form-control + .form-control {
+    margin-left: 0;
+    margin-right: -1px;
+}
+.input-group > .input-group-content + .input-group-content, .input-group > .input-group-content + .form-control, .input-group > .form-control + .input-group-content, .input-group > .form-control + .form-control {
+    margin-left: 0;
+    margin-right: -1px;
+}
+.input-group-prepend {
+    margin-right: 0;
+    margin-left: -1px;
+}
+.input-group-append {
+    margin-left: 0;
+    margin-right: -1px;
+}
+
+
+/*QUICK ADD PANEL*/
+.side-nav__footer .btn + .btn, .side-nav__footer .btn--circle + .btn, .side-nav__footer .btn--icon + .btn, .side-nav__footer .btn + .btn--circle, .side-nav__footer .btn--circle + .btn--circle, .side-nav__footer .btn--icon + .btn--circle, .side-nav__footer .btn + .btn--icon, .side-nav__footer .btn--circle + .btn--icon, .side-nav__footer .btn--icon + .btn--icon {
+    margin-left: 0;
+    margin-right: 10px;
+}
+[dir="rtl"] .side-nav-close {
+    right: auto;
+    left: 100%;
+    margin: 0 0 0 -4px;
+    border-radius: 0 50% 50% 0;
+}
+[dir="rtl"] .quick-add:not(.user-menu-settings) .collapsible-header {
+    padding-left: 0;
+    padding-right: 20px;
+}
+[dir="rtl"] .quick-add .collapsible--arrows .collapsible-header:after {
+    right: auto;
+    left: 10px;
+    left: .83333rem;
+}
+.controls-row > * + * {
+    margin-left: 0;
+    margin-right: 10px;
+}
+.hasicon--left:not(.btn):not(.btn--circle):not( .btn--icon) i, .dropdown-content li > .java-wrap > a > i, .dropdown-content li > a > i {
+    margin-right: 0;
+    margin-left: 0.7em;
+}
+
+/*DRAG TILE*/
+.drag-tile__actions {
+    padding-right: 0;
+    padding-left: 10px;
+}
+.drag-tile__actions > * {
+    margin-left: 0;
+    margin-right: 0.5rem;
+}
+
+/*ICONS MARGINS*/
+.wg_notes__history-item {
+    /*padding-right: 0;*/
+    /*padding-left: 10px;*/
+}
+.wg_notes__item-remove {
+    margin-right: 0;
+    margin-left: 15px;
+}
+.wg_notes__add-btn {
+    margin-right: 0;
+    margin-left: 5px;
+}
+
+/*TABLES*/
+td, th {
+    text-align: right;
+}
+.gwt-ScrollTable .dataTable > tbody > tr > td:first-child, .gwt-ScrollTable .headerTable > * > tr > *:first-child {
+    padding-right: 29px;
+    padding-left: 8px;
+}
+.cell-decorator>.control, .cell-decorator>.gwt-control, .cell-decorator>i {
+    margin-left: 0;
+    margin-right: -8px;
+}
+.row-decorator {
+    left: auto;
+    right: 8px;
+}
+
+/*PLANS AND PRICING PAGE*/
+.pg_planpricing__main {
+    margin-right: 0;
+    margin-left: 30.83333rem;
+}
+.cp_planpricing__sidebar {
+    right: auto !important;
+    left: 1.66667rem !important;
+}
+.cp_inc-field:not(:last-child) {
+    margin-right: 0;
+    margin-left: 10px;
+}
+.cp_inc-field__input-button--dec {
+    border-radius: 0 5px 5px 0;
+}
+.cp_inc-field__input-button--inc {
+    border-radius: 5px 0 0 5px;
+}
+
+
+/*REPORTING*/
+.figure-h {
+    border-left: none;
+    border-right: 4px solid transparent;
+}
+.panel-reporting__text:last-child {
+    padding-right: 0;
+}
+.panel__body .figure-h:not(.figure-h--info):hover {
+    border-right-color: #cfd6dc;
+}
+.panel__body .figure-h:after {
+    right: auto;
+    left: 2.5rem;
+    transform: rotate(180deg);
+}
+.figure-h .figure-actions {
+    margin-right: auto;
+    margin-left: 5.35rem;
+}
+#customReport_tab_6 tbody > tr > *:nth-child(2) {
+    border-left-width: 0;
+    border-right-width: 1px;
+    border-radius: 0 5px 5px 0;
+}
+#customReport_tab_6 tbody > tr > *:last-child {
+    border-right-width: 0;
+    border-left-width: 1px;
+    border-radius: 5px 0 0 5px;
+}
+#customReport_tab_6 tbody > tr > *:not(:last-child):not(:first-child):after {
+    right: auto;
+    left: 0;
+    border-right: none;
+    border-left: 1px solid #e8e8e8;
+}
+/*\REPORTING*/
+
+/*LIVE CHAT BUTTON*/
+.frame__support .support-trial > .btn {
+    position: relative;
+    /*right: auto;*/
+    /*left: 0.83333rem;*/
+}
+.frame__support .dropdown-content li svg {
+    margin-right: auto;
+    margin-left: 10px;
+}
+.frame__support .dropdown-content .live-chat-item__visual {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.add-form .advanced-Grid .ficon--trash {
+    margin-left: 10px;
+}
+/* \ LIVE CHAT BUTTON*/
+
+/*https://prnt.sc/qkd3bn*/
+.advanced-GridPanel .data-cell .editable-cell__actions {
+    margin-right: auto;
+}

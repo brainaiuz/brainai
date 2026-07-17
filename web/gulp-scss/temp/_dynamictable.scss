@@ -1,0 +1,433 @@
+.valign-top {
+  > tbody > tr > td {
+    vertical-align: top !important; //https://prnt.sc/rxefcv
+  }
+}
+.has-tableDescription {
+  td > table.textAreaPanel {
+    .counterGreen {
+      margin-top: -20px; //https://prnt.sc/rxf12r
+    }
+  }
+}
+
+.dynamictable-border, //https://prnt.sc/r5lpva
+.dynamictable:not(.RelatedTo-selection, .dnmctbl) {
+  border-spacing: 4px;
+  border-collapse: separate;
+}
+
+.dynamictable .no-margin {
+  margin: 0 !important;
+}
+
+.dynamictable-header {
+  @include table-cell-heading;
+  //padding: 0 5px 0;
+  @include txtTruncate();
+}
+
+.dynamictable {
+  width: auto !important;
+
+  &--full-width {
+    width: 100% !important;
+  }
+
+  &.competenciesTable {
+    table-layout: fixed;
+    border-spacing: 0;
+
+    .form-group__content > & {
+      margin-top: 0;
+    }
+
+    > tbody > tr > td {
+      width: auto;
+      vertical-align: top !important;
+
+      + td {
+        padding-left: $padding-x-base;
+      }
+    }
+  }
+
+  .localedWidget {
+    td {
+      vertical-align: top;
+
+      &:first-child {
+        &:has(input) {
+          input {
+            border-start-end-radius: 0;
+            border-end-end-radius: 0;
+          }
+
+          & + td:last-child {
+            > .btn {
+              border-start-start-radius: 0;
+              border-end-start-radius: 0;
+            }
+          }
+        }
+
+        &:has(textarea) {
+          width: 316px;
+
+          & + td:last-child {
+            > .btn {
+              margin-left: 4px;
+            }
+          }
+        }
+      }
+
+      &:last-child {
+
+      }
+    }
+  }
+
+  .form-group__content & {
+    margin-top: -4px;
+  }
+
+  .productstable-header {
+    padding-left: 5px;
+    text-transform: uppercase;
+    font-size: 11px;
+    color: #8D9BAB;
+  }
+
+  .combobox {
+    line-height: 1;
+  }
+
+  tr:not(:first-child) {
+    > * {
+      height: $tableCellHeight;
+      //> .gwt-HTML, > .gwt-Label,
+      > div {
+        line-height: 1.4;
+
+        &:not(:hover) {
+          color: $color-accent-2;
+        }
+      }
+    }
+  }
+
+  td {
+    border-radius: 0;
+    //> .gwt-HTML, > .gwt-Label,
+    > div:not(.simpleGwt-ComboBox) {
+      padding-left: $tableCellPadding-x;
+      padding-right: $tableCellPadding-x;
+    }
+
+    > input {
+      padding: 0 $tableCellPadding-x;
+
+      // Accounting > Product & Services > Add > Build Assembly - Item Table https://live.staticflickr.com/65535/54851965944_1c7016bcda_c.jpg
+      width: calc(100% - #{$tableCellPadding-x * 2}) !important;
+      margin-left: $tableCellPadding-x;
+      margin-right: $tableCellPadding-x;
+    }
+  }
+  > tbody > tr {
+    > td {
+      background-color: white;
+
+      > .gwt-CheckBox {
+        line-height: 1.4;
+      }
+    }
+    &:not(:first-child) > td {
+      position: relative;
+      //vertical-align: top !important; // that is good fot the next  // https://prnt.sc/pvsuwu but broke the alignment in the listing > edit form (.add-form) //https://prnt.sc/rxbo0q
+      background-color: white;
+
+      &.right-align-Cell {
+        > .gwt-Label {
+          display: inline-flex; //https://prnt.sc/rep94r
+          //align-items: center; Do not use due to text alignment https://live.staticflickr.com/65535/54780069008_967e397363_b.jpg
+          justify-content: flex-end;
+          height: $input-height;
+          > * {
+            vertical-align: middle !important;
+          }
+        }
+      }
+
+      #gwt-debug-Add_multi_task_assigneesEstimatedTime { //http://prntscr.com/of5xom
+        width: 180px;
+      }
+    }
+    &:first-child > td {
+      background: none !important;
+      border: none !important;
+    }
+  }
+
+  //https://prnt.sc/sj1jdy
+  .textAreaPanel {
+    //margin-top: -20px;
+    .counterGreen .counterLabel {
+      position: absolute;
+      width: auto;
+      top: -5px;
+      right: 5px;
+      padding: 0 2px;
+      font-size: 8px;
+      //bottom: -10px;
+      background-color: #fff;
+    }
+    .gwt-TextArea {
+      font-size: .9em;
+    }
+  }
+  &__actions,
+  &__action-cell {
+    width: $button-height;
+  }
+  &__actions {
+    .btn--icon {
+      @include table-actions-svg;
+    }
+  }
+  .gwt-CheckBox label,
+  .gwt-RadioButton label,
+  .control__indicator {
+    vertical-align: baseline;
+  }
+
+  .input-field {
+    margin-top: 0;
+    position: relative;
+  }
+
+ //!you may add :not(.dnmctbl__qty)
+  td:not(.right-align-Cell) {
+    * input:not([type="checkbox"]):not([type="radio"]), //Item Table td > input https://live.staticflickr.com/65535/54851965944_1c7016bcda_c.jpg
+    .simpleGwt-ComboBox,
+    select {
+      width: 100% !important;
+      text-align: left !important;
+    }
+  }
+  .gwt-RadioButton {
+    margin: 0 5px;
+  }
+  td .gwt-RadioButton {
+    display: block;
+    width: 17px;
+    height: 17px;
+    margin: 0 auto 0;
+  }
+  .cellBasedWidget-mod {
+    @extend %form-control-style;
+    min-height: $input-height;
+
+    td {
+      min-height: auto;
+      height: auto;
+      line-height: 13px;
+      padding: 3px 10px;
+    }
+  }
+
+
+  .input-field textarea,
+  .gwt-TextArea {
+    //position: absolute; //https://prnt.sc/pve6zd
+    height: $button-height;
+    width: 100% !important;
+    font-size: 12PX;
+    line-height: 1.4;
+    max-height: 100px;
+    transition: 0.1s all ease-out 0s;
+
+    &:focus {
+      z-index: 9;
+      height: ($button-height * 1.5);
+    }
+  }
+  .textAreaPanel {
+    //.counterGreen
+    .gwt-Label {
+      margin-top: -20px; //https://prnt.sc/pve91k
+      text-align: right;
+      font-style: italic;
+    }
+  }
+  .gwt-CheckBox {
+    margin: 0 5px;
+    white-space: nowrap; //http://prntscr.com/of60ql
+  }
+  .select2-container {
+    border: none;
+  }
+  .select2-selection {
+    border: none !important;
+  }
+  textarea {
+    display: block;
+    line-height: 1.4;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  .gwt-TextBox,
+  input[type='text'] {
+    min-width: 50px;
+  }
+
+  .uploadLinkStyle {
+    display: block !important;
+    padding-left: 5px;
+    line-height: 1.4;
+  }
+
+  table[title="DISCOUNT_AMT"] td {
+    vertical-align: middle !important;
+  }
+
+} //End .dynamictable
+.dynamictable:not(.RelatedTo-selection) {
+  > tbody > tr > td,
+  > tbody > tr > td > table > tbody > tr > td {
+    > div {
+      //@include txtTruncate(); //Do not Use this! => https://live.staticflickr.com/65535/54713866515_18f2e4a0d1_b.jpg
+    }
+  }
+
+  .dynamictable__actions {
+    > tbody > tr > td {
+      padding-left: 0 !important;
+      padding-right: 0;
+    }
+  }
+}
+
+
+tbody tr:not(:first-child) > td:first-child .dynamictable > tbody > tr:not(:first-child) > td:last-child {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+
+.RelatedTo-selection { //https://prnt.sc/rq1ghy
+  &__wrapper {
+    border: 1px solid $control-border-color;
+    > tbody > tr {
+      + tr {
+        > td {
+          padding-top: 3px;
+          padding-bottom: 3px;
+        }
+      }
+      &:nth-child(even) {
+        background-color: $color-base-contrast;
+      }
+    }
+  }
+  > tbody > tr > td {
+    &:not(:last-child) {
+      padding: 0 $control-padding-x;
+    }
+    &:last-child {
+      svg {
+        width: 15px;
+        height: 15px;
+        @include iconActionHover;
+      }
+    }
+  }
+}
+
+//https://prnt.sc/smc3mb
+.positiontable {
+  &__thead {
+
+  }
+
+  > tbody > tr {
+    > td {
+      padding: 0 2px;
+      vertical-align: top !important;
+      &:first-child {
+        padding-left: 0;
+      }
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+    + tr > td {
+      padding-top: 10px;
+    }
+  }
+}
+
+
+//https://prnt.sc/sn7ofx
+.add-employee-modal {
+  .cellBasedWidget-mod > div[style*="absolute"] {
+    position: static !important;
+    &:first-child {
+      //width: calc(100% + 20px) !important;
+      .cellBasedWidgetTable-header,
+      .cellBasedWidgetTable-body  {
+
+      }
+    }
+  }
+}
+
+
+//https://prnt.sc/sp7ynz
+.payInvoiceTable {
+  .closeCheckBox {
+    width: auto !important;
+  }
+}
+
+
+//NEW Dynamictable styles
+.dnmctbl {
+  table-layout: fixed; width: 100%;
+
+  .truncTxt-root { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: block; max-width: 100%; }
+
+  &--vatop {
+    > * > tr > * { vertical-align: top !important; }
+  }
+
+  > * > tr {
+    &:not(:first-child) + tr > * { border-top: 10px solid #fff; } // можно слить как выше
+  }
+
+  //пара кнопок
+  &__actions-cell {
+    width: $button-height * 2;
+  }
+
+  // Узкие числовые */
+  &__amount { width: 10ch; text-align: right;}
+  &__rate {text-align: right;}
+  &__qty { width: 10ch; text-align: right; }
+  &__type { width: 8rem; }
+
+  // Средние
+  &__warehouse {width: 18rem; }
+  &__item   { width: 18rem; }
+  &__account { width: 18rem; }
+  &__name    { width: 18rem; }
+  &__bill    { width: 18rem; }
+
+  // текстовые
+  &__desc {
+    //long text wighout spaces breaks
+    word-break: break-word;
+  }
+
+}
+//NEW Dynamictable styles

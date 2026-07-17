@@ -1,0 +1,1 @@
+update "anv".item_stock set warehouseid = (select id from "anv".warehouse where isDefaultWarehouse is true order by id desc limit 1) where warehouseid is null;

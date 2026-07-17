@@ -1,0 +1,13 @@
+/* css fixes for IE-8 and earlier versions */
+ /* START LOGIN PAGE */
+#loginForm label input {
+	line-height:32px;
+	}
+
+*+html .submitGroup>:first-child {
+	display:inline;
+	zoom:1;
+	}
+*+html #loginForm .submitGroup-1 {
+	min-width:290px;
+	}

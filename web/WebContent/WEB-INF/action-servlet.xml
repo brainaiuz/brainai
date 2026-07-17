@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="multipartResolver"
+          class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!-- one of the properties available; the maximum file size in bytes -->
+        <property name="maxUploadSize" value="31457280"/>
+    </bean>
+
+    <bean id="handlerMapping"
+          class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <value>
+                /CreateSubscription = createSubscriptionHandler
+                /CreateTaskComment = createTaskCommentHandler
+                /uploadChartOfAccounts = createChartOfAccountsUploadHandler
+                /uploadChartOfAccountsBackend = createChartOfAccountsBackendUploadHandler
+                /uploadAttendanceXslFile=createAttendanceReportUploadHandler
+                /CompanyAttachment = createLogoHandler
+                /CreateAttachment = createAttachmentHandler
+
+                /CreateNetworkAttachment = createNetworkAttachmentHandler
+                /MSProjectUploadHandler = msProjectUploadHandler
+                /CreateBankAccountFileHandler = createBankAccountFileHandler
+                /CreateProductPicturesHandler = createProductPicturesHandler
+                /CreateProductCategoryPicturesHandler = createProductCategoryPicturesHandler
+                <!--/CreateStoreFrontSettingsHandler = createStoreFrontSettingsHandler-->
+                <!--/CreateWfpAttachmentsHandler = createWfpAttachmentsHandler-->
+                /CreateExcelReportTemplateHandler = createExcelReportTemplateHandler
+                /TestResultsUploadHandler = testResultsUploadHandler
+                /ProductSerailsHandler = productSerailsHandler
+            </value>
+        </property>
+    </bean>
+
+</beans>

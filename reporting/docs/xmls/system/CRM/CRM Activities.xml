@@ -1,0 +1,80 @@
+<report>
+    <view>
+        <title>CRM Activities Report</title>
+        <name>Activities Report</name>
+        <category>activities</category>
+        <sqlquery>
+            <select agregateFunc="distinct">
+                <table class="file--CRM_Activities" name="Activities">
+                    <column name="t.id" title="id" type="number" formattype="hidden"/>
+                    <column name="t.subject" title="Subject" type="string" formattype="string"/>
+                    <column name="t.activitytype" title="Activity Type" type="string" formattype="string"/>
+                    <column name="t.duedate" title="Due Date" type="date" formattype="without_time_zone_and_time"/>
+                    <column name="t.assignee" title="Assignee" type="string" formattype="string"/>
+                    <column name="t.description" title="Description" type="string" formattype="string"/>
+                    <column name="crc.subject" title="CRM Case" type="string" formattype="string"/>
+                    <column name="cco.name" title="CRM Account" type="string" formattype="string"/>
+                    <column name="( coalesce(crmcon.firstName,'') ||' '||coalesce(crmcon.lastname,'') )" title="CRM Contact"
+                            type="string" formattype="string"/>
+                    <column name="( coalesce(ld.firstName,'') ||' '|| coalesce(ld.lastname,'') )" title="Lead Name"
+                            type="string" formattype="string"/>
+                    <column name="opp.name" title="Opportunity Name" type="string" formattype="string"/>
+                    <column name="t.startdate" title="Start Date" type="date" formattype = "without_time_zone_and_time"/>
+                    <column name="t.venue" title="Where" type="string" formattype="string"/>
+                </table>
+            </select>
+            <from>
+                (
+                select
+                cev.id as id,
+                cev.callLog as calllog,
+                cev.subject as subject,
+                case when cev.callLog = 'true' then 'Call Log' ELSE 'Events' end as activitytype,
+                cev.enddate  as duedate,
+                cev.deleted as deleted,
+                array_to_string(array_agg(a.firstName||' '||a.lastname), ', ') as assignee,
+                cev.description,
+                cev.startdate,
+                cev.venue
+                from "$".event cev
+                left join (select empevn.event_id as id, myu.firstName as firstName, myu.lastname as lastname from "$".employeeevent empevn
+                inner join "$".myuser myu on empevn.employee_id = myu.id where empevn.deleted is not true) a on a.id = cev.id
+                WHERE cev.deleted is not true
+                group by cev.id, cev.callLog, cev.subject, duedate, cev.deleted, cev.description, cev.startdate, cev.venue ) t
+                LEFT JOIN "$".relation rel on ((rel.toid = t.id and rel.totype = 'event') or (rel.fromid = t.id and rel.fromtype = 'event'))
+            </from>
+
+            <join-conditions>
+
+                <join name="Lead Name">
+                    LEFT JOIN "$".crmcontact ld ON ((rel.toid = ld.id and rel.totype = 'lead') or (rel.fromid = ld.id
+                    and rel.fromtype = 'lead'))
+                </join>
+
+                <join name="CRM Contact">
+                    LEFT JOIN "$".crmcontact crmcon ON ((rel.toid = crmcon.id and rel.totype = 'contact') or (rel.fromid
+                    = crmcon.id and rel.fromtype = 'contact'))
+                </join>
+
+                <join name="Opportunity Name">
+                    LEFT JOIN "$".opportunity opp ON ((rel.toid = opp.id and rel.totype = 'opportunity') or (rel.fromid
+                    = opp.id and rel.fromtype = 'opportunity'))
+                </join>
+
+                <join name="CRM Account">
+                    LEFT JOIN "$".crmcontact cco ON ((rel.toid = cco.id and rel.totype = 'account') or (rel.fromid =
+                    cco.id and rel.fromtype = 'account'))
+                </join>
+
+                <join name="CRM Case">
+                    LEFT JOIN "$".crmcase crc ON ((rel.toid = crc.id and rel.totype = 'case') or (rel.fromid = crc.id
+                    and rel.fromtype = 'case'))
+                </join>
+
+            </join-conditions>
+            <where>
+                <terms id="base" value="1=1"/>
+            </where>
+        </sqlquery>
+    </view>
+</report>

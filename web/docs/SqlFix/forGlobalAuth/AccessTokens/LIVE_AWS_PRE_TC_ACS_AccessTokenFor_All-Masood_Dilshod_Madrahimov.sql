@@ -1,0 +1,1 @@
+INSERT INTO apiaccesstoken(token, description,blocked) VALUES ('8972548b-ec32-4ddf-bf81-81b01121cd3c','Access token for Al Masaood(Vacancy,Candidate)','f');

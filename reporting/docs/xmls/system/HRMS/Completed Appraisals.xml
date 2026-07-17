@@ -1,0 +1,50 @@
+<report>
+    <view>
+        <title>Completed Appraisals</title>
+        <name>Completed Appraisals</name>
+        <category>hrms</category>
+        <sqlquery>
+            <select agregateFunc="distinct">
+                <table name="Completed Appraisals">
+                    <column name="id" title="id" type="number" formattype="hidden"/>
+                    <column name="employeename" title="Employee Name" type="string" formattype="string"/>
+                    <column name="reviewername" title="Reviewer Name" type="string" formattype="string"/>
+                    <column name="initiateddate" title="Initiated Date" type="date" formattype="date"
+                            customdateformat="Mon DD,YYYY"/>
+                </table>
+            </select>
+            <from>
+                (
+                select ea.id as id, coalesce(userc.firstname||' '||userc.lastname) as employeename,
+                coalesce(u.firstname||' '||u.lastname) as reviewername, assess.inititatedate as initiateddate
+                FROM "$".employeeAssessment ea
+                LEFT JOIN "$".reference as r ON (ea.statusid=r.id)
+                LEFT JOIN "$".employee as e ON (ea.employeeid=e.id)
+                LEFT JOIN "$".myuser as userc ON (userc.id=e.id)
+                LEFT JOIN "$".myuser as use ON (ea.collaboratorid=use.id)
+                LEFT JOIN "$".assessment as assess ON (ea.assessmentid=assess.id)
+                LEFT JOIN "$".reference as re ON (assess.assessmenttype=re.id)
+                LEFT JOIN "$".myuser as u ON (assess.reviewerid=u.id)
+                LEFT JOIN "$".myuser as us ON (assess.initiatorid=us.id),
+                (select u.id, max(case when r.code in ('ADMIN','DR','HR','TL','SUPERVISOR_CODE') then 1 else 0 end)
+                isAdmin
+                from "$".myuser u
+                left join "$".myuser_role mu on mu.users_id=u.id
+                left join "$".role r on mu.roles_id=r.id
+                where u.id=#?user_id?#
+                group by u.id) x
+                WHERE ((x.isAdmin=1 and u.id=#?user_id?#) or us.id=#?user_id?# or e.id=#?user_id?# or
+                use.id=#?user_id?#)
+                AND (re.code='ASSESSMENT_SIMPLE')
+                AND (r.code='APPROVED_BY_MANAGER' or r.code='APPROVED' or r.code='APPROVED_BY_HR')
+                and (ea.deleted is not true)
+                ORDER BY initiateddate
+                ) t
+            </from>
+            <where>
+                <terms id="base" value="1=1"/>
+                <replacement id="userid" userid="#?user_id?#"/>
+            </where>
+        </sqlquery>
+    </view>
+</report>

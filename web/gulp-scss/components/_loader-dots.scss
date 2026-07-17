@@ -1,0 +1,224 @@
+//SKELETON SCREEN
+
+$base-color: $gray-light;
+$shine-color: #f8f8f8;
+$animation-duration: 3s;
+@keyframes shine-lines {
+  0% {
+    opacity: .7;
+    background-position: -69px;
+  }
+  40% {
+    opacity: 1;
+    background-position: 69px;
+  }
+  100% {
+    opacity: .7;
+    background-position: 69px;
+  }
+}
+@keyframes pulse {
+  0% { transform: scale(0.9); opacity: 0.85; }
+  50% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(0.9); opacity: 0.85; }
+}
+
+@mixin background-gradient {
+  background-image: linear-gradient(90deg, $base-color 0px, $shine-color 80px, $base-color 100px);
+  background-size: 400px;
+}
+
+.pg-loading {
+  background-color: #fff;
+  &__menu {
+    background-color: #000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &-logo,
+    &-item:before,
+    &-item:after {
+      background-color: lightgrey;
+      //background-color: #eceff3;
+      @include background-gradient;
+      animation: shine-lines $animation-duration infinite linear;
+    }
+
+    &-logo {
+      display: block;
+      width: 50px;
+      height: 50px;
+      margin: rem(17px) 0;
+      border-radius: 50%;
+    }
+    &-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      height: $mainModulesItemSize;
+      width: $mainModulesItemSize;
+      padding: 11px;
+
+      &:before,
+      &:after {
+        content: '';
+        display: block;
+
+      }
+      &:before {
+        width: 22px;
+        height: 22px;
+        border-radius: $radius-basePlus;
+      }
+      &:after {
+        height: 13px;
+        width: 99%;
+        border-radius: $radius-basePlus;
+      }
+    }
+  }
+  &__body {
+    margin-left: ($frameModulesSize);
+    display: flex;
+    justify-content: center;
+  }
+  &__logo {
+    position: relative;
+    animation: pulse ($animation-duration * 1.5) infinite ease-in-out;
+    text-align: center;
+    &:before {
+      //content: '';
+      //position: absolute;
+      //z-index: 1;
+      //top: 10px;
+      //bottom: 16px;
+      //left: 13px;
+      //right: -14px;
+      //border-radius: 10px;
+      //transform: perspective(70px) rotateY(23deg);
+      //@include background-gradient;
+      //background-size: 1200px;
+      //animation: shine-logo $animation-duration ($animation-duration / 2) infinite linear;
+      //opacity: .9;
+    }
+  }
+}
+
+
+
+// NEW PAGE LOADING
+//$page-loading_footer-height: 25vh;
+
+// LOGO PULSATION
+//@keyframes pulse {
+//  0% {
+//    opacity: .3;
+//  }
+//  50% {
+//    opacity: 1;
+//  }
+//  100% {
+//    opacity: .3;
+//  }
+//}
+
+// \ LOGO PULSATION
+
+
+//USED FOR "REMOVE SEMPLE DATA" MODAL
+.cs-loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cs-loader-inner {
+  width: 80%;
+  transform: translateY(-50%);
+  text-align: center;
+}
+
+.cs-loader-inner i {
+  display: inline-block;
+  font-style: normal;
+  font-size: 20px;
+  color: $black-light;
+  opacity: 0;
+  + i {
+    margin-left: .2vw;
+  }
+}
+
+@keyframes lol {
+  0% {
+    opacity: 0;
+    transform: translateX(-300px);
+  }
+  33% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+  66% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(300px);
+  }
+}
+
+@-webkit-keyframes lol {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-300px);
+  }
+  33% {
+    opacity: 1;
+    -webkit-transform: translateX(0px);
+  }
+  66% {
+    opacity: 1;
+    -webkit-transform: translateX(0px);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(300px);
+  }
+}
+
+.cs-loader-inner i:nth-child(6) {
+  -webkit-animation: lol 3s infinite ease-in-out;
+  animation: lol 3s infinite ease-in-out;
+}
+
+.cs-loader-inner i:nth-child(5) {
+  -webkit-animation: lol 3s 100ms infinite ease-in-out;
+  animation: lol 3s 100ms infinite ease-in-out;
+}
+
+.cs-loader-inner i:nth-child(4) {
+  -webkit-animation: lol 3s 200ms infinite ease-in-out;
+  animation: lol 3s 200ms infinite ease-in-out;
+}
+
+.cs-loader-inner i:nth-child(3) {
+  -webkit-animation: lol 3s 300ms infinite ease-in-out;
+  animation: lol 3s 300ms infinite ease-in-out;
+}
+
+.cs-loader-inner i:nth-child(2) {
+  -webkit-animation: lol 3s 400ms infinite ease-in-out;
+  animation: lol 3s 400ms infinite ease-in-out;
+}
+
+.cs-loader-inner i:nth-child(1) {
+  -webkit-animation: lol 3s 500ms infinite ease-in-out;
+  animation: lol 3s 500ms infinite ease-in-out;
+}
+//USED FOR "REMOVE SEMPLE DATA" MODAL

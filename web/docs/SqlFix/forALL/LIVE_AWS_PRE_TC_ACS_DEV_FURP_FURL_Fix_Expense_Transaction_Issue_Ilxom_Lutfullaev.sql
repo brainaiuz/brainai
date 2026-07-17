@@ -1,0 +1,1 @@
+update "anv".transaction t1 set expensereportid=(select t2.expensereportid from "anv".transaction t2 where t2.id=t1.reversalid) where t1.dtype='EdsExpenseTransaction' and t1.expensereportid is null;

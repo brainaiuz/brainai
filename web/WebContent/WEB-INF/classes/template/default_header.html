@@ -1,0 +1,140 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <style type="text/css">
+        body {
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+            font-weight: 300;
+            font-size: 9pt;
+            line-height: 1.4;
+
+        }
+
+        table {
+            -fs-table-paginate: paginate;
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        th, td {
+            text-align: left;
+        }
+
+        th {
+            font-weight: 500;
+        }
+
+        [align="right"] {
+            text-align: right;
+        }
+
+        [align="center"] {
+            text-align: center;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000000;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        @media print {
+            td, th {
+                -webkit-print-color-adjust: exact;
+            }
+        }
+
+        @media print {
+            .sales-invoice-mark {
+                background-color: #86ca41 !important;
+                -webkit-print-color-adjust: exact;
+            }
+
+            #header {
+                padding-top: 27px;
+            }
+        }
+
+        b {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div id="header">
+    <div style="text-align:right; font-size: 7pt;">
+        #set($pageLabel = $itextGenericPdfData.localizeMap.get('PAGE_LABEL'))
+        #set($ofLabel = $itextGenericPdfData.localizeMap.get('OF_LABEL'))
+        #if($itextGenericPdfData.params.paginationEnabled)
+        <span>$pageLabel <b>{#pageNum}</b> $ofLabel <b>{#numPages}</b></span>
+        #end
+    </div>
+    #if($itextGenericPdfData.companyData.companyName == 'KPI Software Inc' or
+    $itextGenericPdfData.companyData.companyLogoUrl == 'https://apps.kpi.com/customisation/kpi.com/images/kpilogo.png')
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tbody>
+        <tr>
+            #if($itextGenericPdfData.params.companyLogoEnabled)
+            <td align="left" style="width: 100px;padding-right: 12px;" valign="middle">
+                <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl"
+                     style="width: 66px; height: 66px"/>
+            </td>
+            #end
+            #if($itextGenericPdfData.params.companyNameEnabled)
+            #set($fontSize = $itextGenericPdfData.params.companyNameFontSize + 'pt')
+            #set($fontColor = $itextGenericPdfData.params.companyNameFontColor)
+            <td align="left"
+                dir="$directionUtils.dir($itextGenericPdfData.companyData.companyName)"
+                style="vertical-align:top;padding-top:19px;text-align: left;white-space: nowrap;color: $fontColor;font-size: $fontSize;">
+                <strong>$itextGenericPdfData.companyData.companyName</strong><br/>
+            </td>
+            #end
+            #if($itextGenericPdfData.params.documentTitleEnabled)
+            #set($titelFontSize = $itextGenericPdfData.params.documentTitleFontSize + 'pt')
+            #set($titelFontColor = $itextGenericPdfData.params.documentTitleFontColor)
+            <td dir="$directionUtils.dir($itextGenericPdfData.tableName)"
+                style="vertical-align:top;text-align:right;padding-top:19px;width:400px;overflow:hidden;text-overflow:ellipsis;color: $titelFontColor;font-size: $titelFontSize;">
+                <strong style="display:inline-block;font-size: 18px; margin-top: 0; margin-bottom: 0; font-weight: lighter;">$itextGenericPdfData.tableName</strong>
+            </td>
+            #end
+        </tr>
+        </tbody>
+    </table>
+    #else
+    <table border="0" cellpadding="0" cellspacing="0" style="height: 70px;" width="100%">
+        <tbody>
+        <tr>
+            #if($itextGenericPdfData.params.companyLogoEnabled)
+            <td align="left" style="vertical-align: middle; padding-right: 12px; height: 70px;" width="33%">
+                <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl"
+                     style="max-width: 100%; max-height: 100%;"/>
+            </td>
+            #end
+            #if($itextGenericPdfData.params.companyNameEnabled)
+            #set($fontSize = $itextGenericPdfData.params.companyNameFontSize + 'pt')
+            #set($fontColor = $itextGenericPdfData.params.companyNameFontColor)
+            <td dir="$directionUtils.dir($itextGenericPdfData.companyData.companyName)"
+                style="vertical-align: top;height: 70px; padding-top: 19px; text-align: left;white-space: nowrap;font-size: $fontSize;color: $fontColor;"
+                width="34%">
+                <strong>$itextGenericPdfData.companyData.companyName</strong>
+            </td>
+            #end
+            #if($itextGenericPdfData.params.documentTitleEnabled)
+            #set($titelFontSize = $itextGenericPdfData.params.documentTitleFontSize + 'pt')
+            #set($titelFontColor = $itextGenericPdfData.params.documentTitleFontColor)
+            <td dir="$directionUtils.dir($itextGenericPdfData.tableName)"
+                style="vertical-align: top; text-align: right;height: 70px; padding-top: 19px; overflow: hidden; text-overflow: ellipsis;font-size: $titelFontSize;color: $titelFontColor;"
+                width="33%">
+                <strong style="display:inline-block;font-size: 18px; margin-top: 0; margin-bottom: 0; font-weight: lighter;">$itextGenericPdfData.tableName</strong>
+            </td>
+            #end
+        </tr>
+        </tbody>
+    </table>
+    #end
+</div>
+</body>
+</html>

@@ -1,0 +1,2 @@
+ALTER TABLE "anv".mymodule DROP CONSTRAINT IF EXISTS code;
+ALTER TABLE "anv".mymodule ADD CONSTRAINT code UNIQUE (code);

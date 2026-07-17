@@ -1,0 +1,535 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--<!DOCTYPE html>-->
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <title>AI/Report</title>
+    <!--    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />-->
+    <!--    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>-->
+
+    <!--CSS-->
+    <link rel="stylesheet" href="../WebContent/mainStyles/new-ui/css/materialize.css">
+</head>
+<body class="frame__body left-menu-closed">
+
+<div class="frame frame--trial has-tabs">
+    <div class="frame__header">
+        <table width="100" style="width: 150px !important;">
+            <tr>
+                <th>Header + icons</th>
+                <td>
+                    <svg class="icon--microphone">
+                        <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#microphone-2"></use>
+                    </svg>
+                </td>
+                <td>
+                    <svg class="icon--aiIcon">
+                        <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#aiIcon"></use>
+                    </svg>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="frame__modules">
+        <a href="#" class="left-menu-trigger">
+            <i class="ficon--menu-thin"></i>
+        </a>
+        <div class="main-modules dropdown-select--arrow">
+            <i class="ficon--trial informer--demo"></i>
+
+            <!-- Dropdown Trigger -->
+
+            <!-- Dropdown Structure -->
+        </div>
+    </div>
+    <div class="frame__nav">
+        <div class="frame__nav__footer"></div>
+    </div>
+    <div class="frame__content frame__content--2 scrollbar-external_wrapper">
+        <div class="frame__content__body  scrollbar-external">
+            <div class="whiteBGR">
+                <div class="workarea" id="workarea">
+                </div>
+            </div>
+        </div>
+
+        <div class="external-scroll_x">
+            <div class="scroll-element_outer">
+                <div class="scroll-element_size"></div>
+                <div class="scroll-element_track"></div>
+                <div class="scroll-bar"></div>
+            </div>
+        </div>
+        <div class="external-scroll_y">
+            <div class="scroll-element_outer">
+                <div class="scroll-element_size"></div>
+                <div class="scroll-element_track"></div>
+                <div class="scroll-bar"></div>
+            </div>
+        </div>
+    </div>
+    <div>
+<!--Start AI REPORT SIDE PANEL-->
+<ul class="quick-add quick-add--messages  quick-add--empty side-nav drawer right-aligned" id=""
+    style="left: auto; width: 500px; right: 0px;">
+    <li style="display: block;">
+        <div style="" class="side-nav-close">
+            <svg class=" icon--x">
+                <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#x"></use>
+            </svg>
+        </div>
+    </li>
+    <div class="sidenav-content">
+
+
+        <div class="chat chat--ai">
+    <div class="chat__contact">
+        <div class="contactBar">
+            <h5 class="contactBar__name">
+                Chat with K.A.R.E.
+            </h5>
+            <sup class="contactBar__inf">
+                AI Reporting Engine
+            </sup>
+        </div>
+    </div>
+    <div class="chat__body">
+        <!--        <div class="msgTime">-->
+        <!--            Monday at 22:41-->
+        <!--        </div>-->
+        <div class="msg msg--from">
+            <div class="msg-ava">K.A.R.E.</div>
+            <span>Hello, Kamoliddin! How can I help you?</span>
+            <sub>
+                22:41
+                <svg class="icon--double-check">
+                    <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#double-check"></use>
+                </svg>
+            </sub>
+        </div>
+        <div class="msg msg--to">
+<!--            <div class="msg-ava">KZ</div>-->
+            <div class="msg-ava">
+                <img src="https://loremflickr.com/320/240/girl" alt="placeholder image">
+                <!--                <img src="https://workforcetrack.s3.amazonaws.com/c65159/u365/4e9383c9-e8e1-485d-8580-853cfd75db49?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20250520T095907Z&X-Amz-SignedHeaders=host&X-Amz-Expires=259200&X-Amz-Credential=AKIAIROQMC77E5UKWBWQ%2F20250520%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=1346346be66bae94f52760a9c0f30e405b5dadf464d92b200e4091ae2c641cbb" alt="placeholder image">-->
+            </div>
+            <span>
+                Top Supplier Name by Invoice Value total
+            </span>
+            <sub>
+                23:25
+                <svg class="icon--double-check">
+                    <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#double-check"></use>
+                </svg>
+            </sub>
+        </div>
+
+        <!--!New T100566 Start AI Report Chat Result-->
+        <div class="msg msg--img msg--from">
+            <div class="msg-ava">K.A.R.E.</div>
+            <div class="msg-img">
+                <div id="highcharts-xj605yr-0" dir="ltr" class="highcharts-container " style="">
+                    <img src="https://placehold.co/600x400" alt="example">
+                </div>
+            </div>
+            <div class="msg-optList">
+                <ul class="dropdown-content--sm" style="position: absolute; bottom: 100%;">
+                    <li class="active">
+                        <a href="#"><span>Total Invoice Value</span></a>
+                    </li>
+                    <li>
+                        <a href="#"><span>Total Sales Revenue</span></a>
+                    </li>
+                    <li>
+                        <a href="#"><span>Number of Orders</span></a>
+                    </li>
+                    <li>
+                        <a href="#"><span>Total Expenses</span></a>
+                    </li>
+                    <li>
+                        <a href="#"><span>Units Sold</span></a>
+                    </li>
+                </ul>
+            </div>
+            <sub>
+                07:13
+                <svg class="icon--double-check">
+                    <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#double-check"></use>
+                </svg>
+            </sub>
+            <div class="msg-actFooter">
+                <ul class="pgFlipp">
+                    <li class="pgFlipp__prev disabled"></li>
+                    <li class="pgFlipp__index">
+                        <span class="pgFlipp__cur">1</span>
+                        <span class="pgFlipp__ttl">3</span>
+                    </li>
+                    <li class="pgFlipp__next active"></li>
+                </ul>
+
+                <div class="btn-group">
+                    <a href="#" class="btn btn--icon btn-small">
+                        <svg class="icon--">
+                            <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#verticalchart2"></use>
+                        </svg>
+                    </a>
+
+                    <a href="#" class="btn btn--icon btn-small">
+                        <svg class="icon--user">
+                            <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#edit"></use>
+                        </svg>
+                    </a>
+
+                    <a href="#" class="btn btn--icon btn-small">
+                        <svg class="icon--user">
+                            <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#save"></use>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="msg msg--from">
+            <div class="msg-ava">
+                <div>K.A.</div>
+                <div>R.E.</div>
+            </div>
+            <span>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aperiam cupiditate, ea eveniet harum hic id illu7777m impedit ipsa, mollitia omnis repellendus, sit? Beatae ducimus excepturi omnis qui sequi, voluptas?77
+            </span>
+            <sub>
+                07:13
+                <svg class="icon--double-check">
+                    <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#double-check"></use>
+                </svg>
+            </sub>
+            <div class="msg-actFooter">
+                <ul class="pgFlipp">
+                    <li class="pgFlipp__prev disabled"></li>
+                    <li class="pgFlipp__index">
+                        <span class="pgFlipp__cur">1</span>
+                        <span class="pgFlipp__ttl">3</span>
+                    </li>
+                    <li class="pgFlipp__next active"></li>
+                </ul>
+
+                <div class="btn-group">
+                    <a href="#" class="btn btn--icon btn-small">
+                        <svg class="icon--">
+                            <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#verticalchart2"></use>
+                        </svg>
+                    </a>
+
+                    <a href="#" class="btn btn--icon btn-small">
+                        <svg class="icon--user">
+                            <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#edit"></use>
+                        </svg>
+                    </a>
+
+                    <a href="#" class="btn btn--icon btn-small">
+                        <svg class="icon--user">
+                            <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#save"></use>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="voteBox">
+            <button class="btn btn--icon btn--white active">
+                <!-- иконка Like -->
+                <svg class="icon--likeStroke voteIcon-free">
+                    <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#likeStroke"></use>
+                </svg>
+
+                <svg class="icon--likeFill voteIcon-pushed">
+                    <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#likeFill"></use>
+                </svg>
+            </button>
+            <button class="btn btn--icon btn--white">
+                <!--  иконка Dislike -->
+                <svg class="icon--disLikeStroke voteIcon-free">
+                    <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#disLikeStroke"></use>
+                </svg>
+
+                <svg class="icon--disLikeFill voteIcon-pushed">
+                    <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#disLikeFill"></use>
+                </svg>
+            </button>
+        </div>
+
+
+        <div class="msg msg--to">
+            <!--            <div class="msg-ava">KZ</div>-->
+            <div class="msg-ava">
+                <img src="https://loremflickr.com/320/240/girl" alt="placeholder image">
+                <!--                <img src="https://workforcetrack.s3.amazonaws.com/c65159/u365/4e9383c9-e8e1-485d-8580-853cfd75db49?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Date=20250520T095907Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=259200&amp;X-Amz-Credential=AKIAIROQMC77E5UKWBWQ%2F20250520%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Signature=1346346be66bae94f52760a9c0f30e405b5dadf464d92b200e4091ae2c641cbb" alt="placeholder image">-->
+            </div>
+            <span>
+                Find Nothing
+            </span>
+            <sub>
+                23:25
+                <svg class="icon--double-check">
+                    <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#double-check"></use>
+                </svg>
+            </sub>
+        </div>
+
+        <div class="msg msg--from">
+            <div class="msg-ava">K.A.R.E.</div>
+            <!-- New No Results sign!-->
+            <div class="sign-noRes">
+                <div class="sign-noRes__img">
+                    <img class="sign-noRes__img-img" src='../WebContent/mainStyles/new-ui/icons/noDataTempSvg.svg' alt='No Data Available' />
+                    <div class="chart-no-data">No Data Available</div>
+                </div>
+
+                <div>
+                    <p><strong>No Results</strong></p>
+                    <p>
+                        Results cannot be displayed with current filters or grouping options.
+                    </p>
+                </div>
+            </div>
+            <sub>
+                07:13
+                <svg class="icon--double-check">
+                    <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#double-check"></use>
+                </svg>
+            </sub>
+            <div class="msg-actFooter">
+            </div>
+        </div>
+        <!--\!New End AI Report Chat Result-->
+        <div class="voteBox">
+            <div class="dropdown-kit--arrow--below--reverse">
+                <div href="#" class="btn btn--icon btn--white dropdown-button active">
+                    <ul class="dropdown-content active" style="width: 7.39062px; position: absolute; top: 30px; right: -20px; opacity: 1; display: block;">
+                        <li>
+                            <div class="panel">
+                                <div class="btn--icon popupClose">
+                                    <svg class="icon--x">
+                                        <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg?v=3.1.0#x"></use>
+                                    </svg>
+                                </div>
+                                <div class="panel__body">
+                                    <h5>Thank you for the feedback!</h5>
+                                    <form>
+                                        <div class="form-row">
+                                            <div class="col">
+                                                <textarea class="form-control" placeholder="Tell us more" aria-label="Tell us more" name="" id="" cols="" rows="1"></textarea>
+                                            </div>
+                                            <div class="col-auto">
+                                                <button type="submit" class="btn btn--primary">Submit</button>
+                                            </div>
+                                        </div>
+                                        <div class="form-check mt-2">
+                                            <input type="checkbox" class="form-check-input" id="contactCheck">
+                                            <label class="form-check-label" for="contactCheck">Pipedrive can contact me about this feedback</label>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <svg class="icon--likeFill voteIcon-pushed">
+                        <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#likeFill"></use>
+                    </svg>
+                </div>
+            </div>
+
+            <button class="btn btn--icon btn--white active">
+                <!--  иконка Dislike -->
+                <svg class="icon--disLikeStroke voteIcon-free">
+                    <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#disLikeStroke"></use>
+                </svg>
+
+                <svg class="icon--disLikeFill voteIcon-pushed">
+                    <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#disLikeFill"></use>
+                </svg>
+            </button>
+        </div>
+
+        <div class="voteBox">
+            <button class="btn btn--icon btn--white">
+                <!-- иконка Like -->
+                <svg class="icon--likeStroke voteIcon-free">
+                    <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#likeStroke"></use>
+                </svg>
+
+                <svg class="icon--likeFill voteIcon-pushed">
+                    <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#likeFill"></use>
+                </svg>
+            </button>
+            <button class="btn btn--icon btn--white active">
+                <!--  иконка Dislike -->
+                <svg class="icon--disLikeStroke voteIcon-free">
+                    <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#disLikeStroke"></use>
+                </svg>
+
+                <svg class="icon--disLikeFill voteIcon-pushed">
+                    <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#disLikeFill"></use>
+                </svg>
+            </button>
+        </div>
+
+
+        <div class="msg msg--from">
+            <div class="message stark">
+                <div class="typing typing-1"></div>
+                <div class="typing typing-2"></div>
+                <div class="typing typing-3"></div>
+            </div>
+        </div>
+    </div>
+    <div class="chat__act">
+        <div class="chatAct">
+            <div class="chatAct__act">
+                <button class="btn btn--icon">
+                    <svg class="icon--paperClip">
+                        <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#paperclip"></use>
+                    </svg>
+                </button>
+            </div>
+            <!--!New T100566 Start AI Report Seatch Prompt-->
+            <div class="chatAct__input">
+                <textarea rows="1" name="" class="form-control" placeholder="Type your message..."></textarea>
+                <div id="mirror" class="textarea-mirror form-control" aria-hidden="true"></div>
+                <ul id="suggestions" class="srchHelpList active dropdown-content--sm">
+                    <li class="active">
+                        <a href="#"><span>in each transactions</span></a>
+                    </li>
+<!--                    <li>-->
+<!--                        <a href="#"><span>en each account</span></a>-->
+<!--                    </li>-->
+<!--                    <li>-->
+<!--                        <a href="#"><span>in each invoice type</span></a>-->
+<!--                    </li>-->
+<!--                    <li>-->
+<!--                        <a href="#"><span>in each transaction</span></a>-->
+<!--                    </li>-->
+<!--                    <li>-->
+<!--                        <a href="#"><span>in each air/rail class</span></a>-->
+<!--                    </li>-->
+                    <li class="more">
+                        <a href="#"><span>See more</span></a>
+                    </li>
+                </ul>
+            </div>
+            <!--!New T100566 End AI Report Seatch Prompt-->
+<!--            <div class="chatAct__act">
+                <button class="btn btn&#45;&#45;icon">
+                    <svg class="icon&#45;&#45;">
+                        <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#user-plus"></use>
+                    </svg>
+                </button>
+            </div>-->
+            <div class="chatAct__act"></div>
+            <div class="chatAct__act">
+                <button class="btn btn--white btn--icon btn">
+                    <svg class="icon--sendBlack">
+                        <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#sendBlack"></use>
+                    </svg>
+                </button>
+            </div>
+            <div class="chatAct__act">
+                <button class="btn btn--white btn--icon btn">
+                    <svg class="icon--send">
+                        <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#send"></use>
+                    </svg>
+                </button>
+            </div>
+            <div class="chatAct__act" style="display: inline-block">
+                <button class="btn btn--white btn--icon">
+                    <svg class="icon--microphone">
+                        <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#microphone-2"></use>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="chat__inf">
+        Powered by AI. Results may be inaccurate.
+        <span class="dropdown-kit--arrow--bottom">
+            <a tabindex="0" class="infoDropDown dropdown-button"><i class="ficon--info"></i></a>
+            <ul class="dropdown-content-tooltip dropdown-content"
+                style="position: absolute; opacity: 1; left: -273.734px;  display:none;">
+                New customers get a discount on the initial number of users purchased.
+            </ul>
+        </span>
+    </div>
+</div>
+    </div>
+</ul>
+<!--End AI REPORT SIDE PANEL-->
+    </div>
+</div>
+
+
+<!--JS LIBS-->
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>-->
+<script type="text/javascript" src="../WebContent/mainStyles/new-ui/js/jquery.min.js"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>-->
+<script type="text/javascript" src="../WebContent/mainStyles/new-ui/js/materialize-1.0.0.min.js"></script>
+<!--<script type="text/javascript" src="../WebContent/googlegadget/select2.min.js"></script>-->
+<!--\ JS LIBS-->
+<!--CUSTOM SCRIPTS-->
+<!--<script src="static-html-examples.js" defer>-->
+<!--    // In your Javascript (external .js resource or <script> tag)-->
+<!--</script>-->
+
+<!--New T100566 Suggestions Script-->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const textarea = document.querySelector('.chatAct__input textarea');
+        const mirror = document.getElementById('mirror');
+        const suggestions = document.getElementById('suggestions');
+
+        // Устанавливаем текст один раз
+        textarea.value = 'Top Supplier Name in';
+
+        // Вызываем сразу
+        resizeTextarea();
+        showSuggestions();
+
+        textarea.addEventListener('input', () => {
+            resizeTextarea();
+            showSuggestions();
+        });
+
+        function resizeTextarea() {
+            textarea.style.height = 'auto';
+
+            const maxHeight = window.innerHeight * 0.4; // 40% от высоты окна
+            textarea.style.height = Math.min(textarea.scrollHeight, maxHeight) + 'px';
+
+            // Если контент выше лимита — включаем скролл
+            textarea.style.overflowY = (textarea.scrollHeight > maxHeight) ? 'auto' : 'hidden';
+        }
+
+        function showSuggestions() {
+            const text = textarea.value.substring(0, textarea.selectionStart);
+
+            mirror.innerHTML = '';
+            mirror.textContent = text;
+
+            const span = document.createElement('span');
+            span.textContent = '\u200b';
+            mirror.appendChild(span);
+
+            const mirrorRect = span.getBoundingClientRect();
+            const containerRect = textarea.getBoundingClientRect();
+
+            const caretLeft = mirrorRect.left - containerRect.left;
+
+            suggestions.style.left = `${caretLeft}px`;
+            suggestions.style.display = 'block';
+        }
+    });
+</script>
+
+<!--\ CUSTOM SCRIPTS-->
+</body>
+</html>

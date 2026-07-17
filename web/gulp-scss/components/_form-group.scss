@@ -1,0 +1,18 @@
+.form-group{
+  &--inline{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    > *:first-child {
+      margin-right: 5px; //https://prnt.sc/sbm1vy
+    }
+
+    > * + * {
+      margin-left: 5px; //https://prnt.sc/sbm1vy
+    }
+  }
+
+  &__label:empty {
+  }
+}

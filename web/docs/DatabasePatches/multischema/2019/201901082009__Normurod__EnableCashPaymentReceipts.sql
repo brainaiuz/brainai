@@ -1,0 +1,1 @@
+insert into "anv".genericSettings(key, value) values ('ENABLE_CASH_RECEIPTS_AND_PAYMENTS', 'YES');

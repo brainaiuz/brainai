@@ -1,0 +1,26 @@
+﻿video {  position: fixed;  top: 55%;  left: 50%;  min-width: 100%;  min-height: 100%;  width: auto;  height: auto;  z-index: -100;  -webkit-transform: translateX(-50%) translateY(-50%);  transform: translateX(-50%) translateY(-50%);  background: url(../images/body_BG.jpg) no-repeat;  background-size: cover;  -webkit-transition: 1s opacity;  transition: 1s opacity;}.test
+{
+/*       background-attachment: fixed;
+    background-image: url("../images/body_BG.jpg");
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover; */
+  
+}
+.main
+{
+    min-height: 100%;
+    height: auto !important;
+    width: 100%;
+    text-align: center;
+  /*   background: url(../images/pattern.png) repeat top center; */
+    display:inline-block;
+}
+body
+{
+    font-size: 12px;
+    font-family: Arial ;
+    font-weight: normal;
+    color:#6D6D6D;
+   background-color:#fff;
+}

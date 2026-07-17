@@ -1,0 +1,1 @@
+CREATE INDEX idx_transaction_manualjournalid ON "anv".transaction (manualjournalid);

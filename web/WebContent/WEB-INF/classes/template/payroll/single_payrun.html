@@ -1,0 +1,322 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style type="text/css">
+        body {
+            font-family: 'Arial', "Helvetica Neue", Helvetica, sans-serif;
+        }
+
+        table, th, td {
+            font-family: 'Calibri', sans-serif;
+            font-size: 11pt;
+        }
+
+        td {
+            padding: 3px;
+        }
+    </style>
+</head>
+<body>
+<div id="body sales-invoice__tmp">
+    <img alt="images" src="https://workforcetrack.s3.amazonaws.com/000000000000/public/65159/a2113e82-397f-49fd-a58a-cdf4f4b93dff?AWSAccessKeyId=AKIAIROQMC77E5UKWBWQ" style="display: none;"/>
+    #if($itextGenericPdfData.companyData.companyName == 'KPI Software Inc' or $itextGenericPdfData.companyData.companyLogoUrl == 'https://apps.kpi.com/customisation/kpi.com/images/kpilogo.png')
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="width: 88px;display: none;"/>
+    #else
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="max-width: 100%; max-height: 100%; display: none;"/>
+    #end
+
+    #set($customBillToAddressTable = $itextGenericPdfData.baseInvoice.customBillToAddress.header)
+
+    #set($employeeCode = $customBillToAddressTable.get('Number'))
+    #set($employeeCodeLabel = $customBillToAddressTable.get('CODE_LABEL'))
+    #set($employeeName = $customBillToAddressTable.get('NAME'))
+    #set($employeeNameLabel = $customBillToAddressTable.get('NAME_LABEL'))
+    #set($approver = $customBillToAddressTable.get('APPROVER'))
+    #set($approverLabel = $customBillToAddressTable.get('APPROVER_LABEL'))
+    #set($reference = $customBillToAddressTable.get('REFERENCE'))
+    #set($referenceLabel = $customBillToAddressTable.get('REFERENCE_LABEL'))
+
+    #set($processedDate = $customBillToAddressTable.get('PROCESSED_DATE'))
+    #set($processedDateLabel = $customBillToAddressTable.get('PROCESSED_DATE_LABEL'))
+    #set($period = $customBillToAddressTable.get('PAYMENT_PERIOD'))
+    #set($periodLabel = $customBillToAddressTable.get('PAYMENT_PERIOD_LABEL'))
+    #set($approveDate = $customBillToAddressTable.get('APPROVED_DATE'))
+    #set($approveDateLabel = $customBillToAddressTable.get('APPROVED_DATE_LABEL'))
+    #set($wpsNo = $customBillToAddressTable.get('WPS_NO'))
+    #set($wpsNoLabel = $customBillToAddressTable.get('WPS_NO_LABEL'))
+    #set($totalLabel = $customBillToAddressTable.get('TOTAL_LABEL'))
+
+    #set($baseCurrency = $customBillToAddressTable.get('CURRENCY_NAME'))
+    #set($exchangeRate = $customBillToAddressTable.get('EXCHANGE_RATE'))
+    #set($currency = $itextGenericPdfData.baseInvoice.currency)
+
+    <!-- Header table starts-->
+    <table border="0" cellpadding="0" cellspacing="0" style="margin-top: 10px;" width="100%">
+        <tr>
+            <td width="60%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td class="">$employeeCodeLabel:<strong> #if($employeeCode != '') $employeeCode #else — #end</strong>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="40%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td class="">$processedDateLabel: <strong>#if($processedDate != '') $processedDate #else — #end</strong></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <table border="0" cellpadding="0" cellspacing="0" style="margin-top: 10px;" width="100%">
+        <tr>
+            <td width="60%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td class="">$employeeNameLabel: <strong>#if($employeeName != '') $employeeName #else — #end</strong>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="40%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td class="">$periodLabel: <strong>#if($period != '') $period #else — #end</strong></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <table border="0" cellpadding="0" cellspacing="0" style="margin-top: 10px;" width="100%">
+        <tr>
+            <td width="60%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td class="">$approverLabel: <strong>#if($approver != '') $approver #else — #end</strong></td>
+                    </tr>
+                </table>
+            </td>
+            <td width="40%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td class="">$approveDateLabel: <strong>#if($approveDate != '') $approveDate #else — #end</strong>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <table border="0" cellpadding="0" cellspacing="0" style="margin-top: 10px; " width="100%">
+        <tr>
+            <td width="60%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td class="">$referenceLabel: <strong>#if($reference != '') $reference #else — #end</strong></td>
+                    </tr>
+                </table>
+            </td>
+            <td width="40%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td class="">$wpsNoLabel: <strong>#if($wpsNo != '' and $wpsNo != 'n/a') $wpsNo #else — #end</strong>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <!-- Header table ends-->
+
+    <!-- Main container tables starts-->
+    <table cellpadding="0" cellspacing="0" style="margin-top: 20px;table-layout: fixed; " width="100%">
+        <tr>
+            <td width="40%" align="left" valign="top">
+                <!-- Payments table starts-->
+                #set($paymentTableRows = $itextGenericPdfData.baseInvoice.customProductTable.rows.values())
+                <table border="0" cellpadding="0" cellspacing="0" width="100%" align="left">
+                    <tbody>
+                    <tr>
+                        <th align="left" class="" style="border-bottom: 1px solid #000;padding-bottom: 5px">
+                            $itextGenericPdfData.baseInvoice.customProductTable.header.get("PAYMENT_")
+                        </th>
+                        <th align="right" class="" style="border-bottom: 1px solid #000;padding-bottom: 5px">
+                            $itextGenericPdfData.baseInvoice.customProductTable.header.get("AMOUNTS_NUMERIC")
+                        </th>
+                    </tr>
+                    #if($paymentTableRows.size()>0)
+                    #foreach($row in $paymentTableRows)
+                    <tr>
+                        <td align="left" class="">$row.get('PAYMENT_')</td>
+                        <td align="right" class="">$row.get('AMOUNTS_NUMERIC')</td>
+                    </tr>
+                    #end
+                    #else
+                    <tr>
+                        <td align="left" class="">$totalLabel ($baseCurrency)</td>
+                        <td align="right" class="">0.00</td>
+                    </tr>
+                    #end
+                    <tr>
+                        <td align="left" class=""></td>
+                        <td align="right" class=""></td>
+                    </tr>
+                    <tr>
+                        <td align="left" class=""></td>
+                        <td align="right" class=""></td>
+                    </tr>
+
+                    </tbody>
+                </table>
+                <!-- Payments table ends-->
+            </td>
+            <td width="20%">
+
+            </td>
+            <td width="40%" align="right" valign="top">
+                <!-- Deduction table starts-->
+                #set($deductionTableRows = $itextGenericPdfData.baseInvoice.customNumberAndDatesTable.rows.values())
+                <table border="0" cellpadding="0" cellspacing="0" width="100%" align="right">
+                    <tbody>
+                    <tr>
+                        <th align="left" class="" style="border-bottom: 1px solid #000;padding-bottom: 5px">
+                            $itextGenericPdfData.baseInvoice.customNumberAndDatesTable.header.get("DEDUCTIONS")
+                        </th>
+                        <th align="right" class="" style="border-bottom: 1px solid #000;padding-bottom: 5px ">
+                            $itextGenericPdfData.baseInvoice.customNumberAndDatesTable.header.get("AMOUNTS_NUMERIC")
+                        </th>
+                    </tr>
+                    #if($deductionTableRows.size()>0)
+                    #foreach($row in $deductionTableRows)
+                    <tr>
+                        <td align="left" class="">$row.get('DEDUCTIONS')</td>
+                        <td align="right" class="">$row.get('AMOUNTS_NUMERIC')</td>
+                    </tr>
+                    #end
+                    #else
+                    <tr>
+                        <td align="left" class="">$totalLabel ($baseCurrency)</td>
+                        <td align="right" class="">0.00</td>
+                    </tr>
+                    #end
+                    <tr>
+                        <td align="left" class=""></td>
+                        <td align="right" class=""></td>
+                    </tr>
+                    <tr>
+                        <td align="left" class=""></td>
+                        <td align="right" class=""></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <!-- Deduction table ends-->
+            </td>
+        </tr>
+        <tr>
+            <td width="40%" align="left" valign="top">
+                <!-- Expense table starts-->
+                #set($expenseTableRows = $itextGenericPdfData.baseInvoice.customExpenseTable.rows.values())
+                #if($expenseTableRows.size()>0)
+                <table border="0" cellpadding="0" cellspacing="0" width="100%" align="left">
+                    <tbody>
+                    <tr>
+                        <th align="left" class="" style="border-bottom: 1px solid #000;padding-bottom: 5px">
+                            $itextGenericPdfData.baseInvoice.customExpenseTable.header.get("EXPENSES")
+                        </th>
+                        <th align="right" class="" style="border-bottom: 1px solid #000;padding-bottom: 5px ">
+                            $itextGenericPdfData.baseInvoice.customExpenseTable.header.get("AMOUNTS_NUMERIC")
+                        </th>
+                    </tr>
+                    #if($expenseTableRows.size()>0)
+                    #foreach($row in $expenseTableRows)
+                    <tr>
+                        <td align="left" class="">$row.get('EXPENSES')</td>
+                        <td align="right" class="">$row.get('AMOUNTS_NUMERIC')</td>
+                    </tr>
+                    #end
+                    #else
+                    <tr>
+                        <td align="left" class="">$totalLabel ($baseCurrency)</td>
+                        <td align="right" class="">0.00</td>
+                    </tr>
+                    #end
+                    </tbody>
+                </table>
+                #end
+                <!-- Expense table ends-->
+            </td>
+            <td width="20%">
+
+            </td>
+            <td width="40%" align="right" valign="top">
+                <!-- Total table starts-->
+                #set($totalTableRows = $itextGenericPdfData.baseInvoice.customTotalTable.rows.get('0'))
+                #set($totalThisPeriodLabel = $customBillToAddressTable.get('TOTALS_THIS_PERIOD_LABEL'))
+                #set($totalPaymentLabel = $customBillToAddressTable.get('PAYMENT_LABEL'))
+                #set($deductionLabel = $customBillToAddressTable.get('DEDUCTIONS_LABEL'))
+                #set($expensesLabel = $customBillToAddressTable.get('EXPENSES_LABEL'))
+                <table border="0" cellpadding="0" cellspacing="0" width="100%" align="right">
+                    <tbody>
+                    <tr>
+                        <th align="left" class="" style="border-bottom: 1px solid #000;padding-bottom: 5px">$totalThisPeriodLabel</th>
+                        <th align="right" class="" style="border-bottom: 1px solid #000;padding-bottom: 5px"></th>
+                    </tr>
+                    <tr>
+                        <td align="left" class="">$totalPaymentLabel</td>
+                        <td align="right" class="">
+                            #if ($totalTableRows.get('TOTAL_GROSS_PAY') !='')
+                                $totalTableRows.get('TOTAL_GROSS_PAY')
+                            #else
+                                0.00
+                            #end
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" class="">$deductionLabel</td>
+                        <td align="right" class="">#if ($totalTableRows.get('DEDUCTIONS')!='')
+                            $totalTableRows.get('DEDUCTIONS') #else 0.00 #end
+                        </td>
+                    </tr>
+                    #if($totalTableRows.get('EXP_TOTAL') != '')
+                    <tr>
+                        <td align="left" class="">$expensesLabel</td>
+                        <td align="right" class=""> $totalTableRows.get('EXP_TOTAL')</td>
+                    </tr>
+                    #end
+                    #if($totalTableRows.get('TOTAL') != '' && $baseCurrency != $currency)
+                    <tr>
+                        <td align="left" class="">$totalLabel ($currency)</td>
+                        <td align="right" class="">$totalTableRows.get('TOTAL')</td>
+                    </tr>
+                    #end
+                    <tr>
+                        <td align="left" class="">$totalLabel ($baseCurrency)</td>
+                        <td align="right" class="">
+                            #if($totalTableRows.get('TOTAL_IN_BASE')!='')
+                                $totalTableRows.get('TOTAL_IN_BASE')
+                            #end
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" class="" colspan="2">
+                            #if($totalTableRows.get('TOTAL_IN_WORDS')!='')
+                                ($totalTableRows.get('TOTAL_IN_WORDS'))
+                            #end
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <!-- Total table ends-->
+            </td>
+        </tr>
+    </table>
+    <!-- Main container tables ends-->
+</div>
+</body>
+</html>
+
+

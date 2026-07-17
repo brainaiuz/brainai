@@ -1,0 +1,25 @@
+## Team Leader assign notification
+## $team - Team assigned to.
+## $user - User submitted this alert.
+## $date - Date this alert was submitted
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head><body><p>Dear $team.leader.getName(),</p><p>Please be advised that $user.getName() assigned you as department leader of $team.name department on $date.</p>
+<p>Click <a href="$host/ProjectManagement.html?link=$link" title="View department">here</a> to view the department</p>
+<p>* If you are not able to click on the link, you can instead copy and paste the following address in to your web browser: </p>
+<p><span style="color: #0033FF">$host/ProjectManagement.html?link=$link</span></p></body></html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

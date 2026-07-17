@@ -1,0 +1,24 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+    <g:HTMLPanel styleName="pdf-edit">
+        <aside>
+            <g:HTMLPanel styleName="pdf-edit__heding content-tabs" ui:field="tabPanel"></g:HTMLPanel>
+
+            <g:HTMLPanel styleName="pdf-edit__body" ui:field="tabContainer"></g:HTMLPanel>
+            <g:HTMLPanel styleName="pdf-edit__footer" ui:field="buttonsPanel"></g:HTMLPanel>
+        </aside>
+        <main>
+            <div class="pdf-preview" ui:field="pdfWrapper">
+                <div class="pdf-preview__header">
+                    <iframe class="pdf-edit__header" ui:field="headerIframe"></iframe>
+                </div>
+                <div class="pdf-preview__body">
+                    <iframe class="pdf-edit__body" ui:field="bodyIframe"></iframe>
+                </div>
+                <div class="pdf-preview__footer">
+                    <iframe class="pdf-edit__footer" ui:field="footerIframe"></iframe>
+                </div>
+            </div>
+        </main>
+    </g:HTMLPanel>
+</ui:UiBinder>

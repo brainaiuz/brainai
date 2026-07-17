@@ -1,0 +1,77 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:w="urn:import:com.edatasite.workforce.gwt.core.client.ui.wfmDropdown"
+             xmlns:accounting="urn:import:com.edatasite.workforce.gwt.accounting.client.ui.view.accounting"
+             xmlns:html="urn:import:gwt.material.design.client.ui.html">
+    <g:HTMLPanel ui:field="container">
+        <div class="grid-row">
+            <div class="col-12">
+                <div class="grid-row">
+                    <div class="col-6" style="padding-right: 1px !important;">
+                        <div class="form-group">
+                            <html:Label ui:field="firstNameLabel" styleName="form-group__label"/>
+                            <g:TextBox ui:field="firstNameField"/>
+                        </div>
+                    </div>
+                    <div class="col-6" style="padding-left: 1px !important;">
+                        <div class="form-group">
+                            <html:Label ui:field="lastNameLabel" styleName="form-group__label"/>
+                            <g:TextBox ui:field="lastNameField"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <html:Label ui:field="emailLabel" styleName="form-group__label"/>
+                    <g:TextBox ui:field="emailField"/>
+                </div>
+                <div class="form-group">
+                    <html:Label ui:field="phoneLabel" styleName="form-group__label"/>
+                    <g:TextBox ui:field="phoneField"/>
+                </div>
+                <div class="grid-row">
+                    <div class="col">
+                        <html:Label ui:field="hireDateLabel" styleName="form-group__label"/>
+                        <html:Div ui:field="hireDateField"/>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <html:Label ui:field="dobLabel" styleName="form-group__label"/>
+                            <html:Div ui:field="dobField"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="line-height: inherit; text-transform: uppercase; padding: 1.5rem 0;">
+                    <html:Label ui:field="addressLabel"/>
+                </div>
+
+                <div class="form-group">
+                    <html:Label ui:field="streetLabel" styleName="form-group__label"/>
+                    <g:TextBox ui:field="streetField"/>
+                </div>
+                <div class="form-group">
+                    <html:Label ui:field="streetBLabel" styleName="form-group__label"/>
+                    <g:TextBox ui:field="streetBField"/>
+                </div>
+                <div class="grid-row">
+                    <div class="col-6" style="padding-right: 1px !important;">
+                        <div class="form-group">
+                            <html:Label ui:field="cityLabel" styleName="form-group__label"/>
+                            <g:TextBox ui:field="cityField"/>
+                        </div>
+                    </div>
+                    <div class="col-6" style="padding-left: 1px !important;">
+                        <div class="form-group">
+                            <html:Label ui:field="zipCodeLabel" styleName="form-group__label"/>
+                            <g:TextBox ui:field="zipCodeField"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <html:Label ui:field="countryLabel" styleName="form-group__label"/>
+                    <w:WfmDropdown ui:field="countryField"/>
+                </div>
+            </div>
+        </div>
+    </g:HTMLPanel>
+</ui:UiBinder>

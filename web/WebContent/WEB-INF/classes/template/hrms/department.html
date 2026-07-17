@@ -1,0 +1,214 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style type="text/css">
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+        td {
+            padding: 3px;
+        }
+        .title {
+            font-size: 9pt;
+        }
+        .name {
+            font-size: 7pt;
+        }
+        .value {
+            font-size: 8pt;
+        }
+        .personalValue {
+            font-size: 7pt;
+        }
+        .capital {
+            text-transform: capitalize;
+        }
+        .billing-address__tmp-bill td {
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+<div id="body sales-invoice__tmp">
+    <img alt="images" src="https://workforcetrack.s3.amazonaws.com/000000000000/public/65159/a2113e82-397f-49fd-a58a-cdf4f4b93dff?AWSAccessKeyId=AKIAIROQMC77E5UKWBWQ" style="display: none;"/>
+    #if($itextGenericPdfData.companyData.companyName == 'KPI Software Inc' or $itextGenericPdfData.companyData.companyLogoUrl == 'https://apps.kpi.com/customisation/kpi.com/images/kpilogo.png')
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="width: 88px;display: none;"/>
+    #else
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="max-width: 100%; max-height: 100%; display: none;"/>
+    #end
+
+    #set($departmentTable = $itextGenericPdfData.customData.get('DEPARTMENT_TABLE'))
+    #set($employeeTable = $itextGenericPdfData.customData.get('EMPLOYEE_TABLE'))
+
+    #set($nameLable = $departmentTable.rows.get('NAME').get('COLUMN_NAME'))
+    #set($parentNameLable = $departmentTable.rows.get('PARENT_NAME').get('COLUMN_NAME'))
+    #set($leaderLable = $departmentTable.rows.get('LEADER').get('COLUMN_NAME'))
+    #set($descriptionLable = $departmentTable.rows.get('DESCRIPTION').get('COLUMN_NAME'))
+    #set($start_dateLable = $departmentTable.rows.get('START_DATE').get('COLUMN_NAME'))
+    #set($end_dateLable = $departmentTable.rows.get('END_DATE').get('COLUMN_NAME'))
+
+    #set($name = $departmentTable.rows.get('NAME').get('COLUMN_VALUE'))
+    #set($parentName = $departmentTable.rows.get('PARENT_NAME').get('COLUMN_VALUE'))
+    #set($leader = $departmentTable.rows.get('LEADER').get('COLUMN_VALUE'))
+    #set($description = $departmentTable.rows.get('DESCRIPTION').get('COLUMN_VALUE'))
+    #set($start_date = $departmentTable.rows.get('START_DATE').get('COLUMN_VALUE'))
+    #set($end_date = $departmentTable.rows.get('END_DATE').get('COLUMN_VALUE'))
+
+    <div>
+        <div>
+            <table class="billing-address__tmp-bill" align="left" border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 7pt; line-height: 1.4; font-size: 9pt;" width="60%">
+                <tbody>
+                #if($name != '')
+                <tr>
+                    <td align="left" style="color: #0a0a0a; padding:4px 0; width:100%; word-wrap: break-word;" dir="$nameLable"><strong>$nameLable:</strong> <span>$name </span></td>
+                </tr>
+                #end
+                #if($parentName != '')
+                <tr>
+                    <td align="left" style="color: #0a0a0a; padding:4px 0; width:100%; word-wrap: break-word;" dir="$parentNameLable"><strong>$parentNameLable:</strong> <span>$parentName </span></td>
+                </tr>
+                #end
+                #if($leader != '')
+                <tr>
+                    <td align="left" style="color: #0a0a0a; padding:4px 0; width:100%; word-wrap: break-word;" dir="$leaderLable"><strong>$leaderLable:</strong> <span>$leader </span></td>
+                </tr>
+                #end
+                #if($description != '')
+                <tr>
+                    <td align="left" style="color: #0a0a0a; padding:4px 0; width:100%; word-wrap: break-word;" dir="$descriptionLable"><strong>$descriptionLable:</strong> <span>$description </span></td>
+                </tr>
+                #end
+                </tbody>
+            </table>
+
+            <table align="right" border="0" cellpadding="5" cellspacing="0" style="margin-bottom: 7pt;font-size: 9pt; margin-left:10%; width:30%;">
+                <tbody>
+                #if($start_date != '')
+                <tr>
+                    <th align="left" dir="$start_dateLable"><strong>$start_dateLable:</strong></th>
+                    <td align="right" dir="$start_date" style="color: #0a0a0a; padding-right:0;">$start_date</td>
+                </tr>
+                #end
+                #if($end_date != '')
+                <tr>
+                    <th align="left" dir="$end_dateLable">$end_dateLable:</th>
+                    <td align="right" dir="$end_date" style="color: #0a0a0a; padding-right:0;">$end_date</td>
+                </tr>
+                #end
+                </tbody>
+            </table>
+        </div>
+
+        <table width="100%" cellspacing="0" cellpadding="0" style="margin-top: 15px; border-bottom: 1px solid #000;">
+            <tr>
+                <td width="100%"></td>
+            </tr>
+        </table>
+
+        <table width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-top: 20px;">
+            <tr>
+                <td dir="$employeeTable.name" style="font-weight: bold;" class="title capital">$employeeTable.name</td>
+            </tr>
+        </table>
+
+        #if($employeeTable.rows.size() > 0)
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top: 10px;">
+                <tr>
+                    <td width="25%" dir="$employeeTable.header.get('NAME')" class="name capital">$employeeTable.header.get('NAME')</td>
+                    <td width="30%" dir="$employeeTable.header.get('EMAIL')" class="name capital" style="padding-left: 3pt">$employeeTable.header.get('EMAIL')</td>
+                    <td width="20%" dir="$employeeTable.header.get('PHONE')" class="name capital" style="padding-left: 3pt">$employeeTable.header.get('PHONE')</td>
+                    <td width="25%" dir="$employeeTable.header.get('POSITION')" class="name capital" style="padding-left: 3pt">$employeeTable.header.get('POSITION')</td>
+                </tr>
+                #foreach($row in $employeeTable.rows.values())
+                <tr>
+                    <td style="font-weight: bold;vertical-align: top;padding-bottom: 10pt;" class="value">
+                        #if($row.get('NAME') != '')
+                            $row.get('NAME')
+                        #else
+                            —
+                        #end
+                    </td>
+                    <td style="font-weight: bold;vertical-align: top;padding-bottom: 10pt;padding-left: 3pt" class="value">
+                        #if($row.get('EMAIL') != '')
+                            $row.get('EMAIL')
+                        #else
+                            —
+                        #end
+                    </td>
+                    <td style="font-weight: bold;vertical-align: top;padding-bottom: 10pt;padding-left: 3pt" class="value">
+                        #if($row.get('PHONE') != '')
+                            $row.get('PHONE')
+                        #else
+                            —
+                        #end
+                    </td>
+                    <td style="font-weight: bold;vertical-align: top;padding-bottom: 10pt;padding-left: 3pt" class="value">
+                        #if($row.get('POSITION') != '')
+                            $row.get('POSITION')
+                        #else
+                            —
+                        #end
+                    </td>
+                </tr>
+                #end
+            </table>
+        #else
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top: 10px;">
+                <tr>
+                    <td width="25%" style="padding: 0; margin: 0;" valign="top">
+                        <table width="100%" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td dir="$employeeTable.header.get('NAME')" class="name capital">$employeeTable.header.get('NAME')</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;" class="value">
+                                    —
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td width="32%" style="padding: 0; margin: 0;" valign="top">
+                        <table width="100%" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td dir="$employeeTable.header.get('EMAIL')" class="name capital">$employeeTable.header.get('EMAIL')</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;" class="value">
+                                    —
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td width="15%" style="padding: 0; margin: 0;" valign="top">
+                        <table width="100%" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td dir="$employeeTable.header.get('PHONE')" class="name capital">$employeeTable.header.get('PHONE')</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;" class="value">
+                                    —
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td width="28%" style="padding: 0; margin: 0;" valign="top">
+                        <table width="100%" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td dir="$employeeTable.header.get('POSITION')" class="name capital">$employeeTable.header.get('POSITION')</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;" class="value">
+                                    —
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        #end
+    </div>
+</div>
+</body>
+</html>
+
+

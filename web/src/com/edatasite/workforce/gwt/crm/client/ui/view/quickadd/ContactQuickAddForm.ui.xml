@@ -1,0 +1,37 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:m='urn:import:gwt.material.design.client.ui'
+             xmlns:mhtml='urn:import:gwt.material.design.client.ui.html'
+             xmlns:kpi='urn:import:com.edatasite.workforce.gwt.core.client.ui'>
+    <g:HTMLPanel ui:field="panel">
+        <g:HTMLPanel styleName="form-group">
+            <mhtml:Label ui:field="ownerLabel" styleName="form-group__label"/>
+            <kpi:DataListBox ui:field="owner"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group">
+            <mhtml:Label ui:field="firstNameLabel" styleName="form-group__label"/>
+            <g:TextBox ui:field="firstName"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group">
+            <mhtml:Label ui:field="lastNameLabel" styleName="form-group__label"/>
+            <g:TextBox ui:field="lastName"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group">
+            <mhtml:Label ui:field="phoneLabel" styleName="form-group__label"/>
+            <g:HTMLPanel ui:field="phoneDiv"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group">
+            <mhtml:Label ui:field="emailLabel" styleName="form-group__label"/>
+            <g:TextBox ui:field="email"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group" ui:field="leadStatusDiv">
+            <mhtml:Label ui:field="leadStatusLabel" styleName="form-group__label"/>
+            <kpi:DataListBox ui:field="leadStatus"/>
+        </g:HTMLPanel>
+    </g:HTMLPanel>
+</ui:UiBinder>

@@ -1,0 +1,28 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:m='urn:import:gwt.material.design.client.ui'
+             xmlns:m.html="urn:import:gwt.material.design.client.ui.html">
+    <m:MaterialPanel styleName="frame__modules">
+
+
+
+        <m:MaterialPanel class="main-modules" ui:field="currentModuleContainer">
+
+            <m:MaterialPanel class="" ui:field="accountContainer">
+                <m:MaterialPanel class="user-profile">
+                    <m:MaterialLink class="user-profile__menu dropdown-button" ui:field="account"/>
+                </m:MaterialPanel>
+            </m:MaterialPanel>
+
+            <m.html:UnorderedList ui:field="moduleList">
+
+            </m.html:UnorderedList>
+            <m.html:Div class="kpi-modules-overlay" display="NONE" ui:field="modulesOverlay"/>
+        </m:MaterialPanel>
+        <m.html:Div styleName="frame__modules__footer" ui:field="footer">
+            <!--<m:MaterialLink class="live-chat_indicator" activates="kpidog_support_activate" href="javascript:void(0);" ui:field="kpidogLink">-->
+                <!--<m:MaterialDropDown class="support-feedback-popup dropdown-content" activator="kpidog_support_activate" ui:field="kpidogDropDown"/>-->
+            <!--</m:MaterialLink>-->
+        </m.html:Div>
+    </m:MaterialPanel>
+</ui:UiBinder>

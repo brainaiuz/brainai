@@ -1,0 +1,2 @@
+insert into "60352".modelfield(sorder, mandatory,  hide, isCustomField, defaultValue, systemmandatory, noLabelFor, field_ID,        section,        widget      ,form_ID,     noWrapperFor) values
+                      ((select max(sorder) from modelfield),     false,     true,  false,        '',           false,           '',     'TASK_AMOUNT',   'DETAILS',    'UNKNOWN',   'TASK_MAX_FORM',   '');

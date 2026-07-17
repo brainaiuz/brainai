@@ -1,0 +1,44 @@
+<report>
+    <view>
+        <title>Ping Results List</title>
+        <name>Ping Results List</name>
+        <category>pingreply</category>
+        <splquery>
+            <select>
+                <table name="reply">
+                    <column name="t.host" title="Host" type="string" formattype="string"/>
+                    <column name="t.code" title="Response Code" type="number" formattype="number"/>
+                    <column name="t.responsemessage" title="Response Message" type="string" formattype="string"/>
+                    <column name="t.responsetime" title="Response Time" type="number" formattype="number"/>
+                    <column name="t.text" title="Search for Text" type="string" formattype="string"/>
+                    <column name="t.occurance" title="Text Occurance" type="number" formattype="number"/>
+                    <column name="t.custommessage" title="Custom Message" type="string" formattype="string"/>
+                    <column name="t.message" title="Message" type="string" formattype="string"/>
+                    <column name="t.isavailable" title="Is Up" type="boolean" formattype="boolean"/>
+                    <column name="t.time" title="Time" type="date" formattype="date"/>
+                    <column name="t.isupint" title="Up Times" type="number" formattype="percent"/>
+                </table>
+            </select>
+            <from>
+                (select distinct r.host as host,
+                r.code as code,
+                r.responsemessage as responsemessage,
+                r.responsetime as responsetime,
+                r.text as text, r.occurance as occurance,
+                r.custommessage as custommessage,
+                r.message as message,
+                r.isavailable as isavailable, r.time as time, r.isupint as isupint from reply r) t
+            </from>
+            <where>
+                <terms id="base" value="1=1"/>
+            </where>
+            <connection>
+                <url value="jdbc:postgresql://localhost:5432/healthmon"/>
+                <username value="myuser"/>
+                <password value="user"/>
+            </connection>
+        </splquery>
+
+
+    </view>
+</report>

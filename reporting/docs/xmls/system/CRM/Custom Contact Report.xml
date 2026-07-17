@@ -1,0 +1,160 @@
+<report>
+    <view>
+        <title>CRM Contacts Report</title>
+        <name>Contacts Report</name>
+        <category>contacts</category>
+        <sqlquery>
+            <select agregateFunc="distinct">
+                <table name="Contacts">
+                    <column name="id" title="Contact ID" type="number" formattype="hidden"/>
+                    <column name="firstname" title="First Name" type="string" formattype="string"/>
+                    <column name="lastname" title="Last Name" type="string" formattype="string"/>
+                    <column name="ccategory" title="Contact Category" type="string" formattype="string" treeSelect="true" table="$.contactcategory" column="name" id="id" parent="parent_id" where=" deleted is not true  and donotshow is not true" lookupfield="category_id" splitter="=>" filterwidgettype="true"/>
+                    <column name="primaryemail" title="Email" type="string" formattype="string"/>
+                    <column name="mapFileDate" title="SSM Account Info\MAP File Date" type="date" formattype="date"/>
+                    <column name="ccFromFileDate" title="SSM Account Info\CC Form File Date" type="date" formattype="date"/>
+                    <column name="preferredMethodOfCommunication" title="Customer Tracking\Preferred Method of Communication" type="string" formattype="string"/>
+                    <column name="miscelaneous" title="Account - Buyer Notes\Miscelaneous" type="string" formattype="string"/>
+                    <column name="swdTpsIngCreditLine" title="Manufacturer's Account Info\SWD - TPS - ING\Credit Line" type="number" formattype="number"/>
+                    <column name="numberOfLocations" title="SSM Account Info\Number of Locations" type="number" formattype="number"/>
+                    <column name="swdTpsIngAgencyRepNumber" title="Manufacturer's Account Info\SWD - TPS - ING\Agency Rep Number" type="string" formattype="string"/>
+                    <column name="rdTourCreditLine" title="Manufacturer's Account Info\RD-Tour\Credit Line" type="number" formattype="number"/>
+                    <column name="oakleyAccountNumber" title="Manufacturer's Account Info\Oakley\Account Number" type="string" formattype="string"/>
+                    <column name="ssmAccountInfoCreditLine" title="SSM Account Info\Credit Line" type="number" formattype="number"/>
+                    <column name="accountNumberRdTour" title="Account Number - RD-Tour" type="string" formattype="string"/>
+                </table>
+                <table name ="CRM Account">
+                    <column name="accountNumberSherWood" title="Account Number - Sher-Wood" type="number" formattype="number"/>
+                    <column name="customerTrackingRelationshipType" title="Customer Tracking\Relationship Type" type="string" formattype="string"/>
+                    <column name="ssmAccountInfoResaleNumber" title="SSM Account Info\Resale Number" type="string" formattype="string"/>
+                    <column name="customerTrackingProductSpecialty" title="Customer Tracking\Product Specialty" type="string" formattype="string"/>
+                    <column name="customerTrackingDealerLocationType" title="Customer Tracking\Dealer Location Type" type="string" formattype="string"/>
+                    <column name="customerTrackingDealerBuyingGroupAffiliation" title="Customer Tracking\Dealer Buying Group Affiliation" type="string" formattype="string"/>
+                    <column name="customerTrackingTerritory" title="Customer Tracking\Territory" type="string" formattype="string"/>
+                    <column name="customerTrackingOverallCustomerStatus" title="Customer Tracking\Overall Customer Status" type="string" formattype="string"/>
+                </table>
+
+                <table name="Address">
+                    <column name="address_line" title="Address Line" type="string" formattype="string"/>
+                    <column name="address_city" title="City" type="string" formattype="string"/>
+                    <column name="address_zipcode" title="Zip Code" type="string" formattype="string"/>
+                    <column name="country" title="Country" type="string" formattype="string"/>
+                </table>
+                <table name="CRM Details">
+                    <column name="contacttype" title="Contact Type" type="string" formattype="string"/>
+                    <column name="accountname" title="Account Name" type="string" formattype="string"/>
+                    <column name="campaignname" title="Campaign Name" type="string" formattype="string"/>
+                </table>
+            </select>
+            <from>
+                (
+                select distinct cc.id, cc.firstname,cc.lastname, cc.primaryemail,
+                cm.name campaignname, cc.ccategory,
+
+                address.address_line, address.address_city, address.address_zipcode, address.country,
+
+                (CASE cc.contacttype WHEN 1 THEN 'CRM Contact' WHEN 2 THEN 'Client' WHEN 3 THEN 'Supplier' WHEN 4 THEN
+                'Employee' END) as contacttype
+                ,ca.name accountname
+                ,category_id
+
+
+
+                , cccf.date_value1 mapFileDate
+                , cccf.date_value2 ccFromFileDate
+                , cccf.string_value3 preferredMethodOfCommunication
+                , cccf.string_value10 miscelaneous
+                , cccf.double_value6 swdTpsIngCreditLine
+                , cccf.double_value7 numberOfLocations
+                , cccf.string_value7 swdTpsIngAgencyRepNumber
+                , cccf.double_value1 rdTourCreditLine
+                , cccf.string_value8 oakleyAccountNumber
+                , cccf.double_value9 ssmAccountInfoCreditLine
+                , cccf.string_value6 accountNumberRdTour
+
+                , cacf.double_value6 accountNumberSherWood
+                , cacf.string_value2 customerTrackingRelationshipType
+                , cacf.string_value1 ssmAccountInfoResaleNumber
+                , cacf.string_value5 customerTrackingProductSpecialty
+                , cacf.string_value4 customerTrackingDealerLocationType
+                , cacf.string_value9 customerTrackingDealerBuyingGroupAffiliation
+                , cacf.string_value7 customerTrackingTerritory
+                , cacf.string_value8 customerTrackingOverallCustomerStatus
+
+
+
+                from
+                (select cc.id, max(cc.customFields_id) customFields_id, array_to_string(array_agg(cc_cg.name),'; ') ccategory  ,array_to_string(array_agg(cc_cg.id),',') category_id
+
+                , max(cc.crmaccount) crmaccount, max(cc.owner) "owner", max(cc.campaign) campaign
+                , max(cc.firstname) firstname, max(cc.lastname) lastname
+                , max(cc.primaryemail) primaryemail, max(cc.contacttype) contacttype
+
+                from "$".crmcontact cc
+                left join "$".crmcontact_contactcategory crm_cc_cg on cc.id=crm_cc_cg.crmcontact_id
+                left join (select id,name,"$".getsubcategory(id) child_id from "$".contactcategory where deleted is not true and donotshow is not true) cc_cg on crm_cc_cg.categories_id=cc_cg.child_id
+
+                where cc.deleted is not true and cc.contacttype != 5
+                group by cc.id
+                ) cc
+
+                left outer join "$".crmaccount ca on cc.crmaccount=ca.id
+                left outer join "$".campaign cm on cc.campaign=cm.id
+
+                left outer join
+                (select contactid,
+                coalesce(address,'')||' '||coalesce(addressb,'') address_line,
+                zipCode address_zipcode,
+                city address_city,
+                cn.name country
+                from "$".address add left outer join "public".country cn on add.countryid=cn.id
+                where entitytype='contact' and relationtype=1
+                ) address on cc.id=address.contactid
+
+                left join "$".crmcustomfields cccf on cc.customFields_id=cccf.id
+                left join "$".crmcustomfields cacf on ca.customFields_id=cacf.id
+
+
+                inner join
+                (
+                select distinct crmcontact_id from "$".crmcontact_contactcategory
+                where categories_id in
+                (
+                select distinct category.id from "$".contactcategoryrbac ccrbac
+                inner join "$".contactcategory category on ccrbac.contactCategory_id=category.id
+                where
+                (
+                category.doNotShow is null or category.doNotShow is not true
+                ) or
+                ccrbac.userid=2 or category.owner_id=2 or
+                (
+                ccrbac.groupid is not null and
+                ccrbac.groupid in
+                (
+                select distinct edsgroup6_.id from "$".trusteegroup edsgroup6_
+                inner join "$".trusteegroup_trustee members7_ on edsgroup6_.id=members7_.trusteegroup_id
+                inner join "$".trustee edstrustee8_ on members7_.members_id=edstrustee8_.id
+                inner join
+                (select distinct edstrustee9_.id
+                from "$".trustee edstrustee9_
+                where edstrustee9_.trusteeID=2
+                and edstrustee9_.trusteetype=2) abs on edstrustee8_.id=abs.id
+
+                )
+                )
+                )
+                ) as "contactids" on cc.id = "contactids".crmcontact_id
+
+
+
+
+                ) t
+
+            </from>
+            <where>
+                <terms id="base" value="1=1"/>
+                <replacement id="userid" userid="#?user_id?#"/>
+            </where>
+        </sqlquery>
+    </view>
+</report>

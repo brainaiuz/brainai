@@ -1,0 +1,5 @@
+/*** AWS HEADER PANELS height:0, top:0 forced BUG-FIX ***/
+#layout>div+div {height:2.08em !important;}
+#layout>div+div+div {top:2.08em !important; height:4.5em !important;}
+#layout>div+div+div+div {top:6.58em !important; height:2.58em !important;}
+#layout>div+div+div+div+div {top:9.16em !important; height:auto !important;}

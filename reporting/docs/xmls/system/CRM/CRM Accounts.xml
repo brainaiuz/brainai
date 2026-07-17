@@ -1,0 +1,86 @@
+<report>
+    <view>
+        <title>CRM Accounts Report</title>
+        <name>Accounts Report</name>
+        <category>accounts</category>
+        <sqlquery>
+            <select agregateFunc="distinct">
+                <table name="Account">
+                    <column name="t.id" title="id" type="number" formattype="hidden"/>
+                    <column name="t.cacName" title="Account Name" type="string" formattype="string"/>
+                    <column name="t.cacEmail" title="Email" type="string" formattype="string"/>
+                    <column name="t.cacPhone" title="Phone" type="string" formattype="phone"/>
+                    <column name="t.cacFax" title="Fax" type="string" formattype="string"/>
+                    <column name="t.numberOfEmployeesName" title="# of Emloyees" type="string" formattype="string"/>
+                    <column name="t.annualRevenueName" title="Annual Revenue" type="string" formattype="string"/>
+                    <column name="t.cacWebsite" title="WebSite" type="string" formattype="string"/>
+                    <column name="t.mufirstLastName" title="Account Owner" type="string"
+                            formattype="string"/>
+                    <column name="t.cacNumber" title="Account Number" type="string" formattype="string"/>
+                    <column name="t.st2Name" title="Ownership Type" type="string" formattype="string"/>
+                    <column name="t.st3Name" title="Industry Type" type="string" formattype="string"/>
+                    <column name="t.st4Name" title="Rating Type" type="string" formattype="string"/>
+                    <column name="t.billingAddressAddress" title="Billing Address" type="string" formattype="string"/>
+                    <column name="t.mailingAddressAddress" title="Shipping Address" type="string" formattype="string"/>
+                    <column name="t.billingAddressCity" title="Billing City" type="string" formattype="string"/>
+                    <column name="t.mailingAddressCity" title="Shipping City" type="string" formattype="string"/>
+                    <column name="coName" title="Billing Country" type="string" formattype="string"/>
+                    <column name="co2Name" title="Shipping Country" type="string" formattype="string"/>
+                    <column name="t.billingAddressZipcode" title="Billing Zip Code" type="string" formattype="string"/>
+                    <column name="t.mailingAddressZipcode" title="Shipping Zip Code" type="string" formattype="string"/>
+                    <column name="t.accountTypesName" title="Account Types" type="string" formattype="string"/>
+                </table>
+            </select>
+            <from>
+                (
+                select mu.id,
+                cas.name as cacName,
+                cas.email as cacEmail,
+                cas.phone as cacPhone,
+                cas.fax as cacFax,
+                cas.website as cacWebsite,
+                cas.number as cacNumber,
+                cas.accountTypesName as accountTypesName,
+                numberOfEmployees.name as numberOfEmployeesName,
+                annualRevenue.name as annualRevenueName,
+                (mu.firstName||' '||mu.lastname) as mufirstLastName,
+                st2.name as st2Name,
+                st3.name as st3Name,
+                st4.name as st4Name,
+                billingAddress.address as billingAddressAddress,
+                mailingAddress.address as mailingAddressAddress,
+                billingAddress.city as billingAddressCity,
+                mailingAddress.city as mailingAddressCity,
+                co.name  as coName,
+                co2.name as co2Name,
+                billingAddress.zipcode as billingAddressZipcode,
+                mailingAddress.zipcode as mailingAddressZipcode
+
+                from (select cac.number, array_to_string(array_agg(accountTypes.name), ', ') as accountTypesName, cac.website, cac.name, cac.email, cac.phone, cac.fax, cac.annualRevenueId, cac.numberOfEmployeesId, cac.ownership, cac.industry, cac.billingaddressid, cac.mailingaddressid, cac.rating,cac.owner
+                from "$".crmaccount cac
+                left join "$".crmaccount_types types on types.crmaccount_id = cac.id
+                left join "$".reference accountTypes on accountTypes.id = types.type_id
+                where cac.deleted is not true
+                group by cac.number, cac.name, cac.website, cac.email, cac.phone, cac.fax, cac.annualRevenueId, cac.numberOfEmployeesId,cac.ownership,cac.industry,cac.billingaddressid,cac.mailingaddressid,cac.rating,cac.owner
+                ) cas
+                left join "$".myuser mu on cas.owner = mu.id
+                left join "$".reference annualRevenue on annualRevenue.id = cas.annualRevenueId
+                left join "$".reference numberOfEmployees on numberOfEmployees.id = cas.numberOfEmployeesId
+                left join "$".reference st2 on st2.id = cas.ownership
+                left join "$".reference st3 on st3.id = cas.industry
+                left join "$".reference st4 on st4.id = cas.rating
+                left join "$".address billingAddress on billingAddress.id = cas.billingaddressid
+                left join "$".address mailingAddress on mailingAddress.id = cas.mailingaddressid
+                left join "public".country co on co.id = billingAddress.countryid
+                left join "public".country co2 on co2.id = mailingAddress.countryid ) t
+            </from>
+            <where>
+                <terms id="base" value="1=1"/>
+                <!--	<terms id="userid" userid="" company="cac.company_id" />
+                    <terms id="managerid" userid="" company="cac.company_id" />
+                    <terms id="leaderid" userid="" company="cac.company_id" />
+                    <terms id="admin" company="cac.company_id" />-->
+            </where>
+        </sqlquery>
+    </view>
+</report>

@@ -1,0 +1,19 @@
+services:
+  kpi-minio:
+    extends:
+      file: compose.yml
+      service: minio
+    volumes:
+      - kpi-minio-data:/container/vol
+    networks:
+      - kpi-network
+
+volumes:
+  kpi-minio-data:
+    name: kpi-minio-data
+
+networks:
+  kpi-network:
+    name: kpi-network
+    driver: bridge
+    external: true

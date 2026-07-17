@@ -1,0 +1,10 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head><body>
+
+<p>Dear $USER.firstName $USER.lastName,</p><br/>
+<p>Please be advised that ${managername} has approved your
+   #if(${type} == 'ADDITIONAL_PAYMENT') Payment #else Commission #end for ${month}, ${year}. </p>
+<p>The PDF version of the #if(${type} == 'ADDITIONAL_PAYMENT') Payment #else Commission #end is attached for your attention.</p>
+
+</body></html>

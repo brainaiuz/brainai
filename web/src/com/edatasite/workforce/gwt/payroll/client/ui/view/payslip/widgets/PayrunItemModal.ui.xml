@@ -1,0 +1,60 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:c='urn:import:com.edatasite.workforce.gwt.core.client.ui.components.form'
+             xmlns:m='urn:import:gwt.material.design.client.ui'
+             xmlns:dynamicTable="urn:import:com.edatasite.workforce.gwt.core.client.ui.dynamicTable">
+    <g:HTMLPanel ui:field="container">
+        <div class="grid-row">
+            <div class="col-12">
+                <c:FormGroup ui:field="basicSalary"/>
+                <c:FormGroup ui:field="pensionPanel" visible="false"/>
+
+                <div style="line-height: inherit; text-transform: uppercase; padding: 2rem 0 1.3rem 0;">
+                    <g:Label ui:field="paymentLabel" visible="false"/>
+                </div>
+                <div class="form-group">
+                    <m:html.Div ui:field="paymentPanel" class="form-group__content"/>
+                </div>
+                <div>
+                    <m:MaterialLink ui:field="paymentAdd" visible="false"/>
+                </div>
+
+                <div style="line-height: inherit; text-transform: uppercase; padding: 2rem 0 1.3rem 0;">
+                    <g:Label ui:field="deductionLabel" visible="false"/>
+                </div>
+                <div class="form-group">
+                    <m:html.Div ui:field="deductionPanel" class="form-group__content"/>
+                </div>
+                <div>
+                    <m:MaterialLink ui:field="deductionAdd" visible="false"/>
+                </div>
+
+                <div style="line-height: inherit; text-transform: uppercase; padding: 2rem 0 1.3rem 0;">
+                    <g:Label ui:field="taxLabel" visible="false"/>
+                </div>
+                <div class="form-group">
+                    <m:html.Div ui:field="taxPanel" class="form-group__content"/>
+                </div>
+                <div>
+                    <m:MaterialLink ui:field="taxAdd" visible="false"/>
+                </div>
+
+                <m:html.Div ui:field="employerContributionDiv" style="line-height: inherit; text-transform: uppercase; padding: 2rem 0 1.3rem 0;">
+                    <g:Label ui:field="employerContributionLabel" visible="false"/>
+                </m:html.Div>
+                <div class="form-group">
+                    <m:html.Div ui:field="employerContributionPanel" class="form-group__content"/>
+                </div>
+
+                <div style="line-height: inherit; text-transform: uppercase; padding: 2rem 0 1.3rem 0;">
+                    <g:Label ui:field="expenseLabel" visible="false"/>
+                </div>
+                <div class="form-group">
+                    <m:html.Div ui:field="expensePanel" class="form-group__content"/>
+                </div>
+
+                <dynamicTable:TotalTable ui:field="totalTable"/>
+            </div>
+        </div>
+    </g:HTMLPanel>
+</ui:UiBinder>

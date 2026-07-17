@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Insufficient funds</title>
+</head>
+<body>
+<h2 align="center">Insufficient Funds</h2>
+<p><b>Issue:</b>Insufficient Funds</p>
+<p><b>User Name:</b> $userName</p>
+<p><b>User Email:</b> $userEmail</p>
+<p><b>Company Name:</b> $companyName</p>
+<p><b>Company Id:</b> $companyId</p>
+</body>
+</html>

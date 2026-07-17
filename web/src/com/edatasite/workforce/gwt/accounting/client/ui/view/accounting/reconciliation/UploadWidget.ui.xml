@@ -1,0 +1,68 @@
+<!-- UploadWidget.ui.xml -->
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:g="urn:import:com.google.gwt.user.client.ui"
+             xmlns:kpi="urn:import:com.edatasite.workforce.gwt.core.client.ui">
+
+    <g:HTMLPanel>
+
+        <div class="uploadSteps__wrapper">
+            <div class="uploadSteps">
+                <div class="uploadSteps__content">
+                    <div class="uploadSteps__info">
+                        <h3>Prepare file for upload</h3>
+                        <p>Download bank statements from your online banking as CSV file.
+                        </p>
+                        <p>Alternatively, create your own statement file with our CSV
+                            template.
+                            <br/>
+                            <a href="#">Download System CSV template (CSV, 56 B)</a>
+                            <br/>
+                            <a href="#">Learn more about importing transactions</a>
+                        </p>
+                    </div>
+
+
+                    <div class="uploadSteps__data uploadSteps__uploader">
+                        <div class="dropzone" dir="ltr">
+
+
+                            <div>
+                                <div class="kpi-upload__upload-icon">
+                                    <img alt="" class="gwt-Image"
+                                         src="/mainStyles/new-ui/images/upload.svg"/>
+                                </div>
+                                <div class="dropzone-message kpi-upload__content-wrapper">
+                                    <span>Drag and drop files here or</span>
+                                    <a class="gwt-Anchor" href="javascript:;">Browse</a>
+                                </div>
+                                <div class="dropzone-submessage kpi-upload__content-wrapper">
+                                    You can drag &amp; drop files from your desktop on this
+                                    area
+                                </div>
+                            </div>
+                            <div class="dropzone__file">
+                                <kpi:WfmFormPanel action="/action/CreateBankAccountFileHandler" method="POST"
+                                                  ui:field="form"
+                                                  encoding="multipart/form-data">
+                                    <g:FileUpload ui:field="fileUpload"/>
+                                </kpi:WfmFormPanel>
+                            </div>
+
+
+                        </div>
+                        <div class="dropResults">
+                            <g:FlexTable ui:field="files"/>
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+                <div class="uploadSteps__footer"></div>
+            </div>
+        </div>
+
+
+    </g:HTMLPanel>
+</ui:UiBinder>

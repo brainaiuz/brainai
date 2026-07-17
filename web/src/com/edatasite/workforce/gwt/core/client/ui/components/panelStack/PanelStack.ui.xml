@@ -1,0 +1,12 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+    <g:HTMLPanel styleName="panel--bordered">
+        <div class="panel__heading">
+            <g:HTMLPanel styleName="panel__title" ui:field="headerTitle"></g:HTMLPanel>
+            <div class="panel__heading-actions">
+                <g:HTMLPanel styleName="switch" ui:field="headerWidget"></g:HTMLPanel>
+            </div>
+        </div>
+        <g:HTMLPanel styleName="panel__body" ui:field="bodyRow"></g:HTMLPanel>
+    </g:HTMLPanel>
+</ui:UiBinder>

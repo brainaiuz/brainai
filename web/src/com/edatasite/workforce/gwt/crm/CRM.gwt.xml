@@ -1,0 +1,7 @@
+<module rename-to="crm">
+    <inherits name='com.edatasite.workforce.gwt.core.Core'/>
+    <inherits name='com.edatasite.workforce.gwt.crm.CRMMain'/>
+    <inherits name="com.edatasite.workforce.gwt.Localization_properties"></inherits>
+    <inherits name="com.google.gwt.user.Debug"/>
+    <entry-point class='com.edatasite.workforce.gwt.crm.client.CRM'/>
+</module>

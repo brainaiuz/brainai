@@ -1,0 +1,13 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:form="urn:import:com.edatasite.workforce.gwt.core.client.ui.components.form"
+             xmlns:m.html="urn:import:gwt.material.design.client.ui.html">
+    <g:HTMLPanel styleName="grid-row">
+        <m.html:Div class="col-7" ui:field="serieContainer">
+            <form:FormGroup ui:field="serieField"/>
+        </m.html:Div>
+        <m.html:Div class="col-5" ui:field="serieNameContainer">
+            <form:FormGroup ui:field="serieNameField"/>
+        </m.html:Div>
+    </g:HTMLPanel>
+</ui:UiBinder>

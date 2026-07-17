@@ -1,0 +1,225 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style type="text/css" >
+        @page {
+            size: 11.7in 8.3in;
+            margin:130px 20px 20px 30px;
+            padding:0;
+            @top-center {
+                content: element(header);
+            }
+            @bottom-left {
+                content: element(footer);
+            }
+        }
+        @font-face{
+            font-family: Calibri;
+            src: 'fonts/tahoma.ttf';
+        }
+
+        #header {            
+            display: block;
+            position: running(header);
+        }
+        #footer{
+            padding: 0;
+            display: block;
+            position: running(footer);
+        }
+        #pagenumber:before {
+            content: counter(page);
+        }
+
+        #pagecount:before {
+            content: counter(pages);
+        }
+
+        .footer_table tr td{
+            padding-left: 15px;
+            margin-right: 0;
+        }
+
+        .tableBorder{
+            border-top:1px solid #000000;
+            border-left:1px solid #000000;
+        }
+        .tableBorder td{
+            border-right:1px solid #000000;
+            border-bottom:1px solid #000000;
+        }
+        body{
+            font-family: Calibri;
+        }
+        th{
+            font-family:Calibri;
+        }
+        th,td{
+            padding:3px;
+        }
+
+        b,p,td,span,caption,hr,h1,h2,h3,h4,h5{
+            font-family:Calibri;
+        }
+        table {
+            -fs-table-paginate: paginate;
+        }
+
+        h1, h2{
+            margin: 0;
+            padding: 0;
+        }
+        .bolderText{
+            font-size: 13px;
+            font-weight: bold;
+            padding-left: 6px;
+        }
+
+        .footer_text{
+            padding-left: 12px;
+        }
+        .label{
+            font-size: 10.5px;
+            padding-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+#set($companyName = $itextGenericPdfData.companyData.companyName)
+#set($fromDate = $itextGenericPdfData.extraData)
+ <div id="header">
+    <table width="100%" style="background-color: #808000;">
+        <tr>
+            <td align="center" width="100%" style="font-style: italic; color: #395346;">
+                <b>$companyName</b>
+            </td>
+        </tr>
+        <tr>
+            <td align="center" style="font-style: italic;">
+                <b>CUSTOMER AGEING REPORT </b>
+            </td>
+        </tr>
+        <tr>
+            <td align="center" style="font-style: italic; color: #395346;">
+                <b>AS OF DATE $fromDate</b>
+            </td>
+        </tr>
+    </table>
+ </div>
+
+#foreach($row in $itextGenericPdfData.customData.get('CUSTOM_DATA').rows)
+#set($balanceDue=$row.get('ITEM_BALANCE')) 
+#end
+#set($fromDate=$itextGenericPdfData.customData.get('CUSTOM_DATA').header.get('FROM_DATE')) 
+#set($toDate=$itextGenericPdfData.customData.get('CUSTOM_DATA').header.get('TO_DATE')) 
+#set($beginningBalance=$itextGenericPdfData.customData.get('CUSTOM_DATA').header.get('BEGINNING_BALANCE')) 
+#set($endingBalance=$itextGenericPdfData.customData.get('CUSTOM_DATA').header.get('ENDING_BALANCE'))
+#set($isDetailView=$itextGenericPdfData.customData.get('CUSTOM_DATA').header.get('ISDETAILVIEW'))
+#set($client=$itextGenericPdfData.customData.get('CUSTOM_DATA').header.get('CLIENT'))
+
+<div id="footer">
+    
+</div>
+
+ <div style="font-size:11px">
+ 
+
+<table width="100%" style="margin-top:20px;">
+    <tr>
+        <td style="font-size:20px;font-weight:bold;text-align:left;">
+            Statement from $fromDate to $toDate
+        </td>
+    </tr>
+</table>
+<!--Aging Summary-->
+#set($agingSummaryTable = $itextGenericPdfData.customData.get('AGING_SUMMARY').rows)
+#set($fiveMonth = $agingSummaryTable.get('FIVE_MONTHLY_AND_OVER_AMOUNT').get('COLUMN_VALUE'))
+#set($fourMonth = $agingSummaryTable.get('FOUR_MONTHLY_AND_OVER_AMOUNT').get('COLUMN_VALUE'))
+#set($threeMonth = $agingSummaryTable.get('THREE_MONTHLY_AMOUNT').get('COLUMN_VALUE'))
+#set($twoMonth = $agingSummaryTable.get('TWO_MONTHLY_AMOUNT').get('COLUMN_VALUE'))
+#set($month = $agingSummaryTable.get('MONTHLY_AMOUNT').get('COLUMN_VALUE'))
+#set($week = $agingSummaryTable.get('WEEKLY_AMOUNT').get('COLUMN_VALUE'))
+#set($current = $agingSummaryTable.get('CURRENT_AMOUNT').get('COLUMN_VALUE'))
+#set($total = $agingSummaryTable.get('TOTAL_AMOUNT').get('COLUMN_VALUE'))
+
+#set($period_count = $itextGenericPdfData.customData.get('CUSTOM_DATA').header.get('PERIOD_COUNT'))
+#set($period1 = "PERIOD")
+
+<table width="100%" class="tableBorder" cellspacing="0" cellpadding="0">
+    <tr>
+        <td style="font-weight: bold;" width="6%">Date</td>
+        <td style="font-weight: bold;" width="6%">Due Date</td>
+        <td style="font-weight: bold;" width="6%">Voucher #</td>
+        <td style="font-weight: bold;" width="6%">L P O No</td>
+        <td style="font-weight: bold;" width="8%">Amount in BC</td>
+        <td style="font-weight: bold;" width="12%">Original Invoice Amt. IC</td>
+
+        #set($period1='PERIOD')
+        #set($start=1)
+        #foreach($i in [1..$start.parseInt($period_count)])
+            <td style="font-weight: bold;" align="right" width="7%">$itextGenericPdfData.customData.get('CUSTOM_DATA').header.get("$period1$i")</td>
+        #end
+
+        <td style="font-weight: bold;" align="right" width="8%">Balance IC</td>
+        <td style="font-weight: bold;" width="5%">Currency</td>
+        <td style="font-weight: bold;" align="right" width="8%">Balance BC</td>
+    </tr>
+
+    #set($cols=9)
+    #set($colspan = $cols + $cols.parseInt($period_count))
+	<tr>
+		<td colspan="$colspan" style="font-weight:bold;font-size:12px">
+            <div style="float: left;">
+                $client
+            </div>
+        </td>
+	</tr>
+    <tr>
+		<td colspan="$colspan" style="font-weight:bold;font-size:12px">
+            <div style="float: left;">
+                Beginning Balance
+            </div>
+            <div style="float: right;">
+                $beginningBalance
+            </div>
+        </td>
+	</tr>
+
+    #foreach($row in $itextGenericPdfData.customData.get('CUSTOM_DATA').rows)
+    <tr style="page-break-inside: avoid;">
+        <td> $row.get('DATE') </td>
+        <td> $row.get('INV_DUE_DATE') </td>
+        <td> $row.get('INV_NUMBER') </td>
+        <td> $row.get('INV_PO_NUMBER') </td>
+        <td align="right"> $row.get('AMOUNT') </td>
+        <td align="right"> $row.get('CUSTOM_AMOUNT') </td>
+
+        #set($period1='PERIOD')
+        #set($start=1)
+        #foreach($i in [1..$start.parseInt($period_count)])
+            <td style="font-weight: bold;" align="right" width="7%">$row.get("$period1$i")</td>
+        #end
+
+        <td align="right"> $row.get('BALANCE_IC') </td>
+        <td align="right"> $row.get('INVOICE_CURRENCY') </td>
+        <td align="right"> $row.get('BALANCE_BC') </td>
+    </tr>
+    #end
+
+	<tr>
+		<td colspan="$colspan" style="font-weight:bold;font-size:12px">
+            <div style="float: left;">
+                Ending Balance
+            </div>
+            <div style="float: right;">
+                $endingBalance
+            </div>
+        </td>
+	</tr>
+
+</table>
+
+
+ </div>
+</body>
+</html>

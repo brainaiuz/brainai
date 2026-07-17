@@ -1,0 +1,21 @@
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:m="urn:import:gwt.material.design.client.ui"
+             xmlns:g="urn:import:com.google.gwt.user.client.ui"
+             xmlns:ma="urn:import:gwt.material.design.addins.client"
+             xmlns:mhtml="urn:import:gwt.material.design.client.ui.html"
+             xmlns:kpi="urn:import:com.edatasite.workforce.gwt.core.client.ui">
+    <g:HTMLPanel addStyleNames="form-group">
+        <g:Label styleName="form-group__label" ui:field="label" />
+
+        <div class="form-upload">
+
+            <mhtml:Div class="form-upload__attached" ui:field="filePanel" style="display:none"/>
+
+            <mhtml:Div class="btn-upload" ui:field="attachButton">
+                <mhtml:Div class="btn-upload__icon">
+                    <mhtml:Italic class="ficon--attachment" ui:field="attachIcon"></mhtml:Italic>
+                </mhtml:Div>
+            </mhtml:Div>
+        </div>
+    </g:HTMLPanel>
+</ui:UiBinder>

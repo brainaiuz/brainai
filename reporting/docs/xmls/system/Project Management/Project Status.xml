@@ -1,0 +1,66 @@
+<report>
+    <view>
+        <title>Project Status</title>
+        <name>Project Status</name>
+        <category>clients</category>
+        <sqlquery>
+            <select agregateFunc="distinct">
+                <table name="client">
+                    <column name="t.projectid" title="id" type="number" formattype="hidden"/>
+                    <column name="t.clientname" title="Client" type="string" formattype="string"
+                            filterwidgettype="checkbox"/>
+                    <column name="t.projectname" title="Brand" type="string" formattype="string"
+                            filterwidgettype="checkbox"/>
+                    <column name="t.market" title="Market" type="string" formattype="string"
+                            filterwidgettype="checkbox"/>
+                    <column name="t.campaign" title="Project" type="string" formattype="string"/>
+                    <column name="t.statusdate" title="Status Date" type="date" formattype="date"/>
+                    <column name="t.currentstatus" title="Current Status" type="string" formattype="string"/>
+                    <column name="t.nextsteps" title="Next steps" type="string" formattype="string"
+                            filterwidgettype="checkbox"/>
+                    <column name="t.action" title="Action" type="string" formattype="string"
+                            filterwidgettype="checkbox"/>
+                    <column name="t.duedate" title="Due Date" type="string" formattype="string"/>
+                </table>
+            </select>
+            <from>
+                ( select
+                distinct ps.id,
+                ps.locationid,
+                ps.projectid,
+                ps.statusDate,
+                ps.currentStatus,
+                ps.nextSteps,
+                ps.action,
+                ps.dueDate,
+                ps.campaign,
+                p.name as projectname,
+                p.isdeleted as isdeleted,
+                c.id as clientid,
+                c.name as clientname,
+                (country.name ||','|| CASE WHEN region.name is not null THEN region.name ||','|| pl.city ELSE pl.city
+                END) as market
+
+                from
+                "$".projectstatus ps
+                left join "$".project p on p.id=ps.projectid
+                left join "$".crmaccount c on c.id=p.clientid
+                left join "$".location pl on pl.id = p.projectlocationid
+                left join "public".country on country.id = pl.countryid
+                left join "public".region on region.id = pl.stateid
+                ) t
+            </from>
+            <where>
+                <terms id="base" value="t.isdeleted = false"/>
+                <terms id="client" clientid="t.clientid"/>
+            </where>
+        </sqlquery>
+        <actions>
+            <action name="addnew" title="Add New"
+                    url="ProjectManagement.html?isCustomParam=true&amp;style=mediacom&amp;isCloseWindow=true&amp;container=projectStatusadd&amp;showleftmenu=false&amp;sections=addprojectStatus&amp;showheader=false#projectStatus|addprojectStatus/add"/>
+            <action name="edit" title="Edit"
+                    url="ProjectManagement.html?isCustomParam=true&amp;style=mediacom&amp;isCloseWindow=true&amp;container=projectStatus&amp;showleftmenu=false&amp;sections=edit&amp;showheader=false#projectStatus|edit/%t.id%"/>
+            <action name="delete" title="Delete" url="entityDelete?objectID=%t.id%&amp;objectType=projectstatus"/>
+        </actions>
+    </view>
+</report>

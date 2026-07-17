@@ -1,0 +1,363 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style type="text/css">
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+        td {
+            padding: 3px;
+        }
+        .title {
+            font-size: 9pt;
+        }
+        .name {
+            font-size: 7pt;
+        }
+        .value {
+            font-size: 8pt;
+        }
+        .personalValue {
+            font-size: 7pt;
+        }
+        .capital {
+            text-transform: capitalize;
+        }
+    </style>
+</head>
+<body>
+<div id="body sales-invoice__tmp">
+    <img alt="images" src="https://workforcetrack.s3.amazonaws.com/000000000000/public/65159/a2113e82-397f-49fd-a58a-cdf4f4b93dff?AWSAccessKeyId=AKIAIROQMC77E5UKWBWQ" style="display: none;"/>
+    #if($itextGenericPdfData.companyData.companyName == 'KPI Software Inc' or $itextGenericPdfData.companyData.companyLogoUrl == 'https://apps.kpi.com/customisation/kpi.com/images/kpilogo.png')
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="width: 88px;display: none;"/>
+    #else
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="max-width: 100%; max-height: 100%; display: none;"/>
+    #end
+
+    #set($contactTable = $itextGenericPdfData.customData.get('CONTACT_TABLE'))
+
+    #set($nameLabel = $contactTable.rows.get('NAME').get('COLUMN_NAME'))
+    #set($dateOfBirthLabel = $contactTable.rows.get('DATE_OF_BIRTH').get('COLUMN_NAME'))
+    #set($phoneLabel = $contactTable.rows.get('PHONE_NUMBER').get('COLUMN_NAME'))
+    #set($emailLabel = $contactTable.rows.get('EMAIL').get('COLUMN_NAME'))
+    #set($titleLabel = $contactTable.rows.get('TITLE').get('COLUMN_NAME'))
+
+    #set($name = $contactTable.rows.get('NAME').get('COLUMN_VALUE'))
+    #set($dateOfBirth = $contactTable.rows.get('DATE_OF_BIRTH').get('COLUMN_VALUE'))
+    #set($phone = $contactTable.rows.get('PHONE_NUMBER').get('COLUMN_VALUE'))
+    #set($email = $contactTable.rows.get('EMAIL').get('COLUMN_VALUE'))
+    #set($title = $contactTable.rows.get('TITLE').get('COLUMN_VALUE'))
+
+    <div>
+        <table width="100%" cellspacing="0" cellpadding="0" border="0">
+            <tr>
+                <td dir="$contactTable.name" style="font-weight: bold;" class="title capital">$contactTable.name</td>
+            </tr>
+        </table>
+
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top: 10px;">
+            <tr>
+                <td width="35%" style="padding: 0; margin: 0;" valign="top">
+                    <table width="100%" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td dir="$nameLabel" class="name capital">$nameLabel</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;" class="value">
+                                #if($name != '') $name #else — #end
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td width="15%" style="padding: 0; margin: 0;" valign="top">
+                    <table width="100%" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td dir="$dateOfBirthLabel" class="name capital">$dateOfBirthLabel</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;" class="value">
+                                #if($dateOfBirth != '') $dateOfBirth #else — #end
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td width="15%" style="padding: 0; margin: 0;" valign="top">
+                    <table width="100%" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td dir="$phoneLabel" class="name capital">$phoneLabel</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;" class="value">
+                                #if($phone != '') $phone #else — #end
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td width="20%" style="padding: 0; margin: 0;" valign="top">
+                    <table width="100%" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td dir="$titleLabel" class="name capital">$emailLabel</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;" class="value">
+                                #if($email != '') $email #else — #end
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td width="15%" style="padding: 0; margin: 0;" valign="top">
+                    <table width="100%" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td dir="$titleLabel" class="name capital">$titleLabel</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;" class="value">
+                                #if($title != '') $title #else — #end
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+        <table width="100%" cellspacing="0" cellpadding="0" style="margin-top: 15px; border-bottom: 1px solid #000;">
+            <tr>
+                <td width="100%"></td>
+            </tr>
+        </table>
+
+        #set($companyTable = $itextGenericPdfData.customData.get('COMPANY_TABLE'))
+
+        #set($companyNameLabel = $companyTable.rows.get('COMPANY_NAME').get('COLUMN_NAME'))
+        #set($companyWebsiteLabel = $companyTable.rows.get('WEBSITE').get('COLUMN_NAME'))
+
+        #set($companyName = $companyTable.rows.get('COMPANY_NAME').get('COLUMN_VALUE'))
+        #set($companyWebsite = $companyTable.rows.get('WEBSITE').get('COLUMN_VALUE'))
+
+        <table width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-top: 20px;">
+            <tr>
+                <td dir="$clientContactTable.name" style="font-weight: bold;" class="title capital">$companyTable.name</td>
+            </tr>
+        </table>
+
+
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top: 10px;">
+            <tr>
+                <td width="50%" style="padding: 0; margin: 0;" valign="top">
+                    <table width="100%" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td dir="$companyNameLabel" class="name capital">$companyNameLabel</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;" class="value">
+                                #if($companyName != '') $companyName #else — #end
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td width="50%" style="padding: 0; margin: 0;" valign="top">
+                    <table width="100%" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td dir="$companyWebsiteLabel" class="name capital">$companyWebsiteLabel</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;" class="value">
+                                #if($companyWebsite != '') $companyWebsite #else — #end
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+        <table width="100%" cellspacing="0" cellpadding="0" style="margin-top: 15px; border-bottom: 1px solid #000;">
+            <tr>
+                <td width="100%"></td>
+            </tr>
+        </table>
+
+        #set($addressTable = $itextGenericPdfData.customData.get('ADDRESS_TABLE'))
+
+        #set($homAddressLabel = $addressTable.rows.get('HOME_ADDRESS_FULL').get('COLUMN_NAME'))
+        #set($homeAddFull = $addressTable.rows.get('HOME_ADDRESS_FULL').get('COLUMN_VALUE'))
+
+        #set($corpAddressLabel = $addressTable.rows.get('CORPORATE_ADDRESS_FULL').get('COLUMN_NAME'))
+        #set($corpAddFull = $addressTable.rows.get('CORPORATE_ADDRESS_FULL').get('COLUMN_VALUE'))
+
+        <table width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-top: 20px;">
+            <tr>
+                <td dir="$addressTable.name" style="font-weight: bold;" class="title capital">$addressTable.name</td>
+            </tr>
+        </table>
+
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top: 10px;">
+            <tr>
+                <td width="48%" style="padding: 0; margin: 0;" valign="top">
+                    <table width="100%" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td width="100%" class="name capital">$homAddressLabel</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;" class="value">
+                                #if($homeAddFull != '') $homeAddFull.replaceAll(',', ', ') #else — #end
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td width="2%"></td>
+                <td width="48%" style="padding: 0; margin: 0;" valign="top">
+                    <table width="100%" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td width="100%" class="name capital">$corpAddressLabel</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;" class="value">
+                                #if($corpAddFull != '') $corpAddFull.replaceAll(',', ', ') #else — #end
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td width="2%"></td>
+            </tr>
+        </table>
+
+        #set($taskTable = $itextGenericPdfData.customData.get('TASK_TABLE'))
+
+        #if($taskTable.rows.size() > 0)
+        <table width="100%" cellspacing="0" cellpadding="0" style="margin-top: 15px; border-bottom: 1px solid #000;">
+            <tr>
+                <td width="100%"></td>
+            </tr>
+        </table>
+
+        <table width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-top: 20px;">
+            <tr>
+                <td dir="$taskTable.name" style="font-weight: bold;" class="title capital">$taskTable.name</td>
+            </tr>
+        </table>
+
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top: 10px;">
+            <tr>
+                <td width="15%" dir="$taskTable.header.get('Number')" class="name capital">$taskTable.header.get('Number')</td>
+                <td width="15%" dir="$taskTable.header.get('NAME')" class="name capital" style="padding-left: 3pt">$taskTable.header.get('NAME')</td>
+                <td width="20%" dir="$taskTable.header.get('DESCRIPTION')" class="name capital" style="padding-left: 3pt">$taskTable.header.get('DESCRIPTION')</td>
+                <td width="15%" dir="$taskTable.header.get('START_DATE')" class="name capital" style="padding-left: 3pt">$taskTable.header.get('START_DATE')</td>
+                <td width="15%" dir="$taskTable.header.get('END_DATE')" class="name capital" style="padding-left: 3pt">$taskTable.header.get('END_DATE')</td>
+                <td width="10%" dir="$taskTable.header.get('STATUS')" class="name capital" style="padding-left: 3pt">$taskTable.header.get('STATUS')</td>
+                <td width="10%" dir="$taskTable.header.get('PRIORITY')" class="name capital" style="padding-left: 3pt">$taskTable.header.get('PRIORITY')</td>
+            </tr>
+            #foreach($row in $taskTable.rows.values())
+            <tr>
+                <td style="font-weight: bold;vertical-align: top;padding-bottom: 10pt;" class="value">
+                    #if($row.get('Number') != '')
+                        $row.get('Number')
+                    #else
+                        —
+                    #end
+                </td>
+                <td style="font-weight: bold;vertical-align: top;padding-bottom: 10pt;padding-left: 3pt" class="value">
+                    #if($row.get('NAME') != '')
+                        $row.get('NAME')
+                    #else
+                        —
+                    #end
+                </td>
+                <td style="font-weight: bold;vertical-align: top;padding-bottom: 10pt;padding-left: 3pt" class="value">
+                    #if($row.get('DESCRIPTION') != '')
+                        $row.get('DESCRIPTION')
+                    #else
+                        —
+                    #end
+                </td>
+                <td style="font-weight: bold;vertical-align: top;padding-bottom: 10pt;padding-left: 3pt" class="value">
+                    #if($row.get('START_DATE') != '')
+                        $row.get('START_DATE')
+                    #else
+                        —
+                    #end
+                </td>
+                <td style="font-weight: bold;vertical-align: top;padding-bottom: 10pt;padding-left: 3pt" class="value">
+                    #if($row.get('END_DATE') != '')
+                        $row.get('END_DATE')
+                    #else
+                        —
+                    #end
+                </td>
+                <td style="font-weight: bold;vertical-align: top;padding-bottom: 10pt;padding-left: 3pt" class="value">
+                    #if($row.get('STATUS') != '')
+                        $row.get('STATUS')
+                    #else
+                        —
+                    #end
+                </td>
+                <td style="font-weight: bold;vertical-align: top;padding-bottom: 10pt;padding-left: 3pt" class="value">
+                    #if($row.get('PRIORITY') != '')
+                        $row.get('PRIORITY')
+                    #else
+                        —
+                    #end
+                </td>
+            </tr>
+            #end
+        </table>
+        #end
+
+        #set($notesTable = $itextGenericPdfData.customData.get('NOTES_TABLE'))
+
+        #if($notesTable.rows.size() > 0)
+        <table width="100%" cellspacing="0" cellpadding="0" style="margin-top: 15px; border-bottom: 1px solid #000;">
+            <tr>
+                <td width="100%"></td>
+            </tr>
+        </table>
+
+        <table width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-top: 20px;">
+            <tr>
+                <td dir="$notesTable.name" style="font-weight: bold;" class="title capital">$notesTable.name</td>
+            </tr>
+        </table>
+
+        <table width="100%" cellspacing="0" cellpadding="0" style="margin-top: 10px;" border="0">
+            #foreach($row in $notesTable.rows.values())
+            <tr>
+                <td width="100%" dir="$row.get('Subject')" class="value">$row.get('Subject').replaceAll('good', 'lala')</td>
+            </tr>
+            <tr>
+                <td align="right" class="name" style="font-weight: bold;">$row.get('NAME'). $row.get('Date')</td>
+            </tr>
+            #end
+        </table>
+        #end
+
+        #set($customFieldTable = $itextGenericPdfData.customData.get('CUSTOM_FIELD'))
+
+        #if($customFieldTable.rows.size() > 0)
+        <table width="100%" cellspacing="0" cellpadding="0" style="margin-top: 15px; border-bottom: 1px solid #000;">
+            <tr>
+                <td width="100%"></td>
+            </tr>
+        </table>
+
+        <table width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-top: 20px;margin-bottom: 15px;">
+            <tr>
+                <td dir="$customFieldTable.name" style="font-weight: bold;" class="title capital">$customFieldTable.name</td>
+            </tr>
+        </table>
+
+        <div>
+            #foreach($row in $customFieldTable.rows.values())
+            <div style="width: 33.3%; float: left;">
+                <div class="name" style="padding-bottom: 3px; padding-left: 3px;">
+                    $row.get('COLUMN_NAME')
+                </div>
+                <div style="font-weight: bold; padding-top: 3px; padding-left: 3px; padding-bottom: 15px;" class="value">
+                    #if($row.get('COLUMN_VALUE') != '') $row.get('COLUMN_VALUE') #else — #end
+                </div>
+            </div>
+            #end
+        </div>
+        #end
+    </div>
+</div>
+</body>
+</html>

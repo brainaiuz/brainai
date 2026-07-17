@@ -1,0 +1,46 @@
+<report>
+    <view>
+        <title>CRM Case/Category</title>
+        <name>crmcase</name>
+        <category>crmcase</category>
+        <sqlquery>
+            <select agregateFunc="distinct">
+                <!--  Please only enter type property {'number' or 'date or clock' }   -->
+                <table name="CRM Case">
+                    <column name="t.id" title="id" type="number" formattype="hidden"/>
+                    <column name="t.casenumber" title="Case Number" type="string" formattype="string"/>
+                    <column name="t.fullname" title="Assigned To" type="string" formattype="string"/>
+                    <column name="t.email" title="Reported By" type="string" formattype="string"/>
+                    <column name="t.statusname" title="Status" type="string" formattype="string"/>
+                    <column name="t.categoryname" title="Category" type="string" formattype="string"/>
+                    <column name="t.createddate" title="Created Date" type="date" formattype="date"/>
+
+                </table>
+            </select>
+            <from>
+                (select
+                cs.id,
+                COALESCE(contact.primaryemail,lead.primaryemail, account.email) as email,
+                COALESCE(assignee.firstname, '') || ' ' || COALESCE(assignee.lastname, '') as fullname,
+                status.name as statusname,
+                cs.createdDate as createddate,
+                category.name as categoryname,
+                cs.casenumberstring as casenumber,
+                cs.intrash as intrash
+                from "$".crmcase cs
+                left join "$".crmcontact contact on contact.id = cs.releatedto
+                left join "$".crmcontact lead on lead.id = cs.lead_id
+                left join "$".crmaccount account on account.id = cs.crmaccount
+                left join "$".reference status on status.id = cs.status
+                left join "$".myuser assignee on assignee.id = cs.owner
+                left join "$".crmcontact_contactcategory categoryKeyTable on categoryKeyTable.crmcontact_id = contact.id
+                left join "$".contactcategory category on category.id = categoryKeyTable.categories_id
+                where cs.deleted is not true
+                ) t
+            </from>
+            <where>
+                <terms id="base" value="t.intrash is not true"/>
+            </where>
+        </sqlquery>
+    </view>
+</report>

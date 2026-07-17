@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    </head>
+    <body>
+        <p><I>Dear $USER_NAME,</I><br/></p>
+
+        <p>Below is a summary of your request to import $IMPORT_NAME to <b>$productName</b> on $IMPORT_DATE <br></p>
+
+        <p>
+            Import Summary:<br>
+            Number of records on import file: $IMPORT_FILE_SIZE<br>
+            Imported: $IMPORT_FILE_NEW<br>
+            Rejected: $IMPORT_FILE_IGNORED<br>
+        </p>
+
+        <p>
+            Please find attached the rejected records. This file can be used to re-import
+            the failed records. First correct any fields with errors and then convert the file
+            to csv format using the save-as function in your editor.
+        </p>
+
+        <p>If you've any question please feel free to contact us at $support </p>
+
+        <p><I>Sincerely yours,</I></p>
+
+        <p><I>
+            Customer Service Department, <br/>
+            $productName support team <br/>
+        </I>
+        </p>
+        $companyInfo
+    </body>
+</html>

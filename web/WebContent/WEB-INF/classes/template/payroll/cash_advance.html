@@ -1,0 +1,189 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style type="text/css">
+        body {
+            font-family: 'Arial', "Helvetica Neue", Helvetica, sans-serif;
+        }
+
+        table, th, td {
+            font-family: 'Calibri', sans-serif;
+            font-size: 11pt;
+        }
+
+        td {
+            padding: 3px;
+        }
+    </style>
+</head>
+<body>
+<div id="body sales-invoice__tmp">
+    <img alt="images" src="https://workforcetrack.s3.amazonaws.com/000000000000/public/65159/a2113e82-397f-49fd-a58a-cdf4f4b93dff?AWSAccessKeyId=AKIAIROQMC77E5UKWBWQ" style="display: none;"/>
+    #if($itextGenericPdfData.companyData.companyName == 'KPI Software Inc' or $itextGenericPdfData.companyData.companyLogoUrl == 'https://apps.kpi.com/customisation/kpi.com/images/kpilogo.png')
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="width: 88px; display: none;"/>
+    #else
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="max-width: 100%; max-height: 100%; display: none;"/>
+    #end
+
+    #set($detailsTable = $itextGenericPdfData.customData.get('DETAILS_TABLE'))
+    #set($chartsLabel = $itextGenericPdfData.localizeLabels)
+
+
+    #set($employeeName = $detailsTable.rows.get('EMPLOYEE_NAME').get('COLUMN_VALUE'))
+    #set($requesterLabel = $chartsLabel.get('REQUESTER_LABEL'))
+    #set($date = $detailsTable.rows.get('DATE').get('COLUMN_VALUE'))
+    #set($dateLabel = $chartsLabel.get('DATE_LABEL'))
+    #set($amount = $detailsTable.rows.get('AMOUNT').get('COLUMN_VALUE'))
+    #set($requestedAmountLabel = $chartsLabel.get('REQUESTED_AMOUNT_LABEL'))
+    #set($currency = $detailsTable.rows.get('CURRENCY').get('COLUMN_VALUE'))
+    #set($paymentMethod = $detailsTable.rows.get('PAYMENT_METHOD').get('COLUMN_VALUE'))
+    #set($paymentMethodLabel = $chartsLabel.get('PAYMENT_METHOD_LABEL'))
+    #set($category = $detailsTable.rows.get('CATEGORY').get('COLUMN_VALUE'))
+    #set($categoryLabel = $chartsLabel.get('CATEGORY_LABEL'))
+    #set($paymentTerms = $detailsTable.rows.get('PAYMENT_TERMS').get('COLUMN_VALUE'))
+    #set($paymentTermsLabel = $chartsLabel.get('PAYMENT_TERMS_LABEL'))
+    #set($paymentAmount = $detailsTable.rows.get('PAYMENT_AMOUNT').get('COLUMN_VALUE'))
+    #set($paymentAmountLabel = $chartsLabel.get('PAYMENT_AMOUNT_LABEL'))
+    #set($approver = $detailsTable.rows.get('APPROVER').get('COLUMN_VALUE'))
+    #set($approverLabel = $chartsLabel.get('APPROVER_LABEL'))
+    #set($number = $detailsTable.rows.get('NUMBER').get('COLUMN_VALUE'))
+    #set($numberLabel = $chartsLabel.get('NUMBER_LABEL'))
+    #set($purpose = $detailsTable.rows.get('PURPOSE').get('COLUMN_VALUE'))
+    #set($purposeLabel = $chartsLabel.get('PURPOSE_LABEL'))
+    #set($reference = $detailsTable.rows.get('REFERENCE').get('COLUMN_VALUE'))
+    #set($referenceLabel = $chartsLabel.get('REFERENCE_LABEL'))
+
+
+    <!-- Header table starts-->
+    <table border="0" cellpadding="0" cellspacing="0" style="margin-top: 10px;" width="100%">
+        <tr>
+            <td width="39%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td class="">$requesterLabel: <strong>#if($employeeName != '') $employeeName #else —
+                            #end</strong>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="26%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td class="">$requestedAmountLabel: <strong>#if($amount != '') $amount #else — #end</strong>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="39%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td class="">$numberLabel: <strong>#if($number != '') $number #else — #end</strong></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <table border="0" cellpadding="0" cellspacing="0" style="margin-top: 10px;" width="100%">
+        <tr>
+            <td width="39%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td class="">$approverLabel: <strong>#if($approver != '') $approver #else — #end</strong></td>
+                    </tr>
+                </table>
+            </td>
+            <td width="26%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td class="">$paymentAmountLabel: <strong>#if($paymentAmount != '') $paymentAmount #else —
+                            #end</strong></td>
+                    </tr>
+                </table>
+            </td>
+            <td width="39%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td class="">$dateLabel: <strong>#if($date != '') $date #else — #end</strong></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <table border="0" cellpadding="0" cellspacing="0" style="margin-top: 10px;" width="100%">
+        <tr>
+            <td width="39%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td class="">$categoryLabel: <strong>#if($category != '') $category #else — #end</strong></td>
+                    </tr>
+                </table>
+            </td>
+            <td width="26%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td class="">$paymentMethodLabel: <strong>#if($paymentMethod != '') $paymentMethod #else —
+                            #end</strong></td>
+                    </tr>
+                </table>
+            </td>
+            <td width="39%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td class="">$paymentTermsLabel: <strong>#if($paymentTerms != '') $paymentTerms #else —
+                            #end</strong>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <!-- Header table ends-->
+
+    <!-- Main container tables starts-->
+    <div style="padding-top:40pt;width: 100%;clear: both">
+        #if($reference!='')
+        <table border="0" cellpadding="0" cellspacing="0" class="payment-row"
+               style=" margin-bottom:20px; border-left: 4px solid #0070f0;-webkit-column-break-inside: avoid;page-break-inside: avoid;break-inside: avoid;"
+               width="100%">
+            <tbody>
+            <tr>
+                <th style="padding: 0 0 3px 15px;  text-align: left;">
+                    $referenceLabel:
+                </th>
+            </tr>
+            <tr>
+                <td style="padding: 0 0 0 15px;color:#969696;">
+                    $reference
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        #end
+
+        #if($purpose!='')
+        <table border="0" cellpadding="0" cellspacing="0" class="payment-row"
+               style=" margin-bottom:20px; border-left: 4px solid #0070f0;-webkit-column-break-inside: avoid;page-break-inside: avoid;break-inside: avoid;"
+               width="100%">
+            <tbody>
+            <tr>
+                <th style="padding: 0 0 3px 15px; text-align: left;">
+                    $purposeLabel:
+                </th>
+            </tr>
+            <tr>
+                <td style="padding: 0 0 0 15px;color:#969696;">
+                    $purpose.replaceAll('\n','<br/>')
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        #end
+    </div>
+    <!-- Main container tables ends-->
+</div>
+</body>
+</html>
+
+

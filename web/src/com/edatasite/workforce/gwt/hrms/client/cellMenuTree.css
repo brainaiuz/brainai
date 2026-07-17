@@ -1,0 +1,129 @@
+.selectedLabel {
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 469px;
+    border: 1px solid gray;
+    height: 190px;
+}
+
+.addAssignees {
+}
+
+.dragTable {
+    border: 1px dashed #083643;
+    margin-bottom: 3px;
+}
+
+.dragTableHeader {
+    /*border-bottom: 1px solid gray;*/
+    margin-bottom: 3px;
+
+}
+
+.dragPanel {
+    width: 459px;
+}
+
+.addAssignees > div {
+}
+
+.addAssignees > div:first-child {
+    overflow-x: hidden;
+}
+
+.addAssignees > div + div {
+    padding-left: 20px;
+    background: url(data:image/png;base64,none) no-repeat 3px 50% !important;
+}
+
+.tree > div {
+    position: relative;
+    width: 259px;
+    height: 190px;
+    border: 1px solid #ccc;
+}
+
+/*.addAssignees*/
+/*.addAssignees*/
+
+.tree .sortSwitcher {
+    position: absolute;
+    top: -19px;
+    width: 100%;
+}
+
+.tree .selectOpt {
+}
+
+.addAssignees .selectOpt .gwt-TextBox {
+    width: 87%;
+    margin: 2px 3px 0;
+}
+
+/*.addAssignees */
+.tree .selectOpt .sect {
+}
+
+.tree .selectOpt .sect .gwt-CheckBox {
+    float: left;
+    margin-left: 21px;
+    font-weight: bold;
+}
+
+/*.addAssignees
+.tree .selectOpt .sect .gwt-Button {
+   float: right;
+} */
+
+.tree .selectOpt + div {
+    overflow: auto;
+    clear: both;
+    height: 166px;
+}
+
+.tree .cellTreeWidget {
+    margin: 5px 0 0;
+    position: absolute;
+    bottom: 0;
+    top: 48px;
+    left: 0;
+    right: 0;
+}
+
+* + html .tree .cellTreeWidget {
+    position: relative;
+    height: 137px;
+}
+
+.cellTreeWidget .cellTreeTopItem {
+    text-transform: uppercase;
+}
+
+/*.cellTreeWidget>div>div , .cellTreeWidget>div>div,*/
+.cellTreeWidget .cellTreeItem {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.cellTreeWidget .cellTreeItem.cellTreeTopItem + div {
+    color: #999;
+}
+
+.cellTreeWidget .cellTreeSelectedItem {
+    background: transparent;
+    color: #333;
+}
+
+.addAssignees {
+    overflow: hidden;
+}
+
+.GK40RFKDAG {
+
+    padding-bottom: 2px;
+    padding-top: 2px;
+}
+
+.GK40RFKDIG {
+    margin-top: 20px !important;
+}

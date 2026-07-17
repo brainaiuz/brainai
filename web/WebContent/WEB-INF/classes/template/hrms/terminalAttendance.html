@@ -1,0 +1,137 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <style type="text/css">
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+        !important;
+            padding: 0;
+        !important;
+        }
+
+        table {
+            -fs-table-paginate: paginate;
+            border-collapse: collapse;
+        }
+
+        tr {
+            page-break-inside: avoid;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        td, th {
+            font-size: 10pt;
+            border: 0.5px solid black;
+            text-align: center;
+            vertical-align: top;
+            padding: 1px 2px;
+            word-wrap: break-word;
+            white-space: normal;
+            line-height: 1.2;
+        }
+
+        .label-cell {
+            font-weight: bold;
+            text-align: right;
+            white-space: nowrap;
+        }
+
+        .label-cell {
+            padding-right: 2px;
+            color: #555;
+        }
+
+        .data-cell {
+            text-align: center;
+        }
+
+        .employee {
+            text-align: left;
+        !important;
+            /*width: 150px;*/
+        }
+    </style>
+    <title></title>
+</head>
+<body>
+#set($headers = $itextGenericPdfData.baseInvoice.customProductTable.header)
+#set($tableData = $itextGenericPdfData.baseInvoice.customProductTable.rowsList)
+#set($days = $itextGenericPdfData.customData.get("DAYS").rows)
+#set($summaryTable = $itextGenericPdfData.customData.get("SUMMARY"))
+#set($summaryRows = $summaryTable.rowsList)
+
+<table border="0">
+    <tr>
+        <td style="border: none">&#160;</td>
+    </tr>
+</table>
+
+<table cellpadding="0" cellspacing="0" class="table_border" style="width:95%;">
+    <thead>
+    <tr>
+        <th width="1.5%" style="vertical-align: bottom; margin: 0; padding: 0 !important;">#</th>
+        <th width="10%" style="vertical-align: bottom">$headers.get('EMPLOYEE_TABLE')</th>
+        <th width="2%">&#160;</th>
+        #foreach($d in $days)
+        <th width="2.5%" style="vertical-align: bottom"><br/>$d.get("DAY_NUM")<br/>$d.get("DAY_NAME")</th>
+        #end
+        <th width="2.5%" style="vertical-align: bottom">$headers.get('TOTAL')</th>
+        <th width="4%" style="vertical-align: bottom">$headers.get('LATE_RATE').replace('(%)', '')</th>
+        <th width="4%" style="vertical-align: bottom">$headers.get('EARLY_RATE').replace('(%)', '')</th>
+    </tr>
+    </thead>
+    <tbody>
+    #set($counter = 1)
+    #foreach($row in $tableData)
+    <tr>
+        <td>$counter</td>
+        <td class="employee">
+            $row.get("EMPLOYEE_TABLE").get(0).text<br/>$row.get("POSITION").get(0).text
+        </td>
+        <td class="label-cell">
+            $headers.get('IN_VALUES')<br/>
+            $headers.get('OUT_VALUES')<br/>
+            $headers.get('AT_VALUES')
+        </td>
+
+        #set($counter2 = 0)
+        #foreach($cell in $row.get("IN_VALUES"))
+        <td class="data-cell">
+            #set($isNotNull = 'false')
+            #if ($row.get("IN_VALUES").get($counter2).text != '' || $row.get("OUT_VALUES").get($counter2).text != '' ||
+            $row.get("AT_VALUES").get($counter2).text != '')
+            #set($isNotNull = 'true')
+            #end
+
+            #if($row.get("IN_VALUES").get($counter2).text != '') $row.get("IN_VALUES").get($counter2).text #else #if
+            ($isNotNull == 'true') -- : -- #else &#160; #end #end
+            <br/>
+            #if($row.get("OUT_VALUES").get($counter2).text != '') $row.get("OUT_VALUES").get($counter2).text #else #if
+            ($isNotNull == 'true') --:-- #else &#160; #end #end
+            <br/>
+            #if($row.get("AT_VALUES").get($counter2).text != '') $row.get("AT_VALUES").get($counter2).text #else #if
+            ($isNotNull == 'true') --:-- #else &#160; #end #end
+        </td>
+        #set($counter2 = $counter2 + 1)
+        #end
+
+        #foreach($cell in $row.get("TOTAL"))
+        <td style="vertical-align: middle">#if($cell.text != '') $cell.text #else &#160; #end</td>
+        #end
+        #foreach($cell in $row.get("LATE_RATE"))
+        <td style="vertical-align: middle">#if($cell.text != '') $cell.text #else &#160; #end</td>
+        #end
+        #foreach($cell in $row.get("EARLY_RATE"))
+        <td style="vertical-align: middle">#if($cell.text != '') $cell.text #else &#160; #end</td>
+        #end
+    </tr>
+    #set($counter = $counter + 1)
+    #end
+    </tbody>
+</table>
+</body>
+</html>

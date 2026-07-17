@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head><body>
+<p>#if(!$user.lastName or $user.lastName=='')Dear $user.firstName,#else Dear $user.firstName $user.lastName,#end</p><br />
+<p>
+$admin.firstName $admin.lastName has recently created user account for you at $productName ($HOST). We have noticed that your account still has not been activated. If you have any difficulties with activating your account and/or getting started with $productName feel free to <a href="$HOST/content/contact-us">contact us</a>.
+<p/>
+<p>
+In order to activate your account please <a href="$HOST/auth/account?uid=$uid&cid=$companyid&sid=$serviceid">click here</a><br />
+(or copy/paste and go to following link in your  web browser: $HOST/auth/account?uid=$uid&cid=$companyid&sid=$serviceid
+<p/>
+<p>
+Thank you for your interest in our product. We are looking forward to working with you and helping you to discover the full potential of $productName.
+<p/>
+
+<p>Kind Regards,<br/>
+Nilufar Nurmanova<br/>
+$productName support team
+</p>
+$companyInfo
+  </body></html>

@@ -1,0 +1,1 @@
+package com.edatasite.workforce.core.solr;

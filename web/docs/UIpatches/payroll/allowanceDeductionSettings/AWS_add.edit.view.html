@@ -1,0 +1,86 @@
+<div class="contentBar" style="padding:0 10px;padding-top:3px;">
+    <div id="click1" class="slideDown-box expand group">
+        <h3 onclick="var myclick=document.getElementById('click1');if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('expand')>=0){cls=cls.replace('expand','');}else{cls+=' expand';}myclick.className=cls;}"
+            class="slideDown-title">
+            $$label:ALLOWANCE_DEDUCTION_SETTINGS$$</h3>
+        <fieldset class="slideDown-content group labelLine" id="clientContact">
+            <div class="halfSet-1 left">
+                <div class="row">$$label:SETTINGS_TYPE$$
+                    <div class="field">$$input:SETTINGS_TYPE$$</div>
+                </div>
+                <span style="font-weight: bold; margin-left: 20px; margin-right: 10px">Payroll Group</span>
+                <div class="row">$$label:EMPLOYEES$$
+                    <div class="field">$$input:EMPLOYEES$$</div>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    <div id="click2" class="slideDown-box  group expand hideCustomField">
+        <h3 onclick="var myclick=document.getElementById('click3');if(myclick && myclick.className){;
+}{var cls=myclick.className;if(cls.indexOf('expand')>=0){cls=cls.replace('expand','');}else{cls+=' expand';}myclick.className=cls;}"
+            class="slideDown-title">
+            $$label:PAYMENT_SETTINGS$$
+        </h3>
+        <fieldset class="slideDown-content group labelLine">
+            <div class="halfSet-1 left">
+                <div class="row">$$label:EMPLOYEE_IS_PAID$$
+                    <div class="field">$$input:EMPLOYEE_IS_PAID$$</div>
+                </div>
+            </div>
+
+            <div class="halfSet-1 left">
+                <div class="field">$$input:SALARY_GRADE$$</div>
+                <div class="row">$$label:CURRENCY$$
+                    <div class="field">$$input:CURRENCY$$</div>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    <div id="click3" class="slideDown-box  group expand">
+        <h3 onclick="var myclick=document.getElementById('click6');if(myclick &amp;&amp; myclick.className){;
+}{var cls=myclick.className;if(cls.indexOf('expand')>=0){cls=cls.replace('expand','');}else{cls+=' expand';}myclick.className=cls;}"
+            class="slideDown-title">
+            $$label:OVERTIME_SETTINGS$$
+        </h3>
+        <fieldset class="slideDown-content group labelLine">
+            <div class="row" style="margin-bottom: 20px">
+                <div class="halfSet-1 left">
+                    <div class="row hideCustomField">
+                        <div class="">$$input:OVERTIME_SETTINGS_TABLE$$</div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    <div id="click4" class="slideDown-box  group expand">
+        <h3 onclick="var myclick=document.getElementById('click6');if(myclick &amp;&amp; myclick.className){;
+}{var cls=myclick.className;if(cls.indexOf('expand')>=0){cls=cls.replace('expand','');}else{cls+=' expand';}myclick.className=cls;}"
+            class="slideDown-title">
+            $$label:PAYMENT_DEDUCTION_INFORMATION$$
+        </h3>
+        <fieldset class="slideDown-content group labelLine">
+            <div class="row" style="margin-bottom: 20px">
+                <div class="halfSet-1 left">
+                    <div style="font-weight: bold;font-size: 15px;">
+                        $$label:PAYMENT_TABLE$$<br/><br/>
+                    </div>
+
+                    <div class="row hideCustomField">
+                        <div class="">$$input:PAYMENT_TABLE$$</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin-bottom: 20px">
+                <div class="halfSet-1">
+                    <div style="font-weight: bold;font-size: 15px;">
+                        $$label:DEDUCTION_TABLE$$<br/><br/>
+                    </div>
+
+                    <div class="row hideCustomField">
+                        <div class="">$$input:DEDUCTION_TABLE$$</div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+</div>

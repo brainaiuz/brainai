@@ -1,0 +1,43 @@
+/* \custom panel -> same with .cellBasedWidget-mod thead*/
+.doc-SelectedRow {
+  background-color: #eceff3 !important;
+}
+.gwt-Tree {
+  table {
+    td {
+      padding-top: 11px;
+      padding-bottom: 11px;
+    }
+    > tbody > tr > td:first-child > img[style*="16px"] {
+      position: relative;
+      display: block; // for img alignment https://live.staticflickr.com/65535/54794187045_bd2d4176d9_b.jpg
+
+      //top: 2px; //Note - lead to the follosing problem (SHARE THIS REPORT WITH modal) https://prnt.sc/qxv9jl
+      left: -1px;
+    }
+  }
+  > div[style="padding: 0px; margin-left: 0px;"] > table > tbody > tr > td:first-child {
+    width: 20px !important;
+  }
+
+  .custom-gwt-panel & {
+    > div[style*="margin-left: 0px"] > .gwt-TreeItem-selected .doc-SelectedRow {
+      margin-left: -20px;
+      margin-right: -3px;
+      padding-left: 20px;
+      padding-right: 3px;
+    }
+  }
+
+  .legend & {
+    div[style*="padding"] {
+      td {
+        padding-top: 0; //https://prnt.sc/r01mfp
+        padding-bottom: 0;
+      }
+    }
+  }
+}
+.modal-content > table > tbody > tr > td:not(:last-child) .legend { //https://prnt.sc/r02ag1
+  margin-right: rem(15px);
+}

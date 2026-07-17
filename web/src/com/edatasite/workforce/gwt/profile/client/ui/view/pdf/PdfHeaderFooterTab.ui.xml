@@ -1,0 +1,15 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+
+    <!--    <g:HTMLPanel styleName="grid-row">-->
+    <!--       -->
+    <!--    </g:HTMLPanel>-->
+
+    <g:HTMLPanel styleName="grid-row">
+        <g:HTMLPanel styleName="col-6 panels-stack" ui:field="topPanel"></g:HTMLPanel>
+        <g:HTMLPanel styleName="col-12 panels-stack" ui:field="fullPanel"></g:HTMLPanel>
+        <g:HTMLPanel styleName="col-6 panels-stack" ui:field="leftPanel"></g:HTMLPanel>
+        <g:HTMLPanel styleName="col-12 panels-stack" ui:field="bottomPanel"></g:HTMLPanel>
+    </g:HTMLPanel>
+
+</ui:UiBinder>

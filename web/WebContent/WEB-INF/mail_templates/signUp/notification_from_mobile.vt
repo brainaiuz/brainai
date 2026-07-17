@@ -1,0 +1,19 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head><body><p><b><center>NOTIFICATION</center></b></a><br />
+<p>
+HOST: $HOST
+</p>
+<p>Please be advised $companyName signed up to $productName from $mobileDevice on $TIME<br />
+Please see company details below:  </a><br /></p>
+
+<p>Company Name: $companyName<br />
+Country: $user.company.countryZone.country.name<br/>
+Remote Address:$remoteAddr<br/>
+Administrator: $user.firstName $user.lastName<br/>Username: $user.getUserName() </p>
+Phone: $user.company.phone<br/>
+
+<p>Sincerely, <br />
+$productName Support Team</p>
+
+</body></html>

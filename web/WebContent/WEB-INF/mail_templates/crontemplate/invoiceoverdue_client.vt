@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+
+<p>Dear $username,</p>
+
+<p>This is a reminder that you have following invoices outstanding:</p>
+
+<table border="0" width="100%" cellspacing="0" style="border: solid 1px #365F91;color:#365F91;margin-top:20px;">
+    <tr>
+        <td bgcolor="#FFFFFF" style="border: solid 1px #365F91;width:50px;text-align:center;"><b>Invoice Number</b></td>
+        <td bgcolor="#FFFFFF" style="border: solid 1px #365F91;width:50px;text-align:center;"><b>Invoice Date</b></td>
+        <td bgcolor="#FFFFFF" style="border: solid 1px #365F91;width:50px;text-align:center;"><b>Due Date</b></td>
+        <td bgcolor="#FFFFFF" style="border: solid 1px #365F91;width:50px;text-align:center;"><b>Total Amount</b></td>
+        <td bgcolor="#FFFFFF" style="border: solid 1px #365F91;width:50px;text-align:center;"><b>Paid Amount</b></td>
+    </tr>
+    #foreach($invoice in $invoices)
+    <tr>
+        <td bgcolor="#FFFFFF" style="border: solid 1pt; width:50px;text-align:left; font-color:#000000;">$invoice.getInvoiceNumber()</td>
+        <td bgcolor="#FFFFFF" style="border: solid 1pt; width:50px;text-align:center; font-color:#000000;">$invoice.getInvoiceDateAsString()</td>
+        <td bgcolor="#FFFFFF" style="border: solid 1pt; width:50px;text-align:center; font-color:#000000;">$invoice.getDueDateAsString()</td>
+        <td bgcolor="#FFFFFF" style="border: solid 1pt; width:50px;text-align:center; font-color:#000000;">$invoice.getTotalInInvoiceAsString()</td>
+        <td bgcolor="#FFFFFF" style="border: solid 1pt; width:50px;text-align:center; font-color:#000000;">$invoice.getPaymentsAsString()</td>
+    </tr>
+    #end
+</table>
+<p>We are happy to discuss questions you may have about the overdue invoices, so please do not hesitate to contact us. If you have already sent your payment to us, then please disregard this letter.</p>
+
+<p>Thank you for your business and please contact us at Accounting Department of $company should you have any questions.</p>
+
+<p>Sincerely yours,<br />
+Accounting Department,<br />
+$company
+</p>
+</body>
+</html>

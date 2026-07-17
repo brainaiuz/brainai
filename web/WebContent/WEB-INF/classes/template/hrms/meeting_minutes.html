@@ -1,0 +1,332 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style type="text/css">
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+        th, td {
+            padding: 3px;
+        }
+        .title {
+            font-size: 9pt;
+        }
+        .name {
+            font-size: 7pt;
+        }
+        .value {
+            font-size: 8pt;
+        }
+        .personalValue {
+            font-size: 7pt;
+        }
+        .nameCapital {
+            text-transform: capitalize;
+        }
+        .title {
+            font-size: 9pt;
+            margin-top: 15px;
+        }
+        .product-head {
+            margin-top: 7px;
+        }
+        .product-head th{
+            border-bottom: 1px solid #000;
+            font-size: 7pt;
+            font-weight: bold;
+        }
+        .product-head td{
+            border-bottom: 1px solid #ced5db;
+            font-size: 8pt;
+        }
+
+    </style>
+</head>
+<body>
+<div>
+    <img alt="images" src="https://workforcetrack.s3.amazonaws.com/000000000000/public/65159/a2113e82-397f-49fd-a58a-cdf4f4b93dff?AWSAccessKeyId=AKIAIROQMC77E5UKWBWQ" style="display: none;"/>
+    #if($itextGenericPdfData.companyData.companyName == 'KPI Software Inc' or $itextGenericPdfData.companyData.companyLogoUrl == 'https://apps.kpi.com/customisation/kpi.com/images/kpilogo.png')
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="width: 88px; display: none;"/>
+    #else
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="max-width: 100%; max-height: 100%; display: none;"/>
+    #end
+
+    #set($meetingTable = $itextGenericPdfData.customData.get('MEETING_TABLE'))
+
+    #set($meetingLabel = $meetingTable.rows.get('MEETING_ID').get('COLUMN_NAME'))
+    #set($titleLabel = $meetingTable.rows.get('TITLE').get('COLUMN_NAME'))
+    #set($calledByLabel = $meetingTable.rows.get('CALLED_BY').get('COLUMN_NAME'))
+    #set($startDateLabel = $meetingTable.rows.get('START_DATE').get('COLUMN_NAME'))
+    #set($endDateLabel = $meetingTable.rows.get('END_DATE').get('COLUMN_NAME'))
+    #set($locationLabel = $meetingTable.rows.get('LOCATION').get('COLUMN_NAME'))
+    #set($typeLabel = $meetingTable.rows.get('TYPE').get('COLUMN_NAME'))
+    #set($purposeLabel = $meetingTable.rows.get('PURPOSE').get('COLUMN_NAME'))
+    #set($projectNameLabel = $meetingTable.rows.get('PROJECT_NAME').get('COLUMN_NAME'))
+    #set($attendeesLabel = $meetingTable.rows.get('ATTENDEES').get('COLUMN_NAME'))
+    #set($absentLabel = $meetingTable.rows.get('ABSENT').get('COLUMN_NAME'))
+    #set($preparedByLabel = $meetingTable.rows.get('PREPARED_BY').get('COLUMN_NAME'))
+
+    #set($meetingValue = $meetingTable.rows.get('MEETING_ID').get('COLUMN_VALUE'))
+    #set($titleValue = $meetingTable.rows.get('TITLE').get('COLUMN_VALUE'))
+    #set($calledByValue = $meetingTable.rows.get('CALLED_BY').get('COLUMN_VALUE'))
+    #set($startDateValue = $meetingTable.rows.get('START_DATE').get('COLUMN_VALUE'))
+    #set($endDateValue = $meetingTable.rows.get('END_DATE').get('COLUMN_VALUE'))
+    #set($locationValue = $meetingTable.rows.get('LOCATION').get('COLUMN_VALUE'))
+    #set($typeValue = $meetingTable.rows.get('TYPE').get('COLUMN_VALUE'))
+    #set($purposeValue = $meetingTable.rows.get('PURPOSE').get('COLUMN_VALUE'))
+    #set($projectNameValue = $meetingTable.rows.get('PROJECT_NAME').get('COLUMN_VALUE'))
+    #set($attendeesValue = $meetingTable.rows.get('ATTENDEES').get('COLUMN_VALUE'))
+    #set($absentValue = $meetingTable.rows.get('ABSENT').get('COLUMN_VALUE'))
+    #set($preparedByValue = $meetingTable.rows.get('PREPARED_BY').get('COLUMN_VALUE'))
+
+    <table width="100%" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+            <td width="40%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital"> $titleLabel </td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($titleValue != '') $titleValue #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="30%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital"> $startDateLabel </td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($startDateValue != '') $startDateValue #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="30%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital"> $endDateLabel </td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($endDateValue != '') $endDateValue #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <table width="100%" cellspacing="0" cellpadding="0" style="margin-top: 10px;">
+        <tr>
+            <td width="40%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital"> $calledByLabel </td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($calledByValue != '') $calledByValue #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="30%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital"> $locationLabel </td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($locationValue != '') $locationValue #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="30%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital"> $preparedByLabel </td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($preparedByValue != '') $preparedByValue #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <table width="100%" cellspacing="0" cellpadding="0" style="margin-top: 10px;">
+        <tr>
+            <td width="40%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital"> $attendeesLabel </td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($attendeesValue != '')
+                                $attendeesValue.replaceAll('&lt;', ' → ').replaceAll('&gt;', '').replaceAll('\n', '<br/>')
+                            #else
+                                —
+                            #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="30%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital"> $absentLabel </td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($absentValue != '') $absentValue.replaceAll('\n', '<br/>') #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="30%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital"> $projectNameLabel </td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($projectNameValue != '') $projectNameValue #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <table width="100%" cellspacing="0" cellpadding="0" style="margin-top: 10px;">
+        <tr>
+            <td width="100%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital"> $purposeLabel </td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($purposeValue != '') $purposeValue.replaceAll('\n', '<br/>') #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    #if($itextGenericPdfData.customListData.get('AGENDA_TOPIC').size()>0)
+    #foreach($agendaList in $itextGenericPdfData.customListData.get('AGENDA_TOPIC'))
+    #foreach($agedaItems in $agendaList.entrySet())
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" class="title">
+        <tr>
+            <th width="100%" align="left">$agedaItems.key</th>
+        </tr>
+    </table>
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" class="product-head">
+        <tr>
+            <th width="25%" align="left">$agedaItems.value.header.get('DISCUSSION_POINTS')</th>
+            <th width="25%" align="left">$agedaItems.value.header.get('ACTION_POINTS')</th>
+            <th width="25%" align="left">$agedaItems.value.header.get('ASSIGNEED_TO')</th>
+            <th width="12%" align="left">$agedaItems.value.header.get('START_DATE')</th>
+            <th width="13%" align="left">$agedaItems.value.header.get('DUE_DATE')</th>
+        </tr>
+        #foreach($item in $agedaItems.value.rows)
+            #if($item.get('DISCUSSION_POINTS') != '' or $item.get('ACTION_POINTS') != '' or $item.get('ASSIGNEED_TO') != '')
+                <tr>
+                    <td> $item.get('DISCUSSION_POINTS')</td>
+                    <td> $item.get('ACTION_POINTS')</td>
+                    <td> $item.get('ASSIGNEED_TO')</td>
+                    <td> $item.get('START_DATE')</td>
+                    <td> $item.get('DUE_DATE')</td>
+                </tr>
+            #end
+        #end
+        #end
+    </table>
+    #end
+    #end
+
+    #set($noteTable=$itextGenericPdfData.customData.get('NOTE_DETAILS'))
+
+    #if($noteTable.rows.size()>0)
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" class="title">
+        <tr>
+            <th width="100%" align="left">$noteTable.name</th>
+        </tr>
+    </table>
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" class="product-head">
+        <tr>
+            <th width="60%" align="left">$noteTable.header.get('COMMENT')</th>
+            <th width="20%" align="left">$noteTable.header.get('ADDED_BY')</th>
+            <th width="20%" align="left">$noteTable.header.get('DATE')</th>
+        </tr>
+        #foreach($note in $noteTable.rows.values())
+        <tr>
+            <td> $note.get('COMMENT').replaceAll('\n', '<br/>')</td>
+            <td>$note.get('ADDED_BY')</td>
+            <td> $note.get('DATE')</td>
+        </tr>
+        #end
+    </table>
+    #end
+
+    #set($attachmentTable = $itextGenericPdfData.customData.get('ATTACHMENT_TABLE'))
+
+    #if($attachmentTable.rows.size() > 0)
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" class="title">
+        <tr>
+            <th width="100%" align="left">$attachmentTable.name</th>
+        </tr>
+    </table>
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" class="product-head">
+        <tr>
+            <th width="50%" align="left">$attachmentTable.header.get('COMMENT')</th>
+            <th width="50%" align="left">$attachmentTable.header.get('ADDED_BY')</th>
+        </tr>
+        #foreach($item in $noteTable.rows.values())
+        <tr>
+            <td> $item.get('FILE_NAME')</td>
+            <td> $item.get('DESCRIPTION').replaceAll('\n', '<br/>')</td>
+        </tr>
+        #end
+    </table>
+    #end
+
+    #set($customFieldTable = $itextGenericPdfData.customData.get("MEETING_CUSTOM_FIELD").customFields)
+
+    #if($customFieldTable.size() > 0)
+
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" class="title" style="margin-bottom: 10px;">
+        <tr>
+            <th width="100%" align="left"> $itextGenericPdfData.customData.get("MEETING_CUSTOM_FIELD").name </th>
+        </tr>
+    </table>
+
+    <div>
+        #foreach($row in $customFieldTable.get("HRMS").values())
+        <div style="width: 25%; float: left;">
+            <div style="padding-bottom: 3px; padding-left: 3px; text-transform: capitalize; font-size: 7pt;">
+                $row.get('COLUMN_NAME')
+            </div>
+            <div style="font-weight: bold; padding-top: 3px; padding-left: 3px; padding-bottom: 15px; font-size: 8pt;">
+                $row.get('COLUMN_VALUE')
+            </div>
+        </div>
+        #end
+    </div>
+
+    #end
+
+</div>
+
+</body>
+</html>

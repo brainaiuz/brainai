@@ -1,0 +1,39 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:c='urn:import:com.edatasite.workforce.gwt.core.client.ui.components'
+             xmlns:lk='urn:import:com.edatasite.workforce.gwt.core.client.ui.lookup'>
+
+
+    <g:FlowPanel styleName="orgBoard-viewMenu-list">
+
+        <g:FlowPanel>
+            <c:KpiSwitcher ui:field="showEmployees"/>
+            <g:Label ui:field="showEmployeeLabel" styleName=""/>
+        </g:FlowPanel>
+
+        <g:FlowPanel>
+            <c:KpiSwitcher ui:field="showShortDescription"/>
+            <g:Label ui:field="showShortDescriptionLabel" styleName=""/>
+        </g:FlowPanel>
+
+        <g:FlowPanel>
+            <c:KpiSwitcher ui:field="showDescription"/>
+            <g:Label ui:field="showDescriptionLabel" styleName=""/>
+        </g:FlowPanel>
+
+        <g:FlowPanel>
+            <c:KpiSwitcher ui:field="showGoals"/>
+            <g:Label ui:field="showGoalsLabel" styleName=""/>
+        </g:FlowPanel>
+
+        <g:HTML>
+            <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 2px 10; width: 90%;"/>
+        </g:HTML>
+
+        <g:FlowPanel>
+            <lk:LocationLookUpWithCode ui:field="locationLookUp"/>
+        </g:FlowPanel>
+
+    </g:FlowPanel>
+</ui:UiBinder>

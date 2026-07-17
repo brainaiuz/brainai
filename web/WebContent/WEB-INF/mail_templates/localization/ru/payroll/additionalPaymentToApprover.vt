@@ -1,0 +1,11 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /></head>
+<body>
+<p>Dear ${managername},</p>
+Please be advised that ${creator} has submitted a Commission for your attention on ${date}
+Click here to view the Commission where you can approve or reject it.
+<p>Click <a href="${url}" title="View commission">here</a>  to view the Commission where you can approve or reject it.</p>
+<p>Your Sincerely,</p>
+<p>${creator}</p>
+<p>${companyname}</p>

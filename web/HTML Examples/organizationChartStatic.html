@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Organization Chart</title>
+    <style>
+        /*@page {
+            size: 8.3in 11.7in;
+            margin: 40px 30px 100px 30px;
+            padding: 0;
+
+            @top-center {
+                content: element(header);
+            }
+        }
+        #header {
+            margin-top: 0 !important;
+        }*/
+
+        a {
+            color: #1071e3;
+            text-decoration: none;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #0d59b3;
+        }
+
+        table, th, td {
+            border: none;
+            font-weight: normal;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        /*START ORG CHART*/
+        .ttree-dropbtn {
+            background-color: #f2f5f7 !important;
+        }
+
+        .ttree-dropdown-content {
+            display: none;
+        }
+
+        .ttree-dropdown:hover .ttree-dropdown-content {
+            display: block;
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+            border-color: #ced5db;
+        }
+
+        .ttree-dropdown-content a {}
+
+        .white-overlay .btn[style*="fixed;"] {
+            z-index: 99;
+        }
+
+        .orgChart {
+            margin: 60px 10px 10px;
+        }
+
+        .orgChart__header {
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            top: 3.33333rem;
+            right: auto !important;
+            background-color: rgba(255, 255, 255, 0.8);
+            height: 60px;
+        }
+
+        .orgChart__header > div + div {
+            padding-left: 10px;
+        }
+
+        .orgChart__switch {}
+
+        .orgChart__title {
+            line-height: 40px;
+            margin-left: 10px;
+        }
+
+        .orgChart__reset {
+            float: right;
+            position: static !important;
+        }
+
+        .orgChart table table {
+            /*border-collapse: collapse;*/
+        }
+
+        .orgChart td {
+            text-align: center;
+            vertical-align: top;
+            padding: 0;
+        }
+
+        .orgChart .tlleft {
+            width: 9px;
+            border-left: 2px solid #ced5db;
+        }
+
+        .orgChart .bls2 {
+            border-left-width: 2px !important;
+        }
+
+        .orgChart .tSame25 {
+            /*width: 25% !important;*/
+        }
+
+        .orgChart--2 .borderLeft {
+            border-left: 2px solid #ced5db;
+        }
+
+        .orgChart .nextLevel {
+            position: relative;
+            padding: 0px 15px;
+        }
+
+        .orgChart .rowSpacer {
+            height: 15px;
+        }
+
+        .orgChart .tbottom {
+            border-bottom: 2px solid #ced5db;
+        }
+
+        .orgChart tr.nodes ~ tr:last-child > .nextLevel.borderLeft {
+            position: relative;
+        }
+
+        .orgChart tr.nodes ~ tr:last-child > .nextLevel.borderLeft:before {
+            content: "";
+            position: absolute;
+            /*z-index: 9;*/
+            left: -10px;
+            bottom: -5px;
+            width: 13px;
+            top: 43px;
+            border-top-right-radius: 2px;
+            background: #fff;
+            /*background: yellow;*/
+            box-shadow: none;
+        }
+
+        .orgChart .nextLevel.borderLeft .parentLines {
+            position: relative;
+        }
+
+        .orgChart .nextLevel.borderLeft .parentLines:before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            margin-top: -2px;
+            left: -15px;
+            width: 50%;
+            border-bottom-left-radius: 50%;
+            /* border-bottom: 2px solid #ced5db; */
+            height: 2px;
+            background: #ced5db;
+        }
+
+        .orgChart .orgChart tr:last-child table tr:last-child > .nextLevel > table > tbody > .nodes .parentLines:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: -13px;
+            width: 4px;
+            background: #fff;
+            height: 10000px;
+            top: calc(50% + 1px);
+        }
+
+        .orgChart .orgChart > table > tbody > tr > td > table > tbody > tr.nodes:first-child .parentLines:after {
+            display: none;
+        }
+
+        .orgChart .orgChart > table > tbody > tr > td > table > tbody > tr.nodes:first-child .parentLines:before {
+            display: none;
+        }
+
+        .orgChart .orgChart div.node.childrenLines {
+            width: 100%;
+            min-width: 100px;
+        }
+
+        .orgChart .orgChart .parentLines:before {
+            top: 0.2px;
+            height: 1.6px;
+        }
+
+        .orgChart .orgChart > table > tbody > tr:last-child .borderLeft, .orgChart .orgChart > table > tbody > tr:last-child .tline {
+            border-color: #ced504 !important;
+        }
+
+        .orgChart .orgChart > table > tbody > tr:last-child .parentLines:before {
+            background: #ced504 !important;
+        }
+
+        .orgChart .orgChart div.node {
+            min-width: 220px;
+        }
+
+        .orgChart .orgChart > table > tbody > tr:last-child .childrenLines {
+            width: 100%;
+            min-width: 150px;
+            max-width: 250px;
+        }
+
+        .orgChart.orgChart--1 > table > tbody > tr > td {
+            padding-left: 6px;
+            padding-right: 6px;
+        }
+
+        .orgChart.orgChart--1 td.node {
+            padding: 0 2px;
+        }
+
+        .orgChart.orgChart--2 > table > tbody > tr > td {
+            padding-left: 6px;
+            padding-right: 6px;
+        }
+
+        .orgChart.orgChart--2 td.node {
+            padding: 0 4px;
+            text-align: center;
+        }
+
+        .orgChart .interactive .hasChildren {
+            cursor: pointer;
+        }
+
+        .orgChart .ttop {
+            border-top: 2px solid #ced5db;
+        }
+
+        .orgChart .tleft {
+            border-right: 1px solid #ced5db;
+        }
+
+        .orgChart .tright {
+            border-left: 1px solid #ced5db;
+        }
+
+        .orgChart tr.tlines td.tline {
+            /*width: 1px;*/
+            height: 15px;
+        }
+        .orgChart--2 > table > tbody > tr.nodes + .tlines td.tline {
+            height: 25px;
+        }
+        .tlines.x .tline {
+            width: 50%;
+        }
+
+        .orgChart h2, .orgChart h3 {
+            font-weight: normal;
+        }
+
+        .orgChart div.node {
+            position: relative;
+            line-height: 1.2em;
+            border-radius: 8px;
+            background-color: #f6f7f9;
+        }
+
+
+        .orgChart div.node h2, .orgChart div.node h3, .orgChart div.node h5, .orgChart div.node em {
+            /* line-height: 1.2; */
+        }
+
+        .orgChart div.node h2:hover, .orgChart div.node h3:hover, .orgChart div.node h5:hover, .orgChart div.node em:hover {
+            overflow: visible;
+        }
+
+        .orgChart .adjunct.node {
+            position: absolute;
+            margin-top: 8px;
+            margin-left: -110px;
+            width: 80px;
+            height: 40px;
+            background-color: white;
+        }
+
+        .orgChart .adjunct-link {
+            display: inline-block;
+            position: absolute;
+            margin-left: -20px;
+            margin-top: 25px;
+            width: 20px;
+            border: 2px dashed #4f88bb;
+        }
+
+        .orgChart > table > tbody > .orgChart tr.tlines td.tline {
+            width: 1px;
+            height: 20px;
+        }
+
+        .orgChart ul {
+            list-style-type: none;
+            position: relative;
+        }
+
+        .orgChart li {
+            margin: 0;
+            padding: 0;
+            font-weight: normal;
+        }
+
+        .orgChart .circular-portrait {
+            position: relative;
+            overflow: hidden;
+            border-radius: 3px;
+            height: 50px;
+            width: 50px;
+        }
+
+        .orgChart .circular-portrait + div.overhide {
+            overflow: hidden;
+        }
+
+        .orgChart .circular-portrait + div.overhide h2, .orgChart .circular-portrait + div.overhide h3 {
+            flex: 1 0 auto;
+        }
+
+        .orgChart .circular-portrait + div.overhide em {}
+
+        .orgChart .circular-portrait img {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            min-width: 30px;
+            min-height: 40px;
+            background: #ced5db;
+        }
+        tr.tlines + tr.nodes > td.node > div.node.shownChildren {
+            display: inline-block;
+            width: auto;
+            /*background: yellow;*/
+        }
+        .orgChart .ttree {
+            margin: 0;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .orgChart .ttree li {
+            position: relative;
+        }
+
+        .orgChart .ttree li + li {
+            padding-top: 15px;
+        }
+
+        .orgChart .ttree > li::before {
+            content: '';
+            position: absolute;
+            border-left: 1px solid #8d9ba8;
+            width: 0;
+            left: 13px;
+            top: 0px;
+            bottom: 0px;
+        }
+
+        .orgChart .ttree > li:last-child {
+            /* hide line from the last of the first level list items */
+        }
+
+        .orgChart .ttree > li + li[style*="padding:0px"] {
+            padding-top: 15px !important;
+        }
+
+        .orgChart .ttree ul {
+            margin: 0 0 0 15px;
+            padding-left: 10px;
+        }
+
+        .orgChart .ttree ul > li {
+            clear: both;
+            padding-top: 7px;
+            padding-bottom: 7px;
+            /* horizontal line on inner list items */
+        }
+
+        .orgChart .ttree ul > li::after {
+            content: '';
+            position: absolute;
+            border-top: 1px solid #8d9ba8;
+            top: 50%;
+            left: auto;
+            right: 100%;
+            width: 12px;
+            height: 0;
+        }
+
+        .orgChart .ttree .circular-portrait {
+            float: left;
+            clear: left;
+            width: 30px;
+            height: 30px;
+            margin-right: 8px;
+        }
+
+        .orgChart .ttree .overhide h5 {
+            margin: 0;
+            font-size: 1rem;
+            line-height: 1;
+            text-transform: none;
+            font-weight: normal;
+        }
+
+        .orgChart--1 tr.nodes div.node {
+            width: 124px;
+            height: 141px;
+            padding: 9px 5px;
+        }
+
+        .orgChart--1 div.node h2 {
+            margin: 7px 0 0;
+            font-size: 1rem;
+            line-height: 1;
+        }
+
+        .orgChart--1 div.node h2 a {
+            font-size: 0.91667rem;
+            color: #4aa7e4;
+        }
+
+        .orgChart--1 div.node h3 {
+            margin: 3px 0;
+            font-size: 1rem;
+        }
+
+        .orgChart--1 div.node h3 i {
+            font-style: normal;
+        }
+
+        .orgChart--1 div.node em {
+            display: block;
+            margin: 0.41667rem 0 0.41667rem;
+            font-size: 10px;
+            font-style: normal;
+            text-transform: lowercase;
+            line-height: 1;
+            color: gray;
+        }
+
+        .orgChart__container .orgChart--1 .circular-portrait {
+            text-align: center;
+        }
+
+        .orgChart__container .orgChart--1 .circular-portrait i {
+            font-size: 24px;
+            font-size: 1.5rem;
+        }
+
+        .orgChart--2 {
+            text-align: center;
+        }
+
+        .orgChart--2 > table {
+            /*width: auto;*/
+            margin-left: auto;
+            margin-right: auto;
+            /*border: 1px solid orangered;*/
+        }
+
+        .orgChart--2 div.node > h2 {
+            font-size: 0.91667rem;
+            padding: 8px;
+            background: #8d9ba8;
+            color: #fff;
+            margin: 0;
+        }
+
+        .orgChart--2 div.node em, .orgChart--2 div.node i {
+            font-style: normal;
+            color: gray;
+        }
+
+        .orgChart--2 div.node em {
+            margin: 5px 0 10px 0;
+            font-size: 10px;
+            line-height: 1.3;
+            display: block;
+        }
+
+        .orgChart--2 tr.nodes:first-child div.node {}
+
+        .orgChart--2 tr.nodes:first-child div.node .ttree-wrapword {
+            /* padding-top: 9px; */
+            /* min-height: 52px; */
+        }
+
+        .orgChart--2 tr.nodes:first-child div.node .ttree-wrapword h2 {
+            /* min-height: 41px; */
+            margin: 10px 5px;
+            font-size: 0.91667rem;
+            line-height: 1.2;
+        }
+
+        .orgChart--2 tr.nodes:first-child div.node .ttree-dropdown {
+            text-align: center;
+            display: none;
+        }
+
+        .orgChart--2 tr.nodes:first-child div.node .ttree-dropbtn {
+            display: none;
+        }
+
+        /*.orgChart--with-employes*/
+        td.node {
+
+        }
+        div.node {
+            display: inline-block;
+            width: 100%;
+            min-width: 190px;
+        }
+        div.node.hasChildren {
+            /*max-width: 245px;*/
+            min-height: 86px;
+        }
+        .orgChart--2 > table > tbody > tr.nodes > td.node > div.node {
+            min-height: 0;
+        }
+
+        /*        .orgChart--2 > table > tbody > tr > td {
+                    border: 1px solid red;
+                }
+                .orgChart--2 > table > tbody > tr > td > table {
+                    border: 1px solid blue;
+                }*/
+
+        .orgChart--2 > table > tbody > tr > td > table > tbody > tr > td.colSpacer {
+            width: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="body sales-invoice__tmp">
+    <div class="orgChart orgChart--2 orgChart--with-employes"><table cellpadding="0" cellspacing="0" border="0"><tbody><tr class="nodes"><td class="node" colspan="8"><div class="node hasChildren shownChildren"><div class="overhide ttree-wrapword"><h2><a href="#department|summary/11">OSTEN</a></h2><em></em></div><div class="ttree-dropdown">  <button class="ttree-dropbtn"></button>  <div class="ttree-dropdown-content">    <a href="javascript:;" onclick="openPopupSetParentTeamFromTree('11','OSTEN','-1','')" class="icon-edit">Set parent department</a>  </div></div></div></td></tr><tr class="tlines"><td colspan="8">   <table cellpadding="0" cellspacing="0" border="0">       <tbody>           <tr class="tlines x">               <td class="tline tleft"></td>               <td class="tline tright"></td>           </tr>       </tbody>   </table></td></tr><tr class="nodes"><td class="node" colspan="8"><div class="node hasChildren shownChildren"><h2>OSTEN  </h2><ul class="ttree"><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u89/92254d18-77e8-4fa2-9c39-b856c59f6c3b?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800456&amp;Signature=GFwAvHPYoK588io5Ot074yQLooM%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/89">Akramjon Maqsudjonov</a></h5><em style="color:#2a506f"><i>Руководитель шоурума "OSTEN"</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u63/2e086db6-5909-491f-9aff-60d4b69721d5?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800456&amp;Signature=1bkM4jIqWbp7pbiBFYVuRHV7qKc%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/83">Botir Djumaniyazov</a></h5><em style="color:#2a506f"><i>Менеджер по продажам</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u1/1167fca1-c2b1-4d06-b709-2b48dd07940b?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800456&amp;Signature=CAn8d7L6FnyfvN%2BavKoYcwiD10c%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/110">Enver Djengaziyev</a></h5><em style="color:#2a506f"><i>Начальник отдела по Системе учета газа "OSTEN"</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u86/0adaa156-13b5-41b1-9e2f-b7e6c94715f6?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800456&amp;Signature=4qwswVn6sfrF9KJ51uHOGPWK1bQ%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/86">Farhod Karimov</a></h5><em style="color:#2a506f"><i>Менеджер по продажам</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u87/0bf4a457-47c3-4f43-9651-135443bcf690?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800456&amp;Signature=s2UM7JbnvofZwUoEHqgHs%2Bjcb70%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/87">Farrux Xoldarov</a></h5><em style="color:#2a506f"><i>Менеджер по продажам</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u63/91e787d2-c953-465a-a468-f04b52a419e5?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800456&amp;Signature=eaLW38p2DZQHC5StFfx90YJjv80%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/57">Kamilla Muxametzyanova</a></h5><em style="color:#2a506f"><i>Ресепшионист</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u190/f1cd2ab0-79e4-4487-ad4e-453bc9ca23b1?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800456&amp;Signature=xl8DpepA67aHEa2bVfLw16H6F%2FA%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/229">Nodirjon Yunusov</a></h5><em style="color:#2a506f"><i>Маркетолог</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u1/2746b8e7-ebad-4f56-93e8-61d135c9c550?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800456&amp;Signature=k9SWM8IzpzwF%2FnH6B8n%2FqXqz8Zs%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/84">Ravshan G'oyibberdiyev</a></h5><em style="color:#2a506f"><i>Менеджер по продажам</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u1/2349da04-3f2a-43f7-9262-b7c7cbfc6ef4?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800456&amp;Signature=wJjl8Ix56wZmQp02P4ooTsA%2Fj2k%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/85">Sanjar Kambarov</a></h5><em style="color:#2a506f"><i>Менеджер по продажам</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u96/54568f03-6b68-4bcb-8c89-f2348829a43d?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800456&amp;Signature=re5yWLpFw%2BkHRh1%2FryHKSTicSVs%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/173">Shaxnoza Raimova</a></h5><em style="color:#2a506f"><i>Маркетолог</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u63/86f6df10-f220-45e7-8a3c-bd685750b671?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800456&amp;Signature=iGRjE%2B1DuKhgBieEItYZvBdOsEU%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/88">Xikmattilla Xudoyberdiyev</a></h5><em style="color:#2a506f"><i>Менеджер по продажам</i></em></div></li></ul></div></td></tr><tr class="tlines"><td colspan="8">   <table cellpadding="0" cellspacing="0" border="0">       <tbody>           <tr class="tlines x">               <td class="tline tleft"></td>               <td class="tline tright"></td>           </tr>       </tbody>   </table></td></tr><tr class="tlines v"><td class="tline tleft"></td><td class="tline tright ttop"></td><td class="tline tleft ttop"></td><td class="tline tright ttop"></td><td class="tline tleft ttop"></td><td class="tline tright ttop"></td><td class="tline tleft ttop"></td><td class="tline tright"></td></tr><tr><td colspan="2"><table cellpadding="0" cellspacing="0" border="0"><tbody><tr class="nodes"><td class="node" colspan="0"><div class="node hasChildren shownChildren"><div class="overhide ttree-wrapword"><h2><a href="#department|summary/1">Менеджмент</a></h2><em></em></div><div class="ttree-dropdown">  <button class="ttree-dropbtn"></button>  <div class="ttree-dropdown-content">    <a href="javascript:;" onclick="openPopupSetParentTeamFromTree('1','Менеджмент','11','OSTEN')" class="icon-edit">Set parent department</a>  </div></div></div></td></tr><tr class="tlines"><td colspan="0">   <table cellpadding="0" cellspacing="0" border="0">       <tbody>           <tr class="tlines x">               <td class="tline tleft"></td>               <td class="tline tright"></td>           </tr>       </tbody>   </table></td></tr><tr class="nodes"><td class="node" colspan="0"><div class="node hasChildren shownChildren"><h2>Менеджмент  </h2><ul class="ttree"><li><div class="circular-portrait"><img src="https://wfmtest.s3.amazonaws.com/c79898/u1/6950c6c1-0992-461b-a6e6-81d95b18abd6?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632752247&amp;Signature=5j8HW0F5HN6X2CP8AmMIhkbFaew%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/1">Munir Yam</a></h5><em style="color:#2a506f"><i>Царь</i></em></div><ul><li><div class="circular-portrait">   <img src="/i/orgChart/no-photo.gif"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/221">Begzod Rajapov</a></h5><em style="color:#2a506f"><i>&nbsp;</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u190/d9919976-f6d8-4f5a-8f83-4764e4020957?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=gt88p%2Fe4LQuOxLkyakGFRa8ZX6g%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/186">Davron Mirzaxidov</a></h5><em style="color:#2a506f"><i>Менеджер по проектам холдинга </i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u190/0bdc3476-66b3-44c3-9e24-662c8e28de31?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=5J4nbTlMsMHMmkb9iQI%2FpslHHrM%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/243">Dilmurod Jalilov</a></h5><em style="color:#2a506f"><i>Заведующий складом</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u190/78a67d21-da2a-400b-bf65-e0c2c97ab311?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=%2FXGqShlxYc4OFmUu9OXyM28UB74%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/241">Elnur Tolipov</a></h5><em style="color:#2a506f"><i>Специалист по импортно-экспортным операциям</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u96/a8abafaa-b5fc-46da-8b06-2177d150b326?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=%2FWUcYXcHH76TKLLWI9V0T0Sfglg%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/162">Farxod Xakimov</a></h5><em style="color:#2a506f"><i>Менеджер по рекламе</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u190/7f3aa913-c2ba-4d15-a57d-448c23bc5294?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=zBI%2Bmal6CppUquxO3evzjhR1oEQ%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/211">Gulinur Mamatiminova</a></h5><em style="color:#2a506f"><i>Бухгалтер</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u1/4c1e2ebf-c9bc-486c-b374-010561108bb4?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=TXuxfx2O1idNUeiGM3YUffnsCSE%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/132">Ibrohim Sharifov</a></h5><em style="color:#2a506f"><i>&nbsp;</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u170/92cffc64-6f88-4370-9573-92bf2f225635?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=A1Mqd%2BAzm2cz7tXyNb%2BSNNuYMpc%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/188">Jasurxo'ja Mansurov</a></h5><em style="color:#2a506f"><i>&nbsp;</i></em></div></li><li><div class="circular-portrait">   <img src="/i/orgChart/no-photo.gif"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/224">Kim Ui Tack</a></h5><em style="color:#2a506f"><i>&nbsp;</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u96/df667dee-75ef-4117-aa24-70a8acd1990b?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=jAdhLshSjeQ9ssHtwsjJmTW9WzY%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/143">Marvan Elturk</a></h5><em style="color:#2a506f"><i>Консультант</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u190/10c5222f-62ab-4389-8a61-4cc091cdb54e?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=3daPG1wG4UhK6qsFZno9eRspS10%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/250">Ne`matulla Yo`ldoshev</a></h5><em style="color:#2a506f"><i>Менеджер по продажам</i></em></div></li><li><div class="circular-portrait">   <img src="/i/orgChart/no-photo.gif"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/226">Nodir Tadjibaev</a></h5><em style="color:#2a506f"><i>&nbsp;</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u190/de29d83e-8c60-4417-80ea-5b8f1bbeb0cb?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=%2FGOmq%2BkDwGtm12ZEJ2j%2Fy7Il%2B6c%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/253">Olimjon Uralov</a></h5><em style="color:#2a506f"><i>Маркетолог</i></em></div></li><li><div class="circular-portrait">   <img src="/i/orgChart/no-photo.gif"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/223">Oybek Nazirov</a></h5><em style="color:#2a506f"><i>&nbsp;</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u190/6a3a5881-e092-4eea-81ba-34aeb328acb8?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=t0X0KtfaEb9lgwOKun3qNEEO6Hk%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/213">Rada Xaydarshina</a></h5><em style="color:#2a506f"><i>Бухгалтер</i></em></div></li><li><div class="circular-portrait">   <img src="/i/orgChart/no-photo.gif"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/217">Sarvar Axadov</a></h5><em style="color:#2a506f"><i>&nbsp;</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u1/8e78bb10-029b-4bd9-9859-5c451f9f3b1f?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=lhBj3f0tdFfJTdk3zEjOvcWo0hI%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/102">Saydasrol Kudratov</a></h5><em style="color:#2a506f"><i>Ведущий менеджер по проектам холдинга "MIMAR"</i></em></div></li><li><div class="circular-portrait">   <img src="/i/orgChart/no-photo.gif"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/222">Serdali Mirzaxmetov</a></h5><em style="color:#2a506f"><i>&nbsp;</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u190/f5786b9a-22cb-400f-be59-d6bfc703a549?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=n6GFouJpU6QZ19I0JkNhkMtD5Sc%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/190">Shirin Madaliyeva</a></h5><em style="color:#2a506f"><i>Инспектор по кадрам</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u96/690c9378-0bcf-496a-8b9f-89fb33177528?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=hLutRx%2BKLpMKubEIwgHn1taMJdQ%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/161">Shoxrux Azizov</a></h5><em style="color:#2a506f"><i>Менеджер по рекламе</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u96/9d65e3a0-b030-4b60-9e84-6d296ecc16ef?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=ApKm9%2BEv18IikQRMLV%2FHnH%2BMEgQ%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/159">Tatyana Tyan</a></h5><em style="color:#2a506f"><i>Менеджер по рекламе</i></em></div></li><li><div class="circular-portrait">   <img src="/i/orgChart/no-photo.gif"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/216">Test Test</a></h5><em style="color:#2a506f"><i>Начальник отдела по региональному развитию и продажам</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u93/8095293c-0cd2-48ec-b444-81d3ed9a473c?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=xEKbbAZEMZcRJ87B8h5DnCkFHqQ%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/169">Umar Sodiqov</a></h5><em style="color:#2a506f"><i>&nbsp;</i></em></div></li><li><div class="circular-portrait">   <img src="/i/orgChart/no-photo.gif"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/218">Umidjon Shoraximov</a></h5><em style="color:#2a506f"><i>&nbsp;</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u190/53aef22b-044e-4d0f-95c9-92b9bcb0353e?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=zGtNskaYMz8Fpe2Bq7stwx2XJoQ%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/183">Umut Uysal</a></h5><em style="color:#2a506f"><i>Консультант</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u190/7cc7e5ac-254d-4b0c-952f-c53ec685d867?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=62AZ5qBVsLbWhxJjPoak6Bk9y8A%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/212">Venera Vaxitova</a></h5><em style="color:#2a506f"><i>Бухгалтер</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u190/01d6ce97-ea1c-4fda-8ab2-a76e939ebc8f?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=EPvAL9iIYE6q88Qo0XAa2AlDtGE%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/238">Viktoriya Sviridova</a></h5><em style="color:#2a506f"><i>&nbsp;</i></em></div></li><li><div class="circular-portrait">   <img src="/i/orgChart/no-photo.gif"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/220">Xojiakbar Tohirov</a></h5><em style="color:#2a506f"><i>&nbsp;</i></em></div></li><li><div class="circular-portrait">   <img src="/i/orgChart/no-photo.gif"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/251">Yana Kabanova</a></h5><em style="color:#2a506f"><i>Бухгалтер</i></em></div></li><li><div class="circular-portrait">   <img src="/i/orgChart/no-photo.gif"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/249">Вакант </a></h5><em style="color:#2a506f"><i>Начальник отдела по региональному развитию и продажам</i></em></div></li><li><div class="circular-portrait">   <img src="/i/orgChart/no-photo.gif"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/252">Вакант </a></h5><em style="color:#2a506f"><i>Директор отдела продаж на территории Технопарк</i></em></div></li><li><div class="circular-portrait">   <img src="/i/orgChart/no-photo.gif"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/177">Диллер Андижон</a></h5><em style="color:#2a506f"><i>&nbsp;</i></em></div></li><li><div class="circular-portrait">   <img src="/i/orgChart/no-photo.gif"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/178">Диллер Бухоро</a></h5><em style="color:#2a506f"><i>&nbsp;</i></em></div></li><li><div class="circular-portrait">   <img src="/i/orgChart/no-photo.gif"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/175">Диллер Қарши</a></h5><em style="color:#2a506f"><i>&nbsp;</i></em></div></li><li><div class="circular-portrait">   <img src="/i/orgChart/no-photo.gif"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/174">Диллер Наманган</a></h5><em style="color:#2a506f"><i>&nbsp;</i></em></div></li><li><div class="circular-portrait">   <img src="/i/orgChart/no-photo.gif"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/228">Диллер Самарканд</a></h5><em style="color:#2a506f"><i>&nbsp;</i></em></div></li><li><div class="circular-portrait">   <img src="/i/orgChart/no-photo.gif"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/176">Диллер Сурхондаре</a></h5><em style="color:#2a506f"><i>&nbsp;</i></em></div></li><li><div class="circular-portrait">   <img src="/i/orgChart/no-photo.gif"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/179">Прочие Прочие</a></h5><em style="color:#2a506f"><i>&nbsp;</i></em></div></li></ul></li></ul></div></td></tr></tbody></table></td><td colspan="2"><table cellpadding="0" cellspacing="0" border="0"><tbody><tr class="nodes"><td class="node" colspan="0"><div class="node hasChildren shownChildren"><div class="overhide ttree-wrapword"><h2><a href="#department|summary/12">ORZU</a></h2><em></em></div><div class="ttree-dropdown">  <button class="ttree-dropbtn"></button>  <div class="ttree-dropdown-content">    <a href="javascript:;" onclick="openPopupSetParentTeamFromTree('12','ORZU','11','OSTEN')" class="icon-edit">Set parent department</a>  </div></div></div></td></tr><tr class="tlines"><td colspan="0">   <table cellpadding="0" cellspacing="0" border="0">       <tbody>           <tr class="tlines x">               <td class="tline tleft"></td>               <td class="tline tright"></td>           </tr>       </tbody>   </table></td></tr><tr class="nodes"><td class="node" colspan="0"><div class="node hasChildren shownChildren"><h2>ORZU  </h2><ul class="ttree"><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u1/28609eb0-804a-4230-b589-e982a2d10cdc?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=C0X1vqxhe0Dlcc563OUe7Dn3s04%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/59">Abdullatif Raxmatullayev</a></h5><em style="color:#2a506f"><i>Директор Департамента по Импорту Промышленных Продуктов</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u63/f3b8be12-aed0-4866-bbaf-46f492a1e9fd?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=jPddBY%2FiVYlTzOUKNATjOmWoFnY%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/72">Anvar Nigmatov</a></h5><em style="color:#2a506f"><i>Директор отдела продаж на территории Технопарк</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u1/4046a8d4-618b-403a-a507-3314ad974be7?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=YNLzQtdElFEi4KMaR032cZEeSCU%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/45">Asrorbek Tojiyev</a></h5><em style="color:#2a506f"><i>Маркетолог</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u190/2e260c60-4e01-4ce5-a7b4-4adc70ecaa9d?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=EzsHAUH8xYut44qMgdWnPifv1So%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/65">Azizxo'ja Anvarxo'jayev</a></h5><em style="color:#2a506f"><i>Главный финансист</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u1/e08ac97a-daf3-4444-9c6d-376dd7c19cce?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=p%2FJckkyZ13xNcwhErTg89jyM4y4%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/71">Otabek Matyokubov</a></h5><em style="color:#2a506f"><i>Начальник отдела маркетинга</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u63/96affacd-eae0-44a1-a3be-9a7936d07f98?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=E5CwwxwKn955R9z4CE3wlKeVoQ8%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/47">Raksana Babayans</a></h5><em style="color:#2a506f"><i>Главный бухгалтер</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u55/3d877a4d-7b33-4518-8fd7-ddac3d5a3397?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=zAvL8F2y2j6oty3shwJg8zmP%2FxY%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/55">Ulugbek Jumaniyazov</a></h5><em style="color:#2a506f"><i>Финансист</i></em></div></li></ul></div></td></tr></tbody></table></td><td colspan="2"><table cellpadding="0" cellspacing="0" border="0"><tbody><tr class="nodes"><td class="node" colspan="0"><div class="node hasChildren shownChildren"><div class="overhide ttree-wrapword"><h2><a href="#department|summary/13">SHIVAKI</a></h2><em></em></div><div class="ttree-dropdown">  <button class="ttree-dropbtn"></button>  <div class="ttree-dropdown-content">    <a href="javascript:;" onclick="openPopupSetParentTeamFromTree('13','SHIVAKI','11','OSTEN')" class="icon-edit">Set parent department</a>  </div></div></div></td></tr><tr class="tlines"><td colspan="0">   <table cellpadding="0" cellspacing="0" border="0">       <tbody>           <tr class="tlines x">               <td class="tline tleft"></td>               <td class="tline tright"></td>           </tr>       </tbody>   </table></td></tr><tr class="nodes"><td class="node" colspan="0"><div class="node hasChildren shownChildren"><h2>SHIVAKI  </h2><ul class="ttree"><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u93/7555551f-cd47-48a6-9eb7-805a9b646bc8?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800456&amp;Signature=IqI5bGLMt%2B8yi%2B2cvtnu1tPvYpo%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/141">Abduhamid Abdujabborov</a></h5><em style="color:#2a506f"><i>Менеджер по продажам</i></em></div></li><li><div class="circular-portrait">   <img src="/i/orgChart/no-photo.gif"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/236">Abduzoxidjon Ismailov</a></h5><em style="color:#2a506f"><i>&nbsp;</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u1/01b8f859-e4ff-499d-94e8-b60469d293e8?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800456&amp;Signature=Mk4pr8eBSqIEJhBv8jc0Jy55grM%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/43">Alisher Botirov</a></h5><em style="color:#2a506f"><i>Маркетолог</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u190/57923b04-ea8c-4757-b972-191ef00d3608?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800456&amp;Signature=NjhVATOFDawSHpAaneAuBkMR3sQ%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/208">Alisher Yakubov</a></h5><em style="color:#2a506f"><i>Менеджер по продажам</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u70/d0115b84-dce3-470a-aa25-86debdfa4e10?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800456&amp;Signature=3m3MbTHU4sQZaDlAyEb6BbaDhoY%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/70">Axror Ashirov</a></h5><em style="color:#2a506f"><i>Руководитель отдела продаж промышленных кондиционеров "SHIVAKI"</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u63/892679ea-8043-409e-9d80-9a0828db18aa?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800456&amp;Signature=7%2FkG1P%2BJzG74JdmrEKKSlcy%2Bbg4%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/107">Azamat Shukirullayev</a></h5><em style="color:#2a506f"><i>Финансист</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u1/120f577d-ca76-44e1-8b60-96371db92dfe?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800456&amp;Signature=kwYFVm%2Fc2PbfvZMIhn8GfaCP9MI%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/60">Aziza Shatirova</a></h5><em style="color:#2a506f"><i>менеджер по расходу</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u190/7c61eea3-2f37-4c53-8945-987ade5d8cd9?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800456&amp;Signature=u7qHLQs8lNjyGY3Acf7g8A0vTCQ%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/207">Azizbek Negmatov</a></h5><em style="color:#2a506f"><i>Менеджер по продажам</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u63/f47de779-377a-411a-9884-e45151629798?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800456&amp;Signature=aozoC7PRqKeNIIbEZOYxzlZ1xgk%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/120">Baurjon Yaxshiboyev</a></h5><em style="color:#2a506f"><i>Проектировщик</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u190/64bcc9fd-c6c0-45d2-85aa-998defd77999?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800456&amp;Signature=%2BqbZoU%2F90vc0fNei3epcNs%2B3fnM%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/197">Baxodir Yakubov</a></h5><em style="color:#2a506f"><i>Ведущий менеджер по проектам холдинга "DISCOVERY"</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u190/64d60c40-e946-4d1c-b657-c408e52dc6a4?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800456&amp;Signature=vyBvoUl8vbD3udyXqIoTf7YTNpY%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/242">Bobir Abdullayev</a></h5><em style="color:#2a506f"><i>Снабженец</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u190/95dc069d-ed45-4ca6-8235-3479d3d848b2?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=0%2BJpbpNCyNB5FO1UBd%2F8Cpmuby4%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/204">Dogan Polat</a></h5><em style="color:#2a506f"><i>Консультант</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u190/99bad2cd-4472-42fe-beb4-48c8fa3364c0?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=o7E69Uw42VCg62aXhF8XVFScG0s%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/246">Doniyor Ibadullayev</a></h5><em style="color:#2a506f"><i>Менеджер по продажам</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u190/61f43a83-5e21-4bc7-bd3a-4cb0e0ebf3b4?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=%2F6yg0NYgX8yrRCdZGFrJphDi7ks%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/180">Doston Sharipov</a></h5><em style="color:#2a506f"><i>Менеджер по проектам холдинга "MIMAR"</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u190/bb8496ee-fd36-4400-94df-51a9656b2fa0?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=H3R6qv8gnnSLJQx5Y3FVR4rq7EE%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/247">Dostonbek Mo`minov</a></h5><em style="color:#2a506f"><i>Менеджер по продажам</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u63/191d7bf8-4621-45a1-af2d-8b55c7a9c58f?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=FkfQLUwuJdTZaCmBZwpO4sk5gds%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/46">Dovron Axmadjonov</a></h5><em style="color:#2a506f"><i>Водитель</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u1/dec92783-6c18-4a55-be6d-599f1192aee7?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=lo0Frr19AtLAJVfGlFzPvLxwIPU%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/48">Ergashxon Erkinov</a></h5><em style="color:#2a506f"><i>Снабженец</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u96/74cf4348-a344-4887-ad67-8c095a3d8742?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=D1dAIqF5aMnVTLqC03iji%2FqiKOw%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/64">Erkin Niyazov</a></h5><em style="color:#2a506f"><i>Водитель</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u63/7b76c390-a1c0-4c82-a512-747ba42ac82b?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=rkgzRTTP1uyQV9stZNmb4UwMku0%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/98">Farrux Adilov</a></h5><em style="color:#2a506f"><i>Управляющий шоурумов</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u63/a95b951c-d71c-4577-9c53-0091235b1360?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=vKW6%2B1a7AR72P3MXLbQbDGWjlI0%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/75">Filipp Perstkov</a></h5><em style="color:#2a506f"><i>Менеджер по рекламе</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u96/d3ec4bc5-1728-4308-a8fd-fd9d251d9838?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=52gwpjF5s9ttPaXm8WV2DngPeYM%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/151">Furxad Sopiyev</a></h5><em style="color:#2a506f"><i>Менеджер по продажам</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u190/4866e109-d410-4093-9498-1ebdaad3630a?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=l0R5gpJVFlkM9hoZ9mFif0zV10s%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/198">Gulruh Kadirova</a></h5><em style="color:#2a506f"><i>Проектировщик</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u190/f21898cf-e5d3-4c37-930a-a33a6fa69c7c?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=DvN1bOP2pjy5c3PXYc0CWbibOt0%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/201">Hasanjon Musayev</a></h5><em style="color:#2a506f"><i>Специалист системы KPI</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u103/cb6d7866-4ae5-48bd-89f8-714fda4b772e?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=nO7JxpHzjD6yZ%2BjDxewfGlyD0PU%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/103">Ikrom Nizomiddinov</a></h5><em style="color:#2a506f"><i>Менеджер по продажам</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u63/a2bc1e0a-3c60-4db3-b5e9-68b8e2336c4c?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=HcQw%2F3q53YrxMyRz0k7AFhkjhwg%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/133">Ilhomjon Islomov</a></h5><em style="color:#2a506f"><i>Менеджер по продажам</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u96/048715da-98c3-4ef4-abce-d9bec504eee0?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=ACGNILi8vkHkH5JWPhZEHRODWFQ%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/56">Ixtiyor Kadamov</a></h5><em style="color:#2a506f"><i>Финансист</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u63/f7d3c982-fa1a-4a3e-822b-2491f66f461b?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=QUzdhJ3jmXn0HPqJ8lIBNLblt8I%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/76">Javohir Rustamov</a></h5><em style="color:#2a506f"><i>Дизайнер</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u63/218ade91-7b24-48c8-9c0a-eb66d0bd2147?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=5u%2FZg2UqGuOcBADQaoazq6Mr774%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/74">Kiril Minovskiy</a></h5><em style="color:#2a506f"><i>Заместитель нач.рекламы</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u63/6014a35f-a7b9-4c38-aff8-8432272fd93d?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=CE0kqOJRygomas6jyQQNonwkgHI%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/53">Komila Isayeva</a></h5><em style="color:#2a506f"><i>Бухгалтер</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u63/fe7b6c5e-e0b2-4476-818a-1b2d2a9f8e2b?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=DnDNS4Uyc2VzrFdULhoYG%2B4Msl0%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/95">Komiljon Toshmuxamedov</a></h5><em style="color:#2a506f"><i>Менеджер по продажам</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u190/89bcbe3e-d42b-42f3-a788-870906f31e07?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=VY93wfT2ksPmSAcoeDHy327DIsQ%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/235">Marat Garifullin</a></h5><em style="color:#2a506f"><i>&nbsp;</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u190/7708d63e-e27f-452b-8fef-c71b89bc91a9?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=SkmLJRZW2oTRnlZNQYls%2BegNlDw%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/199">Mirjahon Ismailov</a></h5><em style="color:#2a506f"><i>Менеджер по продажам</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u69/18ac824d-7b69-4b92-a7ea-a6f7ccb9c35e?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=GYRbGJkZ3PBazDpjwylWVIXTM5o%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/69">Mirkomil Xaitboyev</a></h5><em style="color:#2a506f"><i>Менеджер по продажам</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u1/ca71c6be-017a-443d-8810-a56b977046bb?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=I9%2BLkU08z0L5P77JNk9JuvshLLc%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/112">Mirobit Mirsaidov</a></h5><em style="color:#2a506f"><i>Менеджер по продажам</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u96/0aaf3100-4c8b-4f84-ba4e-d7c11efbe99d?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=uHyGrjCJqWDCwE8h9fHYJlDGQ64%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/167">Mirsaid Turopov</a></h5><em style="color:#2a506f"><i>Менеджер по рекламе</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u130/44c49656-7334-4c0b-8ee5-ac9a9e1f4c33?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=GfUUV4jKA1pH6ypfdsEIprPQFWQ%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/130">Muhammad Foyih To'lqunov </a></h5><em style="color:#2a506f"><i>Менеджер по продажам</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u190/92d04611-2002-4b92-a8f7-dd8a3954e602?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=745m7mAOQNeyAED2mIFvcr07uUI%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/203">Muzaffar Mannapov</a></h5><em style="color:#2a506f"><i>Водитель</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u190/4d642f90-13b0-4c1d-ac39-706582ff73fe?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=nKUoOW3c9f1xtMh0yNKp3o%2BYPPQ%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/230">Nodir Abdullayev</a></h5><em style="color:#2a506f"><i>Финансист</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u96/de28a1e4-24a5-4ed2-86ac-ba31a1ef08de?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=dW0EWRnoe%2FcUXZ1zZycp90YkRGA%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/158">Olga Koreneva</a></h5><em style="color:#2a506f"><i>Дизайнер</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u190/d362a8b9-7ea4-4261-838c-254c379efe6c?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=WIXpi%2F6gIPMV4JR4Iu888ggOi%2Fo%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/227">Oydin Shermatova</a></h5><em style="color:#2a506f"><i>Менеджер по направлению Чиллер, фанкойл, AHU</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u1/cee4770c-11c7-4de1-a74d-1a0778e1a29b?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=hCkYPHF7CZ%2FnaxFRwYRzYSAnIoA%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/101">Qobiljon Komolov</a></h5><em style="color:#2a506f"><i>Менеджер по продажам</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u96/477ce65c-bf96-455a-93e2-b3633af9c0ff?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=CAaviF60CsIsqjuwdei%2Fdgpd8mE%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/156">Ravshan Shagayev</a></h5><em style="color:#2a506f"><i>Начальник отдела рекламы</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u190/09845aaf-07d1-4a45-93ca-ab70a085c9b3?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=0TdQLUXz08SndQEJWbmU1OUwuXw%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/206">Salomat Umarova </a></h5><em style="color:#2a506f"><i>Ресепшионист</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u66/c4f0b973-4ce7-4014-b649-84dd53ee9322?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=%2FE9C1zfxXUiXnY%2B1EkoCixV97OE%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/66">Sarvar Fayziyev</a></h5><em style="color:#2a506f"><i>Менеджер по продажам</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u190/2dad8852-fb93-4929-b0ad-7d5405c1c382?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=Nbz3Il2vwrK2yKf0euGL%2FwF%2FDh4%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/239">Sarvarbek Raxmanov</a></h5><em style="color:#2a506f"><i>Логист</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u63/eeba957b-bf28-474c-ab61-6a26f7a1d4e9?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=aB2u%2FfifBJ9HUxushLDIIQIQa0k%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/42">Sergii Zaitsev</a></h5><em style="color:#2a506f"><i>Начальник отдела проектирование</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u54/ce871da7-9c0b-4f56-9097-c1229967e280?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=ZQjOht%2FH6bJnw2N9ZPfAnEqef4U%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/54">Shaxnoza Jumabayeva</a></h5><em style="color:#2a506f"><i>Менеджер tally</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u96/f0823624-0f1c-489e-817b-b6c092c41f10?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=YmI%2FMldeOT1Ic7y1gmJ4Zx91cW0%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/165">Sherzod Ikramov</a></h5><em style="color:#2a506f"><i>Менеджер по рекламе</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u63/9c260535-77ea-4273-8250-cb2c91a6820e?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=1dtkdYDdJyS2CDZbomg10SH1xLU%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/125">Sherzod Shamshiyev</a></h5><em style="color:#2a506f"><i>Менеджер по продажам</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u96/214e95a9-9ff3-4f4e-910e-d47fcb576d71?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=HmLccI%2FYsGxunr6ZqawrRIwEXpM%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/164">Shirina Shukurova</a></h5><em style="color:#2a506f"><i>Менеджер по рекламе</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u109/982cd347-010f-451a-852d-5d249f218537?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=Y9SxFuTu5woQMlvklnHodY9ZQm0%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/109">Shohid G'afforov</a></h5><em style="color:#2a506f"><i>Менеджер по продажам</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u1/0943d12f-ef98-4be0-8aab-100cdf6cc88f?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=DMPaurtOHMcOcSFIN6mMK0IfwSs%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/44">Shohzod Giyosov</a></h5><em style="color:#2a506f"><i>Маркетолог</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u96/a501fe6f-e79d-44ac-88da-b42c791c8fc5?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=jfgzDdgGif3d6zePBLkKfpVzb70%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/172">Shukurullo Xodjayev</a></h5><em style="color:#2a506f"><i>Менеджер по продажам</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u96/43547c38-f5d3-4470-8cde-78ba90006819?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=j3nh%2FwxPREllrO1y%2FI20oay%2BkAM%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/96">Solixjon Yo'ldoshov</a></h5><em style="color:#2a506f"><i>Менеджер по продажам</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u96/a53c31c8-6087-45dc-bda1-76965117cb7d?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=jsctu7%2FmwkTG9uuAA20ugpAzMMM%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/67">Toxir Kuchkarxodjayev</a></h5><em style="color:#2a506f"><i>Менеджер по продажам</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u63/5e03fcba-fdff-4403-be0d-6d30a3fcda02?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=NtGoGZtrrLD9DKKggAiuJX30tb0%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/90">Ulug'bek Azimjonov</a></h5><em style="color:#2a506f"><i>Менеджер  по снабжению</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u1/f5ce6644-d893-4ae6-991c-1a594cf7e5ad?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=NqBOzNXQBjzOMf8bSj64dJ1T4uo%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/73">Umida Abduqodirova</a></h5><em style="color:#2a506f"><i>СММ менеджер</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u190/b647e8b6-c530-4bc6-89dc-a5ef940d702a?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=62K%2FlsjMnYxTBmxEQm1q6l6S%2B0Y%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/196">Valijon Azizov</a></h5><em style="color:#2a506f"><i>Менеджер по продажам</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u96/197445b5-0e9d-4b43-9b36-3705feb57cf9?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=7ih0xCXjtB20%2BVuoeyWb5AWVjDU%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/106">Xabibulla Sagdullayev</a></h5><em style="color:#2a506f"><i>Менеджер по проектам холдинга "MIMAR"</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u1/af523073-eb64-47da-a965-86b51cff31b8?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=IeuKq379b4Kep45TVeca%2BBa7k6A%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/63">Xilola Tadjixodjayeva</a></h5><em style="color:#2a506f"><i>Менеджер по продажам</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u96/29ff8a59-0fdf-4e2a-b2bc-c9474d214224?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=lFecwf6an%2Bv5TOPWrR4bsu6hBzk%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/68">Ziyovuddin Suleymanov</a></h5><em style="color:#2a506f"><i>Менеджер по продажам</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u96/6c7bb336-7b29-4ef7-90bb-025bf199d2e5?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=srzMI88Lp7hqbnwiK2eF%2B2%2B9b5I%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/93">Zoxidxodja Saitxanov</a></h5><em style="color:#2a506f"><i>Менеджер по продажам</i></em></div></li><li><div class="circular-portrait">   <img src="/i/orgChart/no-photo.gif"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/189">Диллер Тошкент ш</a></h5><em style="color:#2a506f"><i>&nbsp;</i></em></div></li></ul></div></td></tr></tbody></table></td><td colspan="2"><table cellpadding="0" cellspacing="0" border="0"><tbody><tr class="nodes"><td class="node" colspan="0"><div class="node hasChildren shownChildren"><div class="overhide ttree-wrapword"><h2><a href="#department|summary/16">WILO</a></h2><em></em></div><div class="ttree-dropdown">  <button class="ttree-dropbtn"></button>  <div class="ttree-dropdown-content">    <a href="javascript:;" onclick="openPopupSetParentTeamFromTree('16','WILO','11','OSTEN')" class="icon-edit">Set parent department</a>  </div></div></div></td></tr><tr class="tlines"><td colspan="0">   <table cellpadding="0" cellspacing="0" border="0">       <tbody>           <tr class="tlines x">               <td class="tline tleft"></td>               <td class="tline tright"></td>           </tr>       </tbody>   </table></td></tr><tr class="nodes"><td class="node" colspan="0"><div class="node hasChildren shownChildren"><h2>WILO  </h2><ul class="ttree"><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u63/0837e5df-e687-446b-852d-9361112c1686?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=%2BZxeSyIDW64oQqUD4QkQ%2BuXqfqI%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/82"> Baxromxo'ja Boxodirxo'jayev</a></h5><em style="color:#2a506f"><i>Главный менеджер  WILO,VIESSMANN</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u111/18f6da17-1c17-4139-8217-d50bb7149fe2?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=AYztz9%2FPuVKNdVJSYwCVJ6dkcKU%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/111">Abdukaxxar Kasimov</a></h5><em style="color:#2a506f"><i>Старший менеджер по продажам Насосов Wilo</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u115/9ba3d4cd-fe47-4f89-8125-ba0b127dccf8?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=Kc55xRudY%2Fp06g2HPeMGnnv%2Bf8w%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/115">Aslonboy Rixsiboyev</a></h5><em style="color:#2a506f"><i>Менеджер по продажам</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u190/0adb7717-f598-4b5d-90bb-68e1ab9e5d8a?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=vonrsxhAJjBXc8sRb8CGSscNhXQ%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/254">Azizjon Yoqubov</a></h5><em style="color:#2a506f"><i>Менеджер по продажам Котлов “Wiessmann”</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u190/1eb23228-bea5-412a-bee4-af4d30bf91b0?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=MLolORtPLg15mvY5IBhMwoEwSek%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/244">Baxodirjon Kodirov</a></h5><em style="color:#2a506f"><i>Менеджер по продажам насосов LEO</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u190/c4f61f9d-6e89-478e-8c63-3a2f770ded99?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=dc9YZGZ3j5XGETjztHF3od9SJtQ%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/215">Hafizulloxon Abdullаyеv</a></h5><em style="color:#2a506f"><i>менеджер по расходу</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u1/2213f545-827d-4afc-adae-b9d0c1b70e48?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=Fpnh31mxjc%2Fw2M1UYu4OJXIJStU%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/114">Ibroxim Raxmanov</a></h5><em style="color:#2a506f"><i>руководитель отдела VIESSMANN, WILO</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u63/23693c25-bbf9-488d-92d9-f7d2339bc5d5?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=cIHmBEe0NtBzNybzL6Z%2FHCuJXqo%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/80">Jasurbek Rejapov</a></h5><em style="color:#2a506f"><i>Менеджер по продажам</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u190/9a704440-e051-4a0b-8d82-e6c7ddcd042f?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=%2FxQexh9%2BfPSAGHFREPUfdbd66qM%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/245">Javlonbek Qoriyev</a></h5><em style="color:#2a506f"><i>Менеджер по продажам Котлов “Wiessmann”</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u190/6fa769d0-b7a1-4434-84bc-2399c750b319?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=fl25zSmdcJbxlcndpijt6lhFVCQ%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/225">Maksim Sikilinda</a></h5><em style="color:#2a506f"><i>Старший менеджер по продажам Насосов LEO</i></em></div></li><li><div class="circular-portrait">   <img src="/i/orgChart/no-photo.gif"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/234">Marat Xisamov</a></h5><em style="color:#2a506f"><i>Глав. Инженер отопительных систем</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u190/62aa75e1-d72d-44d8-9a9c-933c8def6249?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=%2BfyXjpjPsZrFIJj0nRzPJt7Ga40%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/248">Murodjon Pulatov</a></h5><em style="color:#2a506f"><i>менеджер Бойлер ROYAL (WENTA)</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u1/8579f936-4798-47ca-959a-558bdc74d1b9?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=mK1GXj5DOtoPBohZfgAunZBnZQI%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/62">Muyassar Solihjonova</a></h5><em style="color:#2a506f"><i>Ресепшионист</i></em></div></li><li><div class="circular-portrait">   <img src="/i/orgChart/no-photo.gif"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/233">Oktay Karateke  Halil Ibrahim</a></h5><em style="color:#2a506f"><i>&nbsp;</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u190/38e706f6-c89e-4db3-8f6b-f0ffa7860cd4?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=HyCIpSih08W4xYQellPzWj7EeOc%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/191">Rustam Berdiyev </a></h5><em style="color:#2a506f"><i>Маркетолог</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u96/6384c12b-30d5-4e57-b8e7-b03bf25ea275?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=kiaF7PcGgmc%2BnvSpI7sIrVL4w9c%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/117">Sherzod Yuldashev</a></h5><em style="color:#2a506f"><i>Снабженец</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u63/6c34db55-b649-4d98-b7c0-872c36819d8b?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=CEv5QplA51PSpdG7BhFUSVlUACc%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/79">Xojiakbar Fayziyev</a></h5><em style="color:#2a506f"><i>Менеджер по продажам</i></em></div></li><li><div class="circular-portrait">   <img src="https://wfmtest.s3.amazonaws.com/c79898/u116/b42d8c2b-5bf5-4d38-bb4d-b75363bfe3c8?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1632800457&amp;Signature=kuTY8RIueFDc8Pv5lnqKY%2BXFTD0%3D"></div><div class="overhide"><h5><a href="#employeeProfile|employeeProfileView/116">Xondamir Xolmurodov</a></h5><em style="color:#2a506f"><i>Менеджер по продажам Насосов Wilo</i></em></div></li></ul></div></td></tr></tbody></table></td></tr></tbody></table><br><br></div>
+</div>
+</body>
+</html>

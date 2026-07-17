@@ -1,0 +1,136 @@
+<div class="contentBar" style="padding:0 10px;margin-top:2px;">
+
+    <ul class="collapsible--panels collapsible--arrows-left collapsible collapsible--gwt required"
+        data-collapsible="expandable">
+        <li class="slideDown-box group active">
+            <div class="collapsible-header active"
+                 onclick="var myclick=this.parentElement;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls; } var myclick=this;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls; }">
+                <a style="cursor: pointer;"><span>$$label:DETAILS$$</span></a>
+            </div>
+            <div class="collapsible-body">
+                <div class="grid-row">
+                    <div class="col-4">
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:NAME$$</div>
+                            <div class="form-group__content">$$input:NAME$$</div>
+                        </div>
+                    </div>
+                    <div class="col-4" style="display: flex; align-items: center; justify-content: space-between;">
+                        <div class="form-group" style="width:49%;">
+                            <div class="form-group__label">$$label:DATE_FIELD$$</div>
+                            <div class="form-group__content">$$input:DATE_FIELD$$</div>
+                        </div>
+                        <div class="form-group" style="width:49%;">
+                            <div class="form-group__label">$$label:END_DATE$$</div>
+                            <div class="form-group__content">$$input:END_DATE$$</div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            <div class="form-group__content">$$input:DESCRIPTION$$</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-row">
+                    <div class="col-4">
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:SHORT_NAME$$</div>
+                            <div class="form-group__content">$$input:SHORT_NAME$$</div>
+                        </div>
+                    </div>
+
+                    <div class="col-4" style="display: flex; justify-content: space-between;">
+                        <div class="form-group" style="width:49%;">
+                            <div class="form-group__label">$$label:LATE_MINUTES$$</div>
+                            <div class="form-group__content">$$input:LATE_MINUTES$$</div>
+                        </div>
+                        <div class="form-group" style="width:49%;">
+                            <div class="form-group__label">$$label:EARLY_LEAVE$$</div>
+                            <div class="form-group__content">$$input:EARLY_LEAVE$$</div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-4">
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:COLOR_PICKER$$</div>
+                            <div class="form-group__content">$$input:COLOR_PICKER$$</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid-row">
+                        <div class="col-4">
+                            <div class="form-group">
+                                <div class="form-group__label">$$label:VALID_CHECK_IN$$</div>
+                                <div class="form-group__content">$$input:VALID_CHECK_IN$$</div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <div class="form-group__label">$$label:VALID_CHECK_OUT$$</div>
+                                <div class="form-group__content">$$input:VALID_CHECK_OUT$$</div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <div class="form-group__label">$$label:AUTO_IN_OUT_ENABLED$$</div>
+                                <div class="form-group__content">$$input:AUTO_IN_OUT_ENABLED$$</div>
+                            </div>
+                        </div>
+
+                <div class="grid-row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:TIME_ENTRY_FOR_EACH$$</div>
+                            <div class="form-group__content">$$input:TIME_ENTRY$$</div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-group__content">$$input:EXCEPTIONAL_CASE_FOR_LEAVE$$</div>
+                        </div>
+                        <div class="form-group hideCustomField">
+                            <div class="form-group__content">$$input:DATE_PERIOD$$</div>
+                        </div>
+                        <div class="form-group hideCustomField">
+                            <div class="form-group__label">$$label:PERIOD$$</div>
+                            <div class="form-group__content">$$input:PERIOD$$</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+
+        <li class="slideDown-box group">
+            <div class="collapsible-header"
+                 onclick="var myclick=this.parentElement;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls;} var myclick=this;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls; }">
+                <a style="cursor: pointer;"><span>$$label:ASSIGNEE$$</span></a>
+            </div>
+            <div class="collapsible-body">
+                <div class="grid-row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <div class="form-group__content">$$input:ASSIGNEES$$</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+
+        <li class="slideDown-box group hideCustomField">
+            <div class="collapsible-header"
+                 onclick="var myclick=this.parentElement;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls;} var myclick=this;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls; }">
+                <a style="cursor: pointer;"><span>$$label:TIMESLOT_HISTORY_LOG$$</span></a>
+            </div>
+            <div class="collapsible-body">
+                <div class="grid-row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <div class="form-group__content">$$input:TIMESLOT_HISTORY_LOG$$</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>

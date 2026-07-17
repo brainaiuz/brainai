@@ -1,0 +1,22 @@
+## Issue add notification
+## $issue(EdsIncident) - Newly created issue
+## $user - User submitted this alert
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+<h1>Оптимизация Solr закончена на $date.</h1>
+<p><b>Оптимизация Прошедшее время для:</b> </p>
+<p><b>Core0 :</b> $core0</p>
+<p><b>Core1 :</b> $core1</p>
+<p><b>Contact Core :</b> $contactCore</p>
+<p><b>Folder Core :</b> $folderCore</p>
+<p><b>Lead Core :</b> $leadCore</p>
+<p><b>Sale Invoice Core :</b> $saleInvoiceCore</p>
+<p><b>Task Core :</b> $taskCore</p>
+<p> <b><i>The QTime</i></b> является время, необходимое для выполнения запроса в Solr<br />
+    в то время как <b><i>Затраченное время </i></b>это общее время, включая передачу и сериализации/десериализации результаты.</p>
+
+</body>

@@ -1,0 +1,116 @@
+/*
+* New UI 2: Invoice table
+*/
+.invoice-width {
+  width: auto !important;
+}
+
+.invoice-width .sidebar {
+  display: none;
+}
+
+.invoice-block {
+  background-color: #F9FAFB;
+  padding-bottom: 0 !important;
+}
+
+.contentBar > .contentScroll td.mainBar {
+  padding-top: 15px !important;
+  padding-bottom: 15px !important;
+  background-color: #F9FAFB;
+}
+
+///*__invoice table__*/ add-form
+.invoice__products-table {
+  .content-box & {
+    margin-top: 40px;
+    //margin-left: -$frameContentPadding;
+    //margin-right: -$frameContentPadding; // NEED TO CMPENSATE content-box padding!
+
+    .add-form & {
+    }
+  }
+}
+
+.grid-column:first-child {
+  //padding-left: 30px;
+  .advanced-GridPanel:not(.advanced-GridPanel--draggable) & {
+    padding-left: 0;
+  }
+}
+.data-cell:not(.grid-column),
+.header-cell > .gwt-Label {
+  .grid-column:first-child &,
+  .header-table-cell thead th:first-child & {
+    position: relative;
+    padding-left: 40px;
+    .btn--icon {
+      position: absolute;
+      left: 11px;
+      bottom: 0;
+      svg {
+        width: 14px;
+        height: 14px;
+      }
+    }
+    .advanced-GridPanel:not(.advanced-GridPanel--draggable) & {
+      padding-left: $control-padding-x;
+    }
+  }
+
+
+
+  .grid-column:first-child &,
+  .header-table-cell thead th:first-child & {
+    //padding-left: 50px;
+  }
+  .grid-column:last-child &,
+  .header-table-cell thead th:last-child & {
+    padding-right: $frameContentPadding;
+  }
+}
+
+.categoriesTable {
+  .selected-row {
+    [column-reference="allowance"] {
+      cursor: pointer;
+      .passive-cell {
+        &:before {
+          @extend .ficon--;
+          @extend .ficon--search:before;
+          position: absolute;
+          top: 7px;
+          left: 9px;
+          font-size: 1.3rem;
+          color: $color-base-1;
+          transition: color .3s ease;
+        }
+        &:hover:before {
+          color: $color-accent-2;
+        }
+      }
+    }
+  }
+  .editable-cell__actions i {
+    .icon--trash2 {
+      //width: 15px;
+      //height: 15px;
+    }
+  }
+
+}
+
+
+// https://prnt.sc/u3vnxn
+.meeting-minutes-summary-view-table {
+  > table > tbody > tr > td {
+    + td[width="30px"] {
+      width: auto !important;
+    }
+  }
+}
+
+
+
+
+

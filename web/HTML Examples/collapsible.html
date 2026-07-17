@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <title>
+        HTML Components
+    </title>
+    <link rel="stylesheet" href="../WebContent/mainStyles/new-ui/css/materialize.css">
+</head>
+<body class="frame__body" style="overflow: auto;">
+<h2 class="text-center">All Tables</h2>
+
+<div class="container">
+    <ul class="collapsible expandable collapsible--panels">
+        <li class="active">
+            <div class="collapsible-header">TABLE with CHECKBOXES</div>
+            <div class="collapsible-body">
+                bla bla
+            </div>
+        </li>
+        <li class="active">
+            <div class="collapsible-header">Second</div>
+            <div class="collapsible-body">
+                <span>Lorem ipsum dolor sit amet.</span>
+            </div>
+        </li>
+        <li class="active">
+            <div class="collapsible-header">Third</div>
+            <div class="collapsible-body">
+                <span>Lorem ipsum dolor sit amet.</span>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div class="container" style=" background-color: #fff;">
+
+
+
+</div>
+<!--JS LIBS-->
+<script type="text/javascript" src="../WebContent/mainStyles/new-ui/js/jquery.min.js"></script>
+<script type="text/javascript" src="../WebContent/mainStyles/new-ui/js/materialize-0.97.5.min.js"></script>
+<!--\ JS LIBS-->
+
+<!--CURRENT PAGE SCRIPT-->
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.collapsible');
+        var instances = M.Collapsible.init(elems, options);
+    });
+</script>
+
+</body>
+</html>

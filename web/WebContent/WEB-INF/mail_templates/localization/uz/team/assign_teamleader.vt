@@ -1,0 +1,38 @@
+## Team Leader assign notification
+## $team - Team assigned to.
+## $user - User submitted this alert.
+## $date - Date this alert was submitted
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body><p>Уважаемый(ая) $team.leader.getName(),</p>
+
+<p>Доводим до вашего сведения, что $user.getName() назначил Вас как лидера отдела $team.name в $date.</p>
+
+<p>Щелкните <a href="$host/ProjectManagement.html?link=$link" title="View department"> здесь, </a> чтобы просмотреть
+    отдел</p>
+
+<p>*Если вы не в состоянии нажать на ссылку, вы можете вместо этого скопировать и вставить следующий адрес в свой
+    веб-браузер: </p>
+
+<p><span style="color: #0033FF">$host/ProjectManagement.html?link=$link</span></p></body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

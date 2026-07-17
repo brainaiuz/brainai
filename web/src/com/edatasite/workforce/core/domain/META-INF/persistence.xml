@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
+             version="1.0">
+    <!--<persistence-unit name="masterPersistenceUnit"
+                      transaction-type="RESOURCE_LOCAL">
+        <properties>
+            <property name="hibernate.dialect" value="${hibernate.dialect}"/>
+            <property name="hibernate.show_sql" value="${hibernate.show_sql}"/>
+            <property name="hibernate.format_sql" value="${hibernate.format_sql}"/>
+            <property name="hibernate.hbm2ddl.auto" value="${hibernate.ddl-auto}"/>
+            &lt;!&ndash;            <property name="hibernate.physical_naming_strategy" value="org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy"/>&ndash;&gt;
+            &lt;!&ndash;            <property name="hibernate.implicit_naming_strategy" value="org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy"/>&ndash;&gt;
+            &lt;!&ndash;            <property name="hibernate.multiTenancy" value="SCHEMA"/>&ndash;&gt;
+            &lt;!&ndash;            <property name="hibernate.multi_tenant_connection_provider" value="tenantConnectionProvider"/>&ndash;&gt;
+            &lt;!&ndash;            <property name="hibernate.tenant_identifier_resolver" value="tenantIdentifierResolver"/>&ndash;&gt;
+            &lt;!&ndash;            <property name="hibernate.connection.provider_disables_autocommit" value="true"/>&ndash;&gt;
+            <property name="hibernate.enable_lazy_load_no_trans" value="true"/>
+
+            &lt;!&ndash;            <property name="hibernate.cache.use_second_level_cache" value="${hibernate.cache.use_second_level_cache}"/>&ndash;&gt;
+            <property name="hibernate.cache.use_query_cache" value="${hibernate.cache.use_query_cache}"/>
+            &lt;!&ndash;            <property name="hibernate.cache.region_prefix" value="hibernate"/>&ndash;&gt;
+            <property name="hibernate.cache.use_minimal_puts" value="${hibernate.cache.use_minimal_puts}"/>
+            &lt;!&ndash;            <property name="hibernate.cache.region.factory_class" value="${hibernate.cache.region.factory_class}"/>&ndash;&gt;
+            &lt;!&ndash;            <property name=""hibernate.cache.redisson.config" value="${hibernate.cache.redisson.config}"/>&ndash;&gt;
+            &lt;!&ndash;            <property name=""hibernate.cache.region.jndi_name" value="redisson_instance"/>&ndash;&gt;
+
+            <property name="hibernate.connection.provider_class" value="org.hibernate.hikaricp.internal.HikariCPConnectionProvider"/>
+            &lt;!&ndash;<property name="hibernate.hikari.autoCommit" value="false"/>
+            <property name="hibernate.hikari.connectionTimeout" value="${hibernate.hikari.connectionTimeout}"/>
+            <property name="hibernate.hikari.maximumPoolSize" value="${hibernate.hikari.maximumPoolSize}"/>
+            <property name="hibernate.hikari.idleTimeout" value="${hibernate.hikari.idleTimeout}"/>
+            <property name="hibernate.hikari.minimumIdle" value="${hibernate.hikari.minimumIdle}"/>
+            <property name="hibernate.hikari.leakDetectionThreshold" value="${hibernate.hikari.leakDetectionThreshold}"/>
+            <property name="hibernate.hikari.registerMbeans" value="true"/>&ndash;&gt;
+
+            <property name="org.hibernate.flushMode" value="AUTO"/>
+            <property name="javax.persistence.validation.mode" value="NONE"/>
+            <property name="hibernate.cfg_xml_file" value="/hibernate.cfg.xml"/>
+            <property name="hibernate.connection.isolation" value="2"/>
+            <property name="hibernate.transaction.flush_before_completion" value="true"/>
+            <property name="hibernate.transaction.auto_close_session" value="true"/>
+            <property name="hibernate.jdbc.batch_size" value="100"/>
+            <property name="hibernate.generate_statistics" value="false"/>
+            <property name="hibernate.order_inserts" value="true"/>
+            <property name="hibernate.order_updates" value="true"/>
+            <property name="hibernate.batch_versioned_data" value="true"/>
+            <property name="hibernate.cache.use_second_level_cache" value="true"/>
+            <property name="hibernate.cache.use_query_cache" value="true"/>
+            <property name="hibernate.id.new_generator_mappings" value="true"/>
+            <property name="hibernate.temp.use_jdbc_metadata_defaults" value="false"/>
+            <property name="hibernate.enable_lazy_load_no_trans" value="true"/>
+            <property name="hibernate.current_session_context_class" value="thread"/>
+            <property name="hibernate.cache.region.factory_class" value="org.hibernate.cache.jcache.internal.JCacheRegionFactory"/>
+            <property name="hibernate.allow_update_outside_transaction" value="true"/>
+        </properties>
+    </persistence-unit>
+
+    <persistence-unit name="slavePersistenceUnit"
+                      transaction-type="RESOURCE_LOCAL">
+        <properties>
+            <property name="hibernate.dialect" value="${hibernate.dialect}"/>
+            <property name="hibernate.show_sql" value="${hibernate.show_sql}"/>
+            <property name="hibernate.format_sql" value="${hibernate.format_sql}"/>
+            <property name="hibernate.hbm2ddl.auto" value="${hibernate.ddl-auto}"/>
+            &lt;!&ndash;            <property name="hibernate.physical_naming_strategy" value="org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy"/>&ndash;&gt;
+            &lt;!&ndash;            <property name="hibernate.implicit_naming_strategy" value="org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy"/>&ndash;&gt;
+            &lt;!&ndash;            <property name="hibernate.multiTenancy" value="SCHEMA"/>&ndash;&gt;
+            &lt;!&ndash;            <property name="hibernate.multi_tenant_connection_provider" value="tenantConnectionProvider"/>&ndash;&gt;
+            &lt;!&ndash;            <property name="hibernate.tenant_identifier_resolver" value="tenantIdentifierResolver"/>&ndash;&gt;
+            &lt;!&ndash;            <property name="hibernate.connection.provider_disables_autocommit" value="true"/>&ndash;&gt;
+            <property name="hibernate.enable_lazy_load_no_trans" value="true"/>
+
+            &lt;!&ndash;            <property name="hibernate.cache.use_second_level_cache" value="${hibernate.cache.use_second_level_cache}"/>&ndash;&gt;
+            <property name="hibernate.cache.use_query_cache" value="${hibernate.cache.use_query_cache}"/>
+            &lt;!&ndash;            <property name="hibernate.cache.region_prefix" value="hibernate"/>&ndash;&gt;
+            <property name="hibernate.cache.use_minimal_puts" value="${hibernate.cache.use_minimal_puts}"/>
+            &lt;!&ndash;            <property name="hibernate.cache.region.factory_class" value="${hibernate.cache.region.factory_class}"/>&ndash;&gt;
+            &lt;!&ndash;            <property name=""hibernate.cache.redisson.config" value="${hibernate.cache.redisson.config}"/>&ndash;&gt;
+            &lt;!&ndash;            <property name=""hibernate.cache.region.jndi_name" value="redisson_instance"/>&ndash;&gt;
+
+            <property name="hibernate.connection.provider_class" value="org.hibernate.hikaricp.internal.HikariCPConnectionProvider"/>
+            &lt;!&ndash;<property name="hibernate.hikari.autoCommit" value="false"/>
+            <property name="hibernate.hikari.connectionTimeout" value="${hibernate.hikari.connectionTimeout}"/>
+            <property name="hibernate.hikari.maximumPoolSize" value="${hibernate.hikari.maximumPoolSize}"/>
+            <property name="hibernate.hikari.idleTimeout" value="${hibernate.hikari.idleTimeout}"/>
+            <property name="hibernate.hikari.minimumIdle" value="${hibernate.hikari.minimumIdle}"/>
+            <property name="hibernate.hikari.leakDetectionThreshold" value="${hibernate.hikari.leakDetectionThreshold}"/>
+            <property name="hibernate.hikari.registerMbeans" value="true"/>&ndash;&gt;
+
+            <property name="org.hibernate.flushMode" value="AUTO"/>
+            <property name="javax.persistence.validation.mode" value="NONE"/>
+            <property name="hibernate.cfg_xml_file" value="/hibernate.cfg.xml"/>
+            <property name="hibernate.connection.isolation" value="2"/>
+            <property name="hibernate.transaction.flush_before_completion" value="true"/>
+            <property name="hibernate.transaction.auto_close_session" value="true"/>
+            <property name="hibernate.jdbc.batch_size" value="100"/>
+            <property name="hibernate.generate_statistics" value="false"/>
+            <property name="hibernate.order_inserts" value="true"/>
+            <property name="hibernate.order_updates" value="true"/>
+            <property name="hibernate.batch_versioned_data" value="true"/>
+            <property name="hibernate.cache.use_second_level_cache" value="true"/>
+            <property name="hibernate.cache.use_query_cache" value="true"/>
+            <property name="hibernate.id.new_generator_mappings" value="true"/>
+            <property name="hibernate.temp.use_jdbc_metadata_defaults" value="false"/>
+            <property name="hibernate.enable_lazy_load_no_trans" value="true"/>
+            <property name="hibernate.current_session_context_class" value="thread"/>
+            <property name="hibernate.cache.region.factory_class" value="org.hibernate.cache.jcache.internal.JCacheRegionFactory"/>
+            <property name="hibernate.allow_update_outside_transaction" value="true"/>
+        </properties>
+    </persistence-unit>-->
+
+</persistence>

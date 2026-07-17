@@ -1,0 +1,4 @@
+<module rename-to="reportingsystem">
+    <inherits name='com.edatasite.workforce.gwt.reportingsystem.ReportingSystem'/>
+    <inherits name="com.edatasite.workforce.gwt.Localization_properties"></inherits>
+</module>

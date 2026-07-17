@@ -1,0 +1,51 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:groupBox="urn:import:com.edatasite.workforce.gwt.core.client.ui.components.groupBox">
+    <g:HTMLPanel ui:field="exportPanel">
+        <div class="fixed-filters-panel-wrapper">
+            <groupBox:SectionBoxPanel ui:field="headerPanel"/>
+        </div>
+        <div class="balance-sheet__wrapper container--largest">
+            <div class="balance-sheet__caption fixed-content">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <td align="right"><span ui:field="dateLabel"></span> <span ui:field="dateCaption"></span></td>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="grid-row--largest">
+                <div class="col-6">
+                    <table class="balance-sheet">
+                        <thead ui:field="assetsHeader">
+                        </thead>
+                        <tfoot ui:field="assetsFooter">
+                        </tfoot>
+                        <tbody>
+                            <tr>
+                                <td class="balance-sheet__nested" colspan="2" ui:field="assetsBody">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-6">
+                    <table align="right" class="balance-sheet">
+                        <thead ui:field="liabilityHeader">
+                        </thead>
+                        <tfoot ui:field="liabilityFooter">
+                        </tfoot>
+                        <tbody>
+                            <tr>
+                                <td class="balance-sheet__nested" colspan="2" ui:field="liabilityBody">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </g:HTMLPanel>
+</ui:UiBinder>

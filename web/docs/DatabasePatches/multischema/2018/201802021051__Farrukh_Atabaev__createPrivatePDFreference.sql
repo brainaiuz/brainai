@@ -1,0 +1,2 @@
+INSERT INTO "anv".pdfreference (id, code, name, deleted) SELECT pr.id, pr.code, pr.name, pr.deleted FROM pdfreference pr;
+INSERT INTO "0".pdfreference (id, code, name, deleted) SELECT pr.id, pr.code, pr.name, pr.deleted FROM pdfreference pr;

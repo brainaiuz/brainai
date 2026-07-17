@@ -1,0 +1,42 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:mh='urn:import:gwt.material.design.client.ui.html'
+             xmlns:m='urn:import:gwt.material.design.client.ui'
+             xmlns:w='urn:import:com.edatasite.workforce.gwt.core.client.ui'
+             xmlns:b='urn:import:com.edatasite.workforce.gwt.core.client.ui.wfmButton.buttonUtils'
+>
+    <g:HTMLPanel styleName="kpi-upload">
+        <mh:Div styleName="kpi-upload__main-content" ui:field="mainContent">
+            <mh:Div styleName="kpi-upload__tabs" ui:field="tabs">
+            </mh:Div>
+
+        </mh:Div>
+        <mh:Div styleName="kpi-upload__side-content" ui:field="uploadContent">
+            <mh:Div styleName="kpi-upload__side-header">
+                <mh:Div styleName="kpi-upload__content-wrapper" ui:field="headerContent">
+
+                </mh:Div>
+            </mh:Div>
+            <mh:Div ui:field="filesPanel" styleName="kpi-upload__upload-files-list"></mh:Div>
+            <mh:Div ui:field="popupFolders" styleName="kpi-upload__folders-wrap"></mh:Div>
+            <mh:Div styleName="kpi-upload__section mt-auto">
+                <mh:Div styleName="kpi-upload__content-wrapper" ui:field="uploadWrapper">
+                    <mh:Div styleName="form-group" ui:field="uploadTypeGroup">
+                        <mh:Div styleName="form-group__label" ui:field="uploadTypeLabel">
+
+                        </mh:Div>
+                        <mh:Div styleName="form-group__content">
+                            <w:DataListBox ui:field="uploadType"/>
+                        </mh:Div>
+                    </mh:Div>
+                    <mh:Div styleName="form-group mb-0" ui:field="buttonGroup">
+                        <mh:Div styleName="form-group__content">
+                            <b:WfmButton2 ui:field="saveClose" styleName="mr-1"/>
+                            <b:WfmButton2 ui:field="cancel"/>
+                        </mh:Div>
+                    </mh:Div>
+                </mh:Div>
+            </mh:Div>
+        </mh:Div>
+    </g:HTMLPanel>
+</ui:UiBinder>

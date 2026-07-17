@@ -1,0 +1,105 @@
+
+services:
+  kpi-kafka-1:
+    extends:
+      file: ./kafka/compose.yml
+      service: kafka-1
+    volumes:
+      - kpi-kafka1-data:/bitnami/kafka
+    networks:
+      - kpi-network
+
+  kpi-kafka-2:
+    extends:
+      file: ./kafka/compose.yml
+      service: kafka-2
+    volumes:
+      - kpi-kafka2-data:/bitnami/kafka
+    networks:
+      - kpi-network
+
+  kpi-kafka-3:
+    extends:
+      file: ./kafka/compose.yml
+      service: kafka-3
+    volumes:
+      - kpi-kafka3-data:/bitnami/kafka
+    networks:
+      - kpi-network
+
+  kpi-minio:
+    extends:
+      file: ./minio/compose.yml
+      service: minio
+    volumes:
+      - kpi-minio-data:/container/vol
+    networks:
+      - kpi-network
+
+  kpi-mongodb:
+    extends:
+      file: ./mongodb/compose.yml
+      service: mongodb
+    volumes:
+      - kpi-mongodb-data:/data/db
+    networks:
+      - kpi-network
+
+  kpi-pgbouncer:
+    extends:
+      file: ./pgbouncer/compose.yml
+      service: pgbouncer
+    networks:
+      - kpi-network
+    env_file:
+      - .env
+
+  kpi-rabbitmq:
+    extends:
+      file: ./rabbitmq/compose.yml
+      service: rabbitmq
+    volumes:
+      - ./rabbitmq/etc/definitions.json:/etc/rabbitmq/definitions.json:${VOLUME_SUFFIX:-ro}
+      - ./rabbitmq/etc/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf:${VOLUME_SUFFIX:-ro}
+      - kpi-rabbitmq-data:/var/lib/rabbitmq/mnesia/rabbit@kpi-rabbitmq
+    networks:
+      - kpi-network
+
+  kpi-redis:
+    extends:
+      file: ./redis/compose.yml
+      service: redis
+    volumes:
+      - kpi-redis-data:/data
+    networks:
+      - kpi-network
+
+  kpi-solr:
+    extends:
+      file: ./solr/compose.yml
+      service: solr
+    volumes:
+      - ../../solrCores86:/var/solr/data
+    networks:
+      - kpi-network
+
+volumes:
+  kpi-kafka1-data:
+    name: "${KPI_KAFKA_HOST_1}-data"
+  kpi-kafka2-data:
+    name: "${KPI_KAFKA_HOST_2}-data"
+  kpi-kafka3-data:
+    name: "${KPI_KAFKA_HOST_3}-data"
+  kpi-minio-data:
+    name: "${KPI_MINIO_HOST}-data"
+  kpi-mongodb-data:
+    name: "${KPI_MONGODB_HOST}-data"
+  kpi-rabbitmq-data:
+    name: "${KPI_RABBITMQ_HOST}-data"
+  kpi-redis-data:
+    name: "${KPI_REDIS_HOST}-data"
+
+networks:
+  kpi-network:
+    name: "kpi-${PROJECT_ENV}-network"
+    driver: bridge

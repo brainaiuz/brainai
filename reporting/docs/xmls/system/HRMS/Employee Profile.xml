@@ -1,0 +1,48 @@
+<report>
+    <view>
+        <title>Employee Profile</title>
+        <name>Employee Profile</name>
+        <category>hrms</category>
+        <sqlquery>
+            <select agregateFunc="distinct">
+                <!--  Please only enter type property {'number' or 'date or clock' }   -->
+                <table name="crmcontact">
+                    <column name="t.id" title="id" type="number" formattype="hidden"/>
+                    <column name="t.title" title="Title" type="string" formattype="string"/>
+                    <column name="t.firstname" title="First Name" type="string" formattype="string"/>
+                    <column name="t.lastname" title="Last Name" type="string" formattype="string"/>
+                    <column name="t.companyname" title="Employer" type="string" formattype="string"/>
+                    <column name="t.jobtitles" title="Job Title" type="string" formattype="string"/>
+                    <column name="t.position" title="Position" type="string" formattype="string"/>
+                    <column name="t.primaryemail" title="Primary Email" type="string" formattype="string"/>
+                    <column name="t.dateofbirth" title="Date Of Birth" type="date" formattype="date"/>
+                </table>
+                <table name="employeeprofile">
+                    <column name="t.salaryamount" title="Salary" type="number" formattype="number"/>
+                    <column name="t.employmenthistory" title="Employment History" type="string" formattype="string"/>
+                </table>
+            </select>
+            <from>
+                (select distinct  cc.id,
+                cc.title,
+                cc.firstname,
+                cc.lastname,
+                cc.dateofbirth,
+                cc.companyname,
+                cc.jobtitles,
+                cc.position,
+                cc.primaryemail,
+                ep.salaryamount,
+                ep.employmenthistory
+                from "$".employee ee
+                left join "$".employeeprofile ep on ee.id=ep.employeeid
+                left join "$".crmcontact cc on ep.contact_id=cc.id
+                ) t
+            </from>
+            <where>
+                <terms id="base" value="1 = 1"/>
+                <!--<terms id="client" clientid="t.clientid"/>-->
+            </where>
+        </sqlquery>
+    </view>
+</report>

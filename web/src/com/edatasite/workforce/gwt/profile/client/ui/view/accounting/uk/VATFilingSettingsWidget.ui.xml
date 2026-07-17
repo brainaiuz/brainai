@@ -1,0 +1,29 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:m.html="urn:import:gwt.material.design.client.ui.html">
+    <g:HTMLPanel>
+        <li class="slideDown-box group">
+            <m.html:Div styleName="collapsible-header" ui:field="header">
+                <m.html:Anchor styleName="cursor: pointer;">
+                    <m.html:Span>VAT Filing</m.html:Span>
+                </m.html:Anchor>
+            </m.html:Div>
+            <div class="collapsible-body">
+                <div class="grid-row">
+                    <div class="col-6">
+                        <div class="grid-row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <div class="form-group__label">
+                                        <m.html:Span ui:field="vatReturnFiling"/>
+                                    </div>
+                                    <m.html:Div class="form-group__content" ui:field="vatReturnFilingContainer"></m.html:Div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </g:HTMLPanel>
+</ui:UiBinder>

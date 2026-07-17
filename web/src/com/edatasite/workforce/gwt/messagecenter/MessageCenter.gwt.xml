@@ -1,0 +1,8 @@
+<module rename-to="messagecenter">
+    <inherits name='com.edatasite.workforce.gwt.core.Core'/>
+    <inherits name='com.edatasite.workforce.gwt.crm.CRMEmpty'/>
+    <inherits name='com.edatasite.workforce.gwt.crm.CRMMain'/>
+    <inherits name='com.edatasite.workforce.gwt.crmcase.CrmCaseEmpty'/>
+    <entry-point class='com.edatasite.workforce.gwt.messagecenter.client.view.MessageCenter'/>
+    <inherits name="com.edatasite.workforce.gwt.Localization_properties"></inherits>
+</module>

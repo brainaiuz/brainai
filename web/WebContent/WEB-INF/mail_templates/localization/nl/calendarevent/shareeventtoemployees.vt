@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+
+<p>Beste $USER.getName(),</p>
+
+<p> $CREATOR_NAME heeft de volgende activiteit gedeeld met u op $SHARED_DATE:</b></p>
+
+<p><b>Activiteit details:</b></p>
+
+<div style="background-color:lightblue; width:100%;">
+    <p>Titel: $EVENT_NAME</p>
+
+    <p>Omschrijving: $DESCRIPTION</p>
+
+    <p>Wanneer: $DATE</p>
+</div>
+
+<p>Waar: $WHERE</p>
+
+<table>
+    <tr>
+        <td style='vertical-align:top;'>Shared with:</td>
+        <td> $SHARED_EMPLOYEES</td>
+    </tr>
+</table>
+
+    $GUESTS
+
+<p>Klik <a href="$LINK">hier</a> om de activiteit in uw kalender te bekijken.<br/>
+    * Als u niet op de link kunt klikken kopieer dan de volgende regel naar uw web
+    browser:
+    <span style="color: #0033FF">$LINK</span></p>
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head><body><p>Dear $username,<br /></p>
+<p>You had requested a google synchronization of contacts with $productName on  $time</p>
+<p>This is to confirm that we have successfully synchronized your contacts with your google account.</p>
+<p>If you have any questions please let us know.</p>
+<p>&nbsp;<br /></p>
+
+<p>Sincerely yours,</p>
+<p>Customer Service Department,</p>
+<p>$productName support team <br />
+$companyInfo
+</body></html>

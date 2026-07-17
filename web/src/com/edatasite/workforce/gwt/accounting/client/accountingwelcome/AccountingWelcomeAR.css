@@ -1,0 +1,180 @@
+    /* welcome page style*/
+    .welcomeMain {
+        margin-left: 10px;
+        width: 850px;
+        height: 130px;
+    }
+
+    .mainTable {
+        padding: 10px;
+    }
+
+    .topTableStyle {
+        height: 124px;
+        margin: 7px 15px 0 10px;
+    }
+
+    .topTableStyleRTL {
+        width: 99%;
+        height: 124px;
+        margin: 7px 15px 0 10px;
+    }
+
+    .top-l {
+        background: url(accounting/images/welcome/left-bcg.jpg) no-repeat;
+        width: 6px;
+    }
+
+    .top-c {
+        background: url(accounting/images/welcome/bcg.jpg) repeat-x;
+    }
+
+    .top-r {
+        background: url(accounting/images/welcome/right-bcg.jpg) no-repeat;
+        width: 6px;
+    }
+
+    .topCenter {
+        margin-left: 5px;
+        padding: 0 0 8px 0;
+        float: left;
+    }
+
+    .welcomeTitle {
+        color: #1F4F8F;
+        /*font-family: tahoma, verdana, helvetica;*/
+        font-size: 12px;
+    }
+
+    .topText {
+        /*font-family: tahoma, verdana, helvetica;*/
+        font-size: 12px;
+    }
+
+        /* START general styles */
+    .guideCover {
+        position:relative;
+        padding:10px;
+        font-size:12px;
+        /*font-family:Arial;*/
+        color:#1f4f8f;
+    }
+    .prodLink {
+        position:absolute;
+        font-weight:bold;
+        color:#1f4f8f;
+        text-decoration:none;
+        text-align:center;
+        text-shadow:0 1px 0 rgba(255, 255, 255, 0.5);
+        max-width: 106px;
+    }
+    .noProdLink {
+        position:absolute;
+        color:#1f4f8f;
+        text-decoration:none;
+        text-align:center;
+        text-shadow:0 1px 0 rgba(255, 255, 255, 0.5);
+         max-width: 106px;
+    }
+    .prodLink a {
+        text-decoration:none !important;
+    }
+    .prodLink:hover {
+        text-decoration:underline;
+    }
+        /* END general styles */
+    .accountingCover {
+        width: 795px;
+        height: 412px;
+        background: url(accounting/images/welcome/bg_arabic_accounting_cover.png) no-repeat 0 0;
+        float: left;
+    }
+
+    .accountingLink-1 {
+        top: 66px;
+        left: 28px;
+    }
+
+    .accountingLink-2 {
+        top: 270px;
+        left: 34px;
+    }
+
+    .accountingLink-3 {
+        left: 23px;
+        top: 382px;
+    }
+
+    .accountingLink-4 {
+        top: 18px;
+        left: 174px;
+    }
+
+    .accountingLink-5 {
+        left: 169px;
+        top: 220px;
+    }
+
+    .accountingLink-6 {
+        left:162px;
+        top: 328px;
+    }
+
+    .accountingLink-7 {
+        left: 280px;
+        top: 8px;
+    }
+
+    .accountingLink-8 {
+        left: 258px;
+        top: 140px;
+    }
+
+    .accountingLink-9 {
+        left: 311px;
+        top: 219px;
+    }
+
+    .accountingLink-10 {
+        left: 308px;
+        top: 342px;
+    }
+
+    .accountingLink-11 {
+        left: 411px;
+        top: 54px;
+    }
+
+    .accountingLink-12 {
+        left: 432px;
+        top: 222px;
+    }
+
+    .accountingLink-13 {
+        left: 553px;
+        top: 64px;
+    }
+
+    .accountingLink-14 {
+        left: 688px;
+        top: 65px;
+    }
+
+    .accountingLink-15 {
+        top: 360px;
+        left: 422px;
+    }
+
+    .accountingLink-16 {
+        top: 360px;
+        left: 516px;
+    }
+
+    .accountingLink-17 {
+        left: 614px;
+        top: 361px;
+    }
+    .accountingLink-18 {
+        left: 712px;
+        top: 362px;
+    }

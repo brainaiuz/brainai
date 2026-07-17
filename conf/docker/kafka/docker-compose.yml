@@ -1,0 +1,42 @@
+
+services:
+  kpi-kafka-1:
+    extends:
+      file: compose.yml
+      service: kafka-1
+    volumes:
+      - kpi-kafka-data-1:/bitnami/kafka
+    networks:
+      - kpi-network
+
+  kpi-kafka-2:
+    extends:
+      file: compose.yml
+      service: kafka-2
+    volumes:
+      - kpi-kafka-data-2:/bitnami/kafka
+    networks:
+      - kpi-network
+
+  kpi-kafka-3:
+    extends:
+      file: compose.yml
+      service: kafka-3
+    volumes:
+      - kpi-kafka-data-3:/bitnami/kafka
+    networks:
+      - kpi-network
+
+volumes:
+  kpi-kafka-data-1:
+    name: kpi-kafka-data-1
+  kpi-kafka-data-2:
+    name: kpi-kafka-data-2
+  kpi-kafka-data-3:
+    name: kpi-kafka-data-3
+
+networks:
+  kpi-network:
+    name: kpi-network
+    driver: bridge
+    external: true

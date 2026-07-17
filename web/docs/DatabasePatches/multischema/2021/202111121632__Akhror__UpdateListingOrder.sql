@@ -1,0 +1,5 @@
+update "anv".container_item set sorder = 16 where containerid = (select id from "anv".container where code='accounting' limit 1) and propertyid = (select id from "anv".property where objectname = 'rentalProducts' limit 1);
+update "anv".container_item set sorder = 17 where containerid = (select id from "anv".container where code='accounting' limit 1) and propertyid = (select id from "anv".property where objectname = 'bankaccount' limit 1);
+update "anv".container_item set sorder = 18 where containerid = (select id from "anv".container where code='accounting' limit 1) and propertyid = (select id from "anv".property where objectname = 'trashBin' limit 1);
+update "anv".container_item set sorder = 19 where containerid = (select id from "anv".container where code='accounting' limit 1) and propertyid = (select id from "anv".property where objectname = 'STOCK_ADJUSTMENT' limit 1);
+update "anv".container_item set sorder = 20 where containerid = (select id from "anv".container where code='accounting' limit 1) and propertyid = (select id from "anv".property where objectname = 'consignment' limit 1);

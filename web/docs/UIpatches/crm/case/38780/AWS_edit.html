@@ -1,0 +1,597 @@
+<div class="contentBar" style="padding:0 10px;margin-top:2px;">
+
+<div id="caseDescription" class="slideDown-box expand group">
+    <h3 onclick="var myclick=document.getElementById('caseDescription');if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('expand')&gt;=0){cls=cls.replace('expand','');}else{cls+=' expand';}myclick.className=cls;}"
+        class="slideDown-title">$$label:DESCRIPTION$$</h3>
+    <fieldset class="slideDown-content group nobrd labelLine">
+        <div class="halfSet-1 left">
+            <div class="row">$$label:SUBJECT$$
+                <div class="field">$$input:SUBJECT$$</div>
+            </div>
+            <div class="row hideCustomField"> $$label:string_value1$$
+                <div class="field">$$input:string_value1$$</div>
+            </div>
+            <div class="row">$$label:REPORTED_BY$$
+                <div class="field">$$input:REPORTED_BY$$</div>
+            </div>
+            <div class="row">$$label:CASE_DESCRIPTION$$
+                <div class="field" style="width:804px">$$input:CASE_DESCRIPTION$$</div>
+            </div>
+        </div>
+    </fieldset>
+</div>
+
+
+<div id="caseInformation" class="slideDown-box expand group">
+    <h3 onclick="var myclick=document.getElementById('caseInformation');if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('expand')&gt;=0){cls=cls.replace('expand','');}else{cls+=' expand';}myclick.className=cls;}"
+        class="slideDown-title">$$label:CASE_INFORMATION$$</h3>
+
+    <fieldset class="slideDown-content group labelLine">
+        <div class="halfSet-1 left">
+            <div class="row disable">$$label:CASE_ID$$
+                <div class="field">$$input:CASE_ID$$</div>
+            </div>
+            <div class="row">$$label:TYPE$$
+                <div class="field">$$input:TYPE$$</div>
+            </div>
+            <div class="row">$$label:CASE_ORIGIN$$
+                <div class="field">$$input:CASE_ORIGIN$$</div>
+            </div>
+            <div class="row">$$label:CASE_REASON$$
+                <div class="field">$$input:CASE_REASON$$</div>
+            </div>
+            <div class="row hideCustomField">$$label:SLA$$
+                <div class="field">$$input:SLA$$</div>
+            </div>
+        </div>
+
+        <div class="halfSet-1 left">
+            <div class="row">$$label:PRIORITY$$
+                <div class="field">$$input:PRIORITY$$</div>
+            </div>
+            <div class="row">$$label:STATUS$$
+                <div class="field">$$input:STATUS$$</div>
+            </div>
+            <div class="row">$$label:ASSIGNEE$$
+                <div class="field">$$input:ASSIGNEE$$</div>
+            </div>
+            <div class="row">$$label:RESOLVER$$
+                <div class="field">$$input:RESOLVER$$</div>
+            </div>
+            <div class="row hideCustomField">$$label:BILLABLE$$
+                <div class="field">$$input:BILLABLE$$</div>
+            </div>
+        </div>
+        <div class="row hideCustomField">$$label:SLA_TIMER$$
+            <div class="field">$$input:SLA_TIMER$$</div>
+        </div>
+    </fieldset>
+
+</div>
+
+<div id="noteBlock" class="slideDown-box expand group">
+    <h3 onclick="var myclick=document.getElementById('noteBlock');if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('expand')&gt;=0){cls=cls.replace('expand','');}else{cls+=' expand';}myclick.className=cls;}"
+        class="slideDown-title">$$label:CRM_NOTE$$</h3>
+    <fieldset class="slideDown-content group nobrd">
+        <div>
+            $$input:CRM_NOTE$$
+        </div>
+    </fieldset>
+</div>
+
+
+<div id="statusHistory" class="slideDown-box  expand group">
+    <h3 onclick="var myclick=document.getElementById('statusHistory');if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('expand')&gt;=0){cls=cls.replace('expand','');}else{cls+=' expand';}myclick.className=cls;}"
+        class="slideDown-title">$$label:STATUS_HISTORY$$</h3>
+    <fieldset class="slideDown-content group nobrd">
+        <div class="reachFullWidth">
+            $$input:STATUS_HISTORY$$
+        </div>
+    </fieldset>
+</div>
+
+<div id="caseStatusHistory" class="slideDown-box expand group">
+    <h3 onclick="var myclick=document.getElementById('caseStatusHistory');if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('expand')&gt;=0){cls=cls.replace('expand','');}else{cls+=' expand';}myclick.className=cls;}"
+        class="slideDown-title">$$label:CASE_HISTORY_LOG$$</h3>
+    <fieldset class="slideDown-content group nobrd">
+        <div class="reachFullWidth">
+            $$input:CASE_HISTORY_LOG$$
+        </div>
+    </fieldset>
+</div>
+
+<div id="crmActivityBlock" class="slideDown-box expand group">
+    <h3 onclick="var myclick=document.getElementById('crmActivityBlock');if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('expand')&gt;=0){cls=cls.replace('expand','');}else{cls+=' expand';}myclick.className=cls;}"
+        class="slideDown-title">$$label:CRM_ACTIVITIES$$</h3>
+    <fieldset class="slideDown-content group nobrd">
+        <div class="reachFullWidth">
+            $$input:CRM_ACTIVITIES$$
+        </div>
+    </fieldset>
+</div>
+
+<div id="linksBlock" class="slideDown-box expand group">
+    <h3 onclick="var myclick=document.getElementById('linksBlock');if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('expand')&gt;=0){cls=cls.replace('expand','');}else{cls+=' expand';}myclick.className=cls;}"
+        class="slideDown-title">$$label:LINKS$$</h3>
+    <fieldset class="slideDown-content group nobrd">
+        <div class="reachFullWidth">
+            $$input:LINKS$$
+        </div>
+    </fieldset>
+</div>
+
+<div id="attachmentBlock" class="slideDown-box expand group">
+    <h3 onclick="var myclick=document.getElementById('attachmentBlock');if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('expand')&gt;=0){cls=cls.replace('expand','');}else{cls+=' expand';}myclick.className=cls;}"
+        class="slideDown-title">$$label:ATTACHMENTS$$</h3>
+    <fieldset class="slideDown-content group nobrd">
+        <div class="reachFullWidth">
+            $$input:ATTACHMENTS$$
+        </div>
+    </fieldset>
+</div>
+
+
+<div id="click8" class="slideDown-box expand group hideCustomField">
+<h3 onclick="var myclick=document.getElementById('click8');if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('expand')&gt;=0){cls=cls.replace('expand','');}else{cls+=' expand';}myclick.className=cls;}"
+    class="slideDown-title">$$label:ADDITIONAL_INFORMATION$$</h3>
+
+<fieldset class="slideDown-content group labelLine">
+<div class="halfSet-1 left">
+
+<div class="row hideCustomField"> $$label:string_value2$$
+    <div class="field">$$input:string_value2$$</div>
+</div>
+<div class="row hideCustomField"> $$label:string_value3$$
+    <div class="field">$$input:string_value3$$</div>
+</div>
+<div class="row hideCustomField"> $$label:string_value4$$
+    <div class="field">$$input:string_value4$$</div>
+</div>
+<div class="row hideCustomField"> $$label:string_value5$$
+    <div class="field">$$input:string_value5$$</div>
+</div>
+<div class="row hideCustomField"> $$label:string_value6$$
+    <div class="field">$$input:string_value6$$</div>
+</div>
+<div class="row hideCustomField"> $$label:string_value7$$
+    <div class="field">$$input:string_value7$$</div>
+</div>
+<div class="row hideCustomField"> $$label:string_value8$$
+    <div class="field">$$input:string_value8$$</div>
+</div>
+<div class="row hideCustomField"> $$label:string_value9$$
+    <div class="field">$$input:string_value9$$</div>
+</div>
+<div class="row hideCustomField"> $$label:string_value10$$
+    <div class="field">$$input:string_value10$$</div>
+</div>
+<div class="row hideCustomField"> $$label:string_value11$$
+    <div class="field">$$input:string_value11$$</div>
+</div>
+<div class="row hideCustomField"> $$label:string_value12$$
+    <div class="field">$$input:string_value12$$</div>
+</div>
+<div class="row hideCustomField"> $$label:string_value13$$
+    <div class="field">$$input:string_value13$$</div>
+</div>
+<div class="row hideCustomField"> $$label:string_value14$$
+    <div class="field">$$input:string_value14$$</div>
+</div>
+<div class="row hideCustomField"> $$label:string_value15$$
+    <div class="field">$$input:string_value15$$</div>
+</div>
+<div class="row hideCustomField"> $$label:string_value16$$
+    <div class="field">$$input:string_value16$$</div>
+</div>
+<div class="row hideCustomField"> $$label:string_value17$$
+    <div class="field">$$input:string_value17$$</div>
+</div>
+<div class="row hideCustomField"> $$label:string_value18$$
+    <div class="field">$$input:string_value18$$</div>
+</div>
+<div class="row hideCustomField"> $$label:string_value19$$
+    <div class="field">$$input:string_value19$$</div>
+</div>
+<div class="row hideCustomField"> $$label:string_value20$$
+    <div class="field">$$input:string_value20$$</div>
+</div>
+<div class="row hideCustomField"> $$label:string_value21$$
+    <div class="field">$$input:string_value21$$</div>
+</div>
+<div class="row hideCustomField"> $$label:string_value22$$
+    <div class="field">$$input:string_value22$$</div>
+</div>
+<div class="row hideCustomField"> $$label:string_value23$$
+    <div class="field">$$input:string_value23$$</div>
+</div>
+<div class="row hideCustomField"> $$label:string_value24$$
+    <div class="field">$$input:string_value24$$</div>
+</div>
+<div class="row hideCustomField"> $$label:string_value25$$
+    <div class="field">$$input:string_value25$$</div>
+</div>
+<div class="row hideCustomField"> $$label:string_value26$$
+    <div class="field">$$input:string_value26$$</div>
+</div>
+<div class="row hideCustomField"> $$label:string_value27$$
+    <div class="field">$$input:string_value27$$</div>
+</div>
+<div class="row hideCustomField"> $$label:string_value28$$
+    <div class="field">$$input:string_value28$$</div>
+</div>
+<div class="row hideCustomField"> $$label:string_value29$$
+    <div class="field">$$input:string_value29$$</div>
+</div>
+<div class="row hideCustomField"> $$label:string_value30$$
+    <div class="field">$$input:string_value30$$</div>
+</div>
+<div class="row hideCustomField"> $$label:string_value31$$
+    <div class="field">$$input:string_value31$$</div>
+</div>
+<div class="row hideCustomField"> $$label:string_value32$$
+    <div class="field">$$input:string_value32$$</div>
+</div>
+<div class="row hideCustomField"> $$label:string_value33$$
+    <div class="field">$$input:string_value33$$</div>
+</div>
+<div class="row hideCustomField"> $$label:string_value34$$
+    <div class="field">$$input:string_value34$$</div>
+</div>
+<div class="row hideCustomField"> $$label:string_value35$$
+    <div class="field">$$input:string_value35$$</div>
+</div>
+<div class="row hideCustomField"> $$label:string_value36$$
+    <div class="field">$$input:string_value36$$</div>
+</div>
+<div class="row hideCustomField"> $$label:string_value37$$
+    <div class="field">$$input:string_value37$$</div>
+</div>
+<div class="row hideCustomField"> $$label:string_value38$$
+    <div class="field">$$input:string_value38$$</div>
+</div>
+<div class="row hideCustomField"> $$label:string_value39$$
+    <div class="field">$$input:string_value39$$</div>
+</div>
+<div class="row hideCustomField"> $$label:string_value40$$
+    <div class="field">$$input:string_value40$$</div>
+</div>
+<div class="row hideCustomField"> $$label:string_value41$$
+    <div class="field">$$input:string_value41$$</div>
+</div>
+<div class="row hideCustomField"> $$label:string_value42$$
+    <div class="field">$$input:string_value42$$</div>
+</div>
+<div class="row hideCustomField"> $$label:string_value43$$
+    <div class="field">$$input:string_value43$$</div>
+</div>
+<div class="row hideCustomField"> $$label:string_value44$$
+    <div class="field">$$input:string_value44$$</div>
+</div>
+<div class="row hideCustomField"> $$label:string_value45$$
+    <div class="field">$$input:string_value45$$</div>
+</div>
+<div class="row hideCustomField"> $$label:string_value46$$
+    <div class="field">$$input:string_value46$$</div>
+</div>
+<div class="row hideCustomField"> $$label:string_value47$$
+    <div class="field">$$input:string_value47$$</div>
+</div>
+<div class="row hideCustomField"> $$label:string_value48$$
+    <div class="field">$$input:string_value48$$</div>
+</div>
+<div class="row hideCustomField"> $$label:string_value49$$
+    <div class="field">$$input:string_value49$$</div>
+</div>
+<div class="row hideCustomField"> $$label:string_value50$$
+    <div class="field">$$input:string_value50$$</div>
+</div>
+
+<div class="row hideCustomField"> $$label:double_value1$$
+    <div class="field">$$input:double_value1$$</div>
+</div>
+<div class="row hideCustomField"> $$label:double_value2$$
+    <div class="field">$$input:double_value2$$</div>
+</div>
+<div class="row hideCustomField"> $$label:double_value3$$
+    <div class="field">$$input:double_value3$$</div>
+</div>
+<div class="row hideCustomField"> $$label:double_value4$$
+    <div class="field">$$input:double_value4$$</div>
+</div>
+<div class="row hideCustomField"> $$label:double_value5$$
+    <div class="field">$$input:double_value5$$</div>
+</div>
+<div class="row hideCustomField"> $$label:double_value6$$
+    <div class="field">$$input:double_value6$$</div>
+</div>
+<div class="row hideCustomField"> $$label:double_value7$$
+    <div class="field">$$input:double_value7$$</div>
+</div>
+<div class="row hideCustomField"> $$label:double_value8$$
+    <div class="field">$$input:double_value8$$</div>
+</div>
+<div class="row hideCustomField"> $$label:double_value9$$
+    <div class="field">$$input:double_value9$$</div>
+</div>
+<div class="row hideCustomField"> $$label:double_value10$$
+    <div class="field">$$input:double_value10$$</div>
+</div>
+<div class="row hideCustomField"> $$label:double_value11$$
+    <div class="field">$$input:double_value11$$</div>
+</div>
+<div class="row hideCustomField"> $$label:double_value12$$
+    <div class="field">$$input:double_value12$$</div>
+</div>
+<div class="row hideCustomField"> $$label:double_value13$$
+    <div class="field">$$input:double_value13$$</div>
+</div>
+<div class="row hideCustomField"> $$label:double_value14$$
+    <div class="field">$$input:double_value14$$</div>
+</div>
+<div class="row hideCustomField"> $$label:double_value15$$
+    <div class="field">$$input:double_value15$$</div>
+</div>
+<div class="row hideCustomField"> $$label:double_value16$$
+    <div class="field">$$input:double_value16$$</div>
+</div>
+<div class="row hideCustomField"> $$label:double_value17$$
+    <div class="field">$$input:double_value17$$</div>
+</div>
+<div class="row hideCustomField"> $$label:double_value18$$
+    <div class="field">$$input:double_value18$$</div>
+</div>
+<div class="row hideCustomField"> $$label:double_value19$$
+    <div class="field">$$input:double_value19$$</div>
+</div>
+<div class="row hideCustomField"> $$label:double_value20$$
+    <div class="field">$$input:double_value20$$</div>
+</div>
+<div class="row hideCustomField"> $$label:double_value21$$
+    <div class="field">$$input:double_value21$$</div>
+</div>
+<div class="row hideCustomField"> $$label:double_value22$$
+    <div class="field">$$input:double_value22$$</div>
+</div>
+<div class="row hideCustomField"> $$label:double_value23$$
+    <div class="field">$$input:double_value23$$</div>
+</div>
+<div class="row hideCustomField"> $$label:double_value24$$
+    <div class="field">$$input:double_value24$$</div>
+</div>
+<div class="row hideCustomField"> $$label:double_value25$$
+    <div class="field">$$input:double_value25$$</div>
+</div>
+
+</div>
+
+<div class="halfSet-1 left">
+<div class="row hideCustomField"> $$label:double_value26$$
+    <div class="field">$$input:double_value26$$</div>
+</div>
+<div class="row hideCustomField"> $$label:double_value27$$
+    <div class="field">$$input:double_value27$$</div>
+</div>
+<div class="row hideCustomField"> $$label:double_value28$$
+    <div class="field">$$input:double_value28$$</div>
+</div>
+<div class="row hideCustomField"> $$label:double_value29$$
+    <div class="field">$$input:double_value29$$</div>
+</div>
+<div class="row hideCustomField"> $$label:double_value30$$
+    <div class="field">$$input:double_value30$$</div>
+</div>
+<div class="row hideCustomField"> $$label:double_value31$$
+    <div class="field">$$input:double_value31$$</div>
+</div>
+<div class="row hideCustomField"> $$label:double_value32$$
+    <div class="field">$$input:double_value32$$</div>
+</div>
+<div class="row hideCustomField"> $$label:double_value33$$
+    <div class="field">$$input:double_value33$$</div>
+</div>
+<div class="row hideCustomField"> $$label:double_value34$$
+    <div class="field">$$input:double_value34$$</div>
+</div>
+<div class="row hideCustomField"> $$label:double_value35$$
+    <div class="field">$$input:double_value35$$</div>
+</div>
+<div class="row hideCustomField"> $$label:double_value36$$
+    <div class="field">$$input:double_value36$$</div>
+</div>
+<div class="row hideCustomField"> $$label:double_value37$$
+    <div class="field">$$input:double_value37$$</div>
+</div>
+<div class="row hideCustomField"> $$label:double_value38$$
+    <div class="field">$$input:double_value38$$</div>
+</div>
+<div class="row hideCustomField"> $$label:double_value39$$
+    <div class="field">$$input:double_value39$$</div>
+</div>
+<div class="row hideCustomField"> $$label:double_value40$$
+    <div class="field">$$input:double_value40$$</div>
+</div>
+<div class="row hideCustomField"> $$label:double_value41$$
+    <div class="field">$$input:double_value41$$</div>
+</div>
+<div class="row hideCustomField"> $$label:double_value42$$
+    <div class="field">$$input:double_value42$$</div>
+</div>
+<div class="row hideCustomField"> $$label:double_value43$$
+    <div class="field">$$input:double_value43$$</div>
+</div>
+<div class="row hideCustomField"> $$label:double_value44$$
+    <div class="field">$$input:double_value44$$</div>
+</div>
+<div class="row hideCustomField"> $$label:double_value45$$
+    <div class="field">$$input:double_value45$$</div>
+</div>
+<div class="row hideCustomField"> $$label:double_value46$$
+    <div class="field">$$input:double_value46$$</div>
+</div>
+<div class="row hideCustomField"> $$label:double_value47$$
+    <div class="field">$$input:double_value47$$</div>
+</div>
+<div class="row hideCustomField"> $$label:double_value48$$
+    <div class="field">$$input:double_value48$$</div>
+</div>
+<div class="row hideCustomField"> $$label:double_value49$$
+    <div class="field">$$input:double_value49$$</div>
+</div>
+<div class="row hideCustomField"> $$label:double_value50$$
+    <div class="field">$$input:double_value50$$</div>
+</div>
+
+<div class="row hideCustomField"> $$label:date_value1$$
+    <div class="field">$$input:date_value1$$</div>
+</div>
+<div class="row hideCustomField"> $$label:date_value2$$
+    <div class="field">$$input:date_value2$$</div>
+</div>
+<div class="row hideCustomField"> $$label:date_value3$$
+    <div class="field">$$input:date_value3$$</div>
+</div>
+<div class="row hideCustomField"> $$label:date_value4$$
+    <div class="field">$$input:date_value4$$</div>
+</div>
+<div class="row hideCustomField"> $$label:date_value5$$
+    <div class="field">$$input:date_value5$$</div>
+</div>
+<div class="row hideCustomField"> $$label:date_value6$$
+    <div class="field">$$input:date_value6$$</div>
+</div>
+<div class="row hideCustomField"> $$label:date_value7$$
+    <div class="field">$$input:date_value7$$</div>
+</div>
+<div class="row hideCustomField"> $$label:date_value8$$
+    <div class="field">$$input:date_value8$$</div>
+</div>
+<div class="row hideCustomField"> $$label:date_value9$$
+    <div class="field">$$input:date_value9$$</div>
+</div>
+<div class="row hideCustomField"> $$label:date_value10$$
+    <div class="field">$$input:date_value10$$</div>
+</div>
+<div class="row hideCustomField"> $$label:date_value11$$
+    <div class="field">$$input:date_value11$$</div>
+</div>
+<div class="row hideCustomField"> $$label:date_value12$$
+    <div class="field">$$input:date_value12$$</div>
+</div>
+<div class="row hideCustomField"> $$label:date_value13$$
+    <div class="field">$$input:date_value13$$</div>
+</div>
+<div class="row hideCustomField"> $$label:date_value14$$
+    <div class="field">$$input:date_value14$$</div>
+</div>
+<div class="row hideCustomField"> $$label:date_value15$$
+    <div class="field">$$input:date_value15$$</div>
+</div>
+<div class="row hideCustomField"> $$label:date_value16$$
+    <div class="field">$$input:date_value16$$</div>
+</div>
+<div class="row hideCustomField"> $$label:date_value17$$
+    <div class="field">$$input:date_value17$$</div>
+</div>
+<div class="row hideCustomField"> $$label:date_value18$$
+    <div class="field">$$input:date_value18$$</div>
+</div>
+<div class="row hideCustomField"> $$label:date_value19$$
+    <div class="field">$$input:date_value19$$</div>
+</div>
+<div class="row hideCustomField"> $$label:date_value20$$
+    <div class="field">$$input:date_value20$$</div>
+</div>
+<div class="row hideCustomField"> $$label:date_value21$$
+    <div class="field">$$input:date_value21$$</div>
+</div>
+<div class="row hideCustomField"> $$label:date_value22$$
+    <div class="field">$$input:date_value22$$</div>
+</div>
+<div class="row hideCustomField"> $$label:date_value23$$
+    <div class="field">$$input:date_value23$$</div>
+</div>
+<div class="row hideCustomField"> $$label:date_value24$$
+    <div class="field">$$input:date_value24$$</div>
+</div>
+<div class="row hideCustomField"> $$label:date_value25$$
+    <div class="field">$$input:date_value25$$</div>
+</div>
+<div class="row hideCustomField"> $$label:date_value26$$
+    <div class="field">$$input:date_value26$$</div>
+</div>
+<div class="row hideCustomField"> $$label:date_value27$$
+    <div class="field">$$input:date_value27$$</div>
+</div>
+<div class="row hideCustomField"> $$label:date_value28$$
+    <div class="field">$$input:date_value28$$</div>
+</div>
+<div class="row hideCustomField"> $$label:date_value29$$
+    <div class="field">$$input:date_value29$$</div>
+</div>
+<div class="row hideCustomField"> $$label:date_value30$$
+    <div class="field">$$input:date_value30$$</div>
+</div>
+<div class="row hideCustomField"> $$label:date_value31$$
+    <div class="field">$$input:date_value31$$</div>
+</div>
+<div class="row hideCustomField"> $$label:date_value32$$
+    <div class="field">$$input:date_value32$$</div>
+</div>
+<div class="row hideCustomField"> $$label:date_value33$$
+    <div class="field">$$input:date_value33$$</div>
+</div>
+<div class="row hideCustomField"> $$label:date_value34$$
+    <div class="field">$$input:date_value34$$</div>
+</div>
+<div class="row hideCustomField"> $$label:date_value35$$
+    <div class="field">$$input:date_value35$$</div>
+</div>
+<div class="row hideCustomField"> $$label:date_value36$$
+    <div class="field">$$input:date_value36$$</div>
+</div>
+<div class="row hideCustomField"> $$label:date_value37$$
+    <div class="field">$$input:date_value37$$</div>
+</div>
+<div class="row hideCustomField"> $$label:date_value38$$
+    <div class="field">$$input:date_value38$$</div>
+</div>
+<div class="row hideCustomField"> $$label:date_value39$$
+    <div class="field">$$input:date_value39$$</div>
+</div>
+<div class="row hideCustomField"> $$label:date_value40$$
+    <div class="field">$$input:date_value40$$</div>
+</div>
+<div class="row hideCustomField"> $$label:date_value41$$
+    <div class="field">$$input:date_value41$$</div>
+</div>
+<div class="row hideCustomField"> $$label:date_value42$$
+    <div class="field">$$input:date_value42$$</div>
+</div>
+<div class="row hideCustomField"> $$label:date_value43$$
+    <div class="field">$$input:date_value43$$</div>
+</div>
+<div class="row hideCustomField"> $$label:date_value44$$
+    <div class="field">$$input:date_value44$$</div>
+</div>
+<div class="row hideCustomField"> $$label:date_value45$$
+    <div class="field">$$input:date_value45$$</div>
+</div>
+<div class="row hideCustomField"> $$label:date_value46$$
+    <div class="field">$$input:date_value46$$</div>
+</div>
+<div class="row hideCustomField"> $$label:date_value47$$
+    <div class="field">$$input:date_value47$$</div>
+</div>
+<div class="row hideCustomField"> $$label:date_value48$$
+    <div class="field">$$input:date_value48$$</div>
+</div>
+<div class="row hideCustomField"> $$label:date_value49$$
+    <div class="field">$$input:date_value49$$</div>
+</div>
+<div class="row hideCustomField"> $$label:date_value50$$
+    <div class="field">$$input:date_value50$$</div>
+</div>
+</div>
+</fieldset>
+</div>
+</div>

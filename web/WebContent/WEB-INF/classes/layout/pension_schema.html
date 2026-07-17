@@ -1,0 +1,57 @@
+<ul class="collapsible--panels collapsible--arrows-left collapsible collapsible--gwt required"
+    data-collapsible="expandable">
+    <li class="slideDown-box group active">
+        <div class="collapsible-header active"
+             onclick="var myclick=this.parentElement;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls; } var myclick=this;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls; }">
+            <a style="cursor: pointer;"><span>$$label:PENSION_SCHEMA_DETAILS$$</span></a>
+        </div>
+        <div class="collapsible-body">
+            <div class="grid-row">
+                <div class="col-6">
+                    $$input:PENSION_SCHEMA_NAME$$
+                </div>
+                <div class="col-6">
+                    $$input:PENSION_PROVIDER_NAME$$
+                </div>
+            </div>
+        </div>
+    </li>
+    <li class="slideDown-box group active">
+        <div class="collapsible-header active"
+             onclick="var myclick=this.parentElement;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls; } var myclick=this;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls; }">
+            <a style="cursor: pointer;"><span>$$label:EMPLOYEE_CONTRIBUTION$$</span></a>
+        </div>
+        <div class="collapsible-body">
+            <div class="grid-row">
+                <div class="col-6">
+                    $$input:EMPLOYEE_DEDUCT_TYPE$$
+                    $$input:EMPLOYEE_RATE_NON_LOCAL$$
+                    $$input:DEDUCT_FROM$$
+                </div>
+                <div class="col-6">
+                    $$input:EMPLOYEE_RATE_LOCAL$$
+                    $$input:EMP_MAX_TAXABLE_AMOUNT$$
+                    $$input:DEDUCT_SETTINGS$$
+                </div>
+            </div>
+        </div>
+    </li>
+    <li class="slideDown-box group active">
+        <div class="collapsible-header active"
+             onclick="var myclick=this.parentElement;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls; } var myclick=this;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls; }">
+            <a style="cursor: pointer;"><span>$$label:EMPLOYER_CONTRIBUTION$$</span></a>
+        </div>
+        <div class="collapsible-body">
+            <div class="grid-row">
+                <div class="col-6">
+                    $$input:EMPLOYER_DEDUCT_TYPE$$
+                    $$input:EMPLOYER_RATE_NON_LOCAL$$
+                </div>
+                <div class="col-6">
+                    $$input:EMPLOYER_RATE_LOCAL$$
+                    $$input:COMP_MAX_TAXABLE_AMOUNT$$
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>

@@ -1,0 +1,51 @@
+.build:
+  stage: build
+  before_script:
+    - echo $LOCALIZATION > web/src/com/edatasite/workforce/gwt/Localization_properties.gwt.xml
+    - sed -i '/user.agent" value=/c\<property name="user.agent" value="'$APP_USER_AGENT'"/>' web/Base_build.xml
+    - sed -i '/locale" value=/c\<property name="locale" value="'$APP_LOCALE'"/>' web/Base_build.xml
+    - sed -i '/ <jvmarg/c\<jvmarg line="'"$APP_JVM_ARGS"'"/>' web/Base_build.xml
+    - sed -i '/localWorkers/c\<arg line="-logLevel INFO '"$APP_GWT_ARGS"' -war ${gwt.dir} ${gwtcopt} ${permutation}${user.agent}${locale}"/>' web/Base_build.xml
+    - sed -i '/war destfile/c\<war destfile="'"$APP_BUILD_DEST"'/ROOT.war" webxml="${basedir}/WebContent/WEB-INF/web.xml">' web/AutoCompile.xml
+    - echo cssVersion=$GIT_COMMIT > web/src/config/version.properties
+    - chmod +x conf/scripts/start-notify.sh
+    - ./conf/scripts/start-notify.sh
+  script:
+    - $ANT_BIN/ant -file web/AutoCompile.xml z4_buildAll
+  after_script:
+    - echo "Clearing tmp gwt and java files"
+    - rm -rf TempGWT bin
+  artifacts:
+    reports:
+      dotenv: telegram_msg.env
+
+.deploy:
+  stage: deploy
+  before_script:
+    - unzip -qo $APP_BUILD_DEST/ROOT.war -d ROOT
+    - zip -qr "#${CI_PIPELINE_ID}-${CI_COMMIT_SHA}.zip" ROOT
+  script:
+    - |
+      echo "Uploading file: #${CI_PIPELINE_ID}-${CI_COMMIT_SHA}.zip to AWS S3 Bucket: ${CODEDEPLOY_BUCKET}/${CODEDEPLOY_PREFIX}"
+      aws s3 cp "#${CI_PIPELINE_ID}-${CI_COMMIT_SHA}.zip" s3://${CODEDEPLOY_BUCKET}/${CODEDEPLOY_PREFIX}/
+      
+      DEPLOYMENT_ID=$(aws deploy create-deployment \
+              --application-name ${CODEDEPLOY_APP_NAME} \
+              --deployment-group-name ${CODEDEPLOY_GROUP_NAME} \
+              --s3-location bucket=${CODEDEPLOY_BUCKET},key="${CODEDEPLOY_PREFIX}/#${CI_PIPELINE_ID}-${CI_COMMIT_SHA}.zip",bundleType=zip \
+              --description "Deploy ${CI_COMMIT_SHA} to ${ENV}" \
+              --query 'deploymentId' \
+              --output text)
+
+      echo "Monitoring Deployment with ID: $DEPLOYMENT_ID"
+      
+      aws deploy wait deployment-successful --deployment-id $DEPLOYMENT_ID
+      
+      echo "DEPLOY_STATUS=success" > deploy_status.env
+  after_script:
+    - rm -rf ROOT "#${CI_PIPELINE_ID}-${CI_COMMIT_SHA}.zip"
+    - chmod +x conf/scripts/end-notify.sh
+    - ./conf/scripts/end-notify.sh
+  artifacts:
+    reports:
+      dotenv: deploy_status.env

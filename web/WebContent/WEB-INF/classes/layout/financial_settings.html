@@ -1,0 +1,205 @@
+<div class="contentBar" style="padding:0 10px;">
+    <ul class="collapsible--panels collapsible--arrows-left collapsible collapsible--gwt required" data-collapsible="expandable">
+        <li class="slideDown-box group active">
+            <div class="collapsible-header active" onclick="var myclick=this.parentElement;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls; } var myclick=this;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls; }">
+                <a style="cursor: pointer;"><span>$$label:FINANCIAL_INFORMATION$$</span></a>
+            </div>
+            <!-- Financial details -->
+            <div class="collapsible-body">
+                <div class="grid-row">
+                    <!-- column #1 -->
+                    <div class="col-6">
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:CS_CONVERSION_DATE$$</div>
+                            <div class="form-group__content">$$input:CS_CONVERSION_DATE$$</div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:FINANCIAL_YEAR_END$$</div>
+                            <div class="form-group__content">$$input:FINANCIAL_YEAR_END$$</div>
+                        </div>
+                        <div class="grid-row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <div class="form-group__label">$$label:CURRENCY$$</div>
+                                    <div class="form-group__content">$$input:CURRENCY$$</div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <div class="form-group__label">$$label:CLOSE_POSTING_PERIODS_BEFORE$$</div>
+                                    <div class="form-group__content">$$input:CLOSE_POSTING_PERIODS_BEFORE$$</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid-row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <div class="form-group__label">$$label:EXCHANGE_RATE$$</div>
+                                    <div class="form-group__content">$$input:EXCHANGE_RATE$$</div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <div class="form-group__label">$$label:CALCULATION_SCALE$$</div>
+                                    <div class="form-group__content">$$input:CALCULATION_SCALE$$</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- column #2 -->
+                    <div class="col-6">
+                        <div class="grid-row margin-top">
+                            <div class="col-6 offset-4">$$label:VAT_RETURN_REPORT$$</div>
+                            <div class="col-2">$$input:VAT_RETURN_REPORT$$</div>
+                        </div>
+                        <div class="grid-row margin-top">
+                            <div class="col-6 offset-4">$$label:ENABLE_IT$$</div>
+                            <div class="col-2">$$input:ENABLE_IT$$</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+
+        <!-- Sales tax information -->
+        <li class="slideDown-box group">
+            <div class="collapsible-header" onclick="var myclick=this.parentElement;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls;} var myclick=this;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls; }">
+                <a style="cursor: pointer;"><span>$$label:SALES_TAX$$</span></a>
+            </div>
+            <div class="collapsible-body">
+                <div class="grid-row">
+                    <div class="col-12">
+                        $$input:IS_VAT_REGISTERED$$
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:TAX_TABLE$$</div>
+                            <div class="form-group__content">$$input:TAX_TABLE$$</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-row mb-5">
+                    <div class="col-6">
+                        <div class="grid-row margin-top">
+                            <div class="col-6">$$label:SHOW_TAX_IN_INVOICES$$</div>
+                            <div class="col-2">$$input:SHOW_TAX_IN_INVOICES$$</div>
+                        </div>
+                        <div class="grid-row margin-top">
+                            <div class="col-6">$$label:SHOW_TAX_IN_REPORTS$$</div>
+                            <div class="col-2">$$input:SHOW_TAX_IN_REPORTS$$</div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group" id="INCOME_TAX_TABLE" style="display:none">
+                            <div class="form-group__label">$$label:INCOME_TAX_TABLE$$</div>
+                            <div class="form-group__content">$$input:INCOME_TAX_TABLE$$</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        $$input:VAT_FILING$$
+        <li class="slideDown-box group">
+            <div class="collapsible-header" onclick="var myclick=this.parentElement;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls;} var myclick=this;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls; }">
+                <a style="cursor: pointer;"><span>$$label:ADDITIONAL_SETTINGS$$</span></a>
+            </div>
+            <div class="collapsible-body">
+                <div class="grid-row mb-5">
+                    <div class="col-6">
+                        <div class="grid-row mb-3">
+                            <div class="col-6">$$label:ENABLE_POST_DATE_TRANSACTION$$</div>
+                            <div class="col-2">$$input:ENABLE_POST_DATE_TRANSACTION$$</div>
+                        </div>
+                        <div class="grid-row mb-3">
+                            <div class="col-6">$$label:ENABLE_DEPRECIATION_DATE_PERIOD$$</div>
+                            <div class="col-2">$$input:ENABLE_DEPRECIATION_DATE_PERIOD$$</div>
+                        </div>
+                        <div class="grid-row mb-3">
+                            <div class="col-6">$$label:ENABLE_MULTI_SALES_PRICE$$</div>
+                            <div class="col-2">$$input:ENABLE_MULTI_SALES_PRICE$$</div>
+                        </div>
+                        <!--<div class="grid-row mb-3">
+                            <div class="col-6">$$label:ENABLE_MULTIPLE_CURRENCY_FOR_BANK_ACCOUNTS$$</div>
+                            <div class="col-2">$$input:ENABLE_MULTIPLE_CURRENCY_FOR_BANK_ACCOUNTS$$</div>
+                        </div>-->
+                        <div class="grid-row mb-3">
+                            <div class="col-6">$$label:RESTRICT_CREATING_OR_UPDATING_INVOICES$$</div>
+                            <div class="col-2">$$input:RESTRICT_CREATING_OR_UPDATING_INVOICES$$</div>
+                        </div>
+                        <div class="grid-row mb-3">
+                            <div class="col-6">$$label:MANDATORY_PROJECT_FOR_EXPENSE_CLAIMS$$</div>
+                            <div class="col-2">$$input:MANDATORY_PROJECT_FOR_EXPENSE_CLAIMS$$</div>
+                        </div>
+                        <div class="grid-row mb-3">
+                            <div class="col-6">$$label:MANDATORY_PROJECT_FOR_PURCHASE_ORDERS$$</div>
+                            <div class="col-2">$$input:MANDATORY_PROJECT_FOR_PURCHASE_ORDERS$$</div>
+                        </div>
+                        <div class="grid-row mb-3">
+                            <div class="col-6">$$label:ENABLE_DISCOUNT_ACCOUNT$$</div>
+                            <div class="col-2">$$input:ENABLE_DISCOUNT_ACCOUNT$$</div>
+                        </div>
+                        <div class="grid-row mb-3">
+                            <div class="col-6">$$label:ENABLE_DEPARTMENT_RELATION$$</div>
+                            <div class="col-2">$$input:ENABLE_DEPARTMENT_RELATION$$</div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="grid-row mb-3">
+                            <div class="col-6 offset-4">$$label:ENABLE_DEPARTMENT_RELATION$$</div>
+                            <div class="col-2">$$input:ENABLE_DEPARTMENT_RELATION$$</div>
+                        </div>
+                        <div class="grid-row mb-3">
+                            <div class="col-6 offset-4">$$label:UPDATE_COST_ON_PURCHASE$$</div>
+                            <div class="col-2">$$input:UPDATE_COST_ON_PURCHASE$$</div>
+                        </div>
+                        <div class="grid-row mb-3">
+                            <div class="col-6 offset-4">$$label:ENABLE_DOUBLE_MESSAGE$$</div>
+                            <div class="col-2">$$input:ENABLE_DOUBLE_MESSAGE$$</div>
+                        </div>
+                        <div class="grid-row mb-3">
+                            <div class="col-6 offset-4">$$label:ENABLE_BATCH_TRACKING_ITEMS$$</div>
+                            <div class="col-2">$$input:ENABLE_BATCH_TRACKING_ITEMS$$</div>
+                        </div>
+                        <div class="grid-row mb-3">
+                            <div class="col-6 offset-4">$$label:ENABLE_LANDED_COST$$</div>
+                            <div class="col-2">$$input:ENABLE_LANDED_COST$$</div>
+                        </div>
+                        <div class="grid-row mb-3">
+                            <div class="col-6 offset-4">$$label:ENABLE_MULTI_WAREHOUSE$$</div>
+                            <div class="col-2">$$input:ENABLE_MULTI_WAREHOUSE$$</div>
+                        </div>
+                        <div class="grid-row mb-3">
+                            <div class="col-6 offset-4">$$label:ENABLE_DEFERRED_REVENUE$$</div>
+                            <div class="col-2">$$input:ENABLE_DEFERRED_REVENUE$$</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+
+        <li class="slideDown-box group">
+            <div class="collapsible-header"
+                 onclick="var myclick=this.parentElement;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls;} var myclick=this;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls; }">
+                <a style="cursor: pointer;">
+                    <span>$$label:AGED_PROPERTIES$$</span>
+                </a>
+            </div>
+            <!-- Aged properties -->
+            <div class="collapsible-body">
+                <div class="grid-row">
+                    <!-- column #1 -->
+                    <div class="col-6">
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:INTERVAL_DAYS$$</div>
+                            <div class="form-group__content">$$input:INTERVAL_DAYS$$</div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:DAYS_PAST_DUE$$</div>
+                            <div class="form-group__content">$$input:DAYS_PAST_DUE$$</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>

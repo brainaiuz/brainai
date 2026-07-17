@@ -1,0 +1,1 @@
+insert into "anv".genericsettings (key,value) values ('ENABLE_AI_TIMESHEET_COMMENT','NO');

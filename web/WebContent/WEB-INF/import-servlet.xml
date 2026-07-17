@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <bean class="org.springframework.web.servlet.handler.SimpleServletHandlerAdapter"/>
+    <bean class="org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter"/>
+    <bean id="handlerMapping"
+          class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <value>
+                <!--/patch = patch   -->
+                /mindshare = mindshare
+                /cleanup = cleanup
+                /copyEmployeeTaskDailyLoadToTimeSheet = copyEmployeeTaskDailyLoadToTimeSheet
+                <!--/insertDailyLRDurationToExistCompanyLR = insertDailyLRDurationToExistCompanyLR-->
+                /indexCompanySolrAllCoresForAutoMovePurposes/IndexSolr = indexCompanySolrAllCoresForAutoMovePurposes
+                /accounting-patch = accounting-patch
+                /upload-al-fursan-doc = upload-al-fursan-doc
+                /upload-al-masood-doc = upload-al-masood-doc
+            </value>
+        </property>
+    </bean>
+    <tx:annotation-driven/>
+    <context:annotation-config/>
+    <bean name="accounting-patch" class="com.edatasite.workforce.gwt.core.server.utils.InvoiceDuplicateTransactionPatch">
+    </bean>
+    <bean name="upload-al-fursan-doc" class="com.edatasite.workforce.gwt.core.server.utils.UploadAlFursandDocuments">
+    </bean>
+    <bean name="upload-al-masood-doc" class="com.edatasite.workforce.gwt.core.server.utils.UploadAlMasoodDocuments">
+    </bean>
+    <bean name="mindshare"
+          class="com.edatasite.workforce.gwt.core.server.utils.MindsharePatch">
+    </bean>
+    <bean name="cleanup"
+          class="com.edatasite.workforce.gwt.core.server.utils.MindshareTimesheetCleanup">
+    </bean>
+    <bean name="copyEmployeeTaskDailyLoadToTimeSheet"
+          class="com.edatasite.workforce.gwt.core.server.servlets.EmployeeTaskDailyLoadCopyToEdsTimeSheet">
+    </bean>
+
+    <bean name="indexCompanySolrAllCoresForAutoMovePurposes"
+          class="com.edatasite.workforce.gwt.core.server.servlets.IndexCompanySolrCoresServlet">
+    </bean>
+</beans>

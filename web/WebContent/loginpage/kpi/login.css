@@ -1,0 +1,145 @@
+/* START #appLoginForm */
+#appLoginForm {
+	display:block;
+	width:574px;
+    /*margin: 40px 0 0 185px;*/
+	margin:40px auto 0;
+
+	padding:0 18px 16px;
+	color:#7d7d7d;
+	border:5px solid #f5f5f5;
+	background:#f8f8f8 url(/loginpage/images/bg_lock.png) no-repeat 35px 80px;}
+
+    #appLoginForm table {
+        margin: 0 0 0 128px;
+    }
+
+		#appLoginForm table td, #appLoginForm table th {
+			padding-bottom:12px;
+			font-size:14px;
+			vertical-align:middle;
+			border:0;}
+
+        #appLoginForm table th {
+			padding-right:10px;
+            text-align: left;
+        }
+		#appLoginForm table td {}
+			#appLoginForm table td .txt {
+				width:306px;
+				font-size:14px;
+				padding:4px 2px;
+				border:1px solid #e3e3e3;}
+			#appLoginForm table td label {
+				float:left;
+				margin:0 0 0 26px;}
+				#appLoginForm table td label .cbx {
+					float:left;}
+
+.shadowLoginForm {
+	height:38px;
+	width:540px;
+	margin:0 auto 10px;
+	background:url(/loginpage/images/bg_shadow_LogIn.png) no-repeat 0 0;}
+/* END #appLoginForm */
+
+/* START .useSocialBookMarking */
+.useSocialBookMarking {
+	margin:24px 0 0;
+	height:24px;
+	line-height:24px;}
+	.useSocialBookMarking dt, .useSocialBookMarking dd {
+		float:left;}
+	.useSocialBookMarking dt {
+		font-size:14px;}
+	.useSocialBookMarking dd {
+		margin:0 0 0 10px;}
+
+.mini-icons {
+	display:block;
+	width:24px;
+	height:24px;
+	text-indent:-9999px;
+	background-image:url(/loginpage/images/bg_icons_mini.png);
+	background-repeat:no-repeat;}
+.mini-livemessager {
+	background-position:0 0;}
+	.mini-livemessager:hover {
+		background-position:0 -25px;}
+.mini-yahoo {
+	background-position:-25px 0;}
+	.mini-yahoo:hover {
+		background-position:-25px -25px;}
+.mini-facebook {
+	background-position:-49px 0;}
+	.mini-facebook:hover {
+		background-position:-49px -25px;}
+.mini-google {
+	/*background-position:-73px 0;}*/
+    background-position:-49px 0;}
+	.mini-google:hover {
+		/*background-position:-73px -25px;}*/
+        background-position:-49px -25px;}
+.mini-google-apps {
+	/*background-position:-98px 0; width: 55px;}*/
+	background-position:-73px 0; width: 55px;}
+	.mini-google-apps:hover {
+		/*background-position:-98px -25px;}*/
+		background-position:-73px -25px;}
+/* END .useSocialBookMarking */
+
+/* START .btnLogIn */
+.btnLogIn {
+	float:right;
+	width:134px;
+	height:41px;
+	padding:0;
+	border:0;
+    font: 20px/44px "Arial Narrow",Arial,sans-serif;
+    text-transform: uppercase;
+    color: #fff;
+	background:url(/loginpage/images/bg_btn_LogIn.png) no-repeat 0 0;}
+/* END .btnLogIn */
+
+/* START .titleLogIn */
+.titleLogIn, .titleLogIn span {
+	height:64px;
+	background-image:url(/loginpage/images/bg_title_LogIn.png);
+	background-repeat:no-repeat;}
+.titleLogIn {
+	margin:0 -18px 22px;
+	padding:0 12px 0 0;
+	font-size:24px;
+	color:#fff;
+	text-align:center;
+	background-position:100% -65px;}
+	.titleLogIn span {
+		display:block;
+		line-height:64px;
+		padding:0 0 0 12px;
+		background-position:0 0;}
+/* END .titleLogIn */
+
+/* START .getFree */
+.getFree {
+	position: relative;
+	display:block;
+	font:28px/42px Verdana,sans-serif;
+	height:42px;
+	width:582px;
+	margin:0 auto 20px;
+	color:#397ea6;
+	text-align:left;}
+	.getFree > a {
+		float:right;
+		height:42px;
+        font: 20px/44px "Arial Narrow",Arial,sans-serif;
+        text-transform: uppercase;
+        color: #fff;
+        text-align:center;
+		left: 0;
+		position:static;
+		width:178px;
+		background: url(/loginpage/images/bg_btn-getFree_small.png) no-repeat 0 0;}
+    .getFree a:hover, a:active {text-decoration: none;}
+/* END .getFree */

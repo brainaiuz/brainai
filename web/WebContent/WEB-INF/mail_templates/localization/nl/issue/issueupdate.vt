@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body><p>Beste $recipientName,</p>
+
+<p>$userName heeft issue $issueName bijgewerkt op $date.</p>
+
+<p>Issue details zijn als volgt:</p>
+
+<p>Omschrijving: $description <br/>
+    Gerapporteerd door: $reportedBy <br/>
+    Periode: $period <br/>
+</p>
+
+<p>Klik <a href="$host/ProjectManagement.html?link=$link" title="View issue">hier</a> om de issue te bekijken</p>
+
+<p>Als u niet op de link kunt klikken, kopieer dan de onderstaande regel naar uw web
+    browser: </p>
+
+<p><span style="color: #0033FF">$host/ProjectManagement.html?link=$link</span></p>
+</body>
+</html>

@@ -1,0 +1,2 @@
+ALTER TABLE "anv".annualleave DROP CONSTRAINT IF EXISTS annualleave_unique_constraint;
+ALTER TABLE "anv".annualleave ADD CONSTRAINT annualleave_unique_constraint UNIQUE (allowanceyear, employeeID, reason_code);

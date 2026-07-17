@@ -1,0 +1,1 @@
+update "anv".category set taxable = true where taxable = false and type = 'Deduction';

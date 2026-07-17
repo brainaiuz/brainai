@@ -1,0 +1,6 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+    <g:HTMLPanel styleName="grid-stack-item" ui:field="gridItem">
+        <g:HTMLPanel styleName="grid-stack-item-content" ui:field="content"></g:HTMLPanel>
+    </g:HTMLPanel>
+</ui:UiBinder>

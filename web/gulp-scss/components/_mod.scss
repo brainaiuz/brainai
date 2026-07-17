@@ -1,0 +1,196 @@
+// /* * New UI 2: form elements */
+
+
+.field {
+  //color: #536675;
+  color: $gray-darkest;
+}
+
+/*
+* New UI 2: Deviders
+*/
+.devider-h {
+  border-bottom: 1px solid #eceff3;
+  display: block;
+}
+
+.devider-h--padding {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/*
+* New UI 2: Shadows
+*/
+
+.approvers-box__wrapper {
+  //box-shadow: 0 8px 20px -2px rgba(141, 155, 168, 0.43137254901960786);
+  box-shadow: $bigPanelBoxShadow;
+  border: 1px solid #f1f1f1;
+  border-top: none;
+}
+
+
+
+/*
+* New UI 2: Box radius
+*/
+.box-radius {
+  border-radius: $radius-basePlus;
+}
+
+.box-radius--top {
+  border-radius: 5px 5px 0 0;
+}
+
+table.box-radius--top {
+  > * > tr:first-child {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+
+    > *:first-child {
+      border-top-left-radius: 5px;
+    }
+    > *:last-child {
+      border-top-right-radius: 5px;
+    }
+  }
+}
+
+/*
+* New UI 2: text elements : colors/ ellipsis
+*/
+.txt-elem--base-dark {
+  color: $color-accent-2;
+}
+
+.txt-elem--ellipsis {
+  @include txtTruncate();
+  display: block;
+}
+
+.txt-elem--required {
+  color: red;
+}
+
+/*--MOD:tables -*/
+.mod_table--auto {
+  width: auto;
+}
+
+.mod_table-tree--auto, .mod_table-tree--auto * table {
+  width: auto;
+}
+
+.mod_table--cellpadding td {
+  padding: 5px;
+}
+
+.mod_table--cellpadding-right td {
+  padding-right: 1.6rem;
+}
+
+/*
+* MOD:text
+*/
+.mod_text--center {
+  text-align: center;
+}
+
+//MOD:block
+.mod_block--center {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.chart-no-data {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  opacity: 0.3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9;
+  text-align: center;
+  font-size: 3rem;
+  color: $color-accent-2;
+  text-transform: uppercase;
+}
+
+.chart-no-data + div > .highcharts-container {
+  opacity: 0.3 !important;
+}
+
+// colors
+.mod_c {
+  &--gray {
+    color: $gray-folder;
+  }
+  &--orange {
+    color: $orange;
+  }
+  &--blue {
+    color: $blue;
+  }
+}
+
+// widget no data - dim the background elements
+
+.no-data--content *:not(.chart-no-data):not(.widget-finder-search-1) {
+  color: $color-wg-dim !important;
+  filter: grayscale(1) !important;
+  opacity: 0.9 !important;
+}
+
+.no-data--content input[type="checkbox"] {
+  display: none !important;
+}
+
+.no-data--content .updates-list .collapsible-header h3:before,
+.no-data--content .updates-row__time .sort-mark,
+  //.updates-row__time:after,
+.no-data--content .cp_profile-min__pic,
+.no-data--content .btn--circle, .no-data--content .gwt-CheckBox label:before,
+.no-data--content .gwt-RadioButton label:before, .no-data--content .control__indicator:before,
+.no-data--content .img-group figcaption, .no-data--content .holidays__upcoming:before {
+  background-color: $color-wg-dim !important;
+  border: none !important;
+}
+
+.no-data--content [class^="ficon--"],
+.no-data--content [class^="ficon--"]:before,
+.no-data--content [class^="ficon--"]:after {
+  color: $color-wg-dim !important;
+}
+
+.no-data--content .holidays__upcoming:before {
+  border-color: transparent $color-wg-dim transparent transparent;
+}
+
+.no-data--conten .holidays > dl:not(.holidays__passed) {
+  background: none;
+}
+
+.no-data--content dl dt {
+  color: #c5ccd2 !important;
+}
+
+.no-data--content .todo-indicator:after {
+  background-color: #c5ccd2 !important;
+}
+
+/*--------hover overflow scroll table cell*/
+
+.mod_txt-overflow--scroll div {
+  @include txtTruncate();
+}
+
+.mod_txt-overflow--scroll:hover div {
+  max-height: 40px;
+  overflow-y: auto;
+  white-space: normal;
+  overflow-x: visible;
+}

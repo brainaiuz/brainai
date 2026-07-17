@@ -1,0 +1,41 @@
+<report>
+    <view>
+        <title>Lead Report</title>
+        <name>Lead Report</name>
+        <category>contacts</category>
+        <sqlquery >
+            <select agregateFunc="distinct">
+                <table name="Lead">
+                    <column name="id" title="id" type="number" formattype="hidden"/>
+                    <column name="ownername" title="Lead Owner" type="string" formattype="string" basicfilter="true"/>
+                    <column name="leadname" title="Lead/Contact Name" type="string" formattype="string" basicfilter="true"/>
+                    <column name="sourcename" title="Lead Source" type="string" formattype="string" basicfilter="true"/>
+                    <column name="primaryemail" title="Primary Email" type="string" formattype="string" basicfilter="true"/>
+                    <column name="primaryphone" title="Primary Phone" type="string" formattype="string" basicfilter="true"/>
+                    <column name="accountname" title="Account Name" type="string" formattype="string" basicfilter="true"/>
+                    <column name="opportuniityname" title="Opportuniity Name" type="string" formattype="string" basicfilter="true"/>
+                    <column name="convertedDate" title="Converted Date" type="date" formattype="date" customdateformat="DD Mon, YYYY HH24:MI " basicfilter="true"/>
+                </table>
+            </select>
+            <from>
+                (
+
+                select coalesce(l.firstname,'')||' '||coalesce(l.lastname,'') leadname,
+                s.name sourcename, l.primaryemail, replace(l.primaryphone,'|',' ') primaryphone,
+                ca.name accountname, opp.name opportuniityname,
+                coalesce(own.firstname,'')||' '||coalesce(own.lastname,'') ownername, l.convertedDate
+                from "$".crmcontact l
+                left join "$".reference s on l.source=s.id
+                left join "$".crmaccount ca on l.crmAccount=ca.id
+                left join "$".opportunity opp on l.id=opp.crmContact and opp.convertedFromLead is true
+                left join "$".myuser own on l.owner=own.id
+                where l.deleted is not true and l.convertedDate is not null
+
+                ) t
+            </from>
+            <where>
+                <terms id="base" value="1=1"/>
+            </where>
+        </sqlquery>
+    </view>
+</report>

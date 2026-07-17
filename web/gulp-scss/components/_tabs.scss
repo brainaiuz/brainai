@@ -1,0 +1,296 @@
+@mixin tabIndicator($color:$text-color-base) {
+  position: relative;
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    right: 50%;
+    height: 2px;
+    transition: left .25s ease, right .25s ease;
+  }
+  &.active {
+    &:after {
+      left: 0;
+      right: 0;
+      background-color: $color;
+    }
+  }
+}
+.tabs--indicator .tab a {
+  @include tabIndicator($success-color) //message-center full chat
+}
+
+.tabs {
+  position: relative;
+  margin: 0 auto;
+
+  &:not(.step-tabs) {
+    display: flex;
+    width: 100%;
+
+    a {
+      color: $tabs-text-color;
+    }
+  }
+
+  &.step-tabs {
+    display: inline-flex;
+    $dashLineSize: 50px;
+
+    .tab {
+      position: relative;
+        padding: 0 $dashLineSize / 2;
+      + .tab {
+
+        &:before {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: -$dashLineSize / 2;
+
+          display: inline-block;
+          width: $dashLineSize;
+          height: 1px;
+          background: $text-muted;
+          opacity: .8;
+        }
+      }
+
+      .btn, .btn-large {
+        color: $text-muted;
+        .badge {
+          background-color: transparent;
+          border: 1px solid $text-muted;
+          color: $text-color-base;
+        }
+        &.active {
+          color: $gray-darkest;
+
+          .badge {
+            background-color: $gray-darkest;
+            border-color: $gray-darkest;
+            color: #fff;
+          }
+        }
+        &.passed {
+          color: #000;
+
+          .badge {
+            //border-color: #000;
+          }
+        }
+
+        .badge {
+          + span {
+            margin-left: 5px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.tab {
+  flex-grow: 1;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  text-overflow: ellipsis;
+
+  a {
+    text-overflow: ellipsis;
+    transition: color .28s ease;
+
+    &:not(.btn):not(.btn-large) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+  }
+
+  &.disabled a {
+    color: lighten($tabs-text-color, 20%);
+    cursor: default;
+  }
+
+  .tabs2 > & {
+    flex-grow: 0;
+
+    > a {
+      @include button-style();
+
+      &.active {
+        @extend .btn--darkgrey;
+      }
+    }
+  }
+
+  .tabs--high > & {
+    flex-grow: 0;
+    > a {
+      border-top: 5px solid transparent;
+      width: 100%;
+      display: block;
+      padding: rem(20px) rem(15px);
+      transition: border-top-color 0.3s;
+      position: relative;
+
+      &:hover {
+        border-top-color: #cfd6dc;
+      }
+
+        &.active {
+          border-top-color: #cfd6dc;
+        }
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: $gray-light;
+        transition: opacity 0.3s;
+        opacity: 0;
+        z-index: -1;
+      }
+
+      &.active:before {
+        opacity: 1;
+      }
+    }
+  }
+}
+/* Abdullaev*/
+.tabs--inside-block {
+  .tab {
+    flex-grow: 0;
+
+    a {
+      padding: 20px;
+      position: relative;
+
+      &:after {
+        content: '';
+        left: 50%;
+        right: 50%;
+        background-color: $color-accent-2;
+        height: 1px;
+        position: absolute;
+        bottom: 0;
+        transition: all 0.36s;
+      }
+
+      &.active:after {
+        left: 0%;
+        right: 0%;
+      }
+    }
+  }
+}
+
+
+// Simple underline tabs using native Materialize/GWT-Material indicator
+.tabs--underlined {
+  border-bottom: 1px solid $gray-light;
+
+  .tab {
+    .side-nav--orgChart & {
+      flex: 1 1 0; // fix gwt-material#tab .indicator position problem in drawer
+      min-width: 0;
+    }
+
+    a {
+      width: 100%;
+      color: $text-color-light;
+      padding: 8px;
+      transition: color 0.3s ease;
+
+      &:hover,
+      &.active {
+        color: $text-color-base;
+      }
+
+      &:hover {
+        background: rgba(0, 0, 0, 0.05);
+      }
+      &.active {
+        background: rgba(0, 0, 0, 0.01);
+      }
+    }
+  }
+
+  // Native Materialize indicator (The blue line)
+  .indicator {
+    //transition: left .1s cubic-bezier(0.4, 0, 0.2, 1), right .1s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    //will-change: left, right;
+    position: absolute;
+    bottom: 0;
+    height: 2px !important;
+    background-color: $primary !important; // Blue color from your screenshot
+    z-index: 1;
+  }
+}
+
+
+
+//new org chart tabs
+// Переключатель направления оргструктуры
+.dirModeTabs {
+  .tabs {
+    // внутри формы табы выглядят как «пилюля»
+    border-radius: $radius-base;
+    background-color: $color-base-contrast;
+    padding: rem(2px);
+    min-height: $input-height;
+    height: auto;
+  }
+
+  .tab {
+    flex: 1 1 0;
+    text-transform: none;
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      column-gap: rem(6px);
+      padding: rem(6px) rem(8px);
+      border-radius: $radius-base;
+      font-weight: 500;
+      color: $text-color-light;
+      border: 1px solid transparent;
+      &.active {
+        border-color: $gray-mutted;
+      }
+
+      svg {
+        width: rem(14px);
+        height: rem(14px);
+      }
+
+      &.active {
+        background-color: #fff;
+        color: $text-color-base;
+      }
+    }
+  }
+
+  // отключаем «подчеркивающий» индикатор gwt/materialize — он тут не нужен
+  .indicator {
+    //display: none !important;
+  }
+
+  // выключенная вкладка (как на макете)
+  //&__tab--disabled {
+  //  a {
+  //    color: $text-color-light;
+  //    opacity: .6;
+  //    cursor: default;
+  //    pointer-events: none;
+  //  }
+  //}
+}

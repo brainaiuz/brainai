@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--CSS-->
+    <link rel="stylesheet" href="../WebContent/mainStyles/new-ui/css/materialize.css">
+    <!--JS-->
+    <script src="../WebContent/mainStyles/new-ui/js/jquery.min.js"></script>
+    <script src="../WebContent/mainStyles/new-ui/js/materialize-0.97.5.min.js"></script>
+</head>
+<body class="frame__body left-menu-open page-opers--empty">
+
+<div class="frame__content scrollbar-external_wrapper">
+    <div class="frame__content__body scrollbar-external">
+        <div class="whiteBGR">
+            <div class="workarea" id="workarea">
+                <div class="pg_planpricing">
+                    <div class="pg_planpricing__main">
+                        <div class="cp_planpricing-block cp_planpricing-block--dark"><h2>Select Users</h2>
+                            <p class="mb-0">Specify a number of users based on your business needs</p>
+                            <div class="cp_planpricing-block__content">
+                                <div class="cp_inc-field-container">
+                                    <div class="cp_inc-field">
+                                        <div class="holder">
+                                            <div class="cp_inc-field__label">Full Users <span
+                                                    class="dropdown-kit--arrow--left"><a tabindex="0"
+                                                                                         class="infoDropDown dropdown-button dropdown-button--inverted"
+                                                                                         data-activates="gwt-uid-152"
+                                                                                         style="cursor: pointer;"><i
+                                                    class="ficon--info"></i></a><ul id="gwt-uid-152"
+                                                                                    class="dropdown-content-tooltip dropdown-content"
+                                                                                    style="display: none;">When you add users during the annual cycle we charge for the added users upfront. For example, if you add a user in your 5th subscription month, you will be charged for one user for the remaining 7 months that you have on your annual subscription.</ul></span>
+                                            </div>
+                                            <div class="cp_inc-field__input">
+                                                <div class="cp_inc-field__input-button cp_inc-field__input-button--dec">
+                                                    <span>-</span></div>
+                                                <input type="text">
+                                                <div class="cp_inc-field__input-button cp_inc-field__input-button--inc">
+                                                    <span>+</span></div>
+                                            </div>
+                                            <div class="cp_inc-field__cost">
+                                                <div class="cp_inc-field__cost-total">$44.99</div>
+                                                <div class="cp_inc-field__cost-per">user / month</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cp_inc-field" style="display: block;">
+                                        <div class="holder">
+                                            <div class="cp_inc-field__label">ESS User(s) <span
+                                                    class="dropdown-kit--arrow--left"><a tabindex="0"
+                                                                                         class="infoDropDown dropdown-button dropdown-button--inverted"
+                                                                                         data-activates="gwt-uid-153"
+                                                                                         style="cursor: pointer;"><i
+                                                    class="ficon--info"></i></a><ul id="gwt-uid-153"
+                                                                                    class="dropdown-content-tooltip dropdown-content"
+                                                                                    style="display: none;">Employee Self Service (ESS) is a widely used human resources technology and project management that enables employees to perform many job-related functions, such as applying for reimbursement, leave request, time entries,  updating personal information and accessing company benefits information.</ul></span>
+                                            </div>
+                                            <div class="cp_inc-field__input">
+                                                <div class="cp_inc-field__input-button cp_inc-field__input-button--dec">
+                                                    <span data-disabled="true">-</span></div>
+                                                <input type="text">
+                                                <div class="cp_inc-field__input-button cp_inc-field__input-button--inc">
+                                                    <span>+</span></div>
+                                            </div>
+                                            <div class="cp_inc-field__cost">
+                                                <div class="cp_inc-field__cost-total">$0.00</div>
+                                                <div class="cp_inc-field__cost-per">user / month</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cp_inc-field" style="display: block;">
+                                        <div class="holder">
+                                            <div class="cp_inc-field__label">Non User(s) <span
+                                                    class="dropdown-kit--arrow--left"><a tabindex="0"
+                                                                                         class="infoDropDown dropdown-button dropdown-button--inverted"
+                                                                                         data-activates="gwt-uid-154"
+                                                                                         style="cursor: pointer;"><i
+                                                    class="ficon--info"></i></a><ul id="gwt-uid-154"
+                                                                                    class="dropdown-content-tooltip dropdown-content"
+                                                                                    style="display: none;">In <a
+                                                    href="http://localhost:8080/">kpi.com</a>, you can add the employees as Non-Users/ Employee Profiles, who will not have their self-service access, however, they will be listed across all forms and records so that HR Manager or ProjectManager can manage their information to process their salary, leave, attendance, task, timesheet activities etc...<br><br> Non-users can be converted as normal login users anytime, depending on the license.</ul></span>
+                                            </div>
+                                            <div class="cp_inc-field__input">
+                                                <div class="cp_inc-field__input-button cp_inc-field__input-button--dec">
+                                                    <span data-disabled="true">-</span></div>
+                                                <input type="text" id="pricingPage_nonUser">
+                                                <div class="cp_inc-field__input-button cp_inc-field__input-button--inc">
+                                                    <span>+</span></div>
+                                            </div>
+                                            <div class="cp_inc-field__cost">
+                                                <div class="cp_inc-field__cost-total">$0.00</div>
+                                                <div class="cp_inc-field__cost-per">user / month</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cp_planpricing-block"><h2>Choose your Apps</h2>
+                            <p class="mb-0">Our dedicated stand-alone apps that also work as suite is real deal for
+                                growing companies.</p>
+                            <div class="cp_planpricing-block__content">
+                                <div class="cp_modules-switch">
+                                    <div class="cp_modules-switch__item cp_modules-switch__item--active">
+                                        <div class="cp_modules-switch__item-content">
+                                            <div class="cp_modules-switch__logo"><i class="ficon--calc"></i></div>
+                                            <div class="cp_modules-switch__title">Accounts</div>
+                                            <div class="cp_modules-switch__switcher">
+                                                <div class="switch"><label> <span></span> <input type="checkbox"> <span
+                                                        class="lever"></span> <span></span> </label> <span
+                                                        class="material-label" style="margin-top: 16px;"></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cp_modules-switch__item cp_modules-switch__item--active">
+                                        <div class="cp_modules-switch__item-content">
+                                            <div class="cp_modules-switch__logo"><i class="ficon--bar-chart-bold"></i>
+                                            </div>
+                                            <div class="cp_modules-switch__title">Sales</div>
+                                            <div class="cp_modules-switch__switcher">
+                                                <div class="switch"><label> <span></span> <input type="checkbox"> <span
+                                                        class="lever"></span> <span></span> </label> <span
+                                                        class="material-label" style="margin-top: 16px;"></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cp_modules-switch__item cp_modules-switch__item--active">
+                                        <div class="cp_modules-switch__item-content">
+                                            <div class="cp_modules-switch__logo"><i class="ficon--users-bold"></i></div>
+                                            <div class="cp_modules-switch__title">Humans</div>
+                                            <div class="cp_modules-switch__switcher">
+                                                <div class="switch"><label> <span></span> <input type="checkbox"> <span
+                                                        class="lever"></span> <span></span> </label> <span
+                                                        class="material-label" style="margin-top: 16px;"></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cp_modules-switch__item cp_modules-switch__item--active">
+                                        <div class="cp_modules-switch__item-content">
+                                            <div class="cp_modules-switch__logo"><i class="ficon--server-bold"></i>
+                                            </div>
+                                            <div class="cp_modules-switch__title">Projects</div>
+                                            <div class="cp_modules-switch__switcher">
+                                                <div class="switch"><label> <span></span> <input type="checkbox"> <span
+                                                        class="lever"></span> <span></span> </label> <span
+                                                        class="material-label" style="margin-top: 16px;"></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cp_modules-switch__item cp_modules-switch__item--active">
+                                        <div class="cp_modules-switch__item-content">
+                                            <div class="cp_modules-switch__logo"><i class="ficon--wallet-bold"></i>
+                                            </div>
+                                            <div class="cp_modules-switch__title">Payroll</div>
+                                            <div class="cp_modules-switch__switcher">
+                                                <div class="switch"><label> <span></span> <input type="checkbox"> <span
+                                                        class="lever"></span> <span></span> </label> <span
+                                                        class="material-label" style="margin-top: 16px;"></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cp_modules-switch__item cp_modules-switch__item--active">
+                                        <div class="cp_modules-switch__item-content">
+                                            <div class="cp_modules-switch__logo"><i class="ficon--flag-bold"></i></div>
+                                            <div class="cp_modules-switch__title">Reports</div>
+                                            <div class="cp_modules-switch__subtitle cp_modules-switch__subtitle--green">
+                                                Free
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cp_modules-switch__item cp_modules-switch__item--active">
+                                        <div class="cp_modules-switch__item-content">
+                                            <div class="cp_modules-switch__logo"><i class="ficon--folder-bold"></i>
+                                            </div>
+                                            <div class="cp_modules-switch__title">Documents</div>
+                                            <div class="cp_modules-switch__subtitle cp_modules-switch__subtitle--green">
+                                                Free
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cp_modules-switch__item cp_modules-switch__item--fake"></div>
+                                    <div class="cp_modules-switch__item cp_modules-switch__item--fake"></div>
+                                    <div class="cp_modules-switch__item cp_modules-switch__item--fake"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cp_planpricing-block"><h2>Extra Add-ons</h2>
+                            <p class="mb-0">Charge for one-time purchases.</p>
+                            <div class="cp_planpricing-block__content">
+                                <div class="wizard-page__fields">
+                                    <div class="hero-input hero-input--select"><label class="hero-input__label">Online
+                                        Training</label>
+                                        <div class="form-control input-field listbox-wrapper" autocomplete="off">
+                                            <div class="select-wrapper gwt-ListBox"><span class="caret">▼</span><input
+                                                    type="text" class="select-dropdown" readonly="true"
+                                                    data-activates="select-options-1fbe1f15-aca7-55d4-617d-2cc39e91932f"
+                                                    value="6 hrs / $699.00 — One time Payment"><select
+                                                    class="gwt-ListBox initialized" inside-origin="false">
+                                                <option value="-1">Please select</option>
+                                                <option value="1">3 hrs / $399.00 — One time Payment</option>
+                                                <option value="2">6 hrs / $699.00 — One time Payment</option>
+                                                <option value="3">9 hrs / $999.00 — One time Payment</option>
+                                            </select></div>
+                                            <label></label><span class="material-label"></span></div>
+                                    </div>
+                                    <div class="hero-input hero-input--select"><label class="hero-input__label">Initial
+                                        Set Up Package <span class="dropdown-kit--arrow--left"><a tabindex="0"
+                                                                                                  class="infoDropDown dropdown-button"
+                                                                                                  data-activates="gwt-uid-157"
+                                                                                                  style="cursor: pointer;"><i
+                                                class="ficon--info"></i></a><ul id="gwt-uid-157"
+                                                                                class="dropdown-content-tooltip dropdown-content"
+                                                                                style="width: 12px; position: absolute; top: 0.828125px; left: 0px; opacity: 1; display: none;">Initial set up package, that includes, importing data, setting up permissions, one custom PDF template and ongoing support during subscription.One time payment.</ul></span></label>
+                                        <div class="form-control input-field listbox-wrapper" autocomplete="off">
+                                            <div class="select-wrapper gwt-ListBox"><span class="caret">▼</span><input
+                                                    type="text" class="select-dropdown" readonly="true"
+                                                    data-activates="select-options-59f269fe-fc40-7df1-c763-a6553dc9cb99"
+                                                    value="Please select"><select class="gwt-ListBox initialized"
+                                                                                  inside-origin="false">
+                                                <option value="-1">Please select</option>
+                                                <option value="1">$999 — One time Payment</option>
+                                            </select></div>
+                                            <label></label><span class="material-label"></span></div>
+                                    </div>
+                                    <div class="hero-input hero-input--select"><label class="hero-input__label">Premium
+                                        Support <span class="dropdown-kit--arrow--left"><a tabindex="0"
+                                                                                           class="infoDropDown dropdown-button"
+                                                                                           data-activates="gwt-uid-158"
+                                                                                           style="cursor: pointer;"><i
+                                                class="ficon--info"></i></a><ul id="gwt-uid-158"
+                                                                                class="dropdown-content-tooltip dropdown-content"
+                                                                                style="display: none;">Dedicated Customer Relationship Manager Support/Live Chat Support</ul></span></label>
+                                        <div class="form-control input-field listbox-wrapper" autocomplete="off">
+                                            <div class="select-wrapper gwt-ListBox"><span class="caret">▼</span><input
+                                                    type="text" class="select-dropdown" readonly="true"
+                                                    data-activates="select-options-b99e486b-98a4-e613-1a23-460dc957e72f"
+                                                    value="Please select"><select class="gwt-ListBox initialized"
+                                                                                  inside-origin="false">
+                                                <option value="-1">Please select</option>
+                                                <option value="1">$999 — One time Payment</option>
+                                            </select></div>
+                                            <label></label><span class="material-label"></span></div>
+                                    </div>
+                                    <div class="hero-input hero-input--select"><label class="hero-input__label">Custom
+                                        PDF Template</label>
+                                        <div class="form-control input-field listbox-wrapper" autocomplete="off">
+                                            <div class="select-wrapper gwt-ListBox"><span class="caret">▼</span><input
+                                                    type="text" class="select-dropdown" readonly="true"
+                                                    data-activates="select-options-03e43656-7a96-8c26-dd04-4004304b5c0c"
+                                                    value="Please select"><select class="gwt-ListBox initialized"
+                                                                                  inside-origin="false">
+                                                <option value="-1">Please select</option>
+                                                <option value="1">1 PDF / $299 — One time Payment</option>
+                                                <option value="2">2 PDF / $499 — One time Payment</option>
+                                                <option value="3">3 PDF / $799 — One time Payment</option>
+                                            </select></div>
+                                            <label></label><span class="material-label"></span></div>
+                                    </div>
+                                    <div class="hero-input hero-input--select"><label class="hero-input__label">Extra
+                                        Storage</label>
+                                        <div class="form-control input-field listbox-wrapper" autocomplete="off">
+                                            <div class="select-wrapper gwt-ListBox"><span class="caret">▼</span><input
+                                                    type="text" class="select-dropdown" readonly="true"
+                                                    data-activates="select-options-1a47c12a-3be2-a30f-75e0-7b85c97ef16f"
+                                                    value="Please select"><select class="gwt-ListBox initialized"
+                                                                                  inside-origin="false">
+                                                <option value="-1">Please select</option>
+                                                <option value="1">5 GB / Free</option>
+                                                <option value="2">10 GB / $48 — One time Payment</option>
+                                                <option value="3">15 GB / $77 — One time Payment</option>
+                                                <option value="4">20 GB / $86 — One time Payment</option>
+                                                <option value="5">25 GB / $120 —One time Payment</option>
+                                            </select></div>
+                                            <label></label><span class="material-label"></span></div>
+                                    </div>
+                                    <div class="hero-input hero-input--select"><label class="hero-input__label">Dedicated
+                                        Developer</label>
+                                        <div class="form-control input-field listbox-wrapper" autocomplete="off">
+                                            <div class="select-wrapper gwt-ListBox"><span class="caret">▼</span><input
+                                                    type="text" class="select-dropdown" readonly="true"
+                                                    data-activates="select-options-89ed5663-5681-3feb-84d3-051a937a80e8"
+                                                    value="Please select"><select class="gwt-ListBox initialized"
+                                                                                  inside-origin="false">
+                                                <option value="-1">Please select</option>
+                                                <option value="1">5 hrs / $499 — One time Payment</option>
+                                                <option value="2">10 hrs / $899 — One time Payment</option>
+                                                <option value="3">15 hrs / $1399 — One time Payment</option>
+                                            </select></div>
+                                            <label></label><span class="material-label"></span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pg_planpricing__sidebar">
+                        <div class="cp_receipt">
+                            <form class="cp_receipt__filters form-row"><label class="col-auto"> <span
+                                    class="gwt-RadioButton"><input type="radio" name="duration" value="on"
+                                                                   id="gwt-uid-148" tabindex="0"><label
+                                    for="gwt-uid-148">Yearly</label></span> </label> <label class="col-auto"> <span
+                                    class="gwt-RadioButton"><input type="radio" name="duration" value="on"
+                                                                   id="gwt-uid-149" tabindex="0"><label
+                                    for="gwt-uid-149">Half-yearly</label></span> </label> <label class="col-auto"> <span
+                                    class="gwt-RadioButton"><input type="radio" name="duration" value="on"
+                                                                   id="gwt-uid-150" tabindex="0"><label
+                                    for="gwt-uid-150">Quarterly</label></span> </label> <label class="col-auto"> <span
+                                    class="gwt-RadioButton"><input type="radio" name="duration" value="on"
+                                                                   id="gwt-uid-151" tabindex="0" checked=""><label
+                                    for="gwt-uid-151">Monthly</label></span> </label></form>
+                            <table>
+                                <tbody class="cp_receipt__list">
+                                <tr>
+                                    <td>Users(203) / Apps(5)</td>
+                                    <td>9,132.97</td>
+                                </tr>
+                                <tr style="display: none;">
+                                    <td>ESS User (0)</td>
+                                    <td>0.00</td>
+                                </tr>
+                                <tr style="display: none;">
+                                    <td>
+                                        <div>Non User <span class="dropdown-kit--arrow--right"><a tabindex="0"
+                                                                                                  class="infoDropDown dropdown-button"
+                                                                                                  data-activates="gwt-uid-156"
+                                                                                                  style="cursor: pointer;"><i
+                                                class="ficon--info"></i></a><ul id="gwt-uid-156"
+                                                                                class="dropdown-content-tooltip dropdown-content"
+                                                                                style="display: none;">In <a
+                                                href="http://localhost:8080/">kpi.com</a>, you can add the employees as Non-Users/ Employee Profiles, who will not have their self-service access, however, they will be listed across all forms and records so that HR Manager or ProjectManager can manage their information to process their salary, leave, attendance, task, timesheet activities etc...<br><br> Non-users can be converted as normal login users anytime, depending on the license.</ul></span>
+                                        </div>
+                                    </td>
+                                    <td>0.00</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div>You save<span class="dropdown-kit--arrow--right"><a tabindex="0"
+                                                                                                 class="infoDropDown dropdown-button"
+                                                                                                 data-activates="gwt-uid-155"
+                                                                                                 style="cursor: pointer;"><i
+                                                class="ficon--info"></i></a><ul id="gwt-uid-155"
+                                                                                class="dropdown-content-tooltip dropdown-content"
+                                                                                style="width: 13px; position: absolute; top: 0.8125px; left: -407.734px; opacity: 1; display: none;">New customers get a discount on the initial number of users purchased.</ul></span>
+                                        </div>
+                                    </td>
+                                    <td class="cp_receipt__discount">0.00</td>
+                                </tr>
+                                </tbody>
+                                <tbody class="cp_receipt__sumup">
+                                <tr>
+                                    <td>Subtotal / Subscription</td>
+                                    <td>9,132.97</td>
+                                </tr>
+                                <tr>
+                                    <td>Subtotal Add-on</td>
+                                    <td>699.00</td>
+                                </tr>
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <td>Total (USD)</td>
+                                    <td>9,831.97</td>
+                                </tr>
+                                </tfoot>
+                            </table>
+                            <div class="cp_receipt-cuts"><span class="cp_receipt-cut"></span> <span
+                                    class="cp_receipt-cut"></span> <span class="cp_receipt-cut"></span> <span
+                                    class="cp_receipt-cut"></span> <span class="cp_receipt-cut"></span> <span
+                                    class="cp_receipt-cut"></span> <span class="cp_receipt-cut"></span> <span
+                                    class="cp_receipt-cut"></span> <span class="cp_receipt-cut"></span> <span
+                                    class="cp_receipt-cut"></span> <span class="cp_receipt-cut"></span> <span
+                                    class="cp_receipt-cut"></span> <span class="cp_receipt-cut"></span> <span
+                                    class="cp_receipt-cut"></span> <span class="cp_receipt-cut"></span> <span
+                                    class="cp_receipt-cut"></span> <span class="cp_receipt-cut"></span> <span
+                                    class="cp_receipt-cut"></span></div>
+                        </div>
+                        <div class="cp_receipt__footer">
+                            <div class="cp_receipt__footer-content">
+                                <div class="btn btn--primary cp_receipt__buynow"><span>Upgrade Now</span></div>
+                            </div>
+                            <div class="cp_receipt-cuts"><span class="cp_receipt-cut"></span> <span
+                                    class="cp_receipt-cut"></span> <span class="cp_receipt-cut"></span> <span
+                                    class="cp_receipt-cut"></span> <span class="cp_receipt-cut"></span> <span
+                                    class="cp_receipt-cut"></span> <span class="cp_receipt-cut"></span> <span
+                                    class="cp_receipt-cut"></span> <span class="cp_receipt-cut"></span> <span
+                                    class="cp_receipt-cut"></span> <span class="cp_receipt-cut"></span> <span
+                                    class="cp_receipt-cut"></span> <span class="cp_receipt-cut"></span> <span
+                                    class="cp_receipt-cut"></span> <span class="cp_receipt-cut"></span> <span
+                                    class="cp_receipt-cut"></span> <span class="cp_receipt-cut"></span> <span
+                                    class="cp_receipt-cut"></span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="external-scroll_x">
+        <div class="scroll-element_outer">
+            <div class="scroll-element_size"></div>
+            <div class="scroll-element_track"></div>
+            <div class="scroll-bar"></div>
+        </div>
+    </div>
+    <div class="external-scroll_y">
+        <div class="scroll-element_outer">
+            <div class="scroll-element_size"></div>
+            <div class="scroll-element_track"></div>
+            <div class="scroll-bar"></div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

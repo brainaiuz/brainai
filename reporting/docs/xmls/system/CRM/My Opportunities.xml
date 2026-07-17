@@ -1,0 +1,39 @@
+<report>
+    <view>
+        <title>My Opportunities</title>
+        <name>My Opportunities</name>
+        <category>contacts</category>
+        <sqlquery>
+            <select agregateFunc="distinct">
+                <table name="Contacts">
+                    <column name="id" title="id" type="number" formattype="hidden"/>
+                    <column name="opportunityName" title="Opportunity Name" type="string" formattype="string"/>
+                    <column name="companyName" title="Company Name" type="string" formattype="string"/>
+                    <column name="creationDate" title="Created Date" type="date" formattype="date" customdateformat="DD-Mon, YYYY HH24:MI"/>
+                    <column name="closingDate" title="Closing Date" type="date" formattype="date" customdateformat="DD-Mon, YYYY"/>
+                    <column name="modificationDate" title="Modified Date" type="date" formattype="date" customdateformat="DD-Mon, YYYY HH24:MI"/>
+                </table>
+            </select>
+            <from>
+                (
+                select op.id, op.name opportunityName,op.creationDate,op.modificationDate,op.closingDate,ca.name companyName
+                from "$".opportunity op
+                left join "$".crmAccount ca on op.crmAccount=ca.id
+                ,(select distinct u.id userid,r.code roles from "$".myuser u
+                join "$".myuser_role mr on u.id=mr.users_id and u.id=#?user_id?#
+                join "$".role r on mr.roles_id=r.id) up
+                where op.deleted is not true
+                and (
+                (up.roles in ('ADMIN','SALESMAN'))
+                or ( true!=(up.roles in ('ADMIN','SALESMAN')) and (up.roles in ('SALESPERSON','CUSTOMER_SERVICE_REPRESENTATIVE')) and op.owner=up.userid)
+                )
+                order by op.id desc
+                ) t
+            </from>
+            <where>
+                <terms id="base" value="1=1"/>
+                <replacement id="userid" userid="#?user_id?#"/>
+            </where>
+        </sqlquery>
+    </view>
+</report>

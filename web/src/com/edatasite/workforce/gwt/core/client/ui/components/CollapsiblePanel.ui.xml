@@ -1,0 +1,19 @@
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:form='urn:import:com.edatasite.workforce.gwt.core.client.ui.components.form'
+             xmlns:html="urn:import:gwt.material.design.client.ui.html">
+    <html:ListItem class="slideDown-box group" ui:field="div">
+        <g:HTMLPanel styleName="collapsible-header" ui:field="header">
+            <g:HTML ui:field="title"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="collapsible-body" ui:field="body">
+            <form:GRow ui:field="defaultRow"/>
+        </g:HTMLPanel>
+
+        <form:GRow styleName="collapsible-header" ui:field="customizeHeaderPanel" visible="false">
+        </form:GRow>
+        <g:HTMLPanel styleName="collapsible-body" ui:field="customizePanel" visible="false">
+        </g:HTMLPanel>
+    </html:ListItem>
+</ui:UiBinder>

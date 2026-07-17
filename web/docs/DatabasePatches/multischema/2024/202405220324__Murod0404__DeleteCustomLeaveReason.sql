@@ -1,0 +1,1 @@
+delete from "anv".leave_reason where code = 'LR_TYPE_RECALL_LEAVE';

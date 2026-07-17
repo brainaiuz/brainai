@@ -1,0 +1,9 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+    <g:HTMLPanel ui:field="folderList">
+        <!--<div class="pull-left text-left" style="padding-bottom: 5px;" data-toggle="buttons">
+            <button ui:field="addButton" type="button" class="btn btn-sm btn-default">Add Folder</button>
+        </div>-->
+
+    </g:HTMLPanel>
+</ui:UiBinder>

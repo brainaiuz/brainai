@@ -1,0 +1,257 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style type="text/css" >
+        @page {
+            size: 8.3in 11.7in;
+            margin:160px 30px 140px 30px;
+            padding:0;
+            @top-center {
+                content: element(header);
+            }
+            @bottom-left {
+                content: element(footer);
+            }
+        }
+        #header {
+            margin:20px 10px;
+            display: block;
+            position: running(header);
+        }
+        #footer{
+            margin:20px 10px;
+            display: block;
+            position: running(footer);
+        }
+        #pagenumber:before {
+            content: counter(page);
+        }
+
+        #pagecount:before {
+            content: counter(pages);
+        }
+        .tableBorder{
+            border-top:1px solid #000000;
+            border-left:1px solid #000000;
+        }
+        .tableBorder td{
+            border-right:1px solid #000000;
+            border-bottom:1px solid #000000;
+        }
+        body{
+            font-family:Calibri;
+        }
+        th{
+            font-family:Calibri;
+            font-size:11px;
+            font-weight:lighter;
+        }
+        th,td{
+            padding:5px;
+        }
+
+        b,p,td,span,caption,hr,h1,h2,h3,h4,h5{font-family:Calibri;}
+        table {
+            -fs-table-paginate: paginate;
+        }
+
+    </style>
+</head>
+<body>
+<div id="header">
+    <table width="100%" style="border-bottom: 1px solid #000000;">
+        <tr>
+            <td width="50%" align="left">
+                <img src="$itextGenericPdfData.companyData.companyLogoUrl"/>
+            </td>
+            <td width="50%">
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+<div id="footer" style="border-top:1px solid #000000;font-size:11px" >
+    <table width="100%" >
+        <tr>
+            <td align="center" style="font-size: 14px">
+                APSE IT Solution L.L.C, P O Box 213123 Dubai, UAE. T: +97143881662 F: +97143881652 E:acc@apse.co
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+<div style="font-size:11px">
+
+    <table width="100%">
+        <tr>
+            <td style="font-size:14px;font-weight:bold;text-align:center;">
+                #foreach($row in $itextGenericPdfData.baseInvoice.customNumberAndDatesTable.rows.values())
+                #if($row.get('TYPE')=='PO_NUMBER')
+                #if($row.get('COLUMN_NAME')!='' and $row.get('COLUMN_VALUE')!='')
+                $row.get('COLUMN_VALUE')
+                #end
+                #end
+                #end
+            </td>
+        </tr>
+    </table>
+
+    <table width="100%">
+        <tr>
+            <td style="font-size:14px;text-align:right;">
+                #foreach($row in $itextGenericPdfData.baseInvoice.customNumberAndDatesTable.rows.values())
+                #if($row.get('TYPE')=='INV_DATE')
+                #if($row.get('COLUMN_NAME')!='' and $row.get('COLUMN_VALUE')!='')
+                <b>Date:</b> $row.get('COLUMN_VALUE')
+                #end
+                #end
+                #end
+            </td>
+        </tr>
+    </table>
+
+
+    #set($curSymbol = $itextGenericPdfData.baseInvoice.currency)
+    #set($billToAddressTable = $itextGenericPdfData.baseInvoice.customBillToAddress.rows)
+    <table width="100%">
+        <tr>
+            <td style="font-size:14px;font-weight:bold;text-align:center;">
+                PURCHASE JOURNAL VOUCHER
+            </td>
+        </tr>
+    </table>
+    <table width="100%" style="margin-top:50px" cellspacing="0" cellpadding="10" align="center">
+        <tr>
+            <!--Bill To Table-->
+            <td width="50%" valign="top">
+                <b>Supplier Name:</b><br/>
+                #set($supplierName=$billToAddressTable.get('NAME').get('COLUMN_VALUE'))
+                #set($supplierContacName=$billToAddressTable.get('CLIENT_CONTACT').get('COLUMN_VALUE'))
+                #set($supplierAddress=$billToAddressTable.get('BILL_ADDRESS').get('COLUMN_VALUE'))
+
+                #if($billToAddressTable.get('BILL_CITY').get('COLUMN_VALUE')!='' and $billToAddressTable.get('BILL_ZIPCODE').get('COLUMN_VALUE')!='')
+                #set($supplierCityZip=$billToAddressTable.get('BILL_CITY').get('COLUMN_VALUE') + ',' + $billToAddressTable.get('BILL_ZIPCODE').get('COLUMN_VALUE'))
+                #elseif($billToAddressTable.get('BILL_CITY').get('COLUMN_VALUE')!='')
+                #set($supplierCityZip=$billToAddressTable.get('BILL_CITY').get('COLUMN_VALUE'))
+                #elseif($billToAddressTable.get('BILL_ZIPCODE').get('COLUMN_VALUE')!='')
+                #set($supplierCityZip=$billToAddressTable.get('BILL_ZIPCODE').get('COLUMN_VALUE'))
+                #end
+
+                #set($supplierCountry=$billToAddressTable.get('BILL_COUNTRY').get('COLUMN_VALUE'))
+                #set($supplierVatNumber=$billToAddressTable.get('CLIENT_VAT_NUMBER').get('COLUMN_VALUE'))
+
+                <!--Supplier Name-->
+                #if($supplierName!='')
+                $supplierName <br/>
+                #end
+            </td>
+            <td width="50%" valign="top">
+            </td>
+        </tr>
+    </table>
+
+    #set($poDataTable=$itextGenericPdfData.baseInvoice.customPOTable)
+    #if($poDataTable.rows.size()>0)
+    <table width="100%" class="tableBorder" align="center" cellspacing="0" cellpadding="0" style="margin-top:40px">
+        <thead style="padding:2px;font-weight:bold;">
+        <tr align="center">
+            #set($header = $poDataTable.header)
+            <td bgcolor="#BEB7C7"> $header.get('CURRENCY')</td>
+            <td bgcolor="#BEB7C7"> $header.get('PAYMENT_TYPE')</td>
+            <td bgcolor="#BEB7C7"> $header.get('PAYMENT_TERMS')</td>
+            <td bgcolor="#BEB7C7"> $header.get('SHIPPING_TERMS')</td>
+        </tr>
+        </thead>
+        #foreach($row in $poDataTable.rows)
+        <tr>
+            <td> $row.get('CURRENCY')</td>
+            <td> $row.get('PAYMENT_TYPE')</td>
+            <td> $row.get('PAYMENT_TERMS')</td>
+            <td> $row.get('SHIPPING_TERMS')</td>
+        </tr>
+        #end
+    </table>
+    #end
+
+    <!--Product Table-->
+    <table align="left" width="100%" style="margin-top:20px">
+        <tr>
+            <td><b>Order Information:</b></td>
+        </tr>
+    </table>
+    <table width="100%" class="tableBorder" align="center" cellspacing="0" cellpadding="0" style="margin-top:50px">
+        <thead style="padding:2px;font-weight:bold;">
+        <tr align="center">                                                    <!--cols-->
+            <td bgcolor="#BEB7C7" width="5%">No.:</td>                         <!--0-->
+            <td bgcolor="#BEB7C7" width="20%">Product/Service</td>             <!--1-->
+            <td bgcolor="#BEB7C7" width="27%">Description</td>                 <!--2-->
+            <td bgcolor="#BEB7C7" width="12%">Qty/Hrs</td>                     <!--3-->
+            <td bgcolor="#BEB7C7" width="12%">Unit Price ($curSymbol)</td>     <!--4-->
+            <td bgcolor="#BEB7C7" width="12%">Tax ($curSymbol)</td>     		<!--5-->
+            <td bgcolor="#BEB7C7" width="12%">Total Amount ($curSymbol)</td>   <!--6-->
+        </tr>
+        </thead>
+
+        #foreach($row in $itextGenericPdfData.baseInvoice.customProductTable.rows.values())
+        <tr>
+            <td> $row.get('NO')</td>               			<!--No-->
+            <td> $row.get('NAME')</td>               			<!--Product Name-->
+            <td> $row.get('DESCRIPTION')</td>              	<!--Description-->
+            <td align="right"> $row.get('QTY_HRS')</td>        <!--Qty/Hrs-->
+            <td align="right"> $row.get('UNIT_PRICE')</td> 	<!--Unit Price-->
+            <td align="right"> $row.get('TAX_AMOUNT')</td> 	<!--Unit Price-->
+            <td align="right"> $row.get('TOTAL_AMOUNT')</td> 	<!--Total Amount-->
+        </tr>
+        #end
+    </table>
+    <table width="100%" style="margin-top:40px" cellspacing="0" cellpadding="0">
+        <tr>
+            <td>
+                <table align="right" width="42%" class="tableBorder" cellspacing="0" cellpadding="0">
+                    #foreach($row in $itextGenericPdfData.baseInvoice.customTotalTable.rows.values())
+                    #if($row.get('TYPE')=='SUBTOTAL' or $row.get('TYPE')=='TAX_' or $row.get('TYPE')=='TOTAL')
+                    <tr>
+                        <td width="150px" bgcolor="#BEB7C7" align="left" style="padding:2px;font-weight:bold;">
+                            $row.get('COLUMN_NAME')
+                        </td>
+                        <td width="150px" align="right" style="padding:2px">$curSymbol $row.get('COLUMN_VALUE')</td>
+                    </tr>
+                    #end
+                    #end
+                </table>
+            </td>
+        </tr>
+    </table>
+    #set($rows = $itextGenericPdfData.baseInvoice.customTermsConditions.rows.values())
+    #if($rows.size()>0)
+    <table width="100%" class="tableBorder" align="center" cellspacing="0" cellpadding="0" style="margin-top:40px">
+        <tr>
+            <td bgcolor="#BEB7C7" align="center" style="padding:5px;font-weight:bold;">
+                Payment Instructions
+            </td>
+        </tr>
+        <tr>
+            <td style="padding-top:5px;padding-bottom:10px;">
+                #foreach($row in $rows)
+                $row.get('COLUMN_VALUE') <br/>
+                #end
+            </td>
+        </tr>
+    </table>
+    #end
+
+    <table width="100%" style="margin-top: 20px;padding-top: 20px;">
+        <tr>
+            <td width="50%"><b>Requested By :</b> ........................................................</td>
+        </tr>
+        <br></br>
+        <br></br>
+        <tr>
+            <td width="50%"><b>Approved By :</b> .........................................................</td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,89 @@
+/****=========== Start SIGN UP and CONTACT FORM ===========****/
+body {
+    margin: 0 12px;
+    text-align: center;
+    background:#f0f9ff; /* for IE7 */
+}
+
+.form-required {
+    color: #f00;
+}
+
+/*** Main form ***/
+.webform-client-form .form-item {
+    position: relative;
+    margin: 0 0 10px;
+    text-align: left;
+    font: 11px Trebuchet MS;
+    color: #6f6f6f;
+}
+
+/* .webform-client-form label {margin:0;} */
+.webform-client-form .form-item input, .webform-client-form .form-item select, .webform-client-form textarea {
+    width: 99%;
+/ / width : 100 %;
+    margin: 2px 0 0;
+}
+
+/*** IE7 Hacks ***/
+.webform-client-form .form-item select {
+    width: 100%;
+}
+
+*+html .signUp-form .form-item input, *+html .signUp-form textarea {
+    width: 96%;
+}
+
+/*** end IE7 Hacks ***/
+.webform-client-form .error {
+    position: absolute;
+    left: 0;
+    top: 40px;
+    z-index: 10;
+    font-size: 0.9em;
+    line-height: 1em;
+    color: #FF0000;
+    background: none repeat scroll 0 0 #EEEEEE;
+}
+
+/*** Sidebar form ***/
+.signUp-form .form-item {
+    float: left;
+    width: 48%;
+}
+
+.signUp-form .form-item.odd {
+    clear: left;
+}
+
+.signUp-form .form-item.even {
+    float: right;
+}
+
+.signUp-form.sidebarForm .form-item {
+    width: 100%;
+    float: none;
+    color: #1085c7;
+}
+
+/* .signUp-form.sidebarForm .form-item br {display:none;} */
+
+/*** Submit button ***/
+.form-submit {
+    position: relative;
+    height: 32px;
+    width: 180px;
+    margin: 0 auto;
+    padding: 5px 6px;
+    border: 0;
+    font-size: 16px;
+    color: #fff;
+    background: #faa41d;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAAgCAMAAACM5KJVAAAANlBMVEXw+f/3uVT5qCf6pyT3uVPz3rb5qSn5qizz4Lz3uVbz4b31zo71y4b1z4/1yoTz3rfz3bX6pB1rvXgrAAAAWklEQVRYw+3Y2RGAIADFwKAg4k3/zVrHm0kq2O8AX+0zpl4awDPDumCfcR2UPPRgyUNvzMBEixYtWrRo0aJFixYtWrTobHTkQih56JG5xTjTzDdAq2uOeC0v/AWEfKmXmoHhAAAAAElFTkSuQmCC) no-repeat;
+}
+
+.webform-client-form .form-submit {
+    display: block;
+    top: 3px;
+    clear: both;
+}

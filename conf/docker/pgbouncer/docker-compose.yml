@@ -1,0 +1,13 @@
+services:
+  kpi-pgbouncer:
+    extends:
+      file: compose.yml
+      service: pgbouncer
+    networks:
+      - kpi-network
+
+networks:
+  kpi-network:
+    name: kpi-network
+    driver: bridge
+    external: true

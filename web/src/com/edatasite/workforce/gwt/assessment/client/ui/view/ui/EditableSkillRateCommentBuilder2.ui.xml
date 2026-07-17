@@ -1,0 +1,14 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+
+    <!-- корневой контейнер -->
+    <g:HTMLPanel ui:field="root" addStyleNames="editablSkillRate">
+
+        <!-- левая часть с textarea/комментом -->
+        <g:HTMLPanel ui:field="commentAreaField" addStyleNames="editablSkillRate__comment"/>
+
+        <!-- правая часть с rate -->
+        <g:HTMLPanel ui:field="rateBuilderField" addStyleNames="editablSkillRate__rate"/>
+
+    </g:HTMLPanel>
+</ui:UiBinder>

@@ -1,0 +1,160 @@
+.dataSource {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &__heading {
+    margin: 0;
+    font-weight: 600;
+    font-size: $h6-fontsize;
+    text-transform: uppercase;
+  }
+  &__body {
+    flex: 1;
+    margin-left: -$frameContentPadding;
+  }
+  &__title {
+    margin: rem(10px) 0 rem(15px);
+    padding: 0 $frameContentPadding;
+    font-weight: 600;
+    font-size: $h6-fontsize;
+  }
+  &__aside {
+    display: flex;
+    flex-direction: column;
+  }
+  &__main {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.dataSource-options {
+  flex: 1;
+  background-color: $color-base-contrast;
+}
+.dataSource-option {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding-top: rem(20px);
+  + .dataSource-option {}
+  &__icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    flex: 0 0 50px;
+    margin: 0 $frameContentPadding;
+    border-radius: 50%;
+    background-color: $color-accent-2;
+    color: #fff;
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+    .icon--logOut {
+      transform: rotate(-90deg);
+    }
+  }
+  &__dsc {
+    flex:1;
+    p {}
+  }
+  &__title {
+    display: block;
+    margin: 0 0 rem(5px);
+    font-size: rem(14px);
+    font-weight: 600;
+    @include link($text-color-base);
+    &:hover {
+      text-decoration: underline;
+    }
+    + p {
+      margin-top: 0;
+    }
+  }
+
+  figcaption {
+    margin-right: $frameContentPadding;
+
+    p {
+      font-size: rem(11px);
+    }
+  }
+  &__upload {
+    position: relative;
+    left: -6px; // to prevent icon empty spacing and align to above placed title
+
+    img {
+      max-width: 100%;
+    }
+    a:hover img {
+      filter: drop-shadow(1px 1px 5px rgba(0,0,0,0.1));
+    }
+  }
+}
+
+.dataSource-services {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  &:before, &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: $color-base-0;
+  }
+  &:before {
+    left: 33.3%;
+  }
+  &:after {
+    right: 33.3%;
+  }
+}
+.dataSource-service {
+  display: flex;
+  width: 33.3%;
+  margin: 0;
+  padding: 2% 2.5%;
+  border-top: 1px solid $color-base-0;
+  border-bottom: 1px solid $color-base-0;
+  &:hover {
+    cursor: pointer;
+    .dataSource-service__title {
+      text-decoration: underline;
+    }
+  }
+
+  + .dataSource-option {
+    margin-top: rem(20px);
+  }
+  &__icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 50px;
+    margin-right: 20px;
+    svg,
+    img {
+      max-width: 100%;
+    }
+  }
+  &__dsc {
+    flex:1;
+    p {
+
+    }
+  }
+  &__title {
+    margin: 0 0 rem(10px);
+    font-size: $h6-fontsize;
+    font-weight: 600;
+  }
+}

@@ -1,0 +1,98 @@
+/****=========== Start SIGN UP and CONTACT FORM ===========****/
+body {
+    margin: 0 12px;
+}
+
+.form-required {
+    color: #FF0000;
+}
+
+/*** Main form ***/
+.webform-client-form .form-item {
+    position: relative;
+    margin: 0 0 10px;
+    font:bold 12px Arial,sans-serif;
+    color:#3C3C3C;
+
+}
+
+.webform-client-form .form-item input, .webform-client-form .form-item select, .webform-client-form textarea {
+    width: 99%;
+}
+
+.webform-client-form .error {
+    position: absolute;
+    top:39px;
+    left: 0;
+    z-index:10;
+    font-size: 0.9em;
+    line-height:1em;
+    color: #f00;
+    background:#eee;
+}
+
+/*** Sidebar form ***/
+.signUp-form .form-item {
+    float: left;
+    width: 48%;
+}
+
+.signUp-form .form-item.odd {
+    clear: left;
+}
+
+.signUp-form .form-item.even {
+    float: right;
+}
+
+.signUp-form.sidebarForm .form-item {
+    width: 100%;
+    float: none;
+}
+
+.signUp-form.sidebarForm .form-item br {
+    display: none;
+}
+
+/*** Submit button ***/
+/*.form-submit {
+    position: relative;
+    height: 32px;
+    width: 180px;
+    margin: 0 auto 12px;
+    padding: 5px 6px;
+    border: 0;
+    font-size: 16px;
+    color: #fff;
+    background: #faa41d;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAAgCAMAAACM5KJVAAAANlBMVEXw+f/3uVT5qCf6pyT3uVPz3rb5qSn5qizz4Lz3uVbz4b31zo71y4b1z4/1yoTz3rfz3bX6pB1rvXgrAAAAWklEQVRYw+3Y2RGAIADFwKAg4k3/zVrHm0kq2O8AX+0zpl4awDPDumCfcR2UPPRgyUNvzMBEixYtWrRo0aJFixYtWrTobHTkQih56JG5xTjTzDdAq2uOeC0v/AWEfKmXmoHhAAAAAElFTkSuQmCC) no-repeat;
+}
+
+.webform-client-form .form-submit {
+    display: block;
+    top: 3px;
+    clear: both;
+}*/
+
+.form-submit2 {
+    bottom: 14px;
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHQAAAAgCAMAAAD0W6z0AAAANlBMVEXw+f/3uVT5qCf6pyT3uVPz3rb5qSn5qizz4Lz3uVbz4b31zo71y4b1z4/1yoTz3rfz3bX6pB1rvXgrAAAAVElEQVRIx+3XywGAIBAD0UFA/OP236xdZD1kGnjXBHjbCFmjdIAnxF2whbyDokd3Fj26EgkZNWrUqFGjRo0a/QuaMkFTxnbKreBUmzdAb1Un1jLhA1569JpbzVzqAAAAAElFTkSuQmCC") no-repeat scroll 0 0 transparent;
+    border: 0 none;
+    bottom: 10px;
+    color: #FFFFFF;
+    display: inline-block;
+    font-size: 16px;
+    height: 32px;
+    margin: 0 auto;
+    padding: 5px 0;
+    position: absolute;
+    right: 30px;
+    text-align: center;
+    width: 116px;
+    cursor: pointer;
+}
+
+.sidebarForm .form-submit2 {
+   right:55px;
+    top:351px;
+}

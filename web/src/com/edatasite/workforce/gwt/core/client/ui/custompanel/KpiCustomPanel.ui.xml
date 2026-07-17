@@ -1,0 +1,17 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+    <ui:style>
+        .panel-header-div{
+            float:left;
+        }
+    </ui:style>
+    <g:HTMLPanel styleName="panel panel-primary panel_report">
+        <div class="panel-heading" style="overflow:hidden;">
+            <div class="{style.panel-header-div}">
+                <h3 class="panel-title" ui:field="titleElem"/>
+            </div>
+            <g:HTMLPanel  styleName="{style.panel-header-div}" ui:field="panelHeaderRight"/>
+        </div>
+        <g:HTMLPanel styleName="panel-body" ui:field="panelBody"/>
+    </g:HTMLPanel>
+</ui:UiBinder>

@@ -1,0 +1,5 @@
+<module rename-to="crm">
+    <inherits name="com.edatasite.workforce.gwt.crm.CRM"/>
+    <set-property name="user.agent" value="gecko1_8"/>
+    <set-property name="locale" value="es"/>
+</module>

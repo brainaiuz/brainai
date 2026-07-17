@@ -1,0 +1,9 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:w='urn:import:com.edatasite.workforce.gwt.reportingsystem.client.ui.widget'
+             xmlns:mh="urn:import:gwt.material.design.client.ui.html"
+             xmlns:m="urn:import:gwt.material.design.client.ui"
+>
+    <g:HTMLPanel>
+    </g:HTMLPanel>
+</ui:UiBinder>

@@ -1,0 +1,21 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:k='urn:import:com.edatasite.workforce.gwt.core.client.ui'
+             xmlns:m.html="urn:import:gwt.material.design.client.ui.html">
+    <g:HTMLPanel>
+        <div class="side-nav__title">
+            <h1 class="hasicon--left">
+                <m.html:Span ui:field="titleLabel"/>
+            </h1>
+        </div>
+        <div class="controls-row columns-filter">
+            <div class="form-group">
+                <m.html:Label class="form-group__label" ui:field="pageSizeLabel"/>
+                <div class="dropdown-select--arrow dropdown-kit--below">
+                    <k:DataListBox ui:field="pageSizeList"/>
+                </div>
+            </div>
+
+        </div>
+    </g:HTMLPanel>
+</ui:UiBinder>

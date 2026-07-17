@@ -1,0 +1,5 @@
+<module rename-to="backend">
+    <inherits name='com.edatasite.workforce.gwt.backend.Backend'/>
+    <inherits name="com.edatasite.workforce.gwt.Localization_properties"></inherits>
+
+</module>

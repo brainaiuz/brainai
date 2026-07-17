@@ -1,0 +1,1125 @@
+/* .viewTemplate {} */
+.viewTemplate table[cellspacing="10"] {
+    border-collapse: separate;
+    border-spacing: 10px !important;
+}
+
+.viewTemplate table[cellspacing="10"]>tbody>tr>td:first-child {
+    line-height: 1em;
+}
+
+/* .workforce a {
+    color: #0070BF;
+} */
+
+/*--------------------- Footer BEGIN -------------------------*/
+.workforce #footer {
+    position: fixed;
+    bottom: 0; /*left:47%; margin-left:-471px;*/
+    /*   _left: 0;*/
+    left: 0; /*_margin-left: 0;*/
+    width: 100%;
+    height: 30px; /*_width: auto;*/
+    clear: both;
+    color: #fff;
+    background: #002641 url(../images/themes/blue/bg_footer.png) repeat-x 0 0;
+}
+
+/*.workforce a {
+    color: #0070bf;
+}*/
+
+/*--------------------- Footer BEGIN -------------------------*/
+.workforce #footer {
+    position: fixed;
+    bottom: 0; /*left:47%; margin-left:-471px;*/
+    /*   _left: 0;*/
+    left: 0; /*_margin-left: 0;*/
+    width: 100%;
+    height: 30px; /*_width: auto;*/
+    clear: both;
+    color: #fff;
+    background: #002641 url(../images/themes/blue/bg_footer.png) repeat-x 0 0;
+}
+
+.workforce #footer a {
+    color: #fff;
+}
+
+.workforce #footer p a {
+    text-decoration: underline;
+}
+
+/*--------------------- Footer END -----------------------------*/
+
+/*--------------------- Titles BEGIN ---------------------------*/
+.workforce .title {
+    font: bold 16px Arial, sans-serif;
+    margin: 0 0 10px;
+    color: #0070bf;
+}
+
+/*--------------------- Footer END -----------------------------*/
+
+/*--------------------- Titles END -----------------------------*/
+
+/*--------------------- Tab Titles BEGIN -----------------------*/
+.workforce .tab-t1,
+.workforce .tab-t2,
+.workforce .tab-t3,
+.workforce .tab-t1 span,
+.workforce .tab-t2 span,
+.workforce .tab-t3 span {
+    float: left;
+    height: 28px;
+    background-image: url(images/themes/blue/bg_tab_title.png);
+}
+
+/*--------------------- Titles END -----------------------------*/
+
+/*--------------------- Tab Titles BEGIN -----------------------*/
+.workforce .tab-t1,
+.workforce .tab-t2,
+.workforce .tab-t3,
+.workforce .tab-t1 span,
+.workforce .tab-t2 span,
+.workforce .tab-t3 span {
+    float: left;
+    height: 28px;
+    background-image: url(images/themes/blue/bg_tab_title.png);
+}
+
+.workforce .tab-t1,
+.workforce .tab-t2,
+.workforce .tab-t3 {
+    display: inline;
+    clear: both;
+    margin: 0;
+    padding: 0 29px 0 0;
+    font-size: 14px;
+    background-repeat: no-repeat;
+}
+
+.workforce .tab-t1 span,
+.workforce .tab-t2 span,
+.workforce .tab-t3 span {
+    line-height: 28px;
+    padding: 0 10px 0 30px;
+    color: #fff;
+    background-repeat: repeat-x;
+}
+
+.workforce .tab-t1 {
+    background-color: #206000;
+    background-position: 100% 0;
+}
+
+.workforce .tab-t1 span {
+    background-position: 0 -29px;
+}
+
+.workforce .tab-t2 {
+    background-color: #002742;
+    background-position: 100% -58px;
+}
+
+.workforce .tab-t2 span {
+    background-position: 0 -87px;
+}
+
+/*--------------------- Tab Titles END -------------------------*/
+
+/*--------------------- Select List BEGIN ----------------------*/
+.workforce .select-list {
+    overflow-y: auto;
+    zoom: 1;
+    min-width: 220px;
+    height: 320px;
+    border: 1px solid #b2b2b2;
+    border-right-color: #000;
+    border-bottom-color: #000;
+    font-size: 13px;
+    background: #FFFFFF;
+}
+
+/*--------------------- Tab Titles END -------------------------*/
+
+/*--------------------- Select List BEGIN ----------------------*/
+.workforce .select-list li a:hover, .workforce .select-list li.act a {
+    background-color: #d5e8f9;
+}
+
+/*--------------------- Select List END ------------------------*/
+
+/*--------------------- Zebra BEGIN ----------------------------*/
+.workforce .zebra th {
+    padding: 5px 10px 4px;
+    color: #00375e;
+    text-align: left;
+    background-image: url(images/themes/blue/bg_zebra_th.png);
+    background-repeat: repeat-x;
+    background-position: 0 -23px;
+    background-color: #f1f2f4;
+}
+
+/*--------------------- Select List END ------------------------*/
+
+/*--------------------- Zebra BEGIN ----------------------------*/
+.workforce .zebra th {
+    padding: 5px 10px 4px;
+    color: #00375e;
+    text-align: left;
+    background-image: url(images/themes/blue/bg_zebra_th.png);
+    background-repeat: repeat-x;
+    background-position: 0 -23px;
+    background-color: #f1f2f4;
+}
+
+.workforce .zebra th.act {
+    background-position: 0 0;
+    background-color: #d5e8f9;
+}
+
+.workforce .zebra .stronger td {
+    background-color: #e7edf0;
+}
+
+/*--------------------- Zebra END ------------------------------*/
+
+/*--------------------- Steps BEGIN ----------------------------*/
+.workforce .steps li span,
+.workforce .steps li span em {
+    /*float: left;*/
+    /*background-image: url(images/themes/blue/bg_steps_reporting.png);*/
+}
+
+/*--------------------- Zebra END ------------------------------*/
+
+/*--------------------- Steps BEGIN ----------------------------*/
+.workforce .steps li span,
+.workforce .steps li span em {
+    /*float: left;*/
+    /*background-image: url(images/themes/blue/bg_steps_reporting.png);*/
+}
+
+.workforce .steps li span:hover {
+    text-shadow: 2px 2px 2px #01619E;
+}
+
+.workforce .steps li span {
+    background-color: #004B79;
+    background-image: url("reporting/icons/bg_gradX_grey-1.png");
+    background-repeat: repeat-x;
+    padding: 3px 34px 3px 10px;
+    font: 12px Arial, sans-serif;
+    text-shadow: 2px 2px 2px #FFFFFF;
+    color: #383838;
+    display: block;
+    padding: 15px;
+    border-left: 1px solid #CECECE;
+    text-transform: none;
+}
+
+/*.workforce .steps li span em {
+    position: absolute;
+    top: 0;
+    width: 29px;
+    height: 45px;
+    background-repeat: no-repeat;
+}*/
+
+.workforce .steps li span em.right-angle {
+    right: 0;
+    background-position: 0 -288px;
+}
+
+.workforce .steps li span.act em.right-angle {
+    background-position: 0 0;
+}
+
+.workforce .steps li span em.left-angle {
+    left: -29px;
+}
+
+.workforce .steps li span.first-step em.left-angle {
+    background-position: 0 -108px;
+}
+
+.workforce .steps li span.first-step.act em.left-angle {
+    background-position: 0 -72px;
+}
+
+.workforce .steps li span em.left-angle {
+    display: none;
+}
+
+.workforce .steps li span.act em.left-angle {
+    display: block;
+    background-position: 0 -415px;
+}
+
+.workforce .steps li span.act em.left-angle {
+    display: block;
+    background-position: 0 -36px;
+}
+
+/*--------------------- Steps END ------------------------------*/
+
+/*--------------------- Columns BEGIN --------------------------*/
+.workforce .colums tr th,
+.workforce .colums tr.thead th {
+    height: 25px;
+    text-align: left;
+    vertical-align: middle;
+    background-image: url(images/themes/blue/bg_htitle.png);
+    background-repeat: repeat-x;
+}
+
+/*--------------------- Steps END ------------------------------*/
+
+/*--------------------- Columns BEGIN --------------------------*/
+.workforce .colums tr th,
+.workforce .colums tr.thead th {
+    height: 25px;
+    text-align: left;
+    vertical-align: middle;
+    background-image: url(images/themes/blue/bg_htitle.png);
+    background-repeat: repeat-x;
+}
+
+.workforce .colums tr th {
+    font-size: 12px;
+    padding: 0 20px;
+    color: #015d9f;
+    background-position: 0 -29px;
+    background-color: #9f9f9f;
+}
+
+.workforce .colums tr th a {
+    font-size: 11px;
+    color: #015d9f;
+}
+
+/*--------------------- Columns END -------------------------*/
+
+/*--------------------- Plates BEGIN ------------------------*/
+.workforce .plate-1, .plate-1-outer {
+    /*background-image: url(images/themes/blue/bg_plate1.png);*/
+    background-repeat: no-repeat;
+}
+
+/*--------------------- Columns END -------------------------*/
+
+/*--------------------- Plates BEGIN ------------------------*/
+.workforce .plate-1, .plate-1-outer {
+    /*background-image: url(images/themes/blue/bg_plate1.png);*/
+    background-repeat: no-repeat;
+}
+
+.workforce .plate-1 {
+    width: 944px;
+    margin: 0 0 20px;
+    padding: 0 0 5px;
+    background-position: -945px 100%;
+}
+
+.workforce .plate-1-outer {
+    padding: 5px 0 0;
+    background-position: 0 0;
+}
+
+.workforce .plate-1-inner {
+    padding: 10px 20px;
+    border-right: 1px solid #dce2e6;
+    border-left: 1px solid #dce2e6;
+    /*background: #d9e4eb url(images/themes/blue/bg_plate1_inner.png) repeat-x 0 0;*/
+}
+
+.workforce .plate-1 form {
+    font-size: 11px;
+}
+
+/* .plate-1 */
+
+/* .plate-2 */
+.workforce .plate-2,
+.workforce .plate-2-outer {
+    /*background-image: url(images/themes/blue/bg_plate2.png);*/
+    background-repeat: no-repeat;
+}
+
+/* .plate-1 */
+
+/* .plate-2 */
+.workforce .plate-2,
+.workforce .plate-2-outer {
+    /*background-image: url(images/themes/blue/bg_plate2.png);*/
+    background-repeat: no-repeat;
+}
+
+.workforce .plate-2 {
+    width: 270px;
+    padding: 0 0 5px;
+    background-position: -271px 100%;
+}
+
+/* END .plate-2 */
+
+/* .plate-3 */
+.workforce .plate-3,
+.workforce .plate-3-outer {
+    /*background-image: url(images/themes/blue/bg_plate3.png);*/
+    background-repeat: no-repeat;
+}
+
+/* END .plate-2 */
+
+/* .plate-3 */
+.workforce .plate-3,
+.workforce .plate-3-outer {
+    /*background-image: url(images/themes/blue/bg_plate3.png);*/
+    background-repeat: no-repeat;
+}
+
+.workforce .plate-3 {
+    width: 377px;
+    padding: 0 0 5px;
+    overflow: hidden;
+    zoom: 1;
+    background-position: -378px 100%;
+}
+
+/* END .plate-3 */
+
+/* plate-4 */
+.workforce .plate-4 {
+    width: 269px;
+    padding: 12px 0 0;
+    margin: 0 0 20px;
+    /*background: #fef7d6 url(images/themes/blue/bg_plate4.png) no-repeat 0 0;*/
+}
+
+/* END .plate-3 */
+
+/* plate-4 */
+.workforce .plate-4 {
+    width: 269px;
+    padding: 12px 0 0;
+    margin: 0 0 20px;
+    /*background: #fef7d6 url(images/themes/blue/bg_plate4.png) no-repeat 0 0;*/
+}
+
+/*--------------------- Plates END --------------------------*/
+
+/*--------------------- Header BEGIN ------------------------*/
+.workforce #header {
+    position: relative;
+    height: 76px;
+    background: url(mainStyles/themes/blue/gradient-bg-logo.png) repeat-x 0 0;
+}
+
+/*--------------------- Plates END --------------------------*/
+
+/*--------------------- Header BEGIN ------------------------*/
+.workforce #header {
+    position: relative;
+    height: 76px;
+    background: url(mainStyles/themes/blue/gradient-bg-logo.png) repeat-x 0 0;
+}
+
+.workforce .f3 input.btn {
+    width: 60px;
+    height: 24px;
+    border: 0;
+    font-weight: bold;
+    background: #ff9a00 url(images/themes/blue/bg_f3_btn.png) no-repeat 0 0;
+}
+
+.workforce .theader .gheader {
+    background-color: #f3f3f3;
+}
+
+.workforce .theader .gheader a {
+    font-size: 11px;
+    color: #015d9f;
+}
+
+.workforce .theader .bheader {
+    color: #fff;
+    background-image: url(images/themes/blue/report-btn.png);
+    background-repeat: repeat-x;
+    background-position: 0 0;
+    background-color: #204d89;
+    vertical-align: middle;
+}
+
+.workforce .theader .bheader a {
+    color: #fff;
+}
+
+/*--------------------- Header END --------------------------*/
+
+/*--------------------- Report List BEGIN -------------------*/
+.workforce .report-list tr td {
+    padding: 2px 5px;
+    vertical-align: middle;
+    border: 1px solid #9ABAE9;
+}
+
+/*--------------------- Header END --------------------------*/
+
+/*--------------------- Report List BEGIN -------------------*/
+.workforce .report-list tr td {
+    padding: 2px 5px;
+    vertical-align: middle;
+    border: 1px solid #9ABAE9;
+
+}
+
+.workforce .report-list .title {
+    color: black;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    background: #ff9a00;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.workforce .report-list .title a {
+    color: black;
+    text-decoration: none;
+}
+
+/*--------------------- Report List END ---------------------*/
+
+/*--------------------- Dashboard List BEGIN -------------------*/
+.workforce .dashboard-report-list tr td {
+    padding: 1px 5px;
+    vertical-align: middle;
+    border: 1px solid #9ABAE9;
+    font-size: 9px;
+}
+
+/*--------------------- Report List END ---------------------*/
+
+/*--------------------- Dashboard List BEGIN -------------------*/
+.workforce .dashboard-report-list tr td {
+    padding: 1px 5px;
+    vertical-align: middle;
+    border: 1px solid #9ABAE9;
+    font-size: 9px;
+}
+
+.workforce .dashboard-report-list .title {
+    color: black;
+    font-size: 9px;
+    font-weight: bold;
+    text-align: center;
+    background: #ff9a00;
+}
+
+/*--------------------- Dashboard List END ---------------------*/
+
+.workforce .dashboard-report-list .total {
+    /*font-weight:bold;*/
+    background: #fac743;
+}
+
+/*--------------------- Dashboard List END ---------------------*/
+
+/* Dialog Box begin style */
+.workforce .gwt-DialogBox .Caption {
+    background: #bbbbbb url(images/themes/blue/bg_htitle.png) repeat-x 0 -28px;
+    padding: 4px 4px 4px 8px;
+    cursor: default;
+    font-weight: bold;
+    border-bottom: 1px solid #015d9f;
+    border-top: 1px solid #015d9f;
+}
+
+.workforce .order-table .column-title {
+    text-align: center;
+    background: #ff9a00;
+    padding: 2px 5px;
+    border: 1px solid #9ABAE9;
+}
+
+/* Dialog Box begin style */
+.workforce .gwt-DialogBox .Caption {
+    background: #bbbbbb url(images/themes/blue/bg_htitle.png) repeat-x 0 -28px;
+    padding: 4px 4px 4px 8px;
+    cursor: default;
+    font-weight: bold;
+    border-bottom: 1px solid #015d9f;
+    border-top: 1px solid #015d9f;
+}
+
+.workforce .gwt-DialogBox .dialogContent {
+    background: white;
+}
+
+.workforce .gwt-DialogBox .dialogMiddleCenter {
+    padding: 10px;
+    background: white;
+    height: 100%;
+}
+
+.workforce .gwt-DialogBox .dialogBottomCenter {
+    background: #015d9f; /*height:2px;*/
+}
+
+.workforce .gwt-DialogBox .dialogMiddleLeft {
+    background: #015d9f;
+}
+
+.workforce .gwt-DialogBox .dialogMiddleRight {
+    background: #015d9f;
+}
+
+.workforce .gwt-DialogBox .dialogTopLeft {
+    background: #015d9f;
+}
+
+.workforce .gwt-DialogBox .dialogTopRight {
+    background: #015d9f;
+}
+
+.workforce .gwt-DialogBox .dialogBottomLeft {
+    background: #015d9f;
+}
+
+.workforce .gwt-DialogBox .dialogBottomRight {
+    background: #015d9f;
+}
+
+/* export link style end*/
+
+.workforce .drs-loading-panel {
+    color: #004B79;
+    font-weight: bold;
+    position: fixed !important;
+    text-align: center;
+    vertical-align: middle;
+    padding: 5px 10px;
+}
+
+/* export link style end*/
+
+.workforce .logoutLink {
+    color: #000000;
+    cursor: pointer;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-decoration: underline;
+}
+
+.workforce .noLink {
+    color: #000000;
+    padding-left: 10px;
+}
+
+/*******************Begin of DatePicker.css*******************************************
+
+/
+
+     /*******************Begin of DatePicker.css*******************************************
+
+/* Blue theme */
+
+/* Blue theme */
+
+.workforce .table-List {
+    line-height: 16px;
+    border: 1px solid #C5C5C5;
+    margin-top: -1px;
+    background-color: #e6e6e6;
+}
+
+.workforce .table-List td {
+    /*background-color: #bad4e2;*/
+    background-position: 0 0;
+    background-repeat: repeat-x;
+    vertical-align: middle;
+    padding-left: 10px;
+    /*text-align: center;*/
+}
+
+.workforce .table-List td.thead {
+    border-left: 1px solid #3db9df;
+    border-right: 1px solid #003382;
+    color: #FFFFFF;
+    line-height: 16px;
+    background-color: #1286c3;
+}
+
+.workforce .table-List tr.odd td {
+    background-color: #F3F3F3;
+}
+
+.blue-date-picker {
+    background-color: #C3D9FF;
+    color: #112ABB;
+    width: 165px;
+}
+
+.blue-month-line {
+    width: 165px;
+    color: #112ABB;
+    font-size: 8pt;
+    font-weight: bold;
+    /*font-family: Verdana;*/
+    text-align: center;
+    cursor: pointer;
+}
+
+.blue-month-line2 {
+    width: 200px;
+    color: #112Aff;
+    font-size: 8pt;
+    font-weight: bold;
+    /*font-family: Verdana;*/
+    text-align: center;
+    cursor: pointer;
+}
+
+.blue-week-line {
+    width: 165px;
+    color: black;
+    font-size: 8pt;
+    /*font-family: Verdana;*/
+    text-align: center;
+}
+
+.blue-day-grid {
+    border: 1pt solid #AACCEE;
+    background-color: white;
+    width: 165px;
+    text-align: center;
+    font-size: 8pt;
+    /*font-family: Verdana;*/
+    border-collapse: collapse;;
+    background-color: white;
+    cursor: pointer;
+}
+
+.blue-day-grid-not-pointer {
+    border: 1pt solid #AACCEE;
+    background-color: white;
+    width: 165px;
+    text-align: center;
+    font-size: 8pt;
+    /*font-family: Verdana;*/
+    border-collapse: collapse;;
+    background-color: white;
+}
+
+.blue-day-grid2 {
+    border: 1pt solid #AACCEE;
+    background-color: white;
+    width: 165px;
+    text-align: center;
+    font-size: 8pt;
+    /*font-family: Verdana;*/
+    border-collapse: collapse;;
+    background-color: white;
+}
+
+.blue-current-month-selected {
+    background-color: #75A9ff;
+    color: black;
+}
+
+.gwt-TabBarItem-wrapper {
+    line-height: 26px;
+}
+
+.workforce .gwt-DecoratedTabBar .tabMiddleCenter {
+    padding: 0 4px 2px 4px;
+    cursor: pointer;
+    color: #396E9A;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    background: #d0e4f6;
+}
+
+.workforce .gwt-DecoratedTabBar .gwt-TabBarItem-selected .tabMiddleCenter {
+    cursor: default;
+    color: #ffffff;
+    background: #81bdf4;
+}
+
+.blue-selected {
+    background-color: #75A9ff;
+    color: #aaa;
+}
+
+.blue-week-end {
+    color: #aaa;
+    background-color: #eee;
+}
+
+.blue-current-month-week-end {
+    background-color: #eee;
+    color: black;
+}
+
+.blue-other-day {
+    color: #aaa;
+}
+
+.blue-current-month-other-day {
+    color: black;
+}
+
+.blue-day-grid tr {
+    height: 20px;
+}
+
+.blue-current-day {
+    border: thin solid red;
+    color: black;
+}
+
+.blue-blue-day {
+    background-color: #C3D9FF;
+    border: thin solid white;
+    color: black;
+}
+
+.blue-green-day {
+    background-color: #5db166;
+    border: thin solid white;
+    color: black;
+}
+
+.blue-red-day {
+    background-color: red;
+    border: thin solid white;
+    color: white;
+}
+
+.blue-off-day {
+    color: red;
+    border: thin solid #eee;
+    background-color: #eee;
+}
+
+.blue-current-week-day {
+    background-color: gainsboro;
+}
+
+.workforce .gwt-ScrollTable .headerWrapper {
+    background: #8bd url(/mainStyles/themes/blue/bg_header_gradient.gif) repeat-x bottom left;
+    height: 22px;
+}
+
+.workforce .gwt-ScrollTable .headerTable td,
+.workforce .gwt-ScrollTable .footerTable td {
+    border-color: #dedede;
+    border-style: solid;
+    color: #fff;
+    border-width: 0 1px 1px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 2px;
+    height: 24px;
+}
+
+.workforce .my-toolitem-over .my-toolitem-l {
+    background: url(/mainStyles/themes/blue/tb-btn-sprite.gif) no-repeat;
+}
+
+.workforce .my-toolitem-over .my-toolitem-ml,
+.workforce .my-toolitem-over .my-toolitem-c {
+    background: url(/mainStyles/themes/blue/tb-btn-sprite.gif) repeat-x 0 -42px;
+}
+
+.workforce .my-toolitem-over .my-toolitem-ml,
+.workforce .my-toolitem-over .my-toolitem-c {
+    background: url(/mainStyles/themes/blue/tb-btn-sprite.gif) repeat-x 0 -42px;
+}
+
+.workforce .my-toolitem-over .my-toolitem-mr {
+    background: url(/mainStyles/themes/blue/tb-btn-sprite.gif) repeat-x 0 -42px;
+}
+
+.workforce .my-toolitem-split div {
+    background: transparent url(/mainStyles/themes/blue/btn-arrow.gif) no-repeat 0 -47px;
+    width: 12px;
+    height: 21px;
+}
+
+.workforce .wfm-tool-bar {
+    /*background: url("/mainStyles/themes/blue/bg.gif") repeat-x scroll 0 0 transparent;*/
+    margin: 0;
+    width: 100%;
+    border: medium none;
+}
+
+.workforce .my-toolbar {
+    background: url(/mainStyles/themes/blue/bg.gif) 0 0 repeat-x;
+    border-bottom: 0 solid #A9BFD3;
+}
+
+.workforce .my-toolitem-over .my-toolitem-r {
+    background: url(/mainStyles/themes/blue/tb-btn-sprite.gif) no-repeat 0 -21px;
+}
+
+.workforce .my-toolitem-down .my-toolitem-l {
+    background: url(/mainStyles/themes/blue/tb-btn-sprite.gif) no-repeat 0 -63px;
+}
+
+.workforce .my-toolitem-down .my-toolitem-ml,
+.workforce .my-toolitem-down .my-toolitem-c {
+    background: url(/mainStyles/themes/blue/tb-btn-sprite.gif) repeat-x 0 -105px;
+}
+
+.workforce .my-toolitem-down .my-toolitem-mr {
+    background: url(/mainStyles/themes/blue/tb-btn-sprite.gif) repeat-x 0 -105px;
+}
+
+.workforce .my-toolitem-down .my-toolitem-r {
+    background: url(/mainStyles/themes/blue/tb-btn-sprite.gif) no-repeat 0 -84px;
+}
+
+.workforce .my-toolitem-sel .my-toolitem-l {
+    background: url(/mainStyles/themes/blue/tb-btn-sprite.gif) no-repeat 0 -63px;
+}
+
+.workforce .my-toolitem-sel .my-toolitem-ml,
+.workforce .my-toolitem-sel .my-toolitem-c {
+    background: url(/mainStyles/themes/blue/tb-btn-sprite.gif) repeat-x 0 -105px;
+}
+
+.workforce .my-toolitem-sel .my-toolitem-mr {
+    background: url(/mainStyles/themes/blue/tb-btn-sprite.gif) repeat-x 0 -105px;
+}
+
+.workforce .my-toolitem-sel .my-toolitem-r {
+    background: url(/mainStyles/themes/blue/tb-btn-sprite.gif) no-repeat 0 -84px;
+}
+
+.workforce .wfm-my-toolitem-over .wfm-my-toolitem-l {
+    background: url(/mainStyles/themes/blue/tb-btn-sprite.gif) no-repeat;
+}
+
+.workforce .wfm-my-toolitem-over .wfm-my-toolitem-ml,
+.workforce .wfm-my-toolitem-over .wfm-my-toolitem-c {
+    background: url(/mainStyles/themes/blue/tb-btn-sprite.gif) repeat-x 0 -42px;
+}
+
+.workforce .wfm-my-toolitem-over .wfm-my-toolitem-ml,
+.workforce .wfm-my-toolitem-over .wfm-my-toolitem-c {
+    background: url(/mainStyles/themes/blue/tb-btn-sprite.gif) repeat-x 0 -42px;
+}
+
+.workforce .wfm-my-toolitem-over .wfm-my-toolitem-mr {
+    background: url(/mainStyles/themes/blue/tb-btn-sprite.gif) repeat-x 0 -42px;
+}
+
+.workforce .wfm-my-toolitem-over .wfm-my-toolitem-r {
+    background: url(/mainStyles/themes/blue/tb-btn-sprite.gif) no-repeat 0 -21px;
+}
+
+.workforce .wfm-my-toolitem-over {
+    height: 21px;
+    cursor: pointer;
+}
+
+.blue-border {
+    background-color: white;
+    border: 1px solid #99BBE8;
+    border-collapse: collapse;
+}
+
+.blue-border td {
+    border-color: #99BBE8;
+}
+
+.table-blue-header {
+    background: url("/mainStyles/themes/mediacom/top2.gif") repeat scroll 0 0 #FFFFFF;
+    color: #5A4580;
+    font-weight: bold;
+}
+
+.help-sub-title {
+    font-size: 11px;
+    color: #002C6D;
+}
+
+.report-theme {
+    color: #515151;
+    background: none repeat scroll 0 0 #E6E6E6;
+    font: bold 13px Arial, sans-serif;
+    padding: 5px;
+    margin-top: -4px;
+}
+
+a.btn:hover {
+
+}
+
+.workforce .cw-StackPanelHeader {
+    background-color: #E4F5FF;
+    border-bottom: 1px solid #cccccc;
+    border-top: 1px solid #cccccc;
+    color: #003366;
+    font: bold 16px Arial, sans-serif;
+    padding: 3px 24px 0 30px;
+    text-transform: uppercase;
+}
+
+.workforce .cw-StackPanelHeader em {
+    padding-left: 23px;
+    font: bold 16px Arial, sans-serif;
+}
+
+.workforce .cw-StackPanelHeader .colapse {
+    background: url("/images/themes/blue/arrow-down-blue.png") no-repeat scroll 0 40% #E4F5FF;
+}
+
+.workforce .cw-StackPanelHeader .expand {
+    background: url("/images/themes/blue/arrow-up-blue.png") no-repeat scroll 0 40% #E4F5FF;
+}
+
+.workforce .other-reports {
+    background-color: #E4F5FF;
+}
+
+.workforce .table-reportList td .thead {
+    background-color: #1286c3;
+    border-left: 1px solid #3db9df;
+    border-right: 1px solid #003382;
+    color: #FFFFFF;
+    font: bold 13px Arial, sans-serif;
+    text-align: center;
+    vertical-align: middle;
+    height: 25px;
+    line-height: 25px;
+}
+
+.workforce .table-reportList td .thead {
+    background-color: #1286c3;
+    border-left: 1px solid #3db9df;
+    border-right: 1px solid #003382;
+    color: #FFFFFF;
+    font: bold 13px Arial, sans-serif;
+    text-align: center;
+    vertical-align: middle;
+    height: 25px;
+    line-height: 25px;
+}
+
+.folder-content .f-table td.f-header {
+    background-color: #0077BF;
+}
+
+.workforce .table-reportList {
+    border: 1px solid #0070BF;
+}
+
+.workforce .order-panel>div>.gwt-Caption {
+    background-image: url("/images/themes/blue/bg_htitle.png");
+}
+
+.workforce .dragdrop-dropTarget tr td div:hover {
+    background-color: #015D9F;
+}
+
+.workforce .table-list {
+    border: 1px solid #0070BF;
+}
+
+.workforce .steps .act, .workforce .steps div:hover {
+    background: url("/mainStyles/images/default/bg/bg_gradX_blue-1.png") repeat-x scroll 0 0 #DADADA;
+    text-shadow: 2px 2px 2px #01619E;
+}
+
+.workforce #button-panel-inner .btn-1 {
+    color: #FFFFFF !important;
+}
+
+.workforce em.optBtn {
+    color: #0070BF !important;
+}
+
+.workforce .markNewReport {
+    background: url("/images/themes/blue/bg_markSuggestNew.png") no-repeat scroll 5px 50% transparent;
+}
+
+.workforce .markImport {
+    background: url("/images/themes/blue/bg_markImport.png") no-repeat scroll 8px 50% transparent;
+}
+
+.workforce .tablularImg {
+    background-image: url(/images/themes/blue/tabular.jpg);
+    width: 386px;
+    height: 173px;
+}
+
+.workforce .summariesImg {
+    background-image: url(/images/themes/blue/summaries.jpg);
+    width: 386px;
+    height: 173px;
+}
+
+.workforce .summariesColImg {
+    background-image: url(.images/themes/blue/summariesCol.jpg);
+    width: 297px;
+    height: 275px;
+    margin-top: -4px;
+}
+
+.workforce .summariesInfo {
+    background: url("/images/themes/blue/Select-Grouping-img.jpg") no-repeat scroll 0 0 transparent;
+    float: right;
+}
+
+.workforce .dotted-label {
+    border: 1px dotted #0070BF !important;
+}
+
+.workforce .draggable-columns {
+}
+
+.workforce .addNew {
+    /* (07.16.2012) it used in main menu .addNew border: 1px dotted #0070BF !important; */
+}
+
+.workforce .markModify {
+    color: #0070BF !important;
+}
+
+.workforce .table-List .thead:first-child {
+    border-left: 1px solid #1286C3;
+}
+
+.workforce .table-List .thead:last-child {
+    border-right: 1px solid #1286C3;
+}
+
+.workforce .massData tbody tr.odd td {
+    background-color: #F3F3F3;
+}
+
+.workforce .markFolder {
+    background: url("/images/themes/blue/add-folder.png") no-repeat scroll 8px 50% transparent;
+}
+
+.workforce #button-panel-inner span {
+    color: #1286C3;
+}
+
+.workforce .markfilter-act {
+    background: url("/images/themes/blue/bg_filter.png") no-repeat scroll 10px 50% transparent;
+}
+
+.workforce .mailing-list {
+    background: url("/images/themes/blue/mailinglist.png") no-repeat scroll 10px 50% transparent;
+}
+
+.workforce .sub-title {
+    color: #1286C3;
+}

@@ -1,0 +1,1 @@
+/opt/jdk/bin/java -Dspring.profiles.active=$SPRING_PROFILES_ACTIVE_NEW -cp "/mnt/webapps/projects/newui.kpi.com/ROOT/WEB-INF/classes:/mnt/webapps/projects/newui.kpi.com/ROOT/WEB-INF/lib/*" com.edatasite.workforce.core.tools.EdsSchemaUpdater all

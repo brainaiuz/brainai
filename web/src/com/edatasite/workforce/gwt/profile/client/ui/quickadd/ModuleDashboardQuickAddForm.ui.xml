@@ -1,0 +1,42 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:kpi='urn:import:com.edatasite.workforce.gwt.core.client.ui'
+             xmlns:mhtml='urn:import:gwt.material.design.client.ui.html'
+             xmlns:comp='urn:import:com.edatasite.workforce.gwt.core.client.ui.components'>
+
+    <g:HTMLPanel ui:field="panel">
+        <g:HTMLPanel styleName="form-group">
+            <mhtml:Label ui:field="nameLabel" styleName="form-group__label"/>
+            <g:TextBox ui:field="name"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group">
+            <mhtml:Label ui:field="moduleLabel" styleName="form-group__label"/>
+            <kpi:DataListBox ui:field="module"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group form-group--inline" ui:field="activeSwicherItem">
+            <mhtml:Label ui:field="activeSwicherLabel" styleName="form-group__label"/>
+            <g:HTMLPanel styleName="form-group__content">
+                <comp:KpiSwitcher ui:field="activeSwicher"/>
+            </g:HTMLPanel>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group form-group--inline">
+            <mhtml:Label ui:field="defaultSwitcherLabel" styleName="form-group__label"/>
+            <g:HTMLPanel styleName="form-group__content">
+                <comp:KpiSwitcher ui:field="defaultSwitcher"/>
+            </g:HTMLPanel>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group">
+            <mhtml:Label ui:field="roleLabel" styleName="form-group__label"/>
+            <mhtml:Div styleName="scroll-box scroll-box--height-x box-bg--1" ui:field="rolePanel"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group">
+            <mhtml:Label ui:field="numberOfWidgetsLabel" styleName="form-group__label"/>
+            <g:TextBox ui:field="numberOfWidgets"/>
+        </g:HTMLPanel>
+    </g:HTMLPanel>
+</ui:UiBinder>

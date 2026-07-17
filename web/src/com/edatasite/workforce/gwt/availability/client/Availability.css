@@ -1,0 +1,603 @@
+.avail-sta-blue {
+    color: #19468a;
+}
+
+.avail-sta-red {
+    color: #d11900;
+}
+
+#add-employee {
+    background: url("hrms/images/addemployees.png") no-repeat 9px 0;
+}
+
+#config-holiday {
+    background: url("hrms/images/holidays.png") no-repeat;
+}
+
+#add-employee .abs-link {
+    bottom: 11px;
+    right: 11px;
+    width: 212px;
+    height: 44px;
+}
+
+#add-employee .abs-link:lang(ru) {
+    bottom: 11px;
+    right: 20px;
+    width: 212px;
+    height: 44px;
+}
+
+/*#config-timeslot .abs-link {
+    bottom: 105px;
+    right: 20px;
+    width: 234px;
+    height: 47px;
+}
+
+#config-timeslot .abs-link:lang(ru) {
+    top: 22px;
+    right: 15px;
+    width: 234px;
+    height: 47px;
+}*/
+
+#config-holiday .abs-link {
+    bottom: 10px;
+    left: 0;
+    width: 222px;
+    height: 35px;
+}
+
+#config-holiday .abs-link:lang(ru) {
+    bottom: 25px;
+    left: 0;
+    width: 222px;
+    height: 35px;
+}
+
+/*
+#see-final .abs-link {
+    bottom: 50px;
+    right: 11px;
+    width: 200px;
+    height: 72px;
+}
+
+#see-final .abs-link:lang(ru) {
+    display:block;
+    top: 65px;
+    right: 11px;
+    width: 200px;
+    height: 72px;
+}
+*/
+/*List Icons Start*/
+
+.icon-edit {
+    background: url(hrms/images/edit.gif);
+}
+
+.icon-delete {
+    background: url(hrms/images/remove-icon.gif) no-repeat;
+}
+
+/*attendance report table*/
+table.attendance-report-table {
+    margin: 5px 10px 5px 5px;
+    border-color: #3f629a;
+    border-width: 0 0 1px 1px;
+    border-style: solid;
+    table-layout: fixed;
+}
+
+/*attandanc table for Month-Name style*/
+table.attendance-report-table td.month-name {
+    color: #3f629a;
+    font-size: 12pt;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+    border-style: solid;
+    border-color: #3f629a;
+    border-width: 1px 1px 0 0;
+    background-color: #bbdefa;
+    overflow: hidden;
+    zoom: 1;
+}
+
+/*attendance table for month days numbers style */
+table.attendance-report-table td.month-day {
+    width: 19px;
+    height: 16px;
+    color: black;
+    text-align: center;
+    vertical-align: middle;
+    border-color: #3f629a;
+    border-width: 1px 1px 0 0;
+    border-style: solid;
+    background-color: #d8d8d8;
+    overflow: hidden;
+    zoom: 1;
+}
+
+/*attendance table for employee  title data style */
+table.attendance-report-table td.employee-label-month-day {
+    width: 19px;
+    height: 16px;
+    color: #3f629a;
+    text-align: center;
+    vertical-align: middle;
+    border-color: #3f629a;
+    border-width: 1px 1px 0 0;
+    border-style: solid;
+    background-color: #bbdefa;
+    overflow: hidden;
+    zoom: 1;
+}
+
+/*attendance table for Column  title style*/
+table.attendance-report-table td.column-title {
+    color: #3f629a;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+    padding: 3px 2px 3px 2px;
+    border-color: #3f629a;
+    border-width: 1px 1px 0 0;
+    border-style: solid;
+    background-color: #bbdefa;
+    overflow: hidden;
+    zoom: 1;
+}
+
+/*attendance table for total-in-month style*/
+table.attendance-report-table td.total-month-title {
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+    padding: 3px 2px 3px 2px;
+    border-color: #3f629a;
+    border-width: 1px 1px 0 0;
+    border-style: solid;
+    background-color: #79a7e5;
+    overflow: hidden;
+    zoom: 1;
+}
+
+/*attendance table for employee name labels style */
+table.attendance-report-table td.employee-name {
+    width: 170px;
+    color: black;
+    vertical-align: middle;
+    padding: 2px 9px 2px 10px;
+    border-color: #3f629a;
+    border-width: 1px 1px 0 0;
+    border-style: solid;
+    background-color: white;
+    overflow: hidden;
+    zoom: 1;
+
+}
+
+/*attendance table for labels style */
+table.attendance-report-table td.label- {
+    width: 170px;
+    color: #3f629a;
+    font-weight: bold;
+    vertical-align: middle;
+    padding: 2px 15px 2px 10px;
+    border-color: #3f629a;
+    border-width: 1px 1px 0 0;
+    border-style: solid;
+    background-color: #bbdefa;
+    overflow: hidden;
+    zoom: 1;
+
+}
+
+/*attendance table for with out leave request*/
+table.attendance-report-table td.a-title {
+    color: #f2d503;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: middle;
+    border-color: #3f629a;
+    border-width: 1px 1px 1px 0;
+    border-style: solid;
+    background-color: #c10001;
+    position: relative;
+    overflow: hidden;
+    zoom: 1;
+}
+
+/*attendance table for leave request*/
+table.attendance-report-table td.l-title {
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: middle;
+    border-color: #3f629a;
+    border-width: 1px 1px 1px 0;
+    border-style: solid;
+    background-color: #92d051;
+    overflow: hidden;
+    zoom: 1;
+}
+
+table.attendance-report-table td.waitingForApproval {
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: middle;
+    border-color: #3f629a;
+    border-width: 1px 1px 1px 0;
+    border-style: solid;
+    background-color: #fff922;
+    overflow: hidden;
+    zoom: 1;
+}
+
+/*attendance table for title column name*/
+table.attendance-report-table td.inhour-overtime {
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+    border-color: #3f629a;
+    border-width: 1px 1px 0 0;
+    border-style: solid;
+    background-color: white;
+    overflow: hidden;
+    zoom: 1;
+    width: 50px;
+}
+
+/*attendance table for all samples numbers style */
+table.attendance-report-table td.sample-column {
+    width: 25px;
+    height: 16px;
+    color: black;
+    vertical-align: middle;
+    text-align: center;
+    border-color: #3f629a;
+    border-width: 1px 1px 0 0;
+    border-style: solid;
+    background-color: white;
+    overflow: hidden;
+    zoom: 1;
+}
+table.attendance-report-table td.width67 {
+    width:67px !important;
+}
+
+table.attendance-report-table td.width54 {
+    width:54px !important;
+}
+/* attendance table for month holiday style */
+table.attendance-report-table td.work-month-holiday {
+    height: 16px;
+    width: 19px;
+    color: black;
+    vertical-align: middle;
+    text-align: center;
+    border-color: #3f629a;
+    border-width: 1px 1px 0 0;
+    border-style: solid;
+    background-color: #95b3d7;
+    overflow: hidden;
+    zoom: 1;
+}
+
+/* attendance table for month holiday style */
+table.attendance-report-table td.work-company-holiday {
+    height: 16px;
+    width: 19px;
+    color: #c10001;
+    vertical-align: middle;
+    text-align: center;
+    border-color: #3f629a;
+    border-width: 1px 1px 0 0;
+    border-style: solid;
+    background-color: #ffA500;
+    overflow: hidden;
+    zoom: 1;
+}
+
+/* attendance table for month holiday style */
+table.attendance-report-table td.month-sunday {
+    height: 16px;
+    width: 19px;
+    color: black;
+    vertical-align: middle;
+    text-align: center;
+    border-color: #3f629a;
+    border-width: 1px 1px 0 0;
+    border-style: solid;
+    background-color: #c2d79b;
+    overflow: hidden;
+    zoom: 1;
+}
+
+/* attendance table for month holiday style */
+table.attendance-report-table td.work-month-holiday-in-out {
+    height: 16px;
+    width: 19px;
+    color: black;
+    font-size: 7pt;
+    vertical-align: middle;
+    text-align: center;
+    border-color: #3f629a;
+    border-width: 1px 1px 0 0;
+    border-style: solid;
+    background-color: #95b3d7;
+    overflow: hidden;
+    zoom: 1;
+}
+
+/* attendance table for company holiday style */
+table.attendance-report-table td.work-company-holiday-in-out {
+    height: 16px;
+    width: 19px;
+    color: #c10001;
+    font-size: 7pt;
+    vertical-align: middle;
+    text-align: center;
+    border-color: #3f629a;
+    border-width: 1px 1px 0 0;
+    border-style: solid;
+    background-color: #ffA500;
+    overflow: hidden;
+    zoom: 1;
+}
+
+/* attendance table for month holiday style */
+table.attendance-report-table td.month-sunday-in-out {
+    height: 16px;
+    width: 19px;
+    color: black;
+    font-size: 7pt;
+    vertical-align: middle;
+    text-align: center;
+    border-color: #3f629a;
+    border-width: 1px 1px 0 0;
+    border-style: solid;
+    background-color: #c2d79b;
+    overflow: hidden;
+    zoom: 1;
+}
+
+/* attendance table for current day style */
+table.attendance-report-table td.current-day {
+    height: 16px;
+    width: 19px;
+    color: white;
+    vertical-align: middle;
+    text-align: center;
+    border-color: #3f629a;
+    border-width: 1px 1px 0 0;
+    border-style: solid;
+    background-color: #19468a;
+    overflow: hidden;
+    zoom: 1;
+}
+
+/* attendance table for in out hour column style */
+table.attendance-report-table td.sample-in-out-hours {
+    height: 16px;
+    width: 19px;
+    font-size: 7pt;
+    vertical-align: middle;
+    text-align: center;
+    border-color: #3f629a;
+    border-width: 1px 1px 0 0;
+    border-style: solid;
+    background-color: white;
+    overflow: hidden;
+    zoom: 1;
+}
+
+/* attendance table for total absent style */
+table.attendance-report-table td.total-absent {
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    border-color: #3f629a;
+    border-width: 1px 1px 0 0;
+    border-style: solid;
+    background-color: #79a7e5;
+    overflow: hidden;
+    zoom: 1;
+}
+
+/*attendance table for A style */
+table.attendance-report-table td.without-lr {
+    color: #000000;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: middle;
+    border-color: #3f629a;
+    border-width: 1px 1px 0 0;
+    border-style: solid;
+    background-color: #fff922;
+    overflow: hidden;
+    zoom: 1;
+}
+
+table.attendance-report-table td.without-lr-unauth {
+    color: #f2d503;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: middle;
+    border-color: #3f629a;
+    border-width: 1px 1px 0 0;
+    border-style: solid;
+    background-color: #c10001;
+    overflow: hidden;
+    zoom: 1;
+}
+
+/*attendance table for L style */
+table.attendance-report-table td.with-lr {
+    color: black;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: middle;
+    border-color: #3f629a;
+    border-width: 1px 1px 0 0;
+    border-style: solid;
+    background-color: #92d051;
+    overflow: hidden;
+    zoom: 1;
+}
+
+table.attendance-report-table td.with-lr-unauth {
+    color: #f2d503;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: middle;
+    border-color: #3f629a;
+    border-width: 1px 1px 0 0;
+    border-style: solid;
+    background-color: #c10001;
+    overflow: hidden;
+    zoom: 1;
+}
+
+/*attendance table for total month sum style */
+table.attendance-report-table td.total-month-column {
+    color: black;
+    font-weight: bold;
+    vertical-align: middle;
+    text-align: center;
+    border-color: #3f629a;
+    border-width: 1px 1px 1px 1px;
+    border-style: solid;
+    background-color: white;
+    overflow: hidden;
+    zoom: 1;
+}
+
+/*attendance table for total with out lr sum  style */
+table.attendance-report-table td.total-without-lr-column {
+    color: black;
+    font-weight: bold;
+    vertical-align: middle;
+    text-align: center;
+    border-color: #3f629a;
+    border-width: 1px 1px 1px 1px;
+    border-style: solid;
+    background-color: white;
+    overflow: hidden;
+    zoom: 1;
+}
+
+/*attendance table for total with lr sum style */
+table.attendance-report-table td.total-with-lr-column {
+    color: black;
+    font-weight: bold;
+    vertical-align: middle;
+    text-align: center;
+    border-color: #3f629a;
+    border-width: 1px 1px 0 1px;
+    border-style: solid;
+    background-color: white;
+    overflow: hidden;
+    zoom: 1;
+}
+
+/* top Panel month name */
+.prev-next-month-panel {
+    color: #19468a;
+    font-weight: bold;
+    text-align: center;
+    padding: 3px 0 0 0;
+}
+
+.icon-incident-small {
+    /*Availability ICONS */
+    background-image: url("hrms/images/incident-small.png");
+}
+
+.icon-info {
+    background: url(hrms/images/icon-info1.gif) no-repeat;
+}
+
+.icon-availability-small {
+    /*EmployeeLeaveRequestStatusListView.java*/
+    background: url("hrms/images/attendance-small.png");
+}
+
+.icon-calendar {
+    background: url("hrms/images/calendar.gif") no-repeat;
+}
+
+/*availability */
+.subDivisions li.availability a {
+    background-image: url("hrms/images/availability-sprite.png");
+    background-repeat: no-repeat;
+}
+
+/*av-welcome*/
+.subDivisions .av-welcome a {
+    background-position: 11px -174px;
+}
+
+/*availability-home*/
+.subDivisions .availability-home a {
+    background-position: 11px -70px;
+}
+
+/*global-employee-leave-req*/
+.subDivisions .global-employee-leave-req a {
+    background-position: 11px -488px;
+}
+
+/*team-availability*/
+.subDivisions .team-availability a {
+    background-position: 11px -122px;
+}
+
+/*approvel-leave-req*/
+.subDivisions .approvel-leave-req a {
+    background-position: 11px -18px;
+}
+
+/*annual-allowance*/
+.subDivisions .annual-allowance a {
+    background-position: 11px -278px;
+}
+
+/*welcome active hover*/
+.subDivisions .av-welcome a:hover, .subDivisions .av-welcome.active a {
+    background-position: 11px -149px;
+}
+
+/*availability-home active hover*/
+.subDivisions .availability-home a:hover, .subDivisions .availability-home.active a {
+    background-position: 11px -44px;
+}
+
+/*global-employee-leave-req active hover*/
+.subDivisions .global-employee-leave-req a:hover, .subDivisions .global-employee-leave-req.active a {
+    background-position: 11px -462px;
+}
+
+/*team-availability active hover*/
+.subDivisions .team-availability a:hover, .subDivisions .team-availability.active a {
+    background-position: 11px -96px;
+}
+
+/*approvel-leave-req active hover*/
+.subDivisions .approvel-leave-req a:hover, .subDivisions .approvel-leave-req.active a {
+    background-position: 11px 8px;
+}
+
+/*annual-allowance active hover*/
+.subDivisions .annual-allowance a:hover, .subDivisions .annual-allowance.active a {
+    background-position: 11px -251px;
+}

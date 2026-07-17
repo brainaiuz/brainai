@@ -1,0 +1,9 @@
+stages:
+  - changelog
+  - build
+  - deploy
+
+include:
+  - local: 'conf/gitlab/templates/default.yml'
+  - local: 'conf/gitlab/templates/common.yml'
+  - local: 'conf/gitlab/env/dev.yml'

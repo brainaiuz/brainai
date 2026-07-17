@@ -1,0 +1,9 @@
+Dear $username,
+Please be advised that stock amount of following item(s) is below Reorder Point:
+  <br>
+$items
+<br>
+
+Click here to view the Inventory item listing page
+* If you are not able to click on the link, you can instead copy and paste the following address in to your web browser:
+$url

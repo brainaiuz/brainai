@@ -1,0 +1,18 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:groupBox='urn:import:com.edatasite.workforce.gwt.core.client.ui.components.groupBox'>
+
+    <g:HTMLPanel ui:field="topPanel" styleName="pageContent_reporting">
+
+        <div class="fixed-filters-panel-wrapper">
+            <groupBox:SectionBoxPanel ui:field="headerPanel"/>
+        </div>
+
+        <div id="mainContent" class="inputs_sm table_tree">
+            <div class="textPanel clearfix delimit_top">
+                <div ui:field="vatReturnReportSection"/>
+            </div>
+        </div>
+    </g:HTMLPanel>
+</ui:UiBinder>

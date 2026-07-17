@@ -1,0 +1,132 @@
+package com.edatasite.workforce.gwt.core.server.servlets.pdf;
+
+import com.edatasite.workforce.core.domain.EdsCompany;
+import com.edatasite.workforce.core.domain.EdsUser;
+import com.edatasite.workforce.core.domain.settings.EdsCompanySettings;
+import com.edatasite.workforce.gwt.core.client.rpc.listingpanel.ListPanelToolRpc;
+import com.edatasite.workforce.gwt.core.client.rpc.listingpanel.ListResult;
+import com.edatasite.workforce.gwt.core.client.rpc.listingpanel.ListingFilterParameter;
+import com.edatasite.workforce.gwt.core.server.app.ServerUtils;
+import com.edatasite.workforce.gwt.core.server.servlets.pdf.localization.PdfLocalizationName;
+import com.edatasite.workforce.gwt.core.server.servlets.pdf.template.data.CellData;
+import com.edatasite.workforce.gwt.core.server.servlets.pdf.template.data.ITextGenericPdfData;
+import com.edatasite.workforce.gwt.core.server.servlets.pdf.template.data.ITextTableList;
+import com.edatasite.workforce.gwt.hrms.client.rpc.HrmsService;
+import com.edatasite.workforce.gwt.hrms.client.rpc.RotationItem;
+import com.lowagie.text.Document;
+import com.lowagie.text.Element;
+import com.lowagie.text.pdf.PdfWriter;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+public class RotationListViewPDPHandler extends AbstractITextPostPdfHandler {
+    @Autowired
+    private HrmsService hrmsService;
+
+    @Override
+    public ITextGenericPdfData buildPdfDocument(Object dataClass, Document document, PdfWriter writer) throws IOException {
+        return null;
+    }
+
+    @Override
+    protected ITextGenericPdfData buildPdfDocumentCustomise(Object dataClass, EdsCompany company, boolean hasPhantom) {
+        ListingFilterParameter filterParametrs = (ListingFilterParameter) dataClass;
+        filterParametrs.setAllByFilter(false);
+        EdsUser user = userManager.getUser();
+        EdsCompanySettings companySettings = company.getCompanySettings();
+        filterParametrs.setLimit(StringUtils.isNotEmpty(companySettings.getPdfLimit()) ? Integer.parseInt(companySettings.getPdfLimit()) : LIMIT_PDF_ROWS);
+        ListResult<RotationItem> rotationListResult = hrmsService.getRotationList(filterParametrs);
+        Map<String, CellData> mapColumnHeader = new HashMap<>();
+        mapColumnHeader.put(RotationItem.NUMBER, new CellData(commonLocalizer.localize("number"), Element.ALIGN_LEFT));
+        mapColumnHeader.put(RotationItem.STATUS, new CellData(commonLocalizer.localize("status"), Element.ALIGN_LEFT));
+        mapColumnHeader.put(RotationItem.APPROVER, new CellData(commonLocalizer.localize("approver"), Element.ALIGN_LEFT));
+        mapColumnHeader.put(RotationItem.DATE, new CellData(commonLocalizer.localize("date"), Element.ALIGN_LEFT));
+        mapColumnHeader.put(RotationItem.CREATOR, new CellData(commonLocalizer.localize("createdBy"), Element.ALIGN_LEFT));
+        mapColumnHeader.put(RotationItem.CREATED_DATE, new CellData(commonLocalizer.localize("createdDate"), Element.ALIGN_LEFT));
+        mapColumnHeader.put(RotationItem.UPDATER, new CellData(commonLocalizer.localize("modifiedBy"), Element.ALIGN_LEFT));
+        mapColumnHeader.put(RotationItem.UPDATED_DATE, new CellData(commonLocalizer.localize("modifiedDate"), Element.ALIGN_LEFT));
+
+        ListPanelToolRpc panelTools = filterParametrs.getListPanelTool();
+
+        List<CellData> header = panelTools.getColumnCodeName().stream()
+                .filter(columnCode -> mapColumnHeader.containsKey(columnCode))
+                .map(columnCode -> mapColumnHeader.get(columnCode))
+                .collect(Collectors.toList());
+        ITextTableList tableList = new ITextTableList(header.size());
+        tableList.addPdfTableHeader(header.toArray(new CellData[]{}));
+
+        for (RotationItem item : rotationListResult.getList()) {
+            Map<String, CellData> mapColumns = new HashMap<>();
+            if (panelTools.getColumnCodeName().contains(RotationItem.NUMBER)) {
+                mapColumns.put(RotationItem.NUMBER, new CellData(getResultOrLongDash(item.getRotationCode()), Element.ALIGN_LEFT));
+            }
+            if (panelTools.getColumnCodeName().contains(RotationItem.STATUS)) {
+                String status = " ";
+                if (item.getOverallStatus() != null && item.getOverallStatus().getCode() != null) {
+                    switch (item.getOverallStatus().getCode()) {
+                        case ROTATION_APPROVED -> status = "approved";
+                        case ROTATION_REJECTED -> status = "rejected";
+                        case ROTATION_SUBMITTED -> status = "waitingForApproval";
+                        case ROTATION_DRAFT -> status = "draft";
+                    }
+                }
+                mapColumns.put(RotationItem.STATUS, new CellData(getResultOrLongDash(commonLocalizer.localize(status)), Element.ALIGN_LEFT));
+            }
+            if (panelTools.getColumnCodeName().contains(RotationItem.APPROVER)) {
+                mapColumns.put(RotationItem.APPROVER, new CellData(getResultOrLongDash(item.getApproverEmployee() != null ? item.getApproverEmployee().getName() : "N/A"), Element.ALIGN_LEFT));
+            }
+            if (panelTools.getColumnCodeName().contains(RotationItem.DATE)) {
+                String format = ServerUtils.getUserLocale().getLanguage().equals("uz") ? ServerUtils.convertToUzbDateFormat(ServerUtils.shortDateFormat(user.getUserDate(item.getDate().getDate()), user))
+                        : ServerUtils.shortDateFormat(user.getUserDate(item.getDate().getDate()), user);
+                mapColumns.put(RotationItem.DATE, new CellData(getResultOrLongDash(format), Element.ALIGN_LEFT));
+            }
+            if (panelTools.getColumnCodeName().contains(RotationItem.CREATOR)) {
+                mapColumns.put(RotationItem.CREATOR, new CellData(getResultOrLongDash(item.getCreator() != null ? item.getCreator().getName() : "N/A"), Element.ALIGN_LEFT));
+            }
+            if (panelTools.getColumnCodeName().contains(RotationItem.CREATED_DATE)) {
+                String format = ServerUtils.getUserLocale().getLanguage().equals("uz") ? ServerUtils.convertToUzbDateFormat(ServerUtils.shortDateFormat(user.getUserDate(item.getCreatedDate().getDate()), user))
+                        : ServerUtils.shortDateFormat(user.getUserDate(item.getCreatedDate().getDate()), user);
+                mapColumns.put(RotationItem.CREATED_DATE, new CellData(getResultOrLongDash(format), Element.ALIGN_LEFT));
+            }
+            if (panelTools.getColumnCodeName().contains(RotationItem.UPDATER)) {
+                mapColumns.put(RotationItem.UPDATER, new CellData(getResultOrLongDash(item.getUpdater() != null ? item.getUpdater().getName() : "N/A"), Element.ALIGN_LEFT));
+            }
+            if (panelTools.getColumnCodeName().contains(RotationItem.UPDATED_DATE)) {
+                String format = ServerUtils.getUserLocale().getLanguage().equals("uz") ? ServerUtils.convertToUzbDateFormat(ServerUtils.shortDateFormat(user.getUserDate(item.getUpdatedDate().getDate()), user))
+                        : ServerUtils.shortDateFormat(user.getUserDate(item.getUpdatedDate().getDate()), user);
+                mapColumns.put(RotationItem.UPDATED_DATE, new CellData(getResultOrLongDash(format), Element.ALIGN_LEFT));
+            }
+            List<CellData> columns = panelTools.getColumnCodeName().stream()
+                    .filter(mapColumns::containsKey)
+                    .map(mapColumns::get)
+                    .collect(Collectors.toList());
+            tableList.addPdfTableRows(columns.toArray(new CellData[]{}));
+        }
+
+        ITextGenericPdfData pdfData = new ITextGenericPdfData();
+        pdfData.setListTable(tableList);
+        return pdfData;
+    }
+
+
+    @Override
+    protected boolean isListingPDF() {
+        return true;
+    }
+
+    @Override
+    protected String getTableName(Object dataClass) {
+        return commonLocalizer.localize(PdfLocalizationName.rotations);
+    }
+
+    @Override
+    protected void setFileName(EdsUser user, Object dataClass) {
+        setFileName((user.getFirstName() + "_" + user.getLastName() + "_RotationList_" + dateFormat(user.getUserDate())).replace("/", "_"));
+    }
+}

@@ -1,0 +1,172 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style type="text/css">
+        body {
+            font-family: 'Arial', "Helvetica Neue", Helvetica, sans-serif;
+            font-weight: 300;
+            font-size: 9pt;
+            line-height: 1.4;
+        }
+        .table-header {
+            font-size: 9pt;
+            padding: 8px 6px;
+            border-bottom: 1px solid black;
+            font-weight: bold;
+            vertical-align: top;
+        }
+        .profit-and-loss__rowhead {
+            text-transform: uppercase;
+            padding: 6px 4px;
+            font-size: 10pt;
+            font-weight: bold;
+        }
+        .profit-and-loss__subtotalrow td {
+            border-bottom: 1px solid #ced5db;
+            border-top: 1px solid #ced5db;
+            font-weight: bold;
+            font-size: 10pt;
+            margin-top: 6px;
+            margin-bottom: 6px;
+        }
+        .profit-and-loss__table td > div:not(.profit-and-loss__rowhead) {
+            margin-left: 12px;
+        }
+        .profit-and-loss__totalrow td {
+            border-bottom: 5px double #ced5db;
+            border-top: 1px solid #ced5db;
+            font-weight: bold;
+            font-size: 10pt;
+            margin-top: 6px;
+            margin-bottom: 6px;
+        }
+        .vertical-gap {
+            line-height: 10px;
+        }
+        .align_0 {
+            text-align: left;
+        }
+        .align_1 {
+            text-align: center;
+        }
+        .align_2 {
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+<div class="trial-balance__tmp">
+    <img alt="images"
+         src="https://workforcetrack.s3.amazonaws.com/000000000000/public/65159/a2113e82-397f-49fd-a58a-cdf4f4b93dff?AWSAccessKeyId=AKIAIROQMC77E5UKWBWQ"
+         style="display: none;"/>
+    #if($itextGenericPdfData.companyData.companyName == 'KPI Software Inc' or $itextGenericPdfData.companyData.companyLogoUrl == 'https://apps.kpi.com/customisation/kpi.com/images/kpilogo.png')
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="width: 88px;display: none;"/>
+    #else
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="max-width: 100%; max-height: 100%; display: none;"/>
+    #end
+
+    #set($colspan = $itextGenericPdfData.getListTable().getTableHeader().size())
+    #set($colspanLess = $itextGenericPdfData.getListTable().getTableHeader().size() - 1)
+
+    #set($beginningBalance = $itextGenericPdfData.customData.get('BEGINNING_BALANCE'))
+    #set($transactions = $itextGenericPdfData.customData.get('TRANSACTIONS'))
+    #set($total = $itextGenericPdfData.customData.get('TOTAL'))
+    #set($endingBalance = $itextGenericPdfData.customData.get('ENDING_BALANCE'))
+    #set($accountType = $itextGenericPdfData.customData.get('ACCOUNT_TYPE').header.get('ACCOUNT_TYPE'))
+    #set($accountName = $itextGenericPdfData.customData.get('ACCOUNT_NAME').name)
+    <table cellspacing="0" cellpadding="0" width="100%" style="font-weight: bold; font-size: 9pt;">
+        <tr>
+            <td width="100%" align="center">$itextGenericPdfData.currentDate</td>
+        </tr>
+        <tr>
+            <td align="center">$accountName</td>
+        </tr>
+        <tr>
+            <td align="center">$itextGenericPdfData.extraData</td>
+        </tr>
+    </table>
+    <br/>
+
+    <table class="profit-and-loss__table" cellspacing="0" cellpadding="0" style="width:100%;">
+        <tr class="thead-tr">
+            #foreach($header in $itextGenericPdfData.getListTable().getTableHeader())
+                #set($aligClass='align_' + $header.alignment)
+                <th class="$aligClass" style=" font-size: 9pt; padding:8px 6px 8px 14px; white-space: nowrap; border-bottom:1px solid black;font-weight: bold;vertical-align: top; width: $header.width%;">$header.getText()</th>
+            #end
+        </tr>
+
+        #if($beginningBalance != '' && ($accountType != 'EXPENSES' && $accountType != 'REVENUE'))
+        <tr>
+            <td colspan="$colspanLess" style="width: 88%;">
+                <div class="profit-and-loss__rowhead" style="text-align: left; ">$beginningBalance.name</div>
+            </td>
+            <td style="width: 12%;">
+                <div style="text-align: right; font-size:10pt; padding:4px 4px;">$beginningBalance.getHeader().get('TOTAL')</div>
+            </td>
+        </tr>
+        #end
+
+        #if($transactions != '')
+        #foreach($trValue in $transactions.totalRows)
+        <tr>
+            <td style="width: 8%;vertical-align: top">
+                <div class="align_0" style="font-size: 8pt; padding:5px 1px;word-wrap:break-word;">$trValue.get(0)</div>
+            </td>
+            <td style="width: 24%;vertical-align: top">
+                <div class="align_0" style="font-size: 8pt; padding:5px 1px;word-wrap:break-word;">$trValue.get(1).replaceAll(',', ', ')</div>
+            </td>
+            <td style="width: 8%;vertical-align: top">
+                <div class="align_0" style="font-size: 8pt; padding:5px 1px;word-wrap:break-word;">$trValue.get(2)</div>
+            </td>
+            <td style="width: 8%;vertical-align: top">
+                <div class="align_0" style="font-size: 8pt; padding:5px 1px;word-wrap:break-word;">$trValue.get(3)</div>
+            </td>
+            <td style="width: 16%;vertical-align: top">
+                <div class="align_0" style="font-size: 8pt; padding:5px 1px;word-wrap:break-word;">$trValue.get(4)</div>
+            </td>
+            <td style="width: 12%;vertical-align: top">
+                <div class="align_2" style="font-size: 8pt; padding:5px 1px;word-wrap:break-word;">$trValue.get(5)</div>
+            </td>
+            <td style="width: 12%;vertical-align: top">
+                <div class="align_2" style="font-size: 8pt; padding:5px 1px;word-wrap:break-word;">$trValue.get(6)</div>
+            </td>
+            <td style="width: 12%;vertical-align: top">
+                <div class="align_2" style="font-size: 8pt; padding:5px 1px;word-wrap:break-word;">$trValue.get(7)</div>
+            </td>
+        </tr>
+        #end
+        #end
+
+        #if($total != '')
+        <tr class="profit-and-loss__subtotalrow">
+            <td colspan="5" style="width: 64%;">
+                <div class="profit-and-loss__rowhead" style="text-align: left; ">$total.name</div>
+            </td>
+            <td style="width: 12%;">
+                <div style="text-align: right; font-size:10pt; padding:4px 4px;">$total.getHeader().get('DEBIT')</div>
+            </td>
+            <td style="width: 12%;">
+                <div style="text-align: right; font-size:10pt; padding:4px 4px;">$total.getHeader().get('CREDIT')</div>
+            </td>
+            <td style="width: 12%;">
+                <div style="text-align: right; font-size:10pt; padding:4px 4px;">$total.getHeader().get('TOTAL')</div>
+            </td>
+        </tr>
+        #end
+
+        #if($endingBalance != '' && ($accountType != 'EXPENSES' && $accountType != 'REVENUE'))
+        <tr class="profit-and-loss__totalrow">
+            <td colspan="$colspanLess" style="width: 88%;">
+                <div class="profit-and-loss__rowhead" style="text-align: left; ">$endingBalance.name</div>
+            </td>
+            <td style="width: 12%;">
+                <div style="text-align: right; font-size:10pt; padding:4px 4px;">$endingBalance.getHeader().get('TOTAL')</div>
+            </td>
+        </tr>
+        #end
+
+    </table>
+</div>
+</body>
+</html>

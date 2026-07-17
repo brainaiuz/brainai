@@ -1,0 +1,1 @@
+alter table "anv".invoiceitem alter column qty type numeric(25,10);

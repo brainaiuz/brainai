@@ -1,0 +1,33 @@
+<report>
+    <view>
+        <title>Suppliers Whom You Owe Money</title>
+        <name>Suppliers Whom You Owe Money</name>
+        <category>Suppliers Whom You Owe Money</category>
+        <sqlquery>
+            <select agregateFunc="distinct">
+                <table name="Customers">
+                    <column name="t.id" title="id" type="number" formattype="hidden"/>
+                    <column name="t.fullname" title="Supplier's Name" type="string" formattype="string"/>
+                    <column name="t.balance" title="Amount Due" type="number" formattype="money"/>
+                    <column name="t.currency" title="Currency" type="string" formattype="string"/>
+                </table>
+            </select>
+            <from> (SELECT cc.id, (COALESCE(cc.firstname, '') || ' ' || COALESCE(cc.lastname, '')) as fullname, SUM(COALESCE(clientbalance, 0)) AS balance,
+                (select cur.name from company c
+                left join financialsettings fs on fs.id = financialsettingsid
+                left join currency cur on cur.id = fs.currency_id
+                where c.id = $) as currency
+                FROM "$".crmaccount ca
+                INNER JOIN "$".crmAccount_types typeIDs on typeIDs.crmaccount_id = ca.id
+                INNER JOIN "$".reference types on types.id = typeIDs.type_id
+                LEFT JOIN "$".crmContact cc ON cc.crmAccount = ca.id
+                WHERE types.code = 'SUPPLIER' and cc.deleted = false and ca.deleted = false and COALESCE(clientbalance, 0) > 0
+                GROUP BY cc.id, fullname, currency
+                ORDER BY balance DESC) t
+            </from>
+            <where>
+                <terms id="base" value="1=1"/>
+            </where>
+        </sqlquery>
+    </view>
+</report>

@@ -1,0 +1,194 @@
+.guide {
+  .btn-small {
+    border-radius: 15px;
+  }
+  .btn-large {
+    border-radius: 25px;
+  }
+}
+
+.guide-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30vh;
+  max-height: 180px;
+  padding: 0 36%;
+  background-color: #fff;
+  text-align: center;
+  box-shadow: 0 1px 10px 1px rgba(0, 0, 0, 0.09);
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 36%;
+    background: url("../images/guideLine-header.svg") 0 100%/contain no-repeat;
+  }
+  &:before {
+    left: 50px;
+  }
+  &:after {
+    right: 50px;
+    transform: scaleX(-1);
+  }
+
+  .left-menu-open & {
+    padding: 0 33%;
+  }
+  &:before,
+  &:after {
+    width: 33%;
+  }
+
+  dl {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    dt {
+      font-size: 18px;
+    }
+    dd {
+      margin: 20px 0 0;
+      .btn--circle {
+      }
+      > * {
+        margin: 0 10px;
+      }
+      > span {
+        display: inline-block;
+      }
+      > .btn-large {
+
+      }
+    }
+  }
+}
+
+.guide-line { // example https://i.imgur.com/ajovcer.png
+  display: flex;
+  padding: 30px 40px 30px 24px;
+  > * {
+    padding: 0 10px;
+    > .panel {
+      height: 100%;
+    }
+  }
+  .panel {
+    display: block;
+    color: $text-color-base;
+    box-shadow: 0 1px 10px 1px rgba(0, 0, 0, 0.09);
+    &:hover {
+      .panel__heading {
+        color: $link-color;
+      }
+    }
+  }
+  &__demo {
+    flex: 0 0 40%;
+    padding-left: 0;
+    .videoWrapper {
+      flex: 0 0 auto;
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 */
+      padding-top: 25px;
+      height: 0;
+      position: relative;
+      background: $body-bg url("../images/guide-demo.png") center/contain no-repeat;
+      outline: none;
+      cursor: pointer;
+
+      &--poster:before {
+
+      }
+
+      iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+    }
+    figure {
+      margin: 0;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    figcaption {
+      flex: 1 1 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      margin-top: -30px;
+
+      .btn-large {
+        min-width: 160px;
+      }
+    }
+  }
+  &__phone,
+  &__wiki {
+    flex: 0 0 30%;
+    .panel {
+      &__heading,
+      &__body {
+        padding-left: 40px !important;
+        padding-right: 40px !important;
+      }
+      &__heading {
+        flex-direction: column;
+        align-items: start;
+        margin: 0;
+        padding-top: 40px !important;
+        border-bottom: none !important;
+      }
+      &__body {
+        //max-width: 290px; // leead to the next //https://prnt.sc/si0rxf
+        line-height: 2.6;
+        padding-top: 0;
+        padding-bottom: 30px !important;
+        .btn-small {
+          margin-left: 10px;
+        }
+      }
+      .figure-icon {
+        position: relative;
+        margin-bottom: 10px;
+        padding: 0 30px 12px 0;
+        svg {
+          position: relative;
+          z-index: 1;
+          height: 50px;
+          width: 46px;
+        }
+        &:after {
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          width: 75px;
+          height: 55px;
+          content: '';
+          background: url("../images/cloud.svg") center/contain no-repeat;
+        }
+      }
+      figcaption {
+        strong {
+          display: block;
+        }
+        strong + small {
+          font-weight: 500;
+        }
+      }
+    }
+  }
+  &__phone {
+  }
+}
+

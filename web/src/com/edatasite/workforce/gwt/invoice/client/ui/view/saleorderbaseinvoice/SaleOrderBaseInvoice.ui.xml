@@ -1,0 +1,67 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:m.html="urn:import:gwt.material.design.client.ui.html"
+             xmlns:f='urn:import:com.edatasite.workforce.gwt.core.client.ui.components.form'
+             xmlns:sobi="urn:import:com.edatasite.workforce.gwt.invoice.client.ui.view.saleorderbaseinvoice"
+             xmlns:panel="urn:import:com.edatasite.workforce.gwt.core.client.ui.panel">
+
+    <g:HTMLPanel>
+        <div class="content-box content-box--white">
+            <div class="width-limiter">
+                <div class="grid-row">
+                    <div class="col-6">
+                        <div class="grid-row">
+                            <div class="col-6">
+                                <f:FormGroup ui:field="fgCustomer"/>
+                            </div>
+                            <div class="col-6">
+                                <f:FormGroup ui:field="fgInvoiceType"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="grid-row">
+                            <div class="col-6">
+                                <f:FormGroup ui:field="fgType"/>
+                            </div>
+                            <div class="col-6">
+                                <f:FormGroup ui:field="fgStatus"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-row">
+                    <div class="col-6">
+                        <div class="grid-row">
+                            <div class="col">
+                                <f:FormGroup ui:field="fgTaxCalcType"/>
+                            </div>
+                            <div class="col">
+                                <f:FormGroup ui:field="fgDateType"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="grid-row">
+                            <div class="col-4">
+                                <f:FormGroup ui:field="fgFromDate"/>
+                            </div>
+                            <div class="col-4">
+                                <f:FormGroup ui:field="fgToDate"/>
+                            </div>
+                            <div class="col-4">
+                                <f:FormGroup ui:field="showMoreLink"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <m.html:Div class="cellBasedWidget-mod" ui:field="pnlDataGrid"/>
+            </div>
+            <g:HTMLPanel ui:field="pnlGroupByItem" addStyleNames="mt-3">
+                <m.html:Div ui:field="groupByItemContainer"/>
+                <panel:HorizontalPanelDiv ui:field="groupingFieldsContainer" addStyleNames="mt-3"/>
+            </g:HTMLPanel>
+            <sobi:SOBaseInvoiceGroups ui:field="soBaseInvoiceGroups"/>
+        </div>
+    </g:HTMLPanel>
+</ui:UiBinder>

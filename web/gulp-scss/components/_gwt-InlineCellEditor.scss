@@ -1,0 +1,87 @@
+// Evgeniy Muhamedjanovs code remove the cancel button */
+
+.gwt-InlineCellEditor {
+  table td {
+    &:nth-child(3) {
+      display: none;
+    }
+
+    vertical-align: top;
+  }
+
+  //div.gwt-InlineCellEditor
+  input[class], .dropdown-content, input.select-dropdown {
+    border-radius: 0;
+  }
+  .accept {
+    position: relative;
+    margin-left: -2px;
+    border-radius: 0 5px 5px 0;
+    font-size: 15px;
+    //&[class*="ficon--"],
+    &.btn {
+      img {
+        display: none;
+      }
+    }
+  }
+
+
+  &__radiobuttons, &__checkboxes {
+    background-color: white;
+    box-shadow: $popupBoxShadow;
+    td {
+      padding: 4px 15px;
+    }
+    tr:first-child td {
+      padding-top: 15px;
+    }
+    tr:last-child td {
+      padding-bottom: 15px;
+    }
+  }
+
+  &__datepicker tr:last-child {
+    box-shadow: $popupBoxShadow;
+
+    input[type="text"] {
+      border-top: none;
+    }
+
+    td {
+      background-color: white;
+
+      &:last-child {
+        .gwt-CheckBox {
+          margin-top: 9px;
+          margin-bottom: 10px;
+          font-size: 11px;
+        }
+
+        padding-left: 10px;
+      }
+    }
+  }
+  &__datepicker { //https://prnt.sc/unqgnv
+    //display: inline-flex;
+    max-width: 124px;
+    width: auto;
+    &.input-group {
+      > .form-control:not([style*=width]):not(.width-auto) {
+        width: 1px !important;
+        max-width: 80px;
+      }
+      > .timepicker {
+        width: auto !important;
+        flex: 0 1 28%;
+        min-width: 44px;
+      }
+    }
+  }
+}
+.popupContent > table {
+  width: auto;
+}
+.dateTimeCell {
+  + .dateBoxPopup {}
+}

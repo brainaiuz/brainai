@@ -1,0 +1,2 @@
+ALTER TABLE "anv".item
+ALTER COLUMN sellingprice TYPE NUMERIC(24,4);

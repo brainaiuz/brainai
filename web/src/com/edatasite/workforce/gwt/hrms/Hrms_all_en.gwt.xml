@@ -1,0 +1,4 @@
+<module rename-to="hrms">
+    <inherits name='com.edatasite.workforce.gwt.hrms.Hrms'/>
+    <inherits name="com.edatasite.workforce.gwt.Localization_properties"/>
+</module>

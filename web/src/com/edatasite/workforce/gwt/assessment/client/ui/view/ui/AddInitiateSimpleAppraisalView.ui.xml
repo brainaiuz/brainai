@@ -1,0 +1,35 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:m="urn:import:gwt.material.design.client.ui.html"
+             xmlns:mu="urn:import:gwt.material.design.client.ui">
+
+    <g:HTMLPanel>
+        <mu:MaterialCollapsible
+                styleName="collapsible--panels collapsible--arrows-left collapsible collapsible--gwt required">
+            <mu:MaterialCollapsibleItem>
+                <mu:MaterialCollapsibleHeader class="active">
+                    <m:Span ui:field="title"/>
+                </mu:MaterialCollapsibleHeader>
+                <mu:MaterialCollapsibleBody>
+                    <g:HTMLPanel styleName="grid-row" ui:field="employeeRowPanel"></g:HTMLPanel>
+
+                    <g:HTMLPanel styleName="grid-row" ui:field="templateRowPanel"></g:HTMLPanel>
+
+                    <g:HTMLPanel styleName="grid-row" ui:field="assessmentDateBox"></g:HTMLPanel>
+
+                    <!--                    <g:HTMLPanel styleName="grid-row" ui:field="checkboxRowPanel"></g:HTMLPanel>-->
+                    <g:HTMLPanel styleName="spacer">&#160;</g:HTMLPanel>
+                    <g:HTMLPanel styleName="spacer">&#160;</g:HTMLPanel>
+                    <g:HTMLPanel styleName="grid-row">
+                        <div class="col-12">
+                            <div class="form-group">
+                                <g:HTMLPanel styleName="form-group__content"
+                                             ui:field="competencyGoalField"></g:HTMLPanel>
+                            </div>
+                        </div>
+                    </g:HTMLPanel>
+                </mu:MaterialCollapsibleBody>
+            </mu:MaterialCollapsibleItem>
+        </mu:MaterialCollapsible>
+    </g:HTMLPanel>
+</ui:UiBinder>

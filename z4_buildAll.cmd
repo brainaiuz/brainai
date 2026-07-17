@@ -1,0 +1,1 @@
+ant -logger org.apache.tools.ant.listener.MailLogger z4_buildAll -f ./web/AutoCompile.xml

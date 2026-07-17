@@ -1,0 +1,44 @@
+.timesheet-approval-table {
+  &.table.table_listing {
+    > tbody > tr > td {
+      position: relative; // for hover z-index
+      overflow: hidden !important;
+      @include txtTruncate();
+      background: #fff;
+
+      &:focus,
+      &:hover {
+        overflow: visible !important;
+        z-index: 1;
+        text-shadow: -7px -7px 10px #fff, -6px -6px 10px #fff, -5px -5px 10px #fff, -4px -4px 10px #fff, -3px -3px 10px #fff, -2px -2px 10px #fff, -1px -1px 10px #fff, 0 0 10px #fff, 1px 1px 10px #fff, 2px 2px 10px #fff, 3px 3px 10px #fff, 4px 4px 10px #fff, 5px 5px 10px #fff, 6px 6px 10px #fff, 7px 7px 10px #fff;
+        color: #000;
+        ~ td {
+          color: rgba($text-color-base, .5);
+        }
+      }
+      &::selection {
+        text-shadow: none;
+      }
+    }
+  }
+  tr.timesheet-approval-table__heading > td:first-child {
+    padding-left: $firstCellLeftPadding !important;
+  }
+}
+
+/*--- Approve Timesheet ---*/
+
+.timesheet-approval-new__footer {
+  background-color: white;
+  padding: 13px 10px;
+  overflow: hidden;
+}
+
+.timesheet-approval-new__footer button {
+  float: right;
+}
+
+
+.timesheet-approval-statusBar {
+  padding: 10px 0 0 $firstCellLeftPadding;
+}

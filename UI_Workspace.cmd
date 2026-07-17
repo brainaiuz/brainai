@@ -1,0 +1,1 @@
+ant Workspace -f ./web/AutoCompile.xml

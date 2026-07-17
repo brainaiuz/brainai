@@ -1,0 +1,88 @@
+<div class="contentBar file--department_add_edit_view" style="padding:0 10px;margin-top:2px;">
+
+    <ul class="collapsible--panels collapsible--arrows-left collapsible collapsible--gwt required"
+        data-collapsible="expandable">
+        <li class="slideDown-box group active">
+            <div class="collapsible-header active"
+                 onclick="var myclick=this.parentElement;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls; } var myclick=this;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls; }">
+                <a style="cursor: pointer;"><span>$$label:DEPARTMENT_DETAILS$$</span></a>
+            </div>
+            <div class="collapsible-body">
+                <div class="grid-row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:DEPARTMENT_NAME$$</div>
+                            <div class="form-group__content">$$input:DEPARTMENT_NAME$$</div>
+                        </div>
+                        <div class="form-group">
+<!--                            <div class="form-group__label">$$label:DEPARTMENT_DESCRIPTION$$</div>-->
+                            <div class="form-group__content">$$input:DEPARTMENT_DESCRIPTION$$</div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:DEPARTMENT_EMAIL$$</div>
+                            <div class="form-group__content">$$input:DEPARTMENT_EMAIL$$</div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:DEPARTMENT_START_DATE$$</div>
+                            <div class="form-group__content">$$input:DEPARTMENT_START_DATE$$</div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:DEPARTMENT_PARENT$$</div>
+                            <div class="form-group__content">$$input:DEPARTMENT_PARENT$$</div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:DEPARTMENT_CREATED_BY$$</div>
+                            <div class="form-group__content">$$input:DEPARTMENT_CREATED_BY$$</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+
+
+        <li class="slideDown-box group active">
+            <div class="collapsible-header" onclick="var myclick=this.parentElement;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls;} var myclick=this;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls; }">
+                <a style="cursor: pointer;"><span>$$label:DEPARTMENT_EMPLOYEES$$</span></a>
+            </div>
+
+            <div class="collapsible-body">
+                <div class="grid-row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <div class="form-group__content">$$input:DEPARTMENT_EMPLOYEES$$</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-row">
+                    <div class="col-6">
+                        <div class="form-group hideCustomField">
+                            <div class="form-group__label">$$label:DEPARTMENT_LEADER$$</div>
+                            <div class="form-group__content">$$input:DEPARTMENT_LEADER$$</div>
+                        </div>
+                        <div class="form-group hideCustomField">
+                            <div class="form-group__label">$$label:DEPARTMENT_LEADER3$$</div>
+                            <div class="form-group__content">$$input:DEPARTMENT_LEADER3$$</div>
+                        </div>
+                        <div class="form-group hideCustomField">
+                            <div class="form-group__label">$$label:DEPARTMENT_LEADER5$$</div>
+                            <div class="form-group__content">$$input:DEPARTMENT_LEADER5$$</div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group hideCustomField">
+                            <div class="form-group__label">$$label:DEPARTMENT_LEADER2$$</div>
+                            <div class="form-group__content">$$input:DEPARTMENT_LEADER2$$</div>
+                        </div>
+                        <div class="form-group hideCustomField">
+                            <div class="form-group__label">$$label:DEPARTMENT_LEADER4$$</div>
+                            <div class="form-group__content">$$input:DEPARTMENT_LEADER4$$</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </li>
+    </ul>
+</div>

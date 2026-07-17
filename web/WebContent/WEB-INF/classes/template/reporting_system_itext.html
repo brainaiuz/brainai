@@ -1,0 +1,236 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style type="text/css">
+        @page {
+            #if($itextGenericPdfData.landscape == true)
+                size: 11.7in 8.3in;
+            #end
+            #if($itextGenericPdfData.landscape != true)
+                size: 8.3in 11.7in;
+            #end
+            margin: 170px 30px 120px 50px;
+            padding: 0;
+            @top-center {
+                content: element(header);
+            }
+            @bottom-left {
+                content: element(footer);
+            }
+        }
+
+        #header {
+            margin: 20px 5px 20px 10px;
+            display: block;
+            position: running(header);
+        }
+
+        #footer {
+            margin: 20px 5px;
+            display: block;
+            position: running(footer);
+        }
+
+        #pagenumber:before {
+            content: counter(page);
+        }
+
+        #pagecount:before {
+            content: counter(pages);
+        }
+
+        .tableBorder {
+            border-top: 1px solid #000000;
+            border-left: 1px solid #000000;
+        }
+
+        .tableBorder td {
+            border-right: 1px solid #000000;
+            border-bottom: 1px solid #000000;
+        }
+
+        body {
+            font-family: 'Montserrat';
+        }
+
+        th {
+            font-family: 'Montserrat';
+            font-size: 11px;
+            font-weight: lighter;
+        }
+        .align_0 {
+            text-align: left;
+        }
+        .align_1 {
+            text-align: center;
+        }
+        .align_2 {
+            text-align: right;
+        }
+        th, td {
+            padding: 0 3mm;
+        }
+
+        b, p, td, span, caption, hr, h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat';
+        }
+
+        table {
+            -fs-table-paginate: paginate;
+        }
+        a {
+            text-decoration: none;
+            color: #1f7df1;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="header">
+    <table width="100%" border="0" cellpadding="0" cellspacing="0" style="font-size: 11px; padding-right: 0 !important;">
+        <tr>
+            <td width="100%" align="right" style="padding: 0 0 1px 0 !important; padding-right: 0 !important;">
+                Page <span style="font-weight: bold;" id="pagenumber"/> of <span style="font-weight: bold;" id="pagecount"/>
+            </td>
+        </tr>
+        <tr>
+            <td align="right" style="padding:0; padding-right: 0;">
+                $itextGenericPdfData.extraData
+            </td>
+        </tr>
+    </table>
+    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <td width="2cm" style="padding: 0 3mm 0 0;">
+                <img width="2cm"  src="$itextGenericPdfData.companyData.companyLogoUrl" height="auto"/>
+            </td>
+            <td width="12cm">
+                <span>$itextGenericPdfData.companyData.companyName</span>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div id="footer">
+    <table cellpadding="0" cellspacing="0" border="0" width="100%" style="font-size: 11px;">
+        <tr>
+            <td width="1cm" style="padding: 0; margin: 0;">
+                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                    <tr>
+                        <td width="1cm">
+                            <img width="2cm" src="https://workforcetrack.s3.amazonaws.com/000000000000/public/69219/7f5ea626-1245-4976-a520-611cbd2ca2fa?AWSAccessKeyId=AKIAIROQMC77E5UKWBWQ" />
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td style="padding: 0; margin: 0;">
+                #set($compAdd = $itextGenericPdfData.companyData.address)
+                #set($compAdd2 = $itextGenericPdfData.companyData.address2)
+                #set($compPostCode = $itextGenericPdfData.companyData.postCode)
+                #set($compCountry = $itextGenericPdfData.companyData.country)
+                #set($compPhone = $itextGenericPdfData.companyData.companyPhone)
+                #set($compFax = $itextGenericPdfData.companyData.companyFax)
+                #set($compEmail = $itextGenericPdfData.companyData.companyEmail)
+                <table cellpadding="0" cellspacing="0" border="0" width="100%" style="color: #939498;">
+                        <tr>
+                            <td style="font-weight: bold; color: #333">
+                                Thanks you for your business!
+                            </td>
+                        </tr>
+                    #if($compAdd != '' and $compAdd2 != '' and $compPostCode != '' and $compCountry != '')
+                        <tr>
+                            <td>
+                                $compAdd, $compAdd2, $compPostCode, $compCountry
+                            </td>
+                        </tr>
+                    #elseif($compAdd != '' and $compAdd2 != '' and $compPostCode != '')
+                        <tr>
+                            <td>
+                                $compAdd, $compAdd2, $compPostCode
+                            </td>
+                        </tr>
+                    #elseif($compAdd != '' and $compAdd2 != '' and $compCountry != '')
+                        <tr>
+                            <td>
+                                $compAdd, $compAdd2, $compCountry
+                            </td>
+                        </tr>
+                    #elseif($compAdd != '' and $compCountry != '' and $compPostCode != '')
+                        <tr>
+                            <td>
+                                $compAdd, $compPostCode, $compCountry
+                            </td>
+                        </tr>
+                    #elseif($compAdd2 != '' and $compCountry != '' and $compPostCode != '')
+                        <tr>
+                            <td>
+                                $compAdd2, $compPostCode, $compCountry
+                            </td>
+                        </tr>
+                    #end
+                    #if($compPhone != '' and $compFax != '' and $compEmail != '')
+                        <tr>
+                            <td>
+                                <div style="float: left;">Fax: $compFax, Mob: $compPhone, <a href="$compEmail">$compEmail</a>, <a href="www.kpi.com">www.kpi.com</a></div>
+                                <div style="float: right;">Powered by: <a href="www.kpi.com">www.kpi.com</a></div>
+                            </td>
+                        </tr>
+                    #elseif($compPhone != '' and $compFax != '')
+                        <tr>
+                            <td>
+                                <div style="float: left;">Fax: $compFax, Mob: $compPhone, <a href="www.kpi.com">www.kpi.com</a></div>
+                                <div style="float: right;">Powered by: <a href="www.kpi.com">www.kpi.com</a></div>
+                            </td>
+                        </tr>
+                    #elseif($compPhone != '' and $compEmail != '')
+                        <tr>
+                            <td>
+                                <div style="float: left;">Mob: $compPhone, <a href="$compEmail">$compEmail</a>, <a href="www.kpi.com">www.kpi.com</a></div>
+                                <div style="float: right;">Powered by: <a href="www.kpi.com">www.kpi.com</a></div>
+                            </td>
+                        </tr>
+                    #elseif($compFax != '' and $compEmail != '')
+                        <tr>
+                            <td>
+                                <div style="float: left;">Fax: $compFax, <a href="$compEmail">$compEmail</a>, <a href="www.kpi.com">www.kpi.com</a></div>
+                                <div style="float: right;">Powered by: <a href="www.kpi.com">www.kpi.com</a></div>
+                            </td>
+                        </tr>
+                    #end
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div style="font-size: 11px;">
+    <table width="100%" cellpadding="0" cellspacing="0" style="font-size: 14px;">
+        <tr>
+            <td width="100%" style="padding: 0;">
+                $itextGenericPdfData.tableName
+            </td>
+        </tr>
+    </table>
+
+    #set($rows = $itextGenericPdfData.getListTable().getTableRows())
+    <table width="100%" cellspacing="0" cellpadding="0" style="margin-top: 20px;">
+        <thead>
+        #foreach($header in $itextGenericPdfData.getListTable().getTableHeader())
+        #set($st='align_' + $header.alignment)
+        <th class="$st" style="background-color: #8f9bab; color: #fff; font-weight: bold;">$header.getText()</th>
+        #end
+        </thead>
+        #foreach($row in $rows)
+        <tr style="page-break-inside: avoid;">
+            #foreach($cell in $row)
+            #set($st='align_' + $cell.alignment)
+            #set($cs = 'color: #506576;')
+            <td style="$cs" class="$st">$cell.getText()</td>
+            #end
+        </tr>
+        #end
+    </table>
+</div>
+</body>
+</html>

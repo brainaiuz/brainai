@@ -1,0 +1,104 @@
+/*Has been development DataSite company */
+
+1. In the TaskListView.java may be see first example
+
+2. Second Real example
+
+public class TestNewPopup exetends View{
+
+        private FacetFilterRpc taskFacetFilter;
+        // 1.Example
+        protected Widget onInitialize(){
+            ...
+            // parametr name popup title
+            name = "Facet Filter";
+            FacetFilterPopup facetPopup = new FacetFilterPopup(name, taskFacetFilter, getApplySave(), getFacetCallbackProvider(), getFacetContentTitle());
+            facetPopup.setSize("620px", "450px");
+            facetPopup.center();
+            facetPopup.show();
+            ...
+        }
+
+        // 2.FacetApplySave interface in the three methods
+
+        private FacetApplySave getApplySave() {
+            return new FacetApplySave() {
+                /**
+                 * 1. This is method must be write Get Saved Facet Filter Items And Return Responce must be equals
+                 * <b> com.edatasite.workforce.gwt.core.client.rpc.facet.SaveFilterSelectItems </b>
+                 */
+                public void getSaveFilterListItem(final FacetSaveListCallback saveCallback) {
+                    FacetFilterService.App.get().getUserSavedFilters(new AsyncCallback<SaveFilterSelectItems>() {
+                        public void onFailure(Throwable caught) {
+
+                        }
+
+                        public void onSuccess(SaveFilterSelectItems result) {
+                            saveCallback.onSuccess(result);
+                        }
+                    });
+                }
+                /**
+                 * 2.This is method must be write facet filter saved function and Return Reponce saved facet filter id
+                 */
+                public void saveFilter(FacetFilterRpc facetFilterRpc, final FacetSaveCallback saveCallback) {
+                    FacetFilterService.App.get().saveTaskFacetFilter(facetFilterRpc, new AsyncCallback<Integer>() {
+                        public void onFailure(Throwable caught) {
+
+                        }
+
+                        public void onSuccess(Integer id) {
+                            saveCallback.onSuccess(id);
+                        }
+                    });
+                }
+                /**
+                 * 3.When You clicked in the facet popup apply button, comin this method  
+                 */
+                public void applyFilter(FacetFilterRpc taskFacetFilter) {
+                    if (list.getFilterParametrs() == null) {
+                        list.setFilterParametrs(new FilterParametrs());
+                    }
+                    list.getFilterParametrs().setFacetFilter(taskFacetFilter);
+                    list.refresh();
+                }
+            };
+    }
+    /**
+     * 3.Facet Filter Contents Action method
+     */
+     private FacetCallbackProvider getFacetCallbackProvider() {
+        return new FacetCallbackProvider() {
+            public void getFacetFilterData(FacetFilterRpc data, final FacetDataCallback callback) {
+                LoadingPanel.loading(true);
+                FacetFilterService.App.get().getFacetFilterData(data, new AsyncCallback<FacetFilterRpc>() {
+                    public void onFailure(Throwable caught) {
+                        LoadingPanel.loading(false);
+                        callback.onFailure(caught);
+                    }
+
+                    public void onSuccess(FacetFilterRpc result) {
+                        LoadingPanel.loading(false);
+                        callback.onSuccess(result);
+                    }
+                });
+            }
+        };
+    }
+    /**
+     * 4. Facet Filter Content titles and in the table content column count
+     */
+    private FacetContentsCaption getFacetContentTitle() {
+        return new FacetContentsCaption() {
+            public int getHowMuchColumnCount() {
+                return 3;// if column count equlas 3 that  table view  in this example  5 content,at the 3 column has been 2 rows
+            }
+
+            public String[] getContentsTitleName() {
+                return new String[]{wfmStrings.projects(), wfmStrings.customer(), wfmStrings.workStream(), wfmStrings.status(), wfmStrings.priority()};
+            }
+        };
+    }
+
+
+}

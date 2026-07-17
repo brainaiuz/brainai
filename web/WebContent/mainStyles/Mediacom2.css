@@ -1,0 +1,1570 @@
+.mediacom2 {
+}
+
+.mediacom2 .mainBackground {
+    background-image: url("themes/mediacom2/gradient-bg-logo.png");
+    background-color: #ffffff;
+    height: 53px;
+    background-repeat: repeat-x;
+}
+
+.mediacom2 .border {
+    border: 3px solid #fa4683;
+    background-color: white;
+}
+
+.mediacom2 .containerBackground {
+    background-color: #ffffff;
+    /*color: #ffffff;*/
+}
+
+.mediacom2 .section {
+    /*Not Used IF*/
+    background: transparent url(themes/mediacom2/shortcut_selected_bgr.png) repeat-x;
+    background-color: #fa4683;
+    color: #ffffff;
+}
+
+.mediacom2 .section-seleced {
+    /*Not Used IF*/
+    background: transparent url(themes/mediacom2/bg_header_gradient.gif) repeat-x;
+    background-color: #fa4683;
+    color: #ffffff;
+}
+
+.mediacom2 .eds-shortcutitem-hdr {
+    width: 100%;
+    /*background: transparent url(themes/mediacom2/shortcut_bgr.png) repeat-x;*/
+    /*background-position: 0 30px;*/
+    background-color: #c0c0c0;
+    border-bottom: 1px solid #ffffff;
+    font-weight: bold;
+    text-align: left;
+    cursor: pointer;
+    color: #777777;
+}
+
+.mediacom2 .eds-shortcutitem-active-hdr {
+    width: 100%;
+    /*keyin shortcut_selected_bgr.png imageni commit qilib qoyish kerak*/
+    background: transparent url(themes/mediacom2/bg_header_gradient.gif) repeat-x;
+    border-bottom: 1px solid #ffffff;
+    /*color: #000000;*/
+    font-weight: bold;
+    text-align: left;
+    vertical-align: middle;
+    color: #ffffff;
+}
+
+.mediacom2 .eds-shortcutitem-hdr-over {
+    width: 100%;
+    background: transparent url(themes/mediacom2/shortcut_mouseover_bgr.png) repeat-x;
+    /*background-color: #ff00c0;*/
+    border-bottom: 1px solid #ffffff;
+    color: #ffffff;
+    font-weight: bold;
+    text-align: left;
+    cursor: pointer;
+}
+
+.mediacom2 .blue-header {
+    /*background: url(themes/mediacom2/top2.gif);*/
+    background-color: #ffffff;
+    font-weight: bold;
+    color: #5a4580;
+}
+
+.table-blue-header {
+    background: url(themes/mediacom2/top2.gif);
+    background-color: #ffffff;
+    font-weight: bold;
+    color: #5a4580;
+}
+
+/*todo DELETE */
+/*.mediacom2 .wfm-my-tabfolder-header {*/
+    /*background: url(themes/mediacom2/tabs-orange.gif) repeat-x 0px -108px;*/
+    /*overflow: hidden;*/
+    /*color: #ff0056;*/
+/*}*/
+
+
+.mediacom2 .my-paging-toolbar {
+    background: url(themes/mediacom2/bg.gif) repeat-x;
+    border-top: 1px solid #ffffff;
+}
+
+/*.mediacom2 .my-cpanel-frame .my-toolbar {*/
+    /*position: static;*/
+    /*background: url(themes/mediacom2/bg.gif) repeat-x;*/
+    /*border: 1px solid #ffffff;*/
+    /*border-bottom: none;*/
+/*}*/
+
+.mediacom2 .my-toolitem-mr div {
+    background: transparent url(themes/mediacom2/btn-arrow.gif) no-repeat scroll 0 3px;
+    width: 12px;
+    height: 21px;
+}
+
+.mediacom2 .my-toolitem-seperator {
+    background: url(themes/mediacom2/split.gif) no-repeat 50% 50%;
+    border: 0 none;
+    cursor: default;
+    font-size: 1px;
+    height: 21px;
+    overflow: hidden;
+    width: 4px;
+}
+
+/*.mediacom2 .my-toolbar {*/
+    /*background: url(themes/mediacom2/bg.gif) 0px 0px repeat-x;*/
+    /*background-color: #c0c0c0;*/
+
+/*}*/
+
+.mediacom2 .wfm-my-toolbar {
+    background: url(themes/mediacom2/main_menu.gif) 0 0 repeat-x;
+    background-color: #ff0056;
+    color:#ffffff;
+    color: white !important;
+
+}
+
+.mediacom2 .my-cpanel-frame .wfm-my-toolbar {
+    position: static;
+    background: url(themes/mediacom2/bg_header_gradient.gif) repeat-x;
+    background-color: #CCCCCC;
+    border: 1px solid #ff0056;
+    color:#ffffff;
+    color: white !important;
+    border-bottom: none;
+}
+
+
+
+.mediacom2 .wfm-tool-bar {
+    background: url("themes/mediacom2/test3.gif") repeat-x scroll 0 0 transparent;
+    margin: 0;
+    width: 100%;
+    border: medium none;
+}
+
+
+
+.mediacom2 .hasRichTextToolbar {
+    border: 1px solid #99BBE8;
+}
+
+/****************************** Applied to the decorator panel. *******************/
+.mediacom2 .gwt-DecoratorPanel {
+}
+
+.mediacom2 .gwt-DecoratorPanel .middleCenter {
+    height: 100%;
+    width: 100%;
+}
+
+.mediacom2 .gwt-DecoratorPanel .topCenter,
+.mediacom2 .gwt-DecoratorPanel .bottomCenter {
+    background: url(themes/mediacom2/hborder.png) repeat-x;
+}
+
+.mediacom2 .gwt-DecoratorPanel .middleLeft,
+.mediacom2 .gwt-DecoratorPanel .middleRight {
+    background: url(themes/mediacom2/vborder.png) repeat-y;
+}
+
+.mediacom2 .gwt-DecoratorPanel .topLeftInner,
+.mediacom2 .gwt-DecoratorPanel .topRightInner,
+.mediacom2 .gwt-DecoratorPanel .bottomLeftInner,
+.mediacom2 .gwt-DecoratorPanel .bottomRightInner {
+    width: 5px;
+    height: 5px;
+    zoom: 1;
+}
+
+.mediacom2 .gwt-DecoratorPanel .topLeft {
+    background: url(themes/mediacom2/cornerGrey_lighter.png) no-repeat 0 0;
+    -background: url(themes/mediacom2/corner_ie6.png) no-repeat 0px 0px;
+}
+
+.mediacom2 .gwt-DecoratorPanel .topRight {
+    background: url(themes/mediacom2/cornerGrey_lighter.png) no-repeat -5px 0;
+    -background: url(themes/mediacom2/corner_ie6.png) no-repeat -5px 0px;
+}
+
+.mediacom2 .gwt-DecoratorPanel .bottomLeft {
+    background: url(themes/mediacom2/cornerGrey_lighter.png) no-repeat 0 -5px;
+    -background: url(themes/mediacom2/corner_ie6.png) no-repeat 0px -5px;
+}
+
+.mediacom2 .gwt-DecoratorPanel .bottomRight {
+    background: url(themes/mediacom2/cornerGrey_lighter.png) no-repeat -5px -5px;
+    -background: url(themes/mediacom2/corner_ie6.png) no-repeat -5px -5px;
+}
+
+* html .mediacom2 .gwt-DecoratorPanel .topLeftInner,
+* html .mediacom2 .gwt-DecoratorPanel .topRightInner,
+* html .mediacom2 .gwt-DecoratorPanel .bottomLeftInner,
+* html .mediacom2 .gwt-DecoratorPanel .bottomRightInner {
+    width: 5px;
+    height: 5px;
+    overflow: hidden;
+}
+
+/*****************  gwt 1.5 Button  *************************/
+.mediacom2 .gwt-Button {
+    margin: 0;
+    padding: 3px 5px;
+    text-decoration: none;
+    font-size: small;
+    cursor: pointer;
+    background: url("themes/mediacom2/hborder.png") repeat-x 0 -27px;
+    border: 1px outset #ccc;
+}
+
+.mediacom2 .gwt-Button:active {
+    border: 1px inset #ccc;
+}
+
+.mediacom2 .gwt-Button:hover {
+    border-color: #9cf #69e #69e #7af;
+}
+
+.mediacom2 .gwt-Button[disabled] {
+    cursor: default;
+    color: #ffffff;
+}
+
+.mediacom2 .gwt-Button[disabled]:hover {
+    border: 1px outset #ccc;
+}
+
+/******************** Applied decoreted tab panel *******************/
+.mediacom2 .gwt-DecoratedTabBar .tabTopCenter {
+    padding: 0;
+    background: #CCCCCC;
+}
+
+.mediacom2 .gwt-DecoratedTabBar .tabMiddleLeft,
+.mediacom2 .gwt-DecoratedTabBar .tabMiddleRight {
+    width: 6px;
+    padding: 0;
+    background: #CCCCCC;
+}
+
+.mediacom2 .gwt-DecoratedTabBar .tabMiddleCenter {
+    padding: 0 4px 2px 4px;
+    cursor: pointer;
+    color: #777777;
+    font: 14px;
+    font-weight: bold;
+    text-align: center;
+    background: #CCCCCC;
+}
+
+.mediacom2 .gwt-DecoratedTabBar .gwt-TabBarItem-selected {
+    /*background: #ff0056;*/
+    background-image: url("themes/mediacom2/tab_bgr.png");
+    color: #ffffff;
+}
+
+.mediacom2 .gwt-DecoratedTabBar .gwt-TabBarItem-selected .tabTopCenter {
+    /*background: #ff0056;*/
+    /*background-image:url("themes/mediacom2/tab_bgr.png");*/
+    background-color: #d72460;
+    color: #ffffff;
+}
+
+.mediacom2 .gwt-DecoratedTabBar .gwt-TabBarItem-selected .tabMiddleLeft,
+.mediacom2 .gwt-DecoratedTabBar .gwt-TabBarItem-selected .tabMiddleRight {
+    color: #ffffff;
+    /*background: #ff0056;*/
+    background-image: url("themes/mediacom2/tab_bgr.png");
+
+}
+
+.mediacom2 .gwt-DecoratedTabBar .gwt-TabBarItem-selected .tabMiddleCenter {
+    cursor: default;
+    color: #ffffff;
+    /*background: #ff0056;*/
+    background-image: url("themes/mediacom2/tab_bgr.png");
+
+}
+
+/* html>body .mediacom2  */.gwt-DecoratedTabBar .tabTopLeft {
+    background-image: url(themes/mediacom2/cornerGrey_lighter.png);
+	background-repeat:no-repeat;
+                               background-position: 0 -55px;
+}
+
+/* html>body .mediacom2  */.gwt-DecoratedTabBar .tabTopRight {
+    background-image: url(themes/mediacom2/cornerGrey_lighter.png);
+	background-repeat:no-repeat;
+	background-position:-6px -55px;
+}
+
+* html .mediacom2 .gwt-DecoratedTabBar .tabTopLeftInner {
+    width: 5px;
+    height: 61px;
+    margin-top: -55px;
+    overflow: hidden;
+    background: url(themes/mediacom2/cornerGrey_lighter.png);
+    -background: url(themes/mediacom2/corner_ie6.png);
+}
+
+* html .mediacom2 .gwt-DecoratedTabBar .tabTopRightInner {
+    width: 12px;
+    height: 61px;
+    margin-top: -55px;
+    margin-left: -6px;
+    overflow: hidden;
+    background: url(themes/mediacom2/cornerGrey_lighter.png);
+    -background: url(themes/mediacom2/corner_ie6.png);
+    /*background-color: #c0c0c0;*/
+}
+
+* html .mediacom2 .gwt-DecoratedTabBar .gwt-TabBarItem-selected .tabTopLeftInner {
+    width: 5px;
+    height: 67px;
+    margin-top: -61px;
+    overflow: hidden;
+    background: url(themes/mediacom2/corner.png);
+    -background: url(themes/mediacom2/corner_ie6.png);
+    /*background-color: #ff0056;*/
+}
+
+* html .mediacom2 .gwt-DecoratedTabBar .gwt-TabBarItem-selected .tabTopRightInner {
+    width: 12px;
+    height: 67px;
+    margin-top: -61px;
+    margin-left: -6px;
+    overflow: hidden;
+    background: url(themes/mediacom2/corner.png);
+    -background: url(themes/mediacom2/corner_ie6.png);
+    /*background-color: #ff0056;*/
+}
+
+.mediacom2 .gwt-TabPanelBottom {
+    border-color: #c0c0c0;
+    border-style: solid;
+    border-width: 1px 1px 1px 1px;
+    overflow: hidden; /*padding: 0px;*/
+}
+
+.mediacom2 .gwt-DecoratedTabBar {
+
+}
+
+.mediacom2 .gwt-DecoratedTabBar .gwt-TabBarFirst {
+    width: 5px; /* first tab distance from the left */
+}
+
+.mediacom2 .gwt-DecoratedTabBar .gwt-TabBarRest {
+
+}
+
+.mediacom2 .gwt-DecoratedTabBar .gwt-TabBarItem {
+    border-collapse: collapse;
+    /*grey bolishi kerak*/
+    margin-left: 6px;
+}
+
+.mediacom2 .gwt-DecoratedTabBar .tabTopLeft,
+.mediacom2 .gwt-DecoratedTabBar .tabTopRight {
+    padding: 0;
+    zoom: 1;
+}
+
+.mediacom2 .gwt-DecoratedTabBar .tabTopLeftInner,
+.mediacom2 .gwt-DecoratedTabBar .tabTopRightInner {
+    width: 6px;
+    height: 6px;
+}
+
+.mediacom2 .gwt-DecoratedTabBar .tabMiddleLeftInner,
+.mediacom2 .gwt-DecoratedTabBar .tabMiddleRightInner {
+    width: 1px;
+    height: 1px;
+}
+
+/* html>body .mediacom2 */ .gwt-DecoratedTabBar .gwt-TabBarItem-selected .tabTopLeft {
+    background-image: url(themes/mediacom2/corner.png);
+                               background-position: 0 -61px;
+}
+
+/* html>body .mediacom2 */ .gwt-DecoratedTabBar .gwt-TabBarItem-selected .tabTopRight {
+    background-image: url(themes/mediacom2/corner.png);
+    background-position: -6px -61px;
+}
+
+/*.mediacom2 .gwt-DecoratedTabBar .gwt-TabBarItem-selected .tabTopCenter {*/
+/*background: #ff0056;*/
+/*}*/
+
+.mediacom2 .gwt-TabPanel {
+    /*padding:0px;*/
+}
+
+/* DUBLICATE CODE .mediacom2 .gwt-DecoratedTabBar {
+
+}
+
+.mediacom2 .gwt-DecoratedTabBar .gwt-TabBarFirst {
+    width: 5px; 
+}
+
+.mediacom2 .gwt-DecoratedTabBar .gwt-TabBarRest {
+}
+
+.mediacom2 .gwt-DecoratedTabBar .gwt-TabBarItem {
+    border-collapse: collapse;
+    margin-left: 2px;
+}
+
+.mediacom2 .gwt-DecoratedTabBar .tabTopLeft,
+.mediacom2 .gwt-DecoratedTabBar .tabTopRight {
+    padding: 0px;
+    zoom: 1;
+}
+
+.mediacom2 .gwt-DecoratedTabBar .tabTopLeftInner,
+.mediacom2 .gwt-DecoratedTabBar .tabTopRightInner {
+    width: 6px;
+    height: 6px;
+}
+
+.mediacom2 .gwt-DecoratedTabBar .tabMiddleLeftInner,
+.mediacom2 .gwt-DecoratedTabBar .tabMiddleRightInner {
+    width: 1px;
+    height: 1px;
+}
+
+html>body .mediacom2 .gwt-DecoratedTabBar .gwt-TabBarItem-selected .tabTopLeft {
+    background-position: 0px -61px;
+}
+
+html>body .mediacom2 .gwt-DecoratedTabBar .gwt-TabBarItem-selected .tabTopRight {
+    background-position: -6px -61px;
+}
+
+.mediacom2 .gwt-TabPanel {
+    
+} */
+
+/******************** Styles end for decoreted tab panel *******************/
+
+/******************************************* Decorated Stack Panel **********************************************/
+
+.mediacom2 .gwt-DecoratedStackPanel {
+    border-bottom: 1px solid #bbbbbb;
+}
+
+.mediacom2 .gwt-DecoratedStackPanel .gwt-StackPanelContent {
+    border: 1px solid #bbbbbb;
+    border-bottom: 0;
+    background: white;
+    padding: 2px 2px 10px 5px;
+}
+
+.mediacom2 .gwt-DecoratedStackPanel .gwt-StackPanelItem {
+    cursor: pointer;
+}
+
+.mediacom2 .gwt-DecoratedStackPanel .stackItemTopLeft,
+.mediacom2 .gwt-DecoratedStackPanel .stackItemTopRight {
+    height: 6px;
+    width: 6px;
+    zoom: 1;
+}
+
+.mediacom2 .gwt-DecoratedStackPanel .stackItemTopLeftInner,
+.mediacom2 .gwt-DecoratedStackPanel .stackItemTopRightInner {
+    width: 1px;
+    height: 1px;
+}
+
+.mediacom2 .gwt-DecoratedStackPanel .stackItemMiddleLeftInner,
+.mediacom2 .gwt-DecoratedStackPanel .stackItemMiddleRightInner {
+    width: 1px;
+    height: 1px;
+}
+
+.mediacom2 .gwt-DecoratedStackPanel .gwt-StackPanelItem-first .stackItemTopRight,
+.mediacom2 .gwt-DecoratedStackPanel .gwt-StackPanelItem-first .stackItemTopLeft {
+    border: 0;
+    background-color: white;
+}
+
+.mediacom2 .gwt-DecoratedStackPanel .gwt-StackPanelItem-below-selected .stackItemTopLeft,
+.mediacom2 .gwt-DecoratedStackPanel .gwt-StackPanelItem-below-selected .stackItemTopRight {
+    background-color: white;
+}
+
+html>body .mediacom2 .gwt-DecoratedStackPanel {
+}
+
+* html .mediacom2 .gwt-DecoratedStackPanel .stackItemTopLeftInner,
+* html .mediacom2 .gwt-DecoratedStackPanel .stackItemTopRightInner {
+    width: 6px;
+    height: 6px;
+    overflow: hidden;
+}
+
+.mediacom2 .cw-StackPanelHeader {
+    padding-left: 7px;
+    font-weight: bold;
+    font-size: 1.4em;
+}
+
+.mediacom2 .gwt-DecoratedStackPanel .stackItemTopLeft {
+    border-left: 1px solid #bbbbbb;
+    background: #d3def6 url(themes/mediacom2/cornerGrey_lighter.png) no-repeat 0 -49px;
+    -background: #d3def6 url(themes/mediacom2/corner_ie6.png) no-repeat 0px -49px;
+}
+
+.mediacom2 .gwt-DecoratedStackPanel .stackItemTopRight {
+    border-right: 1px solid #bbbbbb;
+    background: #d3def6 url(themes/mediacom2/cornerGrey_lighter.png) no-repeat -6px -49px;
+    -background: #d3def6 url(themes/mediacom2/corner_ie6.png) no-repeat -6px -49px;
+}
+
+.mediacom2 .gwt-DecoratedStackPanel .stackItemTopCenter {
+    background: url(themes/mediacom2/hborder.png) 0 -21px repeat-x;
+}
+
+.mediacom2 .gwt-DecoratedStackPanel .stackItemMiddleLeft {
+    background: #d3def6 url(themes/mediacom2/hborder.png) repeat-x 0 -989px;
+    border-left: 1px solid #bbbbbb;
+}
+
+.mediacom2 .gwt-DecoratedStackPanel .stackItemMiddleRight {
+    background: #d3def6 url(themes/mediacom2/hborder.png) repeat-x 0 -989px;
+    border-right: 1px solid #bbbbbb;
+}
+
+.mediacom2 .gwt-DecoratedStackPanel .stackItemMiddleCenter {
+    font-weight: bold;
+    font-size: 1.3em;
+    background: #d3def6 url(themes/mediacom2/hborder.png) repeat-x 0 -989px;
+}
+
+/******************** Styles end for decoreted stack panel *****************************************************/
+
+.mediacom2 .docs-button-table {
+    height: 21px;
+    border-collapse: collapse;
+    border-spacing: 0;
+    cursor: pointer;
+    margin-left: 12px;
+}
+
+.mediacom2 .docs-button-table tr td {
+    background: url("themes/mediacom2/tb-btn-sprite.gif") repeat-x 0 -42px;
+    padding: 0 !important;
+    border: 0 none !important;
+}
+
+.mediacom2 .docs-button-table .left_bdr {
+    background: url("themes/mediacom2/tb-btn-sprite.gif") no-repeat 0 0 !important;
+}
+
+.mediacom2 .docs-button-table .right_bdr {
+    background: url("themes/mediacom2/tb-btn-sprite.gif") no-repeat 100% -21px !important;
+}
+
+.mediacom2 .topPanelCompanyNameStyle {
+    font-size: 14px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.mediacom2 .maxLogoHeight {
+    max-height: 53px;
+    height: auto !important;
+    height: 53px;
+}
+
+.mediacom2 .gwt-ScrollTable .dataWrapper {
+    width: 100% !important;
+    background-color: #fff;
+
+}
+
+.mediacom2 .gwt-ScrollTable {
+    /*background: url("/wfp/templates/mediacom2/images/bg-head-menu.png") no-repeat scroll 100% -41px transparent;*/
+}
+
+.mediacom2 .gwt-ScrollTable .headerWrapper {
+    background: url(themes/mediacom2/bg_header_gradient.gif) repeat-x bottom left;
+}
+
+.mediacom2 .gwt-ScrollTable .headerTable td,
+.mediacom2 .gwt-ScrollTable .footerTable td {
+    color: #fff;
+}
+
+.mediacom2 .menu-button {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.mediacom2 .menu-button-selected {
+    /*Section selected bolganida */
+    background-image: url(themes/mediacom2/bg_header_gradient.gif);
+    /*background-color: #ff0056;*/
+    color: #ffffff;
+    /*background-position: 0 48px;*/
+    cursor: pointer;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.mediacom2 .my-cpanel-hdr-text {
+    padding: 0 4px;
+    color: #ffffff;
+    font-size: 11px;
+    font-size-adjust: none;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: bold;
+    line-height: 15px;
+}
+
+.mediacom2 .my-cpanel-hdr-l {
+    background: url(themes/mediacom2/corners-sprite.gif) no-repeat 0 0;
+}
+
+.mediacom2 .my-cpanel-hdr-c {
+    width: 100%;
+    background: url(themes/mediacom2/top-bottom.gif) repeat-x;
+}
+
+.mediacom2 .my-cpanel-hdr-r {
+    width: 3px;
+    background: url(themes/mediacom2/corners-sprite.gif) no-repeat right 0;
+}
+
+.mediacom2 .my-tool {
+    overflow: hidden;
+    width: 15px;
+    height: 15px;
+    float: right;
+    cursor: pointer;
+    background: transparent url(themes/mediacom2/tool-sprites.gif) no-repeat;
+    margin-left: 2px;
+    margin-right: 5px;
+}
+
+.mediacom2 .wfm-my-toolitem-selected .wfm-my-toolitem-l {
+    background: url(themes/mediacom2/tb-btn-sprite-orange.gif) no-repeat;
+}
+
+.mediacom2 .wfm-my-toolitem-selected .wfm-my-toolitem-ml,
+.mediacom2 .wfm-my-toolitem-selected .wfm-my-toolitem-c {
+    background: url(themes/mediacom2/tb-btn-sprite-orange.gif) repeat-x 0 -42px;
+}
+
+.mediacom2 .wfm-my-toolitem-selected .wfm-my-toolitem-ml,
+.mediacom2 .wfm-my-toolitem-selected .wfm-my-toolitem-c {
+    background: url(themes/mediacom2/tb-btn-sprite-orange.gif) repeat-x 0 -42px;
+}
+
+.mediacom2 .wfm-my-toolitem-selected .wfm-my-toolitem-mr {
+    background: url(themes/mediacom2/tb-btn-sprite-orange.gif) repeat-x 0 -42px;
+}
+
+.mediacom2 .wfm-my-toolitem-selected .wfm-my-toolitem-r {
+    background: url(themes/mediacom2/tb-btn-sprite-orange.gif) no-repeat 0 -21px;
+}
+
+/*.mediacom2 .logOut {*/
+    /*color: #ff0056;*/
+/*}*/
+
+/*.mediacom2 .logOutLink {*/
+    /*color: #ff0056;*/
+    /*text-decoration: underline;*/
+    /*cursor: pointer;*/
+/*}*/
+
+/*.mediacom2 .inOutColor {*/
+    /*color: #ff0056;*/
+/*}*/
+
+.mediacom2 .quickViewHeaderSome {
+    background: url(themes/mediacom2/header_bgr.jpg) repeat-x;
+    padding: 3px;
+    vertical-align: middle;
+    /*font-family: Tahoma, Verdana, Geneva, Arial, Helvetica, sans-serif;*/
+    font-size: 11px;
+    font-style: normal;
+    color: #ffffff;
+}
+
+/*.mediacom2 .menu-button-mouse-over-background {*/
+    /*background-image: url(themes/mediacom2/popup-menu-button-hover.png);*/
+    /*background-image: url(themes/mediacom2/bg_header_gradient.gif);*/
+    /*cursor: pointer;*/
+    /*padding-left: 5px;*/
+    /*padding-right: 5px;*/
+/*}*/
+
+/*.mediacom2 .menu-button-mouse-over-right {*/
+    /*background-image: url(themes/mediacom2/popup-menu-button-right.png);*/
+    /*background-image: url(themes/mediacom2/bg_header_gradient.gif);*/
+    /*cursor: pointer;*/
+/*}*/
+
+/*.mediacom2 .menu-button-mouse-over-left {*/
+    /*background-image: url(themes/mediacom2/popup-menu-button-left.png);*/
+    /*background-image: url(themes/mediacom2/bg_header_gradient.gif);*/
+
+    /*cursor: pointer;*/
+/*}*/
+
+/*.mediacom2 .menu-button-selected-right {*/
+    /*background-image: url(themes/mediacom2/popup-menu-uppertab.gif);*/
+    /*background-image: url(themes/mediacom2/bg_header_gradient.gif);*/
+
+    /*background-position: 0 24px;*/
+    /*cursor: pointer;*/
+    /*color: #ffffff;*/
+/*}*/
+
+/*.mediacom2 .menu-button-selected-left {*/
+    /*background-image: url(themes/mediacom2/popup-menu-uppertab.gif);*/
+    /*background-image: url(themes/mediacom2/bg_header_gradient.gif);*/
+
+    /*background-position: 0 72px;*/
+    /*cursor: pointer;*/
+    /*color: #ffffff;*/
+/*}*/
+
+/*.mediacom2 .menu-popup-style {*/
+    /*background-color: #ebf3fe;*/
+    /*color: #ffffff;*/
+/*}*/
+
+/*.mediacom2 .menu-item-right-shadow {*/
+    /*padding-top: 5px;*/
+    /*background: transparent url(themes/mediacom2/popup-menu-right.png) repeat-y;*/
+    /*width: 4px;*/
+/*}*/
+
+/*.mediacom2 .menu-item-bottom-shadow {*/
+    /*padding-left: 5px;*/
+    /*background: transparent url(themes/mediacom2/popup-menu-bottom.png) repeat-x;*/
+    /*height: 4px;*/
+/*}*/
+
+/*.mediacom2 .menu-item-corner-shadow {*/
+    /*background-image: url(themes/mediacom2/popup-menu-corner.png);*/
+    /*width: 4px;*/
+    /*height: 4px;*/
+/*}*/
+
+/*.mediacom2 .menu-item-on-mouse-over-left {*/
+    /*background: url(themes/mediacom2/popup-menu-sprite.png) 0 42px;*/
+
+    /*cursor: pointer;*/
+/*}*/
+
+/*.mediacom2 .menu-item-on-mouse-over-right {*/
+    /*background: url(themes/mediacom2/popup-menu-sprite.png) 0 63px;*/
+    /*cursor: pointer;*/
+/*}*/
+
+/*.mediacom2 .menu-item-on-mouse-over-middle {*/
+    /*background: url(themes/mediacom2/popup-menu-sprite.png) 0 21px;*/
+    /*cursor: pointer;*/
+/*}*/
+
+/*.mediacom2 .menu-item-arrow-down {*/
+    /*background: url(themes/mediacom2/popup-menu-arrow-down.png) no-repeat;*/
+/*}*/
+
+/*.mediacom2 .menu-separator {*/
+    /*background: url(themes/mediacom2/popup-menu-separator.gif) repeat-y;*/
+/*}*/
+
+.mediacom2 .split-bar-on-collapsed {
+    background-image: url(themes/maroon/split-bar-collapse-image.png);
+}
+
+.mediacom2 .split-bar-on-expanded {
+    background-image: url(themes/maroon/split-bar-close-image.png);
+}
+
+.mediacom2 .split-bar-on-disabled {
+    background-image: url(themes/maroon/split-bar-collapse-image-grey-closed.png);
+}
+
+.mediacom2.loading-image {
+    background-image: url(themes/mediacom/medion-loader.gif);
+}
+
+.my-tab-close {
+    background: url(themes/mediacom2/tab-close.gif) no-repeat 0 -9px;
+    width: 9px;
+    height: 9px;
+}
+
+.my-tab-close-over {
+    background: url(themes/mediacom2/tab-close.gif) no-repeat 0 -18px;
+}
+
+.mediacom2-vsplitbar {
+    background: #ffffff;
+    /*background-image: url(images/default/shared/clear.gif);*/
+    position: absolute; /*z-index: 1;*/
+}
+
+.mediacom2 .my-cpanel-body-header {
+    border-color: -moz-use-text-color #ffffff #ffffff;
+    border-right: 1px solid #ffffff;
+    border-style: none solid solid;
+    border-width: medium 1 1;
+}
+
+.mediacom2 .my-cpanel-body-header {
+    border: 1px solid #ffffff;
+    border-top: none;
+}
+
+.mediacom2 .customTitle {
+    color: #666666;
+    /*font-family: tahoma, verdana, helvetica;*/
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.mediacom2 .wfm-button, .mediacom2 .wfm-button button {
+    overflow: hidden;
+    height: 32px;
+    color: #fff; /*#ff0056;*/
+    font-size: 11px;
+    /*font-family: tahoma, verdana, helvetica, serif;*/
+    background-image: url(themes/mediacom2/btn_grey.png);
+    background-color: #c0c0c0;
+    white-space: nowrap;
+    background-repeat: no-repeat;
+}
+
+/*Begin WftSplitLayouPanel*/
+.mediacom2 .SplitLayoutPanel-HDragger, .SplitLayoutPanel-VDragger {
+    background-color: #fa4683;
+}
+
+.mediacom2 .SplitLayoutPanel-HDragger {
+    cursor: pointer;
+}
+
+.mediacom2 .SplitLayoutPanel-HDragger {
+    cursor: pointer;
+}
+
+.mediacom2 .SplitLayoutPanel-VDragger {
+    cursor: pointer;
+}
+
+/*End WftSplitLayouPanel*/
+/*GWT Menu*/
+.gwt-MenuBar {
+    cursor: default;
+}
+
+/* .gwt-MenuBar .gwt-MenuItem {
+
+} */
+
+.gwt-MenuBar .menu-bar, .menu-bar .gwt-MenuItem-selected {
+    background: none !important;
+}
+
+/* 07.19 .gwt-MenuBar-horizontal .gwt-MenuItem {
+    padding: 0px 10px;
+    vertical-align: bottom;
+    color: #666666;
+    font-weight: bold;
+} 
+
+.gwt-MenuBar-horizontal .gwt-MenuItemSeparator {
+    width: 1px;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    border-left: 1px solid #888888;
+    background: white;
+}
+
+.gwt-MenuBar-horizontal .gwt-MenuItemSeparator .menuSeparatorInner {
+    width: 1px;
+    height: 1px;
+    background: white;
+}
+
+.gwt-MenuBar-vertical {
+    margin-top: 0;
+    margin-left: 0;
+    background: white;
+}
+
+.gwt-MenuBar-vertical table {
+    border-collapse: collapse;
+}
+
+.gwt-MenuBar-vertical .gwt-MenuItem {
+
+}
+
+.gwt-MenuBar-vertical .gwt-MenuItemSeparator {
+    padding: 2px 0;
+}
+
+.gwt-MenuBar-vertical .gwt-MenuItemSeparator .menuSeparatorInner {
+    height: 1px;
+    padding: 0px;
+    border: 0px;
+    border-top: 1px solid #ccc;
+    overflow: hidden;
+}
+
+.gwt-MenuBar-vertical .subMenuIcon {
+    padding-right: 4px;
+}
+
+.gwt-MenuBar-vertical .subMenuIcon-selected {
+    background: #E3E8F3;
+}
+
+.gwt-MenuBarPopup {
+    margin: 0px 0px 0px 3px;
+}
+*/
+/* 07.24 - moved tro Core.cache.css .gwt-MenuBarPopup .menuPopupTopCenter {
+    background: url(themes/blue/hborder.png) 0px -12px repeat-x;
+}
+
+.gwt-MenuBarPopup .menuPopupBottomCenter {
+    background: url(themes/blue/hborder.png) 0px -13px repeat-x;
+    -background: url(themes/blue/hborder_ie6.png) 0px -13px repeat-x;
+}
+
+.gwt-MenuBarPopup .menuPopupMiddleLeft {
+    background: url(themes/blue/vborder.png) -12px 0px repeat-y;
+    -background: url(themes/blue/vborder_ie6.png) -12px 0px repeat-y;
+}
+
+.gwt-MenuBarPopup .menuPopupMiddleRight {
+    background: url(themes/blue/vborder.png) -13px 0px repeat-y;
+    -background: url(themes/blue/vborder_ie6.png) -13px 0px repeat-y;
+}
+
+
+.gwt-MenuBarPopup .menuPopupTopLeft {
+    background: url(themes/blue/corner.png) no-repeat 0px -36px;
+    -background: url(themes/blue/corner_ie6.png) no-repeat 0px -36px;
+}
+
+.gwt-MenuBarPopup .menuPopupTopRight {
+    background: url(themes/blue/corner.png) no-repeat -5px -36px;
+    -background: url(themes/blue/corner_ie6.png) no-repeat -5px -36px;
+}
+
+.gwt-MenuBarPopup .menuPopupBottomLeft {
+    background: url(themes/blue/corner.png) no-repeat 0px -41px;
+    -background: url(themes/blue/corner_ie6.png) no-repeat 0px -41px;
+}
+
+.gwt-MenuBarPopup .menuPopupBottomRight {
+    background: url(themes/blue/corner.png) no-repeat -5px -41px;
+    -background: url(themes/blue/corner_ie6.png) no-repeat -5px -41px;
+} */
+
+
+
+/**** START toolBar-panel
+=================================================================****/
+.mediacom2 .toolBar-panel
+/* ,.mediacom2 .dd-menu>ul>li */ {
+    background-color: #b81e52;
+    color: #FFFFFF;
+}
+
+.mediacom2 .dd-menu>ul>li:hover, .dd-menu > ul > li.act {
+    background-color: #e8477d;
+}
+
+.mediacom2 .dd-menu ul ul li:hover > a,
+.mediacom2 .dd-menu ul ul li:hover > a.fly {
+    background-color: #f2f2f2;
+    color: #e8477d;
+}
+
+.mediacom2 .dd-menu .toolBar .guideCard > a {
+    color: #b81e52;
+    cursor: default;
+    font-weight: bold;
+    padding: 0 9px;
+}
+
+.mediacom2 .userMenu {
+    background-color: #b81e52;
+    float: right;
+}
+
+/**** START tabsPanel
+=================================================================****/
+.mediacom2 .tabsPanel {
+    /* overflow:hidden; */
+    padding-top: 4px;
+    border-bottom: 3px solid #fa4683;
+    background-color: #b81e52;
+}
+
+.mediacom2 .tabsPanel>span {
+    position: relative;
+    display: inline-block;
+}
+
+.mediacom2 .tabsPanel>span * {
+    text-decoration: none;
+}
+
+.mediacom2 .tabsPanel .tabItem, .mediacom2 .tabsPanel .tabItem>span {
+    display: block;
+    font: 11px Arial, sans-serif;
+    /*background: #2c93d1 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAACCCAMAAABWxpmJAAAAKlBMVEUAd78HhdASg8Ylj84jjc0OkuEHhdESgsYPlOMQleUnkM8sk9ESmer///+5juNsAAAADnRSTlP/////////////////AEXA3MgAAABHSURBVCjPxc45AsAwDAJBfB8o//9uhGsnrSimolhgFCKTRBU7ksd3hWUA/siiih3GZ+QBaRq6maGJFcl/6cFmAvzbRRMrihfxVxZjq1UFhwAAAABJRU5ErkJggg==) no-repeat;*/
+    background:#cccccc url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAACCCAMAAABWxpmJAAAANlBMVEXiN3HfNm/5RoLzQn67IFTJsbnIqbTKur/EhJq5JljMysvAZoTAZIPFjaDKuL64HlLMzMz6RoOd3j54AAAASUlEQVQoz8XOOQKAMAwDQeUAEq5I//8ssWugtYqpVCzGuRAHSazGHcmYe4Vb65iPy9gNhvEZ6dRUBEhCNhTJf6mjkqrXGjk09wH8LyAR1r8A/AAAAABJRU5ErkJggg==) no-repeat;
+}
+
+
+.mediacom2 .tabsPanel .tabItem {
+    position: relative;
+    padding-left: 15px;
+    margin-left: 4px;
+    vertical-align: bottom;
+    text-align: center;
+    color: #fff;
+}
+
+.mediacom2 .tabsPanel .tabItem>span {
+    min-height: 18px;
+    min-width: 36px;
+    padding: 6px 15px 0 0;
+    background-position: 100% -33px;
+}
+
+.mediacom2 .tabsPanel .tabItem:hover,
+.mediacom2 .tabsPanel .tabItem.act {
+    background-color: #fa4683;
+    background-position: 0 -67px;
+}
+
+.mediacom2 .tabsPanel .tabItem:hover>span,
+.mediacom2 .tabsPanel .tabItem.act>span {
+    background-color: #fa4683;
+    background-position: 100% -102px;
+}
+
+/* .mediacom2 .tabsPanel .tabClosable .tabItem>span {
+    padding-right: 20px;
+} */
+
+.tabsPanel .tabClosable>a:first-child {
+    background-image: url(images/theme-mediacom2/bg_marks_tab-close-1.png);
+    /*background-image: url(data:imate/png;base64,); */
+    /* background-position: 0 0;
+    background-repeat: no-repeat; */
+}
+.mediacom2 .tabsPanel .tabClosable>a:first-child {
+    /* position: absolute;
+    right: 2px;
+    top: 3px;
+    z-index: 1;
+    width: 11px;
+    height: 11px;
+    background-position: 0 0;
+    background-repeat: no-repeat; */
+    background-image: url(/mainStyles/images/default/tabfolder/tab-close-mediacom.png);
+}
+
+/* .mediacom2 .tabsPanel .tabClosable>a:first-child:hover {
+    background-position: 0 -10px;
+}
+
+.mediacom2 .tabsPanel .tabClosable>a:first-child:active {
+    background-position: 0 -23px;
+} */
+
+/* ?? */.mediacom2 .tabsPanel .markHome {
+    height: 25px;
+    width: 47px;
+    padding: 0;
+    /* background:url(images/bg_homeTab.png) no-repeat 0 -27px; */
+    background: #ff0056 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAACCCAMAAABWxpmJAAAAJFBMVEX+AFa7HVLlC1X3A1biDFTxBlXVElT0BVXUElT3BFa4HlL/AFa0MTARAAAAPUlEQVQoz83QORKAIADF0LAo+nP/+1LZSQ1N6jchz5Bb5VJ5dyZJfmPrBbWiguq2LJFJQulN6qc8WXra2AnI7BVFommJPgAAAABJRU5ErkJggg==) no-repeat;
+
+}
+
+/* .mediacom2 .tabsPanel .tabClosable>a:first-child.act {
+    background-position: 0 -23px;
+}
+
+.mediacom2 .tabsPanel .markHome:hover, .tabsPanel .markHome.act {
+    background-position: 0 0;
+} */
+
+/**** ================================### End HEADER PANELS ###============================== ****/
+
+
+/**** ### Start subDivisionsBar content ###
+==============================================================****/
+.mediacom2 .subDivisionsBar {
+    float: left;
+    overflow: auto;
+    width: 214px;
+    height: 100%;
+    padding: 0;
+    border-right: 1px solid #ccc;
+}
+
+.mediacom2 .subDivisionsBar.disable {
+    display: none;
+}
+
+.mediacom2 .subDivisionsBar .sdb-inner {
+    padding-bottom: 30px;
+}
+
+/* SubDivisions navigation menu */
+.mediacom2 .subDivisions {
+    margin: 0 0 18px;
+}
+
+.mediacom2 .subDivisions li,
+.mediacom2 .subDivisions li:hover,
+.mediacom2 .subDivisions li.active {
+    height: 31px;
+    line-height: 31px;
+    font-weight: bold;
+    background-image: url(/mainStyles/themes/mediacom2/bg_subDivs-items.png);
+    background-repeat: repeat-x;
+}
+
+.mediacom2 .subDivisions li:hover,
+.mediacom2 .subDivisions li.active {
+    background-position: 0 100% !important;
+}
+
+.mediacom2 .subDivisions li a {
+    display: block;
+    /*background-image: url(/mainStyles/images/default/bg/marks_subDivisions.png);*/
+    /*background-repeat: no-repeat;*/
+    text-decoration: none;
+    color: #515151;
+    padding-left: 30px;
+}
+
+.mediacom2 .subDivisions li:hover a,
+.mediacom2 .subDivisions li.active a {
+    color: #fff;
+}
+
+.mediacom2 .subDivisions li img {
+    margin-left: 10px;
+    position: absolute;
+    margin-top: 8px;
+}
+
+/**** End subDivisionsBar content ****/
+
+address, em {
+    font-style: normal;
+}
+
+/*Internet Explorer problem on module loading, gwt iframe history visible*/
+#__gwt_historyFrame {
+    display: none;
+}
+/*Paging button  */
+.markImport {
+    padding-left: 30px;
+    background: url(/mainStyles/images/default/button/newButton/bg_markImport.png) no-repeat 8px 50%;
+}
+
+.markPDF {
+    padding-left: 30px;
+    background: url(/mainStyles/images/default/button/newButton/bg_markPDF.png) no-repeat 8px 50%;
+}
+
+.markExcel {
+    padding-left: 30px;
+    background: url('/mainStyles/icons/new-pm-icons/excel.png') no-repeat 8px 50%;
+}
+
+.markCSV {
+    padding-left: 30px;
+    background: url(icons/document-excel-csv.png) no-repeat 8px 50%;
+}
+
+/*halim's changes*/
+.mediacom2 .customStyleTable{
+    border: 1px solid #ff0056;
+}
+.mediacom2 .customStyleTable thead th{
+    background-color: #ff0056;
+    border-right: 1px solid #b81e52;
+    border-left: 1px solid #fa4683;
+}
+.mediacom2 .defaultRateStep-0 {background: #b81e52;}
+.mediacom2 .defaultRateStep-1 {background: #faa0be;}
+.mediacom2 .defaultRateStep-2 {background: #fa94b6;}
+.mediacom2 .defaultRateStep-3 {background: #fa80a9;}
+.mediacom2 .defaultRateStep-4 {background: #fa73a1;}
+.mediacom2 .defaultRateStep-5 {background: #fa6497;}
+.mediacom2 .defaultRateStep-6 {background: #fa588f;}
+.mediacom2 .defaultRateStep-7 {background: #fa4683;}
+
+
+		/***### Start New!!! images COLORSCHEME MAROON ============================================ ###***/
+
+		/*** COLORS ***/
+a,
+.shortFAQ dt {
+    color:#e51565;
+}
+a:visited, .btn:hover,
+.optBtn2:active,
+.optBtn2 button:active {
+    color:#d60e5b;
+}
+
+.customTitle, .tabBarLinks a {
+	color:#e51565;
+}
+
+.btn, .optBtn, .optBtn2,
+.labelLine .addFieldSet .addField {
+	color:#e51565;
+	}
+/*  Exist above .btn:hover {} */
+
+/* Exist above .optBtn2:active,
+.optBtn2 button:active {} */
+
+
+/* .labelLine .addFieldSet .addField {} */
+
+		/* BG-COLORS, BORDERS */
+.title {}
+
+/* Oportunity accordeon string-title */
+.slideDown-title, .slideDown-title em,
+.slideDown-halfTitle, .slideDown-halfTitle em, .slideDown-halfTitle .gwt-HTML,
+.slideDown-title .gwt-HTML,
+/* NEW */
+.title-2, .subTitle,
+.noteTable a, .noteTable .noteOwner,
+.pairDate dt,
+.faceInfo .title,
+.sectTitle
+ {
+    color: #e7256f;
+}
+
+.slideDown-title {
+    border-color:#e2bcbc;
+    background: #fdedf3;
+}
+
+.slideDown-title:hover>em,
+.slideDown-title:hover .gwt-HTML {
+    color: #d60e5b;
+}
+
+		/*** ICONS ***/
+
+/*** header of listing table ***/
+/* .gwt-ScrollTable .headerTable td, .gwt-ScrollTable .footerTable td {
+		border-left: 1px solid #ca66ca;
+    border-right: 1px solid #792a79;
+		} */
+
+/*** Buttons ***/
+.btn-1, a.btn-1,
+.blueBtn, .blueBtn span,
+.masterBtn,
+.boxTitle a,
+.rangeLine>.act, .rangeLine>div:hover {
+    background:url(images/theme-mediacom2/bg_gradX-1.png) repeat-x scroll 0 0 #dadada;
+    /* background: url(data:image/png;base64,) repeat-x scroll 0 0 #DADADA; */
+}
+
+
+.btn-1, a.btn-1 {
+    /* background:#068dc8 url(images/theme-mediacom2/bg_gradX-3.png) repeat-x; */
+}
+
+
+.masterBtn {
+    /* background:#002341 url(images/theme-mediacom2/bg_gradX-2.png) repeat-x; */
+    background-color: #b81e52;
+}
+
+
+
+
+.subDivisions li,
+.subDivisions li:hover,
+.subDivisions li.active {
+    background-image: url(images/theme-mediacom2/bg_subDivs-items.png);
+    background-repeat: repeat-x;
+}
+
+
+.mark {
+    /* background:url(images/theme-mediacom2/marks-1.png) no-repeat; */
+}
+
+
+
+.mark2, .profileSubOptions>a, .key-slideBar {
+		background-image: url(images/theme-mediacom2/marks-2.png);
+}
+
+
+.markPlus {
+    padding-left:20px;
+    background: url(images/theme-mediacom2/bg_markPlus.png) no-repeat 0 50%;
+}
+
+.markCompetenciTemplate {
+    padding-left: 36px;
+    background: url(images/theme-mediacom2/bg_markAddCompetenciTemplate.png) no-repeat 10px 50%;
+}
+
+.markImport {
+    padding-left: 32px;
+    background: url(images/theme-mediacom2/bg_markImport.png) no-repeat 8px 50%;
+}
+
+
+/* ?? */
+.markCompetenci {
+    padding-left: 36px;
+    /* background: url(images/theme-mediacom2/bg_?.png) no-repeat 10px 50%; */
+}
+
+/* ?? */
+
+.markAddPerson {
+    padding-left: 36px;
+    background: url(images/theme-mediacom2/bg_markAddPerson.png) no-repeat 10px 50%;
+}
+
+.markAddProject {
+    padding-left: 36px;
+    background: url(images/theme-mediacom2/bg_markAddProject.png) no-repeat 10px 50%;
+}
+
+.markAddDepart {
+    padding-left: 36px;
+    background: url(images/theme-mediacom2/bg_markAddDepart.png) no-repeat 10px 50%;
+}
+
+.markAddBusiness {
+    padding-left: 36px;
+    background: url(images/theme-mediacom2/bg_markAddBusiness.png) no-repeat 10px 50%;
+}
+
+.markAdd2 {
+    padding-left: 26px;
+    background: url(images/theme-mediacom2/bg_markAdd2.png) no-repeat 5px 50%;
+}
+
+.markAddFrom {
+    padding-left: 26px;
+    background: url(images/theme-mediacom2/bg_markAddFrom.png) no-repeat 5px 50%;
+}
+
+.markNewReport {
+    padding-left: 26px;
+    background: url(images/theme-mediacom2/bg_markNewReport.png) no-repeat 5px 50%;
+}
+
+.markSuggestNew {
+    padding-left: 26px;
+    background: url(images/theme-mediacom2/bg_markSuggestNew.png) no-repeat 5px 50%;
+}
+
+.markBulletArrow {
+    padding-left: 31px;
+    background: url(images/theme-mediacom2/bg_markBulletArrow.png) no-repeat 5px 50%;
+}
+
+.markShare {
+    padding-left: 26px;
+    background: url(images/theme-mediacom2/bg_markShare.png) no-repeat 10px 50%;
+}
+
+.markModify {
+    padding-left: 26px;
+    background: url(images/theme-mediacom2/bg_markModify.png) no-repeat 10px 50%;
+}
+
+.markTickR {
+    padding-right: 34px;
+    background: url(images/theme-mediacom2/bg_markTickR.png) no-repeat 100% 50%;
+}
+
+
+.markDraftR {
+    padding-right: 34px;
+		background: url(images/theme-mediacom2/bg_markDraftR.png) no-repeat 100% 50%;
+    /* background: url(data:image/png;base64,) no-repeat 100% 50%; */
+}
+
+.markBack {
+    padding-left: 24px;
+    background: url(images/theme-mediacom2/bg_markBack.png) no-repeat 0 50%;
+}
+
+.markPrev {
+    padding-left: 24px;
+    background: url(images/theme-mediacom2/bg_markPrev.png) no-repeat 0 50%;
+}
+
+.markRunR {
+    padding-right: 24px;
+    background: url(images/theme-mediacom2/bg_markRun.png) no-repeat 100% 50%;
+}
+
+.markCloseR {
+    padding-right: 24px;
+    background: url(images/theme-mediacom2/bg_markClose.png) no-repeat 100% 50%;
+}
+
+.markNextR {
+    padding-right: 24px;
+    background: url(images/theme-mediacom2/bg_markNext.png) no-repeat 100% 50%;
+}
+
+/** Opportunity Buttons **/
+
+
+.markCloseR {
+    padding-right: 30px;
+    background: url(images/theme-mediacom2/bg_markCloseR.png) no-repeat 100% 50%;
+}
+
+.markConvertToR {
+    padding-right: 30px;
+    background: url(images/theme-mediacom2/bg_markConvertToR.png) no-repeat 100% 50%;
+}
+
+.markSaveCloseR {
+    padding-right: 30px;
+    background: url(images/theme-mediacom2/bg_markSaveCloseR.png) no-repeat 100% 50%;
+}
+
+
+.markUploadR {
+    padding-right: 20px;
+    background: url(images/theme-mediacom2/bg_markUploadR.png) no-repeat 100% 50%;
+}
+
+
+
+.markDownload {
+    padding-left: 16px;
+    background: url(images/theme-mediacom2/bg_markDownload.png) no-repeat;
+}
+
+.markDelete {
+    padding-left: 16px;
+    line-height: 1em;
+    background: url(images/theme-mediacom2/bg_markDelete.png) no-repeat;
+}
+
+
+.slideDown-title>em,
+.slideDown-title .gwt-HTML {
+    background:url(images/theme-mediacom2/bg_slideDown.png) no-repeat 5px 3px;
+}
+
+
+
+/* .labelLine .addFieldSet  *//* a is TEMP */
+a.addField, .addField a,
+.shortFAQ .gwt-DisclosurePanel a.header {
+    padding-left: 10px;
+    background:url(images/theme-mediacom2/bg_markLinkPlus.png) no-repeat 0 50%;
+}
+
+/* For sidebar Halp-List (expand and collapse) */
+.shortFAQ dt, .GTLP2WPH dt {
+    background:url(images/theme-mediacom2/bg_markLinkPlus2.png) no-repeat 0 50%;
+}
+
+.shortFAQ dt.expandElement, .GTLP2WPH dt.expandElement {
+    background:url(images/theme-mediacom2/bg_markLinkMinus.png) no-repeat 0 50%;
+}
+
+/** Keys - little buttons **/
+.keyRemove, .keyAdd {
+    /* width:14px; height:14px; */
+    background: url(images/theme-mediacom2/bg_key_add-remove.png) no-repeat;
+}
+
+
+.feedBackButton {
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAABYCAYAAAAN8yztAAAEmUlEQVRo3u1aW0gUURjWNFslyHTbyeqxiB56aNPqIYIKyrSiCyVdXDOIQCo0eokgUgihelB8yaAsiC62ZdB1i6ILLkWJtkhatrprapraxU1rK/z7/9PsMO5ONbvNmYnYhw93FvQ7853/+y/HExM7Ki6mXchTQkKbYMvxCLazXiHPg89+BPwtkC8BEYeIjVEiR9I1SPhKCzIF8lREIi1gBHl1SmY8vukhHqQy8mniAhIkcpKBN7FIbkWkIUwSuVvIXc+bWCSfh5hC0jNylNuEe9xhCHmLZbNND2Il8lGtgu2SUeQU4e1GkSd4VSaQ+gk58HZ3Rcj3jZYN8CRvP3y8eDdscpPaVd9JXQVtdgf4bj1iz61CLjyYnQ+N9uswPDwM/taOsMkT1ZLfN6+GuhPVjOiD6wU8LTsJA9297PlLTx/0lVTxIyc4UlfCS8d9RhjAe5S7I2NnRHv+R3KS15OxQ0Jt+lZJgc9ulHrFXj7kTyasg3sHyke86a+g+Z4bSq4kuxK47bmSr7u3lLLPTvNa6C0/z5+cFHBYc6HDWSdJfGb8EvCh3b75BqUFcff5155+9t2VlGzw1D79GfmuFn7k1eMz4Z3bKxEref9P8mtOLn97buRy2Qfc7eC134IW+03ocjXxl51Qk5IlkclBma5rxT7+VqPS2lB0mL15p/029JdXR1zPwyYPTjotGQXgWr6Hb1Uj0mvWzYqyc6/nSuV0RGmtusrf53602o2sAviAET/gfMY+U/RH0kaFRf4eSUheUqHN8ZB9pvbquf0GfPcN6SP7a4z0gOeJ+Avmdq5JhgLusnUjk/sTyn1uVo5ESgg0llyt1mzZxBIK/XRmFzIV1ASbZuTka3fJMegsOa4qs3HrXglDmNfVNBSaFBbma9z7frReYN8HnS6+ViMy6loCY1Nw1uMW7VTRelzNIWmUfN6Mdguu85p2r6707XCn8CB8xTfvx+im7+rTt4GzuILPuBQdGgwZGqhreVhYymz1O3xEaJ5eDZWdJKeIplT6srgSHpdVgR+j/Z2zgX3XWHyUVTXyvppeLmKfU38uH5XkKdeDtV23iUUeYLoMDfKiMoRJRdehIdBM9OHbBwcb9yk1AJrJm8tOS0ODLvO53PuuoiPQVlXDcrxaYs2bCZ/7NTuP82MM6HY40IullcqrDzObdCyml9Wohr/ASCfP62I1Q8lDZW+Cwe5efc5kfte9cg+4f+JwIOrzqM+jPv//fE4dTDhe5tK301FX4CjkzcXbqgZDTcmDn6Pk3Mnp35Y0OsmfuU6p//fhgFfI8xl2OIB/3G3UtYXEJsvGq0aRmx6Y1xQYdmEjY8zESSh9txHkdD1sXE1K1i5DLukgkhCTUf5Tul9PQoxGJKfGJ03HBVzQm5ze3oSwIGZUJi/ch6WzUxdy8T5cnCj/RFqAED92AS6i1GleW4sL6fEItu88yWNlCyAFpiJmIeYjFiOWIpYhshDZEWKR4mW8oAXQFiQjJonXBmciZiPmIOaKq48E1pBriPlJJ0ZAjIHRogrjEGZxOyaLkkWKtJALmMHkQYuIF6+LmsRf+huY5FdPfwCnZ6hVcInykAAAAABJRU5ErkJggg==);
+}
+
+.nearSearchBtn>em {
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAMAQMAAABV3H//AAAABlBMVEX////lFWXwhrL2AAAAAXRSTlMAQObYZgAAADFJREFUeF4NxTERgDAMAMA3jIaCMYKTSMhGh156ML2xiSYXNZnFSvrmPajrlPGI39E+BSUVYuoovxoAAAAASUVORK5CYII=);
+	}
+.nearSearchBtn1>em:before {
+    background-color: #fa4683;
+}
+
+			/***### \COLORSCHEME MAROON ###***/
+
+
+
+/******************************Tree Table styles BEGAN*****************************/
+
+.wfm-treeTable {
+    background: white;
+    overflow: hidden;
+    border: 1px solid #CCCCCC;
+}
+
+.wfm-treeTable-header {
+    color: #fff;
+    background-position: 100% 0;
+    background-color: #6f0505;
+}
+/******************************Tree Table styles END*****************************/
+
+.mediacom2 .invoice-block .label,
+.mediacom2 .invoice-type .label,
+.mediacom2 .progress-invoicing .label {
+    color: black;
+}
+
+.mediacom2 .invoice-block .titlelabel{
+    color: black;
+}
+.mediacom2 .optionlabel{
+    color: black;
+}
+
+.myCompanyNameStyle {
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: 15%;
+    color: #fa4683 !important;
+}

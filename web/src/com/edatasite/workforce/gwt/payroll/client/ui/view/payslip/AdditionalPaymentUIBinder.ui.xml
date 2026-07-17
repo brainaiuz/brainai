@@ -1,0 +1,66 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:w='urn:import:com.edatasite.workforce.gwt.core.client.ui'
+             xmlns:i='urn:import:com.edatasite.workforce.gwt.invoice.client.ui.view.components'
+             xmlns:m='urn:import:gwt.material.design.client.ui.html'
+             xmlns:c='urn:import:com.edatasite.workforce.gwt.core.client.ui.components.groupBox'>
+    <g:HTMLPanel ui:field="panel">
+        <div class="width-limiter">
+            <div class="grid-row">
+                <div class="col-8">
+                    <div class="grid-row">
+                        <div class="col">
+                            <div class="grid-row">
+                                <div class="col-6">
+                                    <div class="grid-row">
+<!--                                        <m:Div styleName="col-6" ui:field="categoryPanel"/>-->
+                                        <m:Div styleName="col-5" ui:field="groupPanel"/>
+                                        <m:Div styleName="col-4" ui:field="monthPanel"/>
+                                        <m:Div styleName="col-3" ui:field="yearPanel"/>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="grid-row">
+<!--                                        <m:Div styleName="col-6" ui:field="defaultDatePanel"/>-->
+<!--                                        <m:Div styleName="col-6" ui:field="defaultCategoryPanel"/>-->
+                                        <m:Div styleName="col-6" ui:field="paymentTypePanel"/>
+                                        <m:Div styleName="col-6" ui:field="paymentTypeInputBox"/>
+                                    </div>
+                                </div>
+                            </div>
+<!--                            <div class="grid-row">-->
+<!--                                <div class="col-6">-->
+<!--                                    <div class="grid-row">-->
+<!--                                        <m:Div styleName="col-4" ui:field="showInPayslipPanel"/>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <m:Div styleName="col-6" ui:field="referencePanel"/>-->
+<!--                            </div>-->
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="grid-row">
+                        <m:Div styleName="col-7" ui:field="approverPanel"/>
+                        <m:Div styleName="col-4" ui:field="showAdditionalFields"/>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="mb-4 mt-5">
+            <div class="grid-row">
+                <div class="col-12">
+                    <g:VerticalPanel ui:field="itemsTable"/>
+                </div>
+            </div>
+        </div>
+        <div class="mb-4">
+            <div class="grid-row file--AdditionalPaymentUIBinder">
+                <div class="col"></div>
+                <m:Div styleName="col-auto offset-1" ui:field="totalPanel"/>
+            </div>
+        </div>
+    </g:HTMLPanel>
+</ui:UiBinder>

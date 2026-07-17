@@ -1,0 +1,53 @@
+<!-- ImportSettingsView.ui.xml -->
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:g="urn:import:com.google.gwt.user.client.ui">
+    <g:HTMLPanel>
+
+        <div id="test2">
+            <div class="uploadSteps__info">
+                <h3>Set up transactions for import</h3>
+                <h4>Map and assign columns</h4>
+                <p> Assign column headings in your file to fields in System, to set how your transactions look. You only need to do this once, but you can edit them when you next import a CSV file. </p>
+            </div>
+            <div class="uploadSteps__data">
+                <g:HTMLPanel styleName="form-group" ui:field="mainTableContainer">
+
+                </g:HTMLPanel>
+                <!-- PAGINATION-->
+<!--                <div class="paging-group text-right">-->
+<!--                    <div class="pagingStat__wrapper">-->
+<!--                        <a tabindex="0" id="gwt-debug-total_link_id"  class="gwt-uid-775 dropdown-button">-->
+<!--                            <div class="gwt-HTML pagingStat"><span>0 - 0 of 0 </span></div>-->
+<!--                            <ul class="dropdown-content" style="display: none;">-->
+<!--                                <li ><a tabindex="0"><span>Newest</span></a></li>-->
+<!--                                <li><a tabindex="0"><span>Oldest</span></a></li>-->
+<!--                            </ul>-->
+<!--                        </a>-->
+<!--                    </div>-->
+<!--                    <ul class="paging">-->
+<!--                        <li class="paging__prevpage"><a tabindex="0" class="btn btn&#45;&#45;white btn&#45;&#45;icon">-->
+<!--                            <svg class="icon&#45;&#45;chevronLeft">-->
+<!--                                <use href="/mainStyles/new-ui/icons/sprite__panels.svg#chevronLeft"></use>-->
+<!--                            </svg>-->
+<!--                        </a>-->
+<!--                        </li>-->
+<!--                        <li class="paging__currentpage"><input type="text" maxlength="255" class="form-control" /></li>-->
+<!--                        <li class="paging__nextpage">-->
+<!--                            <a tabindex="0" class="btn btn&#45;&#45;white btn&#45;&#45;icon">-->
+<!--                                <svg class="icon&#45;&#45;chevronRight" >-->
+<!--                                    <use href="/mainStyles/new-ui/icons/sprite__panels.svg#chevronRight"></use>-->
+<!--                                </svg>-->
+<!--                            </a>-->
+<!--                        </li>-->
+<!--                        <li>-->
+<!--                            <div class="errorMessage"></div>-->
+<!--                        </li>-->
+<!--                    </ul>-->
+<!--                </div>-->
+                <!-- //END PAGINATION-->
+            </div>
+        </div>
+
+        <g:FlexTable ui:field="settingsTable"/>
+    </g:HTMLPanel>
+</ui:UiBinder>

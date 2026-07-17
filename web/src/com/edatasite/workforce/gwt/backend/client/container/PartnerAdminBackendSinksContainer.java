@@ -1,0 +1,39 @@
+package com.edatasite.workforce.gwt.backend.client.container;
+
+import com.edatasite.workforce.gwt.backend.client.ui.view.AccountManagementListView;
+import com.edatasite.workforce.gwt.backend.client.ui.view.GenericSettingsListView;
+import com.edatasite.workforce.gwt.backend.client.ui.view.HelpDocumentListView;
+import com.edatasite.workforce.gwt.backend.client.ui.view.SolrIndexView;
+import com.edatasite.workforce.gwt.backend.client.ui.view.SubscriptionsListView;
+import com.edatasite.workforce.gwt.core.client.View;
+import com.edatasite.workforce.gwt.core.client.ui.SinksContainer;
+
+import java.util.LinkedList;
+
+/**
+ * User: Dilshod Madrahimov
+ * Date: 4/13/12
+ * Time: 5:35 PM
+ */
+
+public class PartnerAdminBackendSinksContainer extends SinksContainer {
+
+
+    public PartnerAdminBackendSinksContainer(String name, String description) {
+        super(name, description, null, NONE);
+    }
+
+    @Override
+    protected void initViews(LinkedList<View> viewList) {
+
+    }
+
+    @Override
+    protected void initViews() {
+        addView(new AccountManagementListView(true));
+        addView(new SubscriptionsListView(true));
+        addView(new GenericSettingsListView(true));
+        addView(new HelpDocumentListView(true));
+        addView(new SolrIndexView(true));
+    }
+}

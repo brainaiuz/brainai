@@ -1,0 +1,33 @@
+@media (min-width: 1000px) {
+	.logo {
+		position: absolute;
+		top: 7%;
+	}
+}
+
+@media (max-width: 1000px) {
+	.logo {
+	  margin-bottom: 60px;
+	}
+
+	.right-side {
+		display: none;
+	}
+
+	.longer-width {
+		max-width: 450px;
+		min-width: 290px;
+		width: auto;
+		padding: 0 15px;
+	}
+
+	.media-full-width {
+		width: 100%;
+	}
+}
+
+@media (max-width: 400px) {
+	.info-links {
+		min-width: auto;
+	}
+}

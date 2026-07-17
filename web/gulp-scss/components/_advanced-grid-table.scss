@@ -1,0 +1,571 @@
+.dnd-item-table {
+  > * > * > *:first-child {
+
+  }
+}
+//.dnd-processed,
+.dnd-item-table__heading > * > tr, .dnd-item-table > * > tr {
+  > td, > th {
+    &:first-child {
+      padding-left: $firstCellLeftPadding;
+    }
+  }
+}
+.dnd-processed > td:first-child {
+  &:hover {
+    cursor: move;
+  }
+  &:before
+  {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: $firstCellLeftPadding / 2;
+    margin-top: -6px;
+    height: 12px;
+    width: 12px;
+    margin-left: -6px;
+    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIHdpZHRoPSI4cHgiIGhlaWdodD0iMTJweCIgdmlld0JveD0iMCAwIDggMTIiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+ICAgICAgICA8dGl0bGU+bWVudS0xIGNvcHk8L3RpdGxlPiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4gICAgPGcgaWQ9IlBhZ2UtMSIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+ICAgICAgICA8ZyBpZD0iU2FsZXMtT3JkZXItQ29weS00IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtOTAuMDAwMDAwLCAtNDQ4LjAwMDAwMCkiIGZpbGw9IiMyRDNBNDUiIGZpbGwtcnVsZT0ibm9uemVybyI+ICAgICAgICAgICAgPHBhdGggZD0iTTkyLDQ0OCBDOTIuODAyNzgyMyw0NDggOTMuNDU4MjY1MSw0NDguNjc1MTI3IDkzLjQ1ODI2NTEsNDQ5LjUwNzYxNCBDOTMuNDU4MjY1MSw0NTAuMzQwMTAyIDkyLjgwNTIzNzMsNDUxLjAxNTIyOCA5Miw0NTEuMDE1MjI4IEM5MS4xOTQ3NjI3LDQ1MS4wMTUyMjggOTAuNTQxNzM0OSw0NTAuMzQwMTAyIDkwLjU0MTczNDksNDQ5LjUwNzYxNCBDOTAuNTQxNzM0OSw0NDguNjc1MTI3IDkxLjE5NzIxNzcsNDQ4IDkyLDQ0OCBaIE05Ni41NDE3MzQ5LDQ0OCBDOTcuMzQ0NTE3Miw0NDggOTgsNDQ4LjY3NTEyNyA5OCw0NDkuNTA3NjE0IEM5OCw0NTAuMzQwMTAyIDk3LjM0Njk3MjIsNDUxLjAxNTIyOCA5Ni41NDE3MzQ5LDQ1MS4wMTUyMjggQzk1LjczNjQ5NzUsNDUxLjAxNTIyOCA5NS4wODM0Njk3LDQ1MC4zNDAxMDIgOTUuMDgzNDY5Nyw0NDkuNTA3NjE0IEM5NS4wODM0Njk3LDQ0OC42NzUxMjcgOTUuNzM4OTUyNSw0NDggOTYuNTQxNzM0OSw0NDggWiBNOTIsNDUyLjQ5MjM4NiBDOTIuODAyNzgyMyw0NTIuNDkyMzg2IDkzLjQ1ODI2NTEsNDUzLjE2NzUxMyA5My40NTgyNjUxLDQ1NCBDOTMuNDU4MjY1MSw0NTQuODMyNDg3IDkyLjgwNTIzNzMsNDU1LjUwNzYxNCA5Miw0NTUuNTA3NjE0IEM5MS4xOTQ3NjI3LDQ1NS41MDc2MTQgOTAuNTQxNzM0OSw0NTQuODMyNDg3IDkwLjU0MTczNDksNDU0IEM5MC41NDE3MzQ5LDQ1My4xNjc1MTMgOTEuMTk3MjE3Nyw0NTIuNDkyMzg2IDkyLDQ1Mi40OTIzODYgWiBNOTYuNTQxNzM0OSw0NTIuNDkyMzg2IEM5Ny4zNDQ1MTcyLDQ1Mi40OTIzODYgOTgsNDUzLjE2NzUxMyA5OCw0NTQgQzk4LDQ1NC44MzI0ODcgOTcuMzQ2OTcyMiw0NTUuNTA3NjE0IDk2LjU0MTczNDksNDU1LjUwNzYxNCBDOTUuNzM2NDk3NSw0NTUuNTA3NjE0IDk1LjA4MzQ2OTcsNDU0LjgzMjQ4NyA5NS4wODM0Njk3LDQ1NCBDOTUuMDgzNDY5Nyw0NTMuMTY3NTEzIDk1LjczODk1MjUsNDUyLjQ5MjM4NiA5Ni41NDE3MzQ5LDQ1Mi40OTIzODYgWiBNOTIsNDU2Ljk4NDc3MiBDOTIuODAyNzgyMyw0NTYuOTg0NzcyIDkzLjQ1ODI2NTEsNDU3LjY2MjQzNyA5My40NTgyNjUxLDQ1OC40OTIzODYgQzkzLjQ1ODI2NTEsNDU5LjMyNDg3MyA5Mi44MDUyMzczLDQ2MCA5Miw0NjAgQzkxLjE5NDc2MjcsNDYwIDkwLjU0MTczNDksNDU5LjMyMjMzNSA5MC41NDE3MzQ5LDQ1OC40OTIzODYgQzkwLjU0MTczNDksNDU3LjY1OTg5OCA5MS4xOTcyMTc3LDQ1Ni45ODQ3NzIgOTIsNDU2Ljk4NDc3MiBaIE05Ni41NDE3MzQ5LDQ1Ni45ODQ3NzIgQzk3LjM0NDUxNzIsNDU2Ljk4NDc3MiA5OCw0NTcuNjYyNDM3IDk4LDQ1OC40OTIzODYgQzk4LDQ1OS4zMjQ4NzMgOTcuMzQ2OTcyMiw0NjAgOTYuNTQxNzM0OSw0NjAgQzk1LjczNjQ5NzUsNDYwIDk1LjA4MzQ2OTcsNDU5LjMyMjMzNSA5NS4wODM0Njk3LDQ1OC40OTIzODYgQzk1LjA4MzQ2OTcsNDU3LjY1OTg5OCA5NS43Mzg5NTI1LDQ1Ni45ODQ3NzIgOTYuNTQxNzM0OSw0NTYuOTg0NzcyIFoiIGlkPSJtZW51LTEtY29weSI+PC9wYXRoPiAgICAgICAgPC9nPiAgICA8L2c+PC9zdmc+);
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  &:hover:before {
+    cursor: move;
+  }
+}
+
+
+$advanced-GridPanel-cellHeight: 22px;
+.advanced-GridPanel {
+  th, td {
+    padding: 0; //https://i.imgur.com/wPSWajg.png
+  }
+  th {
+    white-space: normal !important;
+    vertical-align: bottom;
+  }
+
+  svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .body-table-cell,
+  .header-table-cell {
+    table.advanced-Grid {
+      table-layout: fixed;
+      //width: auto;
+      //min-width: 100%;
+      .modal & {
+        //table-layout: auto; //https://i.imgur.com/jwDHz8M.png
+
+        td, th {
+          padding: 0;
+        }
+      }
+    }
+  }
+
+  .header-table-cell {
+    thead {
+      border-bottom: none;
+    }
+    .gwt-Label {
+      //padding-left: $control-padding-x;
+      padding-right: $control-padding-x;
+      @include table-cell-heading;
+    }
+    .header-cell.left-align-Cell {
+      > .gwt-Label {
+        padding-left: $control-padding-x; //https://prnt.sc/q8t537
+      }
+    }
+  }
+  &--draggable {
+    .header-table-cell {
+      .gwt-Label {
+        padding-left: $control-padding-x;
+      }
+    }
+  }
+
+  .invoice-products {
+    tbody {
+      outline: none;
+    }
+  }
+
+  #gwt-debug-saleinvoicediscount-1 {
+    padding: 0 4px;
+  }
+
+  .cell-TextAreaLabel {}
+
+  .body-table-cell {
+    //.advanced-Grid {}
+
+    .selected-row {
+      background-color: $highlightedRowColor;
+
+      .grid-column:not(:last-child):after {
+        border-right-color: darken($highlightedRowColor, 5%);
+      }
+
+
+      .incident-show {
+        background-color: #536677;
+        color: #FFF;
+      }
+
+    }
+    .grid-column {
+      border-top: 1px solid #E3E9F2;
+      border-bottom: 1px solid #E3E9F2;
+      vertical-align: middle;
+
+      &.product-description-cell {
+        vertical-align: top;
+      }
+
+      .textAreaPanel {
+        > tbody > tr:first-child:not(:last-child) {
+          //display: none;
+        }
+        .counterGreen {
+          display: none;
+        }
+      }
+
+      //&[column-reference="action_points"],
+      &[column-reference="description"] {
+        .editable-cell.active-cell {
+          //padding-left: 0;
+          //padding-right: 0;
+          //lead to the following issue https://prnt.sc/vc2mvg
+          > .gwt-Label {
+
+          }
+        }
+        .textAreaPanel {
+          > tbody > tr:first-child:not(:last-child) {
+            //display: none;
+          }
+          .counterGreen {
+            display: none;
+          }
+        }
+      }
+
+      > .data-cell {}
+    }
+
+    > tbody > tr {
+      .grid-column {
+        &:first-child {
+          //border-top-left-radius: 5px;
+          //border-bottom-left-radius: 5px;
+        }
+        &.grid-column:last-child {
+          //border-top-right-radius: 5px;
+          //border-bottom-right-radius: 5px;
+        }
+        &:last-child .data-cell {
+          //border-right: 0;
+        }
+      }
+
+      .data-cell.active-cell:after {
+        //content: none;
+      }
+    }
+
+    > tbody tr.selected-row .data-cell .gwt-TextArea {
+      position: absolute;
+      top: 0px;
+      left: 1px;
+      right: 1px;
+      bottom: 0px;
+      z-index: 2;
+      min-height: 40px;
+      padding-left: 5px;
+      padding-right: 5px;
+      border-radius: 0;
+      line-height: 1.5;
+      width: 100% !important;
+    }
+
+  }
+
+  div.data-cell {
+    display: flex; //https://prnt.sc/s4mffx Don't change to .inline-flex
+    //display: inline-flex; // for the case when a nested .form-control width is restricted https://prnt.sc/sjqe0b
+    align-items: center;
+    justify-content: flex-start; //
+    > * {
+      flex: 1; //.right-align-Cell fix
+    }
+    input {
+      flex: 1 1 auto; //FF flex child issue
+    }
+  }
+
+  input[type='text'] {
+    border: none;
+    //width: 100% !important; unnecessary duplicate
+  }
+  .x-form-invalid {
+    min-height: $advanced-GridPanel-cellHeight;
+  }
+  .grid-column:first-child {
+    .x-form-invalid {
+      margin-left: $control-padding-x;
+    }
+  }
+  //editable-cell passive-cell
+  //.passive-cell,
+  .data-cell,
+  .passive-cell {
+    position: relative;
+    border-top: 1px solid transparent; // due to the child div has a top margin which is affect to the height //https://prnt.sc/s1szof Don't use the overflow:hidden - textarea will be truncated
+    min-height: ($button-height + rem(1px)); // used as placeholder for textarea
+
+    &:not(.grid-column) {
+      padding: 0 $control-padding-x; // the height should be equal with control height //https://i.imgur.com/8O7J1XE.png
+    }
+
+    .cell-add--right {
+
+    }
+  }
+  .right-align-Cell > .data-cell:not(.grid-column),
+  .left-align-Cell > .data-cell:not(.grid-column) { //https://prnt.sc/s4pqj5
+    > table {
+      width: auto !important;
+      //margin-left: -$control-padding-x;
+      //margin-right: -$control-padding-x;
+    }
+    > .form-control[disabled] { //https://prnt.sc/vcfyw7
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+  .right-align-Cell > .data-cell .form-control {
+    text-align: right;
+  }
+
+  .active-cell {
+    &:has(.form-control) {
+      padding-left: 0;
+      .form-control {
+        margin-left: -1px;
+      }
+      > input.form-control {
+        display: inline-block;
+        margin-left: $control-padding-x;
+        margin-top: 4px;
+        margin-bottom: 4px;
+      }
+    }
+
+  }
+  .editable-cell.passive-cell {
+  }
+  .gwt-SuggestBox,
+  .gwt-PasswordTextBox,
+  .form-control:not(.gwt-TextArea) {
+    height: $advanced-GridPanel-cellHeight !important;
+    border-radius: 0;
+    //padding-top: 0 !important;
+    //padding-bottom: 0 !important;
+    //padding-left: 0 !important; //https://prnt.sc/s4mffx
+
+    .select-wrapper,
+    .select-dropdown {
+      height: ($advanced-GridPanel-cellHeight - 2px) !important;
+    }
+  }
+  .form-control {
+    //padding-right: 0 !important;
+  }
+  .gwt-SuggestBox {
+    //padding-right: 20px !important;
+  }
+
+  .editable-cell {
+    // Text jumping when click to cell -> https://prnt.sc/sjrbvg
+    .listbox-wrapper {
+    }
+    .simpleGwt-ComboBox,
+    .form-control:not([disabled]) {
+      //margin-right: -$control-padding-x;
+      //margin-left: -$control-padding-x;
+      &:not(.select-dropdown):not(.gwt-SuggestBox) {
+      }
+    }
+  }
+  .data-cell {
+    table {
+      width: 100% !important;
+    }
+    > table td + td {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      vertical-align: middle !important; //http://prntscr.com/malqg6
+      vertical-align: middle !important; //http://prntscr.com/malqg6
+      .gwt-Label {
+        padding-left: 3px;
+      }
+    }
+
+    .description-default-color {
+      border: none;
+    }
+    .editable-cell__actions {
+      margin-right: 10px;
+      td {
+        text-align: center;
+        font-weight: bold;
+        &:hover {
+          //[class*="ficon--"] {
+          //  font-weight: bold;
+          //  color: #000;
+          //}
+        }
+      }
+      //[class*="ficon--"] {
+      //  font-weight: 500;
+      //  color: $color-accent-2;
+      //}
+
+      i {
+        @include table-actions-svg;
+      }
+
+    }
+
+    .gwt-Label,
+    .gwt-TextBox,
+    .lookUp-Cell,
+    .cell-TextAreaLabel,
+    .gwt-SuggestBox,
+    .left-align-cell,
+    .gwt-HTML {
+      color: $color-accent-2;
+    }
+
+    .gwt-RadioButton input,
+    .gwt-RadioButton label:before,
+    .gwt-CheckBox input,
+    .gwt-CheckBox label:before,
+    .control input,
+    .control__indicator:before {
+      top: 50%;
+      margin-top: -8px;
+    }
+
+    .gwt-CheckBox label:after,
+    .gwt-RadioButton label:after,
+    .data-cell .control__indicator:after {
+      top: 50%;
+      margin-top: -5px;
+    }
+
+    .gwt-RadioButton,
+    .gwt-CheckBox {
+      //height: 3.07692rem;
+
+    }
+
+    &.passive-cell > .lookUp-Cell {
+      padding-left: 0;
+    }
+
+    .simpleGwt-ComboBox {
+      display: block;
+      border: none;
+    }
+
+    input[type='text'] {
+    }
+
+    .gwt-ListBox {
+      border: none;
+    }
+
+    .gwt-TextArea {
+      display: block;
+      width: 100%;
+      resize: vertical;
+      &:focus {
+        //position: absolute;
+        //z-index: 1;
+        //width: 100%;
+      }
+    }
+    @at-root .advanced-GridPanel .selected-row {
+      .gwt-TextArea {
+        //position: absolute;
+        //z-index: 2;
+        //top: 0;
+        //left: 0;
+        //right: 0;
+        //min-height: 62px;
+      }
+    }
+
+    .gwt-CheckBox label {
+      vertical-align: baseline;
+    }
+
+    //&.editable-cell,
+    &.data-cell,
+    &.passive-cell,
+    &.active-cell {
+      > * {
+        //min-height: $advanced-GridPanel-cellHeight;
+      }
+      > *:not(.left-align-Cell):not(.right-align-Cell) { //https://prnt.sc/sf5j40
+      }
+    }
+    &.active-cell {
+      user-select: all;
+      .gwt-TextArea,
+      .form-control {
+        user-select: auto; //https://prnt.sc/vfa1e6
+      }
+
+      input.form-control {
+        width: 100% !important; //https://prnt.sc/s3irpn
+      }
+
+      //https://prnt.sc/shr38s
+      > .grid-row {
+
+        > .col {
+          flex: 0;
+
+          &:first-child {
+            padding-right: 0;
+          }
+          + .col {
+            padding-left: 0;
+          }
+        }
+      }
+    }
+    &.passive-cell {
+      overflow: hidden;
+      font-size: 0;
+
+      > * {
+        position: relative;
+        z-index: 1;
+        transition: color .3s ease;
+        font-size: 1rem;
+      }
+    }
+
+    .lookUp-Cell,
+    .gwt-HTML {
+      //text-align: center !important;
+    }
+
+    textarea {
+      border-color: $control-border-color;
+    }
+    .simpleGwt-ComboBox {
+      .gwt-SuggestBox,
+      .form-control {
+        //margin-left: 0;
+        //margin-right: 0;
+      }
+      .gwt-SuggestBox {
+        //word-spacing: -1px;
+      }
+    }
+    .btn--icon {
+
+    }
+    &.active-cell {
+      .gwt-TextArea {}
+    }
+  }
+  .passive-cell {
+    > .gwt-Label {
+      //padding-left: 0 !important;
+    }    padding-left: 50px;
+  }
+
+  .advanced-Grid {
+    > tbody {
+      > tr.mod--dragover-top > td {
+        border-top-width: 5px;
+      }
+      > tr.mod--dragover-bottom > td {
+        border-bottom-width: 5px;
+      }
+      > tr.mod--being-dragged {
+        opacity: 0.5;
+      }
+
+      > tr {
+        > td {
+          position: relative;
+          transition: border 0.3s;
+          > * { //<div class="data-cell editable-cell active-cell">
+            height: 100%;
+            > * {
+              height: 100%;
+
+              .textAreaPanel {
+                height: 100%;
+                > tbody > tr:first-child > td {
+                  height: 0;
+                }
+                .gwt-TextArea {
+                  min-height: 100% !important;
+                  padding-top: 0;
+                  padding-bottom: 0;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .grid-column.image-cell:last-child,
+    > * > * > *:last-child {
+    }
+    .grid-column {
+      &:not(:last-child):after {
+        content: '';
+        display: block;
+        border-right: 1px solid $color-base-contrast;
+        position: absolute;
+        top: 5px;
+        bottom: 5px;
+        right: 0; //https://i.imgur.com/aoxysQV.png
+      }
+    }
+  }
+
+  .advanced-FocusPanel {
+    outline: none;
+  }
+}
+
+.invoice__products-table {
+  .add-form & {
+    .advanced-Grid {
+      > * > tr > *:first-child {
+        //padding-left: 10px; //https://prnt.sc/rab6sd
+      }
+    }
+  }
+}
+
+.advanced-GridPanel .data-cell.active-cell .file--AdditionalPaymentUIBinder input.form-control {
+  float: left;
+  width: fit-content !important;
+}

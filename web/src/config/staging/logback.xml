@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="60 seconds">
+
+<!--    <property name="SENTRY_DSN" value="${sentry.dsn:-}"/>
+    <property name="LOG_PATH" value="${log.path:-/var/log/workforce}"/>
+    <property name="APP_NAME" value="${app.name:-workforce-app-staging}"/>-->
+    <property name="CONSOLE_PATTERN"
+              value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %highlight(%-5level) %cyan(%logger{36}) - %msg%n%ex{short}"/>
+<!--
+    <property name="FILE_PATTERN"
+              value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n%ex{full}"/>
+    <property name="SQL_PATTERN"
+              value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] SQL - %msg%n"/>
+-->
+
+    <!-- ==================== CONSOLE ==================== -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>${CONSOLE_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <!-- ==================== SENTRY ==================== -->
+   <!-- <appender name="SENTRY_APPENDER" class="io.sentry.logback.SentryAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>
+        <options>
+            <dsn>${SENTRY_DSN}</dsn>
+            <tracesSampleRate>0.5</tracesSampleRate>
+        </options>
+        <minimumEventLevel>ERROR</minimumEventLevel>
+    </appender>
+
+    <appender name="ASYNC_SENTRY" class="ch.qos.logback.classic.AsyncAppender">
+        <queueSize>256</queueSize>
+        <discardingThreshold>0</discardingThreshold>
+        <appender-ref ref="SENTRY_APPENDER"/>
+    </appender>
+-->
+    <!-- ==================== HIBERNATE ==================== -->
+    <logger name="org.hibernate" level="warn"/>
+    <logger name="org.hibernate.tool" level="error"/>
+    <logger name="org.hibernate.SQL" level="warn"/>
+    <logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="warn"/>
+    <logger name="org.hibernate.engine.jdbc.spi.SqlExceptionHelper" level="error"/>
+    <logger name="org.hibernate.resource.transaction" level="warn"/>
+
+    <!-- ==================== THIRD PARTY ==================== -->
+    <logger name="net" level="error"/>
+    <logger name="javax" level="error"/>
+    <logger name="org.apache.kafka" level="error"/>
+    <logger name="org.aspectj" level="warn"/>
+    <logger name="org.springframework" level="warn"/>
+    <logger name="org.springframework.transaction" level="warn"/>
+    <logger name="org.springframework.jms.listener" level="info" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+    <logger name="com.zaxxer.hikari" level="warn"/>
+    <logger name="com.zaxxer.hikari.pool" level="warn"/>
+
+    <!-- ==================== APPLICATION ==================== -->
+    <logger name="com.edatasite" level="info"/>
+    <logger name="com.finnetlimited" level="info"/>
+    <logger name="com.workforcetrack" level="info"/>
+
+    <logger name="com.edatasite.workforce.gwt.core.server.app.WfmJpaTransactionManager" level="warn"/>
+    <logger name="com.edatasite.workforce.gwt.core.server.app.WfmJpaTemplate" level="warn"/>
+    <logger name="com.edatasite.workforce.rest.aspects" level="info"/>
+    <logger name="com.edatasite.workforce.gwt.messagecenter" level="info"/>
+    <logger name="com.edatasite.workforce.gwt.core.server.rabbitmq" level="info"/>
+
+    <!-- ==================== ROOT ==================== -->
+    <root level="info">
+        <appender-ref ref="STDOUT"/>
+    <!--    <appender-ref ref="ASYNC_FILE"/>
+        <appender-ref ref="ASYNC_ERROR_FILE"/>
+        <appender-ref ref="ASYNC_SENTRY"/>-->
+    </root>
+
+</configuration>

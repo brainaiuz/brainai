@@ -1,0 +1,81 @@
+<report>
+    <view>
+        <title>Timesheet</title>
+        <name>TimeSheet</name>
+        <category>timesheet</category>
+        <sqlquery>
+            <select  agregateFunc="distinct">
+                <!--  Please only enter type property {'number' or 'date or clock' }   -->
+                <table name="Project">
+                    <column name="pj.id" title="id" type="number" formattype="hidden"/>
+                    <column name="cl.name" title="Client Name" type="string" formattype="string"/>
+                    <column name="tm.name" title="Department Name" type="string" formattype="string"/>
+                    <column name="pj.name" title="Project Name" type="string" formattype="string"/>
+                    <column name="pj.number" title="Project Number" type="string" formattype="string"/>
+                    <column name="pj.percent" title="Project Percent" type="number" formattype="percent"/>
+                    <column name="pj.startdate" title="Project StartDate" type="date" formattype="date"/>
+                    <column name="pj.enddate" title="Project EndDate" type="date" formattype="date"/>
+                    <column name="(ma.firstName||' '||ma.lastname)" title="Manager FullName" type="string"
+                            formattype="string"/>
+                    <column name="(CASE WHEN pj.statusid=74 THEN 'Ongoing'
+										WHEN pj.statusId=75 THEN 'Completed' 
+										ELSE 'Not Started' END)" title="Project Status" type="string"
+                            formattype="string"/>
+                    <column name="pjem.wageRate" title="Employee Wage Rate" type="number" formattype="number"/>
+                    <column name="pjem.clientChargeRate" title="Project Charge Rate" type="number" formattype="number"/>
+                </table>
+                <table name="Employee">
+                    <column name="(emp.firstName||' '||emp.lastname)" title="Employee FullName" type="string"
+                            formattype="string"/>
+                    <column name="ts.timespent" title="Timesheet hours" type="number" formattype="time"/>
+                    <column name="ts.date" title="Timesheet Date" type="date" formattype="date"/>
+                    <column name="ROUND( CAST ((ts.timeSpent / 60.0 * pjem.wagerate) AS numeric),8)" title="Wage Cost"
+                            type="number" formattype="number"/>
+                    <column name="ROUND((ts.timeSpent / 60.0 * pjem.clientChargeRate)::numeric,2)" title="Client Cost"
+                            type="number" formattype="number"/>
+                    <column name="(CASE WHEN emtk.statusId=2 THEN 'Not Started'
+										WHEN emtk.statusId=3 THEN 'In Progress' 
+										WHEN emtk.statusId=78 THEN 'On Hold' 
+										WHEN emtk.statusId=79 THEN 'Complete' 
+										WHEN emtk.statusId=84 THEN 'Cancelled' 
+										WHEN emtk.statusId=173 THEN 'Waiting for someone else' 
+									ELSE 'Closed' END)" title="Employee Task Status" type="string" formattype="string"/>
+                    <column name="emtk.dailyload" title="Daily load" type="number" formattype="time"/>
+                </table>
+                <table name="Task">
+                    <column name="tk.name" title="Task Name" type="string" formattype="string"/>
+                    <column name="tk.number" title="Task Number" type="string" formattype="string"/>
+                    <column name="tk.description" title="Task Description" type="string" formattype="string"/>
+                    <column name="tk.startdate" title="Task Start Date" type="date" formattype="date"/>
+                    <column name="tk.duedate" title="Task End Date" type="date" formattype="date"/>
+                    <column name="emtk.actualStartDate" title="Actual Start Date" type="date" formattype="date"/>
+                    <column name="emtk.actualEndDate" title="Actual EndDate" type="date" formattype="date"/>
+                    <column name="tk.estimatedtime" title="Estimated Time" type="number" formattype="time"/>
+                    <column name="tk.percent" title="Task Percent" type="number" formattype="percent"/>
+                    <column name="st.name" title="Task Status" type="string" formattype="string"/>
+
+                </table>
+            </select>
+            <from>"$".project pj left join "$".task tk on pj.id=tk.projectid
+			left outer join "$".employeetask emtk on tk.id=emtk.taskid
+			left outer join "$".timesheet ts on emtk.id=ts.employeetaskid
+			LEFT outer JOIN "$".workstream ws ON tk.parentwsid = ws.id
+			LEFT outer JOIN "$".projectemployee pjem ON pjem.id = emtk.projectemployeeid
+			LEFT outer JOIN "$".teamemployee tmem ON tmem.id = pjem.employeedepartmentid
+			LEFT outer JOIN "$".team tm ON tm.id = tmem.teamid
+			LEFT outer JOIN "$".myuser emp ON emp.id = tmem.employeeid
+			LEFT outer JOIN "$".crmaccount cl ON cl.id = pj.clientid
+			LEFT outer JOIN "$".myuser ma ON ma.id = pj.managerid
+			LEFT outer JOIN reference st ON st.id = tk.statusid
+            </from>
+            <where>
+                <terms id="base" value="pj.isdeleted != true"/>
+                <terms id="client" clientid="pj.clientid"/>
+                <!--<terms id="userid" userid="emp.id" company="pj.companyid" />
+                    <terms id="managerid" userid="ma.id" company="pj.companyid" />
+                    <terms id="leaderid" userid="tm.leaderid" company="pj.companyid" />
+                    <terms id="admin" company="pj.companyid" />-->
+            </where>
+        </sqlquery>
+    </view>
+</report>

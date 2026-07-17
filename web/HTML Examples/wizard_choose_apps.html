@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--CSS-->
+    <link rel="stylesheet" href="../WebContent/mainStyles/new-ui/css/materialize.css">
+    <!--JS-->
+    <script src="../WebContent/mainStyles/new-ui/js/jquery.min.js"></script>
+    <script src="../WebContent/mainStyles/new-ui/js/materialize-0.97.5.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $(".cp_modules-switch__switcher input").change(function(){
+                if($('.cp_modules-switch__switcher input:checked').length > 0){
+                    $('#cp_modules-switch__error').hide();
+                }
+            });
+        });
+
+    </script>
+</head>
+
+    <body class="wizard-page wizard-page--blur1 wizard-page--apps">
+    <div class="wizard-page__container">
+        <div class="pg_landing__start-btn"><a href="#"><i class="ficon--arrow-right"></i><span>Log out</span></a></div>
+        <div class="wizard-page__upper">
+            <a href="#" class="wizard-page__logo">
+                <img src="../WebContent/mainStyles/new-ui/images/new-kpi-logo2.svg" alt="logo">
+            </a>
+            <h3>Choose your apps which you want to use</h3>
+            <!--<p>Our dedicated stand-alone apps that also work as a suite-->
+                <!--is a real deal for growing companies.</p>-->
+        </div>
+        <div class="wizard-page__content">
+            <div id="cp_modules-switch__error" style="color:red;">*This is the error message</div>
+            <div class="cp_modules-switch">
+                <div class="cp_modules-switch__item cp_modules-switch__item--active">
+                    <div class="cp_modules-switch__item-content">
+                        <div class="cp_modules-switch__logo"><i class="ficon--calc"></i></div>
+                        <div class="cp_modules-switch__title">Accounts</div>
+                        <div class="cp_modules-switch__switcher">
+                            <div class="switch">
+                                <label>
+                                    <span></span>
+                                    <input type="checkbox" >
+                                    <span class="lever"></span><span></span>
+                                </label>
+                                <span class="material-label" style="margin-top: 16px;"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cp_modules-switch__notes">The accounting app is designed to keep your books and finances in order. Manage invoices, orders, inventory, expenses, automate payments and more. It is ideal for businesses across industries. Switch to smart accounting and be on top of your numbers.</div>
+                </div>
+                <div class="cp_modules-switch__item">
+                    <div class="cp_modules-switch__item-content">
+                        <div class="cp_modules-switch__logo"><i class="ficon--bar-chart-bold"></i></div>
+                        <div class="cp_modules-switch__title">Sales</div>
+                        <div class="cp_modules-switch__switcher">
+                            <div class="switch">
+                                <label>
+                                    <span></span>
+                                    <input type="checkbox" >
+                                    <span class="lever"></span><span></span>
+                                </label>
+                                <span class="material-label" style="margin-top: 16px;"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cp_modules-switch__notes">test2</div>
+                </div>
+                <div class="cp_modules-switch__item">
+                    <div class="cp_modules-switch__item-content">
+                        <div class="cp_modules-switch__logo"><i class="ficon--users-bold"></i></div>
+                        <div class="cp_modules-switch__title">Humans</div>
+                        <div class="cp_modules-switch__switcher">
+                            <div class="switch">
+                                <label>
+                                    <span></span>
+                                    <input type="checkbox" >
+                                    <span class="lever"></span><span></span>
+                                </label>
+                                <span class="material-label" style="margin-top: 16px;"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cp_modules-switch__notes">test3</div>
+                </div>
+                <div class="cp_modules-switch__item">
+                    <div class="cp_modules-switch__item-content">
+                        <div class="cp_modules-switch__logo"><i class="ficon--server-bold"></i></div>
+                        <div class="cp_modules-switch__title">Projects</div>
+                        <div class="cp_modules-switch__switcher">
+                            <div class="switch">
+                                <label>
+                                    <span></span>
+                                    <input type="checkbox" >
+                                    <span class="lever"></span><span></span>
+                                </label>
+                                <span class="material-label" style="margin-top: 16px;"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cp_modules-switch__notes">test4</div>
+                </div>
+                <div class="cp_modules-switch__item">
+                    <div class="cp_modules-switch__item-content">
+                        <div class="cp_modules-switch__logo"><i class="ficon--wallet-bold"></i></div>
+                        <div class="cp_modules-switch__title">Payroll</div>
+                        <div class="cp_modules-switch__switcher">
+                            <div class="switch">
+                                <label>
+                                    <span></span>
+                                    <input type="checkbox" >
+                                    <span class="lever"></span><span></span>
+                                </label>
+                                <span class="material-label" style="margin-top: 16px;"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cp_modules-switch__notes">test5</div>
+                </div>
+                <div class="cp_modules-switch__item">
+                    <div class="cp_modules-switch__item-content">
+                        <div class="cp_modules-switch__logo"><i class="ficon--flag-bold"></i></div>
+                        <div class="cp_modules-switch__title">Reports</div>
+                        <div class="cp_modules-switch__switcher">
+                            <div class="switch">
+                                <label>
+                                    <span></span>
+                                    <input type="checkbox" >
+                                    <span class="lever"></span><span></span>
+                                </label>
+                                <span class="material-label" style="margin-top: 16px;"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cp_modules-switch__notes">test 6</div>
+                </div>
+                <div class="cp_modules-switch__item cp_modules-switch__item--active">
+                    <div class="cp_modules-switch__item-content">
+                        <div class="cp_modules-switch__logo"><i class="ficon--folder-bold"></i></div>
+                        <div class="cp_modules-switch__title">Documents</div>
+                        <div class="cp_modules-switch__subtitle cp_modules-switch__subtitle--green">Free</div>
+                    </div>
+                    <div class="cp_modules-switch__notes">test 7</div>
+                </div>
+                <div class="cp_modules-switch__notes cp_modules-switch__notes--original">Our dedicated stand-alone apps that also work as a suite is a real deal for growing companies.</div>
+            </div>
+
+            <div class="wizard-page__buttons">
+                <a href="#" class="elm_btn elm_btn--blue elm_btn--forward">Next step &nbsp;&nbsp;<i class="ficon--arrow-right"></i></a>
+            </div>
+        </div>
+
+    </div>
+    <!--<div class="wizard-page__overlay">-->
+        <!--<div class="modal-form">-->
+            <!--<div class="cp_login__title">Create Your Password</div>-->
+            <!--<div class="cp_login__subtitle">One Platform for Your Accounting, Sales, <span class="nobr">Human Resources</span>-->
+                <!--and <span class="nobr">Project Management</span> Needs.</div>-->
+            <!--<form action='#' method="post" id="formSubmit">-->
+                <!--<input type="hidden" name="checkUser" value="asdfs">-->
+
+                <!--<div class="form-group cp_login__field cp_login__field&#45;&#45;pass">-->
+                    <!--<label class="field-mark&#45;&#45;pass">-->
+                        <!--<input type="password"-->
+                               <!--class="form-control pass-padding"-->
+                               <!--placeholder="Password"-->
+                               <!--name="password" id='pass1'-->
+                               <!--onkeyup="checkForPassEnter(this.value)"/>-->
+                        <!--<span id="error"><font style="color:red;">-->
+                                                <!--&nbsp; <c:out value="${message}"/></font>-->
+                                            <!--</span>-->
+                        <!--<div class="cp_login__field-underline"></div>-->
+                    <!--</label>-->
+
+                    <!--<div id="passStrength" class="pass-validation pass-validation&#45;&#45;state-1">-->
+                        <!--<div class="pass-validation__view pass-validation__view&#45;&#45;mod">-->
+                            <!--<span class="pass-validation__view__step-1"></span>-->
+                            <!--<span class="pass-validation__view__step-2"></span>-->
+                            <!--<span class="pass-validation__view__step-3"></span>-->
+                        <!--</div>-->
+                        <!--<div class="pass-validation__text">-->
+                            <!--<span class="pass-validation__text__step-1">Too Weak</span>-->
+                            <!--<span class="pass-validation__text__step-2">Weak password</span>-->
+                            <!--<span class="pass-validation__text__step-3">Strong password</span>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<label class="field-mark&#45;&#45;pass">-->
+                        <!--<input type="password" class="form-control" placeholder="Confirm Your Password*"-->
+                               <!--name="cPassword" id='pass2'-->
+                               <!--value=""-->
+                               <!--onkeyup="checkForPassMatch(this.value)"/>-->
+                        <!--<span id="error2" style="display:none"><font style="color:red;">-->
+                                                <!--&nbsp;<fmt:message key="changepassword.match"/></font>-->
+                                            <!--</span>-->
+                        <!--<div class="cp_login__field-underline"></div>-->
+                    <!--</label>-->
+                <!--</div>-->
+                <!--<input type='hidden' id='strength' name='strength' value='b'>-->
+                <!--<button type="button" class="elm_btn" onclick="subitnewPassword()">-->
+                    <!--Continue-->
+                <!--</button>-->
+            <!--</form>-->
+        <!--</div>-->
+    <!--</div>-->
+    </body>
+</html>

@@ -1,0 +1,93 @@
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:g="urn:import:com.google.gwt.user.client.ui"
+>
+
+    <g:HTMLPanel ui:field="mainDiv" styleName="contentBar content-box content-box--white">
+        <!-- Payment gateways -->
+        <div class="paymentGatewayPanels">
+            <g:HTMLPanel ui:field="twilioPanel" height="330px">
+                <div class="paymentGatewayPanel paymentGatewayPanel--twilio">
+
+                    <div class="paymentGatewayPanel__heading">
+                        <div style="margin: -30px 0 -10px -25px">
+                            <g:HTMLPanel ui:field="twilioLogo"></g:HTMLPanel>
+                        </div>
+                        <g:HTMLPanel ui:field="twilioText"></g:HTMLPanel>
+                    </div>
+
+                    <div class="paymentGatewayPanel__body">
+
+                    </div>
+
+                    <div class="paymentGatewayPanel__footer">
+                        <g:HTMLPanel ui:field="twilioButton"></g:HTMLPanel>
+                    </div>
+                </div>
+            </g:HTMLPanel>
+
+            <g:HTMLPanel ui:field="asteriskPanel" height = "330px">
+                <div class="paymentGatewayPanel paymentGatewayPanel--asterisk">
+
+                    <div class="paymentGatewayPanel__heading">
+                        <div style="margin:-10px 0 0px -10px">
+                            <g:HTMLPanel ui:field="asteriskLogo"></g:HTMLPanel>
+                        </div>
+                        <g:HTMLPanel ui:field="asteriskText"></g:HTMLPanel>
+                    </div>
+
+                    <div class="paymentGatewayPanel__body">
+
+                    </div>
+
+                    <div class="paymentGatewayPanel__footer">
+                        <g:HTMLPanel ui:field="asteriskButton"></g:HTMLPanel>
+                    </div>
+                </div>
+            </g:HTMLPanel>
+
+            <g:HTMLPanel ui:field="sipuniPanel" height = "330px">
+                <div class="paymentGatewayPanel paymentGatewayPanel--asterisk">
+
+                    <div class="paymentGatewayPanel__heading">
+                        <div style="margin:-10px 0 0px -10px">
+                            <g:HTMLPanel ui:field="sipuniLogo"></g:HTMLPanel>
+                        </div>
+                        <g:HTMLPanel ui:field="sipuniText"></g:HTMLPanel>
+                    </div>
+
+                    <div class="paymentGatewayPanel__body">
+
+                    </div>
+
+                    <div class="paymentGatewayPanel__footer">
+                        <g:HTMLPanel ui:field="sipuniButton"></g:HTMLPanel>
+                    </div>
+                </div>
+            </g:HTMLPanel>
+
+
+            <g:HTMLPanel ui:field="myCallsPanel" height = "330px">
+                <div class="paymentGatewayPanel paymentGatewayPanel--asterisk">
+
+                    <div class="paymentGatewayPanel__heading">
+                        <div style="margin:-10px 0 0px -10px">
+                            <g:HTMLPanel ui:field="myCallsLogo"></g:HTMLPanel>
+                        </div>
+                        <g:HTMLPanel ui:field="myCallsText"></g:HTMLPanel>
+                    </div>
+
+                    <div class="paymentGatewayPanel__body">
+
+                    </div>
+
+                    <div class="paymentGatewayPanel__footer">
+                        <g:HTMLPanel ui:field="myCallsButton"></g:HTMLPanel>
+                    </div>
+                </div>
+            </g:HTMLPanel>
+
+
+        </div>
+
+    </g:HTMLPanel>
+</ui:UiBinder>

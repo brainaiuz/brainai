@@ -1,0 +1,2 @@
+update "anv".modelfield set columntype ='COL_1' where form_id = 'PRODUCT' and field_id = 'SOLD_TO_CUSTOMERS';
+update "anv".modelfield set columntype ='COL_2' where form_id = 'PRODUCT' and field_id = 'FROM_PURCHASE_INVOICE';

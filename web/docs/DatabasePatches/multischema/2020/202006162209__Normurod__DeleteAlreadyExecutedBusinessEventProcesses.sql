@@ -1,0 +1,1 @@
+delete from businessevent where attempts > 0 and processed is false and status is null;

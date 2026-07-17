@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean class="org.springframework.web.servlet.handler.SimpleServletHandlerAdapter"/>
+    <bean class="org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter"/>
+    <bean id="urlMapping"
+          class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <value>
+                <!--/displayChart=chartHandler-->
+                /displayBackendChart=backendChartHandler
+                /downloadProjectListExcel=projectListExcelHandler
+                /downloadBrigadaListExcel=brigadaListExcelHandler
+                /projectBudgetSheetExcelHandler=projectBudgetSheetExcelHandler
+                /projectBudgetExcelHandler=projectBudgetExcelHandler
+                /downloadResourceUtilizationExcel=downloadResourceUtilizationExcel
+                /downloadTaskListExcel=taskListExcelHandler
+                /downloadTimesheetApprovalListExcel=timesheetApprovalListExcelHandler
+                /monthlyTimesheetViewExcelHandler = monthlyTimesheetViewExcelHandler
+                /downloadClientListExcel=clientListExcelHandler
+                /downloadEmployeeListExcel=employeeListExcelHandler
+                /downloadGroupPayrunListExcel=groupPayrunListExcelHandler
+                /downloadPaymentMethodExcelHandler=paymentMethodExcelHandler
+                /downloadDepartmentListExcel=departmentListExcelHandler
+                /downloadIssueListExcel=issueListExcelHandler
+                /downloadBugListExcel=bugListExcelHandler
+                /paypalNotification=paypalServiceHandler
+                /stripeNotification=stripeWebhook
+                /worldPayNotification=worldPayServiceHandler
+                /payWithElavon=elavonPaymentServiceHandler
+                /chartOfAccountsDownload=chartOfAccountListExcelHandler
+                /chartOfAccountListExcelHandler=chartOfAccountListExcelHandler
+                /budgetSheetExcelReport=budgetSheetExcelReport
+                /attendanceReportImportExcelFile=attendanceReportImportExcelHandler
+                /attendanceReportExportExcelFile=attendanceReportExportExcelHandler
+                /attendanceReportExcelHandler=attendanceReportExcelHandler
+                /attendanceReportPdfHandler=attendanceReportPdfHandler
+                /terminalAttendanceExcelHandler=terminalAttendanceExcelHandler
+                /terminalAttendancePdfHandler=terminalAttendancePdfHandler
+                /downloadAttendanceTerminalListExcel=downloadAttendanceTerminalListExcel
+                /downloadAttendanceMarksListExcel=downloadAttendanceMarksListExcel
+                /gantChartExportExcelReport = gantChartExportExcelHandler
+<!--                /gantChartExportPdfReport = gantChartExportPdfHandler-->
+                /journalReportExcelHandler = journalReportExcelHandler
+                /transactionByPeriodExcelHandler = transactionByPeriodExcelHandler
+                /bankTransferListExcelHandler = bankTransferListExcelHandler
+                /balanceSheetExcelHandler = balanceSheetExcelHandler
+                /profitLostViewExcelHandler = profitLostViewExcelHandler
+                /trialBalanceExcelHandler = trialBalanceExcelHandler
+                /cashFlowExcelHandler = cashFlowExcelHandler
+                /stockValuationExcelHandler = stockValuationExcelHandler
+                /uaeVatReturnExcelHandler = uaeVatReturnExcelHandler
+                /ukVatReturnExcelHandler = ukVatReturnExcelHandler
+                /agingSummaryExcelHandler = agingSummaryExcelHandler
+                /crmAccountBalanceExcelHandler = crmAccountBalanceExcelHandler
+                /downloadPAPDFChart=paPDFChartHandler
+                /downloadFile=downloadHandler
+                /downloadLocalFile=downloadLocalHandler
+                /downloadEmailAttachment=downloadFromEmailHandler
+                <!--/downloadContent=downloadContentHandler-->
+                /downloadSecureFile = downloadSecureHandler
+                /assessmentListExcelHandler=appraisalsArchiveListExcelHandler
+                /downloadNoteListExcel=noteListExcelHandler
+                /downloadCompetenceListExcel=competenceListExcelHandler
+                /downloadNotesExcel=notesExcelHandler
+                /downloadTimeSlotListExcel=timeSlotListExcelHandler
+                /downloadPublicHolidaysExcel=publicHolidaysExcelHandler
+                /downloadIncidentListExcel=incidentListExcelHandler
+                /downloadSaleQuotesListExcel=saleQuotesListExcelHandler
+                /downloadSaleOrdersListExcel=saleOrdersListExcelHandler
+                /downloadSaleInvoicesListExcel=saleInvoicesListExcelHandler
+                /downloadRecurringInvoicesListExcelHandler=recurringInvoicesListExcelHandler
+                /downloadRequestQuoteListExcelHandler=requestQuoteListExcelHandler
+                /downloadShippingDataListExcelHandler=shippingDataListExcelHandler
+                /downloadPurchaseOrderListExcel=purchaseOrderListExcelHandler
+                /batchPaymentListExcelHandler = batchPaymentListExcelHandler
+                /downloadPurchaseInvoiceExcel=purchaseInvoiceExcelHandler
+                /downloadAccountingSupplierListExcel=accountingSupplierListExcelHandler
+                /downloadRecurringBillsExcelHandler=recurringBillListExcelHandler
+                /downloadTaxRatesSupplierListExcel=taxRatesSupplierListExcelHandler
+                /downloadReservationExelHandler=reservationExelHandler
+                <!--/downloadQuickSynchHistoryExcelHandler=quickSynchHistoryExcelHandler-->
+                /downloadPickListExcel=pickListExcelHandler
+                /downloadShippingMethodsListExcel=shippingMethodListExcelHandler
+                /downloadUsageHistoryListExcel=usageHistoryListExcelHandler
+                /downloadExpenseReportListExcel=expenseReportListExcelHandler
+                /downloadBankAccountListExcel=bankAccountListExcelHandler
+                /downloadBankCheckListExcel=bankCheckListExcelHandler
+                /downloadAccountTransactionsListExcel=accountTransactionsListExcelHandler
+                /downloadfixedAssetListExcelHandler=fixedAssetListExcelHandler
+                /downloadPrePaymentListExcelHandler=prePaymentListExcelHandler
+                /downloadManualTransactionListExcel=manualTransactionListExcelHandler
+                /downloadWarehousesListExcel=warehousesListExcelHandler
+                /downloadWarehouseProductsListExcel=warehouseProductsListExcelHandler
+                /downloadCrmContactsExcel=crmContactListExcelHandler
+                /downloadCrmLeadsExcel=crmLeadsExcelHandler
+                /downloadCrmAccountExcel=crmAccountExcelHandler
+                /downloadCrmOppotunitiesExcel=crmOpportunitiesExcelHandler
+                /downloadCrmCampaignsExcel=crmCampaignsExcelHandler
+                /downloadEmployeeStepsExcel=employeeStepsListExcelHandler
+                /downloadCrmActivitiesExcel=crmActivitiesExcelHandler
+                /downloadCrmEventExcel=downloadCrmEventExcel
+                /downloadBackendViewExcel=backendViewExcelHandler
+                /downloadBackendReturningViewExcel=backendReturningViewExcelHandler
+                /downloadBackendSubscriptiontypeViewExcel=backendSubscriptiontypeViewExcelHandler
+                /downloadBugListSummaryViewExcel=bugListSummaryViewExcelHandler
+                /downloadBugListPerSectionViewExcel=bugListPerSectionViewExcelHandler
+                /downloadAccessLogListViewExcel=accessLogListViewExcelHandler
+                /downloadCasesListExcel=crmCasesListViewExcelHandler
+                /downloadSolutionsListViewExcel=crmSolutionsListViewExcelHandler
+                /weeklySubscriptionExcelReporter=weeklySubscriptionExcelReportHandler
+                /pdfPaymentHandler=pdfPaymentHandler
+                /mastercardPaymentValidate=mastercardPaymentValidateHandler
+                /mastercardPaymentNotification=mastercardPaymentHandler
+                /downloadLocationListExcel=locationListExcelHandler
+                /downloadPositionListExcel=positionListExcelHandler
+                /downloadContractListExcel=contractListExcelHandler
+                /downloadProductsServicesListExcel=productsServicesListExcelHandler
+                /projectExportToMSProject = projectExportToMSProjectHandler
+                /downloadProductsServicesStockListExcel=productsServicesStockListExcelHandler
+                /invoicePaypalNotification=invoicePaypalServiceHandler
+                /downloadNewsListExcelHandler=newsListExcelHandler
+                /downloadProductCategoriesExcel=productCategoryListExcelHandler
+                /downloadMeetingMinutesListExcelHandler=meetingMinutesListExcelHandler
+                /meetingMinuteViewExcelHandler=meetingMinuteViewExcelHandler
+                /downloadCourseListExcel=courseListExcelHandler
+                /downloadRegistratedStudentListExcel=registratedStudentListExcelHandler
+                /downloadScheduledCourseListExcel=scheduledCourseListExcelHandler
+                /downloadCourseBookingListExcel=courseBookingListExcelHandler
+                /downloadStudentListExcel=studentListExcelHandler
+                /downloadEnquiryListExcel=enquiryListExcelHandler
+                /downloadPayslipExcel=newPayslipTableExcelHandler
+                <!--/downloadTaxiPayrunExcel=taxiPayrunTableExcelHandler-->
+                /generateSifFile=sifFileGenerator
+                /downloadEndOfServiceReportExcel=endOfServiceReportExcelHandler
+                /downloadCashAdvanceReportExcel=cashAdvanceReportExcelHandler
+                /downloadSalaryReportExcel=salaryReportExcelHandler
+                /invoiceClientApproveNotification=invoiceClientApproveHandler
+                /downloadManualTransactionsSampleExcel=manualTransactionSampleGeneratorExcelHandler
+                /paymentDeductionCategoriesExcelHandler=paymentDeductionCategoriesExcelHandler
+                /downloadRequestForPurchaseExcel=requestForPurchaseExcelHandler
+                /downloadAnnualLeaveBalanceReportExcel=annualAllowanceBalanceReportExcelHandler
+                /downloadAnnualBalanceReportExcel=annualBalanceReportExcelHandler
+                /downloadLeaveRequestListExcel=downloadLeaveRequestListExcelHandler
+                /downloadLeaveAllowanceListExcel=downloadLeaveAllowanceListExcelHandler
+                /gdnOrderViewExcelHandler=gdnOrderViewExcelHandler
+                <!--CSVs-->
+                /downloadCrmContactsCsv=crmContactListCSVHandler
+                /downloadCourseUserCSVHandler=courseUserCSVHandler
+                /downloadTimesheetCsv=timesheetCSVHandler
+                /wftGoogleCheckoutNotificationHandler=wftGoogleCheckoutNotificationHandler
+
+                <!--Goal Management-->
+                /downloadcompanygoalListExcel=companyGoalListExcelHandler
+                /downloadpersonalgoalListExcel=personalGoalsListExcelHandler
+                /downloademployeesgoalListExcel=employeesGoalListExcelHandler
+                /downloadbusinessgoalListExcel=businessGoalListExcelHandler
+                /downloadGroupGoalListExcel=groupGoalsListExcelHandler
+                /downloaddepartmentgoalListExcel=departmentGoalListExcelHandler
+                /downloadprojectgoalListExcel=projectGoalListExcelHandler
+
+                <!--/downloadWebsiteDataXML = websiteExportHandler-->
+                /downloadMailMessagesViewExcel=mailMessagesExcelHandler
+                /downloadQueryCSV=queryCSVHandler
+
+                <!--Reporting start-->
+                /reportCsv=csvReportHandler
+                /reportPdf=pdfReportHandler
+                /reportExcel = excelReportHandler
+                /runtimeReportPdf=pdfRuntimeReportHandler
+                /importExcel=excelImportHandler
+                /downloadBackendViewListExcel=backendViewListExcelHandler
+                /downloadSolrCoreCompanyStatisticExcel=solrCoreCompanyStatisticExcelHandler
+                /unitMeasurementsListExcelHandler=unitMeasurementsListExcelHandler
+
+                <!--WfpNewsRssFeed-->
+                /wfp-rss = wfpNewsRssHandler
+                /downloadVacancyListExcel=vacancyListExcelHandler
+                /downloadShortListExcel=shortListExcelHandler
+                /downloadCandidateListExcel=candidateListExcelHandler
+                /downloadPlacementListExcel=placementListExcelHandler
+                <!--Settings's and -->
+                <!--Booking Item Start-->
+                /downloadBookingItemsListExcelHandler=bookingItemsListExcelHandler
+                /downloadLocalizationExcel=localizationExcelHandler
+                <!--Booking Item End-->
+                /changeScheduleTimes=changeScheduleTimesHandler
+                /changeScheduleEvents=changeScheduleEventsHandler
+                /downloadInvoiceDataXML=baseInvoiceExcelHandler
+                <!--Magento Integration-->
+                /magentoEventNotification=magentoEventNotificationHandler
+                <!--for exLibris3 begin-->
+                <!--/downloadPromotionsPenaltiesListExcel=promotionsPenaltiesListExcelHandler-->
+                <!--/downloadEmployeePunishmentsPromotionsListExcel=employeePromotionsPenaltiesListExcelHandler-->
+                <!--/downloadEmployeeBonusRecommendationsListExcel=employeeBonusRecommendationsListExcelHandler-->
+                /journalReportCSVHandler = journalReportCSVHandler
+                <!--for exLibris3 end-->
+                <!-- VCard-->
+                /downloadCrmContactsVCard=crmContactListVCardHandler
+                /groupPayrunViewExcelHandler=groupPayrunViewExcelHandler
+                /singlePayrunListExcelHandler=singlePayrunListExcelHandler
+                /cashAdvanceListExcelHandler=cashAdvanceListExcelHandler
+                <!--Link Entity line item with Transaction item-->
+                /linkEntityWithTransactionItem=linkEntityTransactionItemHandler
+                /linkEntityWithTransactionItemV2=linkEntityTransactionItemHandlerV2
+                /copyPreviousYearAllowance=previousYearAllowanceHandler
+                <!--switch layout servlet -->
+                /switchLayoutHandler=switchLayoutHandler
+                /downloadIncidentListExcel=incidentListExcelHandler
+                /customFormItemListExcelHandler=customFormItemListExcelHandler
+                /contactRelatedEmails=contactRelatedEmailsHandler
+                /reconcilationReportExcelHandler=reconcilationReportExcelHandler
+                /downloadStockAdjustmentListExcel=stockAdjustmentListHandler
+                /stockTransferListExcelHandler=stockTransferListExcelHandler
+                /itemBatchHistoryListExcelHandler=itemBatchHistoryListExcelHandler
+                /downloadAsteriskEmployeeListExcel = asteriskEmployeeListExcelHandler
+                /benefitRequestListExcel = benefitRequestListExcelHandler
+                /convertNewsImage = newsImageConvertServlet
+                /grnGdnCorrection = grnGdnCorrectionServlet
+                /additionalPaymentListExcelHandler = additionalPaymentListExcelHandler
+                /rotationListExcelHandler = rotationListExcelHandler
+                /groupPlacementListExcelHandler = groupPlacementExcelHandler
+                /inventoryTransaction = inventoryTransaction
+                /headHunterServlet = headHunterServlet
+                /hhCallbackServlet = hhCallbackServlet
+                /addRequiredCfsToQuickAdd = requiredCFsToQuickAddServlet
+                /myGovFetchServlet = myGovFetchServlet
+                /additionalPaymentViewExcelHandler = additionalPaymentViewExcelHandler
+                /additionalPaymentAddEditExcelHandler = additionalPaymentAddEditExcelHandler
+                /whatsAppCallbackServlet = whatsAppCallbackServlet
+            </value>
+        </property>
+    </bean>
+</beans>
+
+        <!--<map>-->
+        <!--<entry key="/displayChart" value-ref="chartHandler"/>-->
+        <!--</map>-->

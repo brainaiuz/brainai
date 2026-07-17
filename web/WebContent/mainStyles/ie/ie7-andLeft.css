@@ -1,0 +1,121 @@
+/*** BACKEND SIDE IE7 FIXES ***/
+html {
+    overflow-y: hidden;
+}
+
+/* .operPanel>*, */
+.btn, .key, .fieldKey,
+.optBtn2, .optBtn,
+.exportAs, .exportAs dt, .exportAs dd,
+.import-to,
+.sortBar>li,
+.tabsPanel>span,
+.rangeLine>div,
+.titleStrip dt, .titleStrip dd,
+.rowItems>*,
+.rateLine dd,
+.slideBtn, .slideBtn span,
+.keyOptArrow
+
+,.labelLine .row>label, .labelLine .row>.gwt-HTML
+/* , .labelLine .row>.field */
+/* ,.labelLine .row>.fieldKey */
+,.row .addFieldSet
+
+,.noteTable .notesFooter .gwt-HTML,
+.tabBarLinks *,
+label>.searchForm,
+.imgHolder,
+.optGroupCover, 
+/* .pseudoSelect, */
+.wfm-treetable-inner-col>div
+ {
+	/*display:inline; zoom:1;*/
+	}
+/*** End display:inline-block fixes ***/
+
+
+/* .labelLine .row {
+    font-size: 0;
+    letter-spacing: -3px;
+    white-space: nowrap;
+}
+.labelLine .row>* {
+    letter-spacing: normal;
+    white-space:normal;
+    font-size: 16px;
+} */
+/*** End .labelLine ***/
+
+	
+
+/* .optBtn2, .optBtn2:focus {} */
+button.optBtn2 span {
+	display:block;
+	/* line-height:30px; */
+	position:relative;
+	left:0; top:-2px;
+	}
+
+
+
+.dd-menu ul ul {
+    border: 1px solid #dbdbdb;
+}
+
+#search {
+    max-width: 251px;
+}
+
+button, input[type="button"] {
+    overflow: visible;
+}
+
+button, input[type="button"] {overflow:visible;}
+button.slideBtn {
+    line-height: 15px;
+}
+
+/* Add new button Popup */
+/*.dropBtn-popup table { width:auto; }*/
+
+.operPanel .optGroupCover {
+	/* border:none; */
+	max-width:200px;
+	}
+.operPanel .optGroupCover {
+	
+	}
+
+.operPanel .optGroupCover select {width:99%; margin-top:4px;}
+.optGroupCover select {
+	z-index:1;
+	}
+
+.sectTitle+.gwt-CheckBox {
+	zoom:1;
+	}
+
+/**For accounting**/
+.invoice-ship-via, .invoice-price-level, .invoice-amounts, .invoice-reference, .related-text, .invoice-block .lineItem {
+	margin-top:10px; /* Need to test */
+}
+
+/*Scrollbar on left side of splitpanel*/
+/*.SplitLayoutPanel>div>div>div {
+    overflow-x: hidden
+}*/
+
+.divisioncontainer {
+    overflow-x: hidden !important;
+}
+
+
+.rowItems.c-cols>* {text-align:center;} /* for HRMS-Initiate (Xenel) */
+
+.pseudoSelect .curValue em {
+		display:block;
+		overflow:hidden;
+		margin-right:15px;
+		
+		}

@@ -1,0 +1,303 @@
+// =========================================================================
+// orgChart common Dropdown PopUp's
+// =========================================================================
+.depActionsPopup,
+.orgBoard-viewMenu,
+.depEmployeePopup,
+.emplActionsPopup {
+  @include dropdown-content-style;
+}
+
+.orgBoardPopup {
+  &.modal {
+  }
+
+  .modal-header {
+  }
+}
+
+
+.depActionsPopup,
+.orgBoard-viewMenu,
+.emplActionsPopup {
+  &-list {
+    > div {
+      display: flex;
+      @include dropdown-content-list-item-style;
+
+      &:hover {
+        @include dropdown-content-list-item-select-style
+      }
+
+      &:not(.btn) {
+
+        align-items: center;
+        gap: $padding-x-half;
+        padding: $padding-x-half $padding-y-base;
+
+        &:first-child, {
+          padding-top: $padding-y-base;
+        }
+
+        &:last-child, {
+          padding-bottom: $padding-y-base;
+        }
+      }
+
+      svg {
+        width: 16px; //$orgChartInnerGap
+        //aspect-ratio: 1 / 1;
+        //height: auto;
+      }
+    }
+  }
+}
+
+.orgBoard-viewMenu-list > div {
+  line-height: 1.2; // for equel height with .switch el
+  &:after,
+  .switch > .material-label:empty {
+    display: none;
+  }
+
+  .switch {
+    label {
+      align-items: center;
+    }
+  }
+}
+
+// Small Actions Dropdown List - Change/Remove
+// =========================================================================
+.emplActionsPopup {
+  &__item {
+    &.btn {
+      justify-content: start;
+
+      color: $text-color-base;
+
+      + .btn {
+      }
+    }
+
+    &--danger.btn {
+      color: $danger-color; //$color-deleted
+    }
+  }
+}
+
+.emplActionsPopup-list {
+
+}
+
+.depActionsPopup-list > div {
+  cursor: pointer;
+
+  .icon--trash2 {
+    stroke-width: 1.8;
+  }
+}
+
+// =========================================================================
+// OrgChart Modals
+// =========================================================================
+.orgBoardPopup {
+  .modal-header {
+    //display: grid;
+    //grid-template-columns: $fontsize-2 auto;
+    //gap: $depCard-inner-gap;
+    //align-items: center;
+    text-align: left;
+  }
+
+  .orgBoardPopup-headIcon {
+    svg {
+      //max-width: 100%;
+      //aspect-ratio: 1 / 1; // Force a perfect square ratio
+      //display: block; // Remove inline bottom spacing
+      //object-fit: contain; // Ensure SVG doesn't stretch weirdly
+    }
+  }
+
+  .modal-title {
+    display: block;
+    font-size: $deepCardFontTitle-1; //18px
+  }
+
+  .form-group__label {
+    //font-size: $deepCardFontTitle-2; //14px
+    font-size: 12px;
+    text-transform: none;
+  }
+}
+
+// =========================================================================
+// DRAG SORT LIST
+// =========================================================================
+.orgSortDialog {
+  --row-height: 55px;
+  --row-gap: #{$depCard-inner-gap};
+}
+
+.orgSortDialog-list-head {
+  height: calc(var(--row-height) + var(--row-gap));
+  padding-bottom: $depCard-inner-gap;
+  margin-bottom: $depCard-inner-gap;
+  border-bottom: 1px solid $color-base-0;
+}
+
+.orgSortDialog-list {
+  overflow: hidden; // scroll blink fix
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  gap: var(--row-gap);
+}
+
+// ЭЛЕМЕНТЫ ДЛЯ DRAG & DROP (.orgSortDialog-row)
+// =========================================================================
+.orgSortDialog-row {
+  display: flex;
+  align-items: stretch;
+  gap: $depCard-inner-gap;
+  min-height: var(--row-height);
+
+  padding: $padding-x-half $padding-x-base $padding-x-half $padding-x-half;
+  // Курсор 'move' задан в родительском .orgSortDialog-list > div
+  border-radius: $radius-basePlus;
+  border: 1px dashed transparent;
+  background: $color-base-contrast;
+
+  // Убирает эффект "дерганья" и изменения толщины текста
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  // Заставляет браузер использовать GPU, что стабилизирует отрисовку
+  transform: translateZ(0);
+  backface-visibility: hidden;
+
+  & + .orgSortDialog-row {
+    //margin-top: $depCard-inner-gap;
+  }
+
+  &[draggable="true"] {
+    cursor: move;
+
+    &:hover,
+    &:active {
+      cursor: grab !important
+    }
+
+    &:hover {
+      background: $color-base-0 !important;
+    }
+  }
+
+  .orgSortDialog-list & {
+  }
+
+  // Перетаскиваемая (оригинал в списке) — добавляй класс на dragstart
+  &.is-dragging {
+    opacity: .45;
+
+    .orgSortDialog-rowTitle {
+      font-size: 12px;
+    }
+
+    .orgSortDialog-rowDesc {
+      font-size: 10px;
+    }
+  }
+
+  &:-webkit-drag {
+
+  }
+
+  // Placeholder (место вставки)
+  &.is-hover {
+    border-color: $primary;
+    border-radius: $radius-base;
+    background: rgba($primary, .06);
+
+    // скрываем контент, но сохраняем высоту строки
+    .orgSortDialog-rowHandle,
+    .orgSortDialog-rowText {
+      opacity: 0;
+    }
+  }
+
+
+  // Секция текста (название и описание)
+  &Text {
+    flex: 1 1 auto;
+    min-width: 0; // Для правильной работы text-overflow
+  }
+
+  // Название
+  &Title {
+    font-weight: 500;
+    line-height: 1;
+    //@include txtTruncate(); // Миксин для обрезки текста
+  }
+
+  // Описание
+  &Desc {
+    font-size: 0.85rem;
+    color: $gray-dark; // Использование переменной
+  }
+
+  // Дескриптор для захвата
+  &Handle {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    //color: $gray-dark; color: #0B71E4;
+    color: $primary;
+    align-self: flex-start;
+  }
+}
+
+// =========================================================================
+// popup Employee Card
+// =========================================================================
+
+.depEmployeePopup {
+  min-width: calc(#{$depCard-minSize} - #{$depCard-padding-x * 2} - #{$depEmplAvatar-size});
+
+  &Content {
+    display: grid;
+    grid-template-columns: 36px auto;
+    gap: $depCard-inner-gap;
+
+    .avatar {
+      height: 36px;
+      width: 36px;
+      margin-right: 10px;
+    }
+  }
+
+  &Name {
+    font-weight: 500;
+  }
+}
+
+
+//.orgSortDialog-glass {
+//  background: rgba(255, 0, 0, .35);
+//}
+
+.emplActionsPopup {
+
+}
+
+// =========================================================================
+// Delete Modal with Employees
+// =========================================================================
+.sureNote {
+  margin-top: 0;
+
+  font b {
+    //don't use nowrap
+  }
+}

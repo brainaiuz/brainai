@@ -1,0 +1,1 @@
+update permission set modulecode = 'PM_MODULE' where code in ('PM_EMPLOYEE_EDIT', 'PM_EMPLOYEE_REMOVE', 'PM_EMPLOYEE_ACTIVATE_DEACTIVATE', 'PM_EMPLOYEE_SUMMARY');

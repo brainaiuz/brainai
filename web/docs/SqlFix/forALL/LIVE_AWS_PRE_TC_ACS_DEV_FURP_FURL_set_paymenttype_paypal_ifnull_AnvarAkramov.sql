@@ -1,0 +1,1 @@
+UPDATE public.subscription_payment SET payment_type='PAYPAL' WHERE payment_type IS NULL;

@@ -1,0 +1,33 @@
+## Task add notification
+## $employeeTask.task.name(EdsTask) - new task
+## $employeeTask(EdsUser) - employeeTask of this alert
+## $user(EdsUser) - User submitted alert
+## $assignees - Comma separated list of assignees
+## $date - Date this alert was submitted
+## $complatedTask- Status Completed Task
+## $link --
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body><p>Уважаемые $employeeTask.projectEmployee.employeeDepartment.employee.getName(),</p>
+
+<p>Пожалуйста, будьте информированы, что задача предшественника - $complatedTask к Вашему $employeeTask.task.name был
+    отмечен как завершено в $date.</p>
+
+<p>Название задачи: $employeeTask.task.name<br/> Проект: $employeeTask.task.project.name<br/> Представитель
+    (и): $assignees</p>
+
+<p>Щелкните <a href="$host/ProjectManagement.html?link=$link" title="View task" target="_blank">здесь</a>
+    to view the task</p>
+
+<p>*Если вы не в состоянии нажать на ссылку, вы можете вместо этого скопировать и вставить следующий адрес в свой
+    веб-браузер: </p>
+
+<p><span style="color: #0033FF">$host/ProjectManagement.html?link=$link</span></p>
+</body>
+</html>

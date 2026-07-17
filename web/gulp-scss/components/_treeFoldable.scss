@@ -1,0 +1,209 @@
+// Foldable tree list
+
+.treeFold {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+  font-size: $font-size-base;
+  color: $text-color-base;
+}
+
+// один узел
+.treeFold__li {
+  list-style: none;
+
+  &.active > .treeFold__text {
+    background-color: $color-base-contrast;
+  }
+
+  // disabled
+  &.treeFold__li--disabled {
+    > .treeFold__cur {
+      cursor: default;
+      opacity: 0.6;
+    }
+  }
+}
+
+// «прямой потомок текущей строки» узла (li > текст)
+.treeFold__cur {
+  display: flex;
+  align-items: center;
+  padding: rem(4px) rem(8px);
+  border-radius: $radius-base;
+}
+
+// стрелка-переключатель
+.treeFold__toggle {
+  // делаем кликабельный прямоугольник
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: rem(16px);
+  height: rem(16px);
+  //margin-right: rem(8px);
+  border-radius: $border-radius-sm;
+  cursor: pointer;
+
+  // стрелка вправо по умолчанию
+  @include unfoldingArrow(
+          $size: 4px,
+          $paddingLeft: 0,        // текст внутри span нет, отступ не нужен
+          $color: $color-base-2,
+          $elPos: relative,       // псевдоэлемент относительно самого span
+          $shift: auto, // to centerize
+          $el: before
+  );
+  // цвет стрелки при наведении
+  &:not(.treeFold__toggle--leaf) {
+    &:hover {
+      background: $color-base-contrast;
+      &::before {
+        border-left-color: $text-color-base;
+      }
+    }
+  }
+
+  // лист – без стрелки (но сохраняем ширину для выравнивания текста)
+  &.treeFold__toggle--leaf {
+    cursor: default;
+    &::before {
+      content: none;
+    }
+  }
+}
+
+// текст узла
+.treeFold__text {
+  display: inline-block;
+  border-radius: $border-radius-sm;
+  padding: 0 4px;
+  cursor: pointer;
+
+  @include base-transition(background-color);
+  &:hover {
+    background-color: $color-base-contrast;
+  }
+
+  sup {
+    font-weight: 500;
+
+  }
+}
+
+// внутренний разворачивающийся список второго уровня
+// внутренний разворачивающийся список второго уровня
+.treeFold__childs {
+  // базовое состояние – скрыт
+  display: block;                // нужно, чтобы max-height работал
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  margin: 0 0 0 $padding-x-base;
+
+  // анимация
+  transition:
+    max-height 0.18s ease-out,
+    opacity    0.18s ease-out;
+
+  // когда родитель открыт – показываем
+  .treeFold__li--open > & {
+    max-height: 1000px;          // заведомо больше любой реальной высоты
+    opacity: 1;
+  }
+}
+
+//END .treeFold
+
+
+
+//SARDOR VERSION
+// org-tree.scss
+// Древовидный список для ParentTreeDropdown (версия для org-tree-*)
+
+/*
+.org-tree-list {
+  // общий контейнер дерева
+  font-size: $font-size-base;
+  color: $text-color-base;
+  user-select: none;
+}
+
+// корневой <ul>
+.org-tree {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+// один узел дерева
+.org-tree-node {
+  list-style: none;
+  margin: 0;
+
+  // строка узла (метка)
+  > .org-tree-label {
+    display: flex;
+    align-items: center;
+
+    padding: rem(4px) rem(12px);
+    border-radius: $border-radius-sm;
+
+    cursor: pointer;
+    @include base-transition(background-color, color);
+
+    // делаем поведение похоже на treeFold:
+    // стрелка (псевдоэлемент) + отступ слева
+    @include unfoldingArrow(
+            $size: 4px,
+            $paddingLeft: rem(18px),
+            $color: $color-accent-1,
+            $elPos: relative,
+            $shift: rem(-6px),
+            $el: before
+    );
+
+    // при наведении — лёгкая подсветка
+    &:hover {
+      background-color: $color-base-contrast;
+    }
+  }
+
+  // дочерний список
+  > .org-tree-children {
+    margin: 0;
+    padding: 0 0 0 rem(24px); // отступ для уровня вложенности
+    list-style: none;
+  }
+
+  // активный узел (используем общий .active, как ты любишь)
+  &.active > .org-tree-label {
+    background-color: $color-base-contrast;
+    font-weight: 500;
+  }
+
+  // disabled
+  &.org-tree-node-disabled > .org-tree-label {
+    color: $text-color-light;
+    cursor: default;
+    opacity: .7;
+    pointer-events: none;
+  }
+}
+*/
+
+/**
+ * Состояния разворота/сворачивания для стрелки.
+ * Здесь мы не трогаем org-tree-switcher вообще,
+ * а используем класс .expandedElement на самой метке —
+ * по аналогии с treeFold.
+ *
+ * Пример использования:
+ *   <div class="org-tree-label expandedElement">...</div>
+ * JS будет просто добавлять/убирать expandedElement.
+ */
+.org-tree-node > .org-tree-label.expandedElement {
+  // mixin unfoldingArrow уже крутит стрелку через &.expandedElement:#{$el}
+  // поэтому дополнительных правил не нужно.
+}

@@ -1,0 +1,2 @@
+update "anv".shipping_data set shippingdate=date(shippingdate) + interval '1 day' where id in (select id from "anv".shipping_data where extract(hour from shippingdate)>0 and extract(hour from shippingdate)>12);
+update "anv".shipping_data set shippingdate=date(shippingdate) - interval '1 day' where id in (select id from "anv".shipping_data where extract(hour from shippingdate)>0 and 12>extract(hour from shippingdate));

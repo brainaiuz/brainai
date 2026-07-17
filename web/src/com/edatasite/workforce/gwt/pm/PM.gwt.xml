@@ -1,0 +1,11 @@
+<module rename-to="pm">
+
+    <inherits name='com.edatasite.workforce.gwt.crm.CRMEmpty'/>
+
+    <inherits name='com.edatasite.workforce.gwt.core.Core'/>
+    <inherits name='com.edatasite.workforce.gwt.pm.PMMain'/>
+    <inherits name='com.edatasite.workforce.gwt.meetingMinutes.MeetingMinutes'/>
+    <entry-point class='com.edatasite.workforce.gwt.pm.client.PM'/>
+    <inherits name="com.edatasite.workforce.gwt.Localization_properties"></inherits>
+    <inherits name="com.google.gwt.user.Debug"/>
+</module>

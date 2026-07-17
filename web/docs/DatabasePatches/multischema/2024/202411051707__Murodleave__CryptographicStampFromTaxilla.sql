@@ -1,0 +1,5 @@
+DELETE FROM "0".genericsettings WHERE key = 'CRYPTOGRAPHIC_STAMP_FROM_TAXILLA';
+DELETE FROM "anv".genericsettings WHERE key = 'CRYPTOGRAPHIC_STAMP_FROM_TAXILLA';
+
+INSERT INTO "0".genericsettings(key, value) VALUES ('CRYPTOGRAPHIC_STAMP_FROM_TAXILLA', 'NO');
+INSERT INTO "anv".genericsettings(key, value) VALUES ('CRYPTOGRAPHIC_STAMP_FROM_TAXILLA', 'NO');

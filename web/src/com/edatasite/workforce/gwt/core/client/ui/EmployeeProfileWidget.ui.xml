@@ -1,0 +1,22 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:mh='urn:import:gwt.material.design.client.ui.html'
+             xmlns:m='urn:import:gwt.material.design.client.ui'
+>
+    <mh:Div styleName="profile-card__content">
+        <m:MaterialAnchorButton styleName="profile-card__log-out" ui:field="logoutButton"/>
+        <g:HTMLPanel>
+            <g:HTMLPanel>
+                <m:MaterialPanel class="profile-card-img__wrapper" ui:field="profileImagePanel"/>
+                <g:HTMLPanel styleName="profile-card__name">
+                    <mh:Span ui:field="name"/>
+                </g:HTMLPanel>
+                <g:HTMLPanel styleName="profile-card__position">
+                    <mh:Span ui:field="position"/>
+                </g:HTMLPanel>
+            </g:HTMLPanel>
+
+        </g:HTMLPanel>
+    </mh:Div>
+
+</ui:UiBinder>

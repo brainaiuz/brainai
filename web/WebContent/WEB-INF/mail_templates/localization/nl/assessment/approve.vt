@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<p>Beste $employeeAssessment.employee.getName(),</p>
+
+<p>$employeeAssessment.assessment.reviewer.getName() heeft een beoordeling voor u gestart op $initDate. Deze beoordeling is gelezen en goedgekeurd door $employeeAssessment.assessment.reviewer.getName()</p>
+
+<p>De PDF versie van de beoordeling is voor u bijgevoegd.</p>
+
+<p>Klik <a href="$host/Hrms.html?link=$link" title="View assessment" target="_blank">hier</a> om de beoordeling te bekijken.</p>
+
+<p>* Indien u niet op de link kunt klikken, kopieer dan de onderstaande link naar uw web browser: </p>
+
+<p><span style="color: #0033FF">$host/Hrms.html?link=$link</span></p>
+</body>
+</html>

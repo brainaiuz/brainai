@@ -1,0 +1,23 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:mh="urn:import:gwt.material.design.client.ui.html"
+             xmlns:m="urn:import:gwt.material.design.client.ui">
+    <g:HTMLPanel styleName="panel panel-reporting">
+        <mh:Div styleName="panel__heading">
+            <mh:Div styleName="figure-h">
+                <!--                <mh:Div styleName="figure-toggle" ui:field="figureToggle">-->
+
+                <!--                </mh:Div>-->
+                <mh:Div styleName="figure-image">
+                    <!--                    <m:MaterialIcon styleName="ficon&#45;&#45;lock"></m:MaterialIcon>-->
+                </mh:Div>
+                <mh:Div styleName="figure-caption">
+                    <mh:Heading styleName="panel-reporting__title" size="H2" ui:field="headingTitle"></mh:Heading>
+                    <mh:Div styleName="panel-reporting__text" ui:field="headingDescription"></mh:Div>
+                </mh:Div>
+                <mh:Div styleName="figure-actions" ui:field="figureActions"/>
+            </mh:Div>
+        </mh:Div>
+        <mh:Div styleName="panel__body" ui:field="body"></mh:Div>
+    </g:HTMLPanel>
+</ui:UiBinder>

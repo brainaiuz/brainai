@@ -1,0 +1,60 @@
+/*trial_balance_report_table*/
+.trial_balance_report_table .title_group {
+  padding: 20px;
+}
+
+.trial_balance_report_table .table_report_sections tbody tr:first-child td {
+  font-size: 1.15385rem;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+
+.trial_balance_report_table .table_report_sections .total_row {
+  background: white;
+  position: relative;
+}
+
+.trial_balance_report_table .table_report_sections .total_row_last {
+  border-bottom: 4px double #ced5db;
+}
+
+.trial_balance_report_table .table_report_sections .total_row td {
+  position: relative;
+}
+
+.trial_balance_report_table .table_report_sections .total_row:last-child td:after {
+  //content: "";
+  //top: 1px;
+  //position: absolute;
+  //left: 0;
+  //right: 0;
+  //display: block;
+  //border-top: 1px solid #ced5db;
+}
+
+.trial_balance_report_table .table-wrapper {
+  background: white;
+}
+
+.trial_balance_report_table .table_report_sections .total_row:last-child {
+  border: none;
+}
+
+.trial_balance_report_table .table_report_sections .total_row td:first-child {
+  font-size: 1.15385rem;
+}
+
+.trial_balance_report_table .table_report_sections:not(.table_tree) tbody tr:not(:first-child):not(.total_row) td:first-child {
+  padding-left: 40px;
+}
+
+.trial_balance_report_table .table_report_sections td {
+  height: 30px;
+}
+
+.trial_balance_report_table .table_report_sections thead > tr > *, .trial_balance_report_table .table_report_sections tfoot > tr > * {
+  color: $black-base;
+}
+
+.trial_balance_report_table .frame_affix_top {
+}

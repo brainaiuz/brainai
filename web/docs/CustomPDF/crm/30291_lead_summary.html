@@ -1,0 +1,521 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+        font-size: 8.4pt;
+        color: #232020;
+    }
+
+    @page {
+        /* size: 8.3in 11.7in;*/
+        size: A4 portrait;
+        margin-top: 83.6pt;
+        margin-bottom: 40pt;
+        margin-left: 0;
+        margin-right: 0;
+        padding: 0;
+
+    @bottom-center {content: element(footer);}
+    @top-center {content: element(header);}
+        }
+
+    #header {
+        display: block;
+        padding-bottom: 2.6pt;
+        margin-bottom: 19.4pt;
+        background: #f7f7f7;
+        position: running(header);
+    }
+
+    .titlePage {
+    / padding : 19.4 pt 0 13 pt;
+    / padding : 0 pt 0 10 pt;
+        font-size: 1.657em;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    #footer {
+        margin: 10px 0;
+        display: block;
+        position: running(footer);
+    }
+
+    #footer td {
+        vertical-alin: middle;
+    }
+
+    .pagingBox {
+        text-align: center;
+        padding: 3pt;
+        white-space: nowrap;
+        background: #4e7c99;
+        color: #fff;
+    }
+
+    .pagingBox>span {
+        background: green;
+    }
+
+    #pagenumber:before {
+        content: counter(page);
+    }
+
+    #pagecount:before {
+        content: counter(pages);
+    }
+
+    #header table {
+        border-bottom: 1.2pt solid #fff;
+    }
+
+    #header td {
+        padding: 17.3pt 18pt 8.4pt;
+        vertical-align: middle;
+    }
+
+    #logo {
+        max-height: 38.6pt;
+        max-width: 200pt;
+    }
+
+    #header strong {
+        display: block;
+        margin-bottom: 1em;
+        font-size: 1.14em;
+        text-transform: uppercase;
+    }
+
+    #content, #footer {
+        padding: 0 18pt;
+    }
+
+    #footer strong {
+        color: #4c7ead;
+    }
+
+        /**End Layout**/
+
+    .sect {
+        margin-bottom: 19.7pt;
+    }
+
+    .autorScript {
+        margin-top: 19.7pt;
+    }
+
+    .autorScript th {
+        color: #4C7EAD;
+    }
+
+    .autorScript th, .autorScript td {
+        padding-bottom: 9.7pt;
+    }
+
+    .c {
+        text-align: center;
+    }
+
+    .baseData {
+
+    }
+
+    .focusBox {
+        border: 1pt dashed #c5c5c5;
+
+        background: #fbfbfb;
+    }
+
+        /* Styles for Tables */
+    .baseData {
+        font-weight: bold;
+    }
+
+    .nowrap {
+        white-space: nowrap;
+    }
+
+    .page-break {
+        page-break-after: always;
+    }
+
+    table {
+        max-width: 100%;
+        background-color: transparent;
+        border-collapse: collapse;
+        border-spacing: 0;
+    / page-break-inside : avoid;
+    / orphans : 6;
+
+    }
+
+    .zebra .even>* {
+        background: #fbfbfb;
+    }
+
+    .register th, .register td {
+        text-align: left;
+        vertical-align: top;
+    }
+
+    .register>tbody>tr>th, .register>tbody>tr>td {
+        padding: 7.7pt;
+    }
+
+    .register>tbody>tr>th {
+        width: 10%;
+        white-space: nowrap;
+        color: #4c7ead;
+    }
+
+    .bulletin th, .bulletin td {
+        padding-right: 4pt;
+        text-align: left;
+
+    }
+
+    .bulletin thead th {
+        padding-bottom: 2.2pt;
+        border-bottom: 1pt solid #d5d5d5;
+        font-size: 0.857em;
+        color: #747474;
+    }
+
+    .bulletin tbody tr:first-child td {
+        padding-top: 8.6pt;
+    }
+
+    .bulletin tbody td {
+
+        padding-top: 3.6pt;
+        padding-bottom: 3.6pt;
+    }
+
+        /* \Styles for Tables */
+</style>
+
+<title>PDF_v1 /</title>
+
+</head>
+<body>
+<div id="wrapper">
+<!--start #HEADER-->
+<div id="header">
+    <table width="100%">
+        <tr>
+            <td>
+                <strong>$itextGenericPdfData.companyData.CompanyName</strong>
+                $itextGenericPdfData.companyData.Address
+            </td>
+            <td align="right">
+                <img id="logo" src="$itextGenericPdfData.companyData.companyLogoUrl" alt="image"/>
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+<div id="footer" style="font-size:11px">
+    <table width="100%">
+        <tr>
+            <td>Powered by: <a href="www.kpi.com"><strong>www.kpi.com</strong></a></td>
+            <td width="15%" class="pagingBox" align="right">Page <span id="pagenumber"/> of <span id="pagecount"/></td>
+        </tr>
+    </table>
+</div>
+<!--END #footer-->
+
+<!--END #header-->
+<div id="content">
+<h1 class="titlePage c">
+    $itextGenericPdfData.customData.get('CONTACT_INFORMATION_TABLE').rows.get('CONTACT_INFORMATIONS').get('FIRST_NAME')
+    $itextGenericPdfData.customData.get('CONTACT_INFORMATION_TABLE').rows.get('CONTACT_INFORMATIONS').get('LAST_NAME')</h1>
+<table width="100%" class="register sect zebra">
+    <tbody>
+    <tr class="odd">
+        <th>
+            $itextGenericPdfData.customData.get('CONTACT_INFORMATION_TABLE').rows.get('CONTACT_INFORMATIONS').get('CONTACT_INFORMATION')
+        </th>
+
+        <td>
+            <table width="100%" class="bulletin">
+                <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Company</th>
+                    <th>Primary Phone</th>
+                </tr>
+                </thead>
+                <tbody class="baseData">
+                <tr>
+                    <td>
+                        $itextGenericPdfData.customData.get('CONTACT_INFORMATION_TABLE').rows.get('CONTACT_INFORMATIONS').get('FIRST_NAME')
+                    </td>
+                    <td>
+                        $itextGenericPdfData.customData.get('CONTACT_INFORMATION_TABLE').rows.get('CONTACT_INFORMATIONS').get('LAST_NAME')
+                    </td>
+                    <td>
+                        $itextGenericPdfData.customData.get('CONTACT_INFORMATION_TABLE').rows.get('CONTACT_INFORMATIONS').get('COMPANY')
+                    </td>
+                    <td>
+                        $itextGenericPdfData.customData.get('CONTACT_INFORMATION_TABLE').rows.get('CONTACT_INFORMATIONS').get('PRIMARY_PHONE')
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
+    </tr>
+    <tr class="even">
+        <th>
+            $itextGenericPdfData.customData.get('ASSIGNEE_TABLE').rows.get('ASSIGNEE_INFORMATIONS').get('ASSIGNEE')
+        </th>
+
+        <td>
+            <p class="sect">
+                $itextGenericPdfData.customData.get('ASSIGNEE_TABLE').rows.get('ASSIGNEE_INFORMATIONS').get('ASSIGNEE_NAME')</p>
+
+            <table width="100%" class="bulletin">
+                <thead>
+                <tr>
+                    <th>Campaign</th>
+                    <th>Lead Source</th>
+                    <th>Status</th>
+                </tr>
+                </thead>
+                <tbody class="baseData">
+                <tr>
+                    <td>
+                        $itextGenericPdfData.customData.get('ASSIGNEE_TABLE').rows.get('ASSIGNEE_INFORMATIONS').get('CAMPAIGN')
+                    </td>
+                    <td>
+                        $itextGenericPdfData.customData.get('ASSIGNEE_TABLE').rows.get('ASSIGNEE_INFORMATIONS').get('LEAD_SOURCE')
+                    </td>
+                    <td>
+                        $itextGenericPdfData.customData.get('ASSIGNEE_TABLE').rows.get('ASSIGNEE_INFORMATIONS').get('STATUS')
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
+    </tr>
+
+    #if ($itextGenericPdfData.customData.get('NOTES_LEAD_TABLE').rows.size()>0)
+    <tr class="odd">
+        <th>
+            Notes:
+        </th>
+        <td>
+            <table width="100%" class="bulletin">
+                <thead>
+                <tr>
+                    <th>Subject</th>
+                    <th>Published by</th>
+                    <th>Date</th>
+                </tr>
+                </thead>
+                <tbody class="baseData">
+                #foreach($taskList in $itextGenericPdfData.customData.get('NOTES_LEAD_TABLE').rows)
+                <tr>
+                    <td>$taskList.get('SUBJECT')</td>
+                    <td class="nowrap">$taskList.get('PUBLISHED_BY')</td>
+                    <td class="nowrap">$taskList.get('DATE')</td>
+                </tr>
+                #end
+                </tbody>
+            </table>
+        </td>
+    </tr>
+    #end
+    #if ($itextGenericPdfData.customData.get('ATTACHMENT_LEAD_TABLE').rows.size()>0)
+    <tr class="even">
+        <th>
+            Attachments:
+        </th>
+
+        <td>
+            <table width="100%" class="bulletin">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Size</th>
+                    <th>Type</th>
+                </tr>
+                </thead>
+                <tbody class="baseData">
+                #foreach($taskList in $itextGenericPdfData.customData.get('ATTACHMENT_LEAD_TABLE').rows)
+                <tr>
+                    <td>$taskList.get('FILE_NAME')</td>
+                    <td class="nowrap">$taskList.get('FILE_SIZE')</td>
+                    <td class="nowrap">$taskList.get('FILE_TYPE')</td>
+                </tr>
+                #end
+                </tbody>
+            </table>
+        </td>
+    </tr>
+    #end
+    </tbody>
+</table>
+
+
+#foreach($taskList in $itextGenericPdfData.customListData.get('TASK_LIST'))
+<table width="100%" class="register sect focusBox">
+    <tbody>
+    <tr class="odd">
+        <th>
+            Task No:
+        </th>
+        <td class="baseData">
+            $taskList.get('TASK_NOMER_TABLE').rows.get('TASK_NOMER').get('TASK_NO')
+        </td>
+    </tr>
+    <tr class="even">
+        <th>
+            Name:
+        </th>
+
+        <td class="baseData">
+            $taskList.get('TASK_NAME_TABLE').rows.get('TASK_NAME').get('NAME')
+        </td>
+    </tr>
+
+    <tr class="odd">
+        <th>
+            Description:
+        </th>
+
+        <td>
+            <p class="sect">$taskList.get('TASK_DESCRIPTION_TABLE').rows.get('TASK_DESCRIPTION').get('DESCRIPTION')</p>
+
+            <table width="100%" class="bulletin">
+                <thead>
+                <tr>
+                    <th>Start Date</th>
+                    <th>Due date</th>
+                    <th>Priority</th>
+                    <th>Status</th>
+                </tr>
+                </thead>
+                <tbody class="baseData">
+                <tr>
+                    <td>$taskList.get('TASK_START_DATE').rows.get('START_DATE_TABLE').get('START_DATE')</td>
+                    <td>$taskList.get('TASK_DUE_DATE').rows.get('DUE_DATE_TABLE').get('DUE_DATE')</td>
+                    <td>$taskList.get('TASK_PRIORITY').rows.get('PRIORITY_TABLE').get('PRIORITY')</td>
+                    <td>$taskList.get('TASK_STATUS').rows.get('STATUS_TABLE').get('STATUS')</td>
+
+                </tr>
+                </tbody>
+            </table>
+        </td>
+    </tr>
+    #if ($taskList.get('TASK_MEMBERS_INVOLVED').rows.size()>0)
+    <tr class="even">
+        <th>Members involved:</th>
+        <td>
+            <table width="100%" class="bulletin">
+                <thead>
+                <tr>
+                    <th>Employee</th>
+                    <th>Status</th>
+                    <th>Time Spent</th>
+                </tr>
+                </thead>
+                <tbody class="baseData">
+                #foreach($member in $taskList.get('TASK_MEMBERS_INVOLVED').rows)
+                <tr>
+                    <td>$member.get('EMPLOYEE_NAME')</td>
+                    <td>$member.get('EMPLOYEE_TASK_STATUS')</td>
+                    <td>$member.get('EMPLOYEE_TIME_SPENT')</td>
+                </tr>
+                #end
+                </tbody>
+            </table>
+        </td>
+    </tr>
+    #end
+    #if ($taskList.get('NOTES_TASK').rows.size()>0)
+    <tr class="odd">
+        <th>
+            Notes (Task):
+        </th>
+        <td>
+            <table width="100%" class="bulletin">
+                <thead>
+                <tr>
+                    <th>Subject</th>
+                    <th>Published by</th>
+                    <th>Date</th>
+                </tr>
+                </thead>
+                <tbody class="baseData">
+                #foreach($noteList in $taskList.get('NOTES_TASK').rows)
+                <tr>
+                    <td>$noteList.get('SUBJECT')</td>
+                    <td class="nowrap">$noteList.get('PUBLISHED_BY')</td>
+                    <td class="nowrap">$noteList.get('DATE')</td>
+                </tr>
+                #end
+                </tbody>
+            </table>
+        </td>
+    </tr>
+    #end
+    #if ($taskList.get('ATTACHMENT_TASKS_LEAD_TABLE').rows.size()>0)
+    <tr class="even">
+        <th>
+            Attachments (Task):
+        </th>
+        <td>
+            <table width="100%" class="bulletin">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Size</th>
+                    <th>Type</th>
+                </tr>
+                </thead>
+                <tbody class="baseData">
+                #foreach($attachList in $taskList.get('ATTACHMENT_TASKS_LEAD_TABLE').rows)
+                <tr>
+                    <td>$attachList.get('FILE_NAME')</td>
+                    <td class="nowrap">$attachList.get('FILE_SIZE')</td>
+                    <td class="nowrap">$attachList.get('FILE_TYPE')</td>
+                </tr>
+                #end
+                </tbody>
+            </table>
+        </td>
+    </tr>
+    #end
+    </tbody>
+</table>
+#end
+<table align="right" class="register sect autorScript">
+    <tr>
+        <th style="padding-right:3px">Employee:</th>
+        <td class="baseData">
+            $itextGenericPdfData.customData.get('CONTACT_INFORMATION_TABLE').rows.get('CONTACT_INFORMATIONS').get('FIRST_NAME')
+            $itextGenericPdfData.customData.get('CONTACT_INFORMATION_TABLE').rows.get('CONTACT_INFORMATIONS').get('LAST_NAME')
+        </td>
+    </tr>
+    <tr>
+        <th style="padding-right:3px">Company:</th>
+        <td class="baseData">$itextGenericPdfData.companyData.CompanyName</td>
+    </tr>
+</table>
+</div>
+
+
+</div>
+
+
+</body>
+</html>

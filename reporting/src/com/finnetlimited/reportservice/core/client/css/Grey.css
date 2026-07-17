@@ -1,0 +1,746 @@
+/* (2012.07.16) .atm a {
+    color: #4F4F4F;
+} */
+
+.atm #logo {
+    height: 57px !important;
+    background: url("/mainStyles/themes/grey/mediacom-logo.png") no-repeat scroll 20px 5px transparent !important;
+}
+
+/*--------------------- Footer BEGIN -------------------------*/
+.atm #footer {
+    position: fixed;
+    bottom: 0; /*left:47%; margin-left:-471px;*/
+    /*   _left: 0;*/
+    left: 0; /*_margin-left: 0;*/
+    width: 100%;
+    height: 30px; /*_width: auto;*/
+    clear: both;
+    color: #fff;
+    background: #002641 url(../images/themes/grey/bg_footer.png) repeat-x 0 0;
+}
+
+.atm #footer a {
+    color: #fff;
+}
+
+.atm #footer p a {
+    text-decoration: underline;
+}
+
+.atm #footer ul li {
+    margin: 0 10px 0 0;
+    padding: 0 10px 0 0;
+    border-right: 1px solid #fff;
+}
+
+.atm .footer-inner {
+    overflow: hidden;
+    zoom: 1;
+    padding: 9px 29px 10px;
+}
+
+/*--------------------- Footer END -----------------------------*/
+
+/*--------------------- Titles BEGIN ---------------------------*/
+.atm .title {
+    font-size: 16px;
+    margin: 0 0 10px;
+    color: #4F4F4F;
+}
+
+.atm .sub-title {
+    font-size: 14px;
+    color: #4F4F4F;
+    margin: 0 0 15px;
+}
+
+/*--------------------- Titles END -----------------------------*/
+
+/*--------------------- Tab Titles BEGIN -----------------------*/
+.atm .tab-t1,
+.atm .tab-t2,
+.atm .tab-t3,
+.atm .tab-t1 span,
+.atm .tab-t2 span,
+.atm .tab-t3 span {
+    float: left;
+    height: 28px;
+    background-image: url(images/themes/grey/bg_tab_title.png);
+}
+
+.atm .tab-t1,
+.atm .tab-t2,
+.atm .tab-t3 {
+    display: inline;
+    clear: both;
+    margin: 0;
+    padding: 0 29px 0 0;
+    font-size: 14px;
+    background-repeat: no-repeat;
+}
+
+.atm .tab-t1 span,
+.atm .tab-t2 span,
+.atm .tab-t3 span {
+    line-height: 28px;
+    padding: 0 10px 0 30px;
+    color: #fff;
+    background-repeat: repeat-x;
+}
+
+.atm .tab-t1 {
+    background-color: #206000;
+    background-position: 100% 40%;
+}
+
+.atm .tab-t1 span {
+    background-position: 0 -87px;
+}
+
+.atm .tab-t2 {
+    background-color: #002742;
+    background-position: 100% -58px;
+}
+
+.atm .tab-t2 span {
+    background-position: 0 -87px;
+}
+
+.atm .tab-t3 {
+    background-color: #565656;
+    background-position: 100% -58px;
+}
+
+.atm .tab-t3 span {
+    background-position: 0 -87px;
+}
+
+/*--------------------- Tab Titles END -------------------------*/
+
+/*--------------------- Select List BEGIN ----------------------*/
+
+.atm .select-list li a:hover, .atm .select-list li.act a {
+    background-color: #f3f3f3;
+}
+
+/*--------------------- Select List END ------------------------*/
+
+/*--------------------- Zebra BEGIN ----------------------------*/
+.atm .zebra th {
+    padding: 5px 10px 4px;
+    color: #00375e;
+    text-align: left;
+    background-image: url(images/themes/grey/bg_zebra_th.png);
+    background-repeat: repeat-x;
+    background-position: 0 -23px;
+    background-color: #e3e3e3;
+}
+
+.atm .zebra th.act {
+    background-position: 0 0;
+    background-color: #e3e3e3;
+}
+
+.atm .zebra .stronger td {
+    background-color: #e3e3e3;
+}
+
+.atm .zebra td ul li a {
+    color: #002742;
+}
+
+.atm .zebra th,
+.atm .zebra td {
+    border-right: 1px solid #d5d5d5;
+}
+
+/*--------------------- Zebra END ------------------------------*/
+
+/*--------------------- Steps BEGIN ----------------------------*/
+.atm .steps li span,
+.atm .steps li span em {
+    float: left;
+    /*background-image: url(images/themes/grey/bg_steps_reporting.png);*/
+}
+
+.atm .steps li span {
+    height: 30px;
+    padding: 3px 34px 3px 10px;
+    text-decoration: none !important;
+    color: #fff;
+    background-position: 0 -252px;
+    background-repeat: repeat-x;
+    background-color: #E6E6E6;
+}
+
+.atm .steps li span.act {
+    color: #000;
+    background-position: 0 -216px;
+    background-color: #999999;
+    cursor: inherit;
+}
+
+/*.atm .steps li span em {
+    position: absolute;
+    top: 0;
+    width: 29px;
+    height: 45px;
+    background-repeat: no-repeat;
+}*/
+
+.atm .steps li span em.right-angle {
+    right: 0;
+    background-position: 0 -288px;
+}
+
+.atm .steps li span.act em.right-angle {
+    background-position: 0 0;
+}
+
+.atm .steps li span em.left-angle {
+    left: -29px;
+}
+
+.atm .steps li span.first-step em.left-angle {
+    background-position: 0 -108px;
+}
+
+.atm .steps li span.first-step.act em.left-angle {
+    background-position: 0 -72px;
+}
+
+.atm .steps li span em.left-angle {
+    display: none;
+}
+
+.atm .steps li span.act em.left-angle {
+    display: block;
+    background-position: 0 -415px;
+}
+
+.atm .steps li span.act em.left-angle {
+    display: block;
+    background-position: 0 -36px;
+}
+
+.atm .steps li span.last-step em.right-angle {
+    background-position: 0 -180px;
+}
+
+.atm .steps li span.last-step.act em.right-angle {
+    background-position: 0 -144px;
+}
+
+/*--------------------- Steps END ------------------------------*/
+
+/*--------------------- Columns BEGIN --------------------------*/
+.atm .colums tr th,
+.atm .colums tr.thead th {
+    height: 25px;
+    text-align: left;
+    vertical-align: middle;
+    background-image: url(images/themes/grey/bg_htitle.png);
+    background-repeat: repeat-x;
+}
+
+.atm .colums tr th {
+    font-size: 12px;
+    padding: 0 20px;
+    color: #E6E6E6;
+    background-position: 0 -29px;
+    background-color: #9f9f9f;
+}
+
+.atm .colums tr th a {
+    font-size: 11px;
+    color: #E6E6E6;
+}
+
+.atm .colums tr.thead th {
+    color: #fff;
+    background-position: 0 0;
+    background-color: #E6E6E6;
+}
+
+.atm .colums tr.thead th a {
+    color: #fff;
+}
+
+/*--------------------- Columns END -------------------------*/
+
+/*--------------------- Plates BEGIN ------------------------*/
+.atm .plate-1, .plate-1-outer {
+    background-image: url(images/themes/grey/bg_plate1.png);
+    background-repeat: no-repeat;
+}
+
+.atm .plate-1 {
+    width: 944px;
+    margin: 0 0 20px;
+    padding: 0 0 5px;
+    background-position: -945px 100%;
+}
+
+.atm .plate-1-outer {
+    padding: 5px 0 0;
+    background-position: 0 0;
+}
+
+.atm .plate-1-inner {
+    padding: 10px 20px;
+    border-right: 1px solid #e2e2e2;
+    border-left: 1px solid #e2e2e2;
+    background: #e2e2e2 url(images/themes/grey/bg_plate1_inner.png) repeat-x 0 0;
+}
+
+.atm .plate-1 form {
+    font-size: 11px;
+}
+
+.atm .plate-1 form select {
+    width: 180px;
+}
+
+.atm .plate-1 form a {
+    font-weight: bold;
+    color: #7a7a7a;
+}
+
+/* .plate-1 */
+
+/* .plate-2 */
+.atm .plate-2,
+.atm .plate-2-outer {
+    background-image: url(images/themes/grey/bg_plate2.png);
+    background-repeat: no-repeat;
+}
+
+.atm .plate-2 {
+    width: 270px;
+    padding: 0 0 5px;
+    background-position: -271px 100%;
+}
+
+.atm .plate-2-outer {
+    padding: 5px 0 0;
+    background-position: 0 0;
+}
+
+.atm .plate-2-inner {
+    padding: 12px 16px;
+    border-right: 1px solid #e6e6e6;
+    border-left: 1px solid #e6e6e6;
+    background: #ebebeb url(images/themes/grey/bg_plate2_inner.png) repeat-x 0 0;
+}
+
+/* END .plate-2 */
+
+/* .plate-3 */
+.atm .plate-3,
+.atm .plate-3-outer {
+    background-image: url(images/themes/grey/bg_plate3.png);
+    background-repeat: no-repeat;
+}
+
+.atm .plate-3 {
+    width: 377px;
+    padding: 0 0 5px;
+    overflow: hidden;
+    zoom: 1;
+    background-position: -378px 100%;
+}
+
+.atm .plate-3-outer {
+    padding: 5px 0 0;
+    background-position: 0 0;
+}
+
+.atm .plate-3-inner {
+    padding: 12px 16px;
+    border-right: 1px solid #e3e3e3;
+    border-left: 1px solid #e3e3e3;
+    background: #e3e3e3 url(images/themes/grey/bg_plate3_inner.png) repeat-x 0 0;
+}
+
+/* END .plate-3 */
+
+/* plate-4 */
+.atm .plate-4 {
+    width: 269px;
+    padding: 12px 0 0;
+    margin: 0 0 20px;
+    background: #F0F0F0 url(images/themes/grey/bg_plate4.png) no-repeat 0 0;
+}
+
+.atm .plate-4-outer {
+    background: url(images/themes/grey/bg_plate4_outer.png) repeat-y 0 0;
+}
+
+.atm .plate-4-inner {
+    padding: 0 12px 12px;
+    background: url(images/themes/grey/bg_plate4_inner.png) no-repeat 0 100%;
+}
+
+/*--------------------- Plates END --------------------------*/
+
+/*--------------------- Header BEGIN ------------------------*/
+.atm #header {
+    position: relative;
+    height: 76px;
+    background: url(mainStyles/themes/grey/gradient-bg-logo-atm.jpg) repeat-x 0 0; /*background: url(mainStyles/themes/grey/top2.gif);*/
+    /*font-weight: bold;*/
+    color: #565656;
+}
+
+.atm .f3 input.btn {
+    width: 60px;
+    height: 24px;
+    border: 0;
+    font-weight: bold;
+    background: #565656 url(images/themes/grey/bg_f3_btn.png) no-repeat 0 0;
+}
+
+.atm .theader .gheader {
+    font-size: 12px;
+    padding: 0 20px;
+    color: #565656;
+    background-repeat: repeat-x;
+    background-position: 0 -29px;
+    background-color: #f3f3f3;
+    vertical-align: middle;
+}
+
+.atm .theader .gheader a {
+    font-size: 11px;
+    color: #E6E6E6;
+}
+
+.atm .theader .bheader {
+    color: #fff;
+    background-image: url(images/themes/grey/bg_htitle.png);
+    background-repeat: repeat-x;
+    background-position: 0 0;
+    background-color: #E6E6E6;
+    vertical-align: middle;
+}
+
+.atm .theader .bheader a {
+    color: #fff;
+}
+
+/*--------------------- Header END --------------------------*/
+
+/*--------------------- Report List BEGIN -------------------*/
+.atm .report-list tr td {
+    padding: 2px 5px;
+    vertical-align: middle;
+    border: 1px solid black /*#E6E6E6*/;
+
+}
+
+.atm .report-list .title {
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    background: #565656; /*#565656;*/
+}
+
+.atm .report-list .title a {
+    color: white;
+    text-decoration: none;
+}
+
+.atm .report-list .total {
+    /*font-weight:bold;*/
+    background: #E6E6E6 /*#565656*/;
+}
+
+.atm .sub-total {
+    background: #565656;
+    border-top-color: #E6E6E6;
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-bottom-color: #E6E6E6;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-left: 1px solid #565656;
+    border-right: 1px solid #565656;
+}
+
+/*--------------------- Report List END ---------------------*/
+
+.atm .order-table .column {
+    border: 1px solid #565656;
+}
+
+.atm .order-table .column-title {
+    text-align: center;
+    background: #565656;
+    padding: 2px 5px;
+    border: 1px solid #565656;
+    color: #fff;
+}
+
+/* Dialog Box begin style */
+.atm .gwt-DialogBox .Caption {
+    background: #bbbbbb url(images/themes/grey/bg_htitle.png) repeat-x 0 -28px;
+    padding: 4px 4px 4px 8px;
+    cursor: default;
+    font-weight: bold;
+    border-bottom: 1px solid #E6E6E6;
+    border-top: 1px solid #E6E6E6;
+}
+
+.atm .gwt-DialogBox .dialogContent {
+    background: white;
+}
+
+.atm .gwt-DialogBox .dialogMiddleCenter {
+    padding: 10px;
+    background: white;
+    height: 100%;
+}
+
+.atm .gwt-DialogBox .dialogBottomCenter {
+    background: #E6E6E6; /*height:2px;*/
+}
+
+.atm .gwt-DialogBox .dialogMiddleLeft {
+    background: #E6E6E6;
+}
+
+.atm .gwt-DialogBox .dialogMiddleRight {
+    background: #E6E6E6;
+}
+
+.atm .gwt-DialogBox .dialogTopLeft {
+    background: #E6E6E6;
+}
+
+.atm .gwt-DialogBox .dialogTopRight {
+    background: #E6E6E6;
+}
+
+.atm .gwt-DialogBox .dialogBottomLeft {
+    background: #E6E6E6;
+}
+
+.atm .gwt-DialogBox .dialogBottomRight {
+    background: #E6E6E6;
+}
+
+.atm .drs-export {
+    color: #565656;
+    cursor: pointer;
+    text-decoration: underline;
+    vertical-align: middle;
+}
+
+.atm .drs-loading-panel {
+    color: #565656;
+    font-weight: bold;
+    position: fixed !important;
+    text-align: center;
+    vertical-align: middle;
+    padding: 5px 10px;
+}
+
+/* export link style end*/
+
+.atm .logoutLink {
+    color: #000000;
+    cursor: pointer;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-decoration: underline;
+}
+
+.atm .noLink {
+    color: #000000;
+    padding-left: 10px;
+}
+
+.atm .companyNameStyle {
+    color: #565656;
+    padding-left: 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.atm .maxLogoHeight {
+    max-height: 53px;
+    height: auto !important;
+    height: 53px;
+}
+
+.atm .tabularInfo {
+    background: url("/images/themes/grey/tabularInfo.png") no-repeat;
+}
+
+.atm .summariesInfo {
+    background: url("/images/themes/grey/Select-Grouping-img.jpg") no-repeat;
+}
+
+.atm .cw-StackPanelHeader {
+    /*background: url("reporting/icons/bg_slideDown.png") no-repeat scroll 100% -32px #E4F5FF;*/
+    background-color: #efefef;
+    border-bottom: 1px solid #c3c3c3;
+    border-top: 1px solid #c3c3c3;
+    color: #535353;
+    font: bold 16px Arial, sans-serif;
+    padding: 3px 24px 0 30px;
+    text-transform: uppercase;
+}
+
+.atm .cw-StackPanelHeader em {
+    padding-left: 20px;
+    font: bold 16px Arial, sans-serif;
+    color: #4F4F4F;
+}
+
+.atm .cw-StackPanelHeader .colapse {
+    background: url("/images/themes/grey/arrow-down-gray.png") no-repeat scroll 0 40% #efefef;
+}
+
+.atm .cw-StackPanelHeader .expand {
+    background: url("/images/themes/grey/arrow-up-gray.png") no-repeat scroll 0 40% #efefef;
+}
+
+.atm .other-reports {
+    background-color: #c3c3c3;
+}
+
+.atm .folder-content .f-table td.f-header {
+    background-color: #efefef;
+}
+
+.atm .table-reportList {
+    border: 1px solid #4F4F4F;
+}
+
+.atm .help-sub-title {
+    color: #4F4F4F;
+}
+
+.atm .order-panel > div > .gwt-Caption {
+    background-image: url("images/themes/grey/bg_htitle.png");
+}
+
+.atm .dragdrop-dropTarget tr td div:hover {
+    background-color: #4F4F4F;
+}
+
+.atm .table-List tr.odd td {
+    background-color: #f3f3f3;
+}
+
+.atm .table-List {
+    border-left: 1px solid #737373;
+    border-right: 1px solid #737373;
+    color: #FFFFFF;
+    line-height: 16px;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid #C5C5C5;
+
+}
+
+.atm .table-reportList .odd {
+    background-color: #f3f3f3;
+}
+
+.atm .tsub-header odd {
+    color: #4F4F4F;
+}
+
+.atm .table-List td {
+    background-color: #e6e6e6;
+}
+.atm .table-List td.thead {
+    border-left: 1px solid #8f8f8f;
+    border-right: 1px solid #2e2e2e;
+    color: #FFFFFF;
+    line-height: 16px;
+    background-color: #4F4F4F;
+}
+
+.atm .steps .act, .atm .steps div:hover {
+    background: url("/mainStyles/images/default/bg/bg_gradX_gray-1.png") repeat-x scroll 0 0 #DADADA;
+    text-shadow: 2px 2px 2px #4F4F4F;
+}
+
+.atm .massData td .thead {
+    background-color: #585858;
+    background-repeat: repeat-x;
+    border-left: 1px solid #8f8f8f;
+    border-right: 1px solid #2e2e2e;
+}
+
+.atm #button-panel-inner .btn-1 {
+    color: #FFFFFF !important;
+}
+
+.atm em.optBtn {
+    color: #4F4F4F !important;
+}
+
+.atm .markNewReport {
+    background: url("images/themes/grey/bg_markSuggestNew.png") no-repeat scroll 5px 50% transparent;
+}
+
+.atm .markImport {
+    background: url("images/themes/grey/bg_markImport.png") no-repeat scroll 8px 50% transparent;
+}
+
+.atm .tablularImg {
+    background-image: url(images/themes/grey/tabular.jpg);
+    width: 386px;
+    height: 173px;
+}
+
+.atm .summariesImg {
+    background-image: url(images/themes/grey/summaries.jpg);
+    width: 386px;
+    height: 173px;
+}
+
+.atm .summariesColImg {
+    background-image: url(images/themes/grey/summariesCol.jpg);
+    width: 297px;
+    height: 275px;
+}
+
+.atm .dotted-label {
+    border: 1px dotted #4F4F4F !important;
+}
+
+.atm .draggable-columns {
+    border: 1px dotted #4F4F4F !important;
+}
+
+.atm .markFolder {
+    background: url("/images/themes/grey/add-folder.png") no-repeat scroll 8px 50% transparent;
+}
+
+.atm .markShare {
+    background: url("/images/themes/grey/bg_markShare.png") no-repeat scroll 10px 50% transparent;
+}
+
+.atm .markModify {
+    background: url("/images/themes/grey/bg_markModify.png") no-repeat scroll 10px 50% transparent;
+}
+
+.atm .markfilter-act {
+    background: url("/images/themes/grey/bg_filter.png") no-repeat scroll 10px 50% transparent;
+}
+
+.atm .mailing-list {
+    background: url("/images/themes/grey/mailinglist.png") no-repeat scroll 10px 50% transparent;
+}
+
+.atm .sub-title {
+    color: #DADADA;
+}
+

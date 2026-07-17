@@ -1,0 +1,7 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+    <g:HTMLPanel styleName="skillRateComment" ui:field="ui">
+        <g:HTMLPanel styleName="skillRateComment__comment" ui:field="commentPanelField"/>
+        <g:HTMLPanel styleName="skillRateComment__rate" ui:field="ratePanelField"/>
+    </g:HTMLPanel>
+</ui:UiBinder>

@@ -1,0 +1,107 @@
+$columns-gap: rem(15px);
+
+.two-column,
+.three-column,
+.four-column {
+  display: flex;
+  flex-wrap: wrap;
+
+  &.columns-separated {
+    margin-left: - $columns-gap;
+    margin-right: - $columns-gap;
+  }
+
+  .row {
+    //display: block; //ToDo (we don't need to use it) to prevent the influence of the bootstrap grid
+    //outline: 1px solid orangered;
+    margin-left:0;
+    margin-right:0;
+  }
+}
+.row.column {
+  //display: block; //ToDo (we don't need to use it) to prevent the influence of the bootstrap grid
+  //outline: 1px solid orangered;
+}
+
+.two-column {}
+.three-column {}
+.four-column {}
+
+.column {
+  .two-column > & {
+    flex: 0 0 50%;
+  }
+  .three-column > & {
+    flex: 0 0 33.33%;
+  }
+  .four-column > & {
+    flex: 0 0 25%;
+  }
+
+  textarea {
+    max-width: 100%;
+  }
+
+  .columns-separated > & {
+    padding-left: $columns-gap;
+    padding-right: $columns-gap;
+  }
+
+  &.custom-form-item {
+    &:before {
+
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      border-top: 1px solid #D8D8D8;
+
+
+
+      .columns-separated & {
+        left: $columns-gap;
+        right: $columns-gap;
+      }
+    }
+    .two-column > & {
+      &:nth-child(1):before,
+      &:nth-child(2):before {
+        content: '';
+      }
+    }
+    .three-column > & {
+      &:nth-child(1):before,
+      &:nth-child(2):before,
+      &:nth-child(3):before {
+        content: '';
+      }
+    }
+    .four-column > & {
+      &:nth-child(1):before,
+      &:nth-child(2):before,
+      &:nth-child(3):before,
+      &:nth-child(4):before {
+        content: '';
+      }
+    }
+  }
+}
+
+
+.controls-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  > * {
+    margin-bottom: 20px; /*form-group margin*/
+
+    + * {
+      margin-left: 10px;
+    }
+  }
+
+  .btn--icon [class*="ficon"] {
+    font-size: 1.1rem;
+  }
+}

@@ -1,0 +1,356 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style type="text/css">
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+        td {
+            padding: 3px;
+        }
+        .title {
+            font-size: 9pt;
+        }
+        .name {
+            font-size: 7pt;
+        }
+        .value {
+            font-size: 8pt;
+        }
+        .personalValue {
+            font-size: 7pt;
+        }
+        .capital {
+            text-transform: capitalize;
+        }
+    </style>
+</head>
+<body>
+<div id="body sales-invoice__tmp">
+    <img alt="images" src="https://workforcetrack.s3.amazonaws.com/000000000000/public/65159/a2113e82-397f-49fd-a58a-cdf4f4b93dff?AWSAccessKeyId=AKIAIROQMC77E5UKWBWQ" style="display: none;"/>
+    #if($itextGenericPdfData.companyData.companyName == 'KPI Software Inc' or $itextGenericPdfData.companyData.companyLogoUrl == 'https://apps.kpi.com/customisation/kpi.com/images/kpilogo.png')
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="width: 88px;display: none;"/>
+    #else
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="max-width: 100%; max-height: 100%; display: none;"/>
+    #end
+
+    #set($viewTable = $itextGenericPdfData.customData.get('VIEW_TABLE'))
+    #set($financingTable = $itextGenericPdfData.customData.get('FINANCING_TABLE'))
+    #set($depreciationTable = $itextGenericPdfData.customData.get('DEPRECIATION_TABLE'))
+    #set($customFieldTable = $itextGenericPdfData.customData.get('CUSTOM_FIELD'))
+
+    #set($ownerLable = $viewTable.rows.get('OWNER').get('COLUMN_NAME'))
+    #set($categoryLable = $viewTable.rows.get('CATEGORY').get('COLUMN_NAME'))
+    #set($numberLable = $viewTable.rows.get('Number').get('COLUMN_NAME'))
+    #set($nameLable = $viewTable.rows.get('NAME').get('COLUMN_NAME'))
+    #set($descriptionLable = $viewTable.rows.get('DESCRIPTION').get('COLUMN_NAME'))
+    #set($costLable = $viewTable.rows.get('COST').get('COLUMN_NAME'))
+    #set($purchaseDateLable = $viewTable.rows.get('PURCHASE_DATE').get('COLUMN_NAME'))
+    #set($userFulLifeLable = $viewTable.rows.get('USE_FUL_LIFE').get('COLUMN_NAME'))
+    #set($residualLable = $viewTable.rows.get('RESIDUAL_VALUE').get('COLUMN_NAME'))
+
+    #set($owner = $viewTable.rows.get('OWNER').get('COLUMN_VALUE'))
+    #set($category = $viewTable.rows.get('CATEGORY').get('COLUMN_VALUE'))
+    #set($number = $viewTable.rows.get('Number').get('COLUMN_VALUE'))
+    #set($name = $viewTable.rows.get('NAME').get('COLUMN_VALUE'))
+    #set($description = $viewTable.rows.get('DESCRIPTION').get('COLUMN_VALUE'))
+    #set($cost = $viewTable.rows.get('COST').get('COLUMN_VALUE'))
+    #set($purchaseDate = $viewTable.rows.get('PURCHASE_DATE').get('COLUMN_VALUE'))
+    #set($userFulLife = $viewTable.rows.get('USE_FUL_LIFE').get('COLUMN_VALUE'))
+    #set($residual = $viewTable.rows.get('RESIDUAL_VALUE').get('COLUMN_VALUE'))
+    #set($image_url = $viewTable.rows.get('IMAGE_URL').get('COLUMN_VALUE'))
+    #set($barcode_image_url = $viewTable.rows.get('BARCODE_IMAGE_URL').get('COLUMN_VALUE'))
+
+
+    #set($accountLable = $financingTable.rows.get('ACCOUNT').get('COLUMN_NAME'))
+    #set($convertedLable = $financingTable.rows.get('CONVERTED').get('COLUMN_NAME'))
+
+    #set($account = $financingTable.rows.get('ACCOUNT').get('COLUMN_VALUE'))
+    #set($converted = $financingTable.rows.get('CONVERTED').get('COLUMN_VALUE'))
+
+
+    #set($fixedAssetLable = $depreciationTable.rows.get('fixedassets').get('COLUMN_NAME'))
+    #set($expenseLable = $depreciationTable.rows.get('EXPENSE').get('COLUMN_NAME'))
+
+    #set($fixedAsset = $depreciationTable.rows.get('fixedassets').get('COLUMN_VALUE'))
+    #set($expense = $depreciationTable.rows.get('EXPENSE').get('COLUMN_VALUE'))
+
+    <div>
+        <table width="100%" cellspacing="0" cellpadding="0" border="0">
+            <tr>
+                <td dir="$viewTable.name" style="font-weight: bold;" class="title capital">$viewTable.name</td>
+            </tr>
+        </table>
+
+        <div style="width: 35%; float: left;margin-top: 10px;">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td width="100%" style="padding: 0; margin: 0;" valign="top">
+                        #if($image_url != '')
+                            <img src="$image_url" alt="image" style="width: 180px;height: auto;">
+                        #else
+                            <img src="$barcode_image_url" alt="image" style="width: 180px;height: auto;">
+                        #end
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <table width="64%" border="0" cellspacing="0" cellpadding="0" style="margin-top: 10px;" align="right">
+            <tr>
+                <td width="50%" style="padding: 0; margin: 0;" valign="top">
+                    <table width="100%" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td dir="$numberLable" class="name capital">$numberLable</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;" class="value">
+                                #if($number != '') $number #else — #end
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td width="50%" style="padding: 0; margin: 0;" valign="top">
+                    <table width="100%" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td dir="$userFulLifeLable" class="name capital">$userFulLifeLable</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;" class="value">
+                                #if($userFulLife != '') $userFulLife #else — #end
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+        <table width="64%" border="0" cellspacing="0" cellpadding="0" style="margin-top: 10px;" align="right">
+            <tr>
+                <td width="50%" style="padding: 0; margin: 0;" valign="top">
+                    <table width="100%" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td dir="$nameLable" class="name capital">$nameLable</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;" class="value">
+                                #if($name != '') $name #else — #end
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td width="50%" style="padding: 0; margin: 0;" valign="top">
+                    <table width="100%" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td dir="$purchaseDateLable" class="name capital">$purchaseDateLable</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;" class="value">
+                                #if($purchaseDate != '') $purchaseDate #else — #end
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+        <table width="64%" border="0" cellspacing="0" cellpadding="0" style="margin-top: 10px;" align="right">
+            <tr>
+                <td width="50%" style="padding: 0; margin: 0;" valign="top">
+                    <table width="100%" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td dir="$categoryLable" class="name capital">$categoryLable</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;" class="value">
+                                #if($category != '') $category #else — #end
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td width="50%" style="padding: 0; margin: 0;" valign="top">
+                    <table width="100%" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td dir="$costLable" class="name capital">$costLable</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;" class="value">
+                                #if($cost != '') $cost #else — #end
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+        <table width="64%" border="0" cellspacing="0" cellpadding="0" style="margin-top: 10px;" align="right">
+            <tr>
+                <td width="50%" style="padding: 0; margin: 0;" valign="top">
+                    <table width="100%" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td dir="$ownerLable" class="name capital">$ownerLable</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;" class="value">
+                                #if($owner != '') $owner #else — #end
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td width="50%" style="padding: 0; margin: 0;" valign="top">
+                    <table width="100%" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td dir="$residualLable" class="name capital">$residualLable</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;" class="value">
+                                #if($residual != '') $residual #else — #end
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+        <table width="100%" cellspacing="0" cellpadding="0">
+            <tr>
+                <td width="100%">&nbsp;</td>
+            </tr>
+        </table>
+
+        #if($description != '')
+        <table width="100%" cellspacing="0" cellpadding="0" style="margin-top: 5px; border-bottom: 1px solid #000;">
+            <tr>
+                <td width="100%"></td>
+            </tr>
+        </table>
+
+        <table border="0" cellpadding="0" cellspacing="0" style="margin-top: 15; line-height: 1.4; font-size: 9pt;" width="100%">
+            <tbody>
+            <tr>
+                <td align="left" style="color: #0a0a0a; padding:4px 0; width:100%; word-wrap: break-word;" dir="$descriptionLable"><strong>$descriptionLable:</strong> <span>$description </span></td>
+            </tr>
+            </tbody>
+        </table>
+        #end
+
+        <table width="100%" cellspacing="0" cellpadding="0" style="margin-top: 15px; border-bottom: 1px solid #000;">
+            <tr>
+                <td width="100%"></td>
+            </tr>
+        </table>
+
+        <table width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-top: 20px;">
+            <tr>
+                <td dir="$financingTable.name" style="font-weight: bold;" class="title capital">$financingTable.name</td>
+            </tr>
+        </table>
+
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top: 10px;">
+            <tr>
+                <td width="50%" style="padding: 0; margin: 0;" valign="top">
+                    <table width="100%" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td dir="$accountLable" class="name capital">$accountLable</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;" class="value">
+                                #if($account != '') $account #else — #end
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td width="50%" style="padding: 0; margin: 0;" valign="top">
+                    <table width="100%" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td dir="$convertedLable" class="name capital">$convertedLable</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;" class="value">
+                                #if($converted != '') $converted #else — #end
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+        <table width="100%" cellspacing="0" cellpadding="0" style="margin-top: 15px; border-bottom: 1px solid #000;">
+            <tr>
+                <td width="100%"></td>
+            </tr>
+        </table>
+
+        <table width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-top: 20px;">
+            <tr>
+                <td dir="$depreciationTable.name" style="font-weight: bold;" class="title capital">$depreciationTable.name</td>
+            </tr>
+        </table>
+        
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top: 10px;">
+            <tr>
+                <td width="50%" style="padding: 0; margin: 0;" valign="top">
+                    <table width="100%" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td dir="$fixedAssetLable" class="name capital">$fixedAssetLable</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;" class="value">
+                                #if($fixedAsset != '') $fixedAsset #else — #end
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td width="50%" style="padding: 0; margin: 0;" valign="top">
+                    <table width="100%" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td dir="$expenseLable" class="name capital">$expenseLable</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;" class="value">
+                                #if($expense != '') $expense #else — #end
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+        #if($customFieldTable.rows.size() > 0)
+        <table width="100%" cellspacing="0" cellpadding="0" style="margin-top: 15px; border-bottom: 1px solid #000;">
+            <tr>
+                <td width="100%"></td>
+            </tr>
+        </table>
+
+        <table width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-top: 20px;margin-bottom: 15px;">
+            <tr>
+                <td dir="$customFieldTable.name" style="font-weight: bold;" class="title capital">$customFieldTable.name</td>
+            </tr>
+        </table>
+
+        <div>
+            #foreach($row in $customFieldTable.rows.values())
+            <div style="width: 50%; float: left;">
+                <div class="name" style="padding-bottom: 3px; padding-left: 3px;">
+                    $row.get('COLUMN_NAME')
+                </div>
+                <div style="font-weight: bold; padding-top: 3px; padding-left: 3px; padding-bottom: 15px;" class="value">
+                    #if($row.get('TYPE') == 'Profile Image' and $row.get('COLUMN_VALUE') != '')
+                    <img src="$row.get('COLUMN_VALUE')" style="width: 180px; height: auto;"/>
+                    #elseif($row.get('COLUMN_VALUE') != '')
+                    $row.get('COLUMN_VALUE')
+                    #else
+                    —
+                    #end
+                </div>
+            </div>
+            #end
+        </div>
+        #end
+    </div>
+</div>
+</body>
+</html>
+
+

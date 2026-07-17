@@ -1,0 +1,699 @@
+function frame_affix() {
+
+    var wrapper = $('.table_report_sections-mod');
+    var table = $('.table_report_sections-mod').find('table');
+    /* table */
+    var header = table.children('thead');
+    /*thead*/
+    var cells = header.find('th, td');
+    /* cols */
+
+    var first_parent = $(table).parent();
+
+    var full_width = 0;
+    var i = 0;
+    var width_array = [];
+
+    cells.each(function () { /*each th*/
+        var inner_div = $(this).children('div.frame_affix_top');
+        var col_width = parseInt(inner_div.css("width"));
+        var col_child_width = $(this)/*.children()*/.width();
+
+        width_array[i] = col_width;
+        var div_child = $(this).children('.frame_affix_top');
+        if (div_child.length !== 0) {
+            div_child.css('width', 'auto');
+        }
+        full_width += col_width;
+        i++;
+    });
+
+    if (table.children('colgroup').length === 0) { /*build <cllgroup> if nasn't*/
+        table.prepend('<colgroup></colgroup>');
+    }
+    table.children('colgroup').html('');
+
+    for (var j in width_array) {
+        var percent = width_array[j] / (full_width / 100);
+        table.children('colgroup').append(
+            '<col width="' + percent + '%"/>'
+        )
+        $(cells[j]).css("width", percent + '%');
+    }
+
+    first_parent.css('min-width', full_width + 'px');
+    first_parent.css('position', 'relative');
+
+    table_report_sections_fixed_top();
+    $(wrapper).scroll(table_report_sections_fixed_top);
+}
+
+function table_report_sections_fixed_top() {
+    var wrapper = $('.table_report_sections-mod');
+    var table = $('.table_report_sections-mod').find('table');
+    wrapper.each(function (index, elem) {
+        var thead = $(elem).find('.point_affix_top ');
+        var scroll_top = $(wrapper).scrollTop();
+        thead.css({
+            '-webkit-transform': 'translateY(' + scroll_top + 'px)',
+            '-moz-transform': 'translateY(' + scroll_top + 'px)',
+            'transform': 'translateY(' + scroll_top + 'px)'
+        });
+    });
+}
+
+function scrollTables_minWidth() {
+    // $('.gwt-ScrollTable').each(function(table_index, table_elem){
+    //     $table_elem = $(table_elem);
+    //     $table_header = $table_elem.find('.headerTable');
+    //     $table_data = $table_elem.find('.dataTable');
+    //     $table_header.css({
+    //         'table-layout': 'fixed'
+    //     });
+    //     var min_width = 0;
+    //     var width_array = [];
+    //     var i = 0;
+    //     $tds = $table_header.find('tr:first td');
+    //     $tds.each(function(td_index, td_elem){
+    //         $td = $(td_elem);
+    //         var width = parseInt($td.css('width'));
+    //         width_array[i] = width;
+    //         min_width += width;
+    //         i++;
+    //     });
+    //
+    //     $table_header.children('colgroup').remove();
+    //     $table_data.children('colgroup').remove();
+    //
+    //     $table_header.prepend('<colgroup></colgroup>');
+    //     $table_data.prepend('<colgroup></colgroup>');
+    //
+    //
+    //     for (var j in width_array) {
+    //         // var percent = width_array[j] / (min_width / 100);
+    //         $table_data.children('colgroup').append(
+    //             '<col width="' + width_array[j] + 'px"/>'
+    //         )
+    //         $table_header.children('colgroup').append(
+    //             '<col width="' + width_array[j] + 'px"/>'
+    //         )
+    //         // $(cells[j]).css("width", percent + '%');
+    //     }
+    //
+    //     $table_elem.css('min-width', min_width + 'px');
+    //     $table_header.css({
+    //         'width': '100%'
+    //     });
+    //     $table_data.css('width', '100%');
+    // });
+}
+
+// function scrollTables_fixedTop() {
+//     var scroll_container = $('.frame__content .scroll-content');
+//     var header = $('.gwt-ScrollTable').find('.headerWrapper');
+//     var scroll_top = $(scroll_container).scrollTop();
+//     header.css({
+//         '-webkit-transform': 'translateY(' + scroll_top + 'px)',
+//         '-moz-transform': 'translateY(' + scroll_top + 'px)',
+//         'transform': 'translateY(' + scroll_top + 'px)'
+//     });
+// }
+//
+// function scrollTables_afterUpdate() {
+//     /*scrollTables_minWidth();*/
+//     scrollTables_fixedTop();
+//
+//
+//     if(!$('.workarea').hasClass('workarea--change-bind')) {
+//         $('.workarea').bind("DOMSubtreeModified",function(){
+//             scrollTables_afterUpdate();
+//         });
+//         $('.frame__content .scroll-content').scroll(scrollTables_fixedTop);
+//         $('.workarea').addClass('workarea--change-bind');
+//     }
+// }
+
+function scrollTables_setHeaderWidth() {
+    $('.gwt-ScrollTable').each(function (table_index, table_elem) {
+        var $table_elem = $(table_elem);
+        var $table_header = $table_elem.find('.headerTable');
+        var $table_data = $table_elem.find('.dataTable');
+        var width1 = $table_data[0].offsetWidth;
+        $table_header.css("width", width1 + "px");
+    });
+}
+
+$.fn.extend({
+    scrollRight: function(property) {
+        return this[0].scrollWidth - (this[0].scrollLeft + this[0].clientWidth) + 1;
+    }
+});
+
+function scrollTables_fixedTop() {
+    var scroll_container = $('.frame__content .scroll-content');
+    var header = $('.gwt-ScrollTable').find('.headerTable');
+    var scroll_left = $(scroll_container).scrollLeft();
+    var direction = 'ltr';
+    try {
+        direction = $('html').attr('dir');
+    } catch (e) {
+    }
+    if (!(direction === undefined) && 'rtl' === direction) {
+        var scrollRight = $(scroll_container).scrollRight();
+        header.css({
+            '-webkit-transform': 'translateX(' + (scrollRight) + 'px)',
+            '-moz-transform': 'translateX(' + (scrollRight) + 'px)',
+            'transform': 'translateX(' + (scrollRight) + 'px)'
+        });
+    } else {
+        header.css({
+            '-webkit-transform': 'translateX(-' + scroll_left + 'px)',
+            '-moz-transform': 'translateX(-' + scroll_left + 'px)',
+            'transform': 'translateX(-' + scroll_left + 'px)'
+        });
+    }
+}
+
+function scrollTables_afterUpdate2() {
+    scrollTables_setHeaderWidth();
+    scrollTables_fixedTop();
+
+    if (!$('.workarea').hasClass('workarea--change-bind')) {
+        $('.frame__content .scroll-content').scroll(scrollTables_fixedTop);
+        $('.workarea').addClass('workarea--change-bind');
+    }
+}
+
+
+function scrollTables_afterUpdate() {
+    scrollTables_setHeaderWidth();
+    scrollTables_fixedTop();
+
+    if (!$('.workarea').hasClass('workarea--change-bind')) {
+        $('.workarea').bind("DOMSubtreeModified", function () {
+            scrollTables_afterUpdate();
+        });
+        $('.frame__content .scroll-content').scroll(scrollTables_fixedTop);
+        $('.workarea').addClass('workarea--change-bind');
+    }
+}
+
+
+/* new version of aframe_affix for sticky header */
+
+function table__frame_affix_init() {
+
+    /* remove empty table-wrappers if exist */
+    $('.table-wrapper:empty').remove();
+
+    var $affixes = $('.point_affix_top');
+    $affixes.each(function (affix_index, affix_elem) {
+        var $affix = $(affix_elem);
+        var $table = $affix.parents('.table:first');
+        var $table_parent = $table.parent();
+        if (!$table_parent.hasClass('table-wrapper')) {
+            $table.wrap('<div class="table-wrapper"></div>');
+        }
+
+        var min_width = 0;
+        var cells = $affix.find('th, td');
+        /* cols */
+        var i = 0;
+
+        var width_array = [];
+
+        cells.each(function () { /*each th*/
+            var inner_div = $(this).children('div.frame_affix_top');
+            var col_width = parseInt(inner_div.css("min-width"));
+            var padding_left = parseInt($(this).css('padding-left'));
+            var padding_right = parseInt($(this).css('padding-right'));
+            col_width += padding_left + padding_right;
+
+            width_array[i] = col_width;
+            min_width += col_width;
+            i++;
+        });
+
+        if ($table.children('colgroup').length === 0) { /*build <cllgroup> if nasn't*/
+            $table.prepend('<colgroup></colgroup>');
+        }
+        $table.children('colgroup').html('');
+
+        for (var j in width_array) {
+            var percent = (width_array[j] / (min_width / 100)).toFixed(2);
+            $table.children('colgroup').append(
+                '<col style="width: ' + percent + '%"/>'
+            )
+            $(cells[j]).css("width", percent + '%');
+        }
+
+        /* This value depends on min-width of .whiteBGR in _frame-layout.scss */
+        var min_width_from_frame_layout = 960;
+        if (min_width < 960) min_width = 960;
+
+        $table.css('min-width', min_width + 'px');
+        $affix.children('tr').css('min-width', min_width + 'px');
+    });
+
+    $scroll_content = $('.frame__content__body');
+    if (!$scroll_content.hasClass('table-frame-affix-scroll-event')) {
+        $scroll_content.addClass('table-frame-affix-scroll-event');
+        $scroll_content.scroll(table__frame_affix_set_state);
+    }
+    table__frame_affix_set_state();
+}
+
+/* Adding or removing classes 'has affix' depends on scroll position */
+function table__frame_affix_set_state() {
+    var $scroll_container = $('.frame__content .scroll-content');
+    var scroll_container__offset = $scroll_container.offset();
+    var $workarea = $('#workarea');
+    var workarea__offset = $workarea.offset();
+    var $whiteBGR = $('.whiteBGR');
+    var whiteBGR__offset = $whiteBGR.offset();
+    var workarea__offset_from_whiteBGR = workarea__offset.top - whiteBGR__offset.top;
+    /* workarea might be shifted from whiteBGR because page-opers existing */
+
+    /* 1 case: header is always fixed */
+    var $affixes1 = $('.table-wrapper .point_affix_top:not([point_affix_top_when]):not([point_affix_top_below_selector])');
+    $affixes1.addClass('has_affix');
+    $affixes1.each(function (index, elem) {
+        $(elem).parents('.table-wrapper:first').addClass('table-wrapper--has-affix');
+    });
+
+    /* 2 case: header have to be fixed when header's top position is equal to [point_affix_top_when] */
+    var $affixes2 = $('.table-wrapper .point_affix_top[point_affix_top_when]');
+    $affixes2.each(function (index, elem) {
+        var $elem = $(elem);
+        var point_affix_top_when = parseInt($elem.attr('point_affix_top_when'));
+        if (isNaN(point_affix_top_when)) point_affix_top_when = 0;
+        var $wrapper = $elem.parents('.table-wrapper:first');
+        var wrapper__offset = $wrapper.offset();
+        var top_position = scroll_container__offset.top + workarea__offset_from_whiteBGR + point_affix_top_when
+        if (top_position > wrapper__offset.top) {
+            $elem.addClass('has_affix');
+            $elem.css('top', top_position);
+            $wrapper.addClass('table-wrapper--has-affix');
+        } else {
+            $elem.removeClass('has_affix');
+            $elem.css('top', 'auto');
+            $wrapper.removeClass('table-wrapper--has-affix');
+        }
+    });
+
+    /* 3 case: header have to be fixed when header's top position is equal to [.selector] bottom's position. [.selector] have to be fixed  */
+    var $affixes3 = $('.table-wrapper .point_affix_top[point_affix_top_below_selector]');
+    $affixes3.each(function (index, elem) {
+        var $elem = $(elem);
+        var $below_selector = $($elem.attr('point_affix_top_below_selector'));
+        var below_selector_offset = $below_selector.offset();
+        var below_selector_height = $below_selector.outerHeight(true);
+        var below_selector_bottom = below_selector_offset.top + below_selector_height;
+        var $wrapper = $elem.parents('.table-wrapper:first');
+        var wrapper_offset = $wrapper.offset();
+        // console.log(below_selector_offset.top + " " + below_selector_height + " "+ wrapper_offset.top);
+        if (wrapper_offset.top < below_selector_bottom) {
+            $elem.addClass('has_affix');
+            $elem.css('top', below_selector_bottom);
+            $wrapper.addClass('table-wrapper--has-affix');
+        } else {
+            $elem.removeClass('has_affix');
+            $elem.css('top', 'auto');
+            $wrapper.removeClass('table-wrapper--has-affix');
+        }
+    });
+
+    /* moving fixed header along the horizontal direction */
+    $('.point_affix_top:not(has_affix)').children('tr').css('transform', 'none');
+    var $headers = $('.point_affix_top.has_affix').children('tr');
+    var scroll_left = $($scroll_container).scrollLeft();
+    $headers.css({
+        'transform': 'translateX(-' + scroll_left + 'px)'
+    });
+}
+
+
+/* follow horizontal scroll */
+function follow_h_scroll__init() {
+    var $scroll_container = $('.frame__content .scroll-content');
+    $scroll_container.scroll(follow_h_scroll__set_state);
+    follow_h_scroll__set_state();
+}
+
+function follow_h_scroll__set_state() {
+    var $scroll_container = $('.frame__content .scroll-content');
+    var scroll_left = $($scroll_container).scrollLeft();
+    var direction = 'ltr';
+    try {
+        direction = $('html').attr('dir');
+    } catch (e) {
+    }
+    if (!(direction === undefined) && 'rtl' === direction) {
+        //if arabic locale
+        var scrollRight = $($scroll_container).scrollRight();
+        $('.follow_h_scroll').css('transform', 'translateX(' + scrollRight + 'px)');
+    } else {
+        $('.follow_h_scroll').css('transform', 'translateX(' + scroll_left + 'px)');
+    }
+    window.scrollLogger(scroll_left, $($scroll_container).scrollTop());
+}
+
+function scrollToKpi(y) {
+    var $scroll_container = $('.frame__content .scroll-content');
+    $($scroll_container).scrollTop(y);
+}
+
+/*When lookup or dropdown is opened and scrolled, the lookup or dropdown left as opened.*/
+
+function hide_lookup_dropdown_while_scrolling() {
+    var $scroll_areas = $('.side-nav__body, .modal-content, .frame__content .scroll-content, .select-wrapper .gwt-ListBox');
+    $scroll_areas.scroll(function () {
+        $('.gwt-SuggestBoxPopup').addClass('gwt-dropdown--hide');
+        $('input.select-dropdown').trigger('close');
+
+        var timepickers = $('.timepicker__show');
+        if (timepickers && timepickers.length) {
+            timepickers.timepicker('hideWidget');
+        }
+    });
+}
+
+
+function advancedGrid_bind_dnd_events(context) {
+    const $trs = $('.body-table-cell .advanced-Grid > tbody > tr:not(.dnd-processed)', context);
+
+    // $trs.each(function (index, elem) {
+    //     const firstCell = $(elem).find('td:first-child');
+    //     firstCell.attr('dragIndex', $(elem).index());
+    //     firstCell.attr('draggable', 'true');
+    //
+    //     firstCell[0].addEventListener('dragstart', kpi_dnd_dragstart);
+    //     firstCell[0].addEventListener('dragend', kpi_dnd_dragend);
+    //     firstCell[0].addEventListener('drop', kpi_dnd_drop);
+    //     firstCell[0].addEventListener('dragleave', kpi_dnd_dragleave);
+    //     firstCell[0].addEventListener('dragover', kpi_dnd_dragover);
+    // });
+
+    $trs.each(function (index, elem) {
+        const firstCell = $(elem).find('td:first-child');
+        firstCell.attr('dragIndex', index);
+        firstCell.attr('draggable', 'true');
+
+        firstCell[0].addEventListener('dragstart', kpi_dnd_dragstart);
+        firstCell[0].addEventListener('dragend', kpi_dnd_dragend);
+        firstCell[0].addEventListener('drop', kpi_dnd_drop);
+        firstCell[0].addEventListener('dragleave', kpi_dnd_dragleave);
+        firstCell[0].addEventListener('dragover', kpi_dnd_dragover);
+    });
+
+    $trs.addClass('dnd-processed');
+}
+
+function advancedGrid_reindex_items(context) {
+    const $trs = $('.body-table-cell .advanced-Grid > tbody > tr', context);
+    $trs.each(function (index, elem) {
+        $(elem).attr('dragIndex', $(elem).index());
+    });
+}
+
+let kpi_dragged = undefined;
+
+function kpi_dnd_dragstart(event) {
+    const target = $(event.currentTarget).parent();
+    kpi_dragged = target;
+
+    event.dataTransfer.setData('text', null);
+    event.dataTransfer.dropEffect = 'move';
+    // Make it half transparent
+    $(target).addClass('mod--being-dragged');
+}
+
+function kpi_dnd_dragend(event) {
+    const $target = $(this).parent();
+    $target.removeClass('mod--being-dragged');
+    $target.trigger('dragEnd', $target.parent());
+
+}
+
+function kpi_dnd_dragover(event) {
+    const $tr = $(event.currentTarget).parent();
+    // var e = window.event;
+
+    if (!$tr.hasClass('mod--being-dragged') && $tr.parent().is($(kpi_dragged).parent())) {
+
+        const posY = event.clientY;
+        const elementPosData = event.currentTarget.getBoundingClientRect();
+        if (posY <= elementPosData.top + elementPosData.height / 2) {
+            $tr.addClass('mod--dragover-top');
+            $tr.removeClass('mod--dragover-bottom');
+        } else {
+            $tr.addClass('mod--dragover-bottom');
+            $tr.removeClass('mod--dragover-top');
+        }
+
+        event.preventDefault(); // allows us to drop
+        return false;
+    }
+}
+
+function kpi_dnd_drop(event) {
+    const $tr = $(event.currentTarget).parent();
+    if (kpi_dragged !== undefined && $tr != kpi_dragged && $tr.parent().is($(kpi_dragged).parent())) {
+        if ($tr.hasClass('mod--dragover-top')) {
+            $(kpi_dragged).insertBefore($tr);
+        } else if ($tr.hasClass('mod--dragover-bottom')) {
+            $(kpi_dragged).insertAfter($tr);
+
+        }
+    }
+    $tr.removeClass('mod--dragover-top');
+    $tr.removeClass('mod--dragover-bottom');
+    event.preventDefault();
+}
+
+function kpi_dnd_dragleave(event) {
+    const $tr = $(event.currentTarget).parent();
+    $tr.removeClass('mod--dragover-top');
+    $tr.removeClass('mod--dragover-bottom');
+}
+
+/*
+* data {
+* source: ".selector"
+* target: ".selector"
+* }
+* */
+function modal_animation(data) {
+
+    if (!("source" in data) || !("target" in data)) {
+        console.log("Source or target are not set while function calling");
+    }
+    var $source = $(data.source);
+    var $target = $(data.target);
+    if ($source.length <= 0 || $target.length <= 0) {
+        console.log("Source or target are not found in the DOM");
+        return;
+    }
+    var duration = 600;
+    if ("duration" in data) {
+        var _duration = parseInt(data.duration);
+        if (_duration > 0) {
+            duration = _duration;
+        }
+    }
+    var cssDuration = duration / 1000;
+
+    var startColor = "#ffffff";
+    var endColor = "#ffffff";
+
+    /* if selectors from which we need to take background-color are set  */
+    if ("startColorSelector" in data) {
+        var $startColorSelector = $(data.startColorSelector);
+        if ($startColorSelector.length > 0 && $startColorSelector.css("background-color")) {
+            startColor = $startColorSelector.css("background-color");
+        }
+    }
+    if ("endColorSelector" in data) {
+        var $endColorSelector = $(data.endColorSelector);
+        if ($endColorSelector.length > 0 && $endColorSelector.css("background-color")) {
+            endColor = $endColorSelector.css("background-color");
+        }
+    }
+
+    /* if colors are set directly */
+    if ("startColor" in data) {
+        startColor = data.startColor;
+    }
+    if ("endColor" in data) {
+        endColor = data.endColor;
+    }
+
+
+    var sourcePosition = $source.offset();
+    var sourceWidth = $source.outerWidth();
+    var sourceHeight = $source.outerHeight();
+
+    var targetPosition = $target.offset();
+    var targetHeight = $target.outerHeight();
+    var targetWidth = $target.outerWidth();
+
+    var $flier = $("<div class='kpi-flier'></div>");
+    $flier.css({
+        "left": sourcePosition.left + "px",
+        "top": sourcePosition.top + "px",
+        "height": sourceHeight + "px",
+        "width": sourceWidth + "px",
+        "background-color": startColor,
+        "transition": "all " + cssDuration + "s"
+    });
+    $("body").append($flier);
+
+
+    setTimeout(function () {
+        $flier.css({
+            "left": targetPosition.left + "px",
+            "top": targetPosition.top + "px",
+            "height": targetHeight + "px",
+            "width": targetWidth + "px",
+            "background-color": endColor
+        });
+
+        setTimeout(function () {
+            $flier.css({
+                "opacity": "0",
+                "transition": "opacity 0.3s"
+            });
+
+            setTimeout(function () {
+                $flier.detach();
+            }, 300);
+
+
+        }, duration);
+
+
+    }, 10);
+
+}
+
+
+function removeProgressPanel() {
+    $('.progress-panel--remove-sample-data').each(function (index, elem) {
+        var $desciptions = $('.progress-panel__current-desc-item');
+        var $steps = $('.progress-panel__step');
+
+        $desciptions.filter(":nth-child(1)").addClass("progress-panel__current-desc-item--active");
+
+        setTimeout(function () {
+            $steps.filter(":nth-child(1)").addClass("progress-panel__step--success");
+            $desciptions.filter(":nth-child(1)").addClass("progress-panel__current-desc-item--passed");
+            $desciptions.filter(":nth-child(2)").addClass("progress-panel__current-desc-item--active");
+
+            setTimeout(function () {
+                $steps.filter(":nth-child(2)").addClass("progress-panel__step--success");
+                $desciptions.filter(":nth-child(2)").addClass("progress-panel__current-desc-item--passed");
+                $desciptions.filter(":nth-child(3)").addClass("progress-panel__current-desc-item--active");
+            }, 3000);
+
+        }, 4000);
+    });
+}
+
+function progressPanelRemoveDataFinish() {
+    $('.progress-panel--remove-sample-data').each(function (index, elem) {
+        var $desciptions = $('.progress-panel__current-desc-item');
+        var $steps = $('.progress-panel__step');
+
+        $steps.filter(":nth-child(3)").addClass("progress-panel__step--success");
+        $desciptions.filter(":nth-child(3)").addClass("progress-panel__current-desc-item--passed");
+        $desciptions.filter(":nth-child(4)").addClass("progress-panel__current-desc-item--active");
+    });
+}
+
+function initializeProgressBar(cssversion) {
+    // Create a new <link> element
+    const linkElement = document.createElement('link');
+    linkElement.rel = 'stylesheet';
+    linkElement.href = cssversion;
+
+    // Append the <link> element to the <head> of the document
+    document.head.appendChild(linkElement);
+    // Create overlay
+    var overlay = document.createElement('div');
+    overlay.className = 'modal-overlay';
+    document.body.appendChild(overlay);
+
+    // Create content
+    var content = document.createElement('div');
+    content.className = 'progress-panel progress-panel--remove-sample-data';
+
+    var header = document.createElement('div');
+    header.className = 'progress-panel__header';
+    header.innerText = 'Sit tight, creating your account...';
+
+    var steps = document.createElement('div');
+    steps.className = 'progress-panel__steps';
+    steps.appendChild(getStep('Creating data'));
+    steps.appendChild(getStep('Basic details'));
+    steps.appendChild(getStep('Set up'));
+
+    var desc = document.createElement('div');
+    desc.className = 'progress-panel__current-desc';
+    desc.appendChild(getProgressDesc('Creating a sample data'));
+    desc.appendChild(getProgressDesc('Copying basic information'));
+    desc.appendChild(getProgressDesc('Creating your account'));
+
+    var loader = document.createElement('div');
+    loader.className = 'cs-loader';
+    loader.appendChild(getLoaders());
+
+    content.appendChild(header);
+    content.appendChild(steps);
+    content.appendChild(desc);
+    content.appendChild(loader);
+
+    document.body.appendChild(content);
+    setTimeout(function () {
+        overlay.classList.add('show');
+        content.classList.add('show');
+    }, 10);
+}
+
+function getStep(text) {
+    var step = document.createElement('div');
+    step.className = 'progress-panel__step';
+
+    var stepCircle = document.createElement('div');
+    stepCircle.className = 'progress-panel__step-circle';
+
+    var stepIcon = document.createElement('i');
+    stepIcon.className = 'progress-panel__step-icon progress-panel__step-icon--success ficon--check-thin';
+    stepCircle.appendChild(stepIcon);
+
+    var title = document.createElement('div');
+    title.innerText = text;
+
+    step.appendChild(stepCircle);
+    step.appendChild(title);
+
+    return step;
+}
+
+function getProgressDesc(text) {
+    var div = document.createElement('div');
+    div.className = 'progress-panel__current-desc-item';
+    div.innerText = text;
+    return div;
+}
+
+function getLoaders() {
+    var loaders = document.createElement('div');
+    loaders.className = 'cs-loader-inner';
+
+    for (var x = 0; x < 5; x++) {
+        var i = document.createElement('i');
+        i.innerHTML = '●';
+        loaders.appendChild(i);
+    }
+    return loaders;
+}

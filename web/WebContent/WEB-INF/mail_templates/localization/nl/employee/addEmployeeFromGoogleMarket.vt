@@ -1,0 +1,18 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body><p>Beste $user.firstName $user.lastName</p><br/>
+
+<p>$admin.firstName $admin.lastName heeft een gebruikersaccount voor u aangemaakt.</p>
+
+<p>Om uw account te activeren en in te loggen <a href="$HOST/mp/openid?hd=$googleappsdomain">klikt u hier</a><br/>
+    (of kopieer de volgende regel naar uw web browser: $HOST/mp/openid?hd=$googleappsdomain
+</p>
+
+<p>Bedankt voor uw interesse in ons product.</p>
+
+</body>
+</html>

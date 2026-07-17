@@ -1,0 +1,17 @@
+<module rename-to="core">
+
+    <inherits name='com.google.gwt.user.User'/>
+    <!--<inherits name='com.allen_sauer.gwt.dnd.gwt-dnd'/>-->
+    <!--<inherits name='com.edatasite.chartservice.chart.ChartInherits'/>-->
+    <inherits name="com.edatasite.workforce.gwt.reportingsystem.ReportingSystemEmpty"/>
+    <inherits name="com.edatasite.workforce.gwt.core.Core"/>
+
+    <!--<entry-point class='com.finnetlimited.reportservice.core.client.Core'/>-->
+    <!--<set-property name="user.agent" value="ie6"/>-->
+    <!--<set-property name="user.agent" value="ie8"/>-->
+    <!--<set-property name="user.agent" value="opera"/>-->
+    <!--<set-property name="user.agent" value="gecko"/>-->
+    <!--<set-property name="user.agent" value="gecko1_8"/>-->
+    <!--<set-property name="user.agent" value="safari"/>-->
+
+</module>

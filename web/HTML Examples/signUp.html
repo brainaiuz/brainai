@@ -1,0 +1,300 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta content="A7vZI3v+Gz7JfuRolKNM4Aff6zaGuT7X0mf3wtoZTnKv6497cVMnhy03KDqX7kBz/q/iidW7srW31oQbBt4VhgoAAACUeyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGUuY29tOjQ0MyIsImZlYXR1cmUiOiJEaXNhYmxlVGhpcmRQYXJ0eVN0b3JhZ2VQYXJ0aXRpb25pbmczIiwiZXhwaXJ5IjoxNzU3OTgwODAwLCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="
+          http-equiv="origin-trial">
+    <meta charset="utf-8">
+    <title>Sign up to kpi.com</title>
+    <meta content="Sign up for KPI.com" name="description">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="/mainStyles/new-ui/login/img/favicon2.svg?v=2" rel="shortcut icon" type="image/svg">
+    <link href="/mainStyles/new-ui/login/css/main.css" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.1/build/css/intlTelInput.css" rel="stylesheet">
+
+
+    <script async="" charset="utf-8" crossorigin="anonymous"
+            integrity="sha384-Kq9ivHFJO8Z7BQqPEcvZtkysKmz4eso0Q+Ti6hot0gaGWhIQRtinGXJKTesM5MuL"
+            src="https://www.gstatic.com/recaptcha/releases/ngcIAHyEnHQZZIKkyKneDTW3/recaptcha__en.js"
+            type="text/javascript"></script>
+    <script src="/mainStyles/js/jquery-3.2.1.min.js" type="text/javascript"></script>
+    <script async="" defer="" src="https://www.google.com/recaptcha/api.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.1/build/js/intlTelInputWithUtils.js"></script>
+
+    <script src="/mainStyles/new-ui/js/progress-panel.js"></script>
+</head>
+<body data-active-profile="local" data-initial-country="us">
+
+
+<svg style="display: none;">
+    <symbol id="ico-google" viewBox="0 0 643 486">
+        <path d="M386.1 228.5c1.8 9.7 3.1 19.4 3.1 32C389.2 370.2 315.6 448 204.8 448c-106.1 0-192-85.9-192-192s85.9-192 192-192c51.9 0 95.1 18.9 128.6 50.3l-52.1 50c-14.1-13.6-39-29.6-76.5-29.6-65.5 0-118.9 54.2-118.9 121.3 0 67.1 53.4 121.3 118.9 121.3 76 0 104.5-54.7 109-82.8H204.8v-66h181.3zm185.4 6.4V179.2h-56v55.7h-55.7v56h55.7v55.7h56v-55.7H627.2v-56h-55.7z"></path>
+    </symbol>
+    <symbol id="ico-facebook" viewBox="0 0 320 512">
+        <path d="M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z"></path>
+    </symbol>
+    <symbol id="ico-linkedin" viewBox="0 0 448 512">
+        <path d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z"></path>
+    </symbol>
+    <symbol enable-background="new 0 0 2075 2499.8" id="ico-office365" viewBox="0 0 2075 2499.8">
+        <path d="m0 2016.6v-1519.8l1344.4-496.8 730.6 233.7v2045.9l-730.6 220.3-1344.4-483.3 1344.4 161.8v-1769.2l-876.8 204.6v1198.3z"
+              fill="currentColor"></path>
+    </symbol>
+    <symbol id="ico-eye" viewBox="0 0 576 512">
+        <path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM144 256a144 144 0 1 1 288 0 144 144 0 1 1 -288 0zm144-64c0 35.3-28.7 64-64 64c-7.1 0-13.9-1.2-20.3-3.3c-5.5-1.8-11.9 1.6-11.7 7.4c.3 6.9 1.3 13.8 3.2 20.7c13.7 51.2 66.4 81.6 117.6 67.9s81.6-66.4 67.9-117.6c-11.1-41.5-47.8-69.4-88.6-71.1c-5.8-.2-9.2 6.1-7.4 11.7c2.1 6.4 3.3 13.2 3.3 20.3z"
+              fill="currentColor"></path>
+    </symbol>
+
+    <symbol id="ico-eye-slash" viewBox="0 0 640 512">
+        <path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c8.4-19.3 10.6-41.4 4.8-63.3c-11.1-41.5-47.8-69.4-88.6-71.1c-5.8-.2-9.2 6.1-7.4 11.7c2.1 6.4 3.3 13.2 3.3 20.3c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zM373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5L373 389.9z"
+              fill="currentColor"></path>
+    </symbol>
+</svg>
+
+<div class="pg_landing pg_sign-up">
+    <div class="pg_landing__container">
+        <figure class="pg_landing__header">
+            <div class="pg_landing__logo"><a href="#"><img alt="logo" src="/mainStyles/new-ui/images/new-kpi-logo2.svg"></a>
+            </div>
+            <figcaption>Sign up now and try the trial <br> period for 14 days.</figcaption>
+        </figure>
+        <div class="pg_landing__main">
+            <div class="pg_landing__main-innerbox">
+                <div class="cp_login">
+                    <div class="cp_login__message--error" id="formErrorMessage" style="display: none;"></div>
+                    <div class="cp_login__content">
+                        <div class="cp_signup__caption">
+                            <h3>Sign up</h3>
+
+                            <ul class="cp_login__options">
+                                <li class="cp_login__option cp_login__option--google"><a href="#" onclick="google_login_new(event)"><svg><use xlink:href="/mainStyles/new-ui/icons/spriteSignup.svg#ico-google"></use></svg></a></li>
+                                <li class="cp_login__option cp_login__option--facebook"><a href="#" onclick="fb_login(event)"><svg><use xlink:href="/mainStyles/new-ui/icons/spriteSignup.svg#ico-facebook"></use></svg></a></li>
+                                <li class="cp_login__option cp_login__option--linkedin"><a href="#" onclick="linkedin_login(event)"><svg><use xlink:href="/mainStyles/new-ui/icons/spriteSignup.svg#ico-linkedin"></use></svg></a></li>
+                                <li class="cp_login__option cp_login__option--office365"><a href="#" onclick="office_login(event)"><svg><use xlink:href="/mainStyles/new-ui/icons/spriteSignup.svg#ico-office365"></use></svg></a></li>
+                            </ul>
+                        </div>
+                        <form action="/auth/signup.html" class="cp_login__main" id="signUpFree" method="post">
+                            <input id="external_url" name="referrer"
+                                   type="hidden" value="aHR0cDovL2xvY2FsaG9zdDo4MDgwL2F1dGgvbG9naW4uaHRtbA==">
+                            <input id="company_signed_up_from" name="companySignedUpFrom"
+                                   type="hidden" value="http://localhost:8080/auth/signup.html">
+                            <input id="encodedData" name="kpi_code" type="hidden">
+                            <input id="hiddenCountryCode" name="countryCode" type="hidden" value="">
+                            <input id="hiddenCallCode" name="callCode" type="hidden" value="">
+                            <div class="cp_login__field"><input id="signUpFree_firstName" name="adminFName"
+                                                                placeholder="Name" type="text" value="">
+                                <div class="cp_login__field-underline"></div>
+                            </div>
+                            <div class="cp_login__field"><input id="signUpFree_email" name="adminEmail"
+                                                                placeholder="Email" type="email" value="">
+                                <div class="cp_login__field-underline"></div>
+                            </div>
+                            <div class="cp_login__field signUp-phone">
+                                <div class="iti iti--allow-dropdown iti--show-flags">
+                                    <div class="iti__country-container" style="left: 0px;">
+                                        <button aria-controls="iti-0__dropdown-content" aria-expanded="false" aria-haspopup="true"
+                                                aria-label="Selected country" class="iti__selected-country"
+                                                role="combobox" title="United States: +1"
+                                                type="button">
+                                            <div class="iti__selected-country-primary">
+                                                <div class="iti__flag iti__us"><span class="iti__a11y-text">United States +1</span>
+                                                </div>
+                                                <div aria-hidden="true" class="iti__arrow"></div>
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <input autocomplete="off" class="iti__tel-input" data-intl-tel-input-id="0" id="signUpFree_phone" name="phone"
+                                           placeholder="Phone" style="padding-left: 48px;" type="tel"
+                                           value=""></div>
+                                <div class="cp_login__field-underline"></div>
+                            </div>
+                            <div class="cp_login__field"><input id="promoCode" name="promoCode" placeholder="Promo code"
+                                                                type="text">
+                                <div class="cp_login__field-underline"></div>
+                            </div>
+                            <div class="cp_login__field controls-stack">
+                                <label class="control control--checkbox">
+                                    <input type="checkbox" name="agreeWithTerms" id="agreeWithTerms" required="">
+                                    <span class="control__indicator"></span>
+                                    <span class="control__description" for="agreeWithTerms">I agree with <a href="https://www.kpi.com/company/terms/">Terms and Conditions</a></span>
+                                </label>
+                                <label class="control control--checkbox">
+                                    <input type="checkbox" name="consentToPrivacy" id="consentToPrivacy" required="">
+                                    <span class="control__indicator"></span>
+                                    <span class="control__description" for="consentToPrivacy">I give consent to <a href="https://www.kpi.com/company/privacy/">Privacy Policy</a></span>
+                                </label>
+                            </div>
+                            <div class="cp_login__field">
+                                <div class="g-recaptcha" data-sitekey="6Lc-FRMqAAAAAPzkqZwvH7ttAY0-2pW0_ekA0V5N">
+                                    <div style="width: 304px; height: 78px;">
+                                        <div>
+                                            <iframe frameborder="0" height="78" name="a-rz4ohkjw4tt8" role="presentation"
+                                                    sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" scrolling="no" src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6Lc-FRMqAAAAAPzkqZwvH7ttAY0-2pW0_ekA0V5N&amp;co=aHR0cDovL2xvY2FsaG9zdDo4MDgw&amp;hl=en&amp;v=ngcIAHyEnHQZZIKkyKneDTW3&amp;size=normal&amp;anchor-ms=20000&amp;execute-ms=15000&amp;cb=ww0jzxr7dpv"
+                                                    title="reCAPTCHA"
+                                                    width="304"></iframe>
+                                        </div>
+                                        <textarea class="g-recaptcha-response" id="g-recaptcha-response"
+                                                  name="g-recaptcha-response"
+                                                  style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea>
+                                    </div>
+                                    <iframe style="display: none;"></iframe>
+                                </div>
+                            </div>
+                            <div class="cp_login__form-item"><input class="cp_login__submit elm_btn--green"
+                                                                    type="submit"
+                                                                    value="Sign up"></div>
+                        </form>
+                    </div>
+                    <div class="cp_login__footer">
+                        <dl>
+                            <dt>I already have an account</dt>
+                            <dd><span class="pg_landing__start-btn"><a class="btn-login-sign-up" href="/index.html">Login</a></span>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Placeholder social login functions
+    function google_login_new(event) {
+        event.preventDefault();
+        console.log("Google login clicked");
+    }
+
+    function fb_login(event) {
+        event.preventDefault();
+        console.log("Facebook login clicked");
+    }
+
+    function linkedin_login(event) {
+        event.preventDefault();
+        console.log("LinkedIn login clicked");
+    }
+
+    function office_login(event) {
+        event.preventDefault();
+        console.log("Office365 login clicked");
+    }
+</script>
+
+<script>
+    let iti = null;
+
+    // --- Main Logic ---
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("signUpFree");
+        const phoneInput = document.getElementById("signUpFree_phone");
+        if (!form || !phoneInput) return;
+
+        // Initialize the phone input library
+        iti = window.intlTelInput(phoneInput, {
+            initialCountry: document.body.getAttribute('data-initial-country') || 'us',
+            // This setup enables auto-formatting.
+            separateDialCode: false
+        });
+
+        try {
+            document.getElementById('external_url').value = btoa(document.referrer);
+            document.getElementById('company_signed_up_from').value = window.location.href;
+        } catch (e) { /* silent fail */
+        }
+
+        form.addEventListener("submit", validateAndSubmit);
+    });
+
+    async function validateAndSubmit(event) {
+        event.preventDefault();
+
+        // --- Client-side validation ---
+        // Сброс предыдущих ошибок
+        document.getElementById('formErrorMessage').style.display = 'none';
+
+        // phone validation
+        const phoneInput = document.getElementById("signUpFree_phone");
+        if (!iti.isValidNumber()) {
+            showError("Please enter a valid phone number.");
+            return;
+        }
+
+        // --- MODIFIED: Conditional reCAPTCHA validation ---
+        const activeProfile = document.body.getAttribute('data-active-profile');
+        // We only validate reCAPTCHA if the profile is NOT local and NOT staging
+        if (activeProfile && activeProfile !== "local" && activeProfile !== "staging") {
+            if (typeof grecaptcha !== 'undefined' && grecaptcha.getResponse().length === 0) {
+                showError("Please complete the reCAPTCHA.");
+                return;
+            }
+        }
+
+        // --- Show progress panel ---
+        initializeProgressPanel();
+        animateProgressPanel();
+
+        // Prepare FormData for submission
+        const formData = new FormData(document.getElementById("signUpFree"));
+
+        // Set phone number and country data
+        formData.set('phone', iti.getNumber());
+        formData.set('countryCode', iti.getSelectedCountryData().iso2.toUpperCase());
+        formData.set('callCode', "+" + iti.getSelectedCountryData().dialCode);
+
+        try {
+            // --- Send data ---
+            const response = await fetch('/auth/signup.html', {
+                method: 'POST',
+                body: new URLSearchParams(formData)
+                // headers: {
+                //     'Accept': 'application/json',
+                //     'Content-Type': 'application/x-www-form-urlencoded'
+                // }
+            });
+
+            // --- IMPROVED: Error and success handling ---
+            if (!response.ok) {
+                // If the response is not OK (e.g., 400, 409, 500), try to parse it as JSON
+                try {
+                    const errorData = await response.json();
+                    // If we get a redirectUrl (for existing user), we redirect
+                    if (errorData.redirectUrl) {
+                        window.location.href = errorData.redirectUrl;
+                    } else {
+                        // Otherwise, show the error message from the server
+                        showError(errorData.message || `Server error: `);
+                    }
+                } catch (e) {
+                    // This catch block handles cases where the response is not valid JSON (like a 500 error page)
+                    showError(`An unexpected server error occurred (Status: ). Please try again later.`);
+                }
+                removeProgressPanel();
+            } else {
+                // Success! (Status 200 OK)
+                setTimeout(() => {
+                    window.location.href = '/welcomePage.html';
+                }, 1500);
+            }
+
+        } catch (error) {
+            // This catch block handles network errors (e.g., server is down)
+            console.error("Network or fetch error:", error);
+            showError("A network error occurred. Please check your connection and try again.");
+            removeProgressPanel();
+        }
+    }
+
+    function showError(message) {
+        const errorElement = document.getElementById('formErrorMessage');
+        errorElement.innerText = message;
+        errorElement.style.display = 'block';
+    }
+</script>
+
+<div id="gtx-trans" style="position: absolute; left: 229px; top: 701.5px;">
+    <div class="gtx-trans-icon"></div>
+</div>
+</body>
+</html>

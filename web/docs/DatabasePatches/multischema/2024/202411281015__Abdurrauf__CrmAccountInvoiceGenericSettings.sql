@@ -1,0 +1,5 @@
+DELETE FROM "0".genericsettings WHERE key = 'SHOW_CRM_ACCOUNT_INVOICE_DETAILS';
+DELETE FROM "anv".genericsettings WHERE key = 'SHOW_CRM_ACCOUNT_INVOICE_DETAILS';
+
+INSERT INTO "0".genericsettings(key, value) VALUES ('SHOW_CRM_ACCOUNT_INVOICE_DETAILS', 'NO');
+INSERT INTO "anv".genericsettings(key, value) VALUES ('SHOW_CRM_ACCOUNT_INVOICE_DETAILS', 'NO');

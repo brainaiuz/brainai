@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="60 seconds">
+
+    <!--<property name="SENTRY_DSN" value="${sentry.dsn:-}"/>
+    <property name="LOG_PATH" value="${log.path:-/var/log/workforce}"/>
+    <property name="APP_NAME" value="${app.name:-workforce-app}"/>
+-->
+    <!-- ==================== PATTERNS ==================== -->
+    <property name="CONSOLE_PATTERN"
+              value="%d{HH:mm:ss.SSS} [%thread] %highlight(%-5level) %cyan(%logger{36}) - %msg%n%ex{short}"/>
+<!--    <property name="FILE_PATTERN"
+              value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n%ex{full}"/>-->
+
+    <!-- ==================== CONSOLE ==================== -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>${CONSOLE_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <!--&lt;!&ndash; File Appender - main log fayl &ndash;&gt;
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/${APP_NAME}.log</file>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>${FILE_PATTERN}</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/${APP_NAME}.%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
+            <maxFileSize>100MB</maxFileSize>
+            <maxHistory>30</maxHistory>
+            <totalSizeCap>5GB</totalSizeCap>
+        </rollingPolicy>
+    </appender>
+
+    <appender name="ERROR_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <file>${LOG_PATH}/${APP_NAME}-error.log</file>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>${FILE_PATTERN}</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/${APP_NAME}-error.%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
+            <maxFileSize>50MB</maxFileSize>
+            <maxHistory>90</maxHistory>
+            <totalSizeCap>2GB</totalSizeCap>
+        </rollingPolicy>
+    </appender>
+
+    <appender name="ASYNC_FILE" class="ch.qos.logback.classic.AsyncAppender">
+        <queueSize>1024</queueSize>
+        <discardingThreshold>20</discardingThreshold>
+        <includeCallerData>false</includeCallerData>
+        <neverBlock>false</neverBlock>
+        <appender-ref ref="FILE"/>
+    </appender>
+
+    <appender name="ASYNC_ERROR_FILE" class="ch.qos.logback.classic.AsyncAppender">
+        <queueSize>256</queueSize>
+        <discardingThreshold>0</discardingThreshold>
+        <includeCallerData>true</includeCallerData>
+        <neverBlock>false</neverBlock>
+        <appender-ref ref="ERROR_FILE"/>
+    </appender>
+
+    <appender name="SENTRY_APPENDER" class="io.sentry.logback.SentryAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>
+        <options>
+            <dsn>${SENTRY_DSN}</dsn>
+            <tracesSampleRate>0.1</tracesSampleRate>
+        </options>
+        <minimumEventLevel>ERROR</minimumEventLevel>
+    </appender>
+
+    <appender name="ASYNC_SENTRY" class="ch.qos.logback.classic.AsyncAppender">
+        <queueSize>256</queueSize>
+        <discardingThreshold>0</discardingThreshold>
+        <appender-ref ref="SENTRY_APPENDER"/>
+    </appender>-->
+
+    <!-- ==================== HIBERNATE ==================== -->
+    <logger name="org.hibernate" level="warn"/>
+    <logger name="org.hibernate.tool" level="error"/>
+    <logger name="org.hibernate.SQL" level="warn"/>
+    <logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="warn"/>
+    <logger name="org.hibernate.engine.jdbc.spi.SqlExceptionHelper" level="error"/>
+    <logger name="org.hibernate.resource.transaction" level="warn"/>
+
+    <!-- ==================== THIRD PARTY ==================== -->
+    <logger name="net" level="error"/>
+    <logger name="javax" level="error"/>
+    <logger name="org.apache.kafka" level="error"/>
+    <logger name="org.aspectj" level="warn"/>
+    <logger name="org.springframework" level="warn"/>
+    <logger name="org.springframework.transaction" level="warn"/>
+    <logger name="org.springframework.jms.listener" level="info" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+    <logger name="com.zaxxer.hikari" level="warn"/>
+
+    <!-- ==================== APPLICATION ==================== -->
+    <logger name="com.edatasite" level="info"/>
+    <logger name="com.finnetlimited" level="info"/>
+    <logger name="com.workforcetrack" level="info"/>
+
+    <logger name="com.edatasite.workforce.gwt.core.server.app.WfmJpaTransactionManager" level="warn"/>
+    <logger name="com.edatasite.workforce.rest.aspects" level="info"/>
+    <logger name="com.edatasite.workforce.gwt.messagecenter" level="info"/>
+    <logger name="com.edatasite.workforce.gwt.core.server.rabbitmq" level="info"/>
+
+    <!-- ==================== ROOT ==================== -->
+    <root level="info">
+        <appender-ref ref="STDOUT"/>
+      <!--  <appender-ref ref="ASYNC_FILE"/>
+        <appender-ref ref="ASYNC_ERROR_FILE"/>
+        <appender-ref ref="ASYNC_SENTRY"/>-->
+    </root>
+
+</configuration>

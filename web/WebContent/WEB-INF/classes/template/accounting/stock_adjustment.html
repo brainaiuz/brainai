@@ -1,0 +1,159 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style type="text/css">
+        body {
+            font-family: 'Arial', sans-serif;
+            font-weight: 300;
+            font-size: 9pt;
+            line-height: 1.4;
+        }
+        th {
+            text-align: left;
+        }
+        .sales-invoice-table-pdf th {
+            border-bottom: 1px solid black;
+            font-size: 9pt;
+        }
+        .sales-invoice-table-pdf td {
+            border-bottom: 1px solid #ced5db;
+            font-size: 9pt;
+        }
+        .sales-invoice__tmp * {
+            line-height: 1.4;
+        }
+        .billing-address__tmp-bill td {
+            line-height: 1.4;
+        }
+        .currency_code__tmp {
+            font-size: 8px;
+            font-weight: normal;
+        }
+        .page-break {
+            display:inline-block ! important;
+            page-break-inside: auto ! important;
+        }
+    </style>
+</head>
+<body>
+<div id="body sales-invoice__tmp">
+    <img alt="images" src="https://workforcetrack.s3.amazonaws.com/000000000000/public/65159/a2113e82-397f-49fd-a58a-cdf4f4b93dff?AWSAccessKeyId=AKIAIROQMC77E5UKWBWQ" style="display: none;"/>
+    #if($itextGenericPdfData.companyData.companyName == 'KPI Software Inc' or $itextGenericPdfData.companyData.companyLogoUrl == 'https://apps.kpi.com/customisation/kpi.com/images/kpilogo.png')
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="width: 88px;display: none;"/>
+    #else
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="max-width: 100%; max-height: 100%; display: none;"/>
+    #end
+
+    #set($numberAndDatesTable = $itextGenericPdfData.baseInvoice.customNumberAndDatesTable.rows)
+
+    #set($inv_dateLabel=$numberAndDatesTable.get('INV_DATE').get('COLUMN_NAME'))
+    #set($inv_numberLabel=$numberAndDatesTable.get('INV_NUMBER').get('COLUMN_NAME'))
+    #set($accountLabel=$numberAndDatesTable.get('ACCOUNT').get('COLUMN_NAME'))
+    #set($memoLabel=$numberAndDatesTable.get('MEMO').get('COLUMN_NAME'))
+
+    #set($inv_date=$numberAndDatesTable.get('INV_DATE').get('COLUMN_VALUE'))
+    #set($inv_number=$numberAndDatesTable.get('INV_NUMBER').get('COLUMN_VALUE'))
+    #set($account=$numberAndDatesTable.get('ACCOUNT').get('COLUMN_VALUE'))
+    #set($memo=$numberAndDatesTable.get('MEMO').get('COLUMN_VALUE'))
+
+    #set($enabledWarehouse=$numberAndDatesTable.get('ENABLED_MULTI_WAREHOUSE').get('COLUMN_VALUE'))
+    <div>
+        <table class="billing-address__tmp-bill" align="left" border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 36pt; line-height: 1.4; font-size: 9pt;" width="60%">
+            <tbody>
+            #if($account != '')
+            <tr>
+                <td align="left" style="color: #0a0a0a; padding:4px 0; width:100%; word-wrap: break-word;" dir="$accountLabel"><strong>$accountLabel:</strong> <span>$account </span></td>
+            </tr>
+            #end
+            #if($memo != '')
+            <tr>
+                <td align="left" style="color: #0a0a0a; padding:4px 0; width:100%; word-wrap: break-word;" dir="$memoLabel"><strong>$memoLabel</strong> <span>$memo </span></td>
+            </tr>
+            #end
+            </tbody>
+        </table>
+
+        <table align="right" border="0" cellpadding="5" cellspacing="0" class="invoice-info"
+               style="margin-bottom: 36pt;font-size: 9pt; margin-left:10%; width:30%;">
+            <tbody>
+            #if($inv_number != '')
+            <tr>
+                <th align="left" dir="$inv_numberLabel">$inv_numberLabel.:</th>
+                <td align="right" dir="$inv_number" style="color: #0a0a0a; padding-right:0;">$inv_number</td>
+            </tr>
+            #end
+            <tr>
+                <th align="left" dir="$inv_dateLabel"><strong>$inv_dateLabel:</strong></th>
+                <td align="right" dir="$inv_date" style="color: #0a0a0a; padding-right:0;">$inv_date</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <table border="0" cellpadding="10" cellspacing="0" class="product-table sales-invoice-table-pdf" style=" table-layout:fixed; margin-bottom: 22pt; font-size: 9pt; width:100%;">
+        <colgroup>
+            <col style="width: 17%"></col>
+            <col style="width: 17%"></col>
+            #if($enabledWarehouse == 'YES')
+            <col style="width: 15%"></col>
+            #end
+            <col style="width: 10%"></col>
+            <col style="width: 10%"></col>
+            <col style="width: 10%"></col>
+            <col style="width: 10%"></col>
+            <col style="width: 11%"></col>
+        </colgroup>
+        <thead>
+        <tr>
+            <th style="padding-left: 0; text-align: left; vertical-align: top;"
+                dir="$itextGenericPdfData.baseInvoice.customProductTable.header.get('NAME')">
+                <strong>$itextGenericPdfData.baseInvoice.customProductTable.header.get('NAME')</strong>
+            </th>
+            <th style="vertical-align: top; text-align: left;white-space: nowrap;"
+                dir="$itextGenericPdfData.baseInvoice.customProductTable.header.get('DESCRIPTION')">
+                <strong>$itextGenericPdfData.baseInvoice.customProductTable.header.get('DESCRIPTION')</strong>
+            </th>
+            #if($enabledWarehouse == 'YES')
+            <th style="vertical-align: top; text-align: left; white-space: nowrap;"
+                dir="$itextGenericPdfData.baseInvoice.customProductTable.header.get('ITEM_WAREHOUSE')">
+                <strong>$itextGenericPdfData.baseInvoice.customProductTable.header.get('ITEM_WAREHOUSE')</strong>
+            </th>
+            #end
+            <th style="vertical-align: top; text-align: right;word-wrap:break-word">
+                <strong>$itextGenericPdfData.baseInvoice.customProductTable.header.get('CURRENT_QTY')</strong>
+            </th>
+            <th style="vertical-align: top; text-align: right;word-wrap:break-word">
+                <strong>$itextGenericPdfData.baseInvoice.customProductTable.header.get('USED_QTY')</strong>
+            </th>
+            <th style="vertical-align: top; text-align: right;word-wrap:break-word">
+                <strong>$itextGenericPdfData.baseInvoice.customProductTable.header.get('NEW_QTY')</strong>
+            </th>
+            <th style="vertical-align: top; text-align: right;">
+                <strong>$itextGenericPdfData.baseInvoice.customProductTable.header.get('ITEM_QTY')</strong>
+            </th>
+            <th style="vertical-align: top; text-align: right; padding-right:0;">
+                <strong>$itextGenericPdfData.baseInvoice.customProductTable.header.get('COST_PER_ITEM')</strong>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        #foreach($row in $itextGenericPdfData.baseInvoice.customProductTable.rows.values())
+        <tr>
+            <td dir="$row.get('NAME')" style="padding-left: 0;word-wrap:break-word">$row.get('NAME')</td>
+            <td dir="$row.get('DESCRIPTION')" style="word-wrap:break-word">$row.get('DESCRIPTION')</td>
+            #if($enabledWarehouse == 'YES')
+            <td dir="$row.get('WAREHOUSE')" style="word-wrap:break-word">$row.get('ITEM_WAREHOUSE')</td>
+            #end
+            <td align="right" style="word-wrap:break-word">$row.get('CURRENT_QTY')</td>
+            <td align="right" style="word-wrap:break-word">$row.get('USED_QTY')</td>
+            <td align="right" style="word-wrap:break-word">$row.get('NEW_QTY')</td>
+            <td align="right" style="word-wrap:break-word">$row.get('ITEM_QTY')</td>
+            <td align="right" style=" padding-right:0;word-wrap:break-word">$row.get('COST_PER_ITEM')</td>
+        </tr>
+        #end
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
+
+

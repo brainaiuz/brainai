@@ -1,0 +1,139 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style type="text/css">
+        body {
+            font-family: 'Arial', sans-serif;
+            font-weight: 300;
+            font-size: 9pt;
+            line-height: 1.4;
+        }
+
+        th {
+            text-align: left;
+        }
+
+        .sales-invoice-table-pdf th {
+            border-bottom: 1px solid black;
+            font-size: 9pt;
+        }
+
+        .sales-invoice-table-pdf td {
+            border-bottom: 1px solid #ced5db;
+            font-size: 9pt;
+        }
+
+        #sales-invoice__tmp * {
+            line-height: 1.4;
+        }
+
+        .sales-invoice-table-pdf tbody * {
+            word-wrap: break-word;
+        }
+
+        .currency_code__tmp {
+            font-size: 8px;
+            font-weight: normal;
+        }
+
+        .align_0 {
+            text-align: left;
+        }
+
+        .align_1 {
+            text-align: center;
+        }
+
+        .align_2 {
+            text-align: right;
+        }
+
+        @media print {
+            .page-break {
+                display: inline-block ! important;
+                page-break-inside: auto ! important;
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="body sales-invoice__tmp">
+    <img alt="images"
+         src="https://workforcetrack.s3.amazonaws.com/000000000000/public/65159/a2113e82-397f-49fd-a58a-cdf4f4b93dff?AWSAccessKeyId=AKIAIROQMC77E5UKWBWQ"
+         style="display: none;"/>
+    #if($itextGenericPdfData.companyData.companyName == 'KPI Software Inc' or
+    $itextGenericPdfData.companyData.companyLogoUrl == 'https://apps.kpi.com/customisation/kpi.com/images/kpilogo.png')
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="width: 88px;display: none;"/>
+    #else
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl"
+         style="max-width: 100%; max-height: 100%; display: none;"/>
+    #end
+
+    #set($billToAddressTable = $itextGenericPdfData.baseInvoice.customBillToAddress.rows)
+
+    #set($titleLabel=$billToAddressTable.get('TITLE').get('COLUMN_NAME'))
+    #set($reporterLabel=$billToAddressTable.get('REFERENCE').get('COLUMN_NAME'))
+    #set($supplierLabel=$billToAddressTable.get('SUPPLIER').get('COLUMN_NAME'))
+    #set($paidAmountLabel=$billToAddressTable.get('PAID').get('COLUMN_NAME'))
+    #set($paidFromLabel=$billToAddressTable.get('PAID_FROM').get('COLUMN_NAME'))
+    #set($dateLabel=$billToAddressTable.get('PAYMENT_DATE').get('COLUMN_NAME'))
+
+    #set($title=$billToAddressTable.get('TITLE').get('COLUMN_VALUE'))
+    #set($reporter=$billToAddressTable.get('REFERENCE').get('COLUMN_VALUE'))
+    #set($supplier=$billToAddressTable.get('SUPPLIER').get('COLUMN_VALUE'))
+    #set($paidAmount=$billToAddressTable.get('PAID').get('COLUMN_VALUE'))
+    #set($paidFrom=$billToAddressTable.get('PAID_FROM').get('COLUMN_VALUE'))
+    #set($date=$billToAddressTable.get('PAYMENT_DATE').get('COLUMN_VALUE'))
+    <div>
+        <table class="billing-address__tmp-bill" align="left" border="0" cellpadding="0" cellspacing="0"
+               style="margin-bottom: 36pt; line-height: 1.4; font-size: 9pt;" width="60%">
+            <tbody>
+            #if($title != '')
+            <tr>
+                <td align="left" style="color: #0a0a0a; padding:5px 0; width:100%; word-wrap: break-word;"
+                    dir="$titleLabel"><strong>$titleLabel:</strong> <span>$title </span></td>
+            </tr>
+            #end
+            #if($paidFrom != '')
+            <tr>
+                <td align="left" style="color: #0a0a0a; padding:4px 0; width:350px; word-wrap: break-word;"
+                    dir="$paidFromLabel"><strong>$paidFromLabel:</strong> <span>$paidFrom</span></td>
+            </tr>
+            #end
+            #if($supplier != '')
+            <tr>
+                <td align="left" style="color: #0a0a0a; padding:4px 0; width:100%; word-wrap: break-word;"
+                    dir="$supplierLabel"><strong>$supplierLabel</strong> <span>$supplier </span></td>
+            </tr>
+            #end
+            </tbody>
+        </table>
+
+
+        <table align="right" border="0" cellpadding="5" cellspacing="0" class="invoice-info"
+               style="margin-bottom: 36pt;font-size: 9pt; margin-left:10%; width:30%;">
+            <tbody>
+            #if($reporter != '')
+            <tr>
+                <td align="left" style="color: #0a0a0a; padding:4px 0; width:100%; word-wrap: break-word;"
+                    dir="$reporterLabel"><strong>$reporterLabel:</strong> <span>$reporter </span></td>
+            </tr>
+            #end
+            <tr>
+                <td align="left" style="color: #0a0a0a; padding:4px 0; width:100%; word-wrap: break-word;"
+                    dir="$dateLabel"><strong>$dateLabel:</strong> <span>$date </span></td>
+            </tr>
+
+
+            <tr>
+                <td align="left" style="color: #0a0a0a; padding:4px 0; width:100%; word-wrap: break-word;"
+                    dir="$paidAmountLabel"><strong>$paidAmountLabel</strong> <span>$paidAmount</span></td>
+            </tr>
+
+
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

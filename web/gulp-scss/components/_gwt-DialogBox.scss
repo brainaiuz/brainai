@@ -1,0 +1,115 @@
+.scrollAuto {
+  overflow: auto;
+}
+.gwt-DialogBox {
+  position: fixed !important;
+  left: 0 !important;
+  right: 0 !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  > div {
+    overflow: hidden !important;
+    //max-height: 80vh;
+    min-width: 23%;
+    max-width: 80%;
+    border: 1px solid $gray-middle-2;
+    border-radius: $radius-base;
+    background-color: #fff;
+    box-shadow: 0 9px 21px 0 rgba(black, .12);
+
+    > table {
+      height: 100%;
+    }
+  }
+
+  &.variation-choose {
+    .cellBasedWidget-mod--static-body > div:last-child > div > div table {
+      width: auto !important;
+    }
+  }
+}
+.dialogTopCenterInner {
+  padding: 10px 15px;
+  background-color: $color-base-contrast;
+  border-radius: 0 $border-radius 0 $border-radius;
+}
+#gwt-debug-addvariation_view_variation_tree {
+  width: auto !important;
+  min-width: 120px;
+  padding-right: 20px;
+  padding-left: 10px;
+  border-right: 1px solid $gray-middle-2;
+}
+.gwt-Tree-wrapper {
+  > table:first-child td:first-child {
+    width: 20px;
+  }
+}
+
+.dialogMiddleCenterInner {
+  .cellBasedWidget-mod {
+    thead {
+      background-color: transparent;
+      th {
+        height: ($theadHeight * 0.75) !important;
+        border-bottom: 1px solid $gray-middle-2;
+      }
+    }
+
+    thead td:first-child,
+    tbody td:first-child {
+      width: 30px; // for checkbox only
+      text-align: center; // checkboxes alignment
+      .variation-create & {
+        padding: 0 2px !important;
+      }
+    }
+    .inputCell {
+      width: 100%;
+    }
+
+  }
+  //FOOTER
+  > table > tbody > tr + tr:last-child {
+    > td {
+      border-top: 1px solid $color-base-1;
+      padding: 10px 10px;
+      background-color: $color-base-contrast;
+      border-radius: 0 0 $border-radius $border-radius;
+
+      > table > tbody > tr > td {
+        padding: 0 5px;
+        &:first-child {
+          width: 10px;
+        }
+        &:last-child {
+        }
+      }
+    }
+  }
+}
+.dialogContent-body {
+  overflow-y: auto;
+  max-height: 70vh;
+  padding: 10px;
+
+  > table {
+    //width: auto !important;
+    //margin-left: 10px;
+    //margin-right: 10px;
+  }
+}
+
+.DialogBox-table {
+  > tbody > tr > td {
+    padding: 10px;
+  }
+  .gwt-RadioButton.dontKeepAllDelays {
+    margin-top: 5px;
+  }
+}

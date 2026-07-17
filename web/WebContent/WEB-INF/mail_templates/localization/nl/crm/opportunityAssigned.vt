@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<p>Beste $assignee,</p>
+
+<p>"$user" heeft u toegewezen aan de volgende opportunity op $currentDate.</p>
+
+<table width="370" border="0" cellspacing="0" cellpadding="0" bgcolor="#ffffff">
+<tr>
+<td width="368" valign="top">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="368" valign="top">
+<table cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff" width="100%"
+style="vertical-align:top;">
+<tr>
+<td height="20" bgcolor="#1c5b94" valign="middle" style="color:rgb(255,255,255);
+font-size:12px;font-weight:bolder;padding-left:5px;text-align:left;font-family:Verdana,Arial,Helvetica,sans-serif;"
+colspan="2">
+Opportunity Details
+</td>
+</tr>
+<tr>
+<td height="17" bgcolor="#dce5ea" width="152" valign="top" style="color:rgb(0,0,0);
+font-size:11px; padding-left:5px;text-align:left;font-weight:bold;font-family:Verdana,sans-serif;">
+Opportunity Nummer:
+</td>
+<td width="236" valign="top" bgcolor="#dce5ea" style="color:rgb(0,0,0);
+font-size:11px;padding-left:1px;text-align:left;font-weight:normal;font-family:Verdana,sans-serif;">
+$opportunityNumber
+</td>
+</tr>
+<tr>
+<td height="17" bgcolor="#dce5ea" width="132" valign="top" style="color:rgb(0,0,0);
+font-size:11px; padding-left:5px;text-align:left;font-weight:bold;font-family:Verdana,sans-serif;">
+Opportunity Naam:
+</td>
+<td width="236" valign="top" bgcolor="#dce5ea" style="color:rgb(0,0,0);
+font-size:11px;padding-left:1px;text-align:left;font-weight:normal;font-family:Verdana,sans-serif;">
+$opportunityName
+</td>
+</tr>
+<tr>
+<td height="17" bgcolor="#dce5ea" width="132" valign="top" style="color:rgb(0,0,0);
+font-size:11px; padding-left:5px;text-align:left;font-weight:bold;font-family:Verdana,sans-serif;">
+Bedrijf:
+</td>
+<td width="236" valign="top" bgcolor="#dce5ea" style="color:rgb(0,0,0);
+font-size:11px;padding-left:1px;text-align:left;font-weight:normal;font-family:Verdana,sans-serif;">
+$crmAccount
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<p>Klik
+<a href="$HOST/Crm.html?link=$link">hier</a>
+of kopieer de onderstaande link naar webbrowser:
+</p>
+
+<
+
+<p style="border-bottom: 1px solid #cccccc">&nbsp;</p>
+<p>
+<span style="color: #0033FF">$HOST/Crm.html?link=$link</span>
+</p>
+
+<p>
+<span>
+Bedankt,</br>
+$productname
+<a href="$helphost">$helphost</a>
+</span>
+</p>
+
+
+</body>
+</html>

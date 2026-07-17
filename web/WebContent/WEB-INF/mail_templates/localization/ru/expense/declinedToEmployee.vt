@@ -1,0 +1,18 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head><body>
+
+<p>Дорогой $USER.firstName $USER.lastName,</a><br />
+
+<p>Пожалуйста, примите к сведению что $APPROVER.firstName $APPROVER.lastName отклонил Ваше требование к расходу в $DECLINE_DATE.
+Вы можете просмотреть комментарии $APPROVER.firstName $APPROVER.lastName и сделать соответствующие изменения и переотправить отчет.</p>
+
+<p>Нажмите <a href="$HOST/Accounting.html?link=$LINK&uid=$uid&cid=$companyid" title="Edit Expense Claims" target="_blank">здесь </a>
+ для просмотра и редактирования Требований к Расходу.</p>
+
+<p><font color='red'>* </font>Если Вы не можете нажать на ссылку, Вы можете скопировать и вставить следующий адрес в Ваш веб браузер:<br />
+$HOST/Accounting.html?link=$LINK&uid=$uid&cid=$companyid</p>
+
+<p></p>
+
+</body></html>

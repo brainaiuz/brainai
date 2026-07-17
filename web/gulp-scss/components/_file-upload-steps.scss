@@ -1,0 +1,179 @@
+.uploadSteps {
+  &__wrapper {}
+
+  &__tabs {
+    background: $color-base-contrast;
+
+    .tab a {
+    }
+    .badge {
+      width: 2.5em;
+      height: 2.5em;
+      border-radius: 50%;
+    }
+  }
+
+  &__content {
+    padding-left: $frameContentPadding;
+    padding-right: $frameContentPadding;
+
+    .paging-group {
+      margin-top: $m-base;
+    }
+  }
+
+  &__info {
+    > h3 {
+      //font-size: $h3-fontsize * .9;
+      //margin: (($h3-fontsize * .9) / 2) 0 (($h3-fontsize * .9) / 2.5) 0;
+      font-size: $h4-fontsize;
+      margin: ($h4-fontsize / 2) 0 ($h4-fontsize / 2.5) 0;
+    }
+
+    > h4 {
+      font-size: $h5-fontsize;
+      margin: ($h5-fontsize / 2) 0 ($h5-fontsize / 2.5) 0;
+    }
+    p {
+      margin-top: 1em; //fix gwt style
+      margin-bottom: 1em;
+    }
+  }
+
+  &__uploader {
+    display: flex;
+
+    > .dropzone {
+      flex: 1 1 auto;
+    }
+
+    > .dropResults {
+      flex: 0 1 auto;
+      padding-left: $padding-x-base;
+    }
+  }
+}
+
+.dropResults {
+  .kpi-upload__upload-files-list {
+    display: inline-block;
+  }
+
+  > table {
+    //width: auto !important;
+    table-layout: auto !important;
+  }
+}
+
+//@include triple-growCenter('.dropItem', inline-flex, 5px);
+
+
+.uploadedCols {
+  $tagWidth: 18px;
+  //$indicatorsLineBg: $panelBorderColor;
+  $indicatorsLineBg: $gray-new-light;
+  $tagColor: $color-base-2;
+  $tagBdColor: darken($indicatorsLineBg, 5%);
+  position: relative;
+  &:before, &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: $indicatorsLineBg;
+  }
+
+  &:before {
+    bottom: 0;
+    width: $tagWidth;
+    @include border-radius($radius-big 0 0 $radius-big)
+  }
+
+  &:after {
+    right: 0;
+    height: $tagWidth;
+    @include border-radius($radius-big $radius-big 0 0)
+  }
+
+  .panel__heading {
+    font-weight: bold;
+
+    > .grid-row > [class*="col"] {
+      padding-top: rem($tagWidth) + $grid-gutter-width / 2.5;
+      padding-bottom: $grid-gutter-width / 2.5;
+    }
+  }
+
+  > .panel__heading, > .panel__body {
+    position: relative; // row-tag positioning
+    padding-left: $panel-padding * 1.25 !important;
+  }
+
+  &.panel--bordered {
+    &, .panel__heading,
+    .panel__body,
+    .panel__body + .panel__body {
+      border-color: $gray-new-light;
+    }
+  }
+
+  .row-tag, .col-tag {
+    position: absolute;
+    left: 0;
+    font-style: normal;
+    font-weight: normal; //override heading bold
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $tagColor;
+  }
+
+  //.panel__heading,
+  .row-tag {
+    top: -1px;
+    bottom: 0;
+    width: $tagWidth;
+    border-top: 1px solid $tagBdColor;
+  }
+
+  .col-tag {
+    z-index: 1;
+    top: 0;
+    right: 0;
+    height: $tagWidth;
+    line-height: $tagWidth;
+    padding: 0 5px;
+    text-align: center;
+  }
+
+  .col + .col .col-tag {
+    border-left: 1px solid $tagBdColor;
+  }
+
+  .grid-row > .action {
+    display: flex;
+    align-items: end;
+    justify-content: end;
+    padding-left: 0;
+    padding-right: 0;
+    min-width: $button-height;
+    margin-right: -$panel-padding / 2;
+
+    .not-matched {
+      color: $danger-color;
+    }
+  }
+
+  &__opt {
+    display: flex;
+    align-items: center;
+    @include panelStyle();
+    @include form-control-size();
+    background: $color-base-0;
+
+    .col-auto {
+      display: flex;
+    }
+  }
+}

@@ -1,0 +1,26 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:w='urn:import:com.edatasite.workforce.gwt.core.client.ui'
+             xmlns:c="urn:import:com.edatasite.workforce.gwt.core.client.ui.components"
+>
+    <g:HTMLPanel>
+            <g:FlowPanel ui:field="sharedPanel" styleName="">
+
+            </g:FlowPanel>
+
+            <div class="form-horizontal inputs_sm grid_gutter_thin mb-4">
+
+                <!--//email template-->
+                <div class="form-group">
+                    <label class="form-group__label" ui:field="chooseEmailTemp">Choose email template:
+                        <span style="color:red">*</span>
+                    </label>
+
+                    <div class="form-group__content">
+                        <w:DataListBox ui:field="emailTemplate" styleName="form-control" debugId="emailtemplate"/>
+                    </div>
+                </div>
+            </div>
+            <c:RecurringWidget type="11" ui:field="recurringWidget" twoLines="false"></c:RecurringWidget>
+    </g:HTMLPanel>
+</ui:UiBinder>

@@ -1,0 +1,73 @@
+body {
+    padding: 15px;
+}
+
+.wrapper {
+    color: #000;
+    position: relative;
+    width: 100%;
+}
+
+.wrapper h1.title {
+    margin-top: 10px;
+    font-size: 22px;
+    line-height: 32px;
+    padding: auto 15px;
+}
+
+.wrapper h1.title span {
+    text-transform: uppercase;
+    color: #f44336;
+}
+.wrapper .register-form {
+    padding-top: 10px;
+}
+
+.wrapper .register-form .form-group label span {
+    color: #f44336;
+}
+
+.wrapper .register-form .form-group .form-control {
+    border-radius: 0;
+}
+
+.wrapper .register-form .checkbox label {
+    font-weight: bold;
+}
+
+.wrapper .register-form .checkbox label span {
+    color: #388fcd;
+}
+
+.wrapper .register-form .captcha {
+    height: 80px;
+    display: block;
+}
+
+.wrapper .register-form input[type=submit] {
+    background-color: #f44336;
+    font-size: 20px;
+    text-transform: uppercase;
+    padding: 10px 15px;
+    border-radius: 0;
+    color: #fff;
+    border: 1px solid #f44336;
+}
+
+.wrapper .register-form .additional {
+    text-align: center;
+    width: 100%;
+    font-size: 15px;
+}
+
+.wrapper .register-form .form-group select.form-control {
+    height: 42px;
+    padding: 0 5px
+}
+
+#signupNowLabel {
+    text-align: center;
+    font-color: #ffac6f;
+    text-shadow: 2px 2px 5px #feff4b;
+    width: 100%;
+}

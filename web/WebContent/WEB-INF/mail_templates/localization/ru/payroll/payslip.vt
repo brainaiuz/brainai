@@ -1,0 +1,22 @@
+## $employeeName - Employee Name
+## $companyName - Company Name
+## $startDate - Period start date
+## $endDate - Period end date
+## $weekMonthNo - Week Month Number
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<p>Уважаемый(ая) $employeeName,</p>
+Пожалуйста, сочтите приложенную версию для печати своего payslip (в Формате PDF) со всей оплатой и деталями вычитания
+выпущенной $companyName сроком на
+    $startDate - $endDate ( $weekMonthNo ).
+<p>Пожалуйста, не стесняйтесь обратиться в отдел кадров если у Вас возникнут вопросы.</p>
+</body>
+</html>
+
+

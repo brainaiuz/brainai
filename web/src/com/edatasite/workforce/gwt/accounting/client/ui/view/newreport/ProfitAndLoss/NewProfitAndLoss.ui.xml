@@ -1,0 +1,26 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:w="urn:import:com.edatasite.workforce.gwt.accounting.client.ui.view.newreport.ProfitAndLoss.Tabs"
+             xmlns:groupBox="urn:import:com.edatasite.workforce.gwt.core.client.ui.components.groupBox">
+
+    <g:HTMLPanel styleName="pageContent_reporting bt_area" ui:field="exportPanel">
+
+        <div class="fixed-filters-panel-wrapper">
+            <groupBox:SectionBoxPanel ui:field="headerPanel"/>
+        </div>
+
+        <div id="mainContent" class="inputs_sm table_tree">
+            <!-- Tab panes -->
+            <div class="tab-content workarea_head_tabs_content textPanel">
+                <div class="tab-pane active" id="profLost_tab_1">
+                    <w:ProfitTab1 ui:field="tab1">
+
+                    </w:ProfitTab1>
+                </div>
+            </div>
+            <h6 ui:field="infoText"></h6>
+        </div>
+        <!--<g:HTMLPanel ui:field="noResultMessage" styleName="section-box box-bg&#45;&#45;1 center-align-Cell"></g:HTMLPanel>-->
+    </g:HTMLPanel>
+</ui:UiBinder>

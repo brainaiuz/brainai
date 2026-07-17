@@ -1,0 +1,9 @@
+<li>
+    <a target="_blank" href ='/Crm.html?link=$rowItem.encryptURL("id","lead|summary/")' class="left"  title="$rowItem.getStringValue("leadname")'">
+    $rowItem.getValueLimit("leadname",20)
+</a>
+<div>
+<a target="_blank" href ='/Crm.html?link=$rowItem.encryptURL("companyid","account|summary/")' title="$rowItem.getStringValue("caName")">$rowItem.getValueLimit("caName",20)</a>
+<strong class="clear">$rowItem.getStringValue("creationDate")</strong>
+        </div>
+        </li>

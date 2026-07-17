@@ -1,0 +1,15 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:mh="urn:import:gwt.material.design.client.ui.html"
+             xmlns:m="urn:import:gwt.material.design.client.ui">
+    <mh:Div styleName="figure-h active">
+        <mh:Div styleName="figure-image" ui:field="figureImage">
+            <m:MaterialIcon styleName="ficon--settings"/>
+        </mh:Div>
+        <mh:Div styleName="figure-caption">
+            <mh:Heading size="H3" ui:field="title" styleName="panel-reporting__title"></mh:Heading>
+            <mh:Div styleName="panel-reporting__text" ui:field="descriptionField"></mh:Div>
+        </mh:Div>
+        <mh:Div styleName="figure-actions" ui:field="figureActions"/>
+    </mh:Div>
+</ui:UiBinder>

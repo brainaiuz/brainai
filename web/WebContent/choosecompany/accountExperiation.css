@@ -1,0 +1,91 @@
+/* COMMON */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap');
+
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+#accountExperiation {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.accountExperiation__heading {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 45%;
+    padding: 3% 3% 3%;
+    background-color: #536677;
+    color: #fff;
+}
+
+.accountExperiation__heading #logo {
+    flex: 1 0 auto;
+    text-align: left;
+}
+
+.accountExperiation__heading #logo img {
+    width: 6.8vw;
+}
+
+.accountExperiation__heading figure {
+    flex: 0 1 auto;
+    margin: 0;
+}
+
+@media screen and (max-width: 1366px) {
+    .accountExperiation__heading figure {
+        margin-top: -1vw;
+    }
+}
+
+.accountExperiation__heading figure svg {
+    fill: currentColor;
+    width: 11vw;
+}
+
+.accountExperiation__heading figcaption {
+    margin-top: 0.3em;
+    font-weight: 500;
+    font-size: 3.3vw;
+    text-transform: uppercase;
+}
+
+
+.accountExperiation__body {
+    flex: 1 0 55%;
+    padding: 3% 3% 3%;
+    color: #536677;
+    font-size: 1.3vw;
+    line-height: 1.6;
+}
+
+a {
+    color: #1071e3;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.contactLink {
+    text-decoration: none;
+    color: #414651;
+}
+
+.contactLink:hover {
+    color: #0facf4;
+    text-decoration: none;
+}

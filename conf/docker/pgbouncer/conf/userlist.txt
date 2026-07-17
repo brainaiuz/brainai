@@ -1,0 +1,3 @@
+"kpi" "KP!P@SSWD"
+"wfmtest" "wfm"
+"wftauth" "wft"

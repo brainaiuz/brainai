@@ -1,0 +1,340 @@
+.hidden-link {
+    text-decoration: none !important;
+    color: black !important;
+}
+
+.hidden-link:visited {
+    text-decoration: none !important;
+    color: black !important;
+}
+
+.docs-button {
+    float: left;
+    margin-right: 7px;
+}
+
+.refresh-button {
+    float: right;
+    margin-right: 13px;
+    position: absolute;
+    right: 0;
+    top: 4px;
+}
+
+.props-labels {
+    font-weight: bold;
+    padding:5px;
+}
+
+.props-toplabels {
+    font-weight: bold;
+    font-style: italic;
+}
+
+.doc-SelectedRow {
+    background-color: #CCCCCC;
+}
+
+/* Tooltips */
+a.info {
+    position: relative; /*this is the key*/
+    z-index: 24;
+    color: black;
+    text-decoration: none
+}
+
+a.info:hover {
+    z-index: 25;
+    background-color: yellow;
+}
+
+a.info div {
+    display: none
+}
+
+a.info:hover span {
+    cursor: pointer;
+}
+
+/* The span will only display on :hover state. */
+a.info:hover div {
+    display: block;
+    position: absolute;
+    bottom: 2em;
+    right: 1em;
+    width: 10em;
+    border: 1px solid lightblue;
+    background-color: #D0E4F6;
+    color: black;
+    text-align: center
+}
+
+.progressbar-text {
+    font-weight: bold;
+}
+
+.progressbar-remaining {
+    font-size: 12px;
+    font-style: italic;
+}
+
+.progressbar-outer {
+}
+
+.progressbar-inner {
+    border: 1px solid darkgrey;
+    margin: 1px;
+}
+
+.progressbar-bar {
+    width: 5px;
+    height: 15px;
+    margin: 0;
+}
+
+.progressbar-fullbar {
+    background: #E0EDFE;
+}
+
+.progressbar-blankbar {
+    background: white;
+}
+
+/* Avoid extended background color in tree nodes. */
+.gwt-TreeItem-selected .gwt-HTML {
+    display: block;
+}
+
+/*
+ * Remove the padding inside the dialog boxes so that our background color
+ * appears uniform in warnings and errors.
+ */
+.gwt-DialogBox .dialogMiddleCenter {
+    background: none repeat scroll 0 0 white;
+    padding: 0;
+}
+
+.docimage {
+    display: inline;
+    vertical-align: top;
+}
+
+.gwt-PopupPanel .popupContent {
+    /*border: 1px solid #91c0ef;*/
+    position: relative;
+    z-index: 10;
+}
+
+.gwt-MenuBar {
+    cursor: default;
+}
+
+.gwt-MenuBar .gwt-MenuItem {
+    cursor: default;
+}
+
+.gwt-MenuBar .menu-bar, .menu-bar .gwt-MenuItem-selected {
+    background: none !important;
+}
+
+.gwt-MenuBar-horizontal .gwt-MenuItem {
+    padding: 0 10px;
+    vertical-align: bottom;
+    color: #666666;
+    font-weight: bold;
+}
+
+.gwt-MenuBar-horizontal .gwt-MenuItemSeparator {
+    width: 1px;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    border-left: 1px solid #888888;
+    background: white;
+}
+
+.gwt-MenuBar-horizontal .gwt-MenuItemSeparator .menuSeparatorInner {
+    width: 1px;
+    height: 1px;
+    background: white;
+}
+
+.gwt-MenuBar-vertical {
+    margin-top: 0;
+    margin-left: 0;
+    background: white;
+}
+
+.gwt-MenuBar-vertical table {
+    border-collapse: collapse;
+}
+
+.gwt-MenuBar-vertical .gwt-MenuItem {
+    /*padding: 4px 14px 4px 1px;*/
+}
+
+.gwt-MenuBar-vertical .gwt-MenuItemSeparator {
+    padding: 2px 0;
+}
+
+.gwt-MenuBar-vertical .gwt-MenuItemSeparator .menuSeparatorInner {
+    height: 1px;
+    padding: 0;
+    border: 0;
+    border-top: 1px solid #777777;
+    background: #ddddee;
+    overflow: hidden;
+}
+
+.gwt-MenuBar-vertical .subMenuIcon {
+    padding-right: 4px;
+}
+
+.gwt-MenuBar-vertical .subMenuIcon-selected {
+    /*background: #E0EDFE;*/
+}
+
+.gwt-PopupPanel .popupContent {
+    /*border: 1px solid #91c0ef;*/
+}
+
+.gwt-TabBar {
+}
+
+.gwt-TabBar .gwt-TabBarFirst {
+    width: 5px; /* first tab distance from the left */
+}
+
+.gwt-TabBar .gwt-TabBarRest {
+}
+
+.gwt-TabBar .gwt-TabBarItem {
+    margin-left: 6px;
+    padding: 3px 6px 3px 6px;
+    cursor: pointer;
+    cursor: hand;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    background: #d0e4f6;
+}
+
+.gwt-TabBar .gwt-TabBarItem-selected {
+    cursor: default;
+    background: #92c1f0;
+}
+
+.gwt-TabBar .gwt-TabBarItem-disabled {
+    cursor: default;
+    color: #999999;
+}
+
+.gwt-TabPanel {
+}
+
+.gwt-TabPanelBottom {
+    border-color: #92c1f0;
+    border-style: solid;
+    border-width: 3px 2px 2px;
+    overflow: hidden;
+    padding: 6px;
+}
+
+.gwt-DecoratedTabBar {
+}
+
+.gwt-DecoratedTabBar .gwt-TabBarFirst {
+    width: 5px; /* first tab distance from the left */
+}
+
+.gwt-DecoratedTabBar .gwt-TabBarRest {
+}
+
+.gwt-DecoratedTabBar .gwt-TabBarItem {
+    border-collapse: collapse;
+    margin-left: 6px;
+}
+
+.gwt-DecoratedTabBar .tabTopCenter {
+    padding: 0;
+    background: #d0e4f6;
+}
+
+.gwt-DecoratedTabBar .tabTopLeft,
+.gwt-DecoratedTabBar .tabTopRight {
+    padding: 0;
+    zoom: 1;
+}
+
+.gwt-DecoratedTabBar .tabTopLeftInner,
+.gwt-DecoratedTabBar .tabTopRightInner {
+    width: 6px;
+    height: 6px;
+}
+
+/*2012.09.14 .gwt-DecoratedTabBar .tabTopLeft {
+    background: url(documents/images/corner.png) no-repeat 0 -55px;
+    -background: url(documents/images/corner_ie6.png) no-repeat 0 -55px;
+}
+
+.gwt-DecoratedTabBar .tabTopRight {
+    background: url(documents/images/corner.png) no-repeat -6px -55px;
+    -background: url(documents/images/corner_ie6.png) no-repeat -6px -55px;
+}*/
+
+* html .gwt-DecoratedTabBar .tabTopLeftInner,
+* html .gwt-DecoratedTabBar .tabTopRightInner {
+    width: 6px;
+    height: 6px;
+    overflow: hidden;
+}
+
+.gwt-DecoratedTabBar .tabMiddleLeft,
+.gwt-DecoratedTabBar .tabMiddleRight {
+    width: 6px;
+    padding: 0;
+    background: #d0e4f6;
+}
+
+.gwt-DecoratedTabBar .tabMiddleLeftInner,
+.gwt-DecoratedTabBar .tabMiddleRightInner {
+    width: 1px;
+    height: 1px;
+}
+
+.gwt-DecoratedTabBar .tabMiddleCenter {
+    padding: 0 4px 2px 4px;
+    cursor: pointer;
+    cursor: hand;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    background: #d0e4f6;
+}
+
+.gwt-DecoratedTabBar .gwt-TabBarItem-selected .tabTopCenter {
+    background: #92c1f0;
+}
+
+.gwt-DecoratedTabBar .gwt-TabBarItem-selected .tabTopLeft {
+    background-position: 0 -61px;
+}
+
+.gwt-DecoratedTabBar .gwt-TabBarItem-selected .tabTopRight {
+    background-position: -6px -61px;
+}
+
+.gwt-DecoratedTabBar .gwt-TabBarItem-selected .tabMiddleLeft,
+.gwt-DecoratedTabBar .gwt-TabBarItem-selected .tabMiddleRight {
+    background: #92c1f0;
+}
+
+.gwt-DecoratedTabBar .gwt-TabBarItem-selected .tabMiddleCenter {
+    cursor: default;
+    background: #92c1f0;
+}
+
+.gwt-DecoratedTabBar .gwt-TabBarItem-disabled .tabMiddleCenter {
+    cursor: default;
+    color: #999999;
+}

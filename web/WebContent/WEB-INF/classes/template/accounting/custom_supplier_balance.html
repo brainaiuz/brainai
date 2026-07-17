@@ -1,0 +1,268 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style type="text/css">
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+        th, td {
+            padding: 5px;
+        }
+        .product-head th{
+            border-bottom: 1px solid #000;
+            font-size: 10pt;
+            font-weight: bold;
+        }
+        .product-head td{
+            border-bottom: 1px solid #ced5db;
+            font-size: 10pt;
+        }
+        .unitMeasure {
+            font-size: 8px;
+            font-weight: normal;
+        }
+        @media print {
+            .page-break {
+                display: inline-block !important;
+                page-break-inside: avoid !important;
+            }
+        }
+    </style>
+</head>
+<body>
+<div>
+    <img alt="images" src="https://workforcetrack.s3.amazonaws.com/000000000000/public/65159/a2113e82-397f-49fd-a58a-cdf4f4b93dff?AWSAccessKeyId=AKIAIROQMC77E5UKWBWQ" style="display: none;"/>
+    #if($itextGenericPdfData.companyData.companyName == 'KPI Software Inc' or $itextGenericPdfData.companyData.companyLogoUrl == 'https://apps.kpi.com/customisation/kpi.com/images/kpilogo.png')
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="width: 88px; display: none;"/>
+    #else
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="max-width: 100%; max-height: 100%; display: none;"/>
+    #end
+</div>
+<div>
+    #set($headerData = $itextGenericPdfData.customListData.get("CUSTOM_DATA_LIST").get(0).get("CUSTOM_DATA").header)
+    #set($fromDate = $headerData.get('FROM_DATE'))
+    #set($toDate = $headerData.get('TO_DATE'))
+    #set($name = $headerData.get('NAME'))
+    #set($currentDate = $headerData.get('CURRENT_DATE'))
+
+    #set($customerName = $headerData.get('USER_NAME'))
+
+    #set($balanceDue =
+    $itextGenericPdfData.customListData.get("CUSTOM_DATA_LIST").get(0).get("CUSTOM_DATA").getHeader().get("BALANCE_DUE"))
+    #set($acstaTement =
+    $itextGenericPdfData.customListData.get("CUSTOM_DATA_LIST").get(0).get("CUSTOM_DATA").getHeader().get("STATEMENT_OF_ACCOUNTS"))
+    #set($toAcc =
+    $itextGenericPdfData.customListData.get("CUSTOM_DATA_LIST").get(0).get("CUSTOM_DATA").getHeader().get("TO_ACCOUNTING"))
+    #set($accountinSummary =
+    $itextGenericPdfData.customListData.get("CUSTOM_DATA_LIST").get(0).get("CUSTOM_DATA").getHeader().get("ACCOUNT_SUMMARY"))
+    #set($openningBalance =
+    $itextGenericPdfData.customListData.get("CUSTOM_DATA_LIST").get(0).get("CUSTOM_DATA").getHeader().get("OPENNING_BALANCE"))
+    #set($invoiceAmount =
+    $itextGenericPdfData.customListData.get("CUSTOM_DATA_LIST").get(0).get("CUSTOM_DATA").getHeader().get("INVOICE_AMOUNT"))
+    #set($amountRecived =
+    $itextGenericPdfData.customListData.get("CUSTOM_DATA_LIST").get(0).get("CUSTOM_DATA").getHeader().get("AMOUNT_RECEIVED"))
+    #set($datePdf =
+    $itextGenericPdfData.customListData.get("CUSTOM_DATA_LIST").get(0).get("CUSTOM_DATA").getHeader().get("DATE_PDF"))
+    #set($trasactiOns =
+    $itextGenericPdfData.customListData.get("CUSTOM_DATA_LIST").get(0).get("CUSTOM_DATA").getHeader().get("TRANSACTIONS"))
+    #set($amountPdf =
+    $itextGenericPdfData.customListData.get("CUSTOM_DATA_LIST").get(0).get("CUSTOM_DATA").getHeader().get("AMOUNT_PDF"))
+
+    #set($address_PDF =
+    $itextGenericPdfData.customListData.get("CUSTOM_DATA_LIST").get(0).get("CUSTOM_DATA").getHeader().get("ADDRESS_PDF"))
+    #set($referencePdf =
+    $itextGenericPdfData.customListData.get("CUSTOM_DATA_LIST").get(0).get("CUSTOM_DATA").getHeader().get("REFERENCE_PDF"))
+    #set($paymentsPsf =
+    $itextGenericPdfData.customListData.get("CUSTOM_DATA_LIST").get(0).get("CUSTOM_DATA").getHeader().get("PAYMENTS_PDF"))
+    #set($balacePdf =
+    $itextGenericPdfData.customListData.get("CUSTOM_DATA_LIST").get(0).get("CUSTOM_DATA").getHeader().get("BALANCE_PDF"))
+
+
+    #set($currencySymbol =
+    $itextGenericPdfData.customData.get("CURRENCY_DATA").rows.get("FOREIGN_CURRENCY_SYMBOL").get("COLUMN_VALUE"))
+    #set($customerCurrency =
+    $itextGenericPdfData.customData.get("CURRENCY_DATA").rows.get("FOREIGN_CURRENCY_NAME").get("COLUMN_VALUE"))
+    #set($customerAddress = $itextGenericPdfData.customData.get("CUSTOMER_ADDRESS").rows)
+    #set($billAddress = $customerAddress.get("BILL_ADDRESS").get("COLUMN_VALUE"))
+    #set($billAddress2 = $customerAddress.get("BILL_ADDRESS2").get("COLUMN_VALUE"))
+    #set($billCity = $customerAddress.get("BILL_CITY").get("COLUMN_VALUE"))
+    #set($billState = $customerAddress.get("BILL_STATE").get("COLUMN_VALUE"))
+    #set($billZipCode = $customerAddress.get("BILL_ZIPCODE").get("COLUMN_VALUE"))
+    #set($billCountry = $customerAddress.get("BILL_COUNTRY").get("COLUMN_VALUE"))
+    #set($clientTrnNo = $customerAddress.get("CLIENT_VAT_NUMBER").get("COLUMN_VALUE"))
+    #set($clientPhone = $customerAddress.get("CLIENT_PHONE").get("COLUMN_VALUE"))
+    #set($contactPhone = $customerAddress.get("CONTACT_PHONE").get("COLUMN_VALUE"))
+    #set($contactEmail = $customerAddress.get("CONTACT_EMAIL").get("COLUMN_VALUE"))
+
+    #set($clientCityZip = '')
+    #if($billCity != '' and $billZipCode != '')
+    #set($clientCityZip = $billCity + ', ' + $billZipCode)
+    #elseif($billCity != '')
+    #set($clientCityZip = $billCity)
+    #elseif($billZipCode != '')
+    #set($clientCityZip = $billZipCode)
+    #end
+
+    <table width="100%" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+            <td width="64%"></td>
+            <td width="36%" style="padding: 0;">
+                <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                    <tr>
+                        <td align="right" style="font-weight: bold; font-size: 16pt; border-bottom: 2px solid #000;"
+                            width="100%">$acstaTement
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right" style="border-bottom: 2px solid #000; font-size: 10pt;"> $fromDate -
+                            $toDate
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-top: 20px;">
+        <tr>
+            <td style="padding: 0; vertical-align: top;" width="40%">
+                <table border="0" cellpadding="0" cellspacing="0" style="color: #333333; font-size: 10pt;  "
+                       width="100%">
+                    <tr>
+                        <td width="100%" style="font-weight: bold;">
+                            $toAcc <br/>
+                            $customerName
+                        </td>
+                    </tr>
+                    #if($billAddress != '' or $billAddress2 != '' or $clientCityZip != '' or $billCountry != '')
+                    <tr>
+                        <td style="padding-top: 1px;">
+                            $address_PDF : $billAddress $billAddress2 $clientCityZip $billCountry
+                        </td>
+                    </tr>
+                    #end
+                    #if($clientTrnNo != '')
+                    <tr>
+                        <td style="padding-top: 1px;">
+                            Trn: $clientTrnNo
+                        </td>
+                    </tr>
+                    #end
+                </table>
+            </td>
+            <td width="10%"></td>
+            <td width="40%" style="padding: 0;">
+                <table width="100%" cellspacing="0" cellpadding="0" border="0" style="color: #333333; font-size: 10pt;">
+                    <tr>
+                        <td colspan="2" style="font-weight: bold; background-color: #E8E8E8;" width="100%">
+                            $accountinSummary
+                        </td>
+                    </tr>
+                </table>
+                                        <!--Account Summary Body -->
+                #foreach($list in $itextGenericPdfData.customListData.get("CUSTOM_DATA_LIST"))
+
+                #set($header = $list.get('CUSTOM_DATA').header)
+                #set($figures = $header.get('FIGURES'))
+
+                #set($beginningBalance = $header.get('BEGINNING_BALANCE'))
+                #set($endingBalance = $header.get('ENDING_BALANCE'))
+                #set($totalAmount = $header.get('TOTAL_AMOUNT'))
+                #set($paymentTotal = $header.get('PAYMENT_TOTAL'))
+                #set($currency_symbol = $header.get('CURRENCY_SYMBOL'))
+                #set($currency_name = $header.get('CURRENCY_NAME'))
+
+                #if($endingBalance && $endingBalance != "0.00")
+                <table border="0" cellpadding="0" cellspacing="0"
+                       style="color: #333333; font-size: 10pt; padding-bottom: 15px;" width="100%">
+                    <tr>
+                        <td style="padding-top: 10px;" width="50%">$openningBalance</td>
+                        <td align="right" style="padding-top: 10px;" width="50%">$beginningBalance</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top: 10px;" width="50%">$invoiceAmount</td>
+                        <td align="right" style="padding-top: 10px;" width="50%">$totalAmount</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top: 10px; padding-bottom: 5px; border-bottom: 2px solid #000;" width="50%">
+                            $amountRecived
+                        </td>
+                        <td width="50%" align="right" style="padding-top: 10px; padding-bottom: 5px; border-bottom: 2px solid #000;">
+                            $paymentTotal.replaceAll('-','')
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top: 10px;" width="50%">$balanceDue ($currency_name)</td>
+                        <td align="right" style="padding-top: 10px;" width="50%">$endingBalance</td>
+                    </tr>
+                </table>
+                #end
+                #end
+            </td>
+        </tr>
+    </table>
+
+    <table width="100%" cellpadding="0" cellspacing="0" style="margin-top: 20px; font-size: 10pt; color: #333333;">
+        #set($sectionCount = 0)
+        #foreach($list in $itextGenericPdfData.customListData.get("CUSTOM_DATA_LIST"))
+        #set($rows = $list.get('CUSTOM_DATA').rows)
+        #set($header_currency = $list.get('CUSTOM_DATA').header.get('CURRENCY_NAME'))
+        #if($rows && $rows.size() > 0)
+        <!-- Section Header -->
+        #if($sectionCount > 0)
+        <tr><td colspan="6" style="height: 30px;"></td></tr>
+        #end
+        <tr>
+            <td style="background-color: #3C3D3A; color: #fff; font-weight: bold;" width="17%">$datePdf</td>
+            <td style="background-color: #3C3D3A; color: #fff; font-weight: bold;" width="20%">$trasactiOns</td>
+            <td style="background-color: #3C3D3A; color: #fff; font-weight: bold;" width="20%">$referencePdf</td>
+            <td align="right" style="background-color: #3C3D3A; color: #fff; font-weight: bold;" width="10%">$amountPdf</td>
+            <td align="right" style="background-color: #3C3D3A; color: #fff; font-weight: bold;" width="15%">$paymentsPsf</td>
+            <td align="right" style="background-color: #3C3D3A; color: #fff; font-weight: bold;" width="30%">$balacePdf  ($header_currency)</td>
+        </tr>
+        #set($first = true)
+        #foreach($row in $rows)
+        #if($first)
+        <tr>
+            <td valign="top" style="padding-top: 7px; padding-bottom: 7px;">$row.get('DATE')</td>
+            <td valign="top" style="padding-top: 7px; padding-bottom: 7px;">$row.get('ITEM_TRANSACTION')</td>
+            <td valign="top" style="padding-top: 7px; padding-bottom: 7px;">$row.get('ITEM_REFERENCE')</td>
+            <td valign="top" style="padding-top: 7px; padding-bottom: 7px;" align="right">$row.get('ITEM_DEBIT')</td>
+            <td valign="top" style="padding-top: 7px; padding-bottom: 7px;" align="right">$row.get('ITEM_CREDIT')</td>
+            <td valign="top" style="padding-top: 7px; padding-bottom: 7px;" align="right">$row.get('ITEM_BALANCE')</td>
+        </tr>
+        #set($first = false)
+        #else
+        <tr style="background-color: #F6F5F5;">
+            <td valign="top" style="padding-top: 7px; padding-bottom: 7px;">$row.get('DATE')</td>
+            <td valign="top" style="padding-top: 7px; padding-bottom: 7px;">$row.get('ITEM_TRANSACTION')</td>
+            <td valign="top" style="padding-top: 7px; padding-bottom: 7px;">$row.get('ITEM_REFERENCE')</td>
+            <td valign="top" style="padding-top: 7px; padding-bottom: 7px;" align="right">$row.get('ITEM_DEBIT')</td>
+            <td valign="top" style="padding-top: 7px; padding-bottom: 7px;" align="right">$row.get('ITEM_CREDIT')</td>
+            <td valign="top" style="padding-top: 7px; padding-bottom: 7px;" align="right">$row.get('ITEM_BALANCE')</td>
+        </tr>
+        #set($first = true)
+        #set($sectionCount = $sectionCount + 1)
+        #end
+        #end
+        #end
+        #end
+
+        <!-- Optional: retrieve ending balances after all sections -->
+        #foreach($list in $itextGenericPdfData.customListData.get("CUSTOM_DATA_LIST"))
+        #set($header = $list.get('CUSTOM_DATA').header)
+        #set($endingBalance = $header.get('ENDING_BALANCE'))
+        #set($currency_symbol = $header.get('CURRENCY_SYMBOL'))
+        <!-- You can render the ending balance here if desired -->
+        #end
+    </table>
+<!--    <table align="right" cellpadding="0" cellspacing="0" style="font-size: 10pt; color: #333333;" width="100%">-->
+<!--        <tr>-->
+<!--            <td align="right" style="font-weight: bold; border-top: 2px solid #DCDCDC;"> $balanceDue hello 2: $currency_symbol-->
+<!--                $endingBalance-->
+<!--            </td>-->
+<!--        </tr>-->
+<!--    </table>-->
+</div>
+</body>
+</html>

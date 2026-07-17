@@ -1,0 +1,103 @@
+.wfm-dialogbox .dialogTop {
+    height: 27px;
+    cursor: move;
+}
+
+.wfm-dialogbox .Caption {
+    color: #15428b !important;
+    font: bold 11px tahoma, arial, verdana, sans-serif !important;
+    padding-left: 6px !important;
+}
+
+.wfm-dialogbox .dialogTopLeft {
+    background: transparent url(/mainStyles/images/default/window/left-corners.png) no-repeat 1px 0;
+    width: 6px;
+}
+
+.wfm-dialogbox .dialogTopLeft div {
+    width: 6px;
+}
+
+.wfm-dialogbox .dialogTopCenter {
+    background: transparent url(/mainStyles/images/default/window/top-bottom.png) repeat-x 0 0 !important;
+}
+
+.wfm-dialogbox .dialogTopCenterInner {
+
+}
+
+.wfm-dialogbox .dialogTopRight {
+    background: transparent url(/mainStyles/images/default/window/right-corners.png) repeat-x 0 0 !important;
+    width: 6px;
+}
+
+.my-shell-hdr-r {
+    background: transparent url(/mainStyles/images/default/window/right-corners.png) no-repeat right 0 !important;
+}
+
+.wfm-dialogbox .dialogTopRight div {
+    width: 6px;
+}
+
+.my-shell-body-wrapper {
+    border: 1px solid #96AECD;
+}
+
+.my-shell-body-wrapper-inner {
+    background-color: #dfe8f6;
+    filter: alpha(opacity = 85);
+    opacity: .85;
+    height: 100%;
+}
+
+.my-shell-body {
+
+}
+
+.wfm-dialogbox  .dialogMiddleLeft {
+    background: transparent url(/mainStyles/images/default/window/left-right.png) repeat-y 1px 0;
+}
+
+.wfm-dialogbox .dialogMiddleRight {
+    background: transparent url(/mainStyles/images/default/window/left-right.png) repeat-y right 0;
+}
+
+.wfm-dialogbox .dialogMiddleRight div, .wfm-dialogbox  .dialogMiddleLeft div {
+    width: 6px;
+}
+
+.wfm-dialogbox .dialogMiddleCenter {
+    vertical-align: top !important;
+    border: 1px solid #99bbe8 !important;
+    background: #dfe8f6 !important;
+}
+
+.wfm-dialogbox .dialogBottomLeft {
+    background: transparent url(/mainStyles/images/default/window/left-corners.png) no-repeat 1px bottom;
+}
+
+.wfm-dialogbox .dialogBottomCenter {
+    background: transparent url(/mainStyles/images/default/window/top-bottom.png) repeat-x 0 bottom;
+}
+
+.wfm-dialogbox .dialogBottomRight {
+    background: transparent url(/mainStyles/images/default/window/right-corners.png) no-repeat right bottom;
+}
+
+.wfm-dialogbox  .dialogBottomLeft div {
+    line-height: 1px;
+    font-size: 1px;
+    height: 6px;
+}
+
+.close-btn-db {
+    position: absolute;
+    right: 10px;
+    top: 8px;
+}
+
+.pin-btn {
+    position: absolute;
+    right: 29px;
+    top: 8px;
+}

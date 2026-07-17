@@ -1,0 +1,15 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Supplier Bid</title>
+</head>
+<body>
+
+<p>
+Dear $COMPANY_NAME,
+$SUPPLIER_NAME quoted for items requested in $REQUEST_NUMBER, which you can check by logging into your account and opening relevant Purchase Request.
+</p>
+
+</body>
+</html>

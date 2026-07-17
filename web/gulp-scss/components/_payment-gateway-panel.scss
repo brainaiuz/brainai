@@ -1,0 +1,227 @@
+$paymentGatewayLeftPadding: rem(40px);
+$paymentGatewayFramePadding: rem(40px 33px);
+
+.payment-gateway-panel {
+  display: flex;
+  &:not(.refer-panel) {
+    min-height: 553px;
+  }
+  &.refer-panel {
+    min-height: 456px;
+  }
+
+  &__header {
+    font-size: 1.3rem;
+    margin-bottom: 0.7rem;
+  }
+
+  &__main {
+    padding: $paymentGatewayFramePadding;
+    flex-grow: 1;
+  }
+
+
+  &__description {
+    margin: rem(10px 0 30px);
+    line-height: 1.7;
+    color: $gray-dark;
+  }
+
+  &__option {
+    & + .payment-gateway-panel__option {
+      padding-top: rem(20px);
+    }
+
+    .gwt-RadioButton {
+      padding-left: $paymentGatewayLeftPadding; // like margin-left at .payment-gateway-panel__option-content
+
+      span {
+        font-size: 1.15rem;
+        margin-left: 0;
+        color: $gray-dark;
+      }
+    }
+
+    &--active .gwt-RadioButton span {
+      color: $text-color-base;
+    }
+  }
+
+  &__option-content {
+    margin-top: 1rem;
+    margin-left: rem(40px);
+    padding-bottom: rem(20px);
+    border-bottom: 1px solid $gray;
+
+    .payment-gateway-panel__option:last-child & {
+      border-bottom: 0;
+    }
+  }
+
+  &__option-cards {
+    img {
+      width: 55px;
+      height: 33px;
+      margin-right: 7px;
+    }
+  }
+}
+
+.payment-gateway-panel__side {
+  width: 325px;
+  flex-shrink: 0;
+  text-align: center;
+  color: white;
+  position: relative;
+  transition: background-color 0.3s;
+
+  a {
+    color: #fff;
+  }
+
+  &--stripe {
+    background-color: #6975e3;
+
+    .refer-panel & {
+      background-color: $color-accent-2;
+    }
+  }
+
+  &--paypal {
+    background-color: #00457c;
+  }
+  &--facebook {
+    background-color: #32599d;
+  }
+
+  &--wire {
+    background-color: $color-accent-2;
+  }
+
+  &-item {
+    //width: 100%;
+    height: 100%;
+    //position: absolute;
+    padding: $paymentGatewayFramePadding;
+    //display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    line-height: 1.7;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+
+    .payment-gateway-panel__side--stripe &--stripe,
+    .payment-gateway-panel__side--paypal &--paypal,
+    .payment-gateway-panel__side--wire &--wire {
+      display: flex;
+      opacity: 1;
+      -webkit-animation: .3s linear payment-gateway-panel__side-animation;
+      -moz-animation: .3s linear payment-gateway-panel__side-animation;
+      -o-animation: .3s linear payment-gateway-panel__side-animation;
+      animation: .3s linear payment-gateway-panel__side-animation
+    }
+  }
+
+  &-bottom {
+    .refer-panel & {
+      //margin-top: rem(25px);
+      text-align: left;
+      small {
+        color: #a6b4c1;
+      }
+    }
+  }
+  .btn--outline {
+    background-color: transparent;
+
+    &.btn--white {
+      border-color: #fff;
+      color: #fff;
+    }
+  }
+}
+
+@-webkit-keyframes payment-gateway-panel__side-animation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes payment-gateway-panel__side-animation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes payment-gateway-panel__side-animation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes payment-gateway-panel__side-animation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.payment-gateway-panel__side-top {
+  margin-bottom: 20px;
+
+  img + .input-field {
+    //margin-top: rem(20px);
+  }
+
+  .refer-panel & {
+    textarea {
+      min-height: 150px;
+    }
+  }
+}
+
+.payment-gateway-panel__side-price {
+  font-size: 2.7rem;
+  margin-bottom: 0.7rem;
+}
+
+.payment-gateway-panel__side-price-desc {
+  font-size: 1.15rem;
+  margin-bottom: 2.3rem;
+
+  .refer-panel & {
+    text-align: left;
+    font-size: 1rem;
+  }
+  .control {
+    padding-left: 2rem;
+  }
+}
+
+.payment-gateway-panel__side-muted-text {
+  margin: rem(25px 0 0);
+  opacity: 0.5;
+}
+
+.payment-gateway-panel__side-logo {
+  margin-bottom: 1.92rem;
+
+  .payment-gateway-panel:not(.refer-panel) {
+    img {
+      width: 140px;
+      height: 85px;
+    }
+  }
+}

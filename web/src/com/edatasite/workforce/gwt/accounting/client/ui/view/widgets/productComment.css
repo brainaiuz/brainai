@@ -1,0 +1,25 @@
+.productCommentPanel {
+    width: 700px;
+    border: 1px dashed #cccccc;
+    margin: 25px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+.productCommentItem {
+    border: 1px dotted #cccccc;
+    width: 100%;
+    box-shadow: 0 0 5px #cccccc;
+    -moz-box-shadow: 0 0 5px #cccccc;
+    -webkit-box-shadow: 0 0 5px #cccccc;
+}
+
+.commentorPicture {
+    border: 3px solid #cccccc;
+    width: 65px;
+    height: auto;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}

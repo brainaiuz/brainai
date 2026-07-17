@@ -1,0 +1,104 @@
+.recon-page {
+  .panelSect {
+    + .panelSect {
+      margin-top: $grid-gutter-width / 2;
+    }
+  }
+  .paging-group {
+    margin-top: $m-sm;
+  }
+}
+
+.recon-panel {
+  overflow: hidden; // due to cut border-radius
+  @include panelStyle($bordered: true, $bdcolor: $gray-new-light);
+  .grid-row > div[class*=col] {
+    + div[class*=col] {
+      border-left: 1px solid $gray-new-light;
+    }
+  }
+  @include make-container();
+  .grid-row > div[class*=col]:not(:has(.tabs)),
+  .form-row > div[class*=col] {
+    padding-top: $grid-gutter-width / 2.5;
+    padding-bottom: $grid-gutter-width / 2.5;
+  }
+  .grid-row {
+    &.actions {
+      border-bottom: 1px solid $gray-new-light;
+      div:has(.tabs) {
+        @include make-row();
+      }
+    }
+
+    &.matched > div[class*=col] {
+      background: $matched-color;
+    }
+  }
+
+  .grid-row.align-items-stretch & {
+    &, > .grid-row:only-child {
+      height: 100%;
+    }
+  }
+
+  &__informer {
+    &:not([style*="display: none"]) {
+      display: grid !important;
+    }
+
+    place-content: center;
+
+    > * {
+      grid-area: 1/1;
+    }
+  }
+}
+
+.panel-tabs {
+  .active {
+    background-color: $color-base-contrast;
+  }
+}
+
+.recon-match-opts {
+    padding-top: $padding-y-base;
+  &__item {
+    h6 {
+      font-size: 1.2rem;
+      margin: 0;
+    }
+    &:where(:not(:first-child)) {
+      &:before {
+        content: '';
+        display: block;
+        height: 1px;
+        margin: $padding-y-base 0;
+        background-color: $color-base-1;
+      }
+    }
+    &-title {
+      margin-bottom: 10px;
+    }
+  }
+  &__notice {
+    > * {
+      float: left;
+      margin: 0 0 5px;
+    }
+    dt {
+      color: $text-muted;
+    }
+    dd {
+      font-weight: bold;
+      margin-left: 5px;
+      + dt {
+        clear: left;
+      }
+    }
+   .icon--check {
+     height: 1em;
+     width: 1em;
+   }
+  }
+}

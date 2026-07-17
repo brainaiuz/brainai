@@ -1,0 +1,83 @@
+.sdbr {width: 324px;}
+.sdbr-1 {width: 324px;}
+
+/* START .trialFormFull */
+.trialFormFull {
+	width:540px;
+	margin:0 0 20px;
+	padding:15px;
+	background:#f9f9f9;}
+.trialFormFull .BoxIn {
+	padding:18px 0 18px 18px;
+	border:1px solid #f0f0f1;
+	background:#fff;}
+	.trialFormFull label, .trialFormFull label span {
+		display:block;}
+	.trialFormFull label {
+        float:left;
+        width:250px;
+		margin:0 5px 15px 0;}
+		.trialFormFull label span {
+			margin:0 0 7px;
+			font-size:14px;
+			text-transform:uppercase;}
+		.trialFormFull label input {
+			width:218px;
+			padding:9px 10px 8px;
+			font-size:14px;
+			color:#898989;
+			border:1px solid #c9c9c9;
+			outline:0;
+            background-image:none;}
+		.trialFormFull label select {
+			width:238px;
+			padding:8px 10px 7px;
+			font-size:14px;
+			color:#3b3b3b;
+			border:1px solid #d9d9d9;
+            background-image:none;}
+
+	.submitCover {
+		display:block;
+        width:488px;}
+		.submitCover .btn-1 {
+			width:488px;
+            border:0;}
+
+	.submitCover, .submitCover input {
+		height:38px;
+		background-image:url(images/bg_btn_horizontal.png);
+		background-repeat:no-repeat;}
+
+	.submitCover {
+		font-size:14px;
+		font-weight:bold;
+		color:#fff;
+		padding:0 10px 0 0;
+
+        -webkit-text-shadow:0 -1px 0 rgba(32, 105, 136, 0.7);
+        -moz-text-shadow:0 -1px 0 rgba(32, 105, 136, 0.7);
+        -ms-text-shadow:0 -1px 0 rgba(32, 105, 136, 0.7);
+        -o-text-shadow:0 -1px 0 rgba(32, 105, 136, 0.7);
+        text-shadow:0 -1px 0 rgba(32, 105, 136, 0.7);
+        background-position:100% -37px;}
+		.submitCover input {
+            height:38px;
+			line-height:36px;
+            margin:0;
+			padding:0 15px 0 25px;
+            background-position:0 1px;
+            background-color:transparent;}
+/* END .trialFormFull */
+	
+	
+	/* START .tickList */
+	.sdbr .tickList {
+		margin:0 0 40px;}
+	/* END .tickList */
+	
+	
+/* START .usersPostContent */
+.sdbr .usersPostContent {
+	margin:0 0 25px;}
+/* END .usersPostContent */

@@ -1,0 +1,66 @@
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:g="urn:import:com.google.gwt.user.client.ui"
+             xmlns:m="urn:import:gwt.material.design.client.ui"
+             xmlns:mhtml="urn:import:gwt.material.design.client.ui.html"
+             xmlns:kpi="urn:import:com.edatasite.workforce.gwt.core.client.ui">
+    <g:HTMLPanel ui:field="panel">
+        <g:HTMLPanel ui:field="callRelatedParentPanel" styleName="form-group">
+            <mhtml:Label ui:field="callRelatedLabel" styleName="form-group__label"/>
+            <m:MaterialPanel ui:field="callRelatedPanel"/>
+        </g:HTMLPanel>
+        <g:HTMLPanel styleName="form-group">
+            <m:MaterialPanel style="background-color: white" ui:field="linkToPanel"/>
+        </g:HTMLPanel>
+        <g:HTMLPanel styleName="form-group" ui:field="templatePanel">
+            <mhtml:Label ui:field="emailTemplatesLabel" styleName="form-group__label"/>
+            <kpi:DataListBox ui:field="emailTemplates"/>
+        </g:HTMLPanel>
+        <g:HTMLPanel styleName="form-group" ui:field="subjectPanel">
+            <mhtml:Label ui:field="subjectLabel" styleName="form-group__label"/>
+            <g:TextBox ui:field="subject"/>
+        </g:HTMLPanel>
+        <g:HTMLPanel ui:field="callTypeParentPanel" visible="false" styleName="form-group">
+            <mhtml:Label ui:field="callTypeLabel" styleName="form-group__label"/>
+            <m:MaterialPanel ui:field="callTypePanel"/>
+        </g:HTMLPanel>
+        <g:HTMLPanel ui:field="callDetailParentPanel" visible="false" styleName="form-group">
+            <mhtml:Label ui:field="callDetailLabel" styleName="form-group__label"/>
+            <m:MaterialPanel ui:field="callDetailPanel"/>
+        </g:HTMLPanel>
+        <g:HTMLPanel styleName="form-group" ui:field="whenParentPanel">
+            <mhtml:Label ui:field="whenLabel" styleName="form-group__label"/>
+            <m:MaterialPanel ui:field="whenPanel"/>
+        </g:HTMLPanel>
+        <g:HTMLPanel styleName="form-group" ui:field="guestParentPanel">
+            <mhtml:Label ui:field="guestLabel" styleName="form-group__label"/>
+            <m:MaterialPanel ui:field="guestPanel"/>
+        </g:HTMLPanel>
+        <g:HTMLPanel styleName="form-group" ui:field="descriptionPanel">
+            <mhtml:Label ui:field="descriptionLabel" styleName="form-group__label"/>
+            <kpi:KpiEditor ui:field="description" height="410px"/>
+        </g:HTMLPanel>
+        <g:HTMLPanel styleName="form-group" ui:field="shareParentPanel">
+            <mhtml:Label ui:field="shareLabel" styleName="form-group__label"/>
+            <m:MaterialPanel ui:field="sharePanel"/>
+        </g:HTMLPanel>
+        <g:HTMLPanel styleName="form-group" ui:field="reminderParentPanel">
+            <mhtml:Label ui:field="reminderLabel" styleName="form-group__label"/>
+            <m:MaterialPanel ui:field="reminderPanel"/>
+        </g:HTMLPanel>
+        <g:HTMLPanel styleName="form-group" ui:field="cloneParentPanel">
+            <mhtml:Label ui:field="cloneLabel" styleName="form-group__label"/>
+            <m:MaterialPanel ui:field="clonePanel"/>
+        </g:HTMLPanel>
+        <g:HTMLPanel styleName="form-group" ui:field="providerTempParentPanel" visible="false">
+            <m:MaterialPanel ui:field="providerTempPanel"/>
+        </g:HTMLPanel>
+        <g:HTMLPanel styleName="form-group" ui:field="recepientPanel" visible="false">
+            <mhtml:Label ui:field="recepientLabel" styleName="form-group__label"/>
+            <g:TextBox ui:field="recepient"/>
+        </g:HTMLPanel>
+        <g:HTMLPanel styleName="form-group" ui:field="contentParentPanel" visible="false">
+            <mhtml:Label ui:field="contentLabel" styleName="form-group__label"/>
+            <m:MaterialPanel ui:field="contentPanel"/>
+        </g:HTMLPanel>
+    </g:HTMLPanel>
+</ui:UiBinder>

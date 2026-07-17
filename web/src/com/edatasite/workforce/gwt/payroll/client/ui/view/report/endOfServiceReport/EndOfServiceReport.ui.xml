@@ -1,0 +1,27 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:groupBox='urn:import:com.edatasite.workforce.gwt.core.client.ui.components.groupBox'>
+
+    <g:HTMLPanel styleName="pageContent_reporting" ui:field="exportPanel">
+
+        <div class="fixed-filters-panel-wrapper">
+            <groupBox:SectionBoxPanel ui:field="headerPanel"/>
+        </div>
+
+        <div class="table_report_sections-mod table_report_sections-mod--fixed-header">
+            <div class="table-responsive baseMargin_bottom_double">
+                <table class="table table-condensed table-bordered table-hover table_report table_leftIndex table_report_sections valign_middle"
+                       cellspacing="0" cellpadding="0">
+                    <thead class="point_affix_top text-nowrap" ui:field="tableHead">
+                    </thead>
+                    <tbody ui:field="tableBody">
+                    </tbody>
+                </table>
+                <g:HTMLPanel styleName="section-box box-bg--1" ui:field="noMessagePanel" visible="false">
+                    <h6 ui:field="noResultMessage" style="text-align:center;"></h6>
+                </g:HTMLPanel>
+            </div>
+        </div>
+    </g:HTMLPanel>
+</ui:UiBinder>

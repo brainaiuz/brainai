@@ -1,0 +1,9 @@
+update "anv".modelfield set columntype = 'COL_1', forder = 0 where form_id = 'INCIDENT_FORM'  and field_id = 'NAME';
+update "anv".modelfield set columntype = 'COL_1', forder = 1 where form_id = 'INCIDENT_FORM'  and field_id = 'RELATED_EMPLOYEES';
+update "anv".modelfield set columntype = 'COL_1', forder = 2 where form_id = 'INCIDENT_FORM'  and field_id = 'DESCRIPTION';
+update "anv".modelfield set columntype = 'COL_2', forder = 0 where form_id = 'INCIDENT_FORM'  and field_id = 'PERIOD';
+update "anv".modelfield set columntype = 'COL_2', forder = 1 where form_id = 'INCIDENT_FORM'  and field_id = 'STATUS';
+update "anv".modelfield set columntype = 'COL_2', forder = 2 where form_id = 'INCIDENT_FORM'  and field_id = 'PRIORITY';
+update "anv".modelfield set columntype = 'COL_3', forder = 0 where form_id = 'INCIDENT_FORM'  and field_id = 'REPORTED_BY';
+update "anv".modelfield set columntype = 'COL_3', forder = 1 where form_id = 'INCIDENT_FORM'  and field_id = 'RESOLVER';
+update "anv".modelfield set columntype = 'COL_3', forder = 2 where form_id = 'INCIDENT_FORM'  and field_id = 'VISIBILITY';

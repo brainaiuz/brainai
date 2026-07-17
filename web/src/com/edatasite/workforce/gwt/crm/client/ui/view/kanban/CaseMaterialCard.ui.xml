@@ -1,0 +1,49 @@
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:m="urn:import:gwt.material.design.client.ui"
+             xmlns:mhtml="urn:import:gwt.material.design.client.ui.html">
+    <m:MaterialCard styleName="wg_canban__card kanban-board-item" shadow="1" backgroundColor="WHITE">
+
+        <m:MaterialCardContent styleName="wg_canban__entry">
+            <m:MaterialPanel styleName="wg_canban__entry-info">
+                <!--<m:MaterialPanel styleName="wg_canban__entry-photo" ui:field="assignee_photo"></m:MaterialPanel>-->
+                <m:MaterialPanel styleName="wg_canban__entry-title">
+                    <m:MaterialLabel ui:field="number"/>
+                    <m:MaterialLink ui:field="subject" styleName="wg_canban__entry-name"/>
+                    <m:MaterialLink ui:field="reporter" styleName="wg_canban__entry-company"/>
+                </m:MaterialPanel>
+            </m:MaterialPanel>
+
+            <m:MaterialPanel styleName="wg_canban__entry-contacts" ui:field="contactsPanel">
+                <mhtml:UnorderedList>
+                    <mhtml:ListItem ui:field="phone"></mhtml:ListItem>
+                    <mhtml:ListItem ui:field="email"></mhtml:ListItem>
+                </mhtml:UnorderedList>
+            </m:MaterialPanel>
+        </m:MaterialCardContent>
+
+        <m:MaterialCardAction styleName="wg_canban__card-footer">
+            <m:MaterialPanel styleName="wg_canban__user">
+                <m:MaterialPanel styleName="wg_canban__user-content">
+                    <m:MaterialPanel styleName="wg_canban__user-notes" ui:field="notesPanel">
+                    </m:MaterialPanel>
+                    <m:MaterialPanel styleName="wg_canban__user-activities" ui:field="activitiesPanel">
+                        <m:MaterialPanel styleName="dropdown-kit--arrow--below">
+                            <m:MaterialLink styleName="dropdown-button" ui:field="activitiesLink"/>
+                        </m:MaterialPanel>
+                    </m:MaterialPanel>
+                    <m:MaterialPanel styleName="wg_canban__user-name">
+                        <m:MaterialLabel styleName="MaterialLabel" ui:field="assigneeName"/>
+                    </m:MaterialPanel>
+                </m:MaterialPanel>
+                <m:MaterialPanel styleName="wg_canban__user-actions" ui:field="actionsLinkpanel">
+                    <m:MaterialPanel styleName="dropdown-kit--arrow--below">
+                        <m:MaterialLink ui:field="actionsLink" styleName="dropdown-button">
+                            <mhtml:Icon styleName="ficon--more-horiz"/>
+                        </m:MaterialLink>
+                    </m:MaterialPanel>
+                </m:MaterialPanel>
+            </m:MaterialPanel>
+        </m:MaterialCardAction>
+
+    </m:MaterialCard>
+</ui:UiBinder>

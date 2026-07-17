@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+
+<body>
+##<h1>Bug Rapport</h1>
+<p><b>Rapport Datum:</b> $date</p>
+
+<p><b>Bedrijf:</b> $company</p>
+
+<p><b>Adres:</b> $host</p>
+
+<p><b>Gebruiker:</b> $userName</p>
+
+<p><b>Email:</b> $userEmail</p>
+
+<p><b>Sectie:</b> $section</p>
+##<b>Bug :</b> $reportText
+$reportText
+<input type="hidden" value="$keywords"/>
+
+</body>
+</html>

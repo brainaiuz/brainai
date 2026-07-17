@@ -1,0 +1,6 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+
+    <g:HTMLPanel addStyleNames="skillRateComment__comment-client" ui:field="content">
+    </g:HTMLPanel>
+</ui:UiBinder>

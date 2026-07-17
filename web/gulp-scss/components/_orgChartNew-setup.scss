@@ -1,0 +1,212 @@
+// Базовый каркас страниц настройки
+.setupPanel {
+  display: flex;
+  flex-direction: column;
+
+  margin: 0 auto;
+  padding-bottom: 6vh; // небольшой «воздух» снизу
+  text-align: center;
+
+  &__logo {
+    margin-bottom: 4vh;
+  }
+
+  &__title {
+    margin: 0 0 4vh;
+
+    @extend .fs-4;
+    font-weight: 500;
+  }
+
+  // тело: занимает всю ширину и даёт место под варианты
+  &__body {
+    display: flex;
+    justify-content: center;
+
+    width: 100%;
+    margin-bottom: 5vh;
+  }
+
+  &__actions {
+    margin-top: 0;
+    text-align: center;
+
+    .btn {
+      min-width: 180px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    &__logo {
+      margin-bottom: 3vh;
+    }
+
+    &__title {
+      margin-bottom: 3vh;
+    }
+
+    &__body {
+      margin-bottom: 4vh;
+    }
+  }
+}
+
+
+
+.logoGroup {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &__img {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 72px;
+    height: 72px;
+    margin: 0 0 0.75rem;
+
+
+    svg {
+      display: block;
+      width: 49px;
+      height: 49px;
+    }
+  }
+
+  &__caption {
+    @extend .fs-3;
+    font-weight: 500;
+    color: #78A4D8;
+  }
+}
+
+
+.setupLine {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  width: 100%;
+
+  @media (max-width: 992px) {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.setupOpt {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  flex: 0 1 260px;
+  margin: 0 1.5rem 2rem;
+  padding: 2.5rem 1.75rem 2rem;
+
+  border: 1px solid #DBDBDB;
+  border-radius: 18px;
+  background-color: #fff;
+  cursor: pointer;
+
+  transition:
+          box-shadow .2s ease,
+          border-color .2s ease,
+          background-color .2s ease,
+          transform .2s ease;
+
+  &__view {
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    top: rem(16px);
+    right: rem(16px);
+    padding: rem(4px);
+
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+
+    svg {
+      display: block;
+
+      path {
+        transition: fill 0.2s ease;
+      }
+    }
+
+    &:hover {
+      background-color: $color-base-0;
+      transform: translateY(-1px);
+
+      svg path {
+        fill: $color-accent-1;
+      }
+    }
+  }
+
+  // если нужен эффект при наведении на всю карточку
+  &:hover &__view {
+    background-color: $color-base-0;
+
+    svg path {
+      fill: $color-accent-1;
+    }
+  }
+
+  &__img {
+    margin-bottom: 1.5rem;
+
+    svg,
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  &__txt {
+    @extend .fs-1;
+    color: $text-color-base;
+  }
+
+  // активная карточка – используем .active
+  &:hover,
+  &.active {
+    border-color: #78A4D8;
+    background-color: #fbfbfc;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 992px) {
+    flex: 1 0 auto;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+
+// Конкретное модальное окно "Создать оргструктуру"
+
+
+
+
+
+// Color picker для окна "Создать оргструктуру"
+//.orgColorPicker { moved to
+//  display: flex;
+//  align-items: center;
+//
+//  margin-bottom: rem(20px);
+//}
+
+
+
+
+

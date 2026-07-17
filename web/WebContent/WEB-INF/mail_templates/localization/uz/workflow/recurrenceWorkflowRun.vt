@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transational.dtd">
+<html xmlns="http://w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<p><I>Привет $CREATOR,</I><br/></p>
+
+<p>Обратите внимание, что созданная вами автоматизация рабочего процесса повторения уже запущена..
+</p>
+<br/>
+<p>Имя автоматизации рабочего процесса: <b> $NAME </b>
+</p>
+<br/>
+<p>Модуль автоматизации рабочего процесса: <b> $MODULE </b>
+</p>
+<br/>
+
+</body>
+</html>

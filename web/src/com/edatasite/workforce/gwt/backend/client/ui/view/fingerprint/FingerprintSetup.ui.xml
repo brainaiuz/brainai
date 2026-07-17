@@ -1,0 +1,21 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+        >
+    <g:HTMLPanel>
+        <div>
+            <div class="reminder-title">
+                <g:HTMLPanel ui:field="headerPanel"></g:HTMLPanel>
+
+            </div>
+            <div class="row-hr-reminder-main">
+                <g:HorizontalPanel ui:field="addedLine"></g:HorizontalPanel>
+                <g:Anchor ui:field="addNewLine"></g:Anchor>
+            </div>
+        </div>
+        <div style="margin-top: 10px; margin-left: 20px">
+            <button class="btn btn-sm btn-default" ui:field="saveButton"></button>
+        </div>
+    </g:HTMLPanel>
+
+</ui:UiBinder>

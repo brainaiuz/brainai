@@ -1,0 +1,173 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:mh='urn:import:gwt.material.design.client.ui.html'
+             xmlns:core="urn:import:com.edatasite.workforce.gwt.core.client.ui">
+    <g:HTMLPanel styleName="bill">
+        <mh:Div styleName="bill-details ">
+            <mh:Table>
+                <mh:TableHead ui:field="subTotalBody"/>
+                <mh:TableBody ui:field="discountBody" styleName="swap-group">
+                    <mh:TableRow>
+                        <mh:TableDataCell styleName="td" ui:field="colspan2">
+                            <mh:Div styleName="swap-bar">
+                                <g:Button styleName="btn--circle" ui:field="discountSwitcher"/>
+                            </mh:Div>
+                            <mh:Table styleName="swap-group__table">
+                                <mh:TableRow class="active" ui:field="defaultDiscountRow">
+                                    <mh:TableHeadCell>
+                                        <g:HTML ui:field="discountLabel"/>
+                                    </mh:TableHeadCell>
+                                    <mh:TableDataCell>
+                                        <g:HTML ui:field="discountValue"/>
+                                    </mh:TableDataCell>
+                                </mh:TableRow>
+
+                                <mh:TableRow ui:field="overallDiscountRow">
+                                    <mh:TableDataCell>
+                                        <mh:Div class="form-control form-control--light input-field listbox-wrapper">
+                                            <core:DataListBox ui:field="overallDiscountTypes"/>
+                                        </mh:Div>
+                                    </mh:TableDataCell>
+                                    <mh:TableDataCell>
+                                        <g:TextBox ui:field="txtOverallDiscount"/>
+                                    </mh:TableDataCell>
+                                </mh:TableRow>
+                            </mh:Table>
+                        </mh:TableDataCell>
+                    </mh:TableRow>
+                </mh:TableBody>
+                <mh:TableBody ui:field="itemsTotalBody"/>
+                <mh:TableBody ui:field="shippingBody">
+                    <mh:TableRow>
+                        <mh:TableHeadCell>
+                            <mh:Div ui:field="shippingMethodContainer"/>
+                        </mh:TableHeadCell>
+                        <mh:TableDataCell ui:field="shippingMethodValueContainer">
+                            <mh:Div ui:field="shippingAmountContainer"/>
+                        </mh:TableDataCell>
+                    </mh:TableRow>
+                    <mh:TableRow ui:field="shippingTaxContainer"/>
+                </mh:TableBody>
+            </mh:Table>
+        </mh:Div>
+
+        <mh:Div styleName="bill-total">
+            <mh:Table>
+                <mh:TableHead ui:field="grossTotalBody">
+                    <mh:TableRow>
+                        <mh:TableHeadCell text="Total (UZS)">
+                        </mh:TableHeadCell>
+                        <mh:TableHeadCell text="94,747.949.77">
+                        </mh:TableHeadCell>
+                    </mh:TableRow>
+                    <mh:TableRow>
+                        <mh:TableDataCell text="Total (GBP)">
+
+                        </mh:TableDataCell>
+                        <mh:TableDataCell text="230,00.00">
+                        </mh:TableDataCell>
+                    </mh:TableRow>
+                </mh:TableHead>
+
+                <mh:TableBody ui:field="paymentBody"/>
+
+                <mh:TableFooter ui:field="dueAmountBody">
+                    <mh:TableRow>
+                        <mh:TableDataCell text="Due Amount">
+                        </mh:TableDataCell>
+
+                        <mh:TableDataCell text="393,000.00">
+                        </mh:TableDataCell>
+                    </mh:TableRow>
+                </mh:TableFooter>
+            </mh:Table>
+        </mh:Div>
+
+        <!--<g:HTMLPanel styleName="invoice__subtotal-printsheet">
+
+            &lt;!&ndash; INVOICE TOTOAL - CONTAINER &ndash;&gt;
+            <div class="invoice__total invoice__subtotal-table-frame">
+                <table class="invoice__total-table">
+                    <tbody ui:field="totalBody"/>
+                    <tfoot ui:field="totalFooter"/>
+                </table>
+
+                <div class="invoice__reciept-cuts">
+                    <span class="invoice__receipt-cut"/>
+                    <span class="invoice__receipt-cut"/>
+                    <span class="invoice__receipt-cut"/>
+                    <span class="invoice__receipt-cut"/>
+                    <span class="invoice__receipt-cut"/>
+                    <span class="invoice__receipt-cut"/>
+                    <span class="invoice__receipt-cut"/>
+                    <span class="invoice__receipt-cut"/>
+                    <span class="invoice__receipt-cut"/>
+                    <span class="invoice__receipt-cut"/>
+                    <span class="invoice__receipt-cut"/>
+                    <span class="invoice__receipt-cut"/>
+                    <span class="invoice__receipt-cut"/>
+                    <span class="invoice__receipt-cut"/>
+                    <span class="invoice__receipt-cut"/>
+                    <span class="invoice__receipt-cut"/>
+                    <span class="invoice__receipt-cut"/>
+                    <span class="invoice__receipt-cut"/>
+                </div>
+            </div>
+
+
+
+            &lt;!&ndash;INVOICE PAYMENT - CONTAINER&ndash;&gt;
+            <div class="invoice__payment invoice__subtotal-table-frame" style="display:none;" ui:field="paymentBody">
+
+                <div class="invoice__reciept-cuts invoice__reciept-cuts&#45;&#45;top">
+                    <span class="invoice__receipt-cut"/>
+                    <span class="invoice__receipt-cut"/>
+                    <span class="invoice__receipt-cut"/>
+                    <span class="invoice__receipt-cut"/>
+                    <span class="invoice__receipt-cut"/>
+                    <span class="invoice__receipt-cut"/>
+                    <span class="invoice__receipt-cut"/>
+                    <span class="invoice__receipt-cut"/>
+                    <span class="invoice__receipt-cut"/>
+                    <span class="invoice__receipt-cut"/>
+                    <span class="invoice__receipt-cut"/>
+                    <span class="invoice__receipt-cut"/>
+                    <span class="invoice__receipt-cut"/>
+                    <span class="invoice__receipt-cut"/>
+                    <span class="invoice__receipt-cut"/>
+                    <span class="invoice__receipt-cut"/>
+                    <span class="invoice__receipt-cut"/>
+                    <span class="invoice__receipt-cut"/>
+                </div>
+
+                <g:FlexTable ui:field="paymentTable" styleName="invoice__less-payment" />
+                <table class="invoice__due-amount">
+                    <tbody ui:field="dueAmountBody"/>
+                </table>
+
+                <div class="invoice__reciept-cuts">
+                    <span class="invoice__receipt-cut"/>
+                    <span class="invoice__receipt-cut"/>
+                    <span class="invoice__receipt-cut"/>
+                    <span class="invoice__receipt-cut"/>
+                    <span class="invoice__receipt-cut"/>
+                    <span class="invoice__receipt-cut"/>
+                    <span class="invoice__receipt-cut"/>
+                    <span class="invoice__receipt-cut"/>
+                    <span class="invoice__receipt-cut"/>
+                    <span class="invoice__receipt-cut"/>
+                    <span class="invoice__receipt-cut"/>
+                    <span class="invoice__receipt-cut"/>
+                    <span class="invoice__receipt-cut"/>
+                    <span class="invoice__receipt-cut"/>
+                    <span class="invoice__receipt-cut"/>
+                    <span class="invoice__receipt-cut"/>
+                    <span class="invoice__receipt-cut"/>
+                    <span class="invoice__receipt-cut"/>
+                </div>
+            </div>
+
+
+        </g:HTMLPanel>-->
+    </g:HTMLPanel>
+</ui:UiBinder>

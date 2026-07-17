@@ -1,0 +1,169 @@
+<!doctype html>
+<html class="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>KPI Feat List</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--CSS-->
+    <link rel="stylesheet" href="../WebContent/mainStyles/new-ui/css/materialize.css">
+</head>
+<body class="" toast="bottom-right">
+<!--Import jQuery before materialize.js-->
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<!--<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>-->
+<script type="text/javascript" src="../WebContent/mainStyles/new-ui/js/materialize-0.97.5.min.js"></script>
+
+<form action="#" class="features-list features-list--crm">
+    <aside class="features-aside">
+        <div class="features-list__heading">
+            <a class="features-aside__title">
+                <i class="ficon--calc main-modules__module-icon"></i>
+                <span>Sales</span>
+            </a>
+        </div>
+
+        <dl class="features-aside__welcome">
+            <dt>Welcome</dt>
+            <dd>blablalongblabla@lavbasdfasdfasdf.asd</dd>
+        </dl>
+
+        <ul class="features-aside__steps">
+            <li class="status--passed">
+                <span>Organization details</span>
+            </li>
+            <li class="status--current">
+                <span>Features</span>
+            </li>
+            <li class="status--not-passed">
+                <span>Email settings</span>
+            </li>
+        </ul>
+    </aside>
+
+    <main>
+        <div class="features-list__heading">
+            <h2 class="features-list__title">
+                Invite user(s)
+            </h2>
+            <h3 class="features-list__sub-title">
+                Give us some basic details and we'll give you set up
+            </h3>
+        </div>
+
+        <div class="features-list__main-body">
+            <div class="content-holder">
+                <div class="form-row form-group">
+                    <div class="col-3">
+                        <label class="form-group__label">
+                            Name
+                        </label>
+                        <div class="form-group__content">
+                            <input type="text" class="form-control" placeholder="Type here" />
+                        </div>
+                    </div>
+
+                    <div class="col-4">
+                        <label class="form-group__label">Coworkers Email</label>
+                        <div class="form-group__content">
+                            <input type="text" class="form-control" placeholder="Type here" />
+                        </div>
+                    </div>
+
+                    <div class="col-3">
+                        <label class="form-group__label">Role</label>
+                        <div class="form-group__content">
+                            <div class="form-control input-field listbox-wrapper">
+                                <select class="select-wrapper gwt-ListBox">
+                                    <option value="1">Please select</option>
+                                    <option value="2">option</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row form-group">
+                    <div class="col-3">
+                        <div class="form-group__content">
+                            <input type="text" class="form-control" placeholder="Type here" />
+                        </div>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="form-group__content">
+                            <input type="text" class="form-control" placeholder="Type here" />
+                        </div>
+                    </div>
+
+                    <div class="col-3">
+                        <div class="form-group__content">
+                            <div class="form-control input-field listbox-wrapper">
+                                <select class="select-wrapper gwt-ListBox">
+                                    <option value="1">Please select</option>
+                                    <option value="2">option</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row form-group">
+                    <div class="col-3">
+                        <div class="form-group__content">
+                            <input type="text" class="form-control" placeholder="Type here" />
+                        </div>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="form-group__content">
+                            <input type="text" class="form-control" placeholder="Type here" />
+                        </div>
+                    </div>
+
+                    <div class="col-3">
+                        <div class="form-group__content">
+                            <div class="form-control input-field listbox-wrapper">
+                                <select class="select-wrapper gwt-ListBox">
+                                    <option value="1">Please select</option>
+                                    <option value="2">option</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="features-list__main-footer">
+            <div class="grid-row">
+                <div class="btns-group col">
+                    <button class="btn btn--default btn--outline"><span>Cancel</span></button>
+                    <button class="btn btn--primary"><span>Save &amp; Continue</span></button>
+                </div>
+                <div class="btns-group col-auto">
+                    <button class="btn btn--default btn--outline"><span>Skip setup</span></button>
+                </div>
+            </div>
+
+            <div class="footnote">
+                <svg class="icon--info">
+                    <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#info"></use>
+                </svg>
+                <span>You can always change your preferences later in Settings.</span>
+            </div>
+        </div>
+    </main>
+</form>
+
+
+<!--SCRIPTS-->
+<script>
+    jQuery(document).ready(function () {
+        $('select').material_select();
+    });
+</script>
+</body>
+</html>

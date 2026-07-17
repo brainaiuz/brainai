@@ -1,0 +1,1 @@
+insert into pdfreference (code, name) values ('LEAVE_REQUEST', 'Leave Request');

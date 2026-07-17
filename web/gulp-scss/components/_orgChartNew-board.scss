@@ -1,0 +1,852 @@
+// =========================================================================
+// ORGBOARD ROOT CONTAINER
+// =========================================================================
+.orgBoard {
+  // Must fill the height of the parent container (frame__content__body > whiteBGR > workarea).
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: $body-bg;
+  gap: $orgBoardPadding-y; // Space between __top and descriptRow
+
+  // IMPORTANT: without this, flex children may not get correct height,
+  // and scrolling shifts to the page/root container → sticky stops working.
+  min-height: 0;
+}
+
+
+// =========================================================================
+// FIXED TOP PART (Company header + controls)
+// =========================================================================
+.orgBoard__top {
+  flex-shrink: 0; // Prevent shrinking
+  position: sticky;
+  top: 0;
+  z-index: 10; // Must stay above scrollable content
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: $padding-x-base;
+  padding: $orgBoardPadding-y $orgBoardPadding-x;
+  background: #fff;
+  border-bottom: 1px solid $control-border-color; // Visual separator for sticky header
+}
+
+
+// =========================================================================
+// COMPANY HEADER
+// =========================================================================
+.orgBoardCompany {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  > * {
+    display: inline-flex;
+  }
+
+  &__init {
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-weight: bold;
+  }
+
+  &__field {
+    padding: 0 $control-padding-x;
+    font-weight: 500;
+    font-size: 1.333rem;
+  }
+
+  &__act {
+    opacity: 0;
+    transition: opacity .3s ease-out;
+    cursor: pointer;
+  }
+
+  &__help {
+    color: $primary;
+  }
+
+  &:hover {
+    .orgBoardCompany__act {
+      opacity: 1;
+    }
+  }
+  &__input {
+    //min-width: 100%;
+    overflow: visible;
+    font-size: inherit ;
+    font-weight: inherit ;
+    font-family: inherit ;
+    letter-spacing: inherit;
+    text-overflow: clip;
+    border: none;
+    outline: 1px solid $control-border-color !important;
+    /* Важно для правильного позиционирования текста */
+    text-align: left;
+    direction: ltr;
+
+    &::-webkit-input-placeholder {
+      padding: 0;
+      text-indent: 0;
+    }
+  }
+
+  &.active {
+    .orgBoardCompany__field {
+      padding: 0;
+    }
+    .orgBoardCompany__act {
+      opacity: 1;
+      color: $primary;
+    }
+  }
+}
+
+// =========================================================================
+// CONTROLS (Zoom slider + view menu)
+// =========================================================================
+.orgBoard-controls {
+  display: flex;
+  align-items: center;
+  gap: $orgChartInnerGap;
+}
+
+
+// =========================================================================
+// ZOOM SLIDER
+// =========================================================================
+.zoomSlider {
+  $track: $control-border-color; // Empty track color
+  $fill: $primary; // Fill color + thumb
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px $padding-x-half;
+  border-radius: $radius-base;
+  background-color: #ffffff;
+
+  .zoomSlider__line {
+    width: 100%;
+    max-width: 180px;
+    margin: 0;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+
+    // CSS variable used by JS to fill the track
+    --fill-percent: 50%;
+
+    // Reset browser defaults
+    -webkit-appearance: none;
+    appearance: none;
+
+    // WebKit (Chrome/Safari/Edge)
+    &::-webkit-slider-runnable-track {
+      height: 4px;
+      border-radius: 999px;
+      background: $track; // empty track color
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      height: 4px;
+      width: var(--fill-percent);
+      background: $fill;
+      border-radius: 999px 0 0 999px;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 16px; //$orgChartInnerGap
+      height: 16px;
+      border-radius: 50%;
+      background: $fill;
+      cursor: pointer;
+      border: 2px solid #ffffff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      margin-top: -6px;
+      position: relative;
+      z-index: 2;
+    }
+
+    // Firefox
+    &::-moz-range-track {
+      height: 4px;
+      border-radius: 999px;
+      background: $track;
+    }
+
+    &::-moz-range-progress {
+      height: 4px;
+      border-radius: 999px;
+      background: $fill;
+    }
+
+    &::-moz-range-thumb {
+      width: 16px; //$orgChartInnerGap
+      height: 16px;
+      border-radius: 50%;
+      background: $fill;
+      border: 2px solid #ffffff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+    }
+
+    &:focus {
+      outline: none;
+
+      &::-webkit-slider-thumb {
+        box-shadow: 0 0 0 3px rgba($fill, 0.2), 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      &::-moz-range-thumb {
+        box-shadow: 0 0 0 3px rgba($fill, 0.2), 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+
+  // Hide unused Materialize slider elements
+  .thumb {
+    display: none !important;
+  }
+
+  &__text {
+    font-size: 13px;
+    font-weight: 500;
+    color: $primary;
+    min-width: 40px;
+    text-align: center;
+  }
+}
+
+
+// =========================================================================
+// VIEW BUTTON
+// =========================================================================
+.viewButton {
+  gap: 4px;
+  user-select: none;
+  color: $primary;
+
+  &.btn:hover {
+    color: darken($primary, 5%);
+  }
+
+  > * {
+    display: inline-flex; // Valign centering
+  }
+
+  &__text {
+    .depCardFunc-descr2Btn & {
+      min-width: 9ch;
+    }
+  }
+
+  &__caret {
+    transition: transform .15s ease;
+    transform-origin: 50% 45%;
+
+    .viewButton.active & {
+      transform: rotate(180deg); // will be rotated to the top ▲
+    }
+  }
+}
+
+
+// =========================================================================
+// VIEW MENU
+// =========================================================================
+.orgBoard-viewMenu {
+  &__body {
+    > div {
+      .switch {
+        display: inline-flex;
+      }
+    }
+  }
+}
+
+
+// =========================================================================
+// MAIN SCROLL CONTAINER (vertical scrolling)
+// =========================================================================
+.orgBoard__main {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+
+  // IMPORTANT: allow the container to shrink inside flex layout,
+  // otherwise the page will scroll instead of the internal container.
+  min-height: 0;
+
+  overflow-y: auto; // Vertical scroll happens here
+  overflow-x: auto; // Horizontal also
+}
+
+// Start Scrollbar view
+.orgBoard__main {
+
+  // При перетаскивании
+  &.is-dragging {
+    cursor: grabbing;
+
+    // Отключаем выделение текста во время перетаскивания
+    user-select: none;
+
+    // Можно добавить эффект "захвата" для визуальной обратной связи
+    * {
+      pointer-events: none; // Чтобы внутренние элементы не мешали drag
+    }
+
+    &:hover:not(.is-dragging) {
+      cursor: grab;
+    }
+  }
+
+  &::-webkit-scrollbar {
+    width: $orgChart-scrollThumbWidth;
+    height: $orgChart-scrollThumbWidth;
+    transition: width 0.2s ease, height 0.2s ease;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $color-base-1;
+    border-radius: $orgChart-scrollThumbWidth / 2;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $color-base-2;
+    border-radius: $orgChart-scrollThumbWidth / 2;
+    transition: background 0.2s ease;
+  }
+
+  // Вот это работает - наведение на сам бегунок (thumb)
+  &::-webkit-scrollbar-thumb:hover {
+    background: $color-accent-2;
+    cursor: pointer;
+  }
+
+  // Это тоже работает - наведение на трек
+  &::-webkit-scrollbar-track:hover {
+    background: $color-base-contrast;
+  }
+
+  &::-webkit-scrollbar:horizontal {
+    height: $orgChart-scrollThumbWidth;
+    transition: height 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  // encrease при наведении на область скролла
+  &::-webkit-scrollbar:horizontal:hover {
+    height: $orgChart-scrollThumbWidth * 2;
+  }
+}
+
+// End Scrollbar view
+
+
+// =========================================================================
+// DESCRIPTION ROW
+// =========================================================================
+.descriptRow {
+  position: sticky;
+  left: $orgBoardPadding-x;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $depCard-inner-gap;
+  //min-width: 0;
+  //overflow: hidden; // Важно: не даем внутренностям распирать контейнер
+  margin: 0 $orgBoardPadding-x $orgBoardPadding-x;
+  padding: $orgBoardPadding-y $orgBoardPadding-x;
+
+  background-color: #fff;
+  border-bottom: 1px solid $control-border-color;
+  border-radius: $radius-basePlus;
+
+  &__lbl {
+    flex: 0 1 auto;
+  }
+
+  &__field {
+    position: relative;
+    z-index: 1;
+    flex: 1 1 0; // prevent shrink when textarea
+    min-width: 0; // prevent auto by content
+    //max-width: 100%; // Принудительно ограничиваем
+    //min-height: $input-height;
+    cursor: text;
+
+    .form-control {
+      min-height: $input-height !important;
+      box-sizing: border-box;
+      line-height: 20px;
+    }
+
+    textarea {
+      resize: none;
+      overflow: hidden;
+    }
+  }
+
+  &__fieldAct {
+    flex: 0 0 auto;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+
+    .descriptRow:hover &,
+    .descriptRow.active & {
+      opacity: 1;
+    }
+    .descriptRow.active & {
+      color: $primary;
+    }
+  }
+
+  &-textDiv.form-control {
+    height: auto;
+    border-color: transparent;
+    @include txtTruncate(initial, true);
+  }
+
+  &-textDiv.form-control {
+    &:hover {
+      cursor: pointer;
+      border-color: $color-base-contrast !important;
+    }
+  }
+
+  &-textInput.form-control {
+
+  }
+}
+
+
+// =========================================================================
+// HORIZONTAL SCROLL CONTAINER (holds scaled depTree)
+// =========================================================================
+.orgBoard-scrollX {
+  flex: 1 0 auto;
+  min-height: 0;
+  width: 100%;
+
+  //overflow-x: auto; // Horizontal scrolling only for the tree
+  //overflow-y: clip; // Modern: prevents scrollbars; falls back to visible if unsupported
+  //overflow: visible; //don't use clip - affected to rigth hand panel employee list
+
+  //padding: 0 $orgBoardPadding-x $orgBoardPadding-x;
+
+  .depTree {
+    transform-origin: 0 0; // Inline style sets transform: scale()
+  }
+}
+
+
+// =========================================================================
+// TREE: CHILDREN CONTAINER (recursive gap reduction)
+// =========================================================================
+.depRoot {
+  // Reserve space so hovered card outline/shadow won't be clipped by parent flow
+  //padding-top: $depCardFocusSize-line;
+  padding: $depCardFocusSize-line $orgBoardPadding-x $orgBoardPadding-x;
+}
+
+.depChildren {
+  position: relative;
+  display: flex;
+
+  // Single source of truth for spacing used by both layout and connector lines
+  --current-gap: #{$depTree-gap};
+
+  gap: var(--current-gap);
+  padding-top: var(--current-gap);
+
+  // Level 1 (children of the root)
+  .depRoot > & {
+    --current-gap: #{$depTree-gap-lg};
+  }
+
+  // Level 2+ (nested children)
+  .depChildren .depChildren & {
+    --current-gap: #{$depTree-gap-sm};
+
+    // Level 3+ (deeper nesting)
+    .depChildren & {
+      --current-gap: #{$depTree-gap-xs};
+    }
+  }
+
+  // Vertical layout (list style)
+  &.children-vertical {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+
+    // Prevent hovered outline/shadow from being clipped on the right side
+    padding-right: $depCardFocusSize-shadow;
+
+    .depNode {
+      display: flex;
+      width: 100%;
+      align-items: flex-start;
+    }
+  }
+}
+
+
+// =========================================================================
+// TREE NODE
+// =========================================================================
+.depNode {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+
+// =========================================================================
+// HOVER HIGHLIGHTING
+// =========================================================================
+.depNode {
+  transition: z-index 0.2s;
+
+  &:hover {
+    z-index: 5; // Ensure hovered node is on top layer
+
+    // Highlight the card of the hovered node
+    > .depCard {
+      outline: inset $depCardFocusSize-line $primary;
+      box-shadow: 0 $depCardFocusSize-shadow ($depCardFocusSize-shadow * 2) rgba($primary, 0.2);
+    }
+  }
+}
+
+// =========================================================================
+// HIGHLIGHTING vertical connectors only
+.children-vertical .depNode {
+  &:hover {
+    // --- THE L-SHAPED CONNECTOR highlight (Top part + Horizontal elbow) ---
+    &::before {
+      border-color: $primary !important;
+    }
+  }
+
+  // --- PATH HIGHLIGHTING (The Spine) ---
+  // 1. Highlight the spine (::after) if any DIRECT NEXT sibling is hovered
+  &:has(+ .depNode:hover)::after {
+    border-color: $primary !important;
+    z-index: 2;
+  }
+
+  // 2. Highlight the spine if any LATER sibling is hovered
+  // (Fixes the "green spots" in long vertical lists)
+  &:has(~ .depNode:hover)::after {
+    border-color: $primary !important;
+    z-index: 2 !important;
+    top: calc(-1 * (var(--current-gap))) !important;
+  }
+}
+
+// =========================================================================
+// VERTICAL CONNECTOR LINES (only for vertical view)
+// =========================================================================
+.children-vertical > .depNode {
+  position: relative;
+  padding-left: $depTreeLine-paddingX;
+
+  // L-shaped connector (vertical spine + horizontal tick)
+  &::before {
+    content: '' !important;
+    position: absolute;
+    // Higher z-index for the corner to ensure smooth overlap on hover
+    z-index: 2;
+    // Anchor: $depTreeLine-anchorY from top + gap of current level.
+    top: calc(var(--current-gap) * -1);
+    height: calc(var(--current-gap) + #{$depTreeLine-anchorY});
+
+    // Horizontal spine position (16px from the left)
+    left: calc(#{$depTreeLine-paddingX} / 2);
+    width: calc(#{$depTreeLine-paddingX} / 2);
+
+    border-left: $depTreeLine-bdWidth solid $depTreeLine-color;
+    border-bottom: $depTreeLine-bdWidth solid $depTreeLine-color;
+    border-bottom-left-radius: $dipCardRadius;
+
+    // Safety: ensure it doesn't poke out above the parent container
+    pointer-events: none;
+  }
+
+  // Continuation line below the elbow (only if there is a next sibling)
+  &:has(+ .depNode)::after {
+    content: '' !important;
+    position: absolute;
+    z-index: 1;
+
+    left: calc(#{$depTreeLine-paddingX} / 2);
+
+    // Start from the radius bend (anchorY - radius)
+    top: calc(#{$depTreeLine-anchorY} - #{$dipCardRadius});
+
+    // Pull down to the next node through the gap + 2px overlap
+    bottom: calc(var(--current-gap) * -1 - 2px);
+
+    border-left: $depTreeLine-bdWidth solid $depTreeLine-color;
+  }
+}
+
+
+// =========================================================================
+// DEPARTMENT CARD
+// =========================================================================
+.depCard {
+  @include panelStyle(
+          $radius: $dipCardRadius,
+          $padding-x: $depCard-padding-x,
+          $background: $depCard-bg,
+          $bdcolor: $depCard-border-color,
+          $heading: true
+  );
+
+  width: 100%;
+  min-width: $depCard-minSize;
+  padding: $depCard-padding-y 0;
+
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  text-align: left;
+  color: $depCarTxt-1;
+
+  // Card heading
+  &__heading {
+    display: flex;
+    //align-items: start;
+    align-items: center; //to align gear icon with title
+    margin-top: -($button-height-small - rem($svgSizeBase));
+
+    &Title {
+      font-weight: 600;
+      font-size: $deepCardFontTitle-2; // 14px
+      line-height: 1.2;
+      // so that the text doesn't run under the icon
+      flex: 0 1 auto;
+      min-width: 0;
+      text-transform: uppercase;
+    }
+  }
+
+  // settings button
+  &__actBtn {
+    margin-left: $depCard-padding-x / 2;
+    flex: 0 0 auto;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+
+    .depCard:hover & {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  // Card sections
+  &__sect {
+    display: block;
+    padding: 0 $depCard-padding-x;
+
+    &.depFullDesc {
+    }
+
+    &.depMetrics, .depMetricsList {
+      display: flex;
+      flex-direction: column;
+    }
+
+    > div {
+      display: inline;
+    }
+
+    .depCard__sectTitle {
+      margin-right: 4px;
+    }
+
+    &.depMetrics .depCard__sectTitle {
+      margin-bottom: 4px;
+    }
+
+
+    .depChildren .depChildren .depChildren & {
+      &Title {
+        //flex: 1 1 auto;
+      }
+    }
+
+    .children-horizontal > .depNode > .depCard & {
+    }
+
+
+    &:not([style*="none"]) + .depCard__sect {
+      margin-top: $depCard-inner-gap;
+    }
+
+    &.depEmployees {
+      overflow-y: auto; // if there is a list of employes
+      max-height: 158px;
+    }
+
+    // heading of the nested section
+    &Title {
+      //flex: 0 0 auto;
+      font-weight: 500;
+      line-height: 1.2;
+      color: $deepCardText-2;
+    }
+  }
+}
+
+.depShortDescText {
+  //flex: 1;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+
+// =========================================================================
+// Bottom radius for the last visible section
+// Defined outside of &__sect due to build/compiler limitations.
+// =========================================================================
+.depCard__sect:not([aria-hidden="true"]):not(:has(~ .depCard__sect:not([aria-hidden="true"]))) {
+  @include border-bottom-radius($dipCardRadius);
+}
+
+
+// =========================================================================
+// EMPLOYEES LIST
+// =========================================================================
+.depEmployees {
+  &List {
+    // Employee list container
+  }
+}
+
+.depEmployeeRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $depCard-inner-gap;
+
+  + .depEmployeeRow {
+    margin-top: 4px;
+  }
+
+  .avatar {
+    flex: 0 0 $depEmplAvatar-size;
+    height: $depEmplAvatar-size;
+  }
+
+  &__act {
+    display: flex;
+    align-items: center;
+    color: $text-muted;
+    cursor: pointer;
+
+    .depEmployeeRow:hover & {
+      color: $text-color-base;
+
+      &:hover {
+        color: $danger-color;
+      }
+    }
+  }
+
+  .is-vacant-delete {
+  }
+}
+
+.depEmployeeInf {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0; /* КРИТИЧНО: позволяет flex-элементу сжиматься меньше размера контента */
+  line-height: 1.2;
+
+  &__position {
+    font-size: 0.7rem;
+    color: $deepCardText-2;
+
+    &.notAssigned {
+      color: $danger-color;
+    }
+  }
+
+  &__name {
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  // Styles for the Manager label
+  &__label {
+    display: inline-block;
+    padding: 1px 3px;
+    border-radius: $radius-base;
+    margin-left: 5px;
+    font-size: 8px;
+    text-transform: lowercase;
+    pointer-events: none; // So it doesn't block clicks on name/link
+
+    &-manager {
+      color: white;
+      //background: $gray-darkest; // instead of #29C057
+      background: $success-color;
+    }
+  }
+}
+
+
+// =========================================================================
+// TEXT SECTIONS (optional placeholders)
+// =========================================================================
+.depFullDesc,
+.depShortDesc,
+.depMetrics {
+  // Text section wrappers
+}
+
+.depFullDescText,
+.depShortDescText,
+.depMetricsList {
+  // Text blocks
+}
+
+.depMetricsList {
+  display: flex;
+  flex-direction: column;
+
+  .depCard__sect & { //.depMetrics
+    align-items: flex-start;
+
+    .depMetricItem {
+      line-height: 1.2;
+
+      + .depMetricItem {
+        margin-top: 4px;
+      }
+    }
+  }
+}
+
+// =========================================================================
+// Delete Modal with Employees
+// =========================================================================

@@ -1,0 +1,18 @@
+## Project Reject Template
+<p>Dear $creator,</p>
+
+<p>Please be informed that $recipient, declined a graphic design for approval the project name is $projectname.</p>
+
+<p>Comments: $description</p>
+
+<p>Decline Date: $date<br />
+<br />
+<span style="line-height: 1.6em;">Click </span><a href="$url" style="line-height: 1.6em;" title="View Project Graphics">here</a><span style="line-height: 1.6em;"> to view the project graphics</span></p>
+
+<p>* If you are not able to click on the link, you can instead copy and paste the following address in to your web browser:</p>
+
+<p><span style="color: #0033FF">$url</span></p>
+
+<p>Kind regards,</p>
+
+<p>$name</p>

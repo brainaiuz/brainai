@@ -1,0 +1,39 @@
+<report>
+    <view>
+        <title>Weekly Compaign Update</title> <name>Weekly Compaign Update</name> <category>Weekly Compaign Update</category>
+        <sqlquery>
+            <select>
+                <table name="Compaign">
+                    <column name="fullname" title="Employee" type="string" formattype="string" />
+                    <column name="name" title="Lister" type="string" formattype="string" />
+                    <column name="campaignname" title="Campaign and Branch" type="string" formattype="string" />
+                    <column name="updatedate" title="This is an update for which week ending" type="date" formattype="date" customdateformat="Mon dd, yyyy" />
+                    <column name="numberofweeks" title="Running Week" type="string" formattype="string"/>
+                    <column name="redemptions" title="Total Redemptions this Week" type="string" formattype="string"/>
+                    <column name="customers" title="Total Customers this Week" type="string" formattype="string"/>
+                    <column name="feedbackfrombranch" title="Feedback / Update from Branch Manager" type="string" formattype="string"/>
+                    <column name="contactperson" title="Contact Person" type="string" formattype="string"/>
+                    <column name="jobtitle" title="Job Title" type="string" formattype="string"/>
+                    <column name="calldate" title="Date" type="date" formattype="date" customdateformat="Mon dd, yyyy"/>
+                    <column name="feedback" title="Customer Service Feedback" type="string" formattype="string"/>
+                    <column name="createdate" title="Submission Date" type="date" formattype="date" customdateformat="Mon dd, yyyy" />
+                    <column name="redemptionsheetcopy" title="Did you get a copy of this week's ..." type="string" formattype="string"/>
+                </table>
+            </select>
+            <from>
+                (select (u.firstName||' '||u.lastname) as fullname, campaignname, redemptions, customers, feedbackfrombranch, contactperson, jobtitle, list3.name as redemptionsheetcopy, list2.name as numberofweeks, updatedate,
+                calldate, wcu."name" as name, list1.name as feedback, createdate
+                from "$".weekly_campaign_update wcu
+                left join "$".wfp_custom_list_items list1 on wcu.customerservicefeedback = list1.id
+                left join "$".wfp_custom_list_items list2 on wcu.numberofweeks = list2.id
+                left join "$".wfp_custom_list_items list3 on wcu.redemptionsheetcopy = list3.id
+                left join "$".myusersession mus on mus.sessionid = wcu.sessionid
+                left join "$".myuser u on mus.userid = u.id
+
+                )  t
+            </from>
+            <where> <terms id="base" value="1=1"/>
+            </where>
+        </sqlquery>
+    </view>
+</report>

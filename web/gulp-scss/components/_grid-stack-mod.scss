@@ -1,0 +1,337 @@
+.dashboard__container {
+
+  position: relative;
+
+  &:not(.dashboard__container--edit) .cp_grid {
+    display: none !important;
+  }
+
+  // 2. Режим редактирования
+  &--edit {
+    .cp_grid {
+      position: absolute;
+      left: -10px;
+      right: -10px;
+      top: 0;
+      height: 100%;
+      overflow: hidden;
+      padding: 0;
+      pointer-events: none; // <--- ВАЖНО: отключаем клики по пустым превью, пока они не активны
+
+      // ИЗОЛЯЦИЯ: Говорим браузеру, что изменения внутри сетки не влияют на остальную страницу
+      //contain: content; // можно добавить (менее агрессивно, чем strict)
+      content-visibility: auto;
+      contain-intrinsic-size: 1200px; // примерно высота сетки
+
+      // БЫСТРЫЙ GRID вместо тяжелого Flex
+      display: grid;
+      grid-template-columns: repeat(12, 1fr); // Жестко 12 колонок, браузер считает макет мгновенно
+      gap: 20px 10px; // Вместо паддингов и марджинов у дочерних элементов!
+
+      > div {
+        opacity: 0.15; // Легкая видимость пустых ячеек в режиме Edit
+        transition: opacity 0.2s ease-out;
+        pointer-events: auto;
+
+        &:after {
+          content: "";
+          display: block;
+          height: 80px;
+          background: #f6f7f9;
+          border-radius: $radius-basePlus;
+        }
+
+        // Подсвеченная ячейка под перетаскиваемым виджетом
+        &.active {
+          opacity: 1;
+
+          &:after {
+            background-color: #bdc4cc;
+          }
+        }
+      }
+    }
+  }
+
+  // 3. Элементы сетки GridStack
+  .grid-stack-item {
+    &:not(.ui-draggable-disabled) {
+      cursor: move !important;
+    }
+
+    .ui-draggable-handle {
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.00), 0 6px 6px rgba(0, 0, 0, 0.00);
+      transition: box-shadow 0.2s ease-out 0s;
+    }
+
+    // On edit
+    &:not(.ui-resizable-disabled) .ui-draggable-handle {
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05), 0 6px 6px rgba(0, 0, 0, 0.08);
+    }
+
+    // On edit hover
+    &:not(.ui-resizable-autohide) .ui-draggable-handle {
+      border: 1px dashed #848587;
+    }
+
+    &:not(.ui-resizable-disabled) .ui-resizable-handle {
+      display: flex !important;
+    }
+    &:not(.ui-resizable-autohide) .ui-resizable-handle:after {
+      opacity: 1;
+      transform: scale(1);
+    }
+    &>.ui-resizable-handle{
+      z-index: 1 !important;
+      justify-content: center;
+      align-items: center;
+      overflow: visible;
+      background: none;
+      &:after {
+        content: "";
+        display: block;
+        flex-shrink: 0;
+        width: 15px;
+        height: 15px;
+        background: white;
+        border: 1px solid $gray-new-light;
+        box-shadow: 0px 0px 10px 0px $gray-new-light;
+        transition: opacity 0.1s ease-out, transform 0.1s ease-out;
+        opacity: 0;
+        transform: scale(0);
+        will-change: opacity, transform; // Подсказка для GPU
+      }
+      &.ui-resizable-e:after {
+        margin-right: -8px;
+      }
+      &.ui-resizable-w:after {
+        margin-left: -8px;
+      }
+      &.ui-resizable-s:after {
+        margin-bottom: -8px;
+      }
+
+      &.ui-resizable-sw, &.ui-resizable-se {
+        transform: rotate(0deg) !important;
+        background: none;
+      }
+      &.ui-resizable-sw:after {
+        margin-bottom: -15px;
+        margin-left: -18px;
+      }
+      &.ui-resizable-se:after {
+        margin-bottom: -15px;
+        margin-right: -18px;
+      }
+    }
+    .grid-stack-item-header{
+
+    }
+  }
+}
+
+.dashboard__header {
+  height: 0;
+  //transition:height 0.3s ease-out 0s;
+  .panel-box__item {
+    max-width: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease-out 0.05s;
+  }
+
+  &.fixed-content {
+    z-index: 2;
+  }
+
+  .panel-box--right {
+    padding-right: $frameContentPadding; //https://prnt.sc/r0mxo7
+  }
+}
+
+.dashboard__container {
+  overflow: hidden;
+
+  .cp_grid {
+  }
+
+  &--edit {
+    .dashboard__header {
+      height: rem(60px);
+
+      .panel-box__item {
+        max-width: 250px;
+        opacity: 1;
+        transition-delay: inherit;
+      }
+    }
+  }
+}
+
+.dashboard__content {
+  padding: 0 !important;
+  margin-top: 0px;
+
+  &--edit {
+    margin-top: rem(60px);
+    //transition:margin-top 0.3s ease-out 0s;
+    //min-height: 1600px;
+
+  }
+}
+
+
+/*widget close button*/
+.widget-delete {
+  width: $widget-heading-height;
+  height: $widget-heading-height;
+  line-height: $widget-heading-height;
+  position: absolute;
+  z-index: 1;
+  top: 1px;
+  right: 11px;
+  font-size: 1.4rem;
+  color: #8d9ba8;
+  background-color: white;
+  text-align: center;
+  cursor: pointer;
+  border-left: 1px solid $gray-new-light;
+  transition: background 0.2s ease-out 0s;
+  border-top-right-radius: 5px;
+}
+.dashboard__content--edit .widget-row-head{
+  html:not([dir="rtl"]) & {
+    margin-right: 60px;
+    padding-right: 20px;
+
+    @media screen and (max-width: 1366px) { //https://prnt.sc/s4qduh
+      margin-right: 50px;
+      padding-right: 15px;
+    }
+  }
+}
+.ui-resizable-resizing, .ui-draggable-dragging{
+  .widget-delete{
+    opacity: 0.5;
+  }
+}
+
+.widget-delete:hover{
+  background-color: #f6f7f9;
+  color: #8d9ba8;
+}
+
+// ============================================
+// Улучшенная логика показа ручек изменения размера
+// ============================================
+
+.grid-stack-item {
+  // Изолирует Layout, Стили и Размер элемента.
+  // Браузер поймет, что изменения SVG внутри графиков заперты внутри этого блока.
+  //contain: content;
+
+  // Или альтернатива (выносит блок на отдельный слой видеокарты):
+  //will-change: transform;
+  //transform: translateZ(0);   // выносит на отдельный слой
+
+
+  // Показываем ручки у изменяемых размеров блоков (кроме моментов перетаскивания)
+  &.ui-resizable:not(.ui-resizable-autohide):not(.ui-draggable-dragging) {
+    & > .ui-resizable-handle {
+      display: flex !important;
+      transform: translateZ(0); // помогает вынести на отдельный слой
+    }
+
+    // Добавляем только при наведении
+    &:hover > .ui-resizable-handle {
+      will-change: transform, opacity;
+    }
+  }
+
+  // ============================================
+  // Вертикальная полоска изменения размера (правый край)
+  // ============================================
+
+  & > .ui-resizable-handle.ui-resizable-e {
+    // ВАЖНО: Фиксируем ширину на максимальное значение (3px), чтобы она не прыгала!
+    width: 3px;
+    right: 1px;
+    top: 0;
+    bottom: 0;
+    height: auto;
+    background-color: #bdc4cc !important;
+    cursor: ew-resize;
+    border-radius: 2px;
+
+    // Немного видна всегда (15% прозрачности)
+    opacity: 0.15;
+
+    // УДАЛЕНО: width из transition. Браузер больше не пересчитывает геометрию!
+    transition: opacity 0.2s ease,
+    background-color 0.2s ease;
+
+    // Убираем псевдоэлементы, если они мешают
+    &:after {
+      display: none !important;
+    }
+  }
+
+  // При наведении на весь блок - полоска становится заметнее
+  &:hover > .ui-resizable-handle.ui-resizable-e {
+    opacity: 0.4;
+  }
+
+  // При наведении непосредственно на полоску
+  & > .ui-resizable-handle.ui-resizable-e:hover {
+    opacity: 0.9;
+    // УДАЛЕНО: width: 3px (она уже изначально 3px).
+    // Вместо изменения размера мы просто делаем её темнее/активнее визуально
+    background-color: #6c7a8a !important;
+  }
+
+  // Во время активного изменения размера
+  &.ui-resizable-resizing > .ui-resizable-handle.ui-resizable-e {
+    opacity: 1 !important;
+    background-color: #2196f3 !important;
+    // УДАЛЕНО: width: 3px
+  }
+
+  // ============================================
+  // Аналогично для левой полоски (если нужна)
+  // ============================================
+
+  & > .ui-resizable-handle.ui-resizable-w {
+    // ВАЖНО: Фиксируем ширину на максимальное значение (5px)
+    width: 5px;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    height: auto;
+    background-color: #bdc4cc !important;
+    cursor: ew-resize;
+    opacity: 0.15;
+
+    // УДАЛЕНО: transition: all. Пишем свойства явно.
+    transition: opacity 0.2s ease,
+    background-color 0.2s ease;
+
+    &:after {
+      display: none !important;
+    }
+  }
+
+  &:hover > .ui-resizable-handle.ui-resizable-w {
+    opacity: 0.4;
+  }
+
+  & > .ui-resizable-handle.ui-resizable-w:hover {
+    opacity: 0.9;
+    // УДАЛЕНО: width: 5px
+    background-color: #6c7a8a !important;
+  }
+
+  &.ui-resizable-resizing > .ui-resizable-handle.ui-resizable-w {
+    opacity: 1 !important;
+    background-color: #2196f3 !important;
+    // УДАЛЕНО: width: 3px (не даем сжиматься при перетаскивании)
+  }
+}

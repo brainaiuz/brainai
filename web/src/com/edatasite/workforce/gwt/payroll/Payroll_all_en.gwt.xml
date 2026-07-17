@@ -1,0 +1,4 @@
+<module rename-to="payroll">
+    <inherits name='com.edatasite.workforce.gwt.payroll.Payroll'/>
+    <inherits name="com.edatasite.workforce.gwt.Localization_properties"/>
+</module>

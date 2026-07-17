@@ -1,0 +1,1 @@
+ALTER TABLE public.push_notification_token ADD COLUMN if not exists modulecode character varying(50);

@@ -1,0 +1,81 @@
+<report>
+    <view>
+        <title>Project List</title>
+        <name>Project List</name>
+        <category>project</category>
+        <sqlquery>
+            <select agregateFunc="distinct">
+                <table name="Project"
+                       customFieldType="Project"
+                       customFieldAlias="pcf"
+                       customFieldJoin="left join $.projectcustomfields pcf on t.projectcustomfieldsid = pcf.id">
+                    <column name="t.projectid" title="id" type="number" formattype="hidden"/>
+                    <column name="t.name" title="Project Name" type="string" formattype="string"/>
+                    <column name="t.projectnumber" title="Project Number" type="string" formattype="string"/>
+                    <column name="t.clientname" title="Client Name" type="string" formattype="string" basicfilter="true"/>
+                    <column name="t.workstreamname" title="Workstream" type="string" formattype="string"/>
+                    <column name="t.description" title="Description" type="string" formattype="string"/>
+                    <column name="t.startdate" title="Start Date" type="date" formattype="date" customdateformat="dd-MM-yyyy" basicfilter="true"/>
+                    <column name="t.enddate" title="End Date" type="date" formattype="date" customdateformat="dd-MM-yyyy" basicfilter="true"/>
+                    <column name="t.timespent" title="Time Spent" type="number" formattype="time"/>
+                    <column name="t.creationtime" title="Created Date" type="date" formattype="date" customdateformat="dd-MM-yyyy" basicfilter="true"/>
+                    <column name="t.percent" title="% completed" type="number" formattype="percent"/>
+                </table>
+                <table name="Manager">
+                    <column name="t.leaderfullname" title="Department Manager" type="string" formattype="string"/>
+                    <column name="t.managerfullname" title="Project Manager" type="string" formattype="string" basicfilter="true"/>
+                    <column name="t.backmanagername" title="Backup Manager" type="string" formattype="string" basicfilter="true"/>
+                    <column name="t.employeefullname" title="Assignee" type="string" formattype="string"/>
+                </table>
+                <table name="Status">
+                    <column name="t.statusname" title="Status" type="string" formattype="string" basicfilter="true"/>
+                </table>
+            </select>
+            <from>
+                (select
+                distinct pj.id as projectid,
+                pj.name as name,
+                pj.number as projectnumber,
+                pj.description as description,
+                pj.startdate as startdate,
+                pj.enddate as enddate,
+                pj.timespent as timespent,
+                pj.creationtime as creationtime,
+                pj.percent as percent,
+                pj.id as projectid,
+                mu.id as muserid,
+                wk.name as workstreamname,
+                wk.id as workstreamid,
+                (mu.firstname ||' '|| mu.lastname) as employeefullname,
+                (ma.firstname ||' '|| ma.lastname) as managerfullname,
+                (bma.firstname ||' '|| bma.lastname) as backmanagername,
+                cl.name as clientname,
+                ma.id as managerid,
+                tm.leaderid,
+                (ld.firstname ||' '|| ld.lastname) as leaderfullname,
+                pjem.isdeleted as pjemisdeleted,
+                st.name as statusname,
+                pj.isdeleted as isprojectDeleted
+                ,pj.projectcustomfieldsid
+                from
+                "$".project pj
+                left join "$".projectemployee pjem on pj.id = pjem.projectid
+                left join "$".teamemployee tmem on pjem.employeedepartmentid=tmem.id
+                left join "$".myuser mu on tmem.employeeid = mu.id
+                left join "$".employee em on em.id = tmem.employeeid
+                left join "$".team tm on tm.id = tmem.teamid
+                left join "reference" st on st.id= pj.statusid
+                left join "$".myuser ma on ma.id = pj.managerid
+                left join "$".myuser bma on bma.id = pj.backup_managerid
+                left join "$".myuser ld on ld.id = tm.leaderid
+                left join "$".workstream wk on (pj.id = wk.projectid and wk.deleted is not true )
+                left join "$".crmaccount cl on pj.clientid = cl.id
+                ) t
+            </from>
+            <where>
+                <terms id="base" value="t.isprojectDeleted is not true"/>
+                <terms id="client" clientid="t.clientid"/>
+            </where>
+        </sqlquery>
+    </view>
+</report>

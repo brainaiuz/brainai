@@ -1,0 +1,1 @@
+ant BugReport -f ./web/AutoCompile.xml

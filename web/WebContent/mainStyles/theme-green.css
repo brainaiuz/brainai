@@ -1,0 +1,307 @@
+﻿		/***### Start New!!! images COLORSCHEME GREEN ============================================ ###***/
+
+		/*** COLORS ***/
+a {
+    color:#306336;
+}
+a:visited, .btn:hover,
+.optBtn2:active,
+.optBtn2 button:active {
+    color:#295b2f;
+}
+
+.gwt-ScrollTable a {
+    color:#000;
+}
+.gwt-ScrollTable a:visited {
+    color:#1b1b1b;
+}
+
+.btn, .optBtn, .optBtn2,
+.labelLine .addFieldSet .addField {
+	color:#306336;
+	}
+/*  Exist above .btn:hover {} */
+
+/* Exist above .optBtn2:active,
+.optBtn2 button:active {} */
+
+
+/* .labelLine .addFieldSet .addField {} */
+
+		/* BG-COLORS, BORDERS */
+.tabsPanel {
+    border-bottom: 3px solid #2c93d1;
+    background-color: #398642;
+}
+
+
+.slideDown-title, .slideDown-title em,
+.slideDown-halfTitle, .slideDown-halfTitle em, .slideDown-halfTitle .gwt-HTML,
+.slideDown-title .gwt-HTML {
+    color: #0d4372;
+}
+
+.slideDown-title {
+    border-color:#b3cfdf;
+    background: #e4f5ff;
+}
+
+.slideDown-title:hover>em,
+.slideDown-title:hover .gwt-HTML {
+    color: #175d99;
+}
+
+		/*** ICONS ***/
+
+.tabsPanel .tabItem, .tabsPanel .tabItem>span {
+		background:#339f40 url(images/bg_tabsPanel-tabs.png) no-repeat;
+    /* background: #339f40 url(data:image/png;base64,) no-repeat; */
+}
+.tabsPanel .tabItem:hover,
+.tabsPanel .tabItem.act,
+.tabsPanel .tabItem:hover>span,
+.tabsPanel .tabItem.act>span {
+    background-color: #5cb166;
+}
+.tabs-block-tabs .tab span {
+    background-image: url(images/theme-green/bg_tabs.png);
+}
+
+
+.btn-1, a.btn-1,
+.blueBtn, .blueBtn span,
+.masterBtn,
+.boxTitle a,
+.rangeLine>.act, .rangeLine>div:hover {
+    background:url(images/theme-green/bg_gradX-1.png) repeat-x scroll 0 0 #dadada;
+    /* background: url(data:image/png;base64,) repeat-x scroll 0 0 #DADADA; */
+}
+
+
+.btn-1, a.btn-1 {
+    /* background:#068dc8 url(images/theme-green/bg_gradX-3.png) repeat-x; */
+}
+
+
+.masterBtn {
+    /* background:#002341 url(images/theme-green/bg_gradX-2.png) repeat-x; */
+    background-color: #002341;
+}
+
+.tabsPanel .tabClosable>a:first-child {
+    background-image: url(images/theme-green/bg_marks_tab-close-1.png);
+    /*background-image: url(data:imate/png;base64,); */
+    background-position: 0 0;
+    background-repeat: no-repeat;
+}
+
+
+.subDivisions li,
+.subDivisions li:hover,
+.subDivisions li.active {
+    background-image: url(images/theme-green/bg_subDivs-items.png);
+    background-repeat: repeat-x;
+}
+
+
+.mark {
+    /* background:url(images/theme-green/marks-1.png) no-repeat; */
+}
+
+
+
+.mark2, .profileSubOptions>a, .key-slideBar {
+		background-image: url(images/theme-green/marks-2.png);
+}
+
+
+.markPDF {
+    padding-left: 30px;
+    background: url(images/theme-green/bg_markPDF.png) no-repeat 8px 50%;
+}
+
+.markPlus {
+    padding-left:20px;
+    background: url(images/theme-green/bg_markPlus.png) no-repeat 0 50%;
+}
+
+.markCompetenciTemplate {
+    padding-left: 36px;
+    background: url(images/theme-green/bg_markAddCompetenciTemplate.png) no-repeat 10px 50%;
+}
+
+.markImport {
+    padding-left: 32px;
+    background: url(images/theme-green/bg_markImport.png) no-repeat 8px 50%;
+}
+
+
+/* ?? */
+.markCompetenci {
+    padding-left: 36px;
+    /* background: url(images/theme-green/bg_?.png) no-repeat 10px 50%; */
+}
+
+/* ?? */
+
+.markAddPerson {
+    padding-left: 36px;
+    background: url(images/theme-green/bg_markAddPerson.png) no-repeat 10px 50%;
+}
+
+.markAddProject {
+    padding-left: 36px;
+    background: url(images/theme-green/bg_markAddProject.png) no-repeat 10px 50%;
+}
+
+.markAddDepart {
+    padding-left: 36px;
+    background: url(images/theme-green/bg_markAddDepart.png) no-repeat 10px 50%;
+}
+
+.markAddBusiness {
+    padding-left: 36px;
+    background: url(images/theme-green/bg_markAddBusiness.png) no-repeat 10px 50%;
+}
+
+.markAdd2 {
+    padding-left: 26px;
+    background: url(images/theme-green/bg_markAdd2.png) no-repeat 5px 50%;
+}
+
+.markAddFrom {
+    padding-left: 26px;
+    background: url(images/theme-green/bg_markAddFrom.png) no-repeat 5px 50%;
+}
+
+.markNewReport {
+    padding-left: 26px;
+    background: url(images/theme-green/bg_markNewReport.png) no-repeat 5px 50%;
+}
+
+.markSuggestNew {
+    padding-left: 26px;
+    background: url(images/theme-green/bg_markSuggestNew.png) no-repeat 5px 50%;
+}
+
+.markBulletArrow {
+    padding-left: 31px;
+    background: url(images/theme-green/bg_markBulletArrow.png) no-repeat 5px 50%;
+}
+
+.markShare {
+    padding-left: 26px;
+    background: url(images/theme-green/bg_markShare.png) no-repeat 10px 50%;
+}
+
+.markModify {
+    padding-left: 26px;
+    background: url(images/theme-green/bg_markModify.png) no-repeat 10px 50%;
+}
+
+.markTickR {
+    padding-right: 34px;
+    background: url(images/theme-green/bg_markTickR.png) no-repeat 100% 50%;
+}
+
+
+.markDraftR {
+    padding-right: 34px;
+		background: url(images/theme-green/bg_markDraftR.png) no-repeat 100% 50%;
+    /* background: url(data:image/png;base64,) no-repeat 100% 50%; */
+}
+
+.markBack {
+    padding-left: 24px;
+    background: url(images/theme-green/bg_markBack.png) no-repeat 0 50%;
+}
+
+.markPrev {
+    padding-left: 24px;
+    background: url(images/theme-green/bg_markPrev.png) no-repeat 0 50%;
+}
+
+.markRunR {
+    padding-right: 24px;
+    background: url(images/theme-green/bg_markRun.png) no-repeat 100% 50%;
+}
+
+.markCloseR {
+    padding-right: 24px;
+    background: url(images/theme-green/bg_markClose.png) no-repeat 100% 50%;
+}
+
+.markNextR {
+    padding-right: 24px;
+    background: url(images/theme-green/bg_markNext.png) no-repeat 100% 50%;
+}
+
+/** Opportunity Buttons **/
+
+
+.markCloseR {
+    padding-right: 30px;
+    background: url(images/theme-green/bg_markCloseR.png) no-repeat 100% 50%;
+}
+
+.markConvertToR {
+    padding-right: 30px;
+    background: url(images/theme-green/bg_markConvertToR.png) no-repeat 100% 50%;
+}
+
+.markSaveCloseR {
+    padding-right: 30px;
+    background: url(images/theme-green/bg_markSaveCloseR.png) no-repeat 100% 50%;
+}
+
+
+.markUploadR {
+    padding-right: 20px;
+    background: url(images/theme-green/bg_markUploadR.png) no-repeat 100% 50%;
+}
+
+
+
+.markDownload {
+    padding-left: 16px;
+    background: url(images/theme-green/bg_markDownload.png) no-repeat;
+}
+
+.markDelete {
+    padding-left: 16px;
+    line-height: 1em;
+    background: url(images/theme-green/bg_markDelete.png) no-repeat;
+}
+
+
+.slideDown-title>em,
+.slideDown-title .gwt-HTML {
+    background:url(images/theme-green/bg_slideDown.png) no-repeat 5px 3px;
+}
+
+
+
+/* .labelLine .addFieldSet  *//* a is TEMP */
+a.addField, .addField a,
+.shortFAQ .gwt-DisclosurePanel a.header {
+    padding-left: 10px;
+    background:url(images/theme-green/bg_markLinkPlus.png) no-repeat 0 50%;
+}
+
+/* For sidebar Halp-List (expand and collapse) */
+.shortFAQ dt, .GTLP2WPH dt {
+    background:url(images/theme-green/bg_markLinkPlus2.png) no-repeat 0 50%;
+}
+
+.shortFAQ dt.expand, .GTLP2WPH dt.expandElement {
+    background:url(images/theme-green/bg_markLinkMinus.png) no-repeat;
+}
+
+/** Keys - little buttons **/
+.keyRemove, .keyAdd {
+    /* width:14px; height:14px; */
+    background: url(images/theme-green/bg_key_add-remove.png) no-repeat;
+}
+
+			/***### \COLORSCHEME BLUE ###***/

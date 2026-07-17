@@ -1,0 +1,12 @@
+update reportTemplateCategory set code = 'CUSTOM' where name = 'Custom';
+update reportTemplateCategory set code = 'PRODUCT' where name = 'Sale Invoice Product';
+update reportTemplateCategory set code = 'HRMS' where name in ('HRMS', 'Hrms');
+update reportTemplateCategory set code = 'CRM' where name = 'CRM';
+update reportTemplateCategory set code = 'ACCOUNTING' where name = 'Accounting & Finance';
+update reportTemplateCategory set code = 'PAYROLL' where name = 'Payroll';
+update reportTemplateCategory set code = 'PM' where name = 'Project Management';
+update reportTemplateCategory set code = 'SERVER_MONITOR' where name = 'Server Monitor';
+update reportTemplateCategory set code = 'SURVEYS_AND_POLLS' where name = 'Surveys & Polls';
+update reportTemplateCategory set code = 'SHABLON_ATCHETOV' where name = 'Шаблоны отчетов';
+update reportTemplateCategory set code = 'WING' where name = 'Wing';
+update reportTemplateCategory set code = 'TRAINING_CENTER' where name = 'Training Center';

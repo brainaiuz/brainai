@@ -1,0 +1,74 @@
+<report>
+    <view>
+        <title>Customer List</title>
+        <name>Customer List</name>
+        <category>client</category>
+        <sqlquery>
+            <select agregateFunc="distinct" agregateTotal="cl.*">
+                <table name="Client">
+                    <column name="t.name" title="Client Name" type="string" formattype="string"
+                            lookupsql="select name from $.client cl where cl.deleted!=true AND (cl.invisible = false OR cl.invisible IS NULL)"/>
+                    <column name="t.number" title="Client Code" type="string" formattype="string"/>
+                    <column name="t.contactname" title="Contact Person" type="string" formattype="string"/>
+                    <column name="t.vatnumber" title="Vat Number" type="string" formattype="string"/>
+                    <column name="t.currencyname" title="Currency" type="string" formattype="string"/>
+                    <column name="t.paymentmethodname" title="Payment Method" type="string" formattype="string"/>
+                </table>
+                <table name="Address">
+                    <column name="t.billingaddress" title="Billing Address" type="string" formattype="string"/>
+                    <column name="t.billingcity" title="Billing City" type="string" formattype="string"/>
+                    <column name="t.billingzipcode" title="Billing Zip Code" type="string" formattype="string"/>
+                    <column name="t.billingstatename" title="Billing State" type="string" formattype="string"/>
+                    <column name="t.billingcountryname" title="Billing Country" type="string" formattype="string"/>
+                    <column name="t.shippingaddress" title="Shipping Address" type="string" formattype="string"/>
+                    <column name="t.shippingcity" title="Shipping City" type="string" formattype="string"/>
+                    <column name="t.shippingzipcode" title="Shipping Zip Code" type="string" formattype="string"/>
+                    <column name="t.shippingstatename" title="Shipping State" type="string" formattype="string"/>
+                    <column name="t.shippingcountryname" title="Shipping Country" type="string" formattype="string"/>
+                </table>
+            </select>
+            <from>(select distinct cl.name, cl.number, cl.vatnumber,
+                (cnt.firstName||' '||cnt.lastname) as contactname,
+                cu.name as currencyname,
+                pymd.name as paymentmethodname,
+                rg.name as billingstatename,
+                co.name as billingcountryname,
+                rg2.name as shippingstatename,
+                co2.name as shippingcountryname,
+                bad.address as billingaddress,
+                bad.city as billingcity,
+                bad.zipcode as billingzipcode,
+                cad.address as shippingaddress,
+                cad.city as shippingcity,
+                cad.zipcode as shippingzipcode
+                from "$".crmaccount cl
+                inner join "$".crmaccount_types typeIDs on cl.id = typeIDs.crmaccount_id
+                inner join "$".reference type on type.id = typeIDs.type_id
+                left join "$".clientcontact on cl.id = clientcontact.clientid
+                left join "$".myuser cnt on cnt.id = clientcontact.id
+                left join "$".project pj on cl.id = pj.clientid
+                left join "$".projectemployee pjem on pj.id = pjem.projectid
+                left join "$".teamemployee tmem on pjem.employeedepartmentid = tmem.id
+                left join "$".team tm on tm.id = tmem.teamid
+                left join "$".myuser mu on tmem.employeeid = mu.id
+                left join "$".address bad on cl.billingaddressid = bad.id
+                left join "$".address cad on cl.mailingaddressid = cad.id
+                left join "public".country co on co.id = cad.countryid
+                left join "public".country co2 on co2.id = bad.countryid
+                left join "public".region rg on rg.id = bad.stateid
+                left join "public".region rg2 on rg2.id = cad.stateid
+                left join "public".currency cu on cu.id = cl.currencyid
+                left join "$".paymentmethod pymd on pymd.id = cl.paymentmethodid
+                where cl.deleted!=true and type.code = 'CUSTOMER') t
+            </from>
+            <where>
+                <terms id="base" value="1=1"/>
+                <terms id="client" clientid="cl.id"/>
+                <!--<terms id="userid" userid="" company="t.companyid"/>
+                <terms id="managerid" userid="" company="t.companyid"/>
+                <terms id="leaderid" userid="" company="t.companyid"/>
+                <terms id="admin" company="t.companyid"/>-->
+            </where>
+        </sqlquery>
+    </view>
+</report>

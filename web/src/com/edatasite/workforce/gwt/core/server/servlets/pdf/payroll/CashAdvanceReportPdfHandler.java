@@ -1,0 +1,169 @@
+package com.edatasite.workforce.gwt.core.server.servlets.pdf.payroll;
+
+import com.edatasite.workforce.core.domain.EdsCompany;
+import com.edatasite.workforce.core.domain.EdsUser;
+import com.edatasite.workforce.core.domain.accounting.EdsFinancialSettings;
+import com.edatasite.workforce.core.domain.settings.EdsCompanySettings;
+import com.edatasite.workforce.gwt.core.client.rpc.listingpanel.ListingFilterParameter;
+import com.edatasite.workforce.gwt.core.server.app.ServerUtils;
+import com.edatasite.workforce.gwt.core.server.db.UserManager;
+import com.edatasite.workforce.gwt.core.server.servlets.pdf.AbstractITextPostPdfHandler;
+import com.edatasite.workforce.gwt.core.server.servlets.pdf.PDFConstants;
+import com.edatasite.workforce.gwt.core.server.servlets.pdf.localization.PdfLocalizationName;
+import com.edatasite.workforce.gwt.core.server.servlets.pdf.template.ITextFontTypeEnum;
+import com.edatasite.workforce.gwt.core.server.servlets.pdf.template.ITextPdfViewTypeEnum;
+import com.edatasite.workforce.gwt.core.server.servlets.pdf.template.data.CellData;
+import com.edatasite.workforce.gwt.core.server.servlets.pdf.template.data.ITextGenericPdfData;
+import com.edatasite.workforce.gwt.core.server.servlets.pdf.template.data.ITextTableList;
+import com.edatasite.workforce.gwt.payroll.client.rpc.CashAdvanceReportData;
+import com.edatasite.workforce.gwt.payroll.client.rpc.CashAdvanceReportItem;
+import com.edatasite.workforce.gwt.payroll.client.rpc.PayrollService;
+import com.lowagie.text.Document;
+import com.lowagie.text.Element;
+import com.lowagie.text.Font;
+import com.lowagie.text.FontFactory;
+import com.lowagie.text.pdf.BaseFont;
+import com.lowagie.text.pdf.PdfWriter;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+/**
+ * Created with IntelliJ IDEA.
+ * User: Bunyod Xalilov
+ * Date: 4/5/16
+ * Time: 1:23 PM
+ * To change this template use File | Settings | File Templates.
+ */
+public class CashAdvanceReportPdfHandler extends AbstractITextPostPdfHandler implements  PDFConstants {
+
+    @Autowired
+    private PayrollService payrollService;
+
+    @Autowired
+    private UserManager userManager;
+
+    private SimpleDateFormat format;
+    private ListingFilterParameter lfp;
+    private CashAdvanceReportData data;
+
+    @Override
+    public ITextGenericPdfData buildPdfDocument(Object dataClass, Document document, PdfWriter writer) throws IOException {
+        return null;
+    }
+
+    @Override
+    protected ITextGenericPdfData buildPdfDocumentCustomise(Object dataClass, EdsCompany company, boolean hasPhantom) {
+        format = new SimpleDateFormat("MMMM d, yyyy");
+        EdsFinancialSettings fs = financialSettingsManager.getFinancialSettings();
+        DecimalFormat priceScaleNumberFormat = getPriceScaleNumberFormat(fs);
+        lfp = (ListingFilterParameter) dataClass;
+        EdsUser user = userManager.getUser();
+        EdsCompanySettings companySettings = user.getCompany().getCompanySettings();
+        if (companySettings != null && StringUtils.isNotBlank(companySettings.getExcelLimit())) {
+            lfp.setLimit(Integer.parseInt(companySettings.getPdfLimit()));
+        } else {
+            lfp.setLimit(LIMIT_PDF_ROWS);
+        }
+        Date startDate = parseFilterParameterDate(lfp.getStartDateNC());
+        Date endDate = parseFilterParameterDate(lfp.getEndDateNC());
+        data = payrollService.getCashAdvanceReportData(lfp);
+        ITextGenericPdfData pdfData = new ITextGenericPdfData();
+        pdfData.setPdfViewType(ITextPdfViewTypeEnum.LISTTABLE);
+
+        ITextTableList table = new ITextTableList(5);
+        pdfData.setListTable(table);
+
+        table.addPdfTableHeader(
+                drawHeader(commonLocalizer.localize(PdfLocalizationName.employee), Element.ALIGN_LEFT),
+//                drawHeader("Payroll Group", Element.ALIGN_CENTER),
+                drawHeader(pdfWfmMessageSource.localize("cashAdvanceDate"), Element.ALIGN_LEFT),
+                drawHeader(pdfWfmMessageSource.localize(PdfLocalizationName.amount), Element.ALIGN_RIGHT),
+                drawHeader(commonLocalizer.localize(PdfLocalizationName.paidAmount), Element.ALIGN_RIGHT),
+                drawHeader(commonLocalizer.localize("remainingAmount"), Element.ALIGN_RIGHT));
+        BigDecimal amountTotal = BigDecimal.ZERO, paidAmountTotal = BigDecimal.ZERO, remainingTotal = BigDecimal.ZERO;
+        for (CashAdvanceReportItem item : data.getCashAdvanceReportItems()) {
+            String employeeNumber = item.getEmployeeCode() != null && !"".equals(item.getEmployeeCode()) ? item.getEmployeeCode() + " - " : "";
+            CellData employeeCell = new CellData(employeeNumber + (item.getEmployeeName() != null ? item.getEmployeeName() : ""), Element.ALIGN_LEFT);
+//            CellData payrollGroupCell = new CellData(item.getPayrollGroup() != null ? item.getPayrollGroup() : "n/a", Element.ALIGN_CENTER);
+            CellData cashAdvanceDate = new CellData(format.format(item.getDate()), Element.ALIGN_RIGHT);
+            CellData amount = createCell(item.getAmount(), priceScaleNumberFormat);
+            CellData paidAmount = createCell(item.getPaidAmount(), priceScaleNumberFormat);
+            CellData remainingAmount = createCell(item.getRemainingAmount(), priceScaleNumberFormat);
+            table.addPdfTableRows(employeeCell, cashAdvanceDate, amount, paidAmount, remainingAmount);
+            amountTotal = amountTotal.add(item.getAmount());
+            paidAmountTotal = paidAmountTotal.add(item.getPaidAmount());
+            remainingTotal = remainingTotal.add(item.getRemainingAmount());
+        }
+        table.addPdfTableRows(
+                new CellData(commonLocalizer.localize(PdfLocalizationName.total), Element.ALIGN_LEFT),
+                new CellData("", Element.ALIGN_LEFT),
+                createCell(amountTotal, priceScaleNumberFormat),
+                createCell(paidAmountTotal, priceScaleNumberFormat),
+                createCell(remainingTotal, priceScaleNumberFormat));
+
+        table.addTableWidthPercentage(4f, 4f, 4f, 3f, 3f);
+        return pdfData;
+    }
+
+    private CellData drawHeader(String name, Integer alignment) {
+        CellData nameCell = new CellData(name, alignment);
+        nameCell.setFont(createFont(9, true));
+        return nameCell;
+    }
+
+    private Font createFont(Integer fontSize, boolean bold) {
+        return FontFactory.getFont(ITextFontTypeEnum.TIMES_NEW_ROMAN.getName(), BaseFont.IDENTITY_H, fontSize, bold ? Font.BOLD : Font.NORMAL);
+    }
+
+    private CellData createCell(BigDecimal value, DecimalFormat numberFormat) {
+        return new CellData(getValueAsString(value, numberFormat), Element.ALIGN_RIGHT);
+    }
+
+    private String getValueAsString(BigDecimal value, DecimalFormat numberFormat) {
+        if (value != null) {
+            if (value.compareTo(BigDecimal.ZERO) >= 0) {
+                return " " + numberFormat.format(value);
+            } else {
+                return "(" + numberFormat.format(value.abs()) + ")";
+            }
+        }
+        return " ";
+    }
+
+    @Override
+    protected boolean prepareRequest(HttpServletRequest request) {
+        return false;
+    }
+
+    @Override
+    protected void setFileName(EdsUser user, Object dataClass) {
+       super.setFileName("CashAdvanceReport");
+    }
+
+    @Override
+    protected boolean isListingPDF() {
+        return true;
+    }
+
+    @Override
+    protected String getTableName(Object dataClass) {
+        lfp = (ListingFilterParameter) dataClass;
+        Date startDate = parseFilterParameterDate(lfp.getStartDateNC());
+        Date endDate = parseFilterParameterDate(lfp.getEndDateNC());
+        if (ServerUtils.getUserLocale().getLanguage().equals("uz")) {
+            return pdfWfmMessageSource.localize("cashAdvanceReport") + System.getProperty("line.separator") + " " + commonLocalizer.localize(PdfLocalizationName.from) + " "
+                    + ServerUtils.convertToUzbDateFormat(format.format(startDate)) + " " + commonLocalizer.localize(PdfLocalizationName.to) + " "
+                    + ServerUtils.convertToUzbDateFormat(format.format(endDate));
+        } else {
+            return pdfWfmMessageSource.localize("cashAdvanceReport") + System.getProperty("line.separator") + " " + commonLocalizer.localize(PdfLocalizationName.from) + " "
+                    + format.format(startDate) + " " + commonLocalizer.localize(PdfLocalizationName.to) + " " + format.format(endDate);
+        }
+    }
+}

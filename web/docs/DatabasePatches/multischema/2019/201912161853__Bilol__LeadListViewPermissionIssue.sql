@@ -1,0 +1,1 @@
+update permission set modulecode='LEAD_MANAGEMENT' where code = 'CRM_LEADS_LIST';

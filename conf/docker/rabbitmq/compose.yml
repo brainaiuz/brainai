@@ -1,0 +1,13 @@
+
+services:
+  rabbitmq:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: kpi:rabbitmq
+    container_name: "${KPI_RABBITMQ_HOST}"
+    hostname: "${KPI_RABBITMQ_HOST}"
+    ports:
+      - "${KPI_RABBITMQ_API}:5672"
+      - "${KPI_RABBITMQ_CONSOLE}:15672"
+    restart: always

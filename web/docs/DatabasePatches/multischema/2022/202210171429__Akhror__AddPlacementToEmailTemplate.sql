@@ -1,0 +1,1 @@
+insert into "anv".reference(code, isactive, issystemreference, name, sorder, parentid) select 'ET_PLACEMENT_MODULE', true, true, 'Placement', 40, (select id from "anv".reference where code = '_EMAIL_TEMPLATE_MODULE' limit 1) where not exists (select id from "anv".reference where code = 'ET_PLACEMENT_MODULE');

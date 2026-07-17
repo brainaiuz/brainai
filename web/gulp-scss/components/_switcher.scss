@@ -1,0 +1,150 @@
+/***************
+     Switch
+***************/
+$switcherWidth: 45px;
+$switcherHeight: 20px;
+$switcherLeverSize: 14px;
+
+$switcherLeverGap: 3px;
+
+.switch,
+.switch * {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -ms-user-select: none;
+}
+
+.switch {
+  label {
+    display: inline-flex;          // вместо inline-block / block
+
+    input[type=checkbox]{
+      opacity: 0;
+      width: 0;
+      height: 0;
+      position: absolute;
+      z-index: -100;
+
+      &:checked + .lever {
+        background-color: $switch-checked-lever-bg;
+      }
+    }
+
+$switcherLeverBarsGap: 3px;   // расстояние между палочками
+$switcherLeverBarW: 2px;      // толщина палочки
+$switcherLeverBarH: 60%;      // высота палочки внутри круга
+$switcherIconColor: $color-base-0;
+
+.lever {
+  display: inline-block;
+  position: relative;
+  width: $switcherWidth;
+  height: $switcherHeight;
+  //border: 1px solid $color-base-lighten;
+  border-radius: $switcherHeight / 2;
+  transition: background 0.3s ease;
+  vertical-align: middle;
+  background-color: $switch-unchecked-lever-bg;
+  cursor: pointer;
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: $switcherLeverGap;
+    width: $switcherLeverSize;
+    height: $switcherLeverSize;
+    margin-top: -($switcherLeverSize / 2);
+    border-radius: 50%;
+    line-height: 0;                 // текст больше не нужен
+    background-color: $switch-unchecked-bg;
+
+    // рисуем две вертикальные полосы симметрично относительно центра
+    background-image:
+      linear-gradient($switcherIconColor, $switcherIconColor),
+      linear-gradient($switcherIconColor, $switcherIconColor);
+    background-repeat: no-repeat, no-repeat;
+    background-size: $switcherLeverBarW $switcherLeverBarH, $switcherLeverBarW $switcherLeverBarH;
+    background-position:
+      calc(50% - #{$switcherLeverBarsGap/2}) 50%,
+      calc(50% + #{$switcherLeverBarsGap/2}) 50%;
+  }
+}
+  }
+}
+
+// общий стиль для кастомных текстов слева/справа
+.switch__label--left,
+.switch__label--right {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  line-height: 1.4;
+  //margin-top: -1.4;
+  // даём им возможность занимать ширину,
+  // чтобы перенос шёл как у обычного текста
+  flex: 1 1 auto;
+}
+.switch__label--left:not(:empty) {
+  margin-right: rem(10px);
+}
+.switch__label--right:not(:empty) {
+  margin-left: rem(10px);
+}
+
+// Switch active style
+input[type=checkbox]:checked:not(:disabled) ~ .lever:active:after {}
+
+input[type=checkbox]:not(:disabled) ~ .lever:active:after {}
+.switch label input[type=checkbox]:checked + .lever {}
+
+.switch label input[type=checkbox]:checked + .lever:after {
+  left: calc(100% - #{$switcherLeverSize + $switcherLeverGap}); //changed due to applied flex to label
+}
+
+// Disabled Styles
+.switch.disabled .lever,
+.switch input[type=checkbox][disabled] + .lever {
+  cursor: default;
+  opacity: 0.55;
+  pointer-events: none;    /* клики/hover не срабатывают на бегунке */
+  box-shadow: none;
+
+  &:after {
+    opacity: .6;
+  }
+}
+
+//Custrom Form > Add New Field modal > Switchers block
+.customField-switchers {
+  display: grid;
+  margin-bottom: $formGroupMargin;
+  .form-compressed & {
+    margin-bottom: ($formGroupMargin * .75);
+  }
+
+  // Кол-во колонок считается автоматически:
+  // ширина одной — от 25% до "поделить оставшееся место поровну"
+  grid-template-columns: repeat(auto-fit, minmax(25%, 1fr));
+
+  column-gap: $tableCellPadding-x;
+  row-gap: 0.75rem;
+  align-items: flex-start;
+
+  > .form-group {
+    height: 100%; // to align swithchers by height when labels have different number of lines
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0; // за вертикальные отступы отвечает row-gap
+    max-width: none;  // больше не ограничиваем 33.3%
+  }
+
+  .form-group__label {
+    flex-grow: 1;
+    display: flex;
+    align-items: flex-end;
+    word-break: break-word;
+    text-transform: math-auto;
+  }
+}

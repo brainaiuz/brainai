@@ -1,0 +1,4 @@
+<module rename-to="trainingcenter">
+    <inherits name="com.edatasite.workforce.gwt.trainingcenter.TrainingCenter"/>
+    <inherits name="com.edatasite.workforce.gwt.Localization_properties"></inherits>
+</module>

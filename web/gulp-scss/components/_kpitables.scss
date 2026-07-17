@@ -1,0 +1,2169 @@
+///*====== cellbasedwidget tables, selectPanelWidget__table ====== */
+///*see also custom-page.scss*/
+$listingTransitionDuration: 0.2s;
+
+table.default-width {
+  width: auto; //https://prnt.sc/r1d41s too big cells issue
+}
+
+.cellBasedWidget-mod {
+  .collapsible-body & {
+    //min-height: 50px;
+    > div:last-child, // to compensate this .cellBasedWidget-mod--static-body > div:last-child > pos:rel;
+    > div {
+      position: static !important; //PM > Involved Employees, Attachments
+    }
+  }
+}
+
+.cellBasedWidget-mod--cell-not-overflow {
+  //overflow: visible !important; // for Attachment widget
+}
+
+/* header row */
+/* header cell */
+.cellBasedWidget-mod thead th {
+  white-space: normal;
+  padding-top: rem(4px) !important;
+  padding-bottom: rem(4px) !important;
+  font-size: $theadBaseFontSize-sm !important;
+}
+.cellBasedWidget-mod thead th,
+.selectPanelWidget__table-header td {
+  //padding: 0 10px;
+  //color: white !important;
+  //text-shadow: none !important;
+  border-bottom: none; //to override empeded styles
+  text-shadow: none; //to override empeded styles
+  //position: relative;
+}
+
+.cellBasedWidget-mod thead th:not(:last-child):after,
+.selectPanelWidget__table-header td:not(:last-child):after {
+  content: '';
+  position: absolute;
+  display: none;
+  width: 1px;
+  height: 60%;
+  top: 20%;
+  background-color: #a9b4bf;
+  right: 3px;
+}
+
+.cellBasedWidget-mod thead th > a {
+}
+
+///* header cell - first */
+//.cellBasedWidget-mod thead th:first-child,
+.selectPanelWidget__table-header td:first-child {
+  padding-left: 20px;
+  text-align: left; // HRMS Attendance Report heading
+}
+
+///* header cell - last */
+//.cellBasedWidget-mod thead th:last-child,
+.selectPanelWidget__table-header td:last-child {
+  padding-right: 16px;
+}
+.selectPanelWidget__table-header td:last-child {
+  padding-right: $padding-x-base; //https://prnt.sc/vlew2x
+}
+//com-google-gwt-user-cellview-client-DataGrid-Style-dataGridLastColumn
+.cellBasedWidget-mod thead th:last-child,
+.cellBasedWidget-mod table > tbody > tr > td:last-child:not(.com-google-gwt-user-cellview-client-DataGrid-Style-dataGridLastColumn):not(:nth-child(2)) {
+  text-align: left; //https://prnt.sc/vlew2x
+  .settings_permission-management & {
+    text-align: inherit;
+  }
+}
+
+///* body row */
+.cellBasedWidget-mod tbody tr {
+  //background-color: white;
+  //border: none;
+  //border-bottom: 1px solid $color-base-0;
+  //border-radius: 0;
+}
+
+.cellBasedWidget-mod:not(.cellBasedWidget-attachment) tbody tr:hover {
+  //background-color: #f7f9fa;
+  background-color: $color-base-contrast;
+}
+
+.cellBasedWidget-mod tbody tr .leaveReqCenter,
+.cellBasedWidget-mod tbody tr:hover .leaveReqCenter {
+  background-color: transparent; //https://prnt.sc/r2cbna
+}
+
+.cellBasedWidget-mod__message-table tbody tr:hover {
+  background: white;
+}
+
+/* body cell */
+//.cellBasedWidget-mod tbody td,
+.selectPanelWidget__table-body tbody td {
+  height: $theadHeight;
+  padding: 0 $tableCellPadding-x;
+  border: none;
+  font-size: 10px;
+  //position: relative;
+  &:focus {
+    outline: none;
+  }
+}
+
+.cellBasedWidget-mod:not(.cellBasedWidget-mod--cell-not-overflow) tbody td {
+  overflow: hidden;
+}
+
+.cellBasedWidget-mod:not(.cellBasedWidget-mod--cell-not-overflow) tbody td:hover,
+.selectPanelWidget__table-body tbody td:hover {
+  //overflow: visible; //https://prnt.sc/ryjttd
+}
+
+
+//not.com-google-gwt-user-cellview-client-DataGrid-Style-dataGridWidget //https://prnt.sc/s3azvo
+.cellBasedWidget-mod:not(.cellBasedWidget-mod--cell-not-overflow):not(.com-google-gwt-user-cellview-client-DataGrid-Style-dataGridWidget) tbody td:not([class*="FQNNT1"]):hover > *,
+.selectPanelWidget__table-body tbody tr:not([class*="FQNNT1"]) td:hover > * {
+
+  background-color: #F7F9FA;
+  box-shadow: 5px 4px 3px #f7f9fa, // lead to the following problem https://prnt.sc/qycxpy
+  5px 4px 3px #f7f9fa,
+  5px 4px 3px #f7f9fa,
+  5px 4px 3px #f7f9fa,
+  5px 4px 3px #f7f9fa,
+  5px 4px 3px #f7f9fa,
+  5px 4px 3px #f7f9fa,
+  5px 4px 3px #f7f9fa,
+  5px 4px 3px #f7f9fa,
+  5px 4px 3px #f7f9fa,
+  5px 4px 3px #f7f9fa,
+  5px 4px 3px #f7f9fa,
+  5px 4px 3px #f7f9fa,
+  5px 4px 3px #f7f9fa,
+  5px 4px 3px #f7f9fa,
+  5px 4px 3px #f7f9fa,
+  5px -4px 3px #f7f9fa,
+  5px -4px 3px #f7f9fa,
+  5px -4px 3px #f7f9fa,
+  5px -4px 3px #f7f9fa,
+  5px -4px 3px #f7f9fa,
+  5px -4px 3px #f7f9fa,
+  5px -4px 3px #f7f9fa,
+  5px -4px 3px #f7f9fa,
+  5px -4px 3px #f7f9fa,
+  5px -4px 3px #f7f9fa,
+  5px 0px 3px #f7f9fa,
+  5px 0px 3px #f7f9fa,
+  5px 0px 3px #f7f9fa,
+  5px 0px 3px #f7f9fa,
+  5px 0px 3px #f7f9fa,
+  5px 0px 3px #f7f9fa,
+  5px 0px 3px #f7f9fa,
+  5px 0px 3px #f7f9fa,
+  5px 0px 3px #f7f9fa,
+  5px 0px 3px #f7f9fa;
+}
+.FQNNT1-e-l {}
+
+.cellBasedWidget-mod .cellBasedWidget-mod__message-table tbody td:hover > * {
+  background-color: white;
+  box-shadow: none;
+}
+
+/* body cell - first */
+//.cellBasedWidget-mod {
+//  table {
+//    .dynamictable & {
+//      height: $button-height;
+//    }
+//    table {
+//      height: auto;
+//    }
+//  }
+//  tbody td:first-child {
+//    padding-left: 20px;
+//    .dynamictable & {
+//      padding: 0 $tableCellPadding-x;
+//    }
+//  }
+//}
+
+/* body cell - last */
+//.cellBasedWidget-mod tbody td:last-child {
+//  padding-right: 16px;
+//}
+
+tbody td.cellBasedWidget-mod__marked-cell {
+  background-color: $color-base-1;
+}
+
+//.cellBasedWidget-mod .leaveReqCenter tr,
+//.cellBasedWidget-mod .leaveReqCenter td {
+//  background-color: white !important;
+//}
+
+///*
+//Set table header sticky in its container if height is fixed
+//*/
+.cellBasedWidget-mod:not(.cellBasedWidget-mod--fixed-height) > div:first-child {
+  padding-right: 0 !important;
+  z-index: 2;
+}
+
+.cellBasedWidget-mod--fixed-height > div:first-child {
+  position: static !important; // need to force parent div take height from its content;
+  //background-color: #8D9BA8; // may lead to the next problem - https://prnt.sc/rg8gim
+  //background-color: $theadBg;
+
+  .cellBasedWidgetTable-header {
+
+  }
+}
+
+///* Mirisoev fixes (from Invoice.css) */
+///*__hrms accounting infor - widget height 0 fix*/
+///*
+//https://newui.kpi.com/Hrms.html#editemployeeProfile%7Ceditprofile/187
+//http://prntscr.com/ie1otg
+//*/
+
+.cellBasedWidget-selector-table.cellBasedWidget-mod > div:nth-child(3) {
+  height: 250px !important;
+}
+
+.cellBasedWidget-selector-table.cellBasedWidget-mod thead {
+  background: none;
+  border: none;
+}
+
+.cellBasedWidget-selector-table.cellBasedWidget-mod > div:first-child table {
+  background: none;
+}
+
+.cellBasedWidget-selector-table.cellBasedWidget-mod tbody td:first-child {
+  padding-left: 10px;
+}
+
+///* \ Mirisoev fixes (from Invoice.css) */
+
+.cellBasedWidget-mod--fixed-height > div:last-child {
+  top: 0 !important;
+  bottom: 0 !important;
+  padding-top: 10px; //http://prntscr.com/myq6tp
+
+  .com-google-gwt-resources-client-CommonResources-InlineBlockStyle-inlineBlock {
+    //margin-top: -10px; //https://prnt.sc/os7pdr BUT it lead to the next problem https://prnt.sc/rg7ode
+  }
+}
+
+.cellBasedWidget-mod--fixed-height > div:last-child > div > div:nth-child(2) {
+  right: 0 !important;
+}
+
+///*- Style a cellbasedwidget table to look like a listing table: with border spacing, border-radius -*/
+
+.cellBasedWidget-mod--like-listing > div:last-child table {
+  border-collapse: separate;
+  border-spacing: 0 5px;
+}
+
+.cellBasedWidget-mod--like-listing > div:last-child tr:first-child td:first-child {
+  border-top-left-radius: 0;
+}
+
+.cellBasedWidget-mod--like-listing > div:last-child tr:first-child td:last-child {
+  border-top-right-radius: 0;
+}
+
+.cellBasedWidget-mod--like-listing div:first-child table {
+  border-radius: 5px 5px 0 0;
+  overflow: hidden !important;
+}
+
+.cellBasedWidget-mod--like-listing.cellBasedWidget-mod--static-body > div:last-child {
+  padding-top: 41px;
+}
+
+.cellBasedWidget-mod--like-listing tbody tr td:first-child {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.cellBasedWidget-mod--like-listing tbody tr td:last-child {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+///*- Removing  [position: absolute], [height] from cellbasedwidget's content and from all its parents to look like static content -*/
+.cellBasedWidget-mod--static-body {
+  > div {
+    position: static !important;
+    //height: auto !important; //https://prnt.sc/r2bevx commented due to variation popup scroll issue https://prnt.sc/ty8a9o
+
+    &[style*="height: 20px"] {
+      height: auto !important; //https://prnt.sc/vinqld
+    }
+
+    &:last-child {
+      //height: auto !important; lead to the disabling of the scroll -> //https://prnt.sc/pabxim
+      overflow: auto !important;
+      //padding-top: $theadHeight; //http://prntscr.com/mqvish
+      //position: relative !important;\
+      > div {
+        height: auto !important;
+        overflow: auto !important;
+        position: static !important;
+        > div:nth-child(2) {
+          height: auto !important;
+          overflow: auto !important;
+          position: static !important;
+          > div {
+            overflow: auto !important;
+            position: static !important;
+          }
+        }
+      }
+    }
+  }
+}
+///* Make cellbasedwidget's header as header with position fixed.
+//   This class is aslo included in .fixed-content selector
+//*/
+
+.cellBasedWidget-mod--fixed-header > div:first-child > div:last-child {
+  z-index: 2;
+}
+
+///* Styles for cellbasedwidget table on timesheet page */
+
+.cellBasedWidget-mod--timesheet {
+  flex: 1 0 auto;
+  //position: static !important;
+  overflow: hidden !important;
+  width: auto !important;
+  height: auto !important;
+  margin-top: $frameContentPadding;
+}
+
+.cellBasedWidget-mod--timesheet > div:first-child {
+  position: absolute !important;;
+  //top: $timesheetAbsPosition !important;
+  left: 0px !important;;
+  right: 0px !important;
+  width: auto !important;
+  border-radius: 5px 5px 0 0;
+}
+
+.cellBasedWidget-mod--timesheet > div:nth-child(2) {
+  position: absolute !important;
+  bottom: 0 !important;
+  //height: $timesheetAbsPosition;
+  right: 0px;
+  width: auto !important;
+}
+
+.cellBasedWidget-mod--timesheet > div:last-child {
+  position: absolute !important;
+  //top: 80px !important;
+  bottom: 56px;
+  height: auto !important;
+  right: 0px;
+  width: auto !important;
+}
+
+.cellBasedWidget-mod--timesheet > div:nth-child(2) table {
+  background: #8D9BA8;
+}
+
+.cellBasedWidget-mod--timesheet tfoot th {
+  color: white;
+  padding: 10px;
+  text-shadow: none !important;
+  border-top: none !important;
+}
+
+.cellBasedWidget-mod--timesheet thead th > div {
+  text-align: left !important;
+}
+
+.cellBasedWidget-mod--timesheet > div > div:last-child td span {
+  padding: 3px;
+  border-radius: $radius-basePlus;
+  font-weight: normal;
+}
+
+
+.cellBasedWidget-mod--timesheet {
+  .mod--not-sent {
+    font-weight: bold !important; /*temporary*/
+    color: $color-accent-2;
+  }
+  .mod--filled {
+    color: #000;
+  }
+  .mod--approved {
+    background-color: #86ca41;
+    color: white;
+    font-weight: normal;
+  }
+  .mod--rejected {
+    background-color: #d0011b;
+    color: white;
+    font-weight: normal;
+  }
+  .mod--pending {
+    background-color: #f5a623;
+    color: white;
+  }
+  .mod--failed {
+    font-style: italic;
+  }
+  td[__gwt_cell]:hover { // to ovverride above rule (row:731)
+    [class*="mod--"] {
+    }
+  }
+}
+
+
+/* ============ gwt-ScrollTable ===============*/
+
+.gwt-ScrollTable {
+  overflow: visible !important; /* maybe not needed */
+  height: auto !important; /*to prevent height:1px gwt*/
+  font-size: 12px;
+}
+table.table thead tr {
+  height: inherit !important; // override .jar style https://i.imgur.com/cGHaQwY.png
+}
+//Table Heading
+//.rsrcUtlzTbl-outer > div.table,
+//attendanceReport__table-header thead,
+tr.timesheet-approval-table__heading,
+tr.theader,
+.cellBasedWidget-mod thead,
+.selectPanelWidget__table-header tbody,
+.balance-sheet__caption,
+  //.table thead.point_affix_top, //Statements static layout //ToDo try to remove
+.table thead > tr:last-child,
+.kpi-thead,
+.gwt-ScrollTable .headerWrapper {
+  width: auto !important;
+  padding-right: 0 !important;
+  overflow: hidden !important;
+  @include theadShadow;
+
+  .panelSect & {
+    background: transparent;
+    //box-shadow: none;
+  }
+}
+
+
+.table thead.point_affix_top > tr:last-child {
+  width: 100% !important;
+}
+
+.table thead {
+  position: relative;
+
+  a {
+    color: $text-color-base !important; // "!important" is needed to override inline styles
+  }
+}
+
+.headerTable {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  th {
+    @include txtTruncate();
+  }
+}
+.footerTable > tbody > tr > td {
+  @include theadShadow;
+}
+
+table.table * tr * {
+  *:empty:not(.dropdown-content) { // empty span causes extra space between the text and the border of the cell (gwt set inline-block for th span) https://i.imgur.com/a9ydV9R.png
+    display: inline; //but .dropdown-content should not be inline when it is display: none by default
+  }
+}
+
+tr.timesheet-approval-table__heading > td, //PM > Approve Timesheets
+.widget-ranking__table > tbody > tr:first-child > td,
+  //.point_affix_top.has_affix:not([point_affix_top_when]):not([point_affix_top_below_selector]),
+.cellBasedWidget-mod thead th,
+.selectPanelWidget__table-header td,
+.balance-sheet__caption td,
+.table thead.point_affix_top > tr > *, //ToDo try to remove
+.table thead > tr > *,
+.kpi-thead > tr > *,
+.headerTable > tbody > tr > td {
+  position: relative;
+  @include theadBasedCell($cursor: pointer);
+
+  > div:not(.frame_affix_top) {//Accounting Statements Transactions https://prnt.sc/re7hhb
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    &.text-right {
+      justify-content: flex-end;
+    }
+  }
+  > div {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    max-width: 100%;
+
+    > span {
+      &:first-child {
+        @include txtTruncate();
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        word-break: break-all;
+      }
+
+      + span:last-child {
+        flex: 0 0 18px;
+      }
+    }
+  }
+
+  &[align="right"] {
+    > div {
+      justify-content: flex-end;
+    }
+  }
+
+  //&.right-align,
+  > div.text-right,
+  &.text-right {
+    > div {
+      justify-content: flex-end;
+    }
+  }
+
+  svg {
+    height: 13px;
+    margin-top: 1px;
+    fill: currentColor;
+  }
+}
+
+.pageContent_reporting {
+  background-color: #fff;
+  .point_affix_top.has_affix {
+    margin-top: -$input-height; //https://prnt.sc/r29p7v
+    //using left-menu transition !
+  }
+}
+
+.thead-cols thead > tr > *,
+tr.timesheet-approval-table__heading > td,
+.headerTable > tbody > tr > td,
+.pageContent_reporting table thead tr:last-child > th,
+.kpi-thead tr > th {
+  &:not(:last-child):after {
+  content: '';
+  position: absolute;
+  width: 1px;
+  top: 20%;
+  bottom: 20%;
+  background-color: $tableDelimiter;
+  right: 0; // https://i.imgur.com/ohEsNSF.png
+  }
+}
+.gwt-ScrollTable td[style*="height: 0px"] {
+  &:after {
+    display: none; //for gwt generated due to set col sizes, cells
+  }
+}
+
+//.tf-wrapper .kpi-thead tr > th:not(:last-child):after {right: 0px;}
+
+.headerTable > tbody > tr > td:first-child:after {
+  right: 0;
+}
+
+.pageContent_reporting table thead tr > th {
+  position: relative;
+}
+
+.gwt-ScrollTable td[style*="height: 0px"] {
+  &[style*="width: 47px"] {
+    //width: $checkbox-size !important;
+  }
+}
+
+///* header cell - first */
+// ГРУППА 1: Применяем особый паддинг к .table, ИСКЛЮЧАЯ .pnl-table
+.table:not(.pnl-table) > * > tr.thead > *,
+.table:not(.pnl-table) > * > tr > *,
+.table:not(.pnl-table) thead.point_affix_top > tr > *,
+.table.table_listing:not(.pnl-table) > tbody > tr > td {
+  &:first-child {
+    position: relative;
+    padding-left: $firstCellLeftPadding;
+    padding-right: $tableCellPadding-x;
+
+    &:has(.gwt-CheckBox, .control--checkbox) {
+      $paddingsX: $firstCellLeftPadding + $tableCellPadding-x;
+      width: calc(10px + #{$paddingsX});
+    }
+  }
+}
+
+// ГРУППА 2: Остальные селекторы из старой группы, которые мы не трогаем
+table:not(.tm) > .category_set > tr > td,
+.kpi-thead > tr > *,
+.gwt-ScrollTable .dataTable > tbody > tr > td,
+.gwt-ScrollTable .headerTable > * > tr > *,
+.footerTable > * > tr > * {
+  &:first-child {
+    position: relative;
+    padding-left: $firstCellLeftPadding;
+    padding-right: $tableCellPadding-x;
+
+    &:has(.gwt-CheckBox, .control--checkbox) {
+      //width: $checkbox-size;
+      $paddingsX: $firstCellLeftPadding + $tableCellPadding-x;
+      width: calc(10px + #{$paddingsX}); //the minimum size of hidden column (which gwt compile due to set size of column)
+    }
+  }
+}
+
+// Теперь то же самое для последнего столбца, который был внутри .table
+.table:not(.pnl-table) > * > tr > * {
+  &:last-child {
+    padding-right: 16px;
+
+    .projectPositionWidget & {
+      padding-right: 0;
+    }
+  }
+}
+
+.headerTable > * > tr > *:first-child,
+.footerTable > * > tr > *:first-child {
+  //> .gwt-CheckBox,
+  > div {
+    margin-left: -($tableCellPadding-x);
+    margin-right: -($tableCellPadding-x);
+  }
+
+  > div {
+    padding-left: $tableCellPadding-x;
+    padding-right: $tableCellPadding-x; //to fit with .cell-docorator in tbody
+  }
+}
+
+///* header cell - last */
+.headerTable > * > tr > *:last-child,
+.footerTable > * > tr > *:last-child {
+  padding-right: 16px;
+}
+
+.headerTable,
+.footerTable,
+.dataTable {
+  th[align="center"], td[align="center"] {
+    text-align: left;
+  }
+}
+
+///* body row */
+.widget-ranking__table,
+.table.table_listing {
+  > tbody > tr {
+    > td {
+      padding: $tableCellPadding-y $tableCellPadding-x;
+
+      &:not(:first-child) {
+        .cell-decorator {
+          margin-left: -$tableCellPadding-x; //https://prnt.sc/rq80na
+          margin-right: -$tableCellPadding-x;
+        }
+      }
+    }
+  }
+}
+
+.dataTable td {
+  &:has(.control) {
+    cursor: pointer;
+  }
+
+  &:has(.action-listing) {
+    width: 22px; //ToDo need developer's help
+  }
+}
+.widget-ranking__table,
+.table.table_listing,
+.dataTable,
+.footerTable {
+  > tbody > tr {
+    &:not(.theader) {
+      background-color: #fff;
+      transition: background $listingTransitionDuration ease;
+    }
+
+    > td {
+      position: relative; // for the .cell-edit-icon icon, which is apsolute positioned. And for long text on hover position
+      height: $theadHeight;
+      border: none;
+      transition: 0.2s width ease-out 0s, opacity .22s ease-out; // opacity added for cell-truncate mixin see below
+      overflow: visible;
+      white-space: nowrap;
+
+      .gwt-ListBox { //https://prnt.sc/sfezvw
+        //margin-left: -$tableCellPadding-x;
+        //margin-right: -$tableCellPadding-x;
+      }
+
+      .timesheet__container & {
+        &:first-child {
+          > a {
+            display: inline-block;
+            vertical-align: middle;
+            @include txtTruncate();
+            max-width: 100%;
+            cursor: pointer;
+          }
+
+          &:hover > a,
+          > a:hover {
+            max-width: none;
+            position: relative;
+            background-color: #fff;
+          }
+        }
+      }
+    }
+  }
+}
+
+//tr.FQNNT1-e-i - на строку наведена мышь
+//td.FQNNT1-e-j - ячейки строки на которую наведена мышь
+//td.FQNNT1-e-j - ячейки строки в которой одна из ячеек имеет фокус
+//td.FQNNT1-e-k - ячейка с фокусом
+//tr.FQNNT1-e-l - одна из ячеек строки имеет фокус
+//https://prnt.sc/rybzf4, https://prnt.sc/ryjttd
+.cellBasedWidget-mod table {
+  > tbody > tr > td {
+    height: $theadHeight;
+    padding: 1px $tableCellPadding-x;
+    border: none;
+
+    > input { //https://i.imgur.com/7dZrfS6.png
+      position: relative;
+      max-width: 100%;
+      border: $control-border-width solid $control-border-color;
+      border-radius: $control-border-radius;
+
+      &:focus {
+        outline: 1px solid $color-accent-2;
+      }
+    }
+
+    .form-control {
+      //width: calc(100% + #{$tableCellPadding-x * 2});
+      //margin-left: -$tableCellPadding-x;
+      //margin-right: -$tableCellPadding-x;
+    }
+
+
+    &.FQNNT1-e-k {
+      &:not(:has(select)):not(:has(.form-control)):not(:has(.gwt-ListBox)) {
+        outline: 1px solid $gray-middle;
+      }
+    }
+
+
+    &.com-google-gwt-user-cellview-client-DataGrid-Style-dataGridFirstColumn {
+      //padding-right: 0;// it's good to be removed at least for HRMS > initiate simple appraisal table
+      > div {
+      }
+    }
+
+    .timesheet__container & {
+      &:hover > a {
+        @include table-cell-decorator;
+        @include table-cell-decorator-colors;
+      }
+    }
+  }
+
+  .FQNNT1-e-a {
+  }
+}
+//com-google-gwt-resources-client-CommonResources-InlineBlockStyle-inlineBlock
+.com-google-gwt-user-cellview-client-DataGrid-Style-dataGridWidget table {
+  border-collapse: separate; //https://prnt.sc/s3azvo
+}
+.com-google-gwt-user-cellview-client-DataGrid-Style {
+  &-dataGridEvenRowCell,
+  &-dataGridHoveredRowCell,
+  &-dataGridOddRowCell,
+  &-dataGridHoveredRowCell,
+  &-dataGridKeyboardSelectedCell {
+    border-width: 1px !important;
+  }
+  &-dataGridEvenRowCell {
+    //border-color: wheat !important;
+  }
+  &-dataGridHoveredRowCell {
+  }
+  &-dataGridKeyboardSelectedCell {
+    //border-color: #f00 !important;
+  }
+}
+
+.table.table_listing,
+.dataTable {
+> tbody > tr:not [ style *= "background:" ] {
+}
+}
+
+.table.table_listing,
+.dataTable {
+  > tbody > tr {
+    box-shadow: none;
+
+    > td:hover {
+      [__gwt_cell],
+      .cell-decorator {
+        @include table-cell-decorator;
+        &.voidStyles {
+          display: inline-block; // https://prnt.sc/t68b4c to prevent .voidStyles [display:block]
+        }
+      }
+    }
+    > td:not(:first-child):not(:has(.action-listing, .cp_phone)):hover {
+      [__gwt_cell],
+      .cell-decorator {
+        @include table-cell-decorator-colors;
+        //&.has-fcontrol,
+        .cell-decorator {
+          outline: none;
+          background-color: transparent;
+        }
+      }
+    }
+    &.highlighted > td:not(:first-child):not(:has(.action-listing)):hover {
+      [__gwt_cell],
+      .cell-decorator {
+        background-color: $highlightedRowColor;
+        &.has-fcontrol {
+          outline: none;
+          background-color: transparent;
+        }
+      }
+    }
+    &.selected > td:not(:first-child):not(:has(.action-listing)):hover {
+      [__gwt_cell],
+      .cell-decorator {
+        background-color: $selectedRowColor;
+      }
+    }
+
+    &.highlighted {
+      color: $text-color-base;
+    }
+
+    &.selected,
+    &.selected:hover {
+      background-color: $selectedRowColor;
+    }
+  }
+}
+.selected {
+  background-color: $selectedRowColor;
+}
+
+.widget-ranking__table > tbody > tr:hover,
+.create-report .table > tbody > tr:hover,
+.dataTable > tbody > tr.highlighted:not(.selected) {
+  background-color: $highlightedRowColor;
+  //transform: translate(0); lead to the next problem //https://prnt.sc/sjen8y
+}
+
+/* body cell */
+.dataTable > tbody > tr.selected td:not(:first-child):hover {
+  //.action-listing,
+  .cell-decorator:not(:has(.action-listing)) {
+    background-color: $selectedRowColor;
+  }
+}
+
+.dataTable > tbody > tr > td {
+  &:not(:first-child):not(:has(.action-listing, .cp_phone)):hover > *:not(.gwt-control):not(.row-decorator):not(span[class*="mod--"]),
+  &:hover > [__gwt_cell]  {
+    position: relative;
+    z-index: 9;
+    transition: background 0.2s ease;
+    background-color: $highlightedRowColor;
+  }
+}
+
+.dataTable > tbody > tr > td:hover > [__gwt_cell]:first-child:has(.gwt-CheckBox, .control--checkbox) {
+  background-color: transparent;
+  box-shadow: none; //lead to the following problem https://prnt.sc/qycxpy
+}
+
+.dataTable > tbody > tr.selected > td:not(:first-child):not(:has(.action-listing)):hover > *:not(.action-listing):not(.gwt-control):not(.row-decorator) {
+  background-color: $selectedRowColor;
+}
+
+/* body cell - first */
+.dataTable .action-listing.ficon--more-horiz:before {
+  top: 0;
+}
+
+/* body cell - last */
+.dataTable > tbody > tr > td:last-child {
+  //border-top-right-radius: 5px;
+  //border-bottom-right-radius: 5px;
+  padding-right: 6px;
+}
+
+/* remove border-radius from the first row of content */
+.wfm-treeTable .action-listing,
+.dataTable > tbody > tr .action-listing,
+.color-panel-preview .action-listing {
+  color: #8D9BA8;
+  border-radius: $radius-basePlus;
+  border: none;
+  transition: background $listingTransitionDuration ease;
+}
+
+.wfm-treeTable .action-listing .ficon--more-horiz:before,
+.dataTable > tbody > tr .action-listing .ficon--more-horiz:before {
+  top: 0;
+}
+
+.headerTable .action-listing-header-icon {
+  font-size: 1.3em;
+  margin-left: 15px;
+  vertical-align: middle;
+}
+
+.gwt-ScrollTable .footerTable td {
+  font-weight: bold;
+}
+
+.widget-ranking__table,
+.table_listing,
+.dataTable {
+  border-spacing: 0 1px;
+  border-collapse: separate;
+  color: $color-accent-2;
+
+  i:hover {
+    color: #000;
+  }
+}
+
+.dataTable {
+  background-color: $body-bg;
+
+  .panelSect & {
+    background-color: #fff;
+  }
+}
+
+.gwt-ScrollTable .dataTable {
+  padding-top: $theadHeight !important;
+}
+
+.headerTable,
+.dataTable,
+.footerTable {
+  width: 100% !important;
+
+  .add-employee-modal & {
+    //width: auto !important; //due to table-layout:fixed (extra scroll) > https://prnt.sc/sn960d
+  }
+}
+
+.gwt-ScrollTable > div {
+  position: static !important;
+  overflow: visible !important;
+}
+
+.gwt-ScrollTable > div > div {
+  //overflow: visible !important; //https://prnt.sc/tfuz8g scroll shift only dataTable (not heading)
+}
+
+/*.gwt-ScrollTable .footerWrapper {*/
+
+.kpiGrid-emptyTable {
+  //z-index: 1;
+  text-align: center;
+  padding-top: 60px;
+}
+
+.gwt-ScrollTable .dataWrapper {
+  height: auto !important;
+}
+
+.emptyTable-content {
+  position: absolute;
+  z-index: 1;
+  top: 200px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  td[align="left"] {
+    text-align: center; //https://prnt.sc/rml8qm
+
+    table[style*="width: auto"] {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
+
+.emptyTable-content .addLinkStyle:before {
+  content: ' ';
+  display: inline-block;
+}
+
+$cellDecoratorSize: 8px;
+.cell-decorator i,
+.row-decorator {
+  width: $cellDecoratorSize;
+  height: $cellDecoratorSize;
+  border-radius: 50%;
+}
+
+.row-decorator {
+  position: absolute;
+  bottom: 0;
+  top: 50%;
+  left: $cellDecoratorSize;
+  margin-top: -($cellDecoratorSize / 2);
+}
+
+.dataTable > tbody > tr > td > [__gwt_cell] {
+  //display: inline-block;
+}
+.dataTable > tbody > tr > td > [__gwt_cell],
+.cell-decorator:not(:has(> .control--checkbox, .action-listing)) {
+  position: relative;
+  @include txtTruncate();
+ //https://prnt.sc/sfezvw
+  vertical-align: middle;
+  max-width: 100%;
+  min-width: 22px; //checkbox space
+  div:not(.truncTxt-root) {
+    display: inline; // in order to ellipsis works
+  }
+  *[class*="ficon--"] {
+    //text-indent: 0;
+  }
+
+  > .gwt-control,
+  > .control,
+  > i {
+    display: inline-block;
+    margin-left: -($tableCellPadding-x);
+  }
+
+  > i {
+    margin-right: 5px;
+  }
+}
+// start .truncTxt-table = TABLE with TRUNCATE EFFECTS
+.truncTxt-cell {
+  @include cell-truncate();
+}
+
+// only adjacent rows and cells are muted
+//truncTxtCatch,
+.truncTxt-table > * > tr {
+  > * {
+    //transition: opacity .22s ease-out; //called above with witdh transition
+  }
+
+  &.truncTxt-hover > *:not(.truncTxt-cell:hover),
+  &.truncTxt-prev > *,
+  &.truncTxt-next > * {
+    opacity: .65;
+  }
+}
+// end .truncTxt-table = TABLE with TRUNCATE EFFECTS
+
+
+
+span.cell-decorator {
+  display: inline-block; //https://prnt.sc/sfezvw
+}
+.cell-decorator:has(.action-listing) {
+  .text-holder {}
+  .action-listing {
+    display: inline-block;
+    padding: 0 $tableCellPadding-x;
+  }
+}
+.action-listing:hover {
+  background-color: $highlightedRowColor;
+}
+
+.dataTable.cellBasedWidgetTable-body > tbody > tr > td > [__gwt_cell] {
+  > .gwt-control,
+  > .control,
+  > i {
+    margin-left: 0; //https://prnt.sc/p5qjks
+  }
+}
+
+.cell-decorator.voidStyles[style] {
+  display: block; // https://prnt.sc/t68b4c May lead to prevent full width on hover
+  max-width: none;
+}
+.cell-decorator {
+  :has(.action-listing) {
+    margin-right: $tableCellPadding-x;
+    margin-left: $tableCellPadding-x;
+  }
+  &:not(:has(> .gwt-CheckBox, > .control--checkbox, .action-listing)) {
+    padding-right: $tableCellPadding-x;
+    padding-left: $tableCellPadding-x;
+  }
+
+  &.voidStyles[style] {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+
+  > svg {
+    color: $color-base-2;
+  }
+
+  td:not(:first-child) > & {
+    //margin-left: -($tableCellPadding-x);
+    //margin-right: -($tableCellPadding-x);
+  }
+
+
+  .gwt-ScrollTable .dataTable > tbody > tr > td:first-child &,
+  .gwt-ScrollTable .headerTable > * > tr > *:first-child & { //https://prnt.sc/rj20vh
+    padding: 0;
+    //min-width: $checkbox-size;
+    .gwt-control, .control {
+      //height: $checkbox-size;
+      margin-left: 0;
+      pointer-events: none;
+
+      input[type="checkbox"] {
+        //pointer-events: none;
+      }
+    }
+  }
+}
+
+.cell-decorator .cp_phone__number,
+.cell-decorator .cp_phone__call {
+  max-width: 100%;
+}
+
+.cell-decorator[style *= 'color:'] a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+//.cp_phone--no-number,
+.cell-decorator .cp_phone {
+  display: flex;
+
+  .cp_phone__text {
+    margin-right: 3px;
+  }
+}
+
+.cell-edit-icon {
+  display: none;
+  position: absolute;
+  z-index: 81; //https://prnt.sc/sjdx3r
+  top: -4px;
+  left: -$tableCellPadding-x;
+  overflow: hidden;
+  height: 13px;
+  width: 13px;
+  padding: 1px;
+  //background: content-box url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIHdpZHRoPSI5cHgiIGhlaWdodD0iOXB4IiB2aWV3Qm94PSIwIDAgOSA5IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPiAgICA8ZGVmcz48L2RlZnM+ICAgIDxnIGlkPSJQYWdlLTEiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPiAgICAgICAgPGcgaWQ9IkN1c3RvbWVyLUNlbnRlci1ORVciIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0zNDEuMDAwMDAwLCAtNTAxLjAwMDAwMCkiIGZpbGw9IiM1MzY2NzciPiAgICAgICAgICAgIDxnIGlkPSJlZGl0LTMtY29weSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzQxLjAwMDAwMCwgNTAxLjAwMDAwMCkiPiAgICAgICAgICAgICAgICA8cG9seWdvbiBpZD0iU2hhcGUiIHBvaW50cz0iNi42IDAgOSAyLjQgMi40IDkgMCA5IDAgNi42Ij48L3BvbHlnb24+ICAgICAgICAgICAgPC9nPiAgICAgICAgPC9nPiAgICA8L2c+PC9zdmc+) 50%/cover no-repeat;
+  //background: content-box url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQ1IDc5LjE2MzQ5OSwgMjAxOC8wOC8xMy0xNjo0MDoyMiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTkgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjlCN0FFQjlFOTk4OTExRUFBODMzOTQwMTcyRDBGRUIyIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjlCN0FFQjlGOTk4OTExRUFBODMzOTQwMTcyRDBGRUIyIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6OUI3QUVCOUM5OTg5MTFFQUE4MzM5NDAxNzJEMEZFQjIiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6OUI3QUVCOUQ5OTg5MTFFQUE4MzM5NDAxNzJEMEZFQjIiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6z4MwhAAACOklEQVR42qyVv2sUQRTH59cGc6LgQUwg4dQYBP8CGxVj5a/G1kbBIhpEBDvBzk6w0QiCraQQOwvBHxCwEMTiQCwsLAQlIhbGH+R2dmf8zGVX1uPmbk/yYHl3s28+831v3szKZnPHxPj4lnta65NCiDFRw7z3Qkp5P03TxTx3NknMVWPMtTS1Z51zjwlRGvADoKf5o0VNA7psbXaBBVKgC0mS3GJ4K5zj+Nes+0G2WjO+iF8jsF3OjSnlVTvP8ysoy4zRF1F6d2P8r62x6BlTpCUIbGdZdrheKYSIQINtJ4tHppph4VV/xbIQ7R0px6BdW1/vXDeiL0HK/pXwboDSEnoJt2RqJB7WCtC8BvQyZV0KpVWbDL0doDw3hyiWYkSoVEreIXbRDD4HXej5EZTeCNCyAyIN5Q2B20JvO+dXh0BVKJvW6mBZwliNc4In6cengL9mmT2C/xyB6kp7dkSlZ2P13c+kA6T2Av2/ODxHGVwdAP3HomA24VBxL8yifIWfKUf1VKeTLgyDBjORHgOo5iuXzizKH1pr59mjN4yYohXFKGAHaBrANJv2ksPGE7x/xzu7ARUDoTEw5ZE/w4UE7GNP3U3dq7Ua6MrZqPyB/14sInvLFKlet5uq4DR8OUh/N5BJVH6poFyU1Vs/55u4ueIUWMM9/Ixr8ATgFrv/CvB7MbLJcKDmlFJ7iyO7Iqemdu7j0/IE8B6xCYbQT3TPMd1oNL6xRgDvYnwGP/afzN9AnwM9RwZv/wgwAB4jMGmGjYl7AAAAAElFTkSuQmCC) 50%/cover no-repeat;
+  //background: content-box url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAQAAAC1+jfqAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAAHdElNRQfkBRMEJR1HsZDXAAABCklEQVQoz3XRPyjEARQH8M/psFyX/Cs3iiLFiEzKTRIipcRiMVgYDFaT7AZhkv+jSIrlBqVsF5eum24QpUjR5QyXu/tdeW95fb/f9+37evxXU7IyBkOoN65NqEjdOTHq1JEWsbAO1+pky3YbPTtwaNaxGGfu1QfMe7w5V21DzgivlgJ0q6xbESvyFuHTQhnd5EFKsxk/VqEqsB11ISKu165NGUNBhxqXXnTq82FflRs7QYctcUl1ziXM+SmAJUGDadu6JaRM+P6DS4Ix1d59eTTso2RbEgxg3pFBL+W5w8VpTcKptzIuVBBkdIG0dODkWu2uCNuyLidZ8cuwSVF7hRTLnuQr+ktCP/wCwrdKj0lZVjAAAAAldEVYdGRhdGU6Y3JlYXRlADIwMjAtMDUtMTlUMDQ6Mzc6MjkrMDA6MDAE8XuVAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDIwLTA1LTE5VDA0OjM3OjI5KzAwOjAwdazDKQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAAASUVORK5CYII) 50%/cover no-repeat;
+  //background: content-box url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQ1IDc5LjE2MzQ5OSwgMjAxOC8wOC8xMy0xNjo0MDoyMiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTkgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkM1Qjg4MDgyOTk4QjExRUE4REQ4OUM3NEEyQ0MwOUYyIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkM1Qjg4MDgzOTk4QjExRUE4REQ4OUM3NEEyQ0MwOUYyIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6QzVCODgwODA5OThCMTFFQThERDg5Qzc0QTJDQzA5RjIiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6QzVCODgwODE5OThCMTFFQThERDg5Qzc0QTJDQzA5RjIiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz42Gd4YAAABcklEQVR42mL4//8/Ayk4NjZ2pY2NzYkPHz4IgfgkaZ45c2YOA1ALCDs4OBx59uyZLBMDkWD79u3+X7584dfU1LwN4h84cMDa0dHxIFE2nz171oKDg+O3rKzss3nz5mWZmZmdA7kiIiJiLUHNQGfKKSoqPoY5XUJC4nVvb291RUVF78+fPznxav7+/TsPMMBOwjTDsLm5+XmYGrwGxMTErELXLCIi8v7q1av6BA1oaGhoQ9fMysr6d9euXd7I6rBqXrJkSRK6ZhCeMWNGHrpaDM1Hjx514OTk/Imuubi4eDI2y1A4nz59EhITE3uHrjkgIGArUJ6ZkAHMa9eujc7IyJiPrNnQ0PAK0GBBXGEFZ3z8+FGYl5f3R25u7qympqZWkGZxcfE39+7dU8cXUyh+h9kaFha2vgUI9u7d60EoobHA0vq+ffucQLSoqOg7kERCQsIcaWnpB4TyCNyA379/s3Z0dNRERUUtBab5B8RmMoAAAwASjBE2GhtESQAAAABJRU5ErkJggg) 50%/cover no-repeat;
+  background: content-box url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQ1IDc5LjE2MzQ5OSwgMjAxOC8wOC8xMy0xNjo0MDoyMiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTkgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjcyMkYxNjM3OTk4QzExRUE4NEVEQTk0RTUwNkVGNjI0IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjcyMkYxNjM4OTk4QzExRUE4NEVEQTk0RTUwNkVGNjI0Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6NzIyRjE2MzU5OThDMTFFQTg0RURBOTRFNTA2RUY2MjQiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6NzIyRjE2MzY5OThDMTFFQTg0RURBOTRFNTA2RUY2MjQiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5f00q9AAABSElEQVR42mL4//8/AwhPnz49XUBA4O2yZctCYGLEYDCxdOnSSHZ29h8MQC4LC8uvAwcO2BBtAMhmoKY/IM0gbGFhcWzHjh1O27ZtcyHKACD4C9NsbW19+Pz581p6enrnGBkZ/65bt86XoAFA54cxMzP/Btp8HKTZyMjoNMxAoLe+r1+/3pdgGOzevdsB5Gx9ff1zMM1IhvzA5xI4A2QIumZiXILCASmCxQaxLsEwEaQInyHoLsHqL1JcgjN08bmEiYnpz8aNG71A6pgYcIDAwMDNK1asCAUa8hNdDpjkP3z9+pXz4cOHcgRTGrpLREVFX4Ci3N3dfXtTU1M1UekdFCYgZwsJCb0BaQa6bh3IsLi4uPlE5zqQS4A5NdjV1XUnzDXAJH+euaGhgYEYoKmpeUtEROTdhw8f+GVlZR8Bk/+f169fiwAEGACsoBHRdX/R5gAAAABJRU5ErkJggg) 50%/cover no-repeat;
+
+
+
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.3s;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+.dataTable > tbody > tr > td:hover .cell-edit-icon {
+  display: inline-block;
+}
+
+///*========== Report tables (.table_report, .table_report_sections on Accounting->Reports pages) =============*/
+
+.table_report_sections-mod--fixed-header thead {
+  position: absolute !important;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+.table_report_sections-mod--fixed-header thead > tr {
+  display: flex;
+}
+
+.table_report_sections-mod table {
+  /*margin-top: 152px;*/
+  table-layout: fixed;
+}
+
+.table_report_sections-mod thead > tr > th .frame_affix_top {
+  display: inline-block;
+  line-height: 38px;
+}
+
+.stickerCell {
+  position: relative;
+}
+
+.stickerCell .frame_affix_top {
+  @include txtTruncate();
+  width: 100% !important;
+}
+
+.point_affix_top.has_affix:not([point_affix_top_when]):not([point_affix_top_below_selector]) {
+  margin-top: -($theadHeight);
+  //z-index: 1; /*fix: http://prntscr.com/ju145j*/
+  > tr {
+    height: auto !important; // to prevent unknown from where the style coms from https://prnt.sc/eoSKCaVnLYys
+  }
+}
+
+.point_affix_top.has_affix:not(.childTableHeader) > tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+.point_affix_top.childTableHeader {
+  &, & *, & th:after {
+    visibility: hidden;
+    height: 0 !important;
+    font-size: 0 !important;
+  }
+}
+
+.table-wrapper--has-affix {
+  padding-top: $theadHeight;
+}
+
+.table_report_sections-mod--fixed-header {
+  position: absolute;
+  //top: 135px; //http://prntscr.com/nje4xb
+  top: 60px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: auto;
+  z-index: 3;
+
+  .fitted-content & {
+    top: 0; //http://prntscr.com/nl0q64
+  }
+}
+
+
+.table_report_sections-mod--fixed-header > div {
+  padding-top: $theadHeight;
+}
+
+.table_report_sections-mod::-webkit-scrollbar {
+  /*display: block !important;*/
+}
+
+.table .pre_thead {
+  background-color: rgb(246, 247, 249);
+}
+
+//COMMON TABLE
+.tbl {
+  @include table-base();
+  &--rowSpace {
+    @include row-spacing($space: $tableCellPadding-x);
+  }
+
+  .col-checkbox {
+    width: 25px; // Более точное управление
+  }
+  .col-date {
+    width: 120px;
+    min-width: 120px; // Предотвращает сжатие
+  }
+  .col-amount {
+    width: 110px;
+  }
+}
+
+//table.table > tbody > tr > td,
+//table.table > tfoot > tr > td { // GWT component included <style>  https://i.imgur.com/fXG95Op.png
+//  //padding-left: $tableCellPadding-x--sm;
+//  //padding-right: $tableCellPadding-x--sm;
+//  padding-left: $tableCellPadding-x;
+//  padding-right: $tableCellPadding-x;
+//}
+table.table {// GWT component included <style>  https://i.imgur.com/fXG95Op.png
+  @include table-base($layout: fixed);
+}
+.table--small-cells > tbody > tr > td {
+  //height: 30px;
+}
+
+.table:not(.table--overflow-off) > tbody > tr:not(.thead) > td:hover > * {
+}
+
+
+// \ COMMON TABLE
+
+
+.table .tbody_head_title,
+  //.table .category_set > *:first-child > *,
+.table .set_head_row {
+  font-weight: normal;
+  font-size: 1.0769rem;
+  color: $color-accent-2;
+}
+
+.table .set_head_row {
+  //color: #232323;
+}
+
+.table .set_head_row.total_row {
+  text-transform: none;
+}
+
+table.cash-flow-table .set_head_row > td:first-child {
+  padding-left: 2.5rem;
+}
+
+.table .total_row,
+.table .gross_row {
+  /* text-transform: uppercase; */
+  font-size: 1.15rem;
+  //color: #232323;
+}
+
+.table .category_set tr.set_head_2_row > *:first-child,
+.table.category_set tr.set_head_2_row > *:first-child,
+.table .category_set tr.set_head_2_row.total_row > *:first-child,
+.table.category_set tr.set_head_2_row.total_row > *:first-child {
+  padding-left: 25px;
+  color: $color-accent-2;
+  text-transform: uppercase;
+  font-size: 11px;
+}
+
+.table .category_set tr.set_unit_2_row > *:first-child,
+.table.category_set tr.set_unit_2_row > *:first-child {
+  padding-left: 40px;
+}
+
+.table tr.set_unit_row > *:first-child,
+.table tr.set_unit_row > *:first-child {
+  padding-left: 40px;
+}
+
+.table .tbody_head_title strong,
+  //.table .category_set > *:first-child > * strong,
+.table .set_head_row strong
+.table .set_head_2_row strong {
+  font-weight: normal;
+}
+
+/* resource utilization table, attendance report table  */
+
+//attendanceReport moved to separate file
+
+//ATTENDANCE TRACKING & RESOURCE UTILIZATION TABLES ?
+
+// Resource Utilization moved to resUtilization.scss
+.collapsedElement {
+  display: none !important;
+}
+
+/*wfm-treeTable*/
+
+.wfm-treeTable-header, //https://prnt.sc/sqheok
+.wfm-treeTable-column {
+  padding: 5px 10px;
+  .wfm-treetable-inner-col-pad {
+    padding: 0;
+  }
+}
+
+///*fixed table tfoot head border*/
+.cellBasedWidget-mod--timesheet {
+  > div:nth-child(2) {
+    tfoot th {
+      position: relative;
+    }
+
+    th:after {
+      content: '';
+      width: 1px;
+      bottom: 20%;
+      top: 20%;
+      position: absolute;
+      background-color: #a9b4bf;
+      right: 0;
+    }
+
+    th:nth-last-child(2),
+    th:nth-last-child(4) {
+      &:after {
+        background-color: transparent;
+      }
+    }
+  }
+}
+
+.table-default > * > * > * {
+  padding: 5px;
+}
+
+.delimit_top {
+  background-color: #fff;
+}
+
+.accounting-table tbody > tr.total_row > *:first-child {
+  padding-left: 1.53846rem;
+}
+
+.accounting-table tbody > tr > *:first-child {
+  padding-left: 2.53846rem;
+}
+
+.timesheet_approve_all input[type="checkbox"] {
+  vertical-align: middle;
+}
+
+.timesheet_approve_all label {
+  vertical-align: middle;
+}
+
+.timesheet_reject_all input[type="checkbox"] {
+  vertical-align: middle;
+}
+
+.timesheet_reject_all label {
+  vertical-align: middle;
+}
+
+/*ACCOUNTING REPORT TABLES*/
+
+///*aged_receivable_payable_report_table*/
+
+.aged_receivable_payable_report_table .table-wrapper {
+  background: white;
+}
+
+.aged_receivable_payable_report_table .table_report_sections .total_row:last-child {
+  border: none;
+}
+
+.aged_receivable_payable_report_table .table_report_sections .total_row td:first-child {
+  font-size: 1.15385rem;
+}
+
+.aged_receivable_payable_report_table .table_report_sections td {
+  height: 30px;
+}
+
+/*tabs in modal*/
+.modal-content .page-nav__tabs .tab a.active:before {
+  z-index: 1;
+}
+
+.modal-content .page-nav__tabs .tab a.active span {
+  position: relative;
+  z-index: 2;
+}
+
+.keep-text-inline {
+  @include txtTruncate();
+}
+
+.td_background_white td {
+  background: #FFFFFF !important;
+}
+
+.table30.table > tbody > tr > td {
+  height: 30px;
+}
+
+.total_row.double,
+.set_head_row.double {
+  border-top: none;
+  border-bottom-width: 4px;
+  border-bottom-style: double;
+  border-bottom-color: $color-base-1;
+}
+
+.aged_receivable_payable_report_table .title_group,
+.profit_and_loss_all_table .title_group {
+  padding: 20px;
+}
+
+.aged_receivable_payable_report_table .table_report_sections .total_row_last {
+  border-bottom: 4px double $color-base-1;
+  text-transform: uppercase;
+}
+
+.aged_receivable_payable_report_table .table_report_sections .total_row td {
+  position: relative;
+}
+
+.aged_receivable_payable_report_table .table_report_sections .total_row:last-child td:after {
+  content: "";
+  top: 1px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  display: block;
+  border-top: 1px solid $color-base-1;
+}
+
+
+/* \ ACCOUNTING REPORT TABLES*/
+
+.cellBadgetWidget-prevent-absolute .cellBasedWidget-selector-table > div:first-child[style*="position: absolute"] {
+  position: static;
+}
+
+// BREAKDOWN STRUCTURE
+//.wfm-treeTable:not(.table-dependences), //https://prnt.sc/sqheok
+div:not(.modal-content)  > .wfm-treeTable {
+  padding-top: 25px; //operPanel space
+}
+.wfm-treeTable {
+  //overflow: hidden; Removed by Javlon Request regarded with scroll problem
+
+  background: #fff;
+
+  .page-opers + .frame__content & {
+    //padding-top: rem(25px) - ($fixedPanelPadding / 2); //https://prnt.sc/opwn2g
+  }
+
+  .has-page-opers.has-operPanel & {
+    padding-top: 0;
+  }
+
+  &[style*="position: relative"] {
+    overflow: auto;
+
+    div[style*="overflow: auto"] {
+      //overflow: hidden !important; do not apply - no scroll
+    }
+
+    .gwt-Style {
+      overflow: hidden !important; //WorkBreakdownStructure - https://prnt.sc/p5ehtz
+
+    }
+  }
+}
+
+.wfm-treeTable-header {
+  height: 24px;
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: pointer;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAA#1286C3AABCAYAAAAfFcSJAAAADUlEQVQI12P4//9/AwAJfAN+tb50JwAAAABJRU5ErkJggg==);
+  background-repeat: repeat-y;
+  background-position: 100% 0;
+  background-color: $color-base-0;
+}
+.wfm-treeTable-header,
+.wfm-treeTable-column {
+  height: 28px;
+}
+.wfm-treeTable-column {
+  border-bottom: 1px solid #DEDEDE;
+}
+
+.wfm-treetable-inner-col {
+  .wfm-treetable-inner-col-pad {
+    @include txtTruncate;
+    max-width: 100%;
+  }
+
+  > div {
+    display: inline-block;
+  }
+}
+
+.wfm-treetable-inner-col-pad {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.keySplit {
+  display: block;
+  min-width: 7px;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAECAYAAABCxiV9AAAAIUlEQVQI12NIT0//jwszAAkGHJIMMEl0BQzokgzIEiAMAF+cMb1OBmtiAAAAAElFTkSuQmCC);
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+// \ BREAKDOWN STRUCTURE
+
+.clone-project__switch {
+  margin-bottom: 20px;
+}
+
+.clone-project__main {
+  > tbody > tr + tr {
+    #gwt-debug-add_project_project {
+      margin-bottom: 10px;
+    }
+
+    .gwt-CheckBox {
+      margin-bottom: 10px;
+    }
+
+    .btn {
+      margin-top: 10px;
+    }
+  }
+}
+
+.table-cols__main {
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  height: 100%;
+}
+.table-cols__wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table-cols {
+  width: auto;
+  table-layout: fixed;
+  border-collapse: separate;
+
+  thead {
+    td {
+      position: relative;
+      &:after {
+        content: '';
+        position: absolute;
+        height: 3px;
+        bottom: 0;
+        left: -1px;
+        right: -1px;
+        box-shadow: $theadShadowPseudoEl;
+      }
+      > * {
+        display: block;
+      }
+    }
+  }
+
+  &__check,
+  &__options {
+    > *:not(.selected-cell) {
+      > * {
+        opacity: .6;
+      }
+    }
+  }
+  &__check {
+    .control {
+      padding-left: 2em;
+    }
+    td {
+      .table-cols & {
+        padding-top: 14px;
+        padding-bottom: 14px;
+      }
+      //border-top: none;
+      .table-cols & {
+        background-color: #fff;
+      }
+    }
+  }
+  &__options {
+    td {
+      .table-cols & {
+        padding-top: 4px;
+        padding-bottom: 0px;
+      }
+      .table-cols & {
+        background-color: $selectedRowColor;
+      }
+    }
+    .form-control {
+      //display: none;
+    }
+    .gwt-ListBox,
+    .form-control {
+      min-width: 100px;
+      padding-left: 0;
+      background-color: transparent;
+      border-color: transparent;
+
+      .caret {
+        color: $text-color-base;
+      }
+    }
+    .select-dropdown {
+      padding-left: 0;
+    }
+  }
+  .form-control,
+  .text-cover {
+    display: inline-block;
+    max-width: 120px;
+    @include txtTruncate();
+  }
+  th, td {
+    padding: 8px $featuresListMainPadding;
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+    background-color: $theadBg;
+
+    &.selected-cell {
+      border-left-color: $tableDelimiter;
+      border-right-color: $tableDelimiter;
+    }
+  }
+  tbody td {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    line-height: 1;
+  }
+  thead tr:first-child {
+    td {
+      line-height: 1.8;
+      border-top: 1px solid transparent;
+      //border-bottom: 0;
+    }
+    .selected-cell {
+      border-top-color: $tableDelimiter;
+    }
+  }
+  tbody tr:last-child {
+    td {
+      border-bottom: 1px solid transparent;
+    }
+    .selected-cell {
+      border-bottom-color: $tableDelimiter;
+    }
+  }
+  .features-list & //.features-list--reporting
+  {
+    > * > * > *:first-child {
+      width: 190px;
+      padding-left: $featuresListMainPadding * 2;
+    }
+  }
+}
+
+.numbering-settings {//https://prnt.sc/r0qnx3
+  .gwt-Label {
+    padding-left: 5px;
+  }
+  >   tbody > tr + tr > td {
+    padding-top: 5px;
+  }
+}
+
+
+//Timeslot Summary https://prnt.sc/r1aejo
+#gwt-debug-timeSlot_summary_view_time_entries {
+  > table > tbody > tr > td {
+    padding-top: 2px;
+    padding-bottom: 2px;
+  }
+}
+
+
+
+// Moved from theme.scss
+///* styles for advanced adtagrid. Shift it to theme.css  */
+
+.lookUp-Cell {
+  text-align: left !important;
+}
+
+.center-align-Cell { //https://prnt.sc/sjrngt
+  text-align: center !important;
+  > .data-cell > .form-control {
+    text-align: center;
+  }
+}
+
+.right-align-Cell {
+  text-align: right !important;
+  .input-group {
+    justify-content: flex-end;
+  }
+  .form-control {
+    text-align: right;
+  }
+}
+
+.left-align-Cell {
+  text-align: left !important;
+}
+
+.advanced-Grid {
+  .data-cell div.gwt-Label, .data-cell div.gwt-HTML {
+    //white-space: nowrap;
+    //overflow: hidden;
+  }
+  > tbody > tr .passive-cell .lookUp-Cell {
+    //padding-left: 0;
+  }
+}
+
+.data-cell .has-action-plus {
+  td {
+    vertical-align: middle !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+}
+
+.hasMultiTable {
+  table.default-width {
+
+  }
+}
+
+
+// Projects > view > documents > properties popup https://prnt.sc/seg5kh
+.props-table {
+  > tbody > tr {
+    > td {
+      //height: $tableCellHeight;
+      padding: 2px 4px;
+
+      .form-control { //https://prnt.sc/sf69ro
+        //height: $input-height-sm;
+        //line-height: $input-btn-line-height;
+        //padding: $input-btn-padding-y-sm $input-btn-padding-x-sm;
+        //font-size: $font-size-sm;
+      }
+    }
+  }
+}
+.props-labels {
+  color: $text-muted;
+}
+
+//https://prnt.sc/snjajr
+.position-filter-panel .popupContent {
+  border: 1px solid rgb(216, 216, 216) !important;
+  background-color: rgb(244, 244, 244) !important
+}
+
+
+.position-filter-table {
+  > tbody > tr > td {
+    vertical-align: top;
+
+    &:first-child {
+      padding-right: 10px;
+    }
+    + td {
+      padding-left: 10px;
+    }
+  }
+
+
+}
+
+
+//https://prnt.sc/t3adzg
+.webFormTableFields {
+  > tbody > tr > td {
+    > table > tbody > tr > td {
+      padding: 4px 0;
+      &[width="50px"] {
+        text-align: center;
+      }
+    }
+  }
+  &-child {
+    table-layout: fixed;
+
+    > tbody > tr > td {
+      //padding: 5px;
+      &:last-child {
+
+      }
+    }
+  }
+}
+
+.wfm-treeTable {
+  input[name="selectThis"] + label::after {
+    content: '' !important;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: -2px;
+    left: -16.8vw;
+    bottom: 0;
+    background: transparent;
+    height: 28px;
+    width: 28vw;
+    cursor: pointer;
+
+  }
+
+  table {
+    overflow: hidden;
+
+    tr {
+      cursor: pointer;
+    }
+  }
+
+  .wfm-treetable-inner-col {
+    overflow: visible;
+  }
+}
+
+//attendanceReport moved to separate file
+
+.form-group__label + .form-group__content .token-list-fb.token-list--projectPosition {
+  margin: 0;
+}
+
+.form-group__label + .form-group__content .token-list-fb.token-list--projectPosition input {
+  height: 28px;
+}
+
+tbody#totalLeaveType {
+  text-transform: uppercase;
+}
+
+td.emppopUp {
+  cursor: pointer;
+}
+//attendanceReport moved to separate file
+.brigada_employees_container,
+.brigada_table {
+  margin: 0 -30px;
+  width: unset;
+  display: block;
+  .advanced-GridPanel .data-cell:not(.grid-column),
+  .advanced-GridPanel .passive-cell:not(.grid-column),
+  &.advanced-GridPanel .data-cell:not(.grid-column),
+  &.advanced-GridPanel .passive-cell:not(.grid-column) {
+    padding: 0;
+  }
+
+  .dnd-item-table__heading {
+
+    thead {
+      color: #1D252C;
+      box-shadow: 0 1px 2px 0 #dbe3ea;
+      background-color: #f5f7f9;
+    }
+
+    th {
+      height: 32px;
+      //padding: 0.33333rem 8px;
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: 8.1px !important;
+    }
+  }
+
+  &.advanced-GridPanel .header-table-cell .gwt-Label {
+    padding-right: 0;
+    //padding-bottom: 0;
+  }
+}
+
+.tbl-fCellHide,
+.brigada_table_summary_view {
+  .body-table-cell > div[style*="hidden auto"] {
+    overflow: visible !important;
+  }
+
+  .dnd-item-table__heading,
+  .dnd-item-table {
+    > * > tr > * {
+      &:first-child {
+        display: none;
+      }
+      &:nth-child(2) {
+        position: sticky;
+        left: 0;
+        z-index: 2;
+        padding-left: $firstCellLeftPadding;
+
+        //> div {
+        //  height: 100%;
+        //  vertical-align: middle;
+        //  display: flex;
+        //  align-items: center;
+        //}
+
+        //.lookUp-Cell {
+        //  text-transform: lowercase;
+        //  &::first-letter {
+        //    text-transform: uppercase;
+        //  }
+        //}
+      }
+      &:has(> .editable-cell__actions) {
+        width: 70px;
+        .editable-cell__actions {
+          margin-right: 6px; //scroll width
+        }
+      }
+    }
+  }
+  .dnd-item-table__heading > * > tr > *:nth-child(2) {
+    background: #f5f7f9;
+  }
+  .dnd-item-table {
+    > * > tr > *:nth-child(2) {
+      background: #fff;
+    }
+  }
+}
+.brigada_table {
+  .dnd-item-table__heading,
+  .dnd-item-table {
+    th,
+    td {
+      text-align: center;
+      .lookUp-Cell {
+        text-align: center !important;
+      }
+
+      &:first-child,
+      &:nth-child(2) {
+        text-align: left;
+
+        .lookUp-Cell {
+          text-align: left !important;
+        }
+      }
+    }
+  }
+
+  .table-header-column {
+    vertical-align: middle;
+
+    .gwt-Label {
+      display: flex; // centering text vertically
+      flex-direction: column;
+      padding-bottom: 0 !important;
+    }
+  }
+
+  &.advanced-GridPanel .data-cell.active-cell input.form-control {
+    width: 100% !important;
+    text-align: center;
+  }
+
+  &.advanced-GridPanel .editable-cell > .simpleGwt-ComboBox,
+  &.advanced-GridPanel .editable-cell > .form-control:not([disabled]) {
+    margin-right: -1.76923rem;
+    margin-left: 0;
+  }
+}
+
+.brigada_table .header-cell .gwt-Label {
+  text-transform: uppercase !important;
+  font-weight: 600 !important;
+}
+
+
+.tbl-StickyHead
+{
+  > * > tr > * > .advanced-FocusPanel > table > tbody > tr:first-child {
+    position: sticky;
+    top: 0;
+    background: #f5f7f9;
+    z-index: 2;
+    > td {
+      background: #f5f7f9;
+    }
+  }
+}
+
+
+//.tbl-labels {
+//  display: grid;
+//  // Автоматически создаст столько колонок, сколько ячеек в первой строке
+//  //grid-template-columns: repeat(auto-fill, minmax(86px, 1fr)); // Ячейки одинаковой ширины
+//  grid-auto-columns: 1fr; // Все колонки одинаковой ширины
+//  grid-auto-flow: column; // Располагаем элементы по колонкам
+//  column-gap: $table-cell-padding;
+//
+//  > * {
+//    display: contents; // Важно: содержимое становится частью grid-контейнера
+//    > tr {
+//      display: contents; // Важно: содержимое становится частью grid-контейнера
+//
+//      > * {
+//        //min-width: 0;
+//        &:last-child {
+//          text-align: right;
+//        }
+//
+//        > .form-group {
+//          display: flex;
+//          flex-direction: column;
+//          margin: 0;
+//          height: 100%;
+//
+//          .form-group__label {
+//            flex-grow: 1;
+//          }
+//
+//          .form-group__content {
+//            flex-grow: 0;
+//          }
+//        }
+//      }
+//    }
+//  }
+//}
+
+.tbl-form {
+  > * > tr {
+    > * {
+      &:first-child {
+        padding-right: $tableCellPadding-x;
+        text-align: right;
+      }
+    }
+    + tr > * {
+      padding-top: $tableCellPadding-x;
+    }
+  }
+}
+
+

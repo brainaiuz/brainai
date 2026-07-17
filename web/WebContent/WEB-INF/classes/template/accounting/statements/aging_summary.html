@@ -1,0 +1,430 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style type="text/css">
+        body {
+            font-family: 'Arial', "Helvetica Neue", Helvetica, sans-serif;
+            font-weight: 300;
+            font-size: 9pt;
+            line-height: 1.4;
+        }
+
+        .table-header {
+            font-size: 9pt;
+            padding: 8px 6px;
+            border-bottom: 1px solid black;
+            font-weight: bold;
+            vertical-align: top;
+
+        }
+
+        .profit-and-loss__rowhead {
+            text-transform: uppercase;
+            padding: 6px 4px;
+            font-size: 10pt;
+            font-weight: bold;
+
+        }
+
+        .profit-and-loss__subtotalrow td {
+            border-bottom: 1px solid #ced5db;
+            border-top: 1px solid #ced5db;
+            font-weight: bold;
+            font-size: 10pt;
+            margin-top: 6px;
+            margin-bottom: 6px;
+        }
+
+        .profit-and-loss__table td > div:not(.profit-and-loss__rowhead) {
+            margin-left: 12px;
+        }
+
+        .profit-and-loss__totalrow td {
+            border-bottom: 5px double #ced5db;
+            border-top: 1px solid #ced5db;
+            font-weight: bold;
+            font-size: 10pt;
+            margin-top: 6px;
+            margin-bottom: 6px;
+        }
+
+        .vertical-gap {
+            line-height: 10px;
+        }
+        .profit-and-loss__subtotalrow {
+             page-break-inside: avoid;
+         }
+        .border-hira {
+            border-top: 1px solid #ced5db;
+            border-bottom: 1px solid #ced5db;
+        }
+        .tableBorder{
+            border-top:1px solid #000000;
+            border-left:1px solid #000000;
+        }
+        .tableBorder td{
+            border-right:1px solid #000000;
+            border-bottom:1px solid #000000;
+        }
+        .tableBorder th{
+            border-right:1px solid #000000;
+            border-bottom:1px solid #000000;
+        }
+
+    </style>
+</head>
+
+<body>
+<div class="trial-balance__tmp">
+    <img alt="images"
+         src="https://workforcetrack.s3.amazonaws.com/000000000000/public/65159/a2113e82-397f-49fd-a58a-cdf4f4b93dff?AWSAccessKeyId=AKIAIROQMC77E5UKWBWQ"
+         style="display: none;"/>
+    #if($itextGenericPdfData.companyData.companyName == 'KPI Software Inc' or $itextGenericPdfData.companyData.companyLogoUrl == 'https://apps.kpi.com/customisation/kpi.com/images/kpilogo.png')
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="width: 88px;display: none;"/>
+    #else
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="max-width: 100%; max-height: 100%; display: none;"/>
+    #end
+
+    #set($colCount = $itextGenericPdfData.getListTable().getTableHeader().size())
+    #set($colCountLess = $itextGenericPdfData.getListTable().getTableHeader().size() - 1)
+    #set($itextData = $itextGenericPdfData.customData)
+    #set($customData = $itextData.get('CUSTOM_DATA'))
+    #set($companyName = $itextGenericPdfData.companyData.companyName)
+
+    <table cellspacing="0" cellpadding="0" width="100%" style="font-weight: bold; font-size: 9pt;">
+        <tr>
+            <td width="100%" align="center">$itextGenericPdfData.currentDate</td>
+        </tr>
+        <tr>
+            <td align="center">$itextGenericPdfData.extraData</td>
+        </tr>
+    </table>
+    <br/>
+
+    #if($companyName == 'Granduer General Trading L.L.C')
+    <table class="profit-and-loss__table tableBorder" cellspacing="0" cellpadding="0" style="width:100%;">
+        #if($customData != '')
+        <tr class="thead-tr">
+            #set($i = 0)
+            #foreach($header in $itextGenericPdfData.getListTable().getTableHeader())
+            <!--#set($st='align_' + $header.alignment)-->
+            #if($i == 0)
+            <th style=" font-size: 9pt; padding:8px 6px 8px 12px; white-space: nowrap; border-bottom:1px solid black;font-weight: bold;vertical-align: top; text-align: left">
+                $header.getText()
+            </th>
+            #else
+            <th style=" font-size: 9pt; padding:8px 6px 8px 12px; white-space: nowrap; border-bottom:1px solid black;font-weight: bold;vertical-align: top; text-align: right">
+                $header.getText()
+            </th>
+            #end
+            #set($i = $i + 1)
+            #end
+        </tr>
+        #else
+        <tr class="thead-tr">
+            #set($i = 0)
+            #foreach($header in $itextGenericPdfData.getListTable().getTableHeader())
+            <!--#set($st='align_' + $header.alignment)-->
+            #if($i < 3)
+            <th style=" font-size: 9pt; padding:8px 6px 8px 12px; white-space: nowrap; border-bottom:1px solid black;font-weight: bold;vertical-align: top; text-align: left">
+                $header.getText()
+            </th>
+            #else
+            <th style=" font-size: 9pt; padding:8px 6px 8px 12px; white-space: nowrap; border-bottom:1px solid black;font-weight: bold;vertical-align: top; text-align: right">
+                $header.getText()
+            </th>
+            #end
+            #set($i = $i + 1)
+            #end
+        </tr>
+        #end
+        <tr>
+            <td class="vertical-gap" colspan="$colCount">&nbsp;</td>
+        </tr>
+
+        #if($customData != '')
+        <tr>
+            <td colspan="$colCount">
+                <div class="profit-and-loss__rowhead">$customData.name</div>
+            </td>
+        </tr>
+        #foreach($agingKey in $customData.totalRows.keySet())
+        #if($agingKey != 'PERCENTAGE_TOTAL' and $agingKey != 'AGING_TOTAL')
+        <tr>
+            #set($i = 0)
+            #foreach($agingValue in $customData.totalRows.get($agingKey))
+            #if($i == 0)
+            <td>
+                <div style="text-align: left;font-size: 8pt; padding:4px 4px;">$agingValue</div>
+            </td>
+            #else
+            <td>
+                <div style="text-align: right;font-size: 8pt; padding:4px 4px;">$agingValue</div>
+            </td>
+            #end
+            #set($i = $i+1)
+            #end
+        </tr>
+        #elseif($agingKey == 'PERCENTAGE_TOTAL')
+        <tr class="profit-and-loss__subtotalrow">
+            #set($i = 0)
+            #foreach($agingValue in $customData.totalRows.get($agingKey))
+            #if($i == 0)
+            <td>
+                <div class="profit-and-loss__rowhead" style="text-align: left; ">$agingValue</div>
+            </td>
+            #else
+            <td>
+                <div style="text-align: right; font-size:10pt; padding:4px 4px;">$agingValue</div>
+            </td>
+            #end
+            #set($i = $i+1)
+            #end
+        </tr>
+        #elseif($agingKey == 'AGING_TOTAL')
+        <tr class="profit-and-loss__subtotalrow">
+            #set($i = 0)
+            #foreach($agingValue in $customData.totalRows.get($agingKey))
+            #if($i == 0)
+            <td>
+                <div class="profit-and-loss__rowhead" style="text-align: left; ">$agingValue</div>
+            </td>
+            #else
+            <td>
+                <div style="text-align: right; font-size:10pt; padding:4px 4px;">$agingValue</div>
+            </td>
+            #end
+            #set($i = $i+1)
+            #end
+        </tr>
+        #end
+        #end
+        #else
+
+        #foreach($customKey in $itextData.keySet())
+        #if($customKey != 'PERCENTAGE_TOTAL' and $customKey != 'AGING_TOTAL')
+        #set($customTable = $itextData.get($customKey))
+        <tr>
+            <td colspan="$colCount" style="border-top: 1px solid #ced5db;">
+                <div class="profit-and-loss__rowhead">$customTable.name</div>
+            </td>
+        </tr>
+        #foreach($customValue in $customTable.totalRows.values())
+        <tr style="page-break-inside: avoid">
+            #set($i = 0)
+            #foreach($invItem in $customValue)
+            #if($i < 3)
+            <td class="border-hira">
+                <div style="text-align: left;font-size: 8pt; padding:4px 4px;">$invItem</div>
+            </td>
+            #else
+            <td class="border-hira">
+                <div style="text-align: right;font-size: 8pt; padding:4px 4px;">$invItem</div>
+            </td>
+            #end
+            #set($i = $i+1)
+            #end
+        </tr>
+        #end
+        <tr class="profit-and-loss__subtotalrow">
+            <td colspan="$colCountLess">
+                <div class="profit-and-loss__rowhead" style="text-align: left; ">
+                    $customTable.header.get('COLUMN_NAME')
+                </div>
+            </td>
+            <td>
+                <div style="text-align: right; font-size:10pt; padding:4px 4px;">
+                    $customTable.header.get('COLUMN_VALUE')
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="vertical-gap" colspan="$colCount">&nbsp;</td>
+        </tr>
+        #elseif($customKey == 'PERCENTAGE_TOTAL' or $customKey == 'AGING_TOTAL')
+        #set($customTable = $itextData.get($customKey))
+        <tr class="profit-and-loss__subtotalrow">
+            <td colspan="3">
+                <div class="profit-and-loss__rowhead" style="text-align: left; ">$customTable.name</div>
+            </td>
+            #foreach($agingValue in $customTable.totalRows.get($customKey))
+            <td>
+                <div style="text-align: right; font-size:10pt; padding:4px 4px;">$agingValue</div>
+            </td>
+            #end
+        </tr>
+        #end
+        #end
+
+        #end
+    </table>
+
+    <table width="100%" cellpadding="0" cellspacing="0" style="margin-top: 20px; font-size: 10pt;">
+        <tr>
+            <td width="100%">
+                <span style="text-transform: uppercase">For any information relating to this soa.</span> <br/>
+                Kindly gmail <a href="accounts@grandeursolution.com">accounts@grandeursolution.com</a>
+            </td>
+        </tr>
+    </table>
+    #else
+    <table class="profit-and-loss__table" cellspacing="0" cellpadding="0" style="width:100%;">
+        #if($customData != '')
+        <tr class="thead-tr">
+            #set($i = 0)
+            #foreach($header in $itextGenericPdfData.getListTable().getTableHeader())
+            <!--#set($st='align_' + $header.alignment)-->
+            #if($i == 0)
+            <th style=" font-size: 9pt; padding:8px 6px 8px 12px; white-space: nowrap; border-bottom:1px solid black;font-weight: bold;vertical-align: top; text-align: left">
+                $header.getText()
+            </th>
+            #else
+            <th style=" font-size: 9pt; padding:8px 6px 8px 12px; white-space: nowrap; border-bottom:1px solid black;font-weight: bold;vertical-align: top; text-align: right">
+                $header.getText()
+            </th>
+            #end
+            #set($i = $i + 1)
+            #end
+        </tr>
+        #else
+        <tr class="thead-tr">
+            #set($i = 0)
+            #foreach($header in $itextGenericPdfData.getListTable().getTableHeader())
+            <!--#set($st='align_' + $header.alignment)-->
+            #if($i < 3)
+            <th style=" font-size: 9pt; padding:8px 6px 8px 12px; white-space: nowrap; border-bottom:1px solid black;font-weight: bold;vertical-align: top; text-align: left">
+                $header.getText()
+            </th>
+            #else
+            <th style=" font-size: 9pt; padding:8px 6px 8px 12px; white-space: nowrap; border-bottom:1px solid black;font-weight: bold;vertical-align: top; text-align: right">
+                $header.getText()
+            </th>
+            #end
+            #set($i = $i + 1)
+            #end
+        </tr>
+        #end
+        <tr>
+            <td class="vertical-gap" colspan="$colCount">&nbsp;</td>
+        </tr>
+
+        #if($customData != '')
+        <tr>
+            <td colspan="$colCount">
+                <div class="profit-and-loss__rowhead">$customData.name</div>
+            </td>
+        </tr>
+        #foreach($agingKey in $customData.totalRows.keySet())
+        #if($agingKey != 'PERCENTAGE_TOTAL' and $agingKey != 'AGING_TOTAL')
+        <tr>
+            #set($i = 0)
+            #foreach($agingValue in $customData.totalRows.get($agingKey))
+            #if($i == 0)
+            <td>
+                <div style="text-align: left;font-size: 8pt; padding:4px 4px;">$agingValue</div>
+            </td>
+            #else
+            <td>
+                <div style="text-align: right;font-size: 8pt; padding:4px 4px;">$agingValue</div>
+            </td>
+            #end
+            #set($i = $i+1)
+            #end
+        </tr>
+        #elseif($agingKey == 'PERCENTAGE_TOTAL')
+        <tr class="profit-and-loss__subtotalrow">
+            #set($i = 0)
+            #foreach($agingValue in $customData.totalRows.get($agingKey))
+            #if($i == 0)
+            <td>
+                <div class="profit-and-loss__rowhead" style="text-align: left; ">$agingValue</div>
+            </td>
+            #else
+            <td>
+                <div style="text-align: right; font-size:10pt; padding:4px 4px;">$agingValue</div>
+            </td>
+            #end
+            #set($i = $i+1)
+            #end
+        </tr>
+        #elseif($agingKey == 'AGING_TOTAL')
+        <tr class="profit-and-loss__subtotalrow">
+            #set($i = 0)
+            #foreach($agingValue in $customData.totalRows.get($agingKey))
+            #if($i == 0)
+            <td>
+                <div class="profit-and-loss__rowhead" style="text-align: left; ">$agingValue</div>
+            </td>
+            #else
+            <td>
+                <div style="text-align: right; font-size:10pt; padding:4px 4px;">$agingValue</div>
+            </td>
+            #end
+            #set($i = $i+1)
+            #end
+        </tr>
+        #end
+        #end
+        #else
+
+        #foreach($customKey in $itextData.keySet())
+        #if($customKey != 'PERCENTAGE_TOTAL' and $customKey != 'AGING_TOTAL')
+        #set($customTable = $itextData.get($customKey))
+        <tr>
+            <td colspan="$colCount">
+                <div class="profit-and-loss__rowhead">$customTable.name</div>
+            </td>
+        </tr>
+        #foreach($customValue in $customTable.totalRows.values())
+        <tr>
+            #set($i = 0)
+            #foreach($invItem in $customValue)
+            #if($i < 3)
+            <td>
+                <div style="text-align: left;font-size: 8pt; padding:4px 4px;">$invItem</div>
+            </td>
+            #else
+            <td>
+                <div style="text-align: right;font-size: 8pt; padding:4px 4px;">$invItem</div>
+            </td>
+            #end
+            #set($i = $i+1)
+            #end
+        </tr>
+        #end
+        <tr class="profit-and-loss__subtotalrow">
+            <td colspan="$colCountLess">
+                <div class="profit-and-loss__rowhead" style="text-align: left; ">
+                    $customTable.header.get('COLUMN_NAME')
+                </div>
+            </td>
+            <td>
+                <div style="text-align: right; font-size:10pt; padding:4px 4px;">
+                    $customTable.header.get('COLUMN_VALUE')
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="vertical-gap" colspan="$colCount">&nbsp;</td>
+        </tr>
+        #elseif($customKey == 'PERCENTAGE_TOTAL' or $customKey == 'AGING_TOTAL')
+        #set($customTable = $itextData.get($customKey))
+        <tr class="profit-and-loss__subtotalrow">
+            <td colspan="3">
+                <div class="profit-and-loss__rowhead" style="text-align: left; ">$customTable.name</div>
+            </td>
+            #foreach($agingValue in $customTable.totalRows.get($customKey))
+            <td>
+                <div style="text-align: right; font-size:10pt; padding:4px 4px;">$agingValue</div>
+            </td>
+            #end
+        </tr>
+        #end
+        #end
+
+        #end
+    </table>
+    #end
+</div>
+</body>
+</html>

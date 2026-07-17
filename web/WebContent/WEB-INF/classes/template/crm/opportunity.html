@@ -1,0 +1,324 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style type="text/css">
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+
+        td {
+            padding: 3px;
+        }
+
+        .title {
+            font-size: 9pt;
+        }
+
+        .name {
+            font-size: 7pt;
+        }
+
+        .value {
+            font-size: 8pt;
+        }
+
+        .personalValue {
+            font-size: 7pt;
+        }
+
+        .nameCapital {
+            text-transform: capitalize;
+        }
+
+        .border-bottom {
+            border-bottom: 1px solid #000;
+        }
+
+    </style>
+</head>
+<body>
+<div>
+    <img alt="images" src="https://workforcetrack.s3.amazonaws.com/000000000000/public/65159/a2113e82-397f-49fd-a58a-cdf4f4b93dff?AWSAccessKeyId=AKIAIROQMC77E5UKWBWQ" style="display: none;"/>
+    #if($itextGenericPdfData.companyData.companyName == 'KPI Software Inc' or $itextGenericPdfData.companyData.companyLogoUrl == 'https://apps.kpi.com/customisation/kpi.com/images/kpilogo.png')
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="width: 88px; display: none;"/>
+    #else
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="max-width: 100%; max-height: 100%; display: none;"/>
+    #end
+
+    #set($opportunityInfTable = $itextGenericPdfData.customData.get('OPPORTUNITY_INFORMATION'))
+
+    #set($opportunityNameVal = $opportunityInfTable.rows.get('OPPORTUNITY_NAME').get('COLUMN_VALUE'))
+    #set($currencyVal = $opportunityInfTable.rows.get('CURRENCY').get('COLUMN_VALUE'))
+    #set($opportunityNoVal = $opportunityInfTable.rows.get('OPPORTUNITY_NUMBER').get('COLUMN_VALUE'))
+    #set($contactVal = $opportunityInfTable.rows.get('CONTACT').get('COLUMN_VALUE'))
+    #set($contactPhoneVal = $opportunityInfTable.rows.get('CONTACT_PHONE').get('COLUMN_VALUE'))
+    #set($contactEmailVal = $opportunityInfTable.rows.get('CONTACT_EMAIL').get('COLUMN_VALUE'))
+    #set($assigneVal = $opportunityInfTable.rows.get('ASSIGNEE').get('COLUMN_VALUE'))
+    #set($stageVal = $opportunityInfTable.rows.get('STAGE').get('COLUMN_VALUE'))
+    #set($amountVal = $opportunityInfTable.rows.get('AMOUNT').get('COLUMN_VALUE'))
+    #set($closeDateVal = $opportunityInfTable.rows.get('CLOSE_DATE').get('COLUMN_VALUE'))
+
+    #set($opportunityNameLab = $opportunityInfTable.rows.get('OPPORTUNITY_NAME').get('COLUMN_NAME'))
+    #set($currencyLab = $opportunityInfTable.rows.get('CURRENCY').get('COLUMN_NAME'))
+    #set($opportunityNoLab = $opportunityInfTable.rows.get('OPPORTUNITY_NUMBER').get('COLUMN_NAME'))
+    #set($contactLab = $opportunityInfTable.rows.get('CONTACT').get('COLUMN_NAME'))
+    #set($contactPhoneLab = $opportunityInfTable.rows.get('CONTACT_PHONE').get('COLUMN_NAME'))
+    #set($contactEmailLab = $opportunityInfTable.rows.get('CONTACT_EMAIL').get('COLUMN_NAME'))
+    #set($asigneeLab = $opportunityInfTable.rows.get('ASSIGNEE').get('COLUMN_NAME'))
+    #set($stageLab = $opportunityInfTable.rows.get('STAGE').get('COLUMN_NAME'))
+    #set($amountLab = $opportunityInfTable.rows.get('AMOUNT').get('COLUMN_NAME'))
+    #set($closeDateLab = $opportunityInfTable.rows.get('CLOSE_DATE').get('COLUMN_NAME'))
+
+    #set($oppontunityInfTitle = $opportunityInfTable.rows.get('OPPORTUNITY_INFORMATION').get('COLUMN_NAME'))
+    #set($additionalInfTitle = $opportunityInfTable.rows.get('ADDITIONAL_INFORMATION').get('COLUMN_NAME'))
+    #set($notesInfTitle = $opportunityInfTable.rows.get('NOTES_INFORMATION').get('COLUMN_NAME'))
+
+    #set($customerDetailTable = $itextGenericPdfData.customData.get('CUSTOMER_DETAIL'))
+
+    #set($customerLab = $customerDetailTable.rows.get('CUSTOMER').get('COLUMN_NAME'))
+    #set($addressLab = $customerDetailTable.rows.get('BILL_ADDRESS').get('COLUMN_NAME'))
+    #set($address2Lab = $customerDetailTable.rows.get('BILL_ADDRESS2').get('COLUMN_NAME'))
+    #set($cityLab = $customerDetailTable.rows.get('BILL_CITY').get('COLUMN_NAME'))
+    #set($countryLab = $customerDetailTable.rows.get('BILL_COUNTRY').get('COLUMN_NAME'))
+    #set($zipCodeLab = $customerDetailTable.rows.get('BILL_ZIPCODE').get('COLUMN_NAME'))
+    #set($clientPhoneLab = $customerDetailTable.rows.get('CLIENT_PHONE').get('COLUMN_NAME'))
+    #set($clientEmailLab = $customerDetailTable.rows.get('CLIENT_EMAIL').get('COLUMN_NAME'))
+    #set($paymentTermsLab = $customerDetailTable.rows.get('PAYMENT_TERMS').get('COLUMN_NAME'))
+
+    #set($customerVal = $customerDetailTable.rows.get('CUSTOMER').get('COLUMN_VALUE'))
+    #set($addressVal = $customerDetailTable.rows.get('BILL_ADDRESS').get('COLUMN_VALUE'))
+    #set($address2Val = $customerDetailTable.rows.get('BILL_ADDRESS2').get('COLUMN_VALUE'))
+    #set($cityVal = $customerDetailTable.rows.get('BILL_CITY').get('COLUMN_VALUE'))
+    #set($countryVal = $customerDetailTable.rows.get('BILL_COUNTRY').get('COLUMN_VALUE'))
+    #set($zipCodeVal = $customerDetailTable.rows.get('BILL_ZIPCODE').get('COLUMN_VALUE'))
+    #set($clientPhoneVal = $customerDetailTable.rows.get('CLIENT_PHONE').get('COLUMN_VALUE'))
+    #set($clientEmailVal = $customerDetailTable.rows.get('CLIENT_EMAIL').get('COLUMN_VALUE'))
+    #set($paymentTermsVal = $customerDetailTable.rows.get('PAYMENT_TERMS').get('COLUMN_VALUE'))
+
+    <table width="100%" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+            <td width="100%" style="font-weight: bold;" class="title nameCapital"> $oppontunityInfTitle</td>
+        </tr>
+    </table>
+
+    <table width="100%" cellspacing="0" cellpadding="0" style="margin-top: 10px;" border="0">
+        <tr>
+            <td width="25%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital"> $customerLab</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($customerVal != '') $customerVal #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="25%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital"> $contactLab</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($contactVal != '') $contactVal #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="25%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital"> $asigneeLab</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($assigneVal != '') $assigneVal #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="25%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital"> $stageLab</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($stageVal != '') $stageVal #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <table width="100%" cellspacing="0" cellpadding="0" style="margin-top: 10px;">
+        <tr>
+            <td width="25%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital"> $opportunityNoLab</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($opportunityNoVal != '') $opportunityNoVal #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="25%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital"> $opportunityNameLab</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($opportunityNameVal != '' or $opportunityNameVal != 'n/a') $opportunityNameVal #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="25%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital"> $closeDateLab</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($closeDateVal != '') $closeDateVal #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="25%" style="padding: 0; margin: 0;" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" class="name nameCapital"> $amountLab</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;" class="value">
+                            #if($amountVal != '') $amountVal #else — #end
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    #set($productTable = $itextGenericPdfData.baseInvoice.customProductTable)
+
+    #if($productTable.rows.size() > 0)
+    <table width="100%" cellspacing="0" cellpadding="0" style="margin-top: 15px; border-bottom: 1px solid #000;">
+        <tr>
+            <td width="100%"></td>
+        </tr>
+    </table>
+
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-top: 20px;">
+        <tr>
+            <td style="font-weight: bold;" class="title capital">$productTable.name</td>
+        </tr>
+    </table>
+
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top: 10px;">
+        <tr>
+            <td width="15%" dir="$productTable.header.get('NAME')" class="name capital border-bottom">$productTable.header.get('NAME')</td>
+            <td width="25%" dir="$productTable.header.get('DESCRIPTION')" class="name capital border-bottom" style="padding-left: 3pt">$productTable.header.get('DESCRIPTION')</td>
+            <td width="15%" dir="$productTable.header.get('SUPPLIER')" class="name capital border-bottom" style="padding-left: 3pt">$productTable.header.get('SUPPLIER')</td>
+            <td width="8%" dir="$productTable.header.get('UNIT_MEASUREMENT')" class="name capital border-bottom" style="padding-left: 3pt">$productTable.header.get('UNIT_MEASUREMENT')</td>
+            <td width="9%" dir="$productTable.header.get('QTY')" class="name capital border-bottom" align="right" style="padding-left: 3pt">$productTable.header.get('QTY')</td>
+            <td width="13%" dir="$productTable.header.get('UNIT_PRICE')" class="name capital border-bottom" align="right" style="padding-left: 3pt">$productTable.header.get('UNIT_PRICE')</td>
+            <td width="15%" dir="$productTable.header.get('TOTAL_AMOUNT')" class="name capital border-bottom" align="right" style="padding-left: 3pt">$productTable.header.get('TOTAL_AMOUNT')</td>
+        </tr>
+        #foreach($row in $itextGenericPdfData.baseInvoice.customProductTable.rows.values())
+        <tr>
+            <td style="font-weight: bold;vertical-align: top;padding-bottom: 10pt;" class="value">
+                #if($row.get('NAME') != '')
+                $row.get('NAME')
+                #else
+                —
+                #end
+            </td>
+            <td style="font-weight: bold;vertical-align: top;padding-bottom: 10pt;padding-left: 3pt" class="value">
+                #if($row.get('DESCRIPTION') != '')
+                $row.get('DESCRIPTION')
+                #else
+                —
+                #end
+            </td>
+            <td style="font-weight: bold;vertical-align: top;padding-bottom: 10pt;padding-left: 3pt" class="value">
+                #if($row.get('SUPPLIER') != '')
+                $row.get('SUPPLIER')
+                #else
+                —
+                #end
+            </td>
+            <td style="font-weight: bold;vertical-align: top;padding-bottom: 10pt;padding-left: 3pt" class="value">
+                #if($row.get('UNIT_MEASUREMENT') != '')
+                $row.get('UNIT_MEASUREMENT')
+                #else
+                —
+                #end
+            </td>
+            <td style="font-weight: bold;vertical-align: top;padding-bottom: 10pt;padding-left: 3pt" class="value" align="right">
+                #if($row.get('QTY') != '')
+                $row.get('QTY')
+                #else
+                —
+                #end
+            </td>
+            <td style="font-weight: bold;vertical-align: top;padding-bottom: 10pt;padding-left: 3pt" class="value" align="right">
+                #if($row.get('UNIT_PRICE') != '')
+                $row.get('UNIT_PRICE')
+                #else
+                —
+                #end
+            </td>
+            <td style="font-weight: bold;vertical-align: top;padding-bottom: 10pt;padding-left: 3pt" class="value" align="right">
+                #if($row.get('TOTAL_AMOUNT') != '')
+                $row.get('TOTAL_AMOUNT')
+                #else
+                —
+                #end
+            </td>
+        </tr>
+        #end
+    </table>
+    #end
+
+    #set($customFieldTable = $itextGenericPdfData.customData.get('CUSTOM_FIELD').customFields.get("OPPORTUNITY").values())
+
+    #if($customFieldTable.size() > 0)
+    <table width="100%" cellspacing="0" cellpadding="0" style="margin-top: 15px; border-bottom: 1px solid #000;">
+        <tr>
+            <td width="100%"></td>
+        </tr>
+    </table>
+
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-top: 20px;margin-bottom: 15px;">
+        <tr>
+            <td dir="$additionalInfTitle" style="font-weight: bold;" class="title nameCapital">$additionalInfTitle</td>
+        </tr>
+    </table>
+
+    <div>
+        #foreach($row in $customFieldTable)
+        <div style="width: 33.3%; float: left;">
+            <div class="name" style="padding-bottom: 3px; padding-left: 3px;">
+                $row.get('COLUMN_NAME')
+            </div>
+            <div style="font-weight: bold; padding-top: 3px; padding-left: 3px; padding-bottom: 15px;" class="value">
+                #if($row.get('COLUMN_VALUE') != '') $row.get('COLUMN_VALUE') #else — #end
+            </div>
+        </div>
+        #end
+    </div>
+    #end
+
+</div>
+
+
+</body>
+</html>

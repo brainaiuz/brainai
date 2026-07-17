@@ -1,0 +1,782 @@
+$active-menu-color: $text-color-base;
+$noactive-menu-color: $color-accent-2;
+
+
+.frame__nav {
+  //font-weight: 500;
+  background-color: $frameNavBg;
+  border-right: 1px solid #eceff3;
+
+  > .frame__nav__body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  #frame__header__create-new {
+    top: 0 !important;
+    bottom: 0 !important;
+    left: 100% !important;
+    width: auto;
+    max-height: none !important;
+    min-width: 200px;
+    background-color: $gray-new;
+    box-shadow: none;
+
+    > li {
+      display: flex !important;
+      align-items: center;
+      min-height: 49px;
+      background-color: $color-base-contrast;
+
+      > a {
+        flex-basis: 100%;
+      }
+
+      .icon--plus {
+        margin-right: 10px;
+      }
+
+      &:after {
+        left: 0;
+        right: 0;
+      }
+
+      &:not(:hover) {
+        > a {
+          color: $color-accent-2;
+        }
+      }
+      &:hover {
+        background-color: #fff;
+
+        svg {
+          stroke: $success-color;
+        }
+      }
+    }
+  }
+
+  &:before {
+    //content: '';
+    //position: absolute;
+    //left: 0;
+    //right: 0;
+    //top: 0;
+    //bottom: 0;
+    //background-color: rgba(#fff, .8);
+    //filter: blur(2.2px);
+  }
+
+  body.left-menu-hover:not(.left-menu-open) & {
+    box-shadow: 5px 0 10px 0 rgba(141, 155, 168, .0551);
+  }
+
+  &--title {
+    padding-bottom: $main-dir-padding;
+  }
+
+  // FRAME NAV SCROLL
+  //.scroll-wrapper > .scroll-content.frame__nav__scroll {
+  //  width: auto !important;
+  //  height: auto !important;
+  //  min-height: 100%;
+  //  margin-bottom: 0 !important;
+  //  overflow-x: visible !important;
+  //}
+  //&__scroll.scroll-wrapper {
+  //  height: 100% !important;
+  //}
+  //.external-scroll_y.scroll-scrolly_visible {
+  //  opacity: 0;
+  //  @include base-transition(opacity);
+  //}
+  // \ FRAME NAV SCROLL
+}
+
+.frame__nav-title {
+  flex: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: ($main-dir-padding);
+  margin: 15px 0 10px;
+
+  .btn--circle {
+    &.active {
+      background-color: $color-accent-2;
+      border-color: $color-accent-2;
+
+      svg {
+        transition: transform .3s ease;
+        transform: rotate(43deg);
+      }
+    }
+  }
+
+  h3 {
+    margin: 15px 0;
+    font-weight: 600;
+    font-size: 15px;
+  }
+}
+
+.frame__nav__footer {
+  position: relative; // for blend holding
+  &:before {
+    @extend .gradient-blend-bottom--grey;
+  }
+}
+
+// MAIN DIRECTORIES
+//.main-directories,
+.frame__nav-title
+ {
+  padding-right: $main-dir-padding - ($main-dir-item-padding);
+  .btn--circle {
+
+  }
+}
+
+
+.user-menu-settings .collapsible,
+.main-directories {
+  ul {
+    max-width: 100%; //fix the following bug > https://prnt.sc/lm0x4g
+    color: $active-menu-color;
+  }
+  li {
+    a {
+      max-width: ($frameNavSize - rem(31px));
+      text-decoration: none;
+      color: inherit;
+
+      &:focus,
+      &:hover {
+        //color: $link-hover-color;
+      }
+    }
+  }
+  > li:not(.main-dir__dashboard) {
+    > .collapsible-body > ul {
+      > li {
+        margin-top: $main-dir-item-margin;
+        margin-bottom: $main-dir-item-margin;
+        padding-top: $main-dir-item-padding;
+        padding-right: $main-dir-item-padding;
+        padding-bottom: $main-dir-item-padding;
+        &:first-child {
+          margin-top: 0;
+        }
+
+        &.collapsible-nested {
+          margin-top: 0;
+          margin-bottom: 0;
+          padding-top: 0;
+          padding-bottom: 0;
+          > .collapsible-header a:before {
+            font-size: .8em;
+            margin-left: -1.8em;
+          }
+
+        }
+        [dir="rtl"] & {
+          padding-left: $main-dir-item-padding;
+          //padding-right: 0;
+        }
+      }
+    }
+  }
+  > li {
+    display: flex;
+    flex-direction: column;
+    > .collapsible-body {
+      flex: none;
+    }
+    > .collapsible-body > ul {
+      position: relative;
+      //padding-left: 2px; //active el bar (:before)
+      &:before {}
+    }
+    > .collapsible-body > ul > li {
+      transition: background-color .3s ease;
+      &:hover, &:focus, &.active {
+        > a:first-child {
+          transition: color .3s ease;
+        }
+      }
+    }
+  }
+
+  .collapsible-body li.active,
+  .collapsible-body li.active:hover {
+    @include sideNavHover;
+    //background-color: $color-base-contrast !important;
+  }
+  .has-activeDropdown {
+    z-index: 3; //https://prnt.sc/phxqa1  (the following absolute positioned element is shown above the dropdown list)
+  }
+
+  // colopsible-header fonts
+  .collapsible-header a,
+  .main-dir__dashboard .collapsible-body:first-child a {
+    font-size: rem(12px);
+  }
+  .collapsible-header:not(.active) a,
+  .main-dir__dashboard:not(.active) .main-directories__sublink + a {
+    color: $noactive-menu-color;
+  }
+  // \ colopsible-header fonts
+
+  .collapsible-header a,
+  .main-dir__dashboard .collapsible-body > ul > li > a {
+    //@include txtTruncate();
+    max-width: 100%;
+  }
+
+  .collapsible-header a {
+    display: inline-block;
+    padding-left: $main-dir-padding;
+    padding-top: $main-dir-item-padding;
+    padding-bottom: $main-dir-item-padding;
+  }
+  .collapsible-header a,
+  .main-dir__dashboard .collapsible-body > ul > li {
+    [dir="rtl"] & {
+      padding-left: 0;
+      padding-right: $main-dir-padding;
+    }
+  }
+  .main-dir__dashboard .collapsible-body:first-child > ul > li {
+    padding-left: $main-dir-padding;
+  }
+  .main-dir__dashboard > .collapsible-header + .collapsible-body > ul > li {
+    padding-left: ($main-dir-item-padding * 1.75);
+  }
+  .collapsible-body ul li:not(.collapsible-nested) .collapsible-header a {
+    padding-left: 0;
+  }
+
+  > li:not(.main-dir__dashboard) > .collapsible-body,
+  > li:not(.main-dir__dashboard) > .collapsible-header + .collapsible-body {
+    overflow-y: auto;
+    overflow: auto;
+  }
+
+  > li:not(.main-dir__dashboard) > .collapsible-body,
+  .collapsible-header + .collapsible-body {
+    padding: 0 12px 0 $main-dir-padding;
+    [dir="rtl"] & {
+      padding: 0 $main-dir-padding 0 12px;
+    }
+  }
+  .collapsible-body {
+    border-bottom: none;
+
+    > ul:not(.main-directories__list--2) {
+      > li > a {
+        //transition: height 0.2s ease-out 0s;
+        &:not([class*='btn-']) { //only clickable text link full size But not icon + link
+          display: block;
+          flex: 1 0 auto;
+
+          &:active {
+            span {
+              color: $active-menu-color;
+              //color: $color-accent-1;
+              text-shadow: 0 0 4px rgba($active-menu-color, 0.4);
+              display: inline-block;
+              transform: translateY(1px);
+              text-decoration: underline;
+              text-underline-offset: 3px;
+              //opacity: 0.7;
+            }
+          }
+        }
+      }
+    }
+
+    > ul {
+      > li {
+        &:not(.collapsible-nested) {
+          display: flex !important;
+          align-items: center;
+        }
+        position: relative;
+        margin-bottom: $main-dir-item-margin;
+        cursor: default;
+        flex-wrap: nowrap;
+        //flex-wrap: wrap; // forced to break + icon position
+        align-items: center;
+        justify-content: space-between;
+        border-radius: 30px; //to fit with @include sideNavHover;
+
+
+        > .collapsible-header,
+        > .collapsible-body {
+          flex: 1 0 100% !important;
+        }
+
+        & + li {
+          margin-top: $main-dir-item-margin;
+        }
+
+        > a {
+          @include border-right-radius($radius-base);
+
+          &:first-child > .gwt-HTML,
+          &:first-child {
+            flex-grow: 1;
+          }
+
+          + a {
+            flex-grow: 0;
+            margin-left: 2px;
+            &[class*=btn--] {
+              min-width: 22px;
+              margin-left: 10px;
+              margin-right: -$main-dir-btn-offset-right;
+              margin-top: -10px;
+              margin-bottom: -9px;
+              transform: scale(0);
+              transition: transform .075s ease;
+
+              [dir="rtl"] & {
+                margin-right: 0;
+                margin-left: -$main-dir-btn-offset-right;
+              }
+            }
+          }
+        }
+
+        &.active,
+        &:hover, &:focus {
+          &:not(.collapsible-nested) {
+            @include sideNavHover;
+          }
+
+          &.item-closed, &.item-open {
+            //background-color: transparent;
+          }
+          > a + a[class*=btn--] {
+            transform: scale(1);
+            height: 22px;
+            svg {
+              margin-top: 1px;
+              width: 15px;
+              height: 15px;
+            }
+          }
+        }
+      }
+    }
+  }
+  [class*="main-dir__"].active .collapsible-body {
+    > ul {
+      //margin-bottom: 5px; // lead to jumping "pseudo" on Documents
+    }
+  }
+}
+.user-menu-settings .collapsible {
+  > li {
+    > .collapsible-body > ul > li {
+      padding-left: ($main-dir-item-padding * 2.5);
+    }
+  }
+  &-body {
+    .item-open > .collapsible-header {
+      a.active {
+        color: #000;
+      }
+    }
+  }
+}
+//MAIN-DIR HEADER
+.user-menu-settings .collapsible .collapsible-header,
+.main-directories .collapsible-header,
+.main-dir__dashboard > .collapsible-body:first-child {
+  text-transform: uppercase;
+}
+.collapsible-header {
+  .user-menu-settings .collapsible &,
+  .main-directories & {
+    display: flex;
+    padding: 0;
+    border: none;
+
+    &.active {
+      font-weight: 500;
+    }
+
+    > * {
+      padding-top: 0;
+      padding-bottom: 0 ;
+      margin-top: $main-dir-item-margin;
+      margin-bottom: $main-dir-item-margin;
+    }
+
+    li {
+      &.status--inactive,
+      &.status--active {
+        overflow: visible;
+      }
+      &.status--inactive,
+      &.status--active {
+        .status-indicator {
+          position: absolute;
+          top: 50%;
+          left: -9px;
+          margin-top: -5px;
+          height: 8px;
+          width: 8px;
+          border-radius: 50%;
+        }
+      }
+      &.status--active .status-indicator {
+        background: $success-color;
+      }
+      &.status--inactive .status-indicator {
+        background: $danger-color;
+      }
+    }
+
+    a {
+      position: relative;
+      flex-grow: 1;
+      line-height: 1.5;
+    }
+
+    + .collapsible-body > ul:not(.main-directories__list--2) > li > a {
+    }
+
+    &.active {
+      .status-indicator {
+        margin-top: -7px;
+      }
+      a {
+        //padding-bottom: 1.2rem;
+      }
+    }
+
+    .main-directories__search-icon {
+      width: $button-height;
+      margin: 0;
+      padding-top: 12px;
+      padding-bottom: 8px;
+      font-size: 1.2rem !important;
+
+      &:hover {
+        color: $text-color-base;
+      }
+      &:before {
+      }
+    }
+  }
+  .user-menu-settings .collapsible .collapsible-header + .collapsible-body & {
+    text-transform: none;
+  }
+}
+// \MAIN-DIR HEADER
+
+
+// MODULES COLORS
+.main-dir__dashboard.active > * > a,
+.main-dir__dashboard.active > .collapsible-body:first-child > ul > li,
+li[class*="main-dir__"].active > .collapsible-header > a {
+  border-radius: 0 !important;
+  &:after {
+    @include sideNavActiveDash;
+    right: 0;
+    [dir="rtl"] & {
+      right: auto;
+      left: 0;
+    }
+  }
+  .main-directories--accounting & {
+    @include sideNavActive--accounting;
+  }
+  .main-directories--sales & {
+    @include sideNavActive--sales;
+  }
+  .main-directories--humans & {
+    @include sideNavActive--humans;
+  }
+  .main-directories--projects & {
+    @include sideNavActive--projects;
+  }
+  .main-directories--payroll & {
+    @include sideNavActive--payroll;
+  }
+  .main-directories--reports & {
+    @include sideNavActive--reports;
+  }
+  .main-directories--documents & {
+    @include sideNavActive--documents;
+  }
+  .user-menu-settings & {
+    @include sideNavActive--settings;
+  }
+}
+// \MODULES COLORS
+
+.main-directories {
+  overflow-y: auto;
+  flex: 1 0;
+  box-shadow: none;
+  border: none;
+  //margin: 0 0 0 -2px;
+  margin: 0;
+  //padding-left: ($main-dir-padding + 2px);
+  //min-height: 100%;
+  box-sizing: border-box;
+  padding-bottom: rem(15px); // for footer gradient
+
+  > li {
+    > .collapsible-body > ul > li {
+      padding-left: ($main-dir-item-padding * 1.75);
+      @include sideNavHover;
+    }
+  }
+
+  .collapsible-body {
+    > ul > li {
+      //position: relative; is being above
+    }
+  }
+
+  /*Documents section to make sidenav item uppercase*/
+  &__list--2 {
+    text-transform: uppercase;
+  }
+  .main-directories__list--2 {
+    & > li {
+      margin-bottom: rem(15px);
+
+      & > a {
+        padding-left: rem(25px);
+        max-width: 15.5rem;
+        > i {
+          margin-right: rem(15px);
+        }
+      }
+    }
+
+    .ficon--more-horiz {
+      font-size: rem(24px);
+      font-weight: bold;
+    }
+
+    .ficon--more-horiz {
+      font-size: rem(24px);
+      font-weight: bold;
+    }
+  }
+
+  .mc-folders {
+    > ul {
+      border-left: 0;
+      > li {
+        border-left: 6px solid #ced5db;
+        padding-top: 0 !important;
+        padding-bottom: 0;
+        &.active {
+          border-left-color: $success2-color;
+        }
+      }
+    }
+  }
+}
+
+.main-dir__dashboard {
+  position: relative;
+
+  &:hover,
+  &:focus {
+    svg {
+      opacity: 1;
+    }
+  }
+
+  > .collapsible-body:first-child {
+    > ul {
+      margin-top: -1px;
+      margin-bottom: 0;
+      padding-left: 0;
+      &:before {
+        display: none;
+      }
+      > li {
+        &:after,
+        &:before {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .collapsible-body > ul > li {
+    padding-right: 5px;
+    &.active ~ li {
+      .main-directories__sublink {
+        z-index: 0;
+      }
+    }
+  }
+}
+
+.main-directories__sublink {
+  $sublinkWidth: 2.6923076923076925rem;
+  order: 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: $sublinkWidth;
+  //line-height: 2.6923076923076925rem;
+  font-size: 1.3rem;
+  text-align: center;
+  cursor: pointer;
+
+
+  svg, .action-listing {
+    opacity: 0;
+    //.main-dir__documents &,
+    li:hover > & {
+      opacity: 1;
+    }
+  }
+
+
+
+  .main-directories .main-directories__list--2 & {
+    .dropdown-content {
+      right: 0;
+      left: auto;
+      right: 0;
+      width: 150px;
+      li a {
+        font-size: 1rem;
+        &:hover {
+          //color: $button-color-secondary;
+        }
+      }
+    }
+    .dropdown-button {
+      //color: #fff;
+      min-height: 35px;
+      height: 100%;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      background: none;
+    }
+    .dropdown-kit--arrow--below {
+      width: 100%;
+    }
+  }
+
+  + a {
+
+  }
+
+  .dropdown-kit--arrow--below {
+    .dropdown-button {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+  .dropdown-content {
+    left: auto !important;
+    right: 0;
+    margin-right: -$main-dir-padding;
+    min-width: 170px !important;
+
+    .main-dir__documents & {
+      margin-right: -5px; //https://prnt.sc/pgz3qc
+    }
+  }
+  &.active {
+    .dropdown-button .dropdown-content {
+      display: block;
+    }
+    li.active > & {
+      .dropdown-button .dropdown-content {
+        display: block;
+      }      
+    }
+  }
+}
+
+.collapsible-header.active {
+
+}
+
+// \ MAIN DIRECTORIES
+
+.file-folder__context {
+  text-transform: none;
+}
+
+.ficon--folder-bold--gray {
+  color: #8f9ba6;
+}
+
+.ficon--folder-bold--orange {
+  color: #efaa3c;
+}
+
+.ficon--folder-bold--blue {
+  color: #4aa7e4;
+}
+
+.collapsible-nested {
+  $chevronSize: .7em;
+  > .collapsible-header > a {
+    position: relative;
+    font-weight: 500;
+
+    &:before {
+      content: '';
+      display: inline-block;
+      vertical-align: middle;
+      margin-top: -($chevronSize * .8);
+      margin-left: -($chevronSize*2);
+      margin-right: $chevronSize;
+      width: $chevronSize;
+      height: $chevronSize;
+      border-top: 1px solid currentColor;
+      border-right: 1px solid currentColor;
+      @include collapsible-transition;
+      will-change: transform;
+      transform: rotate(135deg);
+
+
+    }
+    span {
+      font-weight: 500;
+      vertical-align: middle;
+    }
+    &:not([dir="rtl"]) & {
+      padding-left: 20px !important;
+    }
+    [dir="rtl"] & {
+      padding-right: 20px !important;
+
+      &:before  {
+        margin-right: -($chevronSize*2);
+        margin-left: $chevronSize;
+      }
+    }
+  }
+  &.item-open {
+    > .collapsible-header > a:before {
+      margin-top: -($chevronSize / 10);
+      transform: rotate(-45deg);
+    }
+  }
+  .collapsible-body ul {
+    margin-left: 2px;
+    > li > a {
+      padding: 4px 4px 4px 15px;
+    }
+  }
+}

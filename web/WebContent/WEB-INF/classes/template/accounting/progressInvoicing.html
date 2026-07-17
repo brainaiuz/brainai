@@ -1,0 +1,149 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style type="text/css">
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+
+        th, td {
+            padding: 5px;
+        }
+
+        .product-head th {
+            border-bottom: 1px solid #000;
+            font-size: 9pt;
+            font-weight: bold;
+        }
+
+        .product-head td {
+            border-bottom: 1px solid #ced5db;
+            font-size: 9pt;
+        }
+
+        .oneBorderRadius {
+            border-radius: 5px;
+        }
+
+
+    </style>
+</head>
+<body>
+<div>
+    <img alt="images" src="https://workforcetrack.s3.amazonaws.com/000000000000/public/65159/a2113e82-397f-49fd-a58a-cdf4f4b93dff?AWSAccessKeyId=AKIAIROQMC77E5UKWBWQ" style="display: none;"/>
+    #if($itextGenericPdfData.companyData.companyName == 'KPI Software Inc' or $itextGenericPdfData.companyData.companyLogoUrl == 'https://apps.kpi.com/customisation/kpi.com/images/kpilogo.png')
+    <img alt="logo kpi" src="https://apps.kpi.com/customisation/kpi.com/images/kpilogo.png" style="width: 88px;display: none;"/>
+    #else
+    <img alt="logo kpi" src="https://apps.kpi.com/customisation/kpi.com/images/kpilogo.png" style="width: 88px;display: none;"/>
+    #end
+    #set($clientTable = $itextGenericPdfData.customData.get('CLIENT_TABLE').rows)
+
+    #set($clientNameLabel = $clientTable.get("CLIENT_NAME").get("COLUMN_NAME"))
+    #set($contactNameLabel = $clientTable.get("CONTACT_NAME").get("COLUMN_NAME"))
+    #set($addressLabel = $clientTable.get("BILL_ADDRESSES").get("COLUMN_NAME"))
+    #set($installments = $clientTable.get("INSTALLMENTS").get("COLUMN_NAME"))
+    #set($amount = $clientTable.get("AMOUNT").get("COLUMN_NAME"))
+
+    #set($clientName = $clientTable.get("CLIENT_NAME").get("COLUMN_VALUE"))
+    #set($contactName = $clientTable.get("CONTACT_NAME").get("COLUMN_VALUE"))
+    #set($billAddresses = $clientTable.get("BILL_ADDRESSES").get("COLUMN_VALUE"))
+    #set($mailAddresses = $clientTable.get("MAIL_ADDRESSES").get("COLUMN_VALUE"))
+    #set($invoiceType = $clientTable.get("INVOICE_TYPE").get("COLUMN_VALUE")) <!--byPercent-->
+
+    #set($totalTable = $itextGenericPdfData.customData.get('TOTAL_TABLE').rows)
+    #set($total = $totalTable.get("TOTAL").get("COLUMN_VALUE"))
+    #set($subTotal = $totalTable.get("SUB_TOTAL").get("COLUMN_VALUE"))
+    #set($totalInvCur = $totalTable.get("TOTAL_INVOICE_CURRENCY").get("COLUMN_VALUE"))
+    #set($quoteTotal = $totalTable.get("QUOTE_TOTAL").get("COLUMN_VALUE"))
+    #set($totalword = $totalTable.get("TOTAL_IN_WORD").get("COLUMN_VALUE"))
+
+    #set($productSize = $itextGenericPdfData.customData.get('PRODUCT_TABLE').rows.size())
+
+    <table width="100%" cellpadding="0" cellspacing="0">
+        <tr>
+            <td width="70%" valign="top">
+                <table width="100%" cellpadding="0" cellspacing="0" style="font-size: 10pt;">
+                    <tr>
+                        <td width="100%"><b>$clientNameLabel:</b> $clientName</td>
+                    </tr>
+                    #if($contactName != '')
+                    <tr>
+                        <td><b>$contactNameLabel:</b> $contactName</td>
+                    </tr>
+                    #end
+                    <tr>
+                        <td><b>$addressLabel:</b> $billAddresses</td>
+                    </tr>
+                </table>
+            </td>
+            <td width="30%" valign="top">
+                <table width="100%" cellpadding="0" cellspacing="0" style="font-size: 10pt;">
+                    <tr>
+                        <td width="100%"><b>$installments:</b> $productSize</td>
+                    </tr>
+                    <tr>
+                        <td><b>$amount:</b> $quoteTotal</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    #set($header = $itextGenericPdfData.customData.get("PRODUCT_TABLE").header)
+    #if($invoiceType == 'byMultiProgress')
+    <table width="100%" cellpadding="0" cellspacing="0" style="margin-top: 40px;" class="oneBorderRadius product-head">
+        <tr>
+            <th width="4%" align="left">$header.get('NO')</th>
+            <th width="20%" align="left">$header.get('INV_DATE')</th>
+            <th width="20%" align="left">$header.get('INV_DUE_DATE')</th>
+            <th width="20%" align="right">$header.get('PERCENTAGE')</th>
+            <th width="36%" align="right">$header.get('TOTAL')</th>
+        </tr>
+        #foreach($row in $itextGenericPdfData.customData.get('PRODUCT_TABLE').rows)
+        <tr>
+            <td valign="top">$row.get('NO').</td>
+            <td valign="top">$row.get('INV_DATE')</td>
+            <td valign="top">$row.get('INV_DUE_DATE')</td>
+            <td valign="top" align="right">$row.get('PERCENTAGE') %</td>
+            <td valign="top" align="right">$row.get('TOTAL')</td>
+        </tr>
+        #end
+    </table>
+    #else
+    <table width="100%" cellpadding="0" cellspacing="0" style="margin-top: 40px;" class="oneBorderRadius product-head">
+        <tr>
+            <th width="4%" align="left">$header.get('NO')</th>
+            <th width="15%" align="left">$header.get('NAME')</th>
+            <th width="19%" align="left">$header.get('DESCRIPTION')</th>
+            <th width="12%" align="left">$header.get('INV_DATE')</th>
+            <th width="12%" align="left">$header.get('INV_DUE_DATE')</th>
+            <th width="15%" align="left">$header.get('PROJECT_NAME')</th>
+            <th width="8%" align="right">$header.get('PERCENTAGE')</th>
+            <th width="15%" align="right">$header.get('TOTAL')</th>
+        </tr>
+        #foreach($row in $itextGenericPdfData.customData.get('PRODUCT_TABLE').rows)
+        <tr>
+            <td valign="top">$row.get('NO').</td>
+            <td valign="top">$row.get('NAME')</td>
+            <td valign="top">$row.get('DESCRIPTION').replaceAll('\n', '<br/>')</td>
+            <td valign="top">$row.get('INV_DATE')</td>
+            <td valign="top">$row.get('INV_DUE_DATE')</td>
+            <td valign="top">$row.get('PROJECT_NAME')</td>
+            <td valign="top" align="right">$row.get('PERCENTAGE') %</td>
+            <td valign="top" align="right">$row.get('TOTAL')</td>
+        </tr>
+        #end
+    </table>
+    #end
+    <table width="100%">
+        <tr>
+            <td width="100%" align="right"><b>$amount:$quoteTotal</b></td>
+        </tr>
+        <tr>
+            <td width="100%" style="font-size: 85%" align="center">($totalword)</td>
+        </tr>
+    </table>
+
+</div>
+</body>
+</html>

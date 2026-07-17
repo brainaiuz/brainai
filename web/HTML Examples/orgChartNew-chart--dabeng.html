@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <title>OrgChart (dabeng) — prototype</title>
+
+    <!-- jQuery -->
+<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>-->
+    <script type="text/javascript" src="../WebContent/mainStyles/new-ui/js/jquery.min.js"></script>
+
+    <!-- jQuery UI (для drag&drop) -->
+    <script src="../WebContent/mainStyles/new-ui/js/jquery-ui.min.js"></script>
+
+    <!-- OrgChart CSS -->
+    <link rel="stylesheet" href="../WebContent/mainStyles/new-ui/css/jquery.orgchart.min.css">
+
+    <!-- json-digger -->
+    <script src="../WebContent/mainStyles/new-ui/js/json-digger.js"></script>
+
+    <!-- OrgChart JS -->
+    <script src="../WebContent/mainStyles/new-ui/js/jquery.orgchart.min.js"></script>
+
+    <!-- BASE KPI App CSS -->
+    <link rel="stylesheet" href="../WebContent/mainStyles/new-ui/css/materialize.css">
+</head>
+<body>
+<div class="orgBoard">
+    <div class="orgBoard__top">
+        <div class="orgBoard__title">
+            <div class="orgBoard__badge">K</div>
+            <span>Клиника CardioMed</span>
+        </div>
+        <div class="orgBoard__descr">
+            Описание: Оргструктура для моей клиники
+        </div>
+
+        <!-- КНОПКА ПЕРЕКЛЮЧЕНИЯ НАПРАВЛЕНИЯ -->
+        <div class="orgBoard__controls">
+            <button type="button"
+                    id="orgToggleDir"
+                    class="btn btn--default btn-small">
+                Схема: вертикально
+            </button>
+        </div>
+    </div>
+
+    <div class="orgBoard__chartWrapper">
+        <div id="chart-container"></div>
+    </div>
+</div>
+
+<!-- единый попап профиля для всех карточек -->
+<div id="orgProfilePop" class="profilePop profilePop--orgchart panel">
+    <div class="profilePop__inner panel__body">
+        <div class="profilePop__avatar">
+            <span class="avatar js-profile-avatar" style="background-image:url('https://picsum.photos/120');">
+                <img src="https://picsum.photos/120" alt="">
+            </span>
+        </div>
+        <ul class="profilePop__info">
+            <li class="profilePop_name">
+                <h3>Равшан Юнусов</h3>
+            </li>
+
+            <li class="profilePop__address">
+                <a href="#" class="extLink">
+                    <svg class="icon--mail icon-text">
+                        <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#mail"></use>
+                    </svg>
+                    <span class="js-profile-email">ravshanyu@gmail.com</span>
+                </a>
+            </li>
+
+            <li class="profilePop__address">
+                <a href="#" class="extLink icon-text">
+                    <svg class="icon--telegram">
+                        <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#telegram"></use>
+                    </svg>
+                    <span class="js-profile-telegram">@ravshan_yunusov</span>
+                </a>
+            </li>
+
+            <li class="profilePop__address">
+                <a href="#" class="extLink icon-text">
+                    <svg class="icon--phone">
+                        <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#phone"></use>
+                    </svg>
+                    <span class="js-profile-phone">+998909000009</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="profilePop__actions">
+            <button type="button" class="btn btn--primary btn-block">
+                <span>Перейти в профиль</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // ====== данные примера ======
+    const data = {
+        id: 'root',
+        name: 'Оснoватель',
+        title: 'Бош раҳбар',
+        nodeType: 'root',
+        ownerName: 'Равшан Юнусов',
+        ownerAvatar: 'https://picsum.photos/120?1',
+        ownerEmail: 'ravshanyu@gmail.com',
+        ownerTelegram: '@ravshan_yunusov',
+        ownerPhone: '+998909000009',
+        children: [
+            {
+                id: 'ops',
+                name: 'ФИЛИАЛ ОПЕРАЦИОН',
+                title: 'Операцион раҳбар',
+                nodeType: 'band1',
+                ownerName: 'Равшан Юнусов',
+                ownerAvatar: 'https://picsum.photos/120?2',
+                ykm: 'Ривожланиш стратегияси ва хавфсизлик таъминланган филиал',
+                description: 'Филиалнинг барқарор ривожланишини таъминлаш, ички жараёнларни оптималлаштириш ва хавфсиз меҳнат муҳитини яратиш.',
+                metrics: 'Муддатли тўловга сотилган маҳсулотлар суммаси',
+                children: [
+                    {
+                        id: 'ops-hr',
+                        name: '1. ХОДИМЛАР БИЛАН ИШЛАШ БЎЛИММАСИ',
+                        title: 'Филиал раҳбар',
+                        nodeType: 'func',
+                        ownerName: 'Равшан Юнусов',
+                        ownerAvatar: 'https://picsum.photos/120?3',
+                        ykm: 'Тегишли лавозимларга бириктирилиб, ўз ишларини самарали амалга ошираётган ходимлар',
+                        description: 'Тегишланган лавозим вазифаларини мувофиқ равишда иш жараёнларини сифатли ва ўз вақтида амалга ошириш.',
+                        metrics: 'Филиалдаги тасдиқланган тартиб қоидалар рўйхати бўйича йиғилган баллар'
+                    },
+                    {
+                        id: 'ops-hr2',
+                        name: '1. ФИЛИАЛ HR БЎЛИМИ',
+                        title: 'Филиал раҳбар',
+                        nodeType: 'func',
+                        ownerName: 'Равшан Юнусов',
+                        ownerAvatar: 'https://picsum.photos/120?4'
+                    }
+                ]
+            },
+            {
+                id: 'branch-head',
+                name: 'ФИЛИАЛ РАҲБАРИ',
+                title: 'Филиал раҳбари',
+                nodeType: 'band2',
+                ownerName: 'Равшан Юнусов',
+                ownerAvatar: 'https://picsum.photos/120?5',
+                ykm: 'Белгиланган савдо режасини бажарилаётган ва даромади мунтазам ўсиб бораётган филиал',
+                description: 'Жамоа фаолиятини мувофиқлаштириш, хизматлар сифатини ошириш ва молиявий кўрсаткичларни яхшилаш.',
+                metrics: 'Муддатли тўловга сотилган маҳсулотлар суммаси'
+            }
+        ]
+    };
+
+    function getLevelClass(nd) {
+        switch (nd.nodeType) {
+            case 'root':  return 'orgNode--root orgNode--band';
+            case 'band1': return 'orgNode--band1 orgNode--band';
+            case 'band2': return 'orgNode--band2 orgNode--band';
+            case 'func':  return 'orgNode--func';
+            default:      return '';
+        }
+    }
+
+    // рендер узла
+    function createOrgNode($node, nd) {
+        $node
+            .attr('id', nd.id)
+            .addClass('orgNode');
+
+        var levelClass = getLevelClass(nd);
+        if (levelClass) {
+            $node.addClass(levelClass);
+        }
+
+        var subtitleHtml = nd.title
+            ? '<div class="orgNode__subtitle">' + nd.title + '</div>'
+            : '';
+
+        // клик по этой строке будет открывать profilePop
+        var ownerHtml = nd.ownerName
+            ? '<div class="orgNode__metaRow js-orgNode-owner"' +
+            ' data-owner-name="' + (nd.ownerName || '') + '"' +
+            (nd.ownerEmail ? ' data-owner-email="' + nd.ownerEmail + '"' : '') +
+            (nd.ownerTelegram ? ' data-owner-telegram="' + nd.ownerTelegram + '"' : '') +
+            (nd.ownerPhone ? ' data-owner-phone="' + nd.ownerPhone + '"' : '') +
+            (nd.ownerAvatar ? ' data-owner-avatar="' + nd.ownerAvatar + '"' : '') +
+            '>' +
+            '<span class="avatar avatar--sm" style="' +
+            (nd.ownerAvatar ? 'background-image:url(\'' + nd.ownerAvatar + '\');' : '') +
+            '">' +
+            (nd.ownerAvatar ? '<img src="' + nd.ownerAvatar + '" alt="">' : '') +
+            '</span>' +
+            '<span class="orgNode__metaName">' + nd.ownerName + '</span>' +
+            '</div>'
+            : '';
+
+        var ykmHtml = nd.ykm
+            ? '<div class="orgNode__body"><strong>ЯКМ:</strong> ' + nd.ykm + '</div>'
+            : '';
+
+        // НОВЫЙ блок "Описание" (опциональный)
+        var descrHtml = nd.description
+            ? '<div class="orgNode__body"><strong>Описание:</strong> ' + nd.description + '</div>'
+            : '';
+
+        var metricsHtml = nd.metrics
+            ? '<div class="orgNode__body"><strong>Метрики:</strong> ' + nd.metrics + '</div>'
+            : '';
+
+        var html =
+            '<div class="orgNode__card">' +
+            '<div class="orgNode__header">' +
+            '<div class="orgNode__headerMain">' +
+            '<div class="orgNode__title">' + (nd.name || nd.id) + '</div>' +
+            subtitleHtml +
+            '</div>' +
+            '<div class="orgNode__actions">' +
+            '<div class="dropdown-kit--arrow--top orgNode__menuWrapper">' +
+            '<div class="dropdown-button btn-small btn--icon depCard__actBtn">' +
+            '<a href="#" class="btn--icon icon-act">' +
+            '<svg class="icon--settings">' +
+            '<use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#settings"></use>' +
+            '</svg>' +
+            '</a>' +
+            '<ul class="dropdown-content orgNode__menu">' +
+            '<li><a href="#" class="js-orgNode-moveHierarchy">' +
+            '<span class="icon-text">' +
+            '<svg class="icon--moveY">' +
+            '<use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#moveY"></use>' +
+            '</svg>' +
+            '<span>Переместить функцию в иерархии</span>' +
+            '</span>' +
+            '</a></li>' +
+            '<li><a href="#" class="js-orgNode-moveHorizontal">' +
+            '<span class="icon-text">' +
+            '<svg class="icon--moveX">' +
+            '<use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#moveX"></use>' +
+            '</svg>' +
+            '<span>Переместить функцию горизонтально</span>' +
+            '</span>' +
+            '</a></li>' +
+            '<li><a href="#" class="js-orgNode-addChild">' +
+            '<span class="icon-text">' +
+            '<svg class="icon--plus">' +
+            '<use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#plus"></use>' +
+            '</svg>' +
+            '<span>Добавить подфункцию</span>' +
+            '</span>' +
+            '</a></li>' +
+            '<li><a href="#" class="js-orgNode-sortChildren">' +
+            '<span class="icon-text">' +
+            '<svg class="icon--sortAsc">' +
+            '<use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#sortAsc"></use>' +
+            '</svg>' +
+            '<span>Сортировать подфункции</span>' +
+            '</span>' +
+            '</a></li>' +
+            '<li><a href="#" class="js-orgNode-open">' +
+            '<span class="icon-text">' +
+            '<svg class="icon--view">' +
+            '<use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#view"></use>' +
+            '</svg>' +
+            '<span>Открыть функцию</span>' +
+            '</span>' +
+            '</a></li>' +
+            '</ul>' +
+            '</div>' +
+            '</div>' +
+            '</div>' +
+            '</div>' +
+            ownerHtml +
+            ykmHtml +
+            descrHtml +
+            metricsHtml +
+            '</div>';
+
+        $node.empty().append(html);
+    }
+
+
+    let currentDirection = 't2b'; // по умолчанию сверху-вниз
+
+function renderChart(direction) {
+    currentDirection = direction || currentDirection || 't2b';
+
+    $('#chart-container').empty().orgchart({
+        data: data,
+        direction: currentDirection,
+        pan: true,
+        zoom: true,
+        draggable: true,          // этого достаточно
+        chartClass: 'orgchart--kpi',
+        createNode: createOrgNode
+    });
+}
+
+
+
+    $(function () {
+        renderChart('t2b');
+
+        // Переключатель вертикально/горизонтально
+        $('#orgToggleDir').on('click', function () {
+            const newDir = (currentDirection === 't2b') ? 'l2r' : 't2b';
+            renderChart(newDir);
+
+            // меняем надпись на кнопке
+            $(this).text(
+                'Схема: ' + (newDir === 't2b' ? 'вертикально' : 'горизонтально')
+            );
+        });
+
+
+        // --- меню шестерёнки ---
+
+        $('#chart-container').on('click', '.orgNode__gear', function (e) {
+            e.stopPropagation();
+            var $btn = $(this);
+            $('.orgNode__gear').not($btn).removeClass('active');
+            $btn.toggleClass('active');
+        });
+
+        // не даём ссылкам внутри меню скроллить страницу
+        $('#chart-container').on('click', '.orgNode__gear a', function (e) {
+            e.preventDefault();
+        });
+
+        // --- клик по владельцу: открываем попап профиля ---
+        const $profilePop = $('#orgProfilePop');
+
+        function openProfilePopup($trigger) {
+            const owner = {
+                name: $trigger.data('owner-name') || '',
+                email: $trigger.data('owner-email') || '',
+                telegram: $trigger.data('owner-telegram') || '',
+                phone: $trigger.data('owner-phone') || '',
+                avatar: $trigger.data('owner-avatar') || ''
+            };
+
+            // подставляем данные в уже существующие элементы
+            $profilePop.find('.profilePop_name h3').text(owner.name || '');
+            $profilePop.find('.js-profile-email').text(owner.email || '');
+            $profilePop.find('.js-profile-telegram').text(owner.telegram || '');
+            $profilePop.find('.js-profile-phone').text(owner.phone || '');
+
+            if (owner.avatar) {
+                $profilePop.find('.js-profile-avatar')
+                    .css('background-image', 'url(' + owner.avatar + ')')
+                    .find('img').attr('src', owner.avatar);
+            }
+
+            const offset = $trigger.offset();
+            const top = offset.top + $trigger.outerHeight() + 8;
+            const left = offset.left;
+
+            $profilePop
+                .css({ top: top, left: left })
+                .addClass('is-open');
+        }
+
+
+        $('#chart-container').on('click', '.js-orgNode-owner', function (e) {
+            e.stopPropagation();
+            openProfilePopup($(this));
+        });
+
+        // клики по пунктам меню — пока заглушки (чтобы показать «живость» интерфейса)
+        $('#chart-container').on('click',
+            '.js-orgNode-moveHierarchy, .js-orgNode-moveHorizontal, .js-orgNode-addChild, .js-orgNode-sortChildren, .js-orgNode-open',
+            function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                alert('Заглушка: здесь будет логика для действия:\n\n' + $(this).text().trim());
+                $(this).closest('.orgNode__gear').removeClass('active');
+            });
+
+        // --- глобальные обработчики для закрытия меню/попапа ---
+
+        $(document).on('click', function () {
+            $('.orgNode__gear').removeClass('active');
+            $profilePop.removeClass('is-open');
+        });
+
+        // не закрывать попап при клике внутри него
+        $profilePop.on('click', function (e) {
+            e.stopPropagation();
+        });
+    });
+</script>
+</body>
+</html>

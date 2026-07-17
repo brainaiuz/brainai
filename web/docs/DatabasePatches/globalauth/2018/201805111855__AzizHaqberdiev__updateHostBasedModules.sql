@@ -1,0 +1,1 @@
+insert into hostbasedmodulesettings (host,code) values ('app.kpi.com','BANK_ACCOUNTS'),('app.kpi.com','ACCOUNTING_CHART_OF_ACCOUNTS');

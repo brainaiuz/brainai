@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean class="org.springframework.web.servlet.handler.SimpleServletHandlerAdapter"/>
+
+    <bean id="urlMapping"
+          class="org.gwtwidgets.server.spring.GWTHandler">
+        <property name="serviceExporterFactory" ref="wfmServiceExporter"/>
+        <property name="disableResponseCaching" value="true"/>
+        <property name="mappings">
+            <map>
+                <entry key="/signup" value-ref="signUpService"/>
+                <entry key="/gettingstarted" value-ref="gettingStartedService"/>
+                <entry key="/login" value-ref="loginService"/>
+                <entry key="/task" value-ref="taskService"/>
+                <entry key="/project" value-ref="projectService"/>
+                <entry key="/projectcost" value-ref="projectCostService"/>
+                <entry key="/wbs" value-ref="wbsService"/>
+                <entry key="/issue" value-ref="issueService"/>
+                <entry key="/department" value-ref="departmentService"/>
+                <entry key="/employee" value-ref="employeeService"/>
+                <entry key="/dashboard" value-ref="dashboardService"/>
+                <entry key="/client" value-ref="clientService"/>
+                <entry key="/timesheet" value-ref="timesheetService"/>
+                <entry key="/profile" value-ref="profileService"/>
+                <entry key="/googlecalendar" value-ref="googleCalendarService"/>
+                <entry key="/googledocuments" value-ref="googleDocumentsService"/>
+                <entry key="/googlecontacts" value-ref="googleContactsService"/>
+                <entry key="/googleanalytics" value-ref="googleAnalyticsService"/>
+                <entry key="/availability" value-ref="availabilityService"/>
+                <entry key="/recruitment" value-ref="recruitmentService"/>
+                <entry key="/invoice" value-ref="invoiceService"/>
+                <entry key="/prepayment" value-ref="prepaymentService"/>
+                <entry key="/quote" value-ref="quoteService"/>
+                <entry key="/report" value-ref="reportService"/>
+                <entry key="/backend" value-ref="backendService"/>
+                <entry key="/backendReporting" value-ref="backendService"/>
+                <entry key="/payroll" value-ref="payrollService"/>
+                <entry key="/status" value-ref="statusService"/>
+                <entry key="/expense" value-ref="expenseService"/>
+                <entry key="/myaccount" value-ref="myAccountService"/>
+                <entry key="/bugreport" value-ref="bugReportService"/>
+                <entry key="/accounting" value-ref="accountingService"/>
+                <entry key="/rentalOrder" value-ref="rentalOrderService"/>
+                <entry key="/buildAssembly" value-ref="buildAssemblyService"/>
+                <entry key="/vatreturn" value-ref="vatReturnService"/>
+                <entry key="/discount" value-ref="discountService"/>
+                <entry key="/priceLevel" value-ref="priceLevelService"/>
+                <entry key="/product" value-ref="productService"/>
+                <entry key="/itemSerials" value-ref="itemSerialService"/>
+                <entry key="/itemBatches" value-ref="itemBatchService"/>
+                <entry key="/projectBaseInvoice" value-ref="projectBaseInvoiceService"/>
+                <entry key="/crm" value-ref="crmService"/>
+                <entry key="/twilio" value-ref="twilioService"/>
+                <entry key="/massmail" value-ref="massMailService"/>
+                <entry key="/webForms" value-ref="webFormsService"/>
+                <entry key="/note" value-ref="noteService"/>
+                <entry key="/hrms" value-ref="hrmsService"/>
+                <entry key="/common" value-ref="commonService"/>
+                <entry key="/allinone" value-ref="allInOneService"/>
+                <entry key="/smssender" value-ref="smsSenderService"/>
+                <entry key="/location" value-ref="locationService"/>
+                <entry key="/ganttchart" value-ref="ganttchartService"/>
+                <entry key="/currency" value-ref="currencyService"/>
+                <entry key="/magento" value-ref="magentoService"/>
+                <entry key="/barcodeGenerator" value-ref="barcodeGeneratorService"/>
+                <entry key="/targeterp" value-ref="targetErpService"/>
+                <entry key="/telegramChat" value-ref="telegramChatService"/>
+                <entry key="/whatsapp" value-ref="whatsappService"/>
+                <entry key="/aireport" value-ref="aiReportService"/>
+                <entry key="/contactCategory" value-ref="contactCategoryService"/>
+                <entry key="/transactionlock" value-ref="transactionLockingService"/>
+
+                <entry key="/documents" value-ref="documentsService"/>
+                <entry key="/rbac" value-ref="rbacService"/>
+
+
+                <entry key="/emailTemplate" value-ref="emailTemplateService"/>
+                <entry key="/clock" value-ref="clockService"/>
+                <entry key="/clockWidget" value-ref="clockWidgetService"/>
+                <entry key="/messageCenter" value-ref="messageCenterService"/>
+                <entry key="/importing" value-ref="importingService"/>
+                <entry key="/importFile" value-ref="importFileService"/>
+
+                <entry key="/contact" value-ref="contactService"/>
+                <entry key="/kanban" value-ref="kanbanService"/>
+
+                <!--Reporting MAPPINGS START-->
+                <entry key="/reportingService" value-ref="reportingService"/>
+                <entry key="/reportingCoreService" value-ref="reportingCoreService"/>
+                <!--Reporting MAPPINGS END-->
+
+                <entry key="/rolepermission" value-ref="rolePermissionService"/>
+                <entry key="/newsService" value-ref="newsService"/>
+
+                <entry key="/trainingcenter" value-ref="tcService"/>
+                <entry key="/module" value-ref="moduleService"/>
+                <entry key="/consignment" value-ref="consignmentService"/>
+                <entry key="/notificationmsg" value-ref="notificationMsgService"/>
+                <entry key="/gwteventservice" value-ref="gwteventservice"/>
+                <entry key="/serversenteventservice" value-ref="serversenteventservice"/>
+                <entry key="/meetingMinutes" value-ref="meetingMinutesService"/>
+                <entry key="/dashboardWidget" value-ref="dashboardWidgetService"/>
+                <entry key="/defaultCaptchaService" value-ref="defaultCaptchaService"/>
+                <entry key="/itemtablesettings" value-ref="itemTableSettings"/>
+                <entry key="/fixedAsset" value-ref="fixedAssetService"/>
+                <entry key="/manualEntry" value-ref="manualEntryService"/>
+                <entry key="/localization" value-ref="localizationService"/>
+                <entry key="/talentProfile" value-ref="talentProfileService"/>
+                <entry key="/moduleDashboard" value-ref="moduleDashboardService"/>
+                <entry key="/company" value-ref="companyService"/>
+                <entry key="/assessment" value-ref="assessmentService"/>
+                <entry key="/pseudoService" value-ref="pseudoService"/>
+                <entry key="/pdfTemplate" value-ref="pdfTemplateService"/>
+                <entry key="/botActivationService" value-ref="botActivationService"/>
+                <entry key="/hmrcMtdService" value-ref="hmrcMtdService"/>
+                <entry key="/salaryhistory" value-ref="salaryHistory"/>
+                <entry key="/userFingerPrintAdjustment" value-ref="userFingerPrintAdjustmentService"/>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="wfmServiceExporter"
+          class="com.edatasite.workforce.gwt.core.server.servlets.WfmServiceExporterFactoryBean">
+        <constructor-arg index="0" ref="xssFilter"/>
+    </bean>
+
+    <bean id="xssFilter"
+          class="com.edatasite.workforce.gwt.core.server.security.XSSFilter">
+        <property name="exclusions">
+            <list value-type="java.lang.String">
+                <value>|saveCompanyPdfTemplate|</value>
+                <value>|saveCertificate|</value>
+                <value>|sendTestEmail|</value>
+                <value>|saveMailMessage|</value>
+                <value>|saveSignature|</value>
+                <value>|sendMessage|</value>
+                <value>|sendEmailToCaseReporter|</value>
+                <value>|createUpdateEmailTemplate|</value>
+                <value>|saveWorkflowAlert|</value>
+            </list>
+        </property>
+    </bean>
+
+</beans>

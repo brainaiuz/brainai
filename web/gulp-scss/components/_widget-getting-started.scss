@@ -1,0 +1,179 @@
+.widget--gts {
+}
+
+.gts-trace,
+.gts__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-left: $widget-padding-x;
+  padding-right: $widget-padding-x;
+
+  [data-gs-width="12"] &,
+  [data-gs-width="11"] &,
+  [data-gs-width="10"] & {
+    padding-left: $widget-padding-x-lg;
+    padding-right: $widget-padding-x-lg;
+  }
+
+  [data-gs-width="9"] &,
+  [data-gs-width="8"] &,
+  [data-gs-width="7"] & {
+    padding-left: $widget-padding-x-md;
+    padding-right: $widget-padding-x-md;
+  }
+
+  [data-gs-width="6"] &,
+  [data-gs-width="5"] &,
+  [data-gs-width="4"] & {
+    padding-left: $widget-padding-x;
+    padding-right: $widget-padding-x;
+  }
+}
+
+.gts-trace {
+  @include panel-heading-box-shadow;
+
+  &__tooltip {
+    flex: 0 0 $button-height;
+    margin-left: rem(20px);
+    margin-right: rem(-7px);
+
+    i {
+      margin-right: rem(-4px);
+      font-size: rem(24px);
+      color: $color-base-2;
+    }
+  }
+}
+
+.gts__title {
+  font-size: rem(14px);
+  margin: rem(0 15px 0 0);
+  white-space: nowrap;
+}
+
+.gts-progress {
+  flex: 0 0 25%;
+  display: flex;
+  margin-right: 3%;
+  align-items: center;
+
+  @media screen and (max-width: 1440px) {
+    flex-basis: 20%;
+  }
+
+  &__num {
+    flex: rem(0 0 50px);
+    font-weight: bold;
+    font-size: rem(15px);
+  }
+
+  .progress {
+    width: 100%;
+    min-width: rem(110px);
+    height: rem(10px);
+    margin: 0;
+    border-radius: rem(13px);
+
+    .determinate {
+      border-radius: rem(13px);
+    }
+  }
+}
+
+.gts-steps {
+  display: flex;
+  justify-self: flex-end;
+  margin-left: auto;
+
+  $unpassed-color: lighten(desaturate(adjust-hue($color-base-2, 4), 2.32), 20.00);
+
+  > figure {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: rem(0 0 0 15px);
+    cursor: pointer;
+
+    @media screen and (min-width: 1440px) {
+      margin-left: rem(30px);
+    }
+
+    > * {
+      position: relative;
+      z-index: 2;
+    }
+  }
+
+  .figicon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 rem(21px);
+    width: rem(21px);
+    height: rem(21px);
+    padding: rem(1px);
+    border-radius: 50%;
+    background-color: $unpassed-color;
+
+    i {
+      color: #fff;
+    }
+  }
+
+  figcaption {
+    margin-left: rem(5px);
+    font-size: (11px);
+    color: $unpassed-color;
+  }
+
+  figure.locked,
+  figure.active {
+    .figicon {
+      background-color: $color-base-2;
+    }
+  }
+
+  figure.active {
+    .figicon i {
+      opacity: 0;
+    }
+
+    figcaption {
+      color: $text-color-base;
+    }
+  }
+
+  figure.locked .figicon i {
+    font-size: .9rem;
+  }
+
+  figure.passed {
+    figcaption {
+      color: $text-color-base;
+    }
+
+    .figicon {
+      background-color: $button-border-color-success;
+    }
+  }
+
+}
+
+.gts__content {
+  padding-top: rem(12px);
+  padding-bottom: rem(12px);
+}
+
+.gts__actions {
+  flex-shrink: 0;
+  padding-left: rem(20px);
+  letter-spacing: normal;
+
+  .btn + .btn {
+    margin-left: rem(10px);
+  }
+}

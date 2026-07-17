@@ -1,0 +1,67 @@
+<div class="contentBar" style="padding:0 10px;margin-top:2px;">
+
+    <div id="click1" class="slideDown-box  group expand">
+        <h3 onclick="var myclick=document.getElementById('click1');if(myclick && myclick.className){;
+}{var cls=myclick.className;if(cls.indexOf('expand')>=0){cls=cls.replace('expand','');}else{cls+=' expand';}myclick.className=cls;}"
+            class="slideDown-title">
+            $$label:DETAILS$$
+        </h3>
+        <fieldset class="slideDown-content group labelLine">
+            <div class="halfSet-1 left">
+                <div class="row">$$label:NAME$$
+                    <div class="field">$$input:NAME$$</div>
+                </div>
+                <div class="row">$$label:MODULE$$
+                    <div class="field">$$input:MODULE$$</div>
+                </div>
+                <div class="row">$$label:CATEGORY$$
+                    <div class="field">$$input:CATEGORY$$</div>
+                </div>
+                <div class="row hideCustomField">$$label:SUBJECT$$
+                    <div class="field">$$input:SUBJECT$$</div>
+                </div>
+            </div>
+
+            <div class="halfSet-1 left">
+                <div class="row">$$label:FROM_USER$$
+                    <div class="field">$$input:FROM_USER$$</div>
+                </div>
+                <div class="row">$$label:FROM_NAME$$
+                    <div class="field">$$input:FROM_NAME$$</div>
+                </div>
+                <div class="row">$$label:REPLY_TO$$
+                    <div class="field">$$input:REPLY_TO$$</div>
+                </div>
+                <div class="row">$$label:IS_DEFAULT$$
+                    <div class="field">$$input:IS_DEFAULT$$</div>
+                </div>
+                <div class="row">$$label:ONLY_MINE$$
+                    <div class="field">$$input:ONLY_MINE$$</div>
+                </div>
+            </div>
+        </fieldset>
+        <fieldset class="slideDown-content group nobrd">
+            <div class="reachFullWidth">$$input:MESSAGE_CONTENT_TITLE$$</div>
+        </fieldset>
+        <fieldset class="slideDown-content group nobrd">
+            <div class="reachFullWidth">$$input:MESSAGE_CONTENT$$</div>
+        </fieldset>
+        <fieldset class="slideDown-content group nobrd">
+            <div class="reachFullWidth">$$input:TEST_EMAIL$$</div>
+        </fieldset>
+        <fieldset class="slideDown-content group nobrd">
+            <div class="reachFullWidth">$$input:EMAIL$$</div>
+        </fieldset>
+    </div>
+
+    <div id="click2" class="slideDown-box group expand">
+        <h3 onclick="var myclick=document.getElementById('click2');if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('expand')>=0){cls=cls.replace('expand','');}else{cls+=' expand';}myclick.className=cls;}"
+            class="slideDown-title">$$label:ATTACHMENTS$$</h3>
+        <fieldset class="slideDown-content group nobrd">
+            <div class="reachFullWidth">
+                $$input:ATTACHMENTS$$
+            </div>
+        </fieldset>
+    </div>
+
+</div>

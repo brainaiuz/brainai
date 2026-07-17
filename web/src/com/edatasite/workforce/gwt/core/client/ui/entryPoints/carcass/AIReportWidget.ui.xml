@@ -1,0 +1,64 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+    <g:HTMLPanel styleName="chat chat--ai">
+
+        <div class="chat__contact">
+            <div class="contactBar" style="display: flex; gap: 24px; align-items: center;">
+                <!-- K.A.R.E. Block -->
+                <div>
+                    <h5 class="contactBar__name">
+                        K.A.R.E
+                    </h5>
+                    <sup class="contactBar__inf">
+                        AI Reporting Engine
+                    </sup>
+                </div>
+
+                <!-- BETA TESTING Block -->
+                <div style="margin-left: 260px;">
+                    <h5 class="contactBar__inf">
+                        BETA TESTING
+                    </h5>
+                    <sup class="contactBar__inf">
+                        Experimental Mode
+                    </sup>
+                </div>
+            </div>
+        </div>
+
+        <!-- Existing K.A.R.E. Block -->
+<!--        <div class="chat__contact">-->
+<!--            <div class="contactBar">-->
+<!--                <h5 class="contactBar__name">-->
+<!--                    K.A.R.E-->
+<!--                </h5>-->
+<!--                <sup class="contactBar__inf">-->
+<!--                    KPI AI Reporting Engine-->
+<!--                </sup>-->
+<!--            </div>-->
+<!--        </div>-->
+        <g:FlowPanel ui:field="bodyPanel" styleName="chat__body">
+            <g:HTMLPanel ui:field="msgTime" styleName="msgTime">
+                <!--                Monday at 22:41-->
+            </g:HTMLPanel>
+        </g:FlowPanel>
+
+        <g:FlowPanel ui:field="messageInputContainer" styleName="chat__act">
+            <g:FlowPanel styleName="chatAct">
+                <!--!New T100566 Start AI Report Search Prompt-->
+                <g:FlowPanel styleName="chatAct__input">
+                    <g:TextArea ui:field="messageInput"
+                                styleName="form-control"
+                                visibleLines="1"/>
+                    <g:HTMLPanel styleName="textarea-mirror form-control"/>
+                </g:FlowPanel>
+                <!--!New T100566 End AI Report Search Prompt-->
+            </g:FlowPanel>
+        </g:FlowPanel>
+
+        <g:FlowPanel ui:field="footerInfoPanel" styleName="chat__inf">
+            <!-- We advise you to review outputs for accuracy and avoid inputting sensitive information. -->
+        </g:FlowPanel>
+
+    </g:HTMLPanel>
+</ui:UiBinder>

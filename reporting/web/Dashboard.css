@@ -1,0 +1,188 @@
+body {
+    background-color: white;
+    color: black;
+    /*font-family: Arial, sans-serif;*/
+    font-size: small;
+    margin: 8px;
+}
+
+.br-title {
+    color: #fff;
+    margin-bottom: 0;
+    width: auto;
+    height: 32px;
+    line-height: 32px;
+    padding: 0 0 0 16px;
+    background-color: #194372;
+}
+
+.inner_table {
+    float: left;
+    width: 209px;
+    margin: 0 0 17px 0;
+}
+
+.inner_table table {
+    width: 209px;
+    border: 1px solid #fff;
+}
+
+.ASStable_inner table {
+    width: 545px;
+}
+
+.inner_table tr, .inner_table td {
+    border: 1px solid #fff;
+}
+
+.inner_table th, .inner_table td {
+    height: 30px;
+    text-align: left;
+    vertical-align: middle;
+    padding-left: 7px;
+}
+
+.ASStable_inner th, .ASStable_inner td {
+    height: 30px;
+    text-align: left;
+    vertical-align: middle;
+    padding-left: 7px;
+}
+
+.ASStable_inner tr, .ASStable_inner td {
+    border: 1px solid #fff;
+}
+
+.ASStable_inner th a {
+    color: #000;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.inner_table th a {
+    color: #000;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.inner_table .light {
+    background-color: #d8edfa;
+}
+
+.inner_table .strong {
+    background-color: #c6e3f6;
+}
+
+.ASStable_inner .light {
+    background-color: #d8edfa;
+}
+
+.ASStable_inner .strong {
+    background-color: #c6e3f6;
+}
+
+.ASStable_inner .first-line {
+    background-color: #a3cfef;
+    font-weight: bold;
+}
+
+/* end styles for table  */
+
+.gwt-DecoratedTabBar {
+    margin-bottom: -1px;
+    position: relative;
+}
+
+.gwt-DecoratedTabBar .gwt-TabBarFirst {
+    width: 5px; /* first tab distance from the left */
+}
+
+.gwt-DecoratedTabBar .gwt-TabBarRest {
+}
+
+.gwt-DecoratedTabBar .gwt-TabBarItem {
+    border-collapse: collapse;
+    margin-left: 0;
+    width: 100px;
+    border-right: 1px solid #bbc9d8;
+}
+
+.gwt-DecoratedTabBar .tabTopLeft,
+.gwt-DecoratedTabBar .tabTopRight,
+.gwt-DecoratedTabBar .tabTopLeftInner,
+.gwt-DecoratedTabBar .tabTopRightInner {
+    display: none;
+}
+
+.gwt-DecoratedTabBar .tabMiddleCenter {
+    padding: 4px 6px;
+    cursor: pointer;
+    cursor: hand;
+    color: #000;
+    /*font-family: arial;*/
+    text-align: center;
+    background-color: #d3e8f7;
+    border-bottom: 1px solid #bbc9d8;
+
+}
+
+.gwt-DecoratedTabBar .gwt-TabBarItem-selected .tabMiddleCenter {
+    cursor: pointer;
+    background: #e9f7fe;
+    border-bottom: 1px solid #e9f7fe;
+}
+
+.tabMiddle {
+    border-left: 1px solid #bbc9d8;
+    border-top: 1px solid #bbc9d8;
+}
+
+.tabMiddleRight, .gwt-TabBarFirst-wrapper {
+    display: none;
+}
+
+.gwt-DecoratedTabPanel {
+    margin: 0 auto;
+}
+
+.gwt-TabPanelBottom {
+    border: 1px solid #bbc9d8;
+    /*padding:16px;*/
+    margin-bottom: 16px;
+}
+
+.plate-1-inner td.labelStyle {
+    color: #1F4F8F;
+    /*font-family: tahoma, verdana, helvetica;*/
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.my-btn-c {
+    text-align: center;
+    padding: 0 6px;
+    width: 100%;
+    vertical-align: middle;
+    background: url(images/default/button/btn-sprite.gif) repeat-x 0 -42px;
+}
+
+.wrapper #header {
+    background: url("mainStyles/themes/blue/gradient-bg-logo.png") repeat-x scroll 0 0 transparent;
+    height: 76px;
+    position: relative;
+}
+
+.wrapper #footer {
+    background: url("../images/themes/blue/bg_footer.png") repeat-x scroll 0 0 #002641;
+    bottom: 0;
+    clear: both;
+    color: #FFFFFF;
+    height: 30px;
+    left: 0;
+    position: fixed;
+    width: 100%;
+}
+
+.gwt-HTML {
+    cursor: pointer;
+}

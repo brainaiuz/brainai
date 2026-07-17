@@ -1,0 +1,12 @@
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:g="urn:import:com.google.gwt.user.client.ui"
+>
+
+    <g:FlowPanel ui:field="rowRoot" styleName="orgSortDialog-row">
+        <g:FlowPanel ui:field="dragHandle" styleName="orgSortDialog-rowHandle"/>
+        <g:FlowPanel styleName="orgSortDialog-rowText">
+            <g:HTML ui:field="titleHtml" styleName="orgSortDialog-rowTitle"/>
+            <g:HTML ui:field="shortDescHtml" styleName="orgSortDialog-rowDesc"/>
+        </g:FlowPanel>
+    </g:FlowPanel>
+</ui:UiBinder>

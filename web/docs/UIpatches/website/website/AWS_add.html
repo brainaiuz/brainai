@@ -1,0 +1,37 @@
+<div class="contentBar" style="padding:0 10px;margin-top:2px">
+    <div id="websiteDetails" class="slideDown-box  group expand">
+        <h3 onclick="var myclick=document.getElementById('websiteDetails');if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('expand')>=0){cls=cls.replace('expand','');}else{cls+=' expand';}myclick.className=cls;}"
+            class="slideDown-title">
+            $$label:WEBSITE_DETAILS$$
+        </h3>
+        <fieldset class="slideDown-content group labelLine">
+            <div class="halfSet-1 left">
+                <div class="row hideCustomField">$$label:SITE_NAME$$
+                    <div class="field">$$input:SITE_NAME$$</div>
+                </div>
+                <div class="row hideCustomField">$$label:DESCRIPTION$$
+                    <div class="field">$$input:DESCRIPTION$$</div>
+                </div>
+                <div class="row hideCustomField">$$label:DOMAIN$$
+                    <div class="field">$$input:DOMAIN$$</div>
+                </div>
+            </div>
+            <div class="halfSet-1 left">
+                <div class="row">$$label:WEBSITE_LOGO$$
+                    <div class="field">$$input:WEBSITE_LOGO$$</div>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    <div id="websiteTemplate" class="slideDown-box  group expand">
+        <h3 onclick="var myclick=document.getElementById('websiteTemplate');if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('expand')>=0){cls=cls.replace('expand','');}else{cls+=' expand';}myclick.className=cls;}"
+            class="slideDown-title">
+            $$label:WEBSITE_TEMPLATE$$
+        </h3>
+        <fieldset class="slideDown-content group nobrd">
+            <div class="reachFullWidth">
+                $$input:TEMPLATE_PANEL$$
+            </div>
+        </fieldset>
+    </div>
+</div>

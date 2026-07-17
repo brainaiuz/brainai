@@ -1,0 +1,55 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:kpi='urn:import:com.edatasite.workforce.gwt.core.client.ui'
+             xmlns:mhtml='urn:import:gwt.material.design.client.ui.html'>
+    <g:HTMLPanel ui:field="panel">
+        <g:HTMLPanel styleName="form-group">
+            <mhtml:Label ui:field="assigneeLabel" styleName="form-group__label"/>
+            <kpi:DataListBox ui:field="assignee"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group" ui:field="stageContainer">
+            <mhtml:Label ui:field="stageLabel" styleName="form-group__label"/>
+            <kpi:DataListBox ui:field="stage"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group">
+            <mhtml:Label ui:field="nameLabel" styleName="form-group__label"/>
+            <g:TextBox ui:field="name"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group">
+            <mhtml:Label ui:field="contactNameLabel" styleName="form-group__label"/>
+            <g:HTMLPanel ui:field="contactNameDiv"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group">
+            <mhtml:Label ui:field="phoneLabel" styleName="form-group__label"/>
+            <g:HTMLPanel ui:field="phoneDiv"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group">
+            <mhtml:Label ui:field="accountNameLabel" styleName="form-group__label"/>
+            <g:HTMLPanel ui:field="accountNameDiv"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-row">
+            <g:HTMLPanel styleName="col-6">
+                <g:HTMLPanel styleName="form-group">
+                    <mhtml:Label ui:field="amountLabel" styleName="form-group__label"/>
+                    <g:TextBox ui:field="amount"/>
+                </g:HTMLPanel>
+            </g:HTMLPanel>
+
+
+            <g:HTMLPanel styleName="col-6">
+                <g:HTMLPanel styleName="form-group">
+                    <mhtml:Label ui:field="closeDateLabel" styleName="form-group__label"/>
+                    <kpi:DatePicker ui:field="closeDate"/>
+                </g:HTMLPanel>
+            </g:HTMLPanel>
+        </g:HTMLPanel>
+
+
+    </g:HTMLPanel>
+</ui:UiBinder>

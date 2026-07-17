@@ -1,0 +1,8 @@
+<module rename-to="accounting">
+    <inherits name="com.edatasite.workforce.gwt.core.Core"/>
+    <inherits name="com.edatasite.workforce.gwt.accounting.AccountingMain"/>
+    <inherits name="com.google.gwt.user.Debug"/>
+    <inherits name="org.gwt.advanced.Grid"/>
+    <entry-point class='com.edatasite.workforce.gwt.accounting.client.Accounting'/>
+    <inherits name="com.edatasite.workforce.gwt.Localization_properties"></inherits>
+</module>

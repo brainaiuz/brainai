@@ -1,0 +1,1 @@
+update "anv".property set isactive = false where iscustom = false and isactive = true;

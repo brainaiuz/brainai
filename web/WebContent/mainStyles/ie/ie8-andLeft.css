@@ -1,0 +1,272 @@
+/*CSS Document for IE-8 and left*/
+
+/* html {overflow-y: hidden;} */
+/*for IE7*/
+
+/* .overhide{overflow:hidden !important;} */
+
+
+.toolbar-panel-cover {
+  height:2.08em
+}
+  
+.search-panel-cover {
+  top: 2.08em !important;
+  height: 4.5em;
+}
+
+.search-panel-cover + div {
+    z-index: 100;
+    top: 6.58em !important;
+}
+
+.search-panel-cover + div + div {
+    top: 6.58em !important;
+}
+
+.top-menu-cover {
+  top: 6.58em !important;
+  height: 2.58em;
+}
+  
+.content-cover {
+  top: 9.16em !important;
+}
+
+
+.dd-menu ul ul {
+    border: 1px solid #F2F2F2;
+}
+
+.tabs li, .tabs li>a {
+    /* background: url(../images/bg_tabs.png) no-repeat; */
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAP4AAABDCAMAAACLHEjIAAABgFBMVEUEfLjV6vsOg7cAi8jY6fs7hZJvorMEfr3p+v8CmesIktPS6/9Tla8kl9W4///Z+f4Bg8EAkNv/+vAAiMQElsr98ukDjc4DjseP0PDx//5k1fbH6/MBhMsGjc4ci6nJ///g7vsLi8HV6v3U5voAibwAi9IGjccCkd0BgsQAiszU6v8BkdIXjLgBhNAGjMkAh8PY7f7V5fT+/vYwj8AOf8QFld/4///T6Pn//v/R7P3f6fP/9fCZxNnZ5vHZ5O/29PEAhMQClN/W6/8JhcgAgt3/+ve7//9Brt0Ajcvs8/sXmNIGgb8VkMkKitS1//8Bldn//vzS7PrY6P8/gaL/9/4EisUGktcGh9D2+//8+//T6f4FgMT/+vwMk9X/+/83gY4Aj9v//P4LktPX6f7W6/zU6fzU7Pj8//8CkMEEi8IGjbv9/PskfrMEhcS//v8DiMr7+vgOjccElNo4q+IIiL8Iktt/s73Y6Pgbf7EUeaUAf8AAgMEAfr8Afb8BfL/V6v/BgDOMAAADe0lEQVR42u3W7VfSUBzA8TtdiaIBE8EZJYNAZKkDkSGoPImyRrEwFaEnJfCBkkSUcqj/endD6+grduxwjtz75Rx4ufv53bsx8LMa2qcFu90LczhI8rrHW1zUexMcZ9cFlUBoN58X7GQCJf51LkeGBSGfD4J9iA/7nAW9Hi3+Sjgs6GiwL4RXln18Ah3+YqGQczab4ZWwQAOdfdnXLDs4lV9Cge9V+E6O9PF2Ggj25SbpKHsR4nsLJaezSfp8nA7YubIj4YW3PiL8BEz55RM8XzAAjuAhX48UX40rwzsAcAm9svV6VB59pZID5vW2zZhfKMA3noKCV+p9fqlEEO9vNhzzyzxUlx0ONPi5XKlUqbxXXv7gIJDnfyN4Uq39SECAT1YqFQJKcySJ+WWeIIgycdM1UmE+5mM+5mM+5mM+5mM+5mM+5mM+5vcmX/rp91N+f2o3FApJkt8femC7XU7r+j58oCJ0EJopSUpFQFTyR8bGIlJ1Z2enmqKozxq7v5yPXU7ruCCfCkJ+hIpGqymQikRp3eTxs3dKzx5va512rDRpMNBSlKJAZKxKP186H37yZEP9PNa+dNiG0vDT8+c6SYJ8Yd8wvp45PDSbh2B7D26oy91e91OHHZjr9a2hTIY5HTfQBhDML238Ytxv3G6rxWJ58eAsXe72up3yzeYsO11jTpjM8JJOBybH50F80OTa2lqIx+PZ+sIDi3e52+tOdZg5Wz87O6tnB+NgfnwSrA3/frPgMmVZ1mSamlK+H2dfO4xlXTBTdnAw833jGEy8PLKyrLXBMLOWdPrgaFZj7ntZu5xbY1Yro7Y32r/3ekLhH7Bp6wlq/LSlf69vHZz2MZu10cZJI7kND8Xm5rTG+h9bh42Gy1VLipk0O2cGI30nP2pzYgPyIQYdfoNJp62jYCSQLG5v22y2GTXbaI+XDAQCq6urM1A98zYJ+YGrbcX/n/hzXU7r+sRb/tVbOALIF+WazWLzeESYUXOeexW7nEdjsVggULS9gqVtIgAjovhjTp6WkeMfxGqiCEYGBsSLWMzokYtFWTYaZURqDwN5PhgQW56YLF8oyYh1wzdCfat1gVB/+UAEsqzyURrAP/4A5F+0LpVayNQeQpsPt/5KDaUBKN3wW5co89Wz38ZfIhXmt+/9S/Xooxbm3+VfIRXm3/3jw3x8+DEf83u/P4kcZ4mwXm5/AAAAAElFTkSuQmCC) no-repeat;
+    color: #6790b4;
+}
+
+.tabs li>a {
+    background-position: 100% 0;
+}
+
+.tabs>.act>a {
+    background-position: 100% -31px;
+}
+
+/* For plateBox */
+.plateBox, .plateBox2 {
+    overflow: visible !important;
+}
+
+/* START #appLoginForm */
+#appLoginForm {
+    padding: 5px 23px 21px;
+    border: 0;
+}
+
+#appLoginForm .bgAngle {
+    position: absolute;
+    z-index: 100;
+    width: 10px;
+    height: 10px;
+    /* background-image: url(images/bg_plateAngles.png) no-repeat; */
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAmUlEQVQ4y2P4T2XAgEduKhD7AbE2EDND1WpDxaaSYuABIDaGyuHDxlC1eA1cAMSCRBgGw4JQPVgNPECiYciGHsBmoDEZhiF7H8XAmRQYBsMzkQ0MoIKBAcgGKlDBQAVkA9moYCAbsoF81DZQhdpepnqkUD3ZUD1hw7IeOZHDhyvrkVs4zCGm+DIkwjBDYoovXAUsAyUFLEUAANyMOjV5kUYsAAAAAElFTkSuQmCC);
+}
+
+#appLoginForm .bgAngle.topLeft {
+    background-position: 0 0;
+}
+
+/* END #appLoginForm */
+.bgAngle.topLeft {
+    top: -1px;
+    left: -1px;
+}
+
+.bgAngle.topRight {
+    top: -1px;
+    right: -1px;
+    background-position: 100% 0;
+}
+
+.bgAngle.bottomLeft {
+    bottom: -1px;
+    left: -1px;
+    background-position: 0 100%;
+}
+
+.bgAngle.bottomRight {
+    bottom: -1px;
+    right: -1px;
+    background-position: 100% 100%;
+}
+
+/*** START .plateBoxPopup ***/
+.plateBoxPopup {
+    width: 400px;
+    padding: 0;
+    background: transparent;
+}
+
+.plateBoxPopup .keyClose {
+    right: 15px;
+    top: 15px;
+}
+
+.plateArc, .plateArc div {
+    height: 17px;
+    /* background-image:url(images/bg_platePopup.png); */
+    background-image: url(data:image/png;base64,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);
+    background-repeat: no-repeat;
+}
+
+.plateArcTop {
+    padding: 0 30px 0 0;
+    background-position: 100% -54px;
+}
+
+.plateArcTop div {
+    background-position: 0 -18px;
+}
+
+.plateArcBot {
+    padding: 0 30px 0 0;
+    background-position: 100% -36px;
+}
+
+.plateArcBot div {
+    background-position: 0 0;
+}
+
+.plateShadowRight {
+    padding: 0 7px 0 0;
+    /* background:url(images/bg_platePopupRight.png) repeat-y 100% 0; */
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAABCAYAAAASC7TOAAAAHElEQVQI12NgYGBwAGIDIFYCYnEg5gNidiBmAgAOXQDB8U1sKgAAAABJRU5ErkJggg==) repeat-y 100% 0;
+
+}
+
+.plateShadowLeft {
+    padding: 0 0 0 7px;
+    /* background:url(images/bg_platePopupLeft.png) repeat-y 0 0; */
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAABCAYAAAASC7TOAAAAHElEQVQI12NgYGBgAmJ2IOYDYnEgVgJiAyB2AAAFXQDBJW9AHgAAAABJRU5ErkJggg==) repeat-y 0 0;
+
+}
+
+.platePopupContent {
+    overflow: hidden;
+    padding: 3px 10px 3px 26px;
+    /* background:#0b649a url(images/art_key_close.png) no-repeat 96% 0; */
+    background: #0b649a url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAACtUlEQVQ4y32Ua0sqURSG99dgIPB/BAf6MQcO9D+CIBD6Od3EsPoSxqgVVpZl2oVTSkVWlmZ3on3eZ9HIiJ0+vMxivZfZe+094/b3912ESqXiDg8P3dnZmWs2m67dbrvHx8eh5+fnUUBNDw6N934Abm9vz0Dg0dGRu7y8dJ1OZ/j19TX58fFR+/z89HHQg0PzbWC5XDbUajUL63a7Y+/v720Z/U9Ag3YgcGdnx7Zar9dZ2aTe7sHLy4s9397eMBuo4xzA0xdYKpVsbtfX17+fnp48uLu781dXV149//Dw4DU/AzU9ODSRHm/fCjXgxP39fQtSb/TaeksjmBLKFxcXXpxBfU8PDg1aPHjJ6M3w/Px8UqdnK+Ap8fjBwYHb3t4ONI7w9PTUA9UFenBo4h4yeoFaxd9oFWxFWygrIIArFovB1tZWKBSo6cGhQRv5yLDA3d3dhNL97e1tDzc3N6wy1GwDhbh8Ph8AanpwaOIeMsjiUH7phL0uaw8MHUG1Wg3X19eDMAwdoKYHhybuIYMst7GxMXJycsKSDYghNScvrqAgVscqCQ3UC+HQoI18x8fH6EdcLpdLaNhep+QbjYY9MaytrYXZbDbQk5swJFj91bPQuIcMZQ27lZUVt7m5WddnZyfJajWLytfcCAvEhYCanoyBNCW0ePCSYYeyvLzsVldXkxIYAfRdT+h6cGCB7lzIdgA1PThpxiM9XjIscGFhgdCE3tqC0NBBS1tK6llSiNfJGqjpiZtAgxYPXjIsMJ1OR6F/RHBSNo+v4P8CDVo8eHuf3vz8vCGVSrlMJjOpoXNaJtYlZvt9oAeHBi2evp/D3NxcH7TisaWlpTbiQqFgRl1oAzU9ODRoB35fMzMzA1BwQitOahS1xcVFzAZqenBovv3BTk9P/wi9YGh2dnYUUMe57wL/AZpk3tJnwZmIAAAAAElFTkSuQmCC) no-repeat 96% 0;
+}
+
+/*** END .plateBoxPopup ***/
+
+/*** RANGELINE ***/
+.rangeLine {
+/ / display : inline;
+    zoom: 1;
+}
+
+.rangeLine>.last {
+    float: left;
+}
+
+/***For accounting***/
+.invoice-reference .reference, .related-text .number, .invoice-block .lineItem .number, .invoice-block .lineItem .reference {
+    position: relative;
+    left: -20px;
+}
+
+/***Scrollbar on left side of splitpanel***/
+/*.SplitLayoutPanel>div+div+div {
+    overflow-x: hidden
+}*/
+
+.divisioncontainer {
+    overflow-x: hidden !important;
+}
+
+/*** Tabs panel bug fix ***/
+.tabsPanel>span {
+    float: left;
+}
+
+/*** AWS HEADER PANELS height:0, top:0 forced BUG-FIX ***/
+.toolbar-panel-cover {
+    height: 2.08em !important;
+}
+
+.search-panel-cover {
+    top: 2.08em !important;
+    height: 4.5em !important;
+}
+
+.top-menu-cover {
+    top: 6.58em !important;
+    height: 2.58em !important;
+}
+
+.content-cover {
+    top: 9.16em !important;
+    height:auto !important;
+}
+
+/* TEST-FIX for correction dataTable right padding */
+.headerTable {
+    padding-right: 0;
+}
+
+.optBtn2, .wfp-panel-header {
+    /*  background: url(/mainStyles/images/default/bg/bg_gradX_optBtn2.png) repeat-x scroll 0 0 #d0d0d0; */
+    background: #d0d0d0 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAABcCAYAAACvBd+gAAAAUElEQVQY07WQMQ7AIAwDz8n/n8oPUNyFASqKxNDlZC/OKdh22OaNqprTrt7jc289jm0CGGoAW8mz+H09AxhqrTVHZjJB0jCV9NPXeu9zWvEAUxP7A0tFtjgAAAAASUVORK5CYII=) repeat-x scroll 0 0 #d0d0d0;
+}
+
+/* CRM Filter popup checkboxes fix */
+.wfm-dialogbox .gwt-Caption+div .gwt-CheckBox {
+    display: block;
+}
+
+.wfm-dialogbox  .gwt-Caption+div .gwt-CheckBox label {
+    display: inline-block;
+}
+
+/* TOOLTIPS */
+*+html .tooltip {
+    display: inline;
+    zoom: 1;
+}
+
+.tooltip>em {
+    left: -2px;
+    padding: 8px;
+    background-color: #ddd;
+    border: 0;
+}
+
+.tooltip>em:before {
+    bottom: -10px;
+    left: 7px;
+    height: 0;
+    width: 0;
+    border-width: 10px 15px 0 5px;
+    border-color: #ddd transparent transparent transparent;
+    background-color: transparent;
+}
+
+.tooltip>em:after {
+    display: none;
+}
+
+*+html .profile-image {
+    display: inline;
+    zoom: 1;
+}
+
+.pseudoSelect .curValue em {
+	position:relative;
+	z-index:-1;
+}
+/* .pseudoSelect .curValue:hover {
+    -moz-box-shadow: 0 0 15px 0 #DDDDDD inset;
+    -webkit-box-shadow: 0 0 15px 0 #DDDDDD inset;
+    box-shadow: 0 0 15px 0 #DDDDDD inset;
+} */

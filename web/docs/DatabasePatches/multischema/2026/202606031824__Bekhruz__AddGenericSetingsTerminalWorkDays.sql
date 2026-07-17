@@ -1,0 +1,1 @@
+INSERT INTO "anv".genericSettings (key, value) VALUES ('TERMIANL_DAILY_WORK_ENABLE', 'NO');

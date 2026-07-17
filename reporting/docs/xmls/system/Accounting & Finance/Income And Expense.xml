@@ -1,0 +1,31 @@
+<report>
+    <view>
+        <title>Income and Expense Trend</title>
+        <name>Income and Expense Trend</name>
+        <category>income and expense</category>
+        <sqlquery>
+            <select agregateFunc="distinct">
+                <!--  Please only enter type property {'number' or 'date or clock' }   -->
+                <table name="Income">
+                    <column name="t.id" title="id" type="number" formattype="hidden"/>
+                    <column name="t.date" title="Journal Date" type="date" formattype="date" customdateformat="Mon, YYYY"/>
+                    <column name="t.income" title="Income" type="number" formattype="money"/>
+                    <column name="t.expense" title="Expense" type="number" formattype="money"/>
+                </table>
+            </select>
+            <from> (SELECT ti.id,date_trunc('month', t.journaldate) as date,
+                SUM(CASE WHEN a.accountcode='0100' THEN COALESCE(ti.debit, 0) - COALESCE(ti.credit, 0) END) as income,
+                SUM(CASE WHEN a.accountcode='2108' THEN COALESCE(ti.debit, 0) - COALESCE(ti.credit, 0) END) as expense
+                from "$".transactionItem ti
+                LEFT JOIN "$".transaction t ON t.id = ti.transactionid
+                JOIN "$".account a ON a.id = ti.accountid
+                WHERE (t.journaldate BETWEEN date_trunc('year', now()) AND now())
+                group by date_trunc('month', t.journaldate),ti.id
+                order by date) t
+            </from>
+            <where>
+                <terms id="base" value="1=1"/>
+            </where>
+        </sqlquery>
+    </view>
+</report>

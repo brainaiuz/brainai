@@ -1,0 +1,51 @@
+<report>
+    <view>
+        <title>My Results This Week</title>
+        <name>My Results This Week</name>
+        <category>crm</category>
+        <sqlquery>
+            <select agregateFunc="distinct">
+                <table name="My Results This Week">
+                    <column name="oid" title="id" type="number" formattype="hidden"/>
+                    <column name="stageName" title="Stage" type="string" formattype="string"/>
+                    <column name="statusCount" title="Count" type="number" formattype="number"/>
+                    <column name="ord" title="Order" type="number" formattype="number"/>
+                </table>
+            </select>
+            <from>
+                (
+                select max(t.oid) oid, count(t.statusCount)-1 as statusCount, t.stageName, max(t.ord) as ord FROM (
+                select 0 as oid, 0 as statusCount, name as stageName, sorder as ord FROM "$".reference WHERE
+                parentid=(select id FROM "$".reference WHERE code='_OPPORTUNITY_STAGE')
+                UNION ALL
+                SELECT o.id as oid, count(o.id) statusCount, max(r.name) stageName, max(r.sorder) ord
+                FROM "$".opportunity o
+                LEFT JOIN "$".reference r ON r.id=o.stage,
+                (select u.id, max(case when r.code in ('ADMIN','DR','SALESMAN','SALESPERSON') then 1 else 0 end) isAdmin
+                from "$".myuser u
+                left join "$".myuser_role mu on mu.users_id=u.id
+                left join "$".role r on mu.roles_id=r.id
+                where u.id=#?user_id?#
+                group by u.id) x
+                WHERE o.deleted is not true
+                AND o.historical is not true
+                and (o.modificationDate between (now()-'7 day'::interval) and now())
+                and
+                (
+                x.isAdmin=1
+                or
+                ( x.isAdmin != 1 and o.owner=x.id)
+                )
+                GROUP BY o.stage, oid
+                ORDER BY ord ) t
+                GROUP BY t.stagename
+                ORDER BY ord
+                ) t
+            </from>
+            <where>
+                <terms id="base" value="1=1"/>
+                <replacement id="userid" userid="#?user_id?#"/>
+            </where>
+        </sqlquery>
+    </view>
+</report>

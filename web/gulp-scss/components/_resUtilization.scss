@@ -1,0 +1,354 @@
+//RESOURCE UTILIZATION TABLE
+$rsrcUtlzTblFirstColumnWidth: rem($resUtilsCellWidth * 5);
+$rsrcUtlzTblLegendHeight: $theadHeight;
+
+.rsrcUtlzLayout {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  &__filters.fixed-content {
+    .has-tabs & {
+      top: ($frameHeaderSize + $oneRowPanelHeight) - $fixedPanelPadding / 2; //http://prntscr.com/ogri8d
+    }
+  }
+
+  &__body {
+    flex: 1;
+    overflow: auto;
+  }
+
+
+  &__footer {
+    position: sticky;
+    bottom: 0;
+    z-index: 5; //the same with the table head row
+    height: $rsrcUtlzTblLegendHeight * 1.3;
+    padding-left: calc(#{$rsrcUtlzTblFirstColumnWidth} + #{$padding-y-base});
+    padding-right: $padding-y-base;
+    background-color: $theadBg;
+    border-top: 1px solid $rsrcUtlzTblSectBrdr;
+
+    > div {
+      display: flex;
+      align-items: center;
+
+      > span {
+        display: inline-block;
+        min-height: 20px;
+        min-width: 20px;
+
+        @media #{$large-and-up} {
+          @include txtTruncate();
+        }
+
+        + span:nth-child(odd) {
+          margin-left: $m-lg;
+        }
+
+        &:nth-child(odd) {
+          margin-right: $m-sm;
+          text-align: center;
+          border: 1px solid $color-base-1;
+        }
+      }
+    }
+  }
+}
+
+.rsrcUtlzTbl-out {
+  &__thead {
+  }
+  &__tbody {
+  }
+}
+
+.rsrcUtlzTbl {
+  th span {
+    max-width: -webkit-fill-available; //to prevent <style> max-width: 100px for txt overflow
+  }
+  td {
+  }
+
+  > * > tr > * {
+
+    &:first-child {
+      width: $rsrcUtlzTblFirstColumnWidth;
+      max-width: $rsrcUtlzTblFirstColumnWidth;
+      > * {
+
+      }
+    }
+  }
+  .total-day, .total-middle-day {
+    @include totalCell();
+    em {
+      //letter-spacing:-1px;
+    }
+  }
+
+  //resource utilities FOOTER LEGEND
+  &-legend {
+    > div {
+      display: flex !important;
+      align-items: center;
+      height: 100%;
+
+      span + .FQNNT1-i-g {
+        margin-left: $padding-x-base;
+      }
+    }
+  }
+
+  .resourceReportHL {
+    color: #1f4f8f;
+    font-size: 13px;
+  }
+}
+
+//LEVELS left shift
+//tr.GELY21NME level 1
+// first column cell th
+.resourceEmpNaME {
+  //is being used in attReprt-ResUtilz.scss
+}
+//tr.GEPOE23PJET level 2
+.projNaME {
+  padding-left: $levelPadding * 2 !important;
+}
+//tr.GMLEE25ASK level 3
+.taskNaME {
+  padding-left: $levelPadding * 3 !important;
+}
+.resourceEmpNaME, .projNaME, .taskNaME {}
+// \LEVELS left shift
+
+// LEVELS with arrows //.GELY21NME,// G EmpLoYee (21) NaME, .GEPOE23PJET
+.resourceEmpNaME, .projNaME {
+  > span {
+    position: relative;
+    //override gwt <style>
+    overflow: visible;
+    // \override gwt <style>
+    vertical-align: middle;
+    @include unfoldingArrow($rowArrowSize, $paddingLeft: ($rowArrowSize + $userTblImgSpace), $color: $color-accent-2, $shift: 0);
+
+    &:hover {
+      cursor: pointer;
+      color: $text-color-base;
+
+      &::before {
+        border-left-color: $text-color-base;
+      }
+    }
+  }
+}
+// \LEVELS with arrows
+
+//LEVELS 2 and 3
+.projNaME .resUtilzLevel--2, .taskNaME .resUtilzLevel--3 {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.taskNaME .resUtilzLevel--3 > span {
+  //@include txtTruncate();
+}
+.projNaME .resUtilzLevel--2 > span, .taskNaME .resUtilzLevel--3 {
+  font-size: .83em;
+  @include txtTruncate();
+  text-transform: uppercase; //dublicate of java class data settings
+}
+// \ LEVELS
+
+
+//DISPLAY NONE
+.GMLEE25ASK.GMLEE25ASK2,///* Task */
+.GEPOE23PJET.GEPOE23PJET2, //[Project]
+.empLTaskVIS .GMLEE25ASK,
+.empLProjVIS .GEPOE23PJET,
+.GTE19SHTH, ///* G TimE (19) SHeeT Hours */
+.GTE17STHR, // G ToTaL EmPlOyEe (17) HoURs
+.GOEALTM27SEHS, // Timesheet summary G OvEr ALl TiMe (27) SheEt HourS
+.GLRH31HIDDY { ///* Leave hours */  ///* G LR Hours vs (31) HolIDay DaYs */
+  display: none;
+}
+
+//DISPLAY TABLE-ROW should be after DISPLAY NONE
+.GTE19SHTH2,
+.GTE17STHR2,
+.GEPOE23PJET, // G EmPlOyEe (23) ProJEcT
+.GMLEE25ASK, // G EmPlOyEe (25) tasK
+.timeSHVIS .GTE19SHTH, // time SH eet Visible
+.timeSTVIS .GTE17STHR, // G ToTaL EmPlOyEe (17) HoURs
+.GOEALTM27SEHS2, // G OvEr ALl TiMe (27) SheEt HourS2
+.GLRH31HIDDY2 { ///* G LR Hours vs (31) HolIDay DaYs */
+  display: table-row;
+}
+// END DISPLAY SWITCH
+
+
+
+
+
+//show additional rows
+@mixin showMoreImgShift($margin: ($rowArrowSize * 2 + $userTblImgSpace), $padding: 15px) {
+  display: inline-block;
+  margin-left: #{$margin};
+  padding-left: #{$padding};
+}
+//timeslot row
+//.GTE17STHR th
+.rsrcUtlzTbl .GTE17STHR { //th.timeSTHourNaME
+  > th > span {//https://i.imgur.com/GWnoQnD.png
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAANklEQVQY02M4fvw4AwzbJ836D8PI4lgl0fnEKUIWwKYIhLEqQncjhiJsmAGb8QQdjlMRoXACAA31txm/liYMAAAAAElFTkSuQmCC) no-repeat 0 50%;
+    @include showMoreImgShift();
+  }
+  > * {
+    color: #1f4f8f !important;
+  }
+}
+// \ timeslot
+
+// timesheet row https://i.imgur.com/Rryhfi8.png
+.rsrcUtlzTbl .GTE19SHTH, //didn't find this in the page
+.rsrcUtlzTbl .GOEALTM27SEHS {
+  > * {
+    color: #176308;
+  }
+  > th > span {
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAANklEQVQY02M4fvw4AwxrdYj/h2FkcayS6HziFCELYFMEwlgVobsRQxE2zIDNeIIOx6mIUDgBAIf5npvzjODDAAAAAElFTkSuQmCC) no-repeat 0 50%;
+    @include showMoreImgShift();
+  }
+}
+th.overAllTimeSHTHourNaME {} th.timeSHTHourNaME {}
+
+// leave request row
+.rsrcUtlzTbl .GLRH31HIDDY {
+  > * {
+    color: #9a9100;
+  }
+  > th > span {
+    ///*background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAAJCAYAAADpeqZqAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2RpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo0Q0MzREU0MTIwODlFMTExODYxOUIwRjEwMTkzMDQyMSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo2N0EzMkVDRkMxRTAxMUUxQUJBQUVCNkEwNzIwNDIyQyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo2N0EzMkVDRUMxRTAxMUUxQUJBQUVCNkEwNzIwNDIyQyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IFdpbmRvd3MiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpENDI1ODE4Q0U4ODlFMTExQTNEMkU2QUZBRjQ4NDgxOCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo0Q0MzREU0MTIwODlFMTExODYxOUIwRjEwMTkzMDQyMSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pk+0o0sAAABdSURBVHjaYvz//z8DDMyexAjnpOb9Z2TAARhBmtAVE9LMxEAGYEI2FRvAJo/VJpCT0J2FrJlx1kSG/8Q4CeZXsGGggABpBGEQmxAGqcMIPWJsYiQ2nuBOAwKAAAMAwc9eig31KncAAAAASUVORK5CYII=) no-repeat 0 50%;*/
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAAJCAYAAADpeqZqAAAAQUlEQVQY02P4//8/AwzPmsjwH4aRxdExVsWENJOnCVkBNk3YNOJVgG4QTk24MLJGDBMJYZA6Bmx+IMomYuIJWQwAxwst4wKVYtwAAAAASUVORK5CYII=) no-repeat 0 50%;
+    @include showMoreImgShift();
+  }
+}
+
+//OTHER RESOURCE UTILITIES COLORS FOR CELLS
+$nobrdrColor: #f4f4f4;
+
+.rsrcUtlzTbl {
+  td input[type="text"].replacedElemST {
+    border: 0 none;
+    height: 18px;
+    line-height: 18px;
+    width: 18px;
+  }
+  td.current-day {
+    background-color: #007de7;
+    color: #ffffff;
+  }
+  td.work-month-holiday {
+    /*background-color: #cfd5dc;
+    border-color: $nobrdrColor;
+    color: #000000;*/
+    /*background-color: inherit;
+    mix-blend-mode: multiply;*/
+    @include subtle-stripes($bg-color: rgba(255, 255, 255, 0.5));
+  }
+  td.work-month-holiday-resource {
+    @include subtle-stripes($bg-color: rgba(255, 255, 255, 0.5));
+    background-color: #cfd5dc; //#95b3d7
+    background-color: #e9ebed; //#95b3d7
+    color: #000000;
+  }
+  td.work-company-holiday-resource {
+    background-color: #f4a523;
+    color: #000000;
+  }
+  td.month-day, td.total-day {
+    /*border-top: none;*/
+  }
+  td.month-day {
+    border-color: $nobrdrColor;
+  }
+  td.default-month-optimally-day {
+    background-color: #00a8ea;
+    color: #000000;
+  }
+  td.default-month-day {
+    color: #000000;
+  }
+  td.default-month-day-p {
+    background-color: #f6f7f9;
+    color: #000000;
+  }
+
+  //over allocated day
+  td.default-month-over-day {
+    background-color: #f7cdcc;
+    color: #000000;
+  }
+  ///Act! under allocated day
+  td.default-month-under-day {
+    background-color: #b1e877;
+    color: #000000;
+  }
+  td.with-unauthoruized-lr-day {
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: #d2011a;
+    color: white;
+  }
+  td.working-day-employee {
+    //background-color: #ffffff;
+    color: #000000;
+  }
+  td.working-day-project {
+    background-color: #cfd5dc;;
+    color: #000000;
+  }
+  td.working-day-task {
+    background-color: #78d5f8;
+    color: #000000;
+  }
+  //Act! Leeve Day
+  td.with-lr-day {
+    background-color: #86ca40;
+    color: #000000;
+    //border-color: $nobrdrColor;
+  }
+  td.resourceReportHL {
+    color: #1F4F8F;
+    //font-size: 13px;
+    font-weight: bold;
+  }
+  td.weekend-month {
+    //background-color: #cfd5dc;
+    /*border-color: $nobrdrColor;*/
+    @include subtle-stripes();
+  }
+  td.weekend-month-resource {
+    @include subtle-stripes();
+    /*border-color: $nobrdrColor;*/
+    background-color: #f6f7f9;
+    color: #000000;
+  }
+
+  td.resourceReportHR {
+    /*height: 50px;*/
+  }
+  th.projNaME {
+    border-color: $nobrdrColor;
+    color: #1F4F8F;
+  }
+
+  th.taskNaME {
+    /*border-color: $nobrdrColor;*/
+  }
+}
+
+
+
+

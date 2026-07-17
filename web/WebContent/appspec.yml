@@ -1,0 +1,25 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /mnt/webapps/projects/newui.kpi.com/ROOT/
+permissions:
+  - object: /mnt/webapps/projects/newui.kpi.com/
+    owner: tomcat
+    group: tomcat
+    mode: 774
+hooks:
+  BeforeInstall:
+    - location: WEB-INF/classes/DeploymentScripts/CleanupWorkDirectory.sh
+      runas: root
+  AfterInstall:
+    - location: WEB-INF/classes/DeploymentScripts/Createav.sh
+    - location: WEB-INF/classes/DeploymentScripts/Maintenancetasks.sh
+      runas: root
+  ApplicationStart:
+    - location: WEB-INF/classes/DeploymentScripts/Restart.sh
+      runas: root
+      timeout: 120
+  ValidateService:
+    - location: WEB-INF/classes/DeploymentScripts/Validation.sh
+      runas: root

@@ -1,0 +1,1 @@
+ALTER TABLE "anv".quoteItem DROP COLUMN IF EXISTS transactionValue;

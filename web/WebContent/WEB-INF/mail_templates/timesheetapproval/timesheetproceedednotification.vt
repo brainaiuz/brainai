@@ -1,0 +1,38 @@
+#* @vtlvariable name="timesheetapprovalsession" type="com.edatasite.workforce.core.domain.EdsTimeSheetApprovalSession" *#
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+Dear $timesheetapprovalsession.employee.getName(),<br/>
+
+<p>Thank you for using $productName. Please, be advised that your following time-sheet entries
+    for  $timesheetapprovalsession.project.name  have been reviewed by $managername</p>
+
+    #if($approved.size()>0)
+    <p>Approved: </p>
+        #foreach($timesheet in $approved)
+            $timesheet.getNumber() | $timesheet.getDate() | $timesheet.getTaskName() | $timesheet.getTimespent() <br/>
+        #end
+    <p>Please, note that you will not be able to edit or replace any time-sheet entries for the approved period.</p>
+    #end
+
+    #if($rejected.size()>0)
+    <p>Rejected: </p>
+        #foreach($timesheet in $rejected)
+            $timesheet.getNumber() | $timesheet.getDate() | $timesheet.getTaskName() | $timesheet.getTimespent()
+        - $timesheet.getComment() <br/>
+        #end
+    #end
+
+</body>
+</html>
+
+
+
+
+
+
+

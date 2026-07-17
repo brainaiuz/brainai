@@ -1,0 +1,68 @@
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:g="urn:import:com.google.gwt.user.client.ui"
+             xmlns:m="urn:import:gwt.material.design.client.ui"
+             xmlns:mhtml="urn:import:gwt.material.design.client.ui.html">
+
+    <g:HTMLPanel ui:field="htmlPanel">
+        <m:MaterialPanel ui:field="timerContainer" styleName="timer">
+            <m:MaterialPanel styleName="timer__heading">
+                <m:MaterialLink styleName="ficon--repeat" tooltip="Reset Time" ui:field="resetBtn"></m:MaterialLink>
+                <g:HTMLPanel styleName="timer__counter">
+                    <m:MaterialLabel ui:field="hoursLabel"/> <!--ex. 00:01:35-->
+                </g:HTMLPanel>
+                <m:MaterialPanel styleName="timer__action">
+                    <m:MaterialButton styleName="btn btn--success" ui:field="startStopBtn" visible="false"></m:MaterialButton>
+                </m:MaterialPanel>
+            </m:MaterialPanel>
+
+            <m:MaterialPanel styleName="timer__body">
+                <mhtml:DL>
+                    <mhtml:DT ui:field="projectName"><!--New UI Kpi.com long project name for example--></mhtml:DT>
+                    <mhtml:DD ui:field="taskName"><!--Create icon for categories and make it smoozi-perfect-designed (as apple-shmapple design)--></mhtml:DD>
+                    <mhtml:DD ui:field="caseName"></mhtml:DD>
+                </mhtml:DL>
+            </m:MaterialPanel>
+
+            <m:MaterialPanel ui:field="timerFooter" styleName="timer__footer">
+                <m:MaterialPanel styleName="timer__note">
+                    <m:MaterialTextArea placeholder="Write a note" ui:field="comments" height="50"></m:MaterialTextArea><!--name="" id="" cols="" rows="2"-->
+                </m:MaterialPanel>
+                <m:MaterialButton styleName="btn btn--primary" ui:field="logTimeBtn" visible="false"></m:MaterialButton>
+            </m:MaterialPanel>
+        </m:MaterialPanel>
+
+        <mhtml:Heading size="H3" styleName="side-nav-subtitle" ui:field="timeEntriesTitle">Today's Time Entries</mhtml:Heading>
+
+        <mhtml:Div styleName="panel time-entries" ui:field="timeEntriesPanel">
+            <mhtml:DL class="panel__body" ui:field="timeEntries">
+                <!--<dt>00:08</dt>
+                <dd>Create icon for categories</dd>
+
+                <dt>11:08</dt>
+                <dd>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim harum modi nobis nulla.</dd>
+
+                <dt>11:08</dt>
+                <dd>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim harum modi nobis nulla.</dd>
+
+                <dt>11:08</dt>
+                <dd>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim harum modi nobis nulla.</dd>-->
+            </mhtml:DL>
+        </mhtml:Div>
+
+
+        <!--<div class="side-nav__footer">
+            <div class="timer timer&#45;&#45;total">
+                <div class="timer__heading">
+                    <div class="timer__title">
+                        Daily Total:
+                    </div>
+                    <div class="timer__counter">
+                        00:01
+                    </div>
+                </div>
+            </div>
+        </div>-->
+
+    </g:HTMLPanel>
+
+</ui:UiBinder>

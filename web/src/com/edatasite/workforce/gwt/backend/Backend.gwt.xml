@@ -1,0 +1,11 @@
+<module rename-to="backend">
+    <inherits name='com.edatasite.workforce.gwt.core.Core'/>
+    <inherits name='com.edatasite.workforce.gwt.profile.SettingsMain'/>
+    <inherits name='com.edatasite.workforce.gwt.modulesettings.ModuleSettingsEmpty'/>
+    <inherits name='com.edatasite.workforce.gwt.myaccount.MyAccountEmpty'/>
+    <inherits name='com.edatasite.workforce.gwt.hrms.HrmsEmpty'/>
+    <inherits name='com.edatasite.workforce.gwt.submodule.todo.TodoEmpty'/>
+    <inherits name="org.gwt.advanced.Grid"/>
+    <entry-point class='com.edatasite.workforce.gwt.backend.client.Backend'/>
+    <inherits name="com.edatasite.workforce.gwt.Localization_properties"></inherits>
+</module>

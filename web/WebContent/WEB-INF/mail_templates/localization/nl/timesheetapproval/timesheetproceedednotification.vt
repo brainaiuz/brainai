@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+Beste $timesheetapprovalsession.employee.getName(),<br/>
+
+<p>Bedankt voor het gebruiken van $productName. De door u ingevoerde tijden voor $timesheetapprovalsession.project.name
+    zijn gecontroleerd door $managername</p>
+
+    #if($approved.size()>0)
+    <p>Goedgekeurd: </p>
+        #foreach($timesheet in $approved)
+            $timesheet.getNumber() | $timesheet.getDate() | $timesheet.getTaskName() | $timesheet.getTimespent() <br/>
+        #end
+    <p>Let op, u kunt de tijden voor de goedgekeurde periode niet meer aanpassen.</p>
+    #end
+
+    #if($rejected.size()>0)
+    <p>Afgekeurd: </p>
+        #foreach($timesheet in $rejected)
+            $timesheet.getNumber() | $timesheet.getDate() | $timesheet.getTaskName() | $timesheet.getTimespent()
+        - $timesheet.getComment() <br/>
+        #end
+    #end
+
+</body>
+</html>

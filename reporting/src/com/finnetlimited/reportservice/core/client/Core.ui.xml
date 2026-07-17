@@ -1,0 +1,15 @@
+<!--
+<ui:UiBinder
+  xmlns:ui='urn:ui:com.google.gwt.uibinder'
+  xmlns:g='urn:import:com.google.gwt.user.client.ui'
+  xmlns:tml='urn:import:com.finnetlimited.reportservice.core.client.ui'>
+
+    <g:HTMLPanel>
+
+        <tml:ReportHeader ui:field='header'/>
+        <tml:ReportContent ui:field='content'/>
+        <tml:ReportFooter ui:field='footer'/>
+
+    </g:HTMLPanel>
+
+</ui:UiBinder>-->

@@ -1,0 +1,186 @@
+@import url(reset.css);
+
+/* @charset "utf-8"; */
+/*CSS Document for */
+
+/**** the STANDART CONTENT ELEMENTS *****/
+
+html {
+    height: 100%;
+    font-size: 100.01%;
+}
+
+body {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    width: 990px;
+    margin: 0 auto;
+    font: normal .6875em Trebuchet MS, Tahoma, Arial, sans-serif;
+    color: #222
+}
+
+table td {
+    vertical-align: top;
+}
+
+/*** headers H1, H2, H3.***/
+
+h1, h2, h3 {
+    font-weight: bold;
+    margin: 0 0 0.25em 0;
+}
+
+h1 {
+    font-size: 200%
+}
+
+/* 24px */
+h2 {
+    font-size: 166.67%
+}
+
+/* 20px */
+h3 {
+    font-size: 150%
+}
+
+/* 18px */
+h4 {
+    font-size: 133.33%
+}
+
+/* 16px */
+
+p {
+    line-height: 1em;
+    margin: 0 0 1em 0;
+}
+
+address, em {
+    font-style: normal
+}
+
+button, input.btn, .btn input {
+    cursor: pointer;
+}
+
+/*** hyperlinks ***/
+
+a {
+    text-decoration: underline;
+}
+
+a:hover, a:active {
+    text-decoration: none !important;
+}
+
+/**** END standard content elements ****/
+
+/**** START UNIVERSAL CLASSES ****/
+
+.left {
+    float: left !important
+}
+
+.right {
+    float: right !important
+}
+
+.clear {
+    display: block;
+    clear: both;
+}
+
+.overhide {
+    overflow: hidden;
+}
+
+.nobrd {
+    border: none !important
+}
+
+.c {
+    text-align: center;
+}
+
+.r {
+    text-align: right;
+}
+
+/** Start styles for lists  UL, OL, DL **/
+/** End styles for lists UL, OL, DL **/
+
+/* start text */
+
+.job {
+    margin: 0 23px 21px 0;
+}
+
+.department {
+    margin: 0 0 18px;
+    color: #303030;
+    font-size: 22px;
+}
+
+/* end text */
+
+.cross {
+    padding: 0 40px 0 0;
+    background: url(/i/orgChart/cross.png) no-repeat 0 50%;
+}
+
+.crossend {
+    padding: 0 40px 0 0;
+    background: url(/i/orgChart/crossend.png) no-repeat 0 50%;
+}
+
+.vertical {
+    padding: 0 40px 0 0;
+    background: url(/i/orgChart/vertical.png) repeat-y 50% 0;;
+}
+
+.verticalWhite {
+    padding: 0 40px 0 0;
+    background: url(/i/orgChart/white.png) repeat-y 50% 0;
+}
+
+.badge {
+    width: 200px;
+    height: 100px;
+    margin-top: 12px;
+    padding: 7px 6px 0;
+    background: #dedede url(/i/orgChart/bg-gray.png) repeat-x 0 0;
+    border: 1px solid #66a1cc;
+}
+
+.badge p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: bold;
+    color: #404040;
+}
+
+.badge span {
+    display: block;
+    font-size: 12px;
+    font-weight: normal;
+    color: #808080;
+}
+
+.badge em {
+    font-size: 12px;
+    color: #3081bf;
+}
+
+.art-face {
+    float: left;
+    margin: 0 5px 0 0;
+}
+
+.tiers {
+}
+
+.tiers td {
+    vertical-align: middle;
+}

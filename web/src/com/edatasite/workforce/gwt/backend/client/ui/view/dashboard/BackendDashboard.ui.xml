@@ -1,0 +1,32 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:w='urn:import:com.edatasite.workforce.gwt.core.client.ui'
+             xmlns:myW='urn:import:com.edatasite.workforce.gwt.core.client.ui.employee'>
+    <ui:style>
+        .topPanelDiv {
+            padding-top: 10px;
+            padding-left: 20px;
+        }
+    </ui:style>
+    <g:HTMLPanel styleName="panel-cells-row row-trio">
+        <!-- Left panel started-->
+        <g:HTMLPanel styleName="wsp-profile-col" ui:field="leftContent"/>
+        <!-- Left panel end-->
+
+        <!-- LeftOne panel started-->
+        <g:HTMLPanel styleName="wsp-profile-col" ui:field="leftOneContent"/>
+        <!-- LeftOne panel end-->
+
+        <!-- Right panel started -->
+        <div class="wsp-widgets-col">
+            <!-- Right main panel started-->
+            <g:HTMLPanel styleName="panel-cells-cover" ui:field="mainContent">
+
+            </g:HTMLPanel>
+            <!-- Right main panel end-->
+        </div>
+        <!--Bottom panel-->
+        <g:HTMLPanel styleName="{style.topPanelDiv}" ui:field="bottomContent"/>
+        <!-- Right panel end -->
+    </g:HTMLPanel>
+</ui:UiBinder>

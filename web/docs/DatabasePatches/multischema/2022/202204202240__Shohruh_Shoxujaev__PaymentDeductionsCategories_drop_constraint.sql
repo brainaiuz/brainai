@@ -1,0 +1,1 @@
+alter table "anv".paymentdeductionscategories drop constraint if exists "fk_rqlnfcykt7ac27fj6dvgo3xsa";

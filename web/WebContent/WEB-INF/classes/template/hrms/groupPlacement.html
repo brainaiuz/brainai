@@ -1,0 +1,108 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <style type="text/css">
+        @page {
+            size: 8.3in 11.7in;
+            margin: 20px 15px 20px 15px;
+            padding: 0;
+        }
+
+        body {
+            font-size: 11pt;
+        }
+
+        td {
+            padding: 3px;
+        }
+
+        .title {
+            font-size: 9pt;
+        }
+
+        .name {
+            font-size: 7pt;
+        }
+
+        .value {
+            font-size: 8pt;
+        }
+
+        .personalValue {
+            font-size: 7pt;
+        }
+
+        .nameCapital {
+            text-transform: capitalize;
+        }
+
+        .specificLI {
+            list-style: none;
+        }
+
+        .tble {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        #pagecount:before {
+            content: counter(pages);
+        }
+
+        b,
+        p,
+        td,
+        span,
+        caption,
+        hr,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: Times New Roman;
+        }
+
+        table {
+        }
+
+    </style>
+</head>
+<body>
+<div>
+
+
+    <table cellspacing="0" class="tble" style="vertical-align: top; text-align: center; font-size: 10pt;"
+           width="100%">
+        <thead>
+        <tr>
+            <th class="tble" colspan="1" rowspan="2" style="width: 200px; text-align: left; padding: 2px 5px;">Location</th>
+            <th class="tble" colspan="1" rowspan="2" style="width: 100px; text-align: left; padding: 2px 5px;">Type</th>
+            <th class="tble" colspan="1" rowspan="2" style="width: 100px; text-align: left; padding: 2px 5px;">Candidate</th>
+            <th class="tble" colspan="1" rowspan="2" style="width: 100px; text-align: left; padding: 2px 5px;">Department</th>
+            <th class="tble" colspan="1" rowspan="2" style="width: 100px; text-align: left; padding: 2px 5px;">Position</th>
+            <th class="tble" colspan="1" rowspan="2" style="width: 100px; text-align: left; padding: 2px 5px;">Vacancy</th>
+            <th class="tble" colspan="1" rowspan="2" style="width: 200px; text-align: left; padding: 2px 5px;">Effective Date</th>
+        </tr>
+        </thead>
+        #foreach($row in $itextGenericPdfData.baseInvoice.getCustomProductTable().rows)
+        <tbody>
+        <tr>
+            <td class="tble" style="width: 200px; text-align: left; padding: 2px 5px;">$row.get("LOCATION")</td>
+            <td class="tble" style="width: 200px; text-align: left; padding: 2px 5px ;">$row.get("TYPE")</td>
+            <td class="tble" style="width: 200px; text-align: left; padding: 2px 5px;">$row.get("EMPLOYEE_NAME")</td>
+            <td class="tble" style="width: 200px; text-align: left; padding: 2px 5px;">$row.get("DEPARTMENT")</td>
+            <td class="tble" style="width: 200px; text-align: left; padding: 2px 5px;">$row.get("POSITION")</td>
+            <td class="tble" style="width: 200px; text-align: left; padding: 2px 5px;">$row.get("VACANCY")</td>
+            <td class="tble" style="width: 200px; text-align: left; padding: 2px 5px;">$row.get("DATE")</td>
+        </tr>
+        #end
+        </tbody>
+    </table>
+</div>
+</div>
+
+
+</div>
+</body>
+</html>

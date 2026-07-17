@@ -1,0 +1,61 @@
+<report>
+    <view>
+        <title>Purchase Invoice</title>
+        <name>Purchase Invoice</name>
+        <category>purchase invoice</category>
+        <sqlquery>
+            <select agregateFunc="distinct">
+                <!--  Please only enter type property {'number' or 'date or clock' }   -->
+                <table name="Purchase Invoice">
+                    <column name="t.id" title="id" type="number" formattype="hidden"/>
+                    <column name="t.number" title="Invoice Number" type="string" formattype="string"/>
+                    <column name="t.ponumber" title="PO Number" type="string" formattype="string"/>
+                    <column name="t.invoicedate" title="Invoice Date" type="date" formattype="date"/>
+                    <column name="t.duedate" title="Due Date" type="date" formattype="date"/>
+                    <column name="t.paidamount" title="Paid Amount" type="number" formattype="money"/>
+                    <column name="t.dueamount" title="Due Amount" type="number" formattype="money"/>
+                    <column name="t.statusname" title="Status" type="string" formattype="string"/>
+                </table>
+                <table name="Currency">
+                    <column name="t.currencyname" title="Currency" type="string" formattype="string"/>
+                </table>
+                <table name="Related Project">
+                    <column name="t.projectname" title="Related Project" type="string" formattype="string"/>
+                    <column name="t.clientname" title="Client Name" type="string" formattype="string"/>
+                </table>
+            </select>
+            <from>(select
+                puiv.id,
+                iv.number,
+                iv.ponumber,
+                iv.invoicedate,
+                iv.duedate,
+                cu.name as currencyname,
+                pj.name as projectname,
+                cl.name as clientname,
+                st.name as statusname,
+                ( CASE WHEN (select sum(amount) from "$".invoicepayments where invoiceid = iv.id) IS NULL THEN 0 ELSE (select sum(amount) from "$".invoicepayments where invoiceid = iv.id) END) as paidamount,
+
+                ((CASE WHEN iv.totalininvoicecurrency IS NULL THEN (iv.total * iv.exchangerate) ELSE
+                iv.totalininvoicecurrency END) - ( CASE WHEN (select sum(amount) from "$".invoicepayments where invoiceid =
+                iv.id) IS NULL THEN 0 ELSE (select sum(amount) from "$".invoicepayments where invoiceid =
+                iv.id) END )) as dueamount
+                from
+                "$".purchaseinvoice puiv
+                inner join "$".invoice iv on iv.id = puiv.id
+                left join currency cu on cu.id = iv.currency_id
+                left join "$".project pj on pj.id = iv.relatedproject_id
+                left join "$".crmaccount cl on pj.clientid = cl.id
+                left join "reference" st on st.id= iv.status_id where pj.isdeleted is not true) t
+            </from>
+            <where>
+                <terms id="base" value="1=1"/>
+                <!--<terms id="userid" userid="" company="t.company_id" />
+                    <terms id="managerid" userid="" company="t.company_id" />
+                    <terms id="leaderid" userid="" company="t.company_id" />-->
+                <!--<terms id="admin" company="t.company_id"/>-->
+                <terms id="client" company="t.clientid"/>
+            </where>
+        </sqlquery>
+    </view>
+</report>

@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body><p>Beste #if($user.firstName!='') $user.firstName #end #if($user.lastName!='') $user.lastName #end,</p><br/>
+
+<p>Factuur $INVOICE_TYPE No. $INVOICE_NUMBER is opgeslagen een en email notificatie met
+    $TYPE begevoegd, in PDF formaat, is verzonden naar $CLIENT_CONTACT_NAME op $DATE.
+    U kun het naar klant $CLIENT_CONTACT_NAME verzonden bericht hieronder inzien.
+    De $INVOICE_TYPE is ook bijgevoegd ter informatie.</p>
+
+##$companyInfo
+
+<p>_______________________________________________________________________________________________</p>
+
+<p>$MESSAGE</p>
+
+##<p>
+##---------------------------------------<br />
+##Powered by WorkforceTrack.com
+##</p>
+
+</body>
+</html>

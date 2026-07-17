@@ -1,0 +1,300 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style type="text/css">
+        @page {
+            size: 5.8in 8.3in;
+            margin: 110px 20px 10px 20px;
+            padding: 0;
+            @top-center {
+                content: element(header);
+            }
+            @bottom-left {
+                content: element(footer);
+            }
+        }
+
+        #header {
+            margin: 20px 10px;
+            display: block;
+            position: running(header);
+        }
+
+        #footer {
+            margin: 20px 10px;
+            display: block;
+            position: running(footer);
+        }
+
+        #pagenumber:before {
+            content: counter(page);
+        }
+
+        #pagecount:before {
+            content: counter(pages);
+        }
+
+        .bold-italic {
+            font-style: italic;
+            font-weight: 900;
+        }
+
+        .red {
+            color: red;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        .full {
+            width: 100%;
+        }
+
+        .first {
+            width: 13%;
+        }
+
+        .second {
+            width: 57%
+        }
+
+        .third {
+            width: 8%;
+        }
+
+        .fourth {
+            width: 15%;
+        }
+
+        .five {
+            width: 5%;
+        }
+
+        .sex {
+            width: 2%;
+            text-align: right;
+        }
+
+        .check {
+            margin-top: 5px;
+        }
+
+        .big-check {
+            margin-top: 7px;
+        }
+
+        .big {
+            font-size: 14px;
+        }
+
+        .large {
+            font-size: 10px;
+        }
+
+        .middle {
+            font-size: 9px;
+        }
+
+        .small {
+            font-size: 8px;
+        }
+
+        .border {
+            border: 1px solid #000;
+        }
+
+        .border-bold {
+            border: 2px solid #000;
+        }
+
+        .border-top {
+            border-top: 1px solid #000;
+        }
+
+        .border-bottom {
+            border-bottom: 1px solid #000;
+        }
+
+        .border-right {
+            border-right: 1px solid #000;
+        }
+
+        .border-left {
+            border-left: 1px solid #000;
+        }
+
+        .border-left-bold {
+            border-left: 2px solid #000;
+        }
+
+        .border-right-bold {
+            border-right: 2px solid #000;
+        }
+
+        .border-top-bold {
+            border-top: 2px solid #000;
+        }
+
+        .border-bottom-bold {
+            border-bottom: 2px solid #000;
+        }
+
+        .tableBorder {
+            border: 2px solid #000000;
+        }
+
+        .product td {
+            border-right: 1px solid #000;
+            border-bottom: 1px solid #000;
+        }
+
+        .product .last_tr td {
+            border-bottom: none;
+        }
+
+        .position-relative {
+            position: relative;
+        }
+
+        .checked:after {
+            content: "✓";
+            color: #000000;
+            font-weight: bold;
+            position: absolute;
+            left: 9px;
+            top: 0;
+            bottom: 0;
+        }
+
+        .inlined {
+            display: inline-block;
+        }
+        .underlined {
+            border-bottom: 1px solid black;
+        }
+        .underlined-grey {
+            border-bottom: 1px solid #BEBDBD;
+        }
+        body {
+            font-family: Calibri;
+        }
+
+        b, p, td, span, caption, hr, h1, h2, h3, h4, h5 {
+            font-family: Calibri;
+        }
+
+        table {
+            -fs-table-paginate: paginate;
+        }
+
+        th, td {
+            padding: 2px;
+        }
+    </style>
+</head>
+<body>
+<div id="header">
+    <table width="100%" border="0" cellpadding="0" cellspacing="0" style="font-size: 10px;">
+        <tr>
+            <td width="40%" class="border-left-bold">
+                <b>Workshop: </b>+97144541461
+            </td>
+            <td width="40%" class="border-left-bold">
+                <b>Home Services: </b>+971 56 35 26 352
+            </td>
+            <td rowspan="6" width="20%" align="center" valign="center">
+                <img width="130px" src="$itextGenericPdfData.companyData.companyLogoUrl"/>
+            </td>
+        </tr>
+        <tr>
+            <td class="border-left-bold">
+                <b>General Inquiry: </b>+971556434173
+            </td>
+            <td class="border-left-bold">
+                <b>The Dubai Mall: </b>+971 50 884 07 80
+            </td>
+        </tr>
+        <tr>
+            <td class="border-left-bold">
+                <b>E-mail: </b>$itextGenericPdfData.companyData.companyEmail
+            </td>
+            <td class="border-left-bold">
+                <b>Mall of the Emirates: </b>+971 52 710 57 97
+            </td>
+        </tr>
+        <tr>
+            <td class="border-left-bold">
+                <b>Website: </b>www.babycasts.com
+            </td>
+            <td class="border-left-bold">
+                <b>Latifa Hospital: </b>+971 55 44 96 064
+            </td>
+        </tr>
+        <tr>
+            <td class="border-left-bold">
+                <b>Office Address: </b>
+                #if($itextGenericPdfData.companyData.address != '')
+                $itextGenericPdfData.companyData.address
+                #end
+                #if($itextGenericPdfData.companyData.address2 != '')
+                $itextGenericPdfData.companyData.address2
+                #end
+            </td>
+            <td class="border-left-bold">
+                <b>Business Bay Studio: </b>+971 4 447 3321
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                &#160; &#160; &#160;
+            </td>
+        </tr>
+    </table>
+</div>
+<div style="font-size: 11px;">
+    <div style="width: 100%; color: #6e3f89; text-align: center;">
+        PREPAYMENT RECEIPT
+    </div>
+    <div style="margin-top: 30px;">
+        <div class="inlined" style="margin-top: 15px;">
+            <div>
+                Date of Prepayment:
+            </div>
+            <div style="margin-top: 10px;">
+                Prepayment Number:
+            </div>
+        </div>
+        <div class="inlined" style="float: right; width: 30%; padding: 10px; border: 2px solid #BEBDBD;">
+            <div style="width: 100%;">
+                <div class="inlined" style="width:30%;">Customer Name:</div>
+                <div class="inlined" style="width:69%;max-width:69%;display:inline-block;"><span style="color: white; display: inline-block; width: 100%;" class="underlined-grey">a</span></div>
+            </div>
+            <div style="width: 100%;">
+                <div class="inlined" style="width:16%;">Phone:</div>
+                <div class="inlined" style="width:83%;max-width:83%;display:inline-block;"><span style="color: white; display: inline-block; width: 100%;" class="underlined-grey">a</span></div>
+            </div>
+            <div style="width: 100%;">
+                <div class="inlined" style="width:14%;">Email:</div>
+                <div class="inlined" style="width:85%;max-width:85%;display:inline-block;"><span style="color: white; display: inline-block; width: 100%;" class="underlined-grey">a</span></div>
+            </div>
+        </div>
+    </div>
+    <div style="width: 100%; margin-top: 40px; display: table;">
+        <div class="inlined" style="width:11%;background: white">Amount Paid (AED):</div>
+        <div class="inlined" style="width:89%;max-width:89%;display:inline-block;"><span style="color: white; display: inline-block; width: 100%; float: right;" class="underlined-grey">a</span></div>
+    </div>
+    <div style="margin-top: 20px;">
+        Details of payment/Notes
+        <div style="width: 100%;height: 30%; border: 1px solid black;">
+
+        </div>
+    </div>
+    <div style="width: 50%; margin-top: 12px; display: table;">
+        <div class="inlined" style="width:13%;background: white">Prepared by</div>
+        <div class="inlined" style="width:87%;max-width:87%;display:inline-block;"><span style="color: white; display: inline-block; width: 100%; float: right;" class="underlined">a</span></div>
+    </div>
+</div>
+
+</body>
+</html>

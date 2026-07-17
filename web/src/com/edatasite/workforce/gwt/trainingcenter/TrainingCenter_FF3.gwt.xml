@@ -1,0 +1,4 @@
+<module rename-to="trainingcenter">
+    <inherits name="com.edatasite.workforce.gwt.trainingcenter.TrainingCenter"/>
+    <set-property name="user.agent" value="gecko1_8"/>
+</module>

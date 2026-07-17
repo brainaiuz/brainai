@@ -1,0 +1,1 @@
+update "anv".model set viewname = 'RentalOrdersView' where formid = 'RENTAL_ORDER_FORM';

@@ -1,0 +1,126 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style type="text/css">
+        @page {
+            size: 2.8in 100.8in;
+            margin: 0 0 0 0;
+            padding: 0;
+            @top-center {
+                content: element(header);
+            }
+            @bottom-left {
+                content: element(footer);
+            }
+        }
+
+        #header {
+            margin: 0;
+            display: block;
+            position: running(header);
+        }
+
+        #footer {
+            display: block;
+            position: running(footer);
+        }
+
+        #pagenumber:before {
+            content: counter(page);
+        }
+
+        #pagecount:before {
+            content: counter(pages);
+        }
+
+        body {
+            font-family: Montserrat;
+        }
+
+        b, p, td, span, caption, hr, h1, h2, h3, h4, h5 {
+            font-family: Montserrat;
+        }
+
+        table {
+            -fs-table-paginate: paginate;
+        }
+
+        th, td {
+            padding: 3px;
+        }
+    </style>
+</head>
+<body>
+<div id="header">
+
+</div>
+<div id="footer">
+
+</div>
+<div style="font-size: 11px;">
+
+    <table width="100%" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+            <td width="100%" align="center">
+                <img src="https://workforcetrack.s3.amazonaws.com/000000000000/public/74682/43e06466-86e0-43e3-9ecc-ede192e64d9e"/>
+            </td>
+        </tr>
+    </table>
+
+    <table width="100%" cellspacing="0" cellpadding="0">
+        #foreach($row in $itextGenericPdfData.customData.get("MOBIO_DATA").rows)
+        <tr>
+            <td width="100%" align="center" style="font-weight: bold;">$row.get("DATE")</td>
+        </tr>
+        #if($row.get("USER") != '')
+        <tr>
+            <td style="font-weight: bold;" align="center">$row.get("USER")</td>
+        </tr>
+        <tr>
+            <td style="font-weight: bold; padding: 0;">
+                <table width="100%" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td width="50%">Umumiy Savdo :</td>
+                        <td width="50%" align="right">$row.get("UMUMIY_SAVDO")</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        #end
+        #if($row.get("CASH_OR_TERMINAL") != '')
+        <tr>
+            <td style="padding: 0;">
+                <table width="100%" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td width="50%">
+                            #if($row.get("CASH_OR_TERMINAL") == "Cash")
+                            Naqd (Kassadagi Pul):
+                            #else
+                            Terminal:
+                            #end
+                        </td>
+                        <td width="50%" align="right">
+                            $row.get("PUL")
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td style="padding: 0;">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="50%">Qarzga chiqdi:</td>
+                        <td width="50%" align="right">$row.get("OVERDUE")</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        #end
+        #end
+    </table>
+
+
+</div>
+</body>
+</html>

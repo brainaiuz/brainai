@@ -1,0 +1,95 @@
+<report>
+    <view>
+        <title>Tasks</title>
+        <name>Tasks</name>
+        <category>tasks</category>
+        <sqlquery>
+            <select agregateFunc="distinct">
+
+                <table name="Task">
+                    <column name="id" title="id" type="number" formattype="hidden"/>
+                    <column name="projectName" title="Project Name" type="string" formattype="string"/>
+                    <column name="taskname" title="Task Name" type="string" formattype="string"/>
+                    <column name="stardate" title="Start Date" type="date" formattype="date" customdateformat="DD Mon, YYYY"/>
+                    <column name="enddate" title="End Date" type="date" formattype="date" customdateformat="DD Mon, YYYY"/>
+                    <column name="pers" title="% Completed" type="number" formattype="percent"/>
+                    <column name="timeLeft" title="Time Left" type="stirng" formattype="string"/>
+                    <column name="isOverdue" title="Overdue status" type="stirng" formattype="string"/>
+                    <column name="taskstatus" title="Status" type="string" formattype="string"/>
+                    <column name="priority" title="Priority" type="string" formattype="string"/>
+                </table>
+
+            </select>
+            <from>(
+
+                with tasks as (select t.id,t.name ,pr.name priority,st.name status,st.code statusCode,t.projectid,t.dueDate-now() timeleft, coalesce(t.percent,0) pers
+                , t.startdate startdate, t.duedate enddate
+                ,t.dueDate
+                ,p.name projectName
+                from "$".task t
+                join "$".reference pr on t.priorityid=pr.id
+                join "$".reference st on t.statusid=st.id
+                left join "$".project p on t.projectid=p.id
+                where t.deleted is not true and t.isissue is not true)
+
+                select t.id, max(t.projectName) projectName, max(t.name) taskname, max(t.priority) priority, max(t.status) taskstatus
+                ,max(pers) pers,max(t.startdate) stardate,max(t.enddate) enddate
+                ,max(case isoverdue='Yes' when true then (case interval '-1 day' >= timeleft  when true then to_char(timeleft,'(DD "d")') else to_char(timeleft,'HH24 "h" MI "m"') end  )
+                else
+                ( case timeleft>= interval '1 day'   when true then to_char(timeleft,'DD "d"') else to_char(timeleft,'HH24"h" MI"m"') end ) end)  timeleft
+                , max(isOverdue) isOverdue
+                from (select *, case interval '0'>t.dueDate-now() and statusCode not in ('COMPLETED','CANCELLED','CLOSED') when true then 'Yes' else 'No' end isOverdue
+                from tasks t
+                where statusCode in ('WAITING_FOR_SOMEONE_ELSE','NOT_STARTED','IN_PROGRESS')
+                ) t
+                join "$".taskrbac tr on t.id=tr.taskID
+                join "$".taskpermission tp on (tr.taskPermissionId=tp.id and tp.view is true)
+                join "$".trusteegroup tg on tr.groupid=tg.id
+                join "$".myuser_trusteegroup mt on tg.id=mt.membershipgroups_id
+                join (select u.id from "$".myuser u where u.id not in(select id from "$".clientcontact )) u on mt.myuser_id =u.id
+                where u.id=#?user_id?#
+                group by t.id
+                union
+
+                select t.id, max(t.projectName) projectName, max(t.name) taskname, max(t.priority) priority, max(t.status) status,max(pers) pers,max(t.startdate) startdate,max(t.enddate) enddate
+                ,max(case isoverdue='Yes' when true then (case interval '-1 day' >= timeleft  when true then to_char(timeleft,'(DD "d")') else to_char(timeleft,'HH24 "h" MI "m"') end  )
+                else
+                ( case timeleft>= interval '1 day'   when true then to_char(timeleft,'DD "d"') else to_char(timeleft,'HH24"h" MI"m"') end ) end)  timeleft
+                , max(isOverdue) isOverdue
+                from (select t.*
+                , case interval '0'>t.dueDate-now() and statusCode not in ('COMPLETED','CANCELLED','CLOSED') when true then 'Yes' else 'No' end isOverdue
+                from tasks t
+                join "$".employeetask et on et.taskid=t.id
+                join "$".projectemployee pe on pe.id=et.projectEmployeeId
+                join "$".teamEmployee te on te.id=pe.employeeDepartmentId
+                where te.employeeid=#?user_id?# and statusCode in ('WAITING_FOR_SOMEONE_ELSE','NOT_STARTED','IN_PROGRESS')
+                ) t
+                group by t.id
+                union
+
+                select t.id, max(t.projectName) projectName, max(t.name) taskname, max(t.priority) priority, max(t.status) status,max(pers) pers,max(t.startdate) startdate,max(t.enddate) enddate
+                ,max(case isoverdue='Yes' when true then (case interval '-1 day' >= timeleft  when true then to_char(timeleft,'(DD "d")') else to_char(timeleft,'HH24 "h" MI "m"') end  )
+                else
+                ( case timeleft>= interval '1 day'   when true then to_char(timeleft,'DD "d"') else to_char(timeleft,'HH24"h" MI"m"') end ) end)  timeleft
+                , max(isOverdue) isOverdue
+                from (select *
+                , case interval '0'>t.dueDate-now() and statusCode not in ('COMPLETED','CANCELLED','CLOSED') when true then 'Yes' else 'No' end isOverdue
+                from tasks t
+                ) t
+                join "$".project p on t.projectid=p.id
+                join "$".crmAccount ca on p.clientid=ca.id
+                join "$".crmcontact c on c.crmAccount=ca.id
+                join "$".clientcontact cc on c.id=cc.crmcontactid
+                join "$".myuser u on cc.id=u.id
+                where u.id=#?user_id?#
+                group by t.id
+
+                ) t
+            </from>
+            <where>
+                <terms id="base" value="1=1"/>
+                <replacement id="userid" userid="#?user_id?#"/>
+            </where>
+        </sqlquery>
+    </view>
+</report>

@@ -1,0 +1,136 @@
+## Task assign notification
+## $user - User submitted this alert
+## $date - Date alert was submitted
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head><body>
+<p>Dear $employeeName,</p>
+
+<table width="705" border="0" cellspacing="0" cellpadding="0" bgcolor="#ffffff">
+  <tr>
+    <td width="368" valign="top">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="368" valign="top">
+            <table cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff" width="100%" style="vertical-align:top;">
+                <tr>
+                    <td height="20" bgcolor="#1c5b94" valign="middle" style="color:rgb(255,255,255);
+                    font-size:12px;font-weight:bolder;padding-left:5px;text-align:left;font-family:Verdana,Arial,Helvetica,sans-serif;" colspan="2">
+                        Project Summary</td>
+                </tr>
+                <tr>
+                    <td height="17" bgcolor="#dce5ea" width="132" valign="top" style="color:rgb(0,0,0);
+                    font-size:11px; padding-left:5px;text-align:left;font-weight:bold;font-family:Verdana,sans-serif;">
+                        Project name:</td>
+                    <td width="236" valign="top" bgcolor="#dce5ea" style="color:rgb(0,0,0);
+                    font-size:11px;padding-left:1px;text-align:left;font-weight:normal;font-family:Verdana,sans-serif;">
+                         $employeeProject.project.name</td>
+                </tr>
+                <tr>
+                    <td height="17" bgcolor="#dce5ea" width="132" valign="top" style="color:rgb(0,0,0);
+                    font-size:11px; padding-left:5px;text-align:left;font-weight:bold;font-family:Verdana,sans-serif;">
+                        Description:</td>
+                    <td width="236" valign="top" bgcolor="#dce5ea" style="color:rgb(0,0,0);
+                    font-size:11px;padding-left:1px;text-align:left;font-weight:normal;font-family:Verdana,sans-serif;">
+                         $employeeProject.project.description</td>
+                </tr>
+                <tr>
+                    <td height="17" bgcolor="#dce5ea" width="132" valign="top" style="color:rgb(0,0,0);
+                    font-size:11px; padding-left:5px;text-align:left;font-weight:bold;font-family:Verdana,sans-serif;">
+                        Status:</td>
+                    <td width="236" valign="top" bgcolor="#dce5ea" style="color:rgb(0,0,0);
+                    font-size:11px;padding-left:1px;text-align:left;font-weight:normal;font-family:Verdana,sans-serif;">
+                         $employeeProject.project.status.name</td>
+                </tr>
+                <tr>
+                    <td height="17" bgcolor="#dce5ea" width="132" valign="top" style="color:rgb(0,0,0);
+                    font-size:11px; padding-left:5px;text-align:left;font-weight:bold;font-family:Verdana,sans-serif;">
+                        % completed:</td>
+                    <td width="236" valign="top" bgcolor="#dce5ea" style="color:rgb(0,0,0);
+                    font-size:11px;padding-left:1px;text-align:left;font-weight:normal;font-family:Verdana,sans-serif;">
+                         $completed</td>
+                </tr>
+                <tr>
+                    <td height="17" bgcolor="#dce5ea" width="132" valign="top" style="color:rgb(0,0,0);
+                                    font-size:11px; padding-left:5px;text-align:left;font-weight:bold;font-family:Verdana,sans-serif;">
+                                        Assignee(s):</td>
+                                    <td width="236" valign="top" bgcolor="#dce5ea" style="color:rgb(0,0,0);
+                                    font-size:11px;padding-left:1px;text-align:left;font-weight:normal;font-family:Verdana,sans-serif;">
+                                         $projectEmployeeList</td>
+
+                </tr>
+            </table>
+        </td>
+      </tr>
+    </table>
+    </td>
+    <td width="9">&nbsp;</td>
+    <td width="328" valign="top">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td height="70" width="328" valign="top">
+            <table cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff" width="100%">
+                <tr>
+                    <td height="20" bgcolor="#1c5b94" valign="middle" style="color:rgb(255,255,255);
+                    font-size:12px;font-weight:bolder;padding-left:5px;text-align:left;font-family:Verdana,Arial,Helvetica,sans-serif;" colspan="2">
+                        Additional Details</td>
+                </tr>
+                <tr>
+                    <td height="17" bgcolor="#dce5ea" width="117" valign="top" style="color:rgb(0,0,0);
+                    font-size:11px; padding-left:5px;text-align:left;font-weight:bold;font-family:Verdana,sans-serif;">
+                        Creator:</td>
+                    <td width="211" valign="top" bgcolor="#dce5ea" style="color:rgb(0,0,0);
+                    font-size:11px;padding-left:1px;text-align:left;font-weight:normal;font-family:Verdana,sans-serif;">
+                         $user</td>
+                </tr>
+                <tr>
+                    <td height="17" bgcolor="#dce5ea" width="117" valign="top" style="color:rgb(0,0,0);
+                    font-size:11px; padding-left:5px;text-align:left;font-weight:bold;font-family:Verdana,sans-serif;">
+                        Client:</td>
+                    <td width="211" valign="top" bgcolor="#dce5ea" style="color:rgb(0,0,0);
+                    font-size:11px;padding-left:1px;text-align:left;font-weight:normal;font-family:Verdana,sans-serif;">
+                         $clientname</td>
+                </tr>
+                <tr><td height="9"></td></tr>
+            </table>
+        </td>
+      </tr>
+      <tr>
+          <td height="89" width="328" valign="top">
+            <table cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff" width="100%">
+                <td height="19" bgcolor="#ffffff" valign="top" colspan="2">&nbsp;</td>
+                <tr>
+                    <td height="20" bgcolor="#1c5b94" valign="middle" style="color:rgb(255,255,255);
+                    font-size:12px;font-weight:bolder;padding-left:5px;text-align:left;font-family:Verdana,Arial,Helvetica,sans-serif;" colspan="2">
+                        Dates</td>
+                </tr>
+                <tr>
+                    <td height="17" bgcolor="#dce5ea" width="117" valign="top" style="color:rgb(0,0,0);
+                    font-size:11px; padding-left:5px;text-align:left;font-weight:bold;font-family:Verdana,sans-serif;">
+                        Start Date:</td>
+                    <td width="211" valign="top" bgcolor="#dce5ea" style="color:rgb(0,0,0);
+                    font-size:11px;padding-left:1px;text-align:left;font-weight:normal;font-family:Verdana,sans-serif;">
+                         $startdate</td>
+                </tr>
+                <tr>
+                    <td height="17" bgcolor="#dce5ea" width="117" valign="top" style="color:rgb(0,0,0);
+                    font-size:11px; padding-left:5px;text-align:left;font-weight:bold;font-family:Verdana,sans-serif;">
+                        Due Date:</td>
+                    <td width="211" valign="top" bgcolor="#dce5ea" style="color:rgb(0,0,0);
+                    font-size:11px;padding-left:1px;text-align:left;font-weight:normal;font-family:Verdana,sans-serif;">
+                         $duedate</td>
+                </tr>
+                <tr><td height="9"></td></tr>
+            </table>
+        </td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+</table>
+
+<p>Click <a href="$host/ProjectManagement.html?link=$link" title="View project">here</a> to view your project in your account.</p>
+<p>* If you are not able to click on the link, you can instead copy and paste the following address in to your web browser: </p>
+<p><span style="color: #0033FF">$host/ProjectManagement.html?link=$link</span></p>
+</body></html>

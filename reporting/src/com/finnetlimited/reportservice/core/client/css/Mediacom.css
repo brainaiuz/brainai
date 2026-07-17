@@ -1,0 +1,909 @@
+.mediacom {
+}
+
+.mediacom a {
+    color: #e7236e;
+}
+
+.mediacom #logo {
+    height: 57px !important;
+    background: url("/mainStyles/themes/mediacom/mediacom-logo.png") no-repeat scroll 20px 5px transparent !important;
+}
+
+/*--------------------- Footer BEGIN -------------------------*/
+.mediacom #footer {
+    position: fixed;
+    bottom: 0; /*left:47%; margin-left:-471px;*/
+    /*   _left: 0;*/
+    left: 0; /*_margin-left: 0;*/
+    width: 100%;
+    height: 30px; /*_width: auto;*/
+    clear: both;
+    color: #fff;
+    background: #002641 url(../images/themes/mediacom/bg_footer.png) repeat-x 0 0;
+}
+
+.mediacom #footer a {
+    color: #fff;
+}
+
+.mediacom #footer p a {
+    text-decoration: underline;
+}
+
+.mediacom #footer ul li {
+    margin: 0 10px 0 0;
+    padding: 0 10px 0 0;
+    border-right: 1px solid #fff;
+}
+
+.mediacom .footer-inner {
+    overflow: hidden;
+    zoom: 1;
+    padding: 9px 29px 10px;
+}
+
+/*--------------------- Footer END -----------------------------*/
+
+/*--------------------- Titles BEGIN ---------------------------*/
+.mediacom .title {
+    font-size: 16px;
+    margin: 0 0 10px;
+    color: #5E001F;
+}
+
+.mediacom .sub-title {
+    font-size: 14px;
+    color: #ff0064;
+    margin: 0 0 15px;
+}
+
+/*--------------------- Titles END -----------------------------*/
+.mediacom a.btn:hover {
+    color: #ff0064;
+}
+
+/*--------------------- Tab Titles BEGIN -----------------------*/
+.mediacom .tab-t1,
+.mediacom .tab-t2,
+.mediacom .tab-t3,
+.mediacom .tab-t1 span,
+.mediacom .tab-t2 span,
+.mediacom .tab-t3 span {
+    float: left;
+    height: 28px;
+    background-image: url(images/themes/mediacom/bg_tab_title.png);
+}
+
+.mediacom .tab-t1,
+.mediacom .tab-t2,
+.mediacom .tab-t3 {
+    display: inline;
+    clear: both;
+    margin: 0;
+    padding: 0 29px 0 0;
+    font-size: 14px;
+    background-repeat: no-repeat;
+}
+
+.mediacom .tab-t1 span,
+.mediacom .tab-t2 span,
+.mediacom .tab-t3 span {
+    line-height: 28px;
+    padding: 0 10px 0 30px;
+    color: #fff;
+    background-repeat: repeat-x;
+}
+
+.mediacom .tab-t1 {
+    background-color: #206000;
+    background-position: 100% 40%;
+}
+
+.mediacom .tab-t1 span {
+    background-position: 0 -87px;
+}
+
+.mediacom .tab-t2 {
+    background-color: #002742;
+    background-position: 100% -58px;
+}
+
+.mediacom .tab-t2 span {
+    background-position: 0 -87px;
+}
+
+.mediacom .tab-t3 {
+    background-color: #810b00;
+    background-position: 100% -58px;
+}
+
+.mediacom .tab-t3 span {
+    background-position: 0 -87px;
+}
+
+/*--------------------- Tab Titles END -------------------------*/
+
+/*--------------------- Select List BEGIN ----------------------*/
+.mediacom .select-list li a:hover, .select-list li.act a {
+    background-color: #FFC4D7;
+}
+
+/*--------------------- Select List END ------------------------*/
+
+/*--------------------- Zebra BEGIN ----------------------------*/
+.mediacom .zebra th {
+    padding: 5px 10px 4px;
+    color: #00375e;
+    text-align: left;
+    background-image: url(images/themes/mediacom/bg_zebra_th.png);
+    background-repeat: repeat-x;
+    background-position: 0 -23px;
+    background-color: #FFC4D7;
+}
+
+.mediacom .zebra th.act {
+    background-position: 0 0;
+    background-color: #FFC4D7;
+}
+
+.mediacom .zebra .stronger td {
+    background-color: #FFC4D7;
+}
+
+.mediacom .zebra td ul li a {
+    color: #db2461;
+}
+
+.mediacom .zebra th,
+.mediacom .zebra td {
+    border-right: 1px solid #d5d5d5;
+}
+
+/*--------------------- Zebra END ------------------------------*/
+
+/*--------------------- Steps BEGIN ----------------------------*/
+.mediacom .steps li span,
+.mediacom .steps li span em {
+    float: left;
+    /*background-image: url(images/themes/mediacom/bg_steps_reporting.png);*/
+}
+
+.mediacom .steps li span {
+    height: 30px;
+    padding: 3px 34px 3px 10px;
+    text-decoration: none !important;
+    color: #fff;
+    background-position: 0 -252px;
+    background-repeat: repeat-x;
+    background-color: #db2461;
+}
+
+.mediacom .steps li span.act {
+    color: #000;
+    background-position: 0 -216px;
+    background-color: #ff7901;
+    cursor: inherit;
+}
+
+/*.mediacom .steps li span em {
+    position: absolute;
+    top: 0;
+    width: 29px;
+    height: 45px;
+    background-repeat: no-repeat;
+}*/
+
+.mediacom .steps li span em.right-angle {
+    right: 0;
+    background-position: 0 -288px;
+}
+
+.mediacom .steps li span.act em.right-angle {
+    background-position: 0 0;
+}
+
+.mediacom .steps li span em.left-angle {
+    left: -29px;
+}
+
+.mediacom .steps li span.first-step em.left-angle {
+    background-position: 0 -108px;
+}
+
+.mediacom .steps li span.first-step.act em.left-angle {
+    background-position: 0 -72px;
+}
+
+.mediacom .steps li span em.left-angle {
+    display: none;
+}
+
+.mediacom .steps li span.act em.left-angle {
+    display: block;
+    background-position: 0 -415px;
+}
+
+.mediacom .steps li span.act em.left-angle {
+    display: block;
+    background-position: 0 -36px;
+}
+
+.mediacom .steps li span.last-step em.right-angle {
+    background-position: 0 -180px;
+}
+
+.mediacom .steps li span.last-step.act em.right-angle {
+    background-position: 0 -144px;
+}
+
+/*--------------------- Steps END ------------------------------*/
+
+/*--------------------- Columns BEGIN --------------------------*/
+.mediacom .colums tr th,
+.mediacom .colums tr.thead th {
+    height: 25px;
+    text-align: left;
+    vertical-align: middle;
+    background-image: url(images/themes/mediacom/bg_htitle.png);
+    background-repeat: repeat-x;
+}
+
+.mediacom .colums tr th {
+    font-size: 12px;
+    padding: 0 20px;
+    color: #db2461;
+    background-position: 0 -29px;
+    background-color: #9f9f9f;
+}
+
+.mediacom .colums tr th a {
+    font-size: 11px;
+    color: #db2461;
+}
+
+.mediacom .colums tr.thead th {
+    color: #fff;
+    background-position: 0 0;
+    background-color: #db2461;
+}
+
+.mediacom .colums tr.thead th a {
+    color: #fff;
+}
+
+/*--------------------- Columns END -------------------------*/
+
+/*--------------------- Plates BEGIN ------------------------*/
+.mediacom .plate-1, .plate-1-outer {
+    background-image: url(images/themes/mediacom/bg_plate1.png);
+    background-repeat: no-repeat;
+}
+
+.mediacom .plate-1 {
+    width: 944px;
+    margin: 0 0 20px;
+    padding: 0 0 5px;
+    background-position: -945px 100%;
+}
+
+.mediacom .plate-1-outer {
+    padding: 5px 0 0;
+    background-position: 0 0;
+}
+
+.mediacom .plate-1-inner {
+    padding: 10px 20px;
+    border-right: 1px solid #FFC5DA;
+    border-left: 1px solid #FFC5DA;
+    background: #FFC5DA url(images/themes/mediacom/bg_plate1_inner.png) repeat-x 0 0;
+}
+
+.mediacom .plate-1 form {
+    font-size: 11px;
+}
+
+.mediacom .plate-1 form select {
+    width: 180px;
+}
+
+.mediacom .plate-1 form a {
+    font-weight: bold;
+    color: #ff7300;
+}
+
+/* .plate-1 */
+
+/* .plate-2 */
+.mediacom .plate-2,
+.mediacom .plate-2-outer {
+    background-image: url(images/themes/mediacom/bg_plate2.png);
+    background-repeat: no-repeat;
+}
+
+.mediacom .plate-2 {
+    width: 270px;
+    padding: 0 0 5px;
+    background-position: -271px 100%;
+}
+
+.mediacom .plate-2-outer {
+    padding: 5px 0 0;
+    background-position: 0 0;
+}
+
+.mediacom .plate-2-inner {
+    padding: 12px 16px;
+    border-right: 1px solid #e6e6e6;
+    border-left: 1px solid #e6e6e6;
+    background: #ebebeb url(images/themes/mediacom/bg_plate2_inner.png) repeat-x 0 0;
+}
+
+/* END .plate-2 */
+
+/* .plate-3 */
+.mediacom .plate-3,
+.mediacom .plate-3-outer {
+    background-image: url(images/themes/mediacom/bg_plate3.png);
+    background-repeat: no-repeat;
+}
+
+.mediacom .plate-3 {
+    width: 377px;
+    padding: 0 0 5px;
+    overflow: hidden;
+    zoom: 1;
+    background-position: -378px 100%;
+}
+
+.mediacom .plate-3-outer {
+    padding: 5px 0 0;
+    background-position: 0 0;
+}
+
+.mediacom .plate-3-inner {
+    padding: 12px 16px;
+    border-right: 1px solid #FFC4D7;
+    border-left: 1px solid #FFC4D7;
+    background: #FFC4D7 url(images/themes/mediacom/bg_plate3_inner.png) repeat-x 0 0;
+}
+
+/* END .plate-3 */
+
+/* plate-4 */
+.mediacom .plate-4 {
+    width: 269px;
+    padding: 12px 0 0;
+    margin: 0 0 20px;
+    background: #fef7d6 url(images/themes/mediacom/bg_plate4.png) no-repeat 0 0;
+}
+
+.mediacom .plate-4-outer {
+    background: url(images/themes/mediacom/bg_plate4_outer.png) repeat-y 0 0;
+}
+
+.mediacom .plate-4-inner {
+    padding: 0 12px 12px;
+    background: url(images/themes/mediacom/bg_plate4_inner.png) no-repeat 0 100%;
+}
+
+/*--------------------- Plates END --------------------------*/
+
+/*--------------------- Header BEGIN ------------------------*/
+.mediacom #header {
+    position: relative;
+    height: 76px;
+    background: url(mainStyles/themes/mediacom/gradient-bg-logo.png) repeat-x 0 0; /*background: url(mainStyles/themes/maroon/top2.gif);*/
+    /*font-weight: bold;*/
+    color: #941943;
+}
+
+.mediacom .f3 input.btn {
+    width: 60px;
+    height: 24px;
+    border: 0;
+    font-weight: bold;
+    background: #ff9a00 url(images/themes/mediacom/bg_f3_btn.png) no-repeat 0 0;
+}
+
+.mediacom .theader .gheader {
+    font-size: 12px;
+    padding: 0 20px;
+    color: #db2461;
+    vertical-align: middle;
+    background-color: #fdedf3;
+}
+
+.mediacom .theader .gheader a {
+    font-size: 11px;
+    color: #db2461;
+}
+
+.mediacom .theader .gheader label {
+    color: #db2461;
+}
+
+.mediacom .theader .bheader {
+    background-image: url(images/themes/mediacom/bg_htitle.png);
+    background-repeat: repeat-x;
+    background-position: 0 0;
+    background-color: #db2461;
+    vertical-align: middle;
+    color: #FFFFFF;
+}
+
+.mediacom .theader .bheader a {
+    color: #fff;
+}
+
+.mediacom .theader .bheader label {
+    color: #ffffff
+}
+
+.checkboxlist-filter-list td {
+    padding: 0 0 0 13px;
+    width: 200px;
+}
+
+/*--------------------- Header END --------------------------*/
+
+/*--------------------- Report List BEGIN -------------------*/
+.mediacom .report-list tr td {
+    padding: 2px 5px;
+    vertical-align: middle;
+    border: 1px solid black #db2461;
+
+}
+
+.mediacom .report-list .title {
+    color: white;
+    font-size: 11px;
+    font-weight: normal;
+    text-align: center;
+    background-color: #DB2461;
+    background-image: url("images/themes/mediacom/bg_htitle.png");
+    background-position: 0 0;
+    background-repeat: repeat-x; /*#5E001F; #ff9a00;*/
+    border: 1px solid white;
+    min-width: 60px;
+}
+
+.mediacom .report-list .title a {
+    color: white;
+    text-decoration: none;
+}
+
+.mediacom .report-list .total {
+    /*font-weight:bold;*/
+    background: #DB2461 /*#fac743*/;
+}
+
+.mediacom .sub-total {
+    background: #fac743;
+    border-top-color: #db2461;
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-bottom-color: #db2461;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-left: 1px solid #fac743;
+    border-right: 1px solid #fac743;
+}
+
+/*--------------------- Report List END ---------------------*/
+
+.mediacom .order-table .column {
+    border: 1px solid #C40027;
+}
+
+.mediacom .order-table .column-title {
+    text-align: center;
+    background: #ff9a00;
+    padding: 2px 5px;
+    border: 1px solid #C40027;
+}
+
+/* Dialog Box begin style */
+.mediacom .gwt-DialogBox .Caption {
+    background: #bbbbbb url(images/themes/mediacom/bg_htitle.png) repeat-x 0 -28px;
+    padding: 4px 4px 4px 8px;
+    cursor: default;
+    font-weight: bold;
+    border-bottom: 1px solid #db2461;
+    border-top: 1px solid #db2461;
+}
+
+.mediacom .gwt-DialogBox .dialogContent {
+    background: white;
+}
+
+.mediacom .gwt-DialogBox .dialogMiddleCenter {
+    padding: 10px;
+    background: white;
+    height: 100%;
+}
+
+.mediacom .gwt-DialogBox .dialogBottomCenter {
+    background: #db2461; /*height:2px;*/
+}
+
+.mediacom .gwt-DialogBox .dialogMiddleLeft {
+    background: #db2461;
+}
+
+.mediacom .gwt-DialogBox .dialogMiddleRight {
+    background: #db2461;
+}
+
+.mediacom .gwt-DialogBox .dialogTopLeft {
+    background: #db2461;
+}
+
+.mediacom .gwt-DialogBox .dialogTopRight {
+    background: #db2461;
+}
+
+.mediacom .gwt-DialogBox .dialogBottomLeft {
+    background: #db2461;
+}
+
+.mediacom .gwt-DialogBox .dialogBottomRight {
+    background: #db2461;
+}
+
+.mediacom .drs-export {
+    color: #C40027;
+    cursor: pointer;
+    text-decoration: underline;
+    vertical-align: middle;
+}
+
+.mediacom .drs-loading-panel {
+    color: #C40027;
+    font-weight: bold;
+    position: fixed !important;
+    text-align: center;
+    vertical-align: middle;
+    padding: 5px 10px;
+}
+
+/* export link style end*/
+
+.mediacom .logoutLink {
+    color: #000000;
+    cursor: pointer;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-decoration: underline;
+}
+
+.mediacom .noLink {
+    color: #000000;
+    padding-left: 10px;
+}
+
+.mediacom .companyNameStyle {
+    color: #CC0066;
+    padding-left: 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.mediacom .maxLogoHeight {
+    max-height: 53px;
+    height: auto !important;
+    height: 53px;
+}
+
+.mediacom .gwt-ScrollTable {
+    /*background: url("/wfp/templates/Mediacom/images/bg-head-menu.png") no-repeat scroll 100% -41px transparent;*/
+}
+
+.mediacom .gwt-ScrollTable .headerWrapper {
+    background: url("/wfp/templates/Mediacom/images/bg-head-menu.png") no-repeat scroll 0 0 transparent;
+    height: 24px !important;
+    width: 98.5% !important;
+    border-top-right-radius: 10px;
+}
+
+.mediacom .gwt-ScrollTable .headerTable td,
+.mediacom .gwt-ScrollTable .footerTable td {
+    border-color: #dedede;
+    border-style: solid;
+    color: #fff;
+    border-width: 0 1px 0 0;
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 2px;
+    height: 24px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.mediacom .my-toolitem-over .my-toolitem-l {
+    background: url(/mainStyles/themes/mediacom/tb-btn-sprite.gif) no-repeat;
+}
+
+.mediacom .my-toolitem-over .my-toolitem-ml,
+.mediacom .my-toolitem-over .my-toolitem-c {
+    background: url(/mainStyles/themes/mediacom/tb-btn-sprite.gif) repeat-x 0 -42px;
+}
+
+.mediacom .my-toolitem-over .my-toolitem-ml,
+.mediacom .my-toolitem-over .my-toolitem-c {
+    background: url(/mainStyles/themes/mediacom/tb-btn-sprite.gif) repeat-x 0 -42px;
+}
+
+.mediacom .my-toolitem-over .my-toolitem-mr {
+    background: url(/mainStyles/themes/mediacom/tb-btn-sprite.gif) repeat-x 0 -42px;
+}
+
+.mediacom .my-toolitem-split div {
+    background: transparent url(/mainStyles/themes/mediacom/btn-arrow.gif) no-repeat 0 -47px;
+    width: 12px;
+    height: 21px;
+}
+
+.mediacom .wfm-tool-bar {
+    /*background: url("/mainStyles/themes/mediacom/bg.gif") repeat-x scroll 0 0 transparent;*/
+    margin: 0;
+    width: 100%;
+    border: medium none;
+}
+
+.mediacom .my-toolbar {
+    background: url(/mainStyles/themes/mediacom/bg.gif) 0 0 repeat-x;
+    border-bottom: 0 solid #A9BFD3;
+}
+
+.mediacom .my-toolitem-over .my-toolitem-r {
+    background: url(/mainStyles/themes/mediacom/tb-btn-sprite.gif) no-repeat 0 -21px;
+}
+
+.mediacom .my-toolitem-down .my-toolitem-l {
+    background: url(/mainStyles/themes/mediacom/tb-btn-sprite.gif) no-repeat 0 -63px;
+}
+
+.mediacom .my-toolitem-down .my-toolitem-ml,
+.mediacom .my-toolitem-down .my-toolitem-c {
+    background: url(/mainStyles/themes/mediacom/tb-btn-sprite.gif) repeat-x 0 -105px;
+}
+
+.mediacom .my-toolitem-down .my-toolitem-mr {
+    background: url(/mainStyles/themes/mediacom/tb-btn-sprite.gif) repeat-x 0 -105px;
+}
+
+.mediacom .my-toolitem-down .my-toolitem-r {
+    background: url(/mainStyles/themes/mediacom/tb-btn-sprite.gif) no-repeat 0 -84px;
+}
+
+.mediacom .my-toolitem-sel .my-toolitem-l {
+    background: url(/mainStyles/themes/mediacom/tb-btn-sprite.gif) no-repeat 0 -63px;
+}
+
+.mediacom .my-toolitem-sel .my-toolitem-ml,
+.mediacom .my-toolitem-sel .my-toolitem-c {
+    background: url(/mainStyles/themes/mediacom/tb-btn-sprite.gif) repeat-x 0 -105px;
+}
+
+.mediacom .my-toolitem-sel .my-toolitem-mr {
+    background: url(/mainStyles/themes/mediacom/tb-btn-sprite.gif) repeat-x 0 -105px;
+}
+
+.mediacom .my-toolitem-sel .my-toolitem-r {
+    background: url(/mainStyles/themes/mediacom/tb-btn-sprite.gif) no-repeat 0 -84px;
+}
+
+.mediacom .wfm-my-toolitem-over .wfm-my-toolitem-l {
+    background: url(/mainStyles/themes/mediacom/tb-btn-sprite.gif) no-repeat;
+}
+
+.mediacom .wfm-my-toolitem-over .wfm-my-toolitem-ml,
+.mediacom .wfm-my-toolitem-over .wfm-my-toolitem-c {
+    background: url(/mainStyles/themes/mediacom/tb-btn-sprite.gif) repeat-x 0 -42px;
+}
+
+.mediacom .wfm-my-toolitem-over .wfm-my-toolitem-ml,
+.mediacom .wfm-my-toolitem-over .wfm-my-toolitem-c {
+    background: url(/mainStyles/themes/mediacom/tb-btn-sprite.gif) repeat-x 0 -42px;
+}
+
+.mediacom .wfm-my-toolitem-over .wfm-my-toolitem-mr {
+    background: url(/mainStyles/themes/mediacom/tb-btn-sprite.gif) repeat-x 0 -42px;
+}
+
+.mediacom .wfm-my-toolitem-over .wfm-my-toolitem-r {
+    background: url(/mainStyles/themes/mediacom/tb-btn-sprite.gif) no-repeat 0 -21px;
+}
+
+.mediacom .wfm-my-toolitem-over {
+    height: 21px;
+    cursor: pointer;
+}
+
+.mediacom .gwt-ScrollTable .dataTable td {
+    white-space: normal;
+}
+
+.mediacom .gwt-ScrollTable .dataTable .text-center {
+    text-align: center;
+}
+
+.mediacom .tabularInfo {
+    height: 190px;
+    width: 100%;
+    background: url("/images/themes/mediacom/tabularInfo.png") no-repeat;
+}
+
+.mediacom .summariesInfo {
+    height: 190px;
+    width: 100%;
+    background: url("/images/themes/mediacom/Select-Grouping-img.jpg") no-repeat;
+}
+
+.mediacom .cw-StackPanelHeader {
+
+    background-color: #fdedf3;
+    border-bottom: 1px solid #e2bcbc;
+    border-top: 1px solid #e2bcbc;
+    color: #e7236e;
+    font: bold 16px Arial, sans-serif;
+    padding: 3px 24px 0 30px;
+    text-transform: uppercase;
+}
+
+.mediacom .cw-StackPanelHeader em {
+    padding-left: 20px;
+    font: bold 16px Arial, sans-serif;
+}
+
+.mediacom .cw-StackPanelHeader .colapse {
+    background: url("/images/themes/mediacom/arrow-down-mediacom.png") no-repeat scroll 0 40% #fdedf3;
+}
+
+.mediacom .cw-StackPanelHeader .expand {
+    background: url("/images/themes/mediacom/arrow-up-mediacom.png") no-repeat scroll 0 40% #fdedf3;
+}
+
+.mediacom .other-reports {
+    background-color: #e2bcbc;
+}
+
+.mediacom .folder-content .f-table td.f-header {
+    background-color: #C40027;
+}
+
+.mediacom .table-reportList {
+    border: 1px solid #C40027;
+}
+
+.mediacom .help-sub-title {
+    color: #C40027;
+}
+
+.mediacom .order-panel > div > .gwt-Caption {
+    background-image: url("images/themes/mediacom/bg_htitle.png");
+}
+
+.mediacom .dragdrop-dropTarget tr td div:hover {
+    background-color: #C40027;
+}
+
+.mediacom .tsub-header odd {
+    color: #C40027;
+}
+
+.mediacom .table-List td {
+    background-position: 0 0;
+    background-repeat: repeat-x;
+    color: #FFFFFF;
+    vertical-align: middle;
+    border-left: 1px solid #F3F3F3;
+    border-right: 1px solid #F3F3F3;
+    background-color: #e6e6e6;
+}
+
+.mediacom .table-List td.thead {
+    color: #FFFFFF;
+    line-height: 16px;
+    background-color: #398642;
+    background-color: #b81e52;
+    border-left: 1px solid #ca66ca;
+    border-right: 1px solid #792a79;
+}
+
+.mediacom .table-List tr.odd td {
+    background-color: #fdedf3;
+}
+
+.mediacom .table-List {
+    border-left: 1px solid #F3F3F3;
+    border-right: 1px solid #F3F3F3;
+    color: #FFFFFF;
+    line-height: 16px;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid #C5C5C5;
+
+}
+
+.mediacom .steps .act, .mediacom .steps div:hover {
+    background: url("/mainStyles/images/default/bg/bg_gradX_mediacom-1.png") repeat-x scroll 0 0 #DADADA;
+    text-shadow: 2px 2px 2px #db2461;
+}
+
+.mediacom .massData td .thead {
+    background-color: #b81e52;
+    border-left: 1px solid #ca66ca;
+    border-right: 1px solid #792a79;
+}
+
+.mediacom .massData tr.odd td {
+    background-color: #fdedf3;
+}
+
+.mediacom #button-panel-inner .btn-1 {
+    color: #FFFFFF !important;
+}
+
+.mediacom em.optBtn {
+    color: #C40027 !important;
+}
+
+.mediacom .markNewReport {
+    background: url("images/themes/mediacom/bg_markSuggestNew.png") no-repeat scroll 5px 50% transparent;
+}
+
+.mediacom .markImport {
+    background: url("images/themes/mediacom/bg_markImport.png") no-repeat scroll 8px 50% transparent;
+}
+
+.mediacom .tablularImg {
+    background-image: url(images/themes/mediacom/tabular.jpg);
+    width: 386px;
+    height: 173px;
+}
+
+.mediacom .summariesImg {
+    background-image: url(images/themes/mediacom/summaries.jpg);
+    width: 386px;
+    height: 173px;
+}
+
+.mediacom .summariesColImg {
+    background-image: url(images/themes/mediacom/summariesCol.jpg);
+    width: 297px;
+    height: 275px;
+}
+
+.mediacom .dotted-label {
+    border: 1px dotted #DB2461 !important;
+}
+
+.mediacom .draggable-columns {
+    border: 1px dotted #DB2461 !important;
+}
+
+.mediacom .markFolder {
+    background: url("/images/themes/mediacom/add-folder.png") no-repeat scroll 8px 50% transparent;
+}
+
+.mediacom .markShare {
+    background: url("/images/themes/mediacom/bg_markShare.png") no-repeat scroll 10px 50% transparent;
+}
+
+.mediacom .markModify {
+    background: url("/images/themes/mediacom/bg_markModify.png") no-repeat scroll 10px 50% transparent;
+}
+
+.mediacom .markfilter-act {
+    background: url("/images/themes/mediacom/bg_filter.png") no-repeat scroll 10px 50% transparent;
+}
+
+.mediacom .mailing-list {
+    background: url("/images/themes/mediacom/mailinglist.png") no-repeat scroll 10px 50% transparent;
+}
+
+.atm .sub-title {
+    color: #DB2461;
+}

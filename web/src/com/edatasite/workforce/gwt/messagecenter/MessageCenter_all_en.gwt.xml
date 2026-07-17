@@ -1,0 +1,4 @@
+<module rename-to="messagecenter">
+    <inherits name='com.edatasite.workforce.gwt.messagecenter.MessageCenter'/>
+    <inherits name="com.edatasite.workforce.gwt.Localization_properties"></inherits>
+</module>

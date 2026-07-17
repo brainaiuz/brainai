@@ -1,0 +1,191 @@
+    /* for IE7 */
+    html, body {
+        height: 100%; /*after merje project - remove this body method*/
+        /*font-family: Arial, "Helvetica Neue", Helvetica, sans-serif !important;*/
+        font-size: 12px;
+    }
+
+    .instructor-reassign {
+        border-color: red;
+    }
+
+    .red-border {
+        border-color: red;
+    }
+
+    .subDivisions li.bgMark a {
+        background-image: url(trainingcenter/images/icons.png);
+        background-repeat: no-repeat;
+    }
+
+        /* enquiry icon */
+    .subDivisions .enquiry-icon a {
+        background-position: 8px -270px;
+    }
+
+    .subDivisions .booking-list a {
+        background-position: 8px -270px;
+    }
+
+    .subDivisions .enquiry-icon:hover a, .subDivisions .enquiry-icon.active a {
+        background-position: 8px -246px;
+    }
+
+        /* schedule course */
+    .subDivisions .schedule-course-icon a {
+        background-position: 8px -68px;
+    }
+
+    .subDivisions .schedule-course-icon:hover a, .subDivisions .schedule-course-icon.active a {
+        background-position: 8px -44px;
+    }
+
+        /* course */
+    .subDivisions .course-icon a {
+        background-position: 8px -118px;
+    }
+
+    .subDivisions .course-icon:hover a, .subDivisions .course-icon.active a {
+        background-position: 8px -92px;
+    }
+
+
+    .subDivisions .course-subject-icon a {
+        background-position: 8px -19px;
+    }
+
+    .subDivisions .course-subject-icon:hover a, .subDivisions .course-subject-icon.active a {
+        background-position: 8px 7px;
+    }
+
+        /* student */
+    .subDivisions .student-icon a {
+        background-position: 8px -220px;
+    }
+
+    .subDivisions .student-icon:hover a, .subDivisions .student-icon.active a {
+        background-position: 8px -194px;
+    }
+    /* certificate */
+    .subDivisions .certificate-icon a {
+        background-position: 8px -366px;
+    }
+
+    .subDivisions .certificate-icon:hover a, .subDivisions .certificate-icon.active a {
+        background-position: 8px -340px;
+    }
+    /*small  icons*/
+    .icon-certificate-view {
+        background: url("trainingcenter/images/certificate-small.png") no-repeat scroll 0 0 transparent;
+    }
+    .icon-xml-import {
+        background: url("trainingcenter/images/xml-small.png") no-repeat scroll 0 0 transparent;
+    }
+    .icon-csv-import {
+        background: url("trainingcenter/images/csv-small.png") no-repeat scroll 0 0 transparent;
+    }
+    .icon-import {
+        background: url("trainingcenter/images/import-small.png") no-repeat scroll 0 0 transparent;
+    }
+
+    /* scheduled-course-view */
+    .subDivisions .scheduled-course-view-icon a {
+        background-position: 8px -418px;
+    }
+
+    .subDivisions .scheduled-course-view-icon:hover a, .subDivisions .scheduled-course-view-icon.active a {
+        background-position: 8px -392px;
+    }
+
+    /* scheduled-course-edit */
+    .subDivisions .scheduled-course-edit-icon a {
+        background-position: 8px -471px;
+    }
+
+    .subDivisions .scheduled-course-edit-icon:hover a, .subDivisions .scheduled-course-edit-icon.active a {
+        background-position: 8px -445px;
+    }
+
+     /* Instructor Reassign */
+    .subDivisions .instructor-reassign-icon a {
+        background-position: 8px -523px;
+    }
+
+    .subDivisions .instructor-reassign-icon:hover a, .subDivisions .instructor-reassign-icon.active a {
+        background-position: 8px -497px;
+    }
+
+    /* cloned-course-schedule */
+    .subDivisions .cloned-course-schedule-icon a {
+        background-position: 8px -580px;
+    }
+
+    .subDivisions .cloned-course-schedule-icon:hover a, .subDivisions .cloned-course-schedule-icon.active a {
+        background-position: 8px -551px;
+    }
+
+    /* assessment-list */
+    .subDivisions .assessment-list-icon a {
+        background-position: 8px -630px;
+    }
+
+    .subDivisions .assessment-list-icon:hover a, .subDivisions .assessment-list-icon.active a {
+        background-position: 8px -605px;
+    }
+
+
+      /* attendence sheet */
+    .subDivisions .attendence-icon a {
+        background-position: 8px -316px;
+    }
+
+    .subDivisions .attendence-icon:hover a, .subDivisions .attendence-icon.active a {
+        background-position: 8px -293px;
+    }
+
+        /*instructor reassign */
+    .subDivisions .reassign-icon a, .subDivisions .cource-booking-list a {
+        background-position: 8px -170px;
+    }
+
+    .subDivisions .reassign-icon:hover a, .subDivisions .reassign-icon.active a {
+        background-position: 8px -145px;
+    }
+
+    .recuring-calendar {
+        font-size: 14px;
+    }
+
+    .recuring-calendar label {
+        font-size: 13px!important;
+    }
+
+    .recuring-calendar td {
+        width: 40px;
+        font-weight: bold;
+        padding-bottom: 10px;
+    }
+
+    .recuring-calendar .weekday {
+        color: #1f4f8f;
+        font-weight: bold;
+        border-bottom: 1px solid grey;
+    }
+
+    .recuring-calendar .month-name {
+        color: #1f4f8f;
+        font-weight: bold;
+        width: 150px !important;
+    }
+
+    .recuring-calendar .sunday{
+        color:red;
+    }
+    .calculated-grid {
+        float: left;
+        width: 1390px;
+    }
+
+    .regenerate-invoice {
+        cursor: pointer;
+    }

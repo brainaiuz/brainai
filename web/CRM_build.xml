@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<project name="CRM" basedir=".">
+
+    <import file="Base_build.xml">
+
+    </import>
+
+    <target name="CRM">
+        <antcall target="MAIN">
+            <param name="permutation" value="com.edatasite.workforce.gwt.crm.CRM"/>
+        </antcall>
+    </target>
+
+</project>

@@ -1,0 +1,1 @@
+ant Development -f ./web/AutoCompile.xml

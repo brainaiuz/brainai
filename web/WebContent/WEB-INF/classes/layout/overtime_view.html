@@ -1,0 +1,50 @@
+<div class="contentBar" style="padding:0 10px;margin-top:2px;">
+    <ul class="collapsible--panels collapsible--arrows-left collapsible collapsible--gwt required"
+        data-collapsible="expandable">
+        <li class="slideDown-box group active">
+            <div class="collapsible-header active"
+                 onclick="var myclick=this.parentElement;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls; } var myclick=this;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls; }">
+                <a style="cursor: pointer;"><span>$$label:OVERTIME_DETAILS$$</span></a>
+            </div>
+            <div class="collapsible-body">
+                <div class="grid-row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:OVERTIME_START_DATE$$</div>
+                            <div class="form-group__content">$$input:OVERTIME_START_DATE$$</div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:OVERTIME_TYPE$$</div>
+                            <div class="form-group__content">$$input:OVERTIME_TYPE$$</div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:OVERTIME_END_DATE$$</div>
+                            <div class="form-group__content">$$input:OVERTIME_END_DATE$$</div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:OVERTIME_HOURS$$</div>
+                            <div class="form-group__content">$$input:OVERTIME_HOURS$$</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="slideDown-box group hideCustomField">
+            <div class="collapsible-header"
+                 onclick="var myclick=this.parentElement;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls;} var myclick=this;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls; }">
+                <a style="cursor: pointer;"><span>$$label:OVERTIME_LIST$$</span></a>
+            </div>
+            <div class="collapsible-body">
+                <div class="grid-row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <div class="form-group__content">$$input:OVERTIME_LIST$$</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>

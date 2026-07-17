@@ -1,0 +1,12 @@
+<module rename-to="payroll">
+    <inherits name='com.edatasite.workforce.gwt.core.Core'/>
+    <inherits name='com.edatasite.workforce.gwt.employee.Employee'/>
+    <inherits name='com.edatasite.workforce.gwt.crm.CRMMain'/>
+    <inherits name='com.edatasite.workforce.gwt.hrms.HrmsEmpty'/>
+    <inherits name='com.edatasite.workforce.gwt.hrms.HRMSMain'/>
+    <inherits name='com.edatasite.workforce.gwt.payroll.NewPayrollWelcome'/>
+    <inherits name='com.edatasite.workforce.gwt.availability.AvailabilityMain'/>
+    <inherits name="com.google.gwt.user.Debug"/>
+    <entry-point class='com.edatasite.workforce.gwt.payroll.client.Payroll'/>
+    <inherits name="com.edatasite.workforce.gwt.Localization_properties"></inherits>
+</module>

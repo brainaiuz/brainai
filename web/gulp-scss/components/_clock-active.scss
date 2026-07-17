@@ -1,0 +1,59 @@
+@-moz-keyframes clockactive {
+  from {
+
+    color: #8D9BA0;
+  }
+  to {
+
+    color: orange;
+  }
+}
+
+@-webkit-keyframes clockactive {
+  from {
+
+    color: #8D9BA0;
+  }
+  to {
+
+    color: orange;
+  }
+}
+
+@-ms-keyframes clockactive {
+  from {
+
+    color: #8D9BA0;
+  }
+  to {
+
+    color: orange;
+  }
+}
+
+@-o-keyframes clockactive {
+  from {
+
+    color: #8D9BA0;
+  }
+  to {
+
+    color: orange;
+  }
+}
+
+@keyframes clockactive {
+  from {
+
+    color: #8D9BA0;
+  }
+  to {
+
+    color: orange;
+  }
+}
+
+.ficon--trial-active:before {
+  animation: 0.4s clockactive linear infinite;
+}
+

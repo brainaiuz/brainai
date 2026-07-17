@@ -1,0 +1,14 @@
+## Assessment initiate notification
+## $assessment - EdsAssessment
+## $date - current date
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head><body><p>Dear $employeeAssessment.employee.getName(),</p>
+<p>Please be advised that $employeeAssessment.assessment.reviewer.getName() has initiated an employee appraisal for you on $date.</p>
+<p>You will need to review the appraisal and return it to your Initiator. Once you have completed the self review, your Initiator will receive review notification and can then review and rate your appraisal.</p>
+
+<p>Click <a href="$host/Hrms.html?link=$link" title="Review assessment" target="_blank">here</a> to review the appraisal.</p>
+<p>* If you are not able to click on the link, you can copy and paste the following address into your web browser:</p>
+<p><a href="$host/Hrms.html?link=$link" title="Review assessment" target="_blank">$host/Hrms.html?link=$link</a></p>
+</body></html>

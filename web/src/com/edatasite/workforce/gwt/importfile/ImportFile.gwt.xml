@@ -1,0 +1,6 @@
+<module>
+    <inherits name="com.edatasite.workforce.gwt.core.Core"/>
+    <inherits name="com.edatasite.workforce.gwt.contact.ContactEmpty"/>
+    <inherits name="com.edatasite.workforce.gwt.accounting.AccountingEmpty"/>
+    <inherits name="com.edatasite.workforce.gwt.crm.CRMEmpty"/>
+</module>

@@ -1,0 +1,1 @@
+INSERT INTO "anv".genericSettings (key, value) VALUES ('ENABLE_VERIFICATION', 'NO');

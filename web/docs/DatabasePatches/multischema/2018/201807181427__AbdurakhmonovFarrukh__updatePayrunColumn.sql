@@ -1,0 +1,1 @@
+update "anv".category set name = 'Leave Encashment' where code = 'LEAVE_ENCHASHMENT' and type = 'Payment';

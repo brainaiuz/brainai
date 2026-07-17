@@ -1,0 +1,274 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style type="text/css">
+        body {
+            font-family: 'Arial', sans-serif;
+            font-weight: 300;
+            font-size: 9pt;
+            line-height: 1.4;
+        }
+        th {
+            text-align: left;
+        }
+        .sales-invoice-table-pdf th {
+            border-bottom: 1px solid black;
+            font-size: 9pt;
+        }
+        .sales-invoice-table-pdf td {
+            border-bottom: 1px solid #ced5db;
+            font-size: 9pt;
+        }
+        .sales-invoice__tmp * {
+            line-height: 1.4;
+        }
+        .billing-address__tmp-bill td {
+            line-height: 1.4;
+        }
+        .currency_code__tmp {
+            font-size: 8px;
+            font-weight: normal;
+        }
+        .align_0 {
+            text-align: left;
+        }
+        .align_1 {
+            text-align: center;
+        }
+        .align_2 {
+            text-align: right;
+        }
+        @media print {
+            .page-break {
+                display: inline-block !important;
+                page-break-inside: avoid !important;
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="body sales-invoice__tmp">
+    <img alt="images" src="https://workforcetrack.s3.amazonaws.com/000000000000/public/65159/a2113e82-397f-49fd-a58a-cdf4f4b93dff?AWSAccessKeyId=AKIAIROQMC77E5UKWBWQ" style="display: none;"/>
+    #if($itextGenericPdfData.companyData.companyName == 'KPI Software Inc' or $itextGenericPdfData.companyData.companyLogoUrl == 'https://apps.kpi.com/customisation/kpi.com/images/kpilogo.png')
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="width: 88px;display: none;"/>
+    #else
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="max-width: 100%; max-height: 100%; display: none;"/>
+    #end
+
+    #set($billToAddressTable = $itextGenericPdfData.baseInvoice.customBillToAddress.rows)
+
+    #set($cashAccountLabel=$billToAddressTable.get('CASH_ACCOUNT').get('COLUMN_NAME'))
+    #set($projectLabel=$billToAddressTable.get('project').get('COLUMN_NAME'))
+    #set($dateLabel=$billToAddressTable.get('DATE').get('COLUMN_NAME'))
+    #set($referenceLabel=$billToAddressTable.get('REFERENCE').get('COLUMN_NAME'))
+    #set($narrationLabel=$billToAddressTable.get('NARRATION').get('COLUMN_NAME'))
+    #set($numberLabel=$billToAddressTable.get('NUMBER').get('COLUMN_NAME'))
+    #set($checkNumberLabel=$billToAddressTable.get('CHECK_NUMBER').get('COLUMN_NAME'))
+
+    #set($cashAccount=$billToAddressTable.get('CASH_ACCOUNT').get('COLUMN_VALUE'))
+    #set($project=$billToAddressTable.get('project').get('COLUMN_VALUE'))
+    #set($date=$billToAddressTable.get('DATE').get('COLUMN_VALUE'))
+    #set($reference=$billToAddressTable.get('REFERENCE').get('COLUMN_VALUE'))
+    #set($narration=$billToAddressTable.get('NARRATION').get('COLUMN_VALUE'))
+    #set($number=$billToAddressTable.get('NUMBER').get('COLUMN_VALUE'))
+    #set($checkNumber=$billToAddressTable.get('CHECK_NUMBER').get('COLUMN_VALUE'))
+
+    #set($enabledDepartment=$billToAddressTable.get('ENABLED_DEPARTMENT').get('COLUMN_VALUE'))
+
+    <div>
+        <table class="billing-address__tmp-bill" align="left" border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 36pt; line-height: 1.4; font-size: 9pt;" width="60%">
+            <tbody>
+            #if($cashAccount != '')
+            <tr>
+                <td align="left" style="color: #0a0a0a; padding:4px 0; width:100%; word-wrap: break-word;" dir="$cashAccountLabel"><strong>$cashAccountLabel:</strong> <span>$cashAccount </span></td>
+            </tr>
+            #end
+            #if($project != '')
+            <tr>
+                <td align="left" style="color: #0a0a0a; padding:4px 0; width:100%; word-wrap: break-word;" dir="$projectLabel"><strong>$projectLabel:</strong> <span>$project </span></td>
+            </tr>
+            #end
+            #if($narration != '')
+            <tr>
+                <td align="left" style="color: #0a0a0a; padding:4px 0; width:100%; word-wrap: break-word;" dir="$narrationLabel"><strong>$narrationLabel:</strong> <span>$narration </span></td>
+            </tr>
+            #end
+            #if($reference != '')
+            <tr>
+                <td align="left" style="color: #0a0a0a; padding:4px 0; width:100%; word-wrap: break-word;" dir="$referenceLabel"><strong>$referenceLabel:</strong> <span>$reference </span></td>
+            </tr>
+            #end
+            </tbody>
+        </table>
+
+        <table align="right" border="0" cellpadding="5" cellspacing="0" class="invoice-info"
+               style="margin-bottom: 36pt;font-size: 9pt; margin-left:10%; width:30%;">
+            <tbody>
+            <tr>
+                <th align="left" dir="$dateLabel"><strong>$dateLabel:</strong></th>
+                <td align="right" dir="$date" style="color: #0a0a0a; padding-right:0;">$date</td>
+            </tr>
+            #if($number != '')
+            <tr>
+                <th align="left" dir="$numberLabel">$numberLabel:</th>
+                <td align="right" dir="$number" style="color: #0a0a0a; padding-right:0;">$number</td>
+            </tr>
+            #end
+            #if($checkNumber != '')
+            <tr>
+                <th align="left" dir="$checkNumberLabel">$checkNumberLabel:</th>
+                <td align="right" dir="$checkNumber" style="color: #0a0a0a; padding-right:0;">$checkNumber</td>
+            </tr>
+            #end
+            </tbody>
+        </table>
+    </div>
+
+    #if($itextGenericPdfData.params.tableColumns)
+        #set($cols = '')
+        #set($ths = '')
+        #set($tds = '')
+        #set($colsEnd = false)
+        #set($thsEnd = false)
+        #set($tdborderColor = '1px solid #ced5db')
+        #set($thborderColor = '1px solid black')
+        #if($itextGenericPdfData.params.tableBorderEnabled)
+            #set($tdborderColor = '1px solid ' + $itextGenericPdfData.params.tableBorderColor)
+            #set($thborderColor = '1px solid ' + $itextGenericPdfData.params.tableBorderColor)
+        #end
+        #foreach($row in $itextGenericPdfData.baseInvoice.customProductTable.rows.values())
+            #set($tds = $tds + '<tr>')
+            #foreach($column in $itextGenericPdfData.params.tableColumns)
+                #if($colsEnd == false)
+                    #set($cols = $cols + '<col style="width:' + $column.width + '%"></col>')
+                #end
+                #set($aligClass='align_' + $column.alignment)
+                #if($thsEnd == false)
+                    #set($thName = '')
+                    #if($column.columnTitle != '')
+                        #set($thName = $column.columnTitle)
+                    #else
+                        #set($thName = $itextGenericPdfData.baseInvoice.customProductTable.header.get($column.columnCode))
+                    #end
+                    #set($thFontSize = $itextGenericPdfData.params.tableHeaderFontSize + 'pt')
+                    #set($ths = $ths + '<th class="' + $aligClass + '" style="border-bottom:' + $thborderColor + ';font-size:' + $thFontSize + ';vertical-align: top;" dir="' + $directionUtils.dir($thName) + '">
+                                            <strong>' + $thName + '</strong>
+                                        </th>')
+                #end
+                #set($tdFontSize = $itextGenericPdfData.params.itemRowFontSize + 'pt')
+                #set($tdName = '')
+                #if($row.get($column.columnCode))
+                    #set($tdName = $row.get($column.columnCode).replaceAll('\n', '<br/>'))
+                #end
+                #set($tds = $tds + '<td class="' + $aligClass + '" style="border-bottom:' + $tdborderColor + ';font-size:' + $tdFontSize + ';word-wrap:break-word;" dir="' + $directionUtils.dir($tdName) + '">
+                                        ' + $tdName + '
+                                    </td>')
+            #end
+            #set($tds = $tds + '</tr>')
+            #set($colsEnd = true)
+            #set($thsEnd = true)
+        #end
+        #set($borderColor = '1px solid #ffffff')
+        #if($itextGenericPdfData.params.tableBorderEnabled)
+            #set($borderColor = '1px solid ' + $itextGenericPdfData.params.tableBorderColor)
+        #end
+        <table border="0" cellpadding="10" cellspacing="0" class="table-border" style="border: $borderColor; margin-bottom: 22pt; font-size: 9pt; width:100%; table-layout:fixed;">
+            <colgroup>
+                $cols
+            </colgroup>
+            #set($theadBgColor = '#ffffff')
+            #set($theadColor = $itextGenericPdfData.params.tableHeaderFontColor)
+            #if($itextGenericPdfData.params.tableHeaderBackgroundColorEnabled)
+                #set($theadBgColor = $itextGenericPdfData.params.tableHeaderBackgroundColor)
+            #end
+            <thead style="background-color: $theadBgColor; color: $theadColor;">
+            <tr>
+                $ths
+            </tr>
+            </thead>
+            #set($tdBgColor = '#ffffff')
+            #if($itextGenericPdfData.params.itemRowBackgroundColorEnabled)
+                #set($tdBgColor = $itextGenericPdfData.params.itemRowBackgroundColor)
+            #end
+            #set($tdColor = $itextGenericPdfData.params.itemRowFontColor)
+            <tbody style="background-color: $tdBgColor; color: $tdColor;">
+                $tds
+            </tbody>
+        </table>
+    #end
+
+    <table cellpadding="0" cellspacing="0" class="payment-cards page-break" style="font-size: 9pt;" width="100%">
+        <tbody>
+        <tr>
+            <td align="left" width="45%" valign="top">
+                &nbsp;
+            </td>
+            <td>&nbsp;</td>
+            <td align="right" width="45%" valign="top">
+                #set($totalInBaseAmountLabel = $billToAddressTable.get('TOTAL_IN_BASE').get('COLUMN_NAME'))
+                #set($totalAmountLabel = $billToAddressTable.get('TOTAL').get('COLUMN_NAME'))
+                #set($subTotalLabel = $billToAddressTable.get('SUBTOTAL').get('COLUMN_NAME'))
+                #set($taxTotalLabel = $billToAddressTable.get('TAX_TOTAL').get('COLUMN_NAME'))
+
+                #set($totalInBaseAmount=$billToAddressTable.get('TOTAL_IN_BASE').get('COLUMN_VALUE'))
+                #set($totalAmount=$billToAddressTable.get('TOTAL').get('COLUMN_VALUE'))
+                #set($subTotal=$billToAddressTable.get('SUBTOTAL').get('COLUMN_VALUE'))
+                #set($taxTotal=$billToAddressTable.get('TAX_TOTAL').get('COLUMN_VALUE'))
+                #set($baseCur=$billToAddressTable.get('CURRENCY').get('COLUMN_VALUE'))
+                #set($foreignCur=$billToAddressTable.get('FOREIGN_CURRENCY').get('COLUMN_VALUE'))
+                #set($totalAmountWord=$billToAddressTable.get('TOTAL_WORD').get('COLUMN_VALUE'))
+
+                <table align="right" border="0" cellpadding="6" cellspacing="0" class="payment-card" style=" font-size: 9pt; padding:4pt;  border-radius: 5px; background: #f4f4f4;" width="100%">
+                    <tr>
+                        <th style="padding-left: 12pt; " align="right" dir="$subTotalLabel">
+                            <strong>$subTotalLabel:</strong></th>
+                        <td style="padding-right: 12pt;width:120px;" align="right" dir="$subTotal">$subTotal</td>
+                    </tr>
+                    #if($taxTotal)
+                    <tr>
+                        <th style="padding-left: 12pt; width:70px; text-transform: uppercase;" align="right" dir="$taxTotalLabel"><strong>$taxTotalLabel:</strong>
+                        </th>
+                        <td style="padding-right: 12pt; width:120px;" align="right" dir="$taxTotal">
+                            $taxTotal
+                        </td>
+                    </tr>
+                    #end
+                    <tr>
+                        <td style="margin:0; padding-top:0; padding-bottom:0; padding-left: 12pt; font-size:10pt; padding-top:5px; color:#0070f1;"
+                            align="left" dir="$totalInBaseAmountLabel">
+                            <strong style="font-size: 12pt;">$totalInBaseAmountLabel </strong>($baseCur):
+                        </td>
+                        <td style=" margin:0; padding-top:0; padding-bottom:0; padding-right:12pt; font-size:10pt; width:120px;"
+                            align="right" dir="$totalInBaseAmount">
+                            <strong>$totalInBaseAmount</strong>
+                        </td>
+                    </tr>
+                    #if($baseCur != $foreignCur)
+                    <tr>
+                        <td style="margin:0; padding-top:0; padding-bottom:0; padding-left: 12pt; font-size:10pt; padding-top:5px; color:#0070f1;" align="left" dir="$totalAmountLabel">
+                            <strong style="font-size: 12pt;">$totalAmountLabel </strong>($foreignCur):
+                        </td>
+                        <td style=" margin:0; padding-top:0; padding-bottom:0; padding-right:12pt; font-size:10pt; width:120px;" align="right" dir="$totalAmount">
+                            <strong>$totalAmount</strong>
+                        </td>
+                    </tr>
+                    #end
+                    #if($totalAmountWord != '')
+                    <tr>
+                        <td colspan="2" align="right" style="padding-right: 12pt; padding-left: 12pt; padding-top:4px; padding-bottom:8px;">
+                            <div style="margin:0;padding:0; font-size:7pt; color:#75777b;" dir="$totalAmountWord">
+                                ($totalAmountWord)
+                            </div>
+                        </td>
+                    </tr>
+                    #end
+                </table>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
+
+

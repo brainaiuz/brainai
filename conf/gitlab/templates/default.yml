@@ -1,0 +1,54 @@
+default:
+  tags:
+    - airnet
+
+variables:
+  # Global
+  ANT_BIN: "/opt/ant/bin"
+
+  # Environment-specific (override in job)
+  LOCALIZATION: |
+    <module rename-to="localization_properties">
+        <set-property name="locale" value="default"/>
+        <extend-property name="locale" values="ru"/>
+        <extend-property name="locale" values="uz"/>
+        <!--<extend-property name="locale" values="ar"/>-->
+        <!--<extend-property name="locale" values="it"/>-->
+        <!--<extend-property name="locale" values="tr"/>-->
+        <!--<extend-property name="locale" values="pt"/>-->
+        <!--<extend-property name="locale" values="fr"/>-->
+        <!--<extend-property name="locale" values="es"/>-->
+        <!--<extend-property name="locale" values="nl"/>-->
+        <!--<extend-property name="locale" values="th"/>-->
+    </module>
+  APP_USER_AGENT: "_SAFARI"
+  APP_LOCALE: ""
+  APP_JVM_ARGS: "-Xms2G -Xmx12G"
+  APP_GWT_ARGS: "-localWorkers 8 -sourceLevel 1.11"
+  APP_BUILD_DEST: "/mnt/wars/KPI_Wars/17"
+
+  # Code Deploy specific
+  CODEDEPLOY_BUCKET: "auto-scaling-deployments"
+  CODEDEPLOY_BUCKET_PREFIX: "kpi-com"
+  CODEDEPLOY_APP_NAME: "KPI-Environment"
+  CODEDEPLOY_GROUP_NAME: "KPI-Com"
+  CODEDEPLOY_TYPE: "CodeDeployDefault.OneAtATime"
+
+generate-changelog:
+  stage: changelog
+  tags:
+    - airnet
+  script:
+    - chmod +x conf/scripts/changelog.sh
+    - ./conf/scripts/changelog.sh
+  artifacts:
+    paths:
+      - changelog.md
+    reports:
+      dotenv: deploy-stats.env
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "web"'
+      when: always
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
+      when: always
+    - when: never

@@ -1,0 +1,12 @@
+<li class = "dotted-line2">
+
+    <a class="userName" target="_blank" href='/Workspace.html?link=$rowItem.encryptURL("id", "news|summary/")' title=		'$rowItem.getValue("subject")'>$rowItem.getStringValue("subject")</a>
+    <em style="display: block;">$rowItem.getStringValue("shortdescription")</em>
+    <span class="date">$rowItem.getLongDateValue("date")
+        <span class = "comments-image"><img alt="image" src="/wfp/templates/wfpdefault/images/news-comments.png">
+            &nbsp$rowItem.getStringValue("comments")
+        </span>
+    </span>
+</li>
+
+

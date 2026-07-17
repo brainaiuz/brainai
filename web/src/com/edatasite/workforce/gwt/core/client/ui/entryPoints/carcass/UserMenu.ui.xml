@@ -1,0 +1,52 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:m='urn:import:gwt.material.design.client.ui'
+             xmlns:mh='urn:import:gwt.material.design.client.ui.html'
+>
+
+    <!-- User Menu -->
+    <m:MaterialPanel class="user-menu">
+        <mh:Div ui:field="removeSampleContainer" visible="false">
+        </mh:Div>
+
+        <mh:Div class="frame__user__trial" ui:field="subscribeWrapper" visible="false">
+            <mh:Div class="trial-informer" ui:field="subscribeContent">
+            </mh:Div>
+        </mh:Div>
+
+
+        <mh:Div styleName="user-menu-dynamic" ui:field="iconPanel"></mh:Div>
+
+        <mh:Div class="user-menu-dynamic" ui:field="panel"></mh:Div>
+
+        <!--&lt;!&ndash; NOTIFICATIONS &ndash;&gt;-->
+
+        <!--<m:MaterialPanel class="user-menu-item" ui:field="notificationContainer" visible="false">-->
+        <!--<m:MaterialLink class="button-collapse" ui:field="notificationLink">-->
+        <!--<mh:Span styleName="user-menu-item__icon" ui:field="notificationIconContainer"/>-->
+        <!--</m:MaterialLink>-->
+        <!--</m:MaterialPanel>-->
+
+        <!--&lt;!&ndash; EMAILS &ndash;&gt;-->
+        <!--<m:MaterialPanel class="user-menu-item" ui:field="emailContainer" visible="false">-->
+        <!--<m:MaterialLink class="button-collapse" ui:field="emailLink">-->
+        <!--<mh:Span styleName="user-menu-item__icon" ui:field="emailIconContainer"/>-->
+        <!--</m:MaterialLink>-->
+        <!--</m:MaterialPanel>-->
+
+        <!--&lt;!&ndash; Settings &ndash;&gt;-->
+        <!--<m:MaterialPanel class="user-menu-item">-->
+        <!--<m:MaterialLink class="button-collapse" ui:field="settings" visible="false">-->
+        <!--<mh:Span styleName="user-menu-item__icon" ui:field="settingsIconContainer"/>-->
+        <!--</m:MaterialLink>-->
+        <!--</m:MaterialPanel>-->
+
+
+        <!-- INSTRUCTION -->
+        <!--<m:MaterialPanel class="user-menu-item">
+            <m:MaterialPanel class="user-menu-item__icon">
+                <m:MaterialLink />
+            </m:MaterialPanel>
+            <m:MaterialPanel class="user-menu-item__caption"/>
+        </m:MaterialPanel>-->
+    </m:MaterialPanel>
+</ui:UiBinder>

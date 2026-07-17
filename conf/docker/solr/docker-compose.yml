@@ -1,0 +1,15 @@
+services:
+  kpi-local-solr:
+    extends:
+      file: compose.yml
+      service: solr
+    volumes:
+      - ../../../solrCores86:/var/solr/data
+    networks:
+      - kpi-network
+
+networks:
+  kpi-network:
+    name: kpi-network
+    driver: bridge
+    external: true

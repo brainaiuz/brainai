@@ -1,0 +1,105 @@
+
+//.profilePop--orgchart
+// Orgchart profile popup
+// Всплывающая карточка профиля владельца функции
+.profilePop {
+  display: none;
+  position: absolute;
+  z-index: 3000;
+  min-width: rem(340px);
+  max-width: rem(420px);
+
+  &.is-open {
+    display: block;
+  }
+
+  &__inner {
+    display: grid;
+    grid-template-areas:
+      "avatar info"
+      "actions actions";
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+    gap: rem(16px) rem(16px);
+    align-items: start;
+    //box-shadow: 0 rem(18px) rem(45px) rgba(15, 23, 42, 0.25);
+  }
+
+  &__avatar {
+    grid-area: avatar;
+
+    .avatar {
+      width: rem(96px);
+      height: rem(96px);
+      border-radius: 50%;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  &__info {
+    grid-area: info;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .profilePop_name {
+    margin-bottom: rem(10px);
+
+    h3 {
+      font-weight: 600;
+      font-size: rem(18px);
+      margin: 0;
+    }
+  }
+
+  &__address {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: rem(8px);
+    font-size: $font-size-base;
+    color: $text-color-light;
+    margin-bottom: rem(6px);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+
+    a {
+      @include base-transition(color);
+      color: inherit;
+
+      &:hover {
+        color: $text-color-base;
+      }
+    }
+
+    .icon-text {
+      //display: inline-flex; // is being in _common-assets.scss
+      //align-items: center;
+      //column-gap: 5px;
+
+      svg {
+        //flex-shrink: 0;
+      }
+    }
+  }
+
+  &__actions {
+    grid-area: actions;
+    margin-top: 0;
+
+    .btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+}

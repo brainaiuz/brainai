@@ -1,0 +1,114 @@
+<!-- ReviewWidget.ui.xml -->
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:g="urn:import:com.google.gwt.user.client.ui">
+
+
+        <g:HTMLPanel ui:field="reviewContent">
+            <div id="test3">
+                <div class="uploadSteps__info">
+                    <h3>Review and complete import</h3>
+                    <h4>Summary of transactions</h4>
+                    <div class="icon-text">
+                        <svg class="icon--check checked">
+                            <use href="/mainStyles/new-ui/icons/sprite__panels.svg#check"></use>
+                        </svg>
+                        <g:Label ui:field="transactionCount"/>
+                    </div>
+                    <p>KPI will check for duplicates when you complete the import, and any duplicates won't show for
+                        reconciliation <a href="#">Get help with importing bank transactions</a>
+                    </p>
+                </div>
+                <div class="uploadSteps__data">
+
+                    <h5 class="text-icon">
+                        <svg class="icon--check checked">
+                            <use href="/mainStyles/new-ui/icons/sprite__panels.svg#check"></use>
+                        </svg>
+                        Ready to import
+                    </h5>
+<br/>
+                    <br/>
+                    <br/>
+                    <g:HTMLPanel ui:field="tableContent">  </g:HTMLPanel>
+                    <!--                    <c:EditableTable ui:field="reviewTable"/>-->
+
+
+                    <!--                    <table class="table thead-cols dataTable">-->
+                    <!--                        <colgroup>-->
+                    <!--                            <col/>-->
+                    <!--                            <col/>-->
+                    <!--                            <col/>-->
+                    <!--                            <col/>-->
+                    <!--                            <col/>-->
+                    <!--                            <col/>-->
+                    <!--                            <col/>-->
+                    <!--                        </colgroup>-->
+                    <!--                        <thead>-->
+                    <!--                            <tr>-->
+                    <!--                                <td><span class="gwt-CheckBox selection-grid__checkbox&#45;&#45;select-all" id="gwt-debug-select_all_checkbox"><input id="gwt-debug-select_all_checkbox-input" tabindex="0" type="checkbox" value="on"/><label for="gwt-debug-select_all_checkbox-input" id="gwt-debug-select_all_checkbox-label"></label></span> </td>-->
+                    <!--                                <td>-->
+                    <!--                                    <div>-->
+                    <!--                                        <span>Date</span>-->
+                    <!--                                        <svg class="icon&#45;&#45;sortAsc">-->
+                    <!--                                            <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#sortAsc"></use>-->
+                    <!--                                        </svg>-->
+                    <!--                                    </div>-->
+                    <!--                                </td>-->
+                    <!--                                <td>-->
+                    <!--                                    <div><span>Payee</span></div>-->
+                    <!--                                </td>-->
+                    <!--                                <td>-->
+                    <!--                                    <div><span>Description</span></div>-->
+                    <!--                                </td>-->
+                    <!--                                <td>-->
+                    <!--                                    <div><span>Reference</span></div>-->
+                    <!--                                </td>-->
+                    <!--                                <td>-->
+                    <!--                                    <div><span>Transaction Type</span></div>-->
+                    <!--                                </td>-->
+                    <!--                                <td>-->
+                    <!--                                    <div><span>Transctions amount</span></div>-->
+                    <!--                                </td>-->
+                    <!--                            </tr>-->
+                    <!--                        </thead>-->
+                    <!--                        <tbody>-->
+                    <!--                            <tr>-->
+                    <!--                                <td><span class="cell-decorator"><label class="gwt-control control control&#45;&#45;checkbox"><input type="checkbox"/><span class="control__indicator"></span></label></span></td>-->
+                    <!--                                <td><span class="cell-decorator"><span class="text-holder">22 Jan, 2023</span></span> </td>-->
+                    <!--                                <td><span class="cell-decorator"></span></td>-->
+                    <!--                                <td><span class="cell-decorator"><span class="text-holder">Description 1</span></span> </td>-->
+                    <!--                                <td><span class="cell-decorator"><span class="text-holder">-->
+                    <!--                                    <div>FEF1</div>-->
+                    <!--                                </span></span></td>-->
+                    <!--                                <td><span class="cell-decorator"><span class="text-holder">Credit</span></span></td>-->
+                    <!--                                <td><span class="cell-decorator"><span class="text-holder">UZS 250,000.000</span></span> </td>-->
+                    <!--                            </tr>-->
+                    <!--                            <tr class="selected">-->
+                    <!--                                <td><span class="cell-decorator"><label class="gwt-control control control&#45;&#45;checkbox"><input  type="checkbox"/><span class="control__indicator"></span></label></span></td>-->
+                    <!--                                <td><span class="cell-decorator"><span class="text-holder">23 Jan, 2018</span></span> </td>-->
+                    <!--                                <td><span class="cell-decorator"></span></td>-->
+                    <!--                                <td><span class="cell-decorator"><span class="text-holder">Description 2</span></span> </td>-->
+                    <!--                                <td><span class="cell-decorator"><span class="text-holder">-->
+                    <!--                                    <div>REF2</div>-->
+                    <!--                                </span></span></td>-->
+                    <!--                                <td><span class="cell-decorator"><span class="text-holder">Debit</span></span></td>-->
+                    <!--                                <td><span class="cell-decorator"><span class="text-holder">UZS 250,000.000</span></span> </td>-->
+                    <!--                            </tr>-->
+                    <!--                            <tr class="selected">-->
+                    <!--                                <td><span class="cell-decorator"><label class="gwt-control control control&#45;&#45;checkbox"><input  type="checkbox"/><span class="control__indicator"></span></label></span></td>-->
+                    <!--                                <td><span class="cell-decorator"><span class="text-holder">23 Jan, 2018</span></span> </td>-->
+                    <!--                                <td><span class="cell-decorator"></span></td>-->
+                    <!--                                <td><span class="cell-decorator"><span class="text-holder">Description 2</span></span> </td>-->
+                    <!--                                <td><span class="cell-decorator"><span class="text-holder">-->
+                    <!--                                    <div>REF2</div>-->
+                    <!--                                </span></span></td>-->
+                    <!--                                <td><span class="cell-decorator"><span class="text-holder">Debit</span></span></td>-->
+                    <!--                                <td><span class="cell-decorator"><span class="text-holder">UZS 250,000.000</span></span> </td>-->
+                    <!--                            </tr>-->
+                    <!--                        </tbody>-->
+                    <!--                    </table>-->
+                </div>
+            </div>
+        </g:HTMLPanel>
+
+</ui:UiBinder>

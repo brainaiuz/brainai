@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <link rel="stylesheet" href="../WebContent/mainStyles/new-ui/css/materialize.css">
+<!--    <link rel="stylesheet" href="../css/kpitables.css?v=1524896932743">-->
+<!--    <link rel="stylesheet" href="../css/temp.css?v=1524896932743">-->
+<!--    <link rel="stylesheet" href="../css/theme.css?v=1524896932743">-->
+<!--    <link rel="stylesheet" href="../css/invoice.css?v=1524896932743">-->
+<!--    <link rel="stylesheet" href="../css/KanbanDND.css?v=1524896932743">-->
+<!--    <link rel="stylesheet" href="../css/dynamictable.css?v=1524896932743">-->
+
+    <style>
+        h4 {
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .wg_dial {
+            position: relative;
+        }
+        .wg_dial.wg_dial--conversation.wg_dial--keypadOn {
+            /*margin-left: 17vw;*/
+        }
+    </style>
+</head>
+
+<body style="padding: 3vh 2vh;">
+<!--<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>-->
+<script type="text/javascript" src="../WebContent/mainStyles/new-ui/js/jquery.min.js"></script>
+<!--<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>-->
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>-->
+<script type="text/javascript" src="../WebContent/mainStyles/new-ui/js/materialize-0.97.5.min.js"></script>
+
+
+<h4>state dial In Progress = "wg_dial--calling"</h4>
+<div class="wg_dial wg_dial--calling">
+    <div class="wg_dial__pad">
+
+        <div class="wg_dial__number">
+            <div class="wg_dial__number-input"><img class="wg_dial__flag" src="http://via.placeholder.com/16x10" alt=""><input type="text"></div>
+            <!--<div class="wg_dial__number-add"><a href="#"><i class="ficon&#45;&#45;plus"></i></a></div>-->
+        </div>
+        <div class="wg_dial__pad-buttons">
+            <div class="wg_dial__pad-button"><span>1</span></div>
+            <div class="wg_dial__pad-button"><span>2</span></div>
+            <div class="wg_dial__pad-button"><span>3</span></div>
+            <div class="wg_dial__pad-button"><span>4</span></div>
+            <div class="wg_dial__pad-button"><span>5</span></div>
+            <div class="wg_dial__pad-button"><span>6</span></div>
+            <div class="wg_dial__pad-button"><span>7</span></div>
+            <div class="wg_dial__pad-button"><span>8</span></div>
+            <div class="wg_dial__pad-button"><span>9</span></div>
+            <div class="wg_dial__pad-button wg_dial__pad-button--function"><span><i class="ficon--phone"></i></span></div>
+            <div class="wg_dial__pad-button"><span>0</span></div>
+            <div class="wg_dial__pad-button wg_dial__pad-button--function"><span><i class="ficon--sms"></i></span></div>
+        </div>
+        <div class="wg_dial__pad-footer">
+            <div class="wg_dial__text">
+                Log all Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi atque cumque doloremque.
+            </div>
+        </div>
+    </div>
+    <div class="wg_dial__notes">
+        <div class="wg_dial__info-tabs">
+            <div class="wg_dial__info-tabs-item"><a href="#wg-dial--rencent">Write a note</a></div>
+        </div>
+        <div class="wg_dial__notes-content">
+            <textarea class="wg_dial__notes-textarea" placeholder="Do not miss details record the details of the conversation" ></textarea>
+
+        </div>
+    </div>
+    <div class="wg_dial__call">
+        <table class="wg_dial__call-info">
+            <tr>
+                <th>Contact Owner</th>
+                <td>&mdash;</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>&mdash;</td>
+            </tr>
+            <tr>
+                <th>Phone</th>
+                <td>&mdash;</td>
+            </tr>
+            <tr>
+                <th>Mobile</th>
+                <td>&mdash;</td>
+            </tr>
+            <tr>
+                <th>Location</th>
+                <td>&mdash;</td>
+            </tr>
+        </table>
+
+        <div class="wg_dial__call-actions">
+            <div class="wg_dial__call-actions__icon">
+                <svg class="icon--callAction">
+                    <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#callAction"></use>
+                </svg>
+            </div>
+            <div>
+                <div class="wg_dial__call-options dropdown-kit--arrow--top">
+                   <button class="btn--icon dropdown-butto"><svg class="icon--moreBoldVertical">
+                       <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#moreBoldVertical"></use>
+                   </svg></button>
+                    <ul class="dropdown-content" style="position: absolute; bottom: 100%; margin-bottom: 18px; margin-left:-10px; ">
+                        <li>
+                            <a href="#"><span>Create contact</span></a>
+                        </li>
+                        <li>
+                            <a href="#"><span>Update contact</span></a>
+                        </li>
+                        <li>
+                            <a href="#"><span>Create lead</span></a>
+                        </li>
+                        <li>
+                            <a href="#"><span>Update lead</span></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="wg_dial__call-name">+9998 99 555 5555</div>
+                <div class="wg_dial__call-duration">Calling...</div>
+
+
+                <div class="wg_dial__call-actions__buttons">
+                    <div class="btn-small btn--success">Answered</div>
+                    <div class="btn-small btn--danger">Rejected</div>
+                    <!--            <div class="wg_dial__call-button wg_dial__call-button&#45;&#45;hide"><i class="ficon&#45;&#45;camera"></i></div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="wg_dial__sms">
+        <div class="wg_dial__sms-header">
+                <div class="wg_dial__sms-to-info">
+                    <div class="wg_dial__sms-name">Munir Yam</div>
+                    <div class="wg_dial__sms-number">+998946054278</div>
+                </div>
+                <img class="wg_dial__flag" src="http://via.placeholder.com/16x10" alt="">
+        </div>
+        <div class="wg_dial__sms-content">
+            <div class="wg_dial__sms-content-item">
+                <div class="wg_dial__sms-content-item-date">
+                    12.02.2019
+                </div>
+                <div class="wg_dial__sms-content-item-message">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, illo iste libero quia reiciendis sed tempora. Ad aut, corporis deserunt, dolor dolorum ex exercitationem porro possimus quia saepe tempore, voluptatem.
+                </div>
+            </div>
+            <div class="wg_dial__sms-content-item">
+                <div class="wg_dial__sms-content-item-date">
+                    12.02.2019
+                </div>
+                <div class="wg_dial__sms-content-item-message">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, illo iste libero quia reiciendis sed tempora. Ad aut, corporis deserunt, dolor dolorum ex exercitationem porro possimus quia saepe tempore, voluptatem.
+                </div>
+            </div>
+            <div class="wg_dial__sms-content-item">
+                <div class="wg_dial__sms-content-item-date">
+                    12.02.2019
+                </div>
+                <div class="wg_dial__sms-content-item-message">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, illo iste libero quia reiciendis sed tempora. Ad aut, corporis deserunt, dolor dolorum ex exercitationem porro possimus quia saepe tempore, voluptatem.
+                </div>
+            </div>
+            <div class="wg_dial__sms-content-item">
+                <div class="wg_dial__sms-content-item-date">
+                    12.02.2019
+                </div>
+                <div class="wg_dial__sms-content-item-message">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, illo iste libero quia reiciendis sed tempora. Ad aut, corporis deserunt, dolor dolorum ex exercitationem porro possimus quia saepe tempore, voluptatem.
+                </div>
+            </div>
+        </div>
+        <div class="wg_dial__sms-footer">
+            <textarea class="wg_dial__sms-input" placeholder="Type here..."></textarea>
+            <div class="wg_dial__sms-send"><i class="ficon--keyboard-arrow-up"></i></div>
+            <div class="wg_dial__sms-chars">999</div>
+        </div>
+    </div>
+</div>
+
+<h4>state conversation In Progress = "wg_dial--conversation"</h4>
+<div class="wg_dial wg_dial--conversation">
+    <div class="wg_dial__pad">
+
+        <div class="wg_dial__number">
+            <div class="wg_dial__number-input"><input type="text"></div>
+        </div>
+        <div class="wg_dial__pad-buttons">
+            <div class="wg_dial__pad-button"><span>1</span></div>
+            <div class="wg_dial__pad-button"><span>2</span></div>
+            <div class="wg_dial__pad-button"><span>3</span></div>
+            <div class="wg_dial__pad-button"><span>4</span></div>
+            <div class="wg_dial__pad-button"><span>5</span></div>
+            <div class="wg_dial__pad-button"><span>6</span></div>
+            <div class="wg_dial__pad-button"><span>7</span></div>
+            <div class="wg_dial__pad-button"><span>8</span></div>
+            <div class="wg_dial__pad-button"><span>9</span></div>
+            <div class="wg_dial__pad-button wg_dial__pad-button--function"><span><i class="ficon--phone"></i></span></div>
+            <div class="wg_dial__pad-button"><span>0</span></div>
+            <div class="wg_dial__pad-button wg_dial__pad-button--function"><span><i class="ficon--sms"></i></span></div>
+        </div>
+        <div class="wg_dial__pad-footer">
+            <div class="wg_dial__text">
+                Log all Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi atque cumque doloremque.
+            </div>
+        </div>
+    </div>
+    <div class="wg_dial__notes">
+        <div class="wg_dial__info-tabs">
+            <div class="wg_dial__info-tabs-item"><a href="#wg-dial--rencent">Write a note</a></div>
+        </div>
+        <div class="wg_dial__notes-content">
+            <textarea class="wg_dial__notes-textarea" placeholder="Do not miss details record the details of the conversation" ></textarea>
+
+        </div>
+    </div>
+    <div class="wg_dial__call">
+        <table class="wg_dial__call-info">
+            <tr>
+                <th>Contact Owner</th>
+                <td>test@gmail.com</td>
+            </tr>
+            <tr>
+                <th><span>Email</span></th>
+                <td><span>longnameforexamplesandalapingala.yogayogarelaxation@finnetlimited-example.com</span></td>
+            </tr>
+            <tr>
+                <th>Phone</th>
+                <td>+505-977-3911</td>
+            </tr>
+            <tr>
+                <th>Mobile</th>
+                <td>+998935286407</td>
+            </tr>
+            <tr>
+                <th>Location</th>
+                <td>Uzbekistan</td>
+            </tr>
+        </table>
+
+        <div class="wg_dial__call-actions">
+            <div class="wg_dial__call-actions__icon">
+                <svg class="icon--callAction">
+                    <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#callAction"></use>
+                </svg>
+            </div>
+            <div>
+                <div class="wg_dial__call-options dropdown-kit--arrow--top">
+                    <button class="btn--icon dropdown-button active"><svg class="icon--moreBoldVertical">
+                        <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#moreBoldVertical"></use>
+                    </svg></button>
+                    <ul class="dropdown-content active" style="position: absolute; bottom: 100%; margin-bottom: 18px; margin-left:-10px; opacity: 1; display: block;">
+                        <li>
+                            <a href="#"><span>Create contact</span></a>
+                        </li>
+                        <li>
+                            <a href="#"><span>Update contact</span></a>
+                        </li>
+                        <li>
+                            <a href="#"><span>Create lead</span></a>
+                        </li>
+                        <li>
+                            <a href="#"><span>Update lead</span></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="wg_dial__call-name"><a href="link-to-user-profile" title="go to user profile">Francine Vocelka</a></div>
+                <div class="wg_dial__call-duration">13:25</div>
+
+
+                <div class="wg_dial__call-actions__buttons">
+                    <div class="btn-small btn--danger">End call</div>
+                    <div class="btn-small btn--lightgrey mic mic-off">
+                        <svg class="icon--microphone">
+                            <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#microphone"></use>
+                        </svg>
+                    </div>
+                    <div class="btn-small btn--icon" title="open dial pad">
+                        <svg class="icon--keypad">
+                            <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#keypad"></use>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="wg_dial__sms">
+        <div class="wg_dial__sms-header">
+            <div class="wg_dial__sms-to-info">
+                <div class="wg_dial__sms-name">Munir Yam</div>
+                <div class="wg_dial__sms-number">+998946054278</div>
+            </div>
+            <img class="wg_dial__flag" src="http://via.placeholder.com/16x10" alt="">
+        </div>
+        <div class="wg_dial__sms-content">
+            <div class="wg_dial__sms-content-item">
+                <div class="wg_dial__sms-content-item-date">
+                    12.02.2019
+                </div>
+                <div class="wg_dial__sms-content-item-message">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, illo iste libero quia reiciendis sed tempora. Ad aut, corporis deserunt, dolor dolorum ex exercitationem porro possimus quia saepe tempore, voluptatem.
+                </div>
+            </div>
+            <div class="wg_dial__sms-content-item">
+                <div class="wg_dial__sms-content-item-date">
+                    12.02.2019
+                </div>
+                <div class="wg_dial__sms-content-item-message">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, illo iste libero quia reiciendis sed tempora. Ad aut, corporis deserunt, dolor dolorum ex exercitationem porro possimus quia saepe tempore, voluptatem.
+                </div>
+            </div>
+            <div class="wg_dial__sms-content-item">
+                <div class="wg_dial__sms-content-item-date">
+                    12.02.2019
+                </div>
+                <div class="wg_dial__sms-content-item-message">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, illo iste libero quia reiciendis sed tempora. Ad aut, corporis deserunt, dolor dolorum ex exercitationem porro possimus quia saepe tempore, voluptatem.
+                </div>
+            </div>
+            <div class="wg_dial__sms-content-item">
+                <div class="wg_dial__sms-content-item-date">
+                    12.02.2019
+                </div>
+                <div class="wg_dial__sms-content-item-message">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, illo iste libero quia reiciendis sed tempora. Ad aut, corporis deserunt, dolor dolorum ex exercitationem porro possimus quia saepe tempore, voluptatem.
+                </div>
+            </div>
+        </div>
+        <div class="wg_dial__sms-footer">
+            <textarea class="wg_dial__sms-input" placeholder="Type here..."></textarea>
+            <div class="wg_dial__sms-send"><i class="ficon--keyboard-arrow-up"></i></div>
+            <div class="wg_dial__sms-chars">999</div>
+        </div>
+    </div>
+</div>
+
+<h4>state conversation + Keypad is opened = "wg_dial--conversation wg_dial--keypadOn"</h4>
+<div class="wg_dial wg_dial--conversation wg_dial--keypadOn">
+    <div class="wg_dial__pad">
+
+        <div class="wg_dial__number">
+            <div class="wg_dial__number-input"><input type="tel" value="+9998 99 775 5891"></div>
+        </div>
+        <div class="wg_dial__pad-buttons">
+            <div class="wg_dial__pad-button"><span>1</span></div>
+            <div class="wg_dial__pad-button"><span>2</span></div>
+            <div class="wg_dial__pad-button"><span>3</span></div>
+            <div class="wg_dial__pad-button"><span>4</span></div>
+            <div class="wg_dial__pad-button"><span>5</span></div>
+            <div class="wg_dial__pad-button"><span>6</span></div>
+            <div class="wg_dial__pad-button"><span>7</span></div>
+            <div class="wg_dial__pad-button"><span>8</span></div>
+            <div class="wg_dial__pad-button"><span>9</span></div>
+            <div class="wg_dial__pad-button wg_dial__pad-button--function"><span><i class="ficon--phone"></i></span></div>
+            <div class="wg_dial__pad-button"><span>0</span></div>
+            <div class="wg_dial__pad-button wg_dial__pad-button--function"><span><i class="ficon--sms"></i></span></div>
+        </div>
+        <div class="wg_dial__pad-footer">
+            <div class="wg_dial__text">
+                Log all Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi atque cumque doloremque.
+            </div>
+        </div>
+    </div>
+    <div class="wg_dial__notes">
+        <div class="wg_dial__info-tabs">
+            <div class="wg_dial__info-tabs-item"><a href="#wg-dial--rencent">Write a note</a></div>
+        </div>
+        <div class="wg_dial__notes-content">
+            <textarea class="wg_dial__notes-textarea" placeholder="Do not miss details record the details of the conversation" ></textarea>
+
+        </div>
+    </div>
+    <div class="wg_dial__call">
+        <table class="wg_dial__call-info">
+            <tr>
+                <th>Contact Owner</th>
+                <td>test@gmail.com</td>
+            </tr>
+            <tr>
+                <th><span>Email</span></th>
+                <td><span>longnameforexamplesandalapingala.yogayogarelaxation@finnetlimited-example.com</span></td>
+            </tr>
+            <tr>
+                <th>Phone</th>
+                <td>+505-977-3911</td>
+            </tr>
+
+            <tr>
+                <th>Mobile</th>
+                <td>+998935286407</td>
+            </tr>
+            <tr>
+                <th>Location</th>
+                <td>Uzbekistan</td>
+            </tr>
+        </table>
+
+        <div class="wg_dial__call-actions">
+            <div class="wg_dial__call-actions__icon">
+                <svg class="icon--callAction">
+                    <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#callAction"></use>
+                </svg>
+            </div>
+            <div>
+                <div class="wg_dial__call-options dropdown-kit--arrow--top">
+                    <button class="btn--icon dropdown-button active"><svg class="icon--moreBoldVertical">
+                        <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#moreBoldVertical"></use>
+                    </svg></button>
+                    <ul class="dropdown-content active" style="position: absolute; bottom: 100%; margin-bottom: 18px; margin-left:-10px; opacity: 1; display: block;">
+                        <li>
+                            <a href="#"><span>Create contact</span></a>
+                        </li>
+                        <li>
+                            <a href="#"><span>Update contact</span></a>
+                        </li>
+                        <li>
+                            <a href="#"><span>Create lead</span></a>
+                        </li>
+                        <li>
+                            <a href="#"><span>Update lead</span></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="wg_dial__call-name"><a href="link-to-user-profile" title="go to user profile">Francine Vocelka</a></div>
+                <div class="wg_dial__call-duration">13:25</div>
+
+
+                <div class="wg_dial__call-actions__buttons">
+                    <div class="btn-small btn--danger">End call</div>
+                    <div class="btn-small btn--lightgrey">
+                        <svg class="icon--microphone mic">
+                            <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#microphone"></use>
+                        </svg>
+                    </div>
+                    <div class="btn-small btn--icon" title="open dial pad">
+                        <svg class="icon--keypad">
+                            <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#keypad"></use>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="wg_dial__sms">
+        <div class="wg_dial__sms-header">
+            <div class="wg_dial__sms-to-info">
+                <div class="wg_dial__sms-name">Munir Yam</div>
+                <div class="wg_dial__sms-number">+998946054278</div>
+            </div>
+            <img class="wg_dial__flag" src="http://via.placeholder.com/16x10" alt="">
+        </div>
+        <div class="wg_dial__sms-content">
+            <div class="wg_dial__sms-content-item">
+                <div class="wg_dial__sms-content-item-date">
+                    12.02.2019
+                </div>
+                <div class="wg_dial__sms-content-item-message">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, illo iste libero quia reiciendis sed tempora. Ad aut, corporis deserunt, dolor dolorum ex exercitationem porro possimus quia saepe tempore, voluptatem.
+                </div>
+            </div>
+            <div class="wg_dial__sms-content-item">
+                <div class="wg_dial__sms-content-item-date">
+                    12.02.2019
+                </div>
+                <div class="wg_dial__sms-content-item-message">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, illo iste libero quia reiciendis sed tempora. Ad aut, corporis deserunt, dolor dolorum ex exercitationem porro possimus quia saepe tempore, voluptatem.
+                </div>
+            </div>
+            <div class="wg_dial__sms-content-item">
+                <div class="wg_dial__sms-content-item-date">
+                    12.02.2019
+                </div>
+                <div class="wg_dial__sms-content-item-message">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, illo iste libero quia reiciendis sed tempora. Ad aut, corporis deserunt, dolor dolorum ex exercitationem porro possimus quia saepe tempore, voluptatem.
+                </div>
+            </div>
+            <div class="wg_dial__sms-content-item">
+                <div class="wg_dial__sms-content-item-date">
+                    12.02.2019
+                </div>
+                <div class="wg_dial__sms-content-item-message">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, illo iste libero quia reiciendis sed tempora. Ad aut, corporis deserunt, dolor dolorum ex exercitationem porro possimus quia saepe tempore, voluptatem.
+                </div>
+            </div>
+        </div>
+        <div class="wg_dial__sms-footer">
+            <textarea class="wg_dial__sms-input" placeholder="Type here..."></textarea>
+            <div class="wg_dial__sms-send"><i class="ficon--keyboard-arrow-up"></i></div>
+            <div class="wg_dial__sms-chars">999</div>
+        </div>
+    </div>
+</div>
+
+<h4>state conversation Is Finished = "wg_dial--finished"</h4>
+<div class="wg_dial wg_dial--finished">
+    <div class="wg_dial__pad">
+
+        <div class="wg_dial__number">
+            <div class="wg_dial__number-input"><img class="wg_dial__flag" src="http://via.placeholder.com/16x10" alt=""><input type="text"></div>
+            <!--<div class="wg_dial__number-add"><a href="#"><i class="ficon&#45;&#45;plus"></i></a></div>-->
+        </div>
+        <div class="wg_dial__pad-buttons">
+            <div class="wg_dial__pad-button"><span>1</span></div>
+            <div class="wg_dial__pad-button"><span>2</span></div>
+            <div class="wg_dial__pad-button"><span>3</span></div>
+            <div class="wg_dial__pad-button"><span>4</span></div>
+            <div class="wg_dial__pad-button"><span>5</span></div>
+            <div class="wg_dial__pad-button"><span>6</span></div>
+            <div class="wg_dial__pad-button"><span>7</span></div>
+            <div class="wg_dial__pad-button"><span>8</span></div>
+            <div class="wg_dial__pad-button"><span>9</span></div>
+            <div class="wg_dial__pad-button wg_dial__pad-button--function"><span><i class="ficon--phone"></i></span></div>
+            <div class="wg_dial__pad-button"><span>0</span></div>
+            <div class="wg_dial__pad-button wg_dial__pad-button--function"><span><i class="ficon--sms"></i></span></div>
+        </div>
+        <div class="wg_dial__pad-footer">
+            <div class="wg_dial__text">
+                Log all Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi atque cumque doloremque.
+            </div>
+        </div>
+    </div>
+    <div class="wg_dial__notes">
+        <div class="wg_dial__info-tabs">
+            <div class="wg_dial__info-tabs-item"><a href="#wg-dial--rencent">Write a note</a></div>
+        </div>
+        <div class="wg_dial__notes-content">
+            <textarea class="wg_dial__notes-textarea" placeholder="Do not miss details record the details of the conversation" ></textarea>
+
+        </div>
+    </div>
+    <div class="wg_dial__call">
+        <div class="wg_dial__call-actions">
+            <div class="wg_dial__call-actions__icon">
+                <svg class="icon--callAction">
+                    <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#callActionEnd"></use>
+                </svg>
+            </div>
+            <div>
+                <div class="wg_dial__call-options dropdown-kit--arrow--top">
+                    <button class="btn--icon dropdown-button active"><svg class="icon--moreBoldVertical">
+                        <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#moreBoldVertical"></use>
+                    </svg></button>
+                    <ul class="dropdown-content active" style="position: absolute; bottom: 100%; margin-bottom: 18px; margin-left:-10px; opacity: 1; display: block;">
+                        <li>
+                            <a href="#"><span>Create contact</span></a>
+                        </li>
+                        <li>
+                            <a href="#"><span>Update contact</span></a>
+                        </li>
+                        <li>
+                            <a href="#"><span>Create lead</span></a>
+                        </li>
+                        <li>
+                            <a href="#"><span>Update lead</span></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="wg_dial__call-name"><a href="link-to-user-profile" title="go to user profile">Francine Vocelka</a></div>
+                <div class="wg_dial__call-duration">23:10</div>
+
+
+                <!--<div class="wg_dial__call-actions__buttons">
+                    <div class="btn-small btn&#45;&#45;danger">End call</div>
+                    <div class="btn-small btn&#45;&#45;lightgrey">
+                        <svg class="icon--microphone">
+                            <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#microphone"></use>
+                        </svg>
+                    </div>
+                    <div class="btn-small btn&#45;&#45;icon">
+                        <svg class="icon&#45;&#45;keypad">
+                            <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#keypad"></use>
+                        </svg>
+                    </div>
+                </div>-->
+            </div>
+        </div>
+        <dl class="wg_dial__call-result">
+            <dt>
+                Create:
+            </dt>
+            <dd>
+                <a href="#">Task</a>
+            </dd>
+            <dd>
+                <a href="#">Call</a>
+            </dd>
+            <dd>
+                <a href="#">Event</a>
+            </dd>
+            <dd><a href="#">SMS</a></dd>
+        </dl>
+        <div class="wg_dial__call-footer">
+            <button class="btn-small btn--primary">Save</button>
+            <button class="btn-small btn--default">Cancel</button>
+        </div>
+    </div>
+    <div class="wg_dial__sms">
+        <div class="wg_dial__sms-header">
+            <div class="wg_dial__sms-to-info">
+                <div class="wg_dial__sms-name">Munir Yam</div>
+                <div class="wg_dial__sms-number">+998946054278</div>
+            </div>
+            <img class="wg_dial__flag" src="http://via.placeholder.com/16x10" alt="">
+        </div>
+        <div class="wg_dial__sms-content">
+            <div class="wg_dial__sms-content-item">
+                <div class="wg_dial__sms-content-item-date">
+                    12.02.2019
+                </div>
+                <div class="wg_dial__sms-content-item-message">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, illo iste libero quia reiciendis sed tempora. Ad aut, corporis deserunt, dolor dolorum ex exercitationem porro possimus quia saepe tempore, voluptatem.
+                </div>
+            </div>
+            <div class="wg_dial__sms-content-item">
+                <div class="wg_dial__sms-content-item-date">
+                    12.02.2019
+                </div>
+                <div class="wg_dial__sms-content-item-message">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, illo iste libero quia reiciendis sed tempora. Ad aut, corporis deserunt, dolor dolorum ex exercitationem porro possimus quia saepe tempore, voluptatem.
+                </div>
+            </div>
+            <div class="wg_dial__sms-content-item">
+                <div class="wg_dial__sms-content-item-date">
+                    12.02.2019
+                </div>
+                <div class="wg_dial__sms-content-item-message">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, illo iste libero quia reiciendis sed tempora. Ad aut, corporis deserunt, dolor dolorum ex exercitationem porro possimus quia saepe tempore, voluptatem.
+                </div>
+            </div>
+            <div class="wg_dial__sms-content-item">
+                <div class="wg_dial__sms-content-item-date">
+                    12.02.2019
+                </div>
+                <div class="wg_dial__sms-content-item-message">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, illo iste libero quia reiciendis sed tempora. Ad aut, corporis deserunt, dolor dolorum ex exercitationem porro possimus quia saepe tempore, voluptatem.
+                </div>
+            </div>
+        </div>
+        <div class="wg_dial__sms-footer">
+            <textarea class="wg_dial__sms-input" placeholder="Type here..."></textarea>
+            <div class="wg_dial__sms-send"><i class="ficon--keyboard-arrow-up"></i></div>
+            <div class="wg_dial__sms-chars">999</div>
+        </div>
+    </div>
+</div>
+
+<h4>no states - default</h4>
+<div class="wg_dial">
+    <div class="wg_dial__info">
+        <div class="wg_dial__info-tabs">
+            <div class="wg_dial__info-tabs-item wg_dial__info-tabs-item--active"><a href="#wg-dial--rencent">Recent</a></div>
+            <div class="wg_dial__info-tabs-item"><a href="#tab-content--2">Favourite</a></div>
+        </div>
+        <div class="wg_dial__contacts" id="wg-dial--rencent">
+            <div class="widget-row widget-row--favourite">
+
+                <div class="widget-row__icon">
+                    <i class="ficon--star"></i>
+                </div>
+                <div class="widget-row__item widget-row__item--grow">
+                    <div class="cp_profile-min">
+
+                        <div class="cp_profile-min__title">
+                            <div class="cp_profile-min__name">Munir Yam</div>
+                            <div class="cp_profile-min__company">+998946054278</div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="widget-row__end">
+                    <div class="widget-row__button-group">
+                        <div class="widget-row__button"><span class=""><i class="ficon--info2"></i></span></div>
+                        <div class="widget-row__button"><a href="#"><i class="ficon--sms"></i></a></div>
+                        <div class="widget-row__button"><a href="#"><i class="ficon--phone2"></i></a></div>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="widget-row widget-row--favourite">
+
+                <div class="widget-row__icon">
+                    <i class="ficon--star"></i>
+                </div>
+                <div class="widget-row__item widget-row__item--grow">
+                    <div class="cp_profile-min">
+
+                        <div class="cp_profile-min__title">
+                            <div class="cp_profile-min__name">Munir Yam</div>
+                            <div class="cp_profile-min__company">+998946054278</div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="widget-row__end">
+                    <div class="widget-row__button-group">
+                        <div class="widget-row__button"><span class=""><i class="ficon--info2"></i></span></div>
+                        <div class="widget-row__button"><a href="#"><i class="ficon--sms"></i></a></div>
+                        <div class="widget-row__button"><a href="#"><i class="ficon--phone2"></i></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="wg_dial__pad">
+
+        <div class="wg_dial__number">
+            <div class="wg_dial__number-input"><img class="wg_dial__flag" src="http://via.placeholder.com/16x10" alt=""><input type="text"></div>
+            <!--<div class="wg_dial__number-add"><a href="#"><i class="ficon&#45;&#45;plus"></i></a></div>-->
+        </div>
+        <div class="wg_dial__pad-buttons">
+            <div class="wg_dial__pad-button"><span>1</span></div>
+            <div class="wg_dial__pad-button"><span>2</span></div>
+            <div class="wg_dial__pad-button"><span>3</span></div>
+            <div class="wg_dial__pad-button"><span>4</span></div>
+            <div class="wg_dial__pad-button"><span>5</span></div>
+            <div class="wg_dial__pad-button"><span>6</span></div>
+            <div class="wg_dial__pad-button"><span>7</span></div>
+            <div class="wg_dial__pad-button"><span>8</span></div>
+            <div class="wg_dial__pad-button"><span>9</span></div>
+            <div class="wg_dial__pad-button wg_dial__pad-button--function"><span><i class="ficon--phone"></i></span></div>
+            <div class="wg_dial__pad-button"><span>0</span></div>
+            <div class="wg_dial__pad-button wg_dial__pad-button--function"><span><i class="ficon--sms"></i></span></div>
+        </div>
+        <div class="wg_dial__pad-footer">
+            <div class="wg_dial__text">
+                Log all Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi atque cumque doloremque.
+            </div>
+        </div>
+    </div>
+    <div class="wg_dial__notes">
+        <div class="wg_dial__info-tabs">
+            <div class="wg_dial__info-tabs-item"><a href="#wg-dial--rencent">Write a note</a></div>
+        </div>
+        <div class="wg_dial__notes-content">
+            <textarea class="wg_dial__notes-textarea" placeholder="Do not miss details record the details of the conversation" ></textarea>
+
+        </div>
+    </div>
+    <div class="wg_dial__call">
+        <div class="wg_dial__call-actions">
+            <div class="wg_dial__call-actions__icon">
+                <svg class="icon--callAction">
+                    <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#callActionEnd"></use>
+                </svg>
+            </div>
+            <div>
+                <div class="wg_dial__call-options dropdown-kit--arrow--top">
+                    <button class="btn--icon dropdown-button active"><svg class="icon--moreBoldVertical">
+                        <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#moreBoldVertical"></use>
+                    </svg></button>
+                    <ul class="dropdown-content active" style="position: absolute; bottom: 100%; margin-bottom: 18px; margin-left:-10px; opacity: 1; display: block;">
+                        <li>
+                            <a href="#"><span>Create contact</span></a>
+                        </li>
+                        <li>
+                            <a href="#"><span>Update contact</span></a>
+                        </li>
+                        <li>
+                            <a href="#"><span>Create lead</span></a>
+                        </li>
+                        <li>
+                            <a href="#"><span>Update lead</span></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="wg_dial__call-name"><a href="link-to-user-profile" title="go to user profile">Francine Vocelka</a></div>
+                <div class="wg_dial__call-duration">23:10</div>
+
+
+                <!--<div class="wg_dial__call-actions__buttons">
+                    <div class="btn-small btn&#45;&#45;danger">End call</div>
+                    <div class="btn-small btn&#45;&#45;lightgrey">
+                        <svg class="icon--microphone">
+                            <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#microphone"></use>
+                        </svg>
+                    </div>
+                    <div class="btn-small btn&#45;&#45;icon">
+                        <svg class="icon&#45;&#45;keypad">
+                            <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#keypad"></use>
+                        </svg>
+                    </div>
+                </div>-->
+            </div>
+        </div>
+        <dl class="wg_dial__call-result">
+            <dt>
+                Create:
+            </dt>
+            <dd>
+                <a href="#">Task</a>
+            </dd>
+            <dd>
+                <a href="#">Call</a>
+            </dd>
+            <dd>
+                <a href="#">Event</a>
+            </dd>
+        </dl>
+        <div class="wg_dial__call-footer">
+            <button class="btn-small btn--primary">Save</button>
+            <button class="btn-small btn--default">Cancel</button>
+        </div>
+    </div>
+    <div class="wg_dial__sms">
+        <div class="wg_dial__sms-header">
+            <div class="wg_dial__sms-to-info">
+                <div class="wg_dial__sms-name">Munir Yam</div>
+                <div class="wg_dial__sms-number">+998946054278</div>
+            </div>
+            <img class="wg_dial__flag" src="http://via.placeholder.com/16x10" alt="">
+        </div>
+        <div class="wg_dial__sms-content">
+            <div class="wg_dial__sms-content-item">
+                <div class="wg_dial__sms-content-item-date">
+                    12.02.2019
+                </div>
+                <div class="wg_dial__sms-content-item-message">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, illo iste libero quia reiciendis sed tempora. Ad aut, corporis deserunt, dolor dolorum ex exercitationem porro possimus quia saepe tempore, voluptatem.
+                </div>
+            </div>
+            <div class="wg_dial__sms-content-item">
+                <div class="wg_dial__sms-content-item-date">
+                    12.02.2019
+                </div>
+                <div class="wg_dial__sms-content-item-message">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, illo iste libero quia reiciendis sed tempora. Ad aut, corporis deserunt, dolor dolorum ex exercitationem porro possimus quia saepe tempore, voluptatem.
+                </div>
+            </div>
+            <div class="wg_dial__sms-content-item">
+                <div class="wg_dial__sms-content-item-date">
+                    12.02.2019
+                </div>
+                <div class="wg_dial__sms-content-item-message">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, illo iste libero quia reiciendis sed tempora. Ad aut, corporis deserunt, dolor dolorum ex exercitationem porro possimus quia saepe tempore, voluptatem.
+                </div>
+            </div>
+            <div class="wg_dial__sms-content-item">
+                <div class="wg_dial__sms-content-item-date">
+                    12.02.2019
+                </div>
+                <div class="wg_dial__sms-content-item-message">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, illo iste libero quia reiciendis sed tempora. Ad aut, corporis deserunt, dolor dolorum ex exercitationem porro possimus quia saepe tempore, voluptatem.
+                </div>
+            </div>
+        </div>
+        <div class="wg_dial__sms-footer">
+            <textarea class="wg_dial__sms-input" placeholder="Type here..."></textarea>
+            <div class="wg_dial__sms-send"><i class="ficon--keyboard-arrow-up"></i></div>
+            <div class="wg_dial__sms-chars">999</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.dropdown-trigger');
+        var instances = M.Dropdown.init(elems, options);
+    });
+</script>
+</body>
+</html>

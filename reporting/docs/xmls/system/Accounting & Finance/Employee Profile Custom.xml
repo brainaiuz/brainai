@@ -1,0 +1,82 @@
+<report>
+    <view>
+        <title>Employee Profile</title>
+        <name>Employee Profile</name>
+        <category>hrms</category>
+        <sqlquery>
+            <select agregateFunc="distinct">
+                <!--  Please only enter type property {'number' or 'date or clock' }   -->
+                <table name="crmcontact">
+                    <column name="t.title" title="Title" type="string" formattype="string"/>
+                    <column name="t.employeeName" title="Employee Name" type="string" formattype="string"/>
+                    <column name="t.address" title="Home Address" type="string" formattype="string"/>
+                    <column name="t.city" title="City" type="string" formattype="string"/>
+                    <column name="t.companyname" title="Employer" type="string" formattype="string"/>
+                    <column name="t.jobtitle" title="Job Title" type="string" formattype="string"/>
+                    <column name="t.position" title="Position" type="string" formattype="string"/>
+                    <column name="t.homephone" title="Home Phone" type="string" formattype="string"/>
+                    <column name="t.mobile" title="Mobile Phone" type="string" formattype="string"/>
+                    <column name="t.website" title="Website" type="number" formattype="string"/>
+                    <column name="t.primaryemail" title="Primary Email" type="string" formattype="string"/>
+                    <column name="t.dateofbirth" title="Date Of Birth" type="date" formattype="date"/>
+                </table>
+                <table name="employeeprofile">
+                    <column name="t.salaryamount" title="Salary" type="number" formattype="money"/>
+                    <column name="t.employmenthistory" title="Employment History" type="string" formattype="string"/>
+                    <column name="locationName" title="Team" type="string" formattype="string"/>
+                </table>
+                <table name="employee">
+                    <column name="t.workphone" title="Work Phone" type="string" formattype="string"/>
+                    <column name="t.employeetypes" title="Employee type" type="string" formattype="string"/>
+                </table>
+            </select>
+            <from>
+                (select distinct
+                cc.title as title,
+                coalesce(cc.firstname,'')||' '||coalesce(cc.lastname,'') as employeeName,
+                cc.dateofbirth as dateofbirth,
+                ad.address as address,
+                ad.city as city,
+                acc.name as companyname,
+                cc.jobtitles as jobtitle,
+                cc.position as position,
+                h.value as homephone,
+                m.value as mobile,
+                w.value as workphone,
+                website.value as website ,
+
+                email.value as primaryemail ,
+                ep.salaryamount as salaryamount,
+                ep.employmenthistory as employmenthistory
+                , (co1.name ||',  '|| lo.city) locationName
+                ,cf.string_value1 employeetypes
+
+                from "$".employee ee
+                left join "$".employeeprofile ep on ee.id=ep.employeeid
+                left join "$".crmcontact cc on ep.contact_id=cc.id
+                left join "$".address ad on cc.id= ad.contactid and entityType='contact'
+                left join "$".crmcontactitemparams h on cc.id = h.contactid and (h.paramid = 1 and h.relationid =1)
+                left join "$".crmcontactitemparams m on cc.id = m.contactid and (m.paramid =1 and m.relationid = 3)
+                left join "$".crmcontactitemparams w on cc.id = w.contactid and (w.paramid =1 and w.relationid = 2)
+                left join "$".crmcontactitemparams website on cc.id = website.contactid and (website.paramid =4 and
+                website.relationid = 8)
+                left join "$".crmcontactitemparams email on cc.id = email.contactid and (email.paramid =2 and website.relationid = 1)
+                left join "$".crmaccount acc on cc.crmaccount = acc.id
+
+                left join "$".employee owneremploye on ee.id = owneremploye.id
+                left join "$".position pos ON owneremploye.positionid = pos.id and pos.isDeleted is not true
+                left join "$".employeelocation el on owneremploye.id = el.userid and el.deleted is not true
+                left join "$".location lo on el.locationid = lo.id
+                left join "public".country co1 on lo.countryid = co1.id
+
+                left join "$".employeecustomfields cf on ee.id=cf.id
+
+                ) t
+            </from>
+            <where>
+                <terms id="base" value="1 = 1"/>
+                <!--<terms id="client" clientid="t.clientid"/>-->
+            </where>
+        </sqlquery>
+    </view>
+</report>

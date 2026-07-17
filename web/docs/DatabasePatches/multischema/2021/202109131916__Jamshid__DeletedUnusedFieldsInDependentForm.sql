@@ -1,0 +1,1 @@
+delete from "anv".modelfield where form_id = 'DEPENDENT_FORM' and field_id in ('PHONE_2', 'TOWN');

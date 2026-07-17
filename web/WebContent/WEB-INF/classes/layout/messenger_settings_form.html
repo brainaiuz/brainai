@@ -1,0 +1,97 @@
+
+<script>
+    // Facebook Login with JavaScript SDK
+    function launchWhatsAppSignup() {
+        // Conversion tracking code
+        // Launch Facebook login
+        FB.login(function (response) {
+            if (response.authResponse) {
+                const code = response.authResponse.code;
+                // The returned code must be transmitted to your backend,
+                // which will perform a server-to-server call from there to our servers for an access token
+            } else {
+                console.log('User cancelled login or did not fully authorize.');
+            }
+        }, {
+            config_id: '765570601736088', // configuration ID goes here
+            response_type: 'code',    // must be set to 'code' for System User access token
+            override_default_response_type: true, // when true, any response types passed in the "response_type" will take precedence over the default types
+            redirect_uri:'https://dev.kpi.com/common/whatsAppCallbackServlet',
+            extras: {
+                setup: {
+                    solutionID: '544686667080872',
+                    redirect_uri:'https://dev.kpi.com/common/whatsAppCallbackServlet'
+                }
+            }
+        });
+    }
+</script>
+
+<div class="contentBar" style="padding:0 10px;margin-top:2px;">
+    <!-- Payment gateways -->
+    <div class="paymentGatewayPanels">
+        <div style="height: 330px">
+            <div class="paymentGatewayPanel paymentGatewayPanel--payPal">
+
+                <div class="paymentGatewayPanel__heading">
+                    <div>
+                        <div>$$input:TELEGRAM_LOGO$$</div>
+                    </div>
+                    <div>$$input:TELEGRAM_VIEW_TEXT$$</div>
+                </div>
+
+                <div class="paymentGatewayPanel__body">
+
+                </div>
+
+                <div class="paymentGatewayPanel__footer">
+                    <div>$$input:TELEGRAM_CONFIGURE_BUTTON$$</div>
+                </div>
+            </div>
+        </div>
+
+        <div style="height: 330px">
+            <div class="paymentGatewayPanel paymentGatewayPanel--payPal">
+
+                <div class="paymentGatewayPanel__heading">
+                    <div>
+                        <div>$$input:TELEGRAM_HELPER_LOGO$$</div>
+                    </div>
+                    <div>$$input:TELEGRAM_HELPER_TEXT$$
+                         $$input:TELEGRAM_HELPER_KEY$$</div>
+                </div>
+
+                <div class="paymentGatewayPanel__body">
+                </div>
+
+                <div class="paymentGatewayPanel__footer">
+                    <div>$$input:TELEGRAM_HELPER_REFRESH_BUTTON$$</div>
+                </div>
+            </div>
+        </div>
+        <div style="height: 330px">
+            <div class="paymentGatewayPanel paymentGatewayPanel--payPal">
+
+                <div class="paymentGatewayPanel__heading">
+                    <div>
+                        <div>$$input:WHATSAPP_LOGO$$</div>
+                        <div class="form-group__label">$$label:WHATSAPP_NUMBER$$</div>
+                        <div class="form-group__content">$$input:WHATSAPP_NUMBER$$</div>
+                    </div>
+
+                    </div>
+
+                <div class="paymentGatewayPanel__body">
+                </div>
+
+                <div class="paymentGatewayPanel__footer">
+                    <div onclick="launchWhatsAppSignup()" class="form-group__content">$$input:WHATSAPP_BUTTON$$</div>
+                </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+</div>

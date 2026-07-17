@@ -1,0 +1,184 @@
+/* welcome page style*/
+.welcomeMain {
+    margin-left: 10px;
+    width: 850px;
+    height: 130px;
+}
+
+.mainTable {
+    padding: 10px;
+    /*margin-left: 10px;*/
+    /*margin-top: 5px;*/
+    /*padding: 3px;*/
+}
+
+.topTableStyle {
+    height: 124px;
+    margin: 7px 15px 0 10px;
+}
+
+.topTableStyleRTL{
+    width: 99%;
+    height: 124px;
+    margin: 7px 15px 0 10px;
+}
+
+.top-l {
+    background: url(accounting/images/welcome/left-bcg.jpg) no-repeat;
+    width: 6px;
+}
+
+.top-c {
+    background: url(accounting/images/welcome/bcg.jpg) repeat-x;
+}
+
+.top-r {
+    background: url(accounting/images/welcome/right-bcg.jpg) no-repeat;
+    width: 6px;
+}
+
+.topCenter {
+    margin-left: 5px;
+    padding: 0 0 8px 0;
+}
+
+.welcomeTitle {
+    color: #1F4F8F;
+    /*font-family: tahoma, verdana, helvetica;*/
+    font-size: 12px;
+}
+
+.topText {
+    /*font-family: tahoma, verdana, helvetica;*/
+    font-size: 12px;
+}
+    /* START general styles */
+.guideCover {
+    position:relative;
+    padding:10px;
+    font-size:12px;
+    /*font-family:Arial;*/
+    color:#1f4f8f;
+}
+.prodLink {
+    position:absolute;
+    font-weight:bold;
+    color:#1f4f8f;
+    text-decoration:none;
+    text-align:center;
+    text-shadow:0 1px 0 rgba(255, 255, 255, 0.5);
+    max-width: 120px;
+}
+.noProdLink {
+    position:absolute;
+    color:#1f4f8f;
+    text-decoration:none;
+    text-align:center;
+    text-shadow:0 1px 0 rgba(255, 255, 255, 0.5);
+    max-width: 120px;
+}
+.prodLink a {
+    text-decoration:none !important;
+}
+.prodLink:hover {
+    text-decoration:underline;
+}
+    /* END general styles */
+
+.accountingCover {
+    height: 406px;
+    width: 1011px;
+    background: url(accounting/images/welcome/bg_accounting_cover.png) no-repeat 0 0;
+
+}
+
+.accountingLink-1 {
+    left: 44px;
+    top: 71px;
+}
+
+.accountingLink-2 {
+    left: 16px;
+    top: 270px;
+}
+
+.accountingLink-3 {
+    left: 26px;
+    top: 392px;
+}
+
+.accountingLink-4 {
+    left: 217px;
+    top: 26px;
+}
+
+.accountingLink-5 {
+    left: 196px;
+    top: 228px;
+}
+
+.accountingLink-6 {
+    left: 197px;
+    top: 336px;
+}
+
+.accountingLink-7 {
+    left: 354px;
+    top: 14px;
+}
+
+.accountingLink-8 {
+    left: 291px;
+    top: 146px;
+}
+
+.accountingLink-9 {
+    left: 370px;
+    top: 228px;
+}
+
+.accountingLink-10 {
+    left: 379px;
+    top: 344px;
+}
+
+.accountingLink-11 {
+    left: 488px;
+    top: 61px;
+}
+
+.accountingLink-12 {
+    left: 530px;
+    top: 228px;
+}
+
+.accountingLink-13 {
+    right: 271px;
+    top: 70px;
+}
+
+.accountingLink-14 {
+    right: 107px;
+    top: 69px;
+}
+
+.accountingLink-15 {
+    right: 391px;
+    top: 362px;
+}
+
+.accountingLink-16 {
+    right: 254px;
+    top: 362px;
+}
+
+.accountingLink-17 {
+    right: 157px;
+    top: 362px;
+}
+
+.accountingLink-18 {
+    right: 19px;
+    top: 362px;
+}
+

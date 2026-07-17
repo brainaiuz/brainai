@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+
+<p> Уважаемый(ая) $recipient.getName(),</p>
+
+<p> Доводим до вашего сведения, что $user.getName() зарегистрировал Проект $project.name в $date.<br/>
+    Детали проекта ниже: </p>
+
+<table width="705" border="0" cellspacing="0" cellpadding="0" bgcolor="#ffffff">
+    <tr>
+        <td width="368" valign="top">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td width="368" valign="top">
+                        <table cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff" width="100%"
+                               style="vertical-align:top;">
+                            <tr>
+                                <td height="20" bgcolor="#1c5b94" valign="middle" style="color:rgb(255,255,255);
+                    font-size:12px;font-weight:bolder;padding-left:5px;text-align:left;font-family:Verdana,Arial,Helvetica,sans-serif;"
+                                    colspan="2">
+                                    Краткое описание проекта
+                                </td>
+                            </tr>
+                            <tr>
+                                <td height="17" bgcolor="#dce5ea" width="132" valign="top" style="color:rgb(0,0,0);
+                    font-size:11px; padding-left:5px;text-align:left;font-weight:bold;font-family:Verdana,sans-serif;">
+                                    Имя проекта:
+                                </td>
+                                <td width="236" valign="top" bgcolor="#dce5ea" style="color:rgb(0,0,0);
+                    font-size:11px;padding-left:1px;text-align:left;font-weight:normal;font-family:Verdana,sans-serif;">
+                                    $project.getName()</td>
+                            </tr>
+                            <tr>
+                                <td height="17" bgcolor="#dce5ea" width="132" valign="top" style="color:rgb(0,0,0);
+                    font-size:11px; padding-left:5px;text-align:left;font-weight:bold;font-family:Verdana,sans-serif;">
+                                    Номер проекта:
+                                </td>
+                                <td width="236" valign="top" bgcolor="#dce5ea" style="color:rgb(0,0,0);
+                    font-size:11px;padding-left:1px;text-align:left;font-weight:normal;font-family:Verdana,sans-serif;">
+                                    $project.number</td>
+                            </tr>
+                            <tr>
+                                <td height="17" bgcolor="#dce5ea" width="132" valign="top" style="color:rgb(0,0,0);
+                    font-size:11px; padding-left:5px;text-align:left;font-weight:bold;font-family:Verdana,sans-serif;">
+                                    Описание:
+                                </td>
+                                <td width="236" valign="top" bgcolor="#dce5ea" style="color:rgb(0,0,0);
+                    font-size:11px;padding-left:1px;text-align:left;font-weight:normal;font-family:Verdana,sans-serif;">
+                                    $project.getDescription()</td>
+                            </tr>
+                            <tr>
+                                <td height="17" bgcolor="#dce5ea" width="132" valign="top" style="color:rgb(0,0,0);
+                    font-size:11px; padding-left:5px;text-align:left;font-weight:bold;font-family:Verdana,sans-serif;">
+                                    Состояние:
+                                </td>
+                                <td width="236" valign="top" bgcolor="#dce5ea" style="color:rgb(0,0,0);
+                    font-size:11px;padding-left:1px;text-align:left;font-weight:normal;font-family:Verdana,sans-serif;">
+                                    $project.getStatus().getName()</td>
+                            </tr>
+                            <tr>
+                                <td height="17" bgcolor="#dce5ea" width="132" valign="top" style="color:rgb(0,0,0);
+                    font-size:11px; padding-left:5px;text-align:left;font-weight:bold;font-family:Verdana,sans-serif;">
+                                    % завершенный:
+                                </td>
+                                <td width="236" valign="top" bgcolor="#dce5ea" style="color:rgb(0,0,0);
+                    font-size:11px;padding-left:1px;text-align:left;font-weight:normal;font-family:Verdana,sans-serif;">
+                                    $percent</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                #if($hasProjectCustomFields == 'true')
+                    <tr>
+                        <td height="19" bgcolor="#ffffff" valign="top" colspan="2">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td width="368" valign="top">
+                            <table cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff" width="100%"
+                                   style="vertical-align:top;">
+                                <tr>
+                                    <td height="20" bgcolor="#1c5b94" valign="middle" style="color:rgb(255,255,255);
+                    font-size:12px;font-weight:bolder;padding-left:5px;text-align:left;font-family:Verdana,Arial,Helvetica,sans-serif;"
+                                        colspan="2">
+                                        Дополнительная информация
+                                    </td>
+                                </tr>
+                                #foreach($customF in $projectCustomFields)
+                                    <tr>
+                                        <td height="17" bgcolor="#dce5ea" width="132" valign="top" style="color:rgb(0,0,0);
+                    font-size:11px; padding-left:5px;text-align:left;font-weight:bold;font-family:Verdana,sans-serif;">
+                                            $customF.getName():
+                                        </td>
+                                        <td width="236" valign="top" bgcolor="#dce5ea" style="color:rgb(0,0,0);
+                    font-size:11px;padding-left:1px;text-align:left;font-weight:normal;font-family:Verdana,sans-serif;">
+                                            $customF.getDescription()
+                                        </td>
+                                    </tr>
+                                #end
+                            </table>
+                        </td>
+                    </tr>
+                #end
+            </table>
+        </td>
+        <td width="9">&nbsp;</td>
+        <td width="328" valign="top">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td height="70" width="328" valign="top">
+                        <table cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff" width="100%">
+                            <tr>
+                                <td height="20" bgcolor="#1c5b94" valign="middle" style="color:rgb(255,255,255);
+                    font-size:12px;font-weight:bolder;padding-left:5px;text-align:left;font-family:Verdana,Arial,Helvetica,sans-serif;"
+                                    colspan="2">
+                                    Дополнительные Детали
+                                </td>
+                            </tr>
+                            <tr>
+                                <td height="17" bgcolor="#dce5ea" width="117" valign="top" style="color:rgb(0,0,0);
+                    font-size:11px; padding-left:5px;text-align:left;font-weight:bold;font-family:Verdana,sans-serif;">
+                                    Создатель:
+                                </td>
+                                <td width="211" valign="top" bgcolor="#dce5ea" style="color:rgb(0,0,0);
+                    font-size:11px;padding-left:1px;text-align:left;font-weight:normal;font-family:Verdana,sans-serif;">
+                                    $user.getName()</td>
+                            </tr>
+                            <tr>
+                                <td height="17" bgcolor="#dce5ea" width="117" valign="top" style="color:rgb(0,0,0);
+                    font-size:11px; padding-left:5px;text-align:left;font-weight:bold;font-family:Verdana,sans-serif;">
+                                    Клиент:
+                                </td>
+                                <td width="211" valign="top" bgcolor="#dce5ea" style="color:rgb(0,0,0);
+                    font-size:11px;padding-left:1px;text-align:left;font-weight:normal;font-family:Verdana,sans-serif;">
+                                    $clientname</td>
+                            </tr>
+                            <tr>
+                                <td height="17" bgcolor="#dce5ea" width="117" valign="top" style="color:rgb(0,0,0);
+                    font-size:11px; padding-left:5px;text-align:left;font-weight:bold;font-family:Verdana,sans-serif;">
+                                    Представитель (и):
+                                </td>
+                                <td width="211" valign="top" bgcolor="#dce5ea" style="color:rgb(0,0,0);
+                    font-size:11px;padding-left:1px;text-align:left;font-weight:normal;font-family:Verdana,sans-serif;">
+                                    $projectEmployees</td>
+                            </tr>
+                            <tr>
+                                <td height="9"></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td height="89" width="328" valign="top">
+                        <table cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff" width="100%">
+                            <td height="19" bgcolor="#ffffff" valign="top" colspan="2">&nbsp;</td>
+                            <tr>
+                                <td height="20" bgcolor="#1c5b94" valign="middle" style="color:rgb(255,255,255);
+                    font-size:12px;font-weight:bolder;padding-left:5px;text-align:left;font-family:Verdana,Arial,Helvetica,sans-serif;"
+                                    colspan="2">
+                                    Даты
+                                </td>
+                            </tr>
+                            <tr>
+                                <td height="17" bgcolor="#dce5ea" width="117" valign="top" style="color:rgb(0,0,0);
+                    font-size:11px; padding-left:5px;text-align:left;font-weight:bold;font-family:Verdana,sans-serif;">
+                                    Дата начала:
+                                </td>
+                                <td width="211" valign="top" bgcolor="#dce5ea" style="color:rgb(0,0,0);
+                    font-size:11px;padding-left:1px;text-align:left;font-weight:normal;font-family:Verdana,sans-serif;">
+                                    $startdate</td>
+                            </tr>
+                            <tr>
+                                <td height="17" bgcolor="#dce5ea" width="117" valign="top" style="color:rgb(0,0,0);
+                    font-size:11px; padding-left:5px;text-align:left;font-weight:bold;font-family:Verdana,sans-serif;">
+                                    Число истечения срока:
+                                </td>
+                                <td width="211" valign="top" bgcolor="#dce5ea" style="color:rgb(0,0,0);
+                    font-size:11px;padding-left:1px;text-align:left;font-weight:normal;font-family:Verdana,sans-serif;">
+                                    $duedate</td>
+                            </tr>
+                            <tr>
+                                <td height="9"></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+<p>Щелкните <a href="$host/ProjectManagement.html?link=$link" title="View project">здесь</a> чтобы просмотреть проект
+</p>
+
+<p>* Если вы не в состоянии нажать на ссылку, вы можете вместо этого скопировать и вставить следующий адрес в свой
+    веб-браузер: </p>
+
+<p><span style="color: #0033FF">$host/ProjectManagement.html?link=$link</span></p>
+
+<p></p>
+</body>
+</html>

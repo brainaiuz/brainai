@@ -1,0 +1,19 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body><p>Dear $userTo,</p>
+
+<p>Please be informed that $creatorNote has added a Note to $taskOrProject on $createdDate:<br>
+</p>
+
+<p>$noteBody</p>
+
+Click <a href="$host/Workspace.html?link=$link">here</a> or copy and paste following link below:<br/>
+
+<p>$host/Workspace.html?link=$link</p>
+
+</body>
+</html>

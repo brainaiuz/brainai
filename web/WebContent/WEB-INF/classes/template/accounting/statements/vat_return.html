@@ -1,0 +1,259 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style type="text/css">
+        body {
+            font-family: 'Arial', "Helvetica Neue", Helvetica, sans-serif;
+            font-weight: 300;
+            font-size: 9pt;
+            line-height: 1.4;
+        }
+
+        .align_0 {
+            text-align: left;
+        }
+        .align_1 {
+            text-align: center;
+        }
+        .align_2 {
+            text-align: right;
+        }
+
+        .vertical-gap {
+            line-height: 30px;
+        }
+
+        .headerTitle {
+            font-weight: bold;
+            border-bottom: 2px solid #000;
+            font-size: 9pt;
+            padding:0 0 5px 5px;
+        }
+
+        .innerTitle {
+            font-size: 8pt;
+            padding:4px 4px 4px 15px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div>
+    <img alt="images"
+         src="https://workforcetrack.s3.amazonaws.com/000000000000/public/65159/a2113e82-397f-49fd-a58a-cdf4f4b93dff?AWSAccessKeyId=AKIAIROQMC77E5UKWBWQ"
+         style="display: none;"/>
+    #if($itextGenericPdfData.companyData.companyName == 'KPI Software Inc' or $itextGenericPdfData.companyData.companyLogoUrl == 'https://apps.kpi.com/customisation/kpi.com/images/kpilogo.png')
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="width: 88px;display: none;"/>
+    #else
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="max-width: 100%; max-height: 100%; display: none;"/>
+    #end
+
+    #set($headerTable = $itextGenericPdfData.customData.get("HEADER_TABLE"))
+    #set($detailTitle = $headerTable.rows.get("DETAIL_TITLE").get("COLUMN_NAME"))
+    #set($calcTitle = $headerTable.rows.get("CALCULATION_TITLE").get("COLUMN_NAME"))
+    #set($excludeVatTitle = $headerTable.rows.get("EXCLUDE_VAT_TITLE").get("COLUMN_NAME"))
+    #set($ecExcludeVatTitle = $headerTable.rows.get("EC_EXCLUDE_VAT_TITLE").get("COLUMN_NAME"))
+
+    <!-- detailTable -->
+    #set($detailTable = $itextGenericPdfData.customData.get("DETAIL_TABLE"))
+
+    <!-- title -->
+    #set($vatRegTitle = $detailTable.rows.get("VAT_REGISTRATION_NUMBER").get("COLUMN_NAME"))
+    #set($vatSchemaTitle = $detailTable.rows.get("VAT_SCHEMA").get("COLUMN_NAME"))
+    #set($priodCoveredByTitle = $detailTable.rows.get("PRIOD_COVERED_BY").get("COLUMN_NAME"))
+    #set($fromDateTitle = $detailTable.rows.get("FROM_DATE").get("COLUMN_NAME"))
+    #set($toDateTitle = $detailTable.rows.get("TO_DATE").get("COLUMN_NAME"))
+    #set($accVatReturnTitle = $detailTable.rows.get("ACCOUNTING_VAT_RETURN_REPORT").get("COLUMN_NAME"))
+
+    <!-- value -->
+    #set($vatRegValue = $detailTable.rows.get("VAT_REGISTRATION_NUMBER").get("COLUMN_VALUE"))
+    #set($vatSchemaValue = $detailTable.rows.get("VAT_SCHEMA").get("COLUMN_VALUE"))
+    #set($priodCoveredByValue = $detailTable.rows.get("PRIOD_COVERED_BY").get("COLUMN_VALUE"))
+    #set($fromDateValue = $detailTable.rows.get("FROM_DATE").get("COLUMN_VALUE"))
+    #set($toDateValue = $detailTable.rows.get("TO_DATE").get("COLUMN_VALUE"))
+    #set($accVatReturnValue = $detailTable.rows.get("ACCOUNTING_VAT_RETURN_REPORT").get("COLUMN_VALUE"))
+
+    <table cellspacing="0" cellpadding="0" width="100%" style="font-weight: bold; font-size: 9pt;">
+        <tr>
+            <td width="100%" align="center">$itextGenericPdfData.currentDate</td>
+        </tr>
+        <tr>
+            <td align="center">$itextGenericPdfData.extraData</td>
+        </tr>
+    </table>
+    <br/>
+
+    <table cellpadding="0" cellspacing="0" width="100%" border="0">
+        <tr>
+            <td width="100%" class="headerTitle">$detailTitle</td>
+        </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" width="100%" border="0" style="margin: 5px;">
+        <tr>
+            <td width="70%" class="innerTitle">$vatRegTitle</td>
+            <td width="30%" class="innerTitle">$vatRegValue</td>
+        </tr>
+        <tr>
+            <td class="innerTitle">$vatSchemaTitle</td>
+            <td class="innerTitle">$vatSchemaValue</td>
+        </tr>
+        <tr>
+            <td class="innerTitle">$priodCoveredByTitle</td>
+            <td class="innerTitle">$priodCoveredByValue</td>
+        </tr>
+        <tr>
+            <td class="innerTitle">$fromDateTitle</td>
+            <td class="innerTitle">$fromDateValue</td>
+        </tr>
+        <tr>
+            <td class="innerTitle">$toDateTitle</td>
+            <td class="innerTitle">$toDateValue</td>
+        </tr>
+        <tr>
+            <td class="innerTitle">$accVatReturnTitle</td>
+            <td class="innerTitle">$accVatReturnValue</td>
+        </tr>
+    </table>
+
+    <!-- calculationTable -->
+    #set($calcTable = $itextGenericPdfData.customData.get("CALCULATION_TABLE"))
+
+    <!-- title -->
+    #set($vatDueThisPeriodTitle = $calcTable.rows.get("VAT_DUE_THIS_PERIOD").get("COLUMN_NAME"))
+    #set($gccTitle = $calcTable.rows.get("GCC").get("COLUMN_NAME"))
+    #set($totalVatDueTitle = $calcTable.rows.get("TOTAL_VAT_DUE").get("COLUMN_NAME"))
+    #set($periodGccTitle = $calcTable.rows.get("PERIOD_GCC").get("COLUMN_NAME"))
+    #set($payToCustomTitle = $calcTable.rows.get("PAY_TO_CUSTOM").get("COLUMN_NAME"))
+
+    <!-- code -->
+    #set($vatDueThisPeriodCode = $calcTable.rows.get("VAT_DUE_THIS_PERIOD").get("COLUMN_CODE"))
+    #set($gccCode = $calcTable.rows.get("GCC").get("COLUMN_CODE"))
+    #set($totalVatDueCode = $calcTable.rows.get("TOTAL_VAT_DUE").get("COLUMN_CODE"))
+    #set($periodGccCode = $calcTable.rows.get("PERIOD_GCC").get("COLUMN_CODE"))
+    #set($payToCustomCode = $calcTable.rows.get("PAY_TO_CUSTOM").get("COLUMN_CODE"))
+
+    <!-- value -->
+    #set($vatDueThisPeriodValue = $calcTable.rows.get("VAT_DUE_THIS_PERIOD").get("COLUMN_VALUE"))
+    #set($gccValue = $calcTable.rows.get("GCC").get("COLUMN_VALUE"))
+    #set($totalVatDueValue = $calcTable.rows.get("TOTAL_VAT_DUE").get("COLUMN_VALUE"))
+    #set($periodGccValue = $calcTable.rows.get("PERIOD_GCC").get("COLUMN_VALUE"))
+    #set($payToCustomValue = $calcTable.rows.get("PAY_TO_CUSTOM").get("COLUMN_VALUE"))
+
+    <table cellpadding="0" cellspacing="0" width="100%" border="0" style="margin-top: 30px;">
+        <tr>
+            <td width="100%" class="headerTitle">$calcTitle</td>
+        </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" width="100%" border="0" style="margin: 5px;">
+        <tr>
+            <td width="80%" class="innerTitle">$vatDueThisPeriodTitle</td>
+            <td width="5%" align="center" class="innerTitle">$vatDueThisPeriodCode</td>
+            <td width="15%" align="right" class="innerTitle">$vatDueThisPeriodValue</td>
+        </tr>
+        <tr>
+            <td class="innerTitle">$gccTitle</td>
+            <td align="center" class="innerTitle">$gccCode</td>
+            <td align="right" class="innerTitle">$gccValue</td>
+        </tr>
+        <tr>
+            <td class="innerTitle">$totalVatDueTitle</td>
+            <td align="center" class="innerTitle">$totalVatDueCode</td>
+            <td align="right" class="innerTitle">$totalVatDueValue</td>
+        </tr>
+        <tr>
+            <td class="innerTitle">$periodGccTitle</td>
+            <td align="center" class="innerTitle">$periodGccCode</td>
+            <td align="right" class="innerTitle">$periodGccValue</td>
+        </tr>
+        <tr>
+            <td class="innerTitle">$payToCustomTitle</td>
+            <td align="center" class="innerTitle">$payToCustomCode</td>
+            <td align="right" class="innerTitle">$payToCustomValue</td>
+        </tr>
+    </table>
+
+    <!-- excludeVatTable -->
+    #set($excludeVatTable = $itextGenericPdfData.customData.get("EXCLUDE_VAT_TABLE"))
+
+    <!-- title -->
+    #set($totalSalesAndAllGccTitle = $excludeVatTable.rows.get("TOTAL_SALES_AND_ALL_GCC").get("COLUMN_NAME"))
+    #set($totalPurchasesOtherGccTitle = $excludeVatTable.rows.get("TOTAL_PURCHASES_AND_ALL_OTHER_GCC").get("COLUMN_NAME"))
+
+    <!-- code -->
+    #set($totalSalesAndAllGccCode = $excludeVatTable.rows.get("TOTAL_SALES_AND_ALL_GCC").get("COLUMN_CODE"))
+    #set($totalPurchasesOtherGccCode = $excludeVatTable.rows.get("TOTAL_PURCHASES_AND_ALL_OTHER_GCC").get("COLUMN_CODE"))
+
+    <!-- value -->
+    #set($totalSalesAndAllGccValue = $excludeVatTable.rows.get("TOTAL_SALES_AND_ALL_GCC").get("COLUMN_VALUE"))
+    #set($totalPurchasesOtherGccValue = $excludeVatTable.rows.get("TOTAL_PURCHASES_AND_ALL_OTHER_GCC").get("COLUMN_VALUE"))
+
+    <table cellpadding="0" cellspacing="0" width="100%" border="0" style="margin-top: 30px;">
+        <tr>
+            <td width="100%" class="headerTitle">$excludeVatTitle</td>
+        </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" width="100%" border="0" style="margin: 5px;">
+        <tr>
+            <td width="80%" class="innerTitle">$totalSalesAndAllGccTitle</td>
+            <td width="5%" align="center" class="innerTitle">$totalSalesAndAllGccCode</td>
+            <td width="15%" align="right" class="innerTitle">$totalSalesAndAllGccValue</td>
+        </tr>
+        <tr>
+            <td class="innerTitle">$totalPurchasesOtherGccTitle</td>
+            <td align="center" class="innerTitle">$totalPurchasesOtherGccCode</td>
+            <td align="right" class="innerTitle">$totalPurchasesOtherGccValue</td>
+        </tr>
+    </table>
+
+    <!-- ecExcludeVatTable -->
+    #set($ecExcludeVatTable = $itextGenericPdfData.customData.get("EC_EXLUDE_VAT_TABLE"))
+
+    <!-- title -->
+    #set($totalSuppliesGoodsGccTitle = $ecExcludeVatTable.rows.get("TOTAL_SUPPLIES_OF_GOODS_GCC").get("COLUMN_NAME"))
+    #set($totalAsquisitionsTitle = $ecExcludeVatTable.rows.get("TOTAL_ASQUISITIONS_OF_GOODS_GCC").get("COLUMN_NAME"))
+    #set($amountOfVatTitle = $ecExcludeVatTable.rows.get("AMOUNT_OF_VAT_YOU").get("COLUMN_NAME"))
+
+    <!-- code -->
+    #set($totalSuppliesGoodsGccCode = $ecExcludeVatTable.rows.get("TOTAL_SUPPLIES_OF_GOODS_GCC").get("COLUMN_CODE"))
+    #set($totalAsquisitionsCode = $ecExcludeVatTable.rows.get("TOTAL_ASQUISITIONS_OF_GOODS_GCC").get("COLUMN_CODE"))
+    #set($amountOfVatCode = $ecExcludeVatTable.rows.get("AMOUNT_OF_VAT_YOU").get("COLUMN_CODE"))
+
+    <!-- value -->
+    #set($totalSuppliesGoodsGccValue = $ecExcludeVatTable.rows.get("TOTAL_SUPPLIES_OF_GOODS_GCC").get("COLUMN_VALUE"))
+    #set($totalAsquisitionsValue = $ecExcludeVatTable.rows.get("TOTAL_ASQUISITIONS_OF_GOODS_GCC").get("COLUMN_VALUE"))
+    #set($amountOfVatValue = $ecExcludeVatTable.rows.get("AMOUNT_OF_VAT_YOU").get("COLUMN_VALUE"))
+
+    <table cellpadding="0" cellspacing="0" width="100%" border="0" style="margin-top: 30px;">
+        <tr>
+            <td width="100%" class="headerTitle">$ecExcludeVatTitle</td>
+        </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" width="100%" border="0" style="margin: 5px;">
+        <tr>
+            <td width="80%" class="innerTitle">$totalSuppliesGoodsGccTitle</td>
+            <td width="5%" align="center" class="innerTitle">$totalSuppliesGoodsGccCode</td>
+            <td width="15%" align="right" class="innerTitle">$totalSuppliesGoodsGccValue</td>
+        </tr>
+        <tr>
+            <td class="innerTitle">$totalAsquisitionsTitle</td>
+            <td align="center" class="innerTitle">$totalAsquisitionsCode</td>
+            <td align="right" class="innerTitle">$totalAsquisitionsValue</td>
+        </tr>
+        #if($amountOfVatTitle != '' and $amountOfVatCode != '' and $amountOfVatValue != '')
+        <tr>
+            <td class="innerTitle">$amountOfVatTitle</td>
+            <td align="center" class="innerTitle">$amountOfVatCode</td>
+            <td align="right" class="innerTitle">$amountOfVatValue</td>
+        </tr>
+        #end
+    </table>
+
+</div>
+</body>
+</html>

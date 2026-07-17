@@ -1,0 +1,16 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>AddOn Request</title>
+</head>
+
+<body>
+<p>
+Company name: $COMPANY_NAME <br/>
+Company ID: $COMPANY_ID <br/>
+Contact person: $CONTACT_PERSON <br/>
+Wants you to enable $ADDON_NAME ADD-ON. Please contact him.
+</p>
+</body>
+</html>

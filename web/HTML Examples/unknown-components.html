@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../WebContent/mainStyles/new-ui/css/materialize.css">
+    <title>unknown components</title>
+</head>
+<body>
+<div class="invoice-block">
+    <div id="inv_form_header" class="invoice__options-section section-box section-box--collapsable section-box--collapse box-bg--1">
+        <div class="section-box__content">
+            <div class="invoice__main-options">
+                <div class="group-box group-box--united">
+                    <div class="group-box__items">
+                        <h5>inv_date_range</h5>
+                        <div id="inv_date_range" class="group-box__item invoice__date-due-date dates-range">
+                            <div id="inv_date" class="invoice__date">
+                                <div class="group-box__item-label">label:date</div>
+                                <div class="group-box__item-content">input:date</div>
+                            </div>
+                            <div id="inv_due_date" class="invoice__due-date">
+                                <div class="group-box__item-label">label:duedate</div>
+                                <div class="group-box__item-content">input:duedate</div>
+                            </div>
+                        </div>
+                        $$input:number$$
+                        $$input:progressinvoicing$$
+                    </div>
+                </div>
+            </div>
+            <div id="inv_moreoptions" class="invoice__more-options section-box__collapsable-content">
+                <div class="group-box">
+                    <div class="group-box__items">
+                        $$input:billaddress$$
+                    </div>
+                </div>
+                <div class="group-box">
+                    <div class="group-box__items">
+                        $$input:project$$
+                        $$input:bank$$
+                        $$input:balance$$
+                        $$input:pdftemplate$$
+                    </div>
+                </div>
+                <div class="group-box">
+                    <div class="group-box__items">
+                        $$input:introduction$$
+                    </div>
+                </div>
+                $$input:customfields$$
+            </div>
+        </div>
+        <div class="section-box__footer">
+            $$input:showmore$$
+        </div>
+    </div>
+    <div class="section-box">
+        <div class="group-box group-box--united">
+            <div class="group-box__items">
+                $$input:currency$$
+                $$input:taxcalc$$
+                $$input:pricelevel$$
+                $$input:shippingmethod$$
+                $$input:manager$$
+            </div>
+        </div>
+    </div>
+    <div class="section-box box-bg--1">
+        <div class="invoice__products-table">
+            <!-- place table here -->
+            $$input:itemtable$$
+        </div>
+    </div>
+    <h5>invoice__footer</h5>
+    <div class="section-group box-bg--2 invoice__footer">
+        <div class="section-box invoice__post-fields">
+            $$input:attachments$$
+            <div class="group-box box-bg--2">
+                <div class="group-box__items">
+                    $$input:overalldiscount$$
+                </div>
+            </div>
+            <div class="group-box invoice__payment-history">
+                <div class="group-box__items">
+                    <div id="inv_all_history" class="group-box__item">
+                        $$input:allhistorypanel$$
+                    </div>
+                    <div id="inv_related_links" class="group-box__item">
+                        $$input:maillinkpanel$$
+                    </div>
+                </div>
+            </div>
+            <div class="form-group inv_payment_instruction">
+                <div class="form-group__label">$$label:instruction$$</div>
+                <div class="form-group__content">$$input:instruction$$</div>
+            </div>
+            <div class="invoice__payment-notes inv_payment_instruction">
+                $$input:instructionlist$$
+                $$input:agreetermspanel$$
+            </div>
+            <div class="form-group">
+                <div class="form-group__label">$$label:notes$$</div>
+                <div class="form-group__content">$$input:notes$$</div>
+            </div>
+        </div>
+        <div class="section-box invoice__receipt-block">
+            <div class="invoice__subtotal">
+                $$input:totalstable$$
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+
+<h5>address-field</h5>
+<div class="address-field">
+    <div class="address-field__select-region">
+        <select id="addressList">
+            <option value="1">Address 1</option>
+            <option value="2">Address 2</option>
+        </select>
+    </div>
+    <div class="address-field__text-region">
+        <div class="address-field__text keep-text-inline" id="addressDescription"></div>
+        <a href="#" class="address-field__edit address-field__btn btn--icon" id="editAddressLink">Edit</a>
+    </div>
+    <a href="#" class="address-field__add address-field__btn btn--icon" id="addAddressLink">Add</a>
+</div>
+</body>
+</html>

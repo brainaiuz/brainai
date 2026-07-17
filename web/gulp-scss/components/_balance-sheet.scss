@@ -1,0 +1,163 @@
+//BALANCE SHEET
+
+//$color-total-row: darken($text-color-base, 10%); //#3e4c59
+$color-total-row: #232323;
+
+.balance-sheet {
+    //$tfoot-border-color: #ced5db;
+
+  //width: auto;
+  //min-width: 90%;
+  //height: 100%;
+
+  th, td {
+    height: 30px;
+  }
+
+  &__wrapper {
+    padding-left: $padding-y-base;
+    padding-right: $padding-y-base;
+    padding-bottom: $padding-y-base;
+    background-color: #fff;
+
+    [class*=col] {
+      position: relative;
+      + [class*=col] {
+        &:before {
+          content: '';
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          width: 1px;
+          background: $body-bg;
+        }
+        //border-left: 1px dashed $gray-light;
+      }
+    }
+  }
+
+  &__caption {
+    z-index: 2;
+
+    thead > tr > * {
+      text-transform: none !important;
+    }
+  }
+
+  &.table, table {
+    width: 100%;
+  }
+
+  > thead,
+  > tfoot {
+    > tr > * {
+      text-transform: uppercase;
+      font-size: rem(16px);
+
+      &:first-child {
+        //padding-left: 0;
+      }
+    }
+  }
+
+  thead,
+  tfoot {
+    > tr > * {
+      color: $color-total-row;
+      &:first-child {
+        padding-left: 0;
+      }
+    }
+  }
+
+  tfoot {
+  }
+
+  &__nested {
+    vertical-align: top;
+
+    thead,
+    tfoot {
+      > tr > * {
+        font-size: rem(15px);
+      }
+    }
+
+    table {
+      position: relative;
+      thead:hover:before {
+        content: '';
+        position: absolute;
+        top: 2rem;
+        bottom: 2.6rem;
+        left: rem(-1px);
+        width: rem(1px);
+        //background-color: $body-bg;
+        background-image: linear-gradient(to bottom, $body-bg, $body-bg 60%, transparent 60%, transparent 100%);
+        background-size: rem(2px 20px);
+        background-repeat: repeat;
+      }
+    }
+    > table {
+      margin: 10px 0;
+      + table {
+        margin-top: rem(20px);
+      }
+    }
+    thead > tr > * {
+      //padding-bottom: rem(8px);
+    }
+
+    tfoot + tbody > tr:last-child > * {
+      padding-bottom: rem(8px);
+    }
+
+    .balance-sheet__nested {
+      thead,
+      tfoot {
+        > tr > * {
+          font-size: rem(14px);
+        }
+      }
+    }
+  }
+
+  td:not(.balance-sheet__nested),
+  th {
+    vertical-align: middle;
+    text-align: left;
+    padding: rem(4px);
+  }
+
+  tbody > tr > *:first-child {
+    padding-left: rem(15px);
+  }
+  th + td:last-child {
+    width: rem(125px);
+    text-align: right;
+  }
+
+  tfoot {
+    > * {
+      border-top: 1px solid $gray-middle;
+      border-bottom: 1px solid $gray-middle;
+      transition: border-color .3s ease;
+    }
+  }
+  > tfoot {
+    > * {
+      border-top: none;
+      border-bottom-width: 4px;
+      border-bottom-style: double;
+    }
+  }
+  thead:hover {
+    color: $gray-dark;
+    + tfoot > * {
+      border-top-color: $gray-dark !important;
+      border-bottom-color: $gray-dark !important;
+    }
+  }
+}
+//\BALANCE SHEET

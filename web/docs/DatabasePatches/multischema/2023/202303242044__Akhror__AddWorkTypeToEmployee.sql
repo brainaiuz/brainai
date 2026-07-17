@@ -1,0 +1,2 @@
+INSERT INTO "anv".modelfield(columntype, field_id, forder, form_id, fsection, hide, type, widget)
+values ('COL_1', 'WORK_TYPE', 1, 'HRMS_EMPLOYEE_FORM', 'EMPLOYMENT_INFORMATION', true, 'text', 'DropDown');

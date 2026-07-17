@@ -1,0 +1,164 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style type="text/css">
+        body {
+            font-family: 'Arial', sans-serif;
+            font-weight: 300;
+            font-size: 9pt;
+            line-height: 1.4;
+        }
+        th {
+            text-align: left;
+        }
+        .sales-invoice-table-pdf th {
+            border-bottom: 1px solid black;
+            font-size: 9pt;
+        }
+        .sales-invoice-table-pdf td {
+            border-bottom: 1px solid #ced5db;
+            font-size: 9pt;
+        }
+        .sales-invoice__tmp * {
+            line-height: 1.4;
+        }
+        .billing-address__tmp-bill td {
+            line-height: 1.4;
+        }
+        .currency_code__tmp {
+            font-size: 8px;
+            font-weight: normal;
+        }
+        .page-break {
+            display:inline-block ! important;
+            page-break-inside: auto ! important;
+        }
+    </style>
+</head>
+<body>
+<div id="body sales-invoice__tmp">
+    <img alt="images" src="https://workforcetrack.s3.amazonaws.com/000000000000/public/65159/a2113e82-397f-49fd-a58a-cdf4f4b93dff?AWSAccessKeyId=AKIAIROQMC77E5UKWBWQ" style="display: none;"/>
+    #if($itextGenericPdfData.companyData.companyName == 'KPI Software Inc' or $itextGenericPdfData.companyData.companyLogoUrl == 'https://apps.kpi.com/customisation/kpi.com/images/kpilogo.png')
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="width: 88px;display: none;"/>
+    #else
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="max-width: 100%; max-height: 100%; display: none;"/>
+    #end
+
+    #set($viewTable = $itextGenericPdfData.customData.get('VIEW_TABLE'))
+    #set($productTable = $itextGenericPdfData.customData.get('PRODUCT_TABLE'))
+
+    #set($narrationLabel=$viewTable.rows.get('NARRATION').get('COLUMN_NAME'))
+    #set($dateLabel=$viewTable.rows.get('Date').get('COLUMN_NAME'))
+    #set($numberLabel=$viewTable.rows.get('Number').get('COLUMN_NAME'))
+
+    #set($narration=$viewTable.rows.get('NARRATION').get('COLUMN_VALUE'))
+    #set($date=$viewTable.rows.get('Date').get('COLUMN_VALUE'))
+    #set($numberValue=$viewTable.rows.get('Number').get('COLUMN_VALUE'))
+
+    <div>
+        <table class="billing-address__tmp-bill" align="left" border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 36pt; line-height: 1.4; font-size: 9pt;" width="60%">
+            <tbody>
+            #if($narration != '')
+            <tr>
+                <td align="left" style="color: #0a0a0a; padding:4px 0; width:100%; word-wrap: break-word;" dir="$narrationLabel"><strong>$narrationLabel:</strong> <span>$narration </span></td>
+            </tr>
+            #end
+            </tbody>
+        </table>
+
+        <table align="right" border="0" cellpadding="5" cellspacing="0" class="invoice-info"
+               style="margin-bottom: 36pt;font-size: 9pt; margin-left:10%; width:30%;">
+            <tbody>
+            #if($date != '')
+            <tr>
+                <th align="left" dir="$dateLabel"><strong>$dateLabel:</strong></th>
+                <td align="right" dir="$date" style="color: #0a0a0a; padding-right:0;">$date</td>
+            </tr>
+            #end
+            #if($numberValue != '')
+            <tr>
+                <th align="left" dir="$dateLabel"><strong>$numberLabel:</strong></th>
+                <td align="right" dir="$date" style="color: #0a0a0a; padding-right:0;">$numberValue</td>
+            </tr>
+            #end
+            </tbody>
+        </table>
+    </div>
+    <table border="0" cellpadding="10" cellspacing="0" class="product-table sales-invoice-table-pdf" style=" table-layout:fixed; margin-bottom: 22pt; font-size: 9pt; width:100%;">
+        <colgroup>
+            #if($productTable.header.get('ITEM_SERIAL_NUMBER') != '')
+            <col style="width: 20%"></col>
+            <col style="width: 20%"></col>
+            <col style="width: 15%"></col>
+            <col style="width: 15%"></col>
+            <col style="width: 15%"></col>
+            <col style="width: 15%"></col>
+            #else
+            <col style="width: 30%"></col>
+            <col style="width: 30%"></col>
+            <col style="width: 30%"></col>
+            <col style="width: 10%"></col>
+            #end
+        </colgroup>
+        <thead>
+        <tr>
+            #if($productTable.header.get('ITEM_SERIAL_NUMBER') != '')
+            <th style="padding-left: 0; text-align: left; vertical-align: top;" dir="$productTable.header.get('FROM_WAREHOUSE')">
+                <strong>$productTable.header.get('FROM_WAREHOUSE')</strong>
+            </th>
+            <th style="vertical-align: top; text-align: left; white-space: nowrap;" dir="$productTable.header.get('TO_WAREHOUSE')">
+                <strong>$productTable.header.get('TO_WAREHOUSE')</strong>
+            </th>
+            <th style="vertical-align: top; text-align: left;" dir="$productTable.header.get('PRODUCT_NAME')">
+                <strong>$productTable.header.get('PRODUCT_NAME')</strong>
+            </th>
+            <th style="vertical-align: top; text-align: left;" dir="$productTable.header.get('ITEM_SERIAL_NUMBER')">
+                <strong>$productTable.header.get('ITEM_SERIAL_NUMBER')</strong>
+            </th>
+            <th style="vertical-align: top; text-align: left;" dir="$productTable.header.get('ITEM_EXPIRATION_DATE')">
+                <strong>$productTable.header.get('ITEM_EXPIRATION_DATE')</strong>
+            </th>
+            <th style="vertical-align: top; text-align: right; padding-right:0;" dir="$productTable.header.get('ITEM_QTY')">
+                <strong>$productTable.header.get('ITEM_QTY')</strong>
+            </th>
+            #else
+            <th style="padding-left: 0; text-align: left; vertical-align: top;" dir="$productTable.header.get('FROM_WAREHOUSE')">
+                <strong>$productTable.header.get('FROM_WAREHOUSE')</strong>
+            </th>
+            <th style="vertical-align: top; text-align: left; white-space: nowrap;" dir="$productTable.header.get('TO_WAREHOUSE')">
+                <strong>$productTable.header.get('TO_WAREHOUSE')</strong>
+            </th>
+            <th style="vertical-align: top; text-align: left;" dir="$productTable.header.get('PRODUCT_NAME')">
+                <strong>$productTable.header.get('PRODUCT_NAME')</strong>
+            </th>
+            <th style="vertical-align: top; text-align: right; padding-right:0;" dir="$productTable.header.get('ITEM_QTY')">
+                <strong>$productTable.header.get('ITEM_QTY')</strong>
+            </th>
+            #end
+        </tr>
+        </thead>
+        <tbody>
+        #foreach($row in $productTable.rows.values())
+        <tr>
+            #if($productTable.header.get('ITEM_SERIAL_NUMBER') != '')
+            <td style="padding-left: 0;">$row.get('FROM_WAREHOUSE')</td>
+            <td>$row.get('TO_WAREHOUSE')</td>
+            <td style="word-wrap:break-word">$row.get('PRODUCT_NAME')</td>
+            <td style="word-wrap:break-word">#if($row.get('ITEM_SERIAL_NUMBER') != '')$row.get('ITEM_SERIAL_NUMBER')#end</td>
+            <td style="word-wrap:break-word">#if($row.get('ITEM_EXPIRATION_DATE') != '')$row.get('ITEM_EXPIRATION_DATE')#end</td>
+            <td align="right" style=" padding-right:0;word-wrap:break-word">$row.get('ITEM_QTY')</td>
+            #else
+            <td style="padding-left: 0;">$row.get('FROM_WAREHOUSE')</td>
+            <td>$row.get('TO_WAREHOUSE')</td>
+            <td style="word-wrap:break-word">$row.get('PRODUCT_NAME')</td>
+            <td align="right" style=" padding-right:0;word-wrap:break-word">$row.get('ITEM_QTY')</td>
+            #end
+        </tr>
+        #end
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
+
+

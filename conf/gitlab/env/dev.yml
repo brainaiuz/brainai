@@ -1,0 +1,37 @@
+# DEV ENV
+
+default:
+  tags:
+    - carcutter
+
+dev:build:
+  extends: .build
+  variables:
+    APP_JVM_ARGS: "-Xms8G -Xmx40G"
+    APP_BUILD_DEST: "/opt/wars/dev"
+    ENV: "dev"
+  needs:
+    - generate-changelog
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "web" && $CI_COMMIT_BRANCH == "dev"'
+      when: always
+    - if: '$CI_PIPELINE_SOURCE == "schedule" && $CI_COMMIT_BRANCH == "dev"'
+      when: always
+    - when: never
+
+dev:deploy:
+  variables:
+    APP_BUILD_DEST: "/opt/wars/dev"
+    ENV: "dev"
+    CODEDEPLOY_PREFIX: "kpi-com/KPI-Dev"
+    CODEDEPLOY_GROUP_NAME: "KPI-Dev"
+  extends: .deploy
+  needs:
+    - dev:build
+    - generate-changelog
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "web" && $CI_COMMIT_BRANCH == "dev"'
+      when: always
+    - if: '$CI_PIPELINE_SOURCE == "schedule" && $CI_COMMIT_BRANCH == "dev"'
+      when: always
+    - when: never

@@ -1,0 +1,13 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+    <ui:style>
+        .comment-panel-style {
+            padding-bottom: 10px;
+            padding-top: 10px;
+            float: left;
+        }
+    </ui:style>
+    <g:VerticalPanel>
+        <g:HTMLPanel addStyleNames="{style.comment-panel-style}" ui:field="contentPanel"/>
+    </g:VerticalPanel>
+</ui:UiBinder>

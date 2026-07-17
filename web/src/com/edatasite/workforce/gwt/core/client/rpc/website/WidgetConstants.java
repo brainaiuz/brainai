@@ -1,0 +1,104 @@
+package com.edatasite.workforce.gwt.core.client.rpc.website;
+
+/**
+ * Created by IntelliJ IDEA.
+ * User: Virus
+ * Date: 17.01.13
+ * Time: 16:35
+ * To change this template use File | Settings | File Templates.
+ */
+public interface WidgetConstants {
+
+    String NAME = "name";
+    String CSS_CLASS = "cssclass";
+    String TITLE = "title";
+    String LABEL = "label";
+    String TYPE = "type";
+    String OPTION = "option";
+    String DROPDOWN = "dropdown";
+    String DEFAULT_VALUE = "defaultvalue";
+    String FIELD = "field";
+    String VALUE = "value";
+    String FIELDS = "fields";
+
+    String WFP_STATIC_TEXT_WIDGET = "1b176d76-be51-446d-8fdd-81fb24dfb02a";
+    String WFP_TABCONTAINER_WIDGET = "110cc906-11f2-4d6c-9263-27588de80efe";
+    String WFP_HORIZONTAL_PANEL_WIDGET = "0a57d2e9-cf1d-4074-a59e-50bb0e8187ea";
+    String WFP_WIZARD_WIDGET = "d7081003-6c3e-4e7d-ad76-dd1d0cf1b653";
+    String WFP_CUSTOMENTITY_ENTRYFORM = "33cf72c9-cd66-4244-9640-00dcc5645f83";
+    String WFP_POLL_WIDGET = "799b221b-ae16-43ab-a926-baebb9c726ed";
+    String WFP_ADD_POLL_WIDGET = "fbaab87e-df55-4887-9fa5-918666657426";
+    String WFP_POLL_ITEM_WIDGET = "ea6c12ae-16ec-4da7-b74f-12eade608bad";
+    String WFP_LISTING_WIDGET = "fc550771-b2a3-4248-9c6a-a6d535c6acb9";
+    String WFP_DETAILS_WIDGET = "674ae8dc-e741-4b21-8ad9-f657249f3689";
+    String WFP_GROUP_WIDGET = "799fe51b-ae16-43ab-a926-ui9bb9c726ed";
+    String WFP_GROUP_REQUEST_WIDGET = "67e3aa30-187c-431f-be36-9be67447bd7f";
+    String WFP_WIDGET_REPEATER_WIDGET = "1c366f6b-7f4d-43ac-9426-8ce970ffea34";
+    String WFP_INVITE_USER_WIDGET = "6b92e101-0b61-4378-84f5-d59a735ec7fd";
+    String WFP_SHARE_WIDGET = "4c24add1-f3d3-4872-b18e-56e886c65e3a";
+    String WFP_EDIT_PROFILE_WIDGET = "da5275d0-d30c-414e-97ff-0638eda22462";
+    String WFP_ACCEPT_ACCOUNT_WIDGET = "0065b3c5-ff77-42a2-b8f0-21958ca7a527";
+    String WFP_ADD_GROUP_WIDGET = "1371e8eb-984b-4603-ac72-6b11ab1da7df";
+    String WFP_CHAT_WIDGET = "26609fb2-9f52-4dfb-b171-5ba37ce01065";
+    String WFP_ACCEPT_INVITE = "29488248-b75c-4889-864b-5b773a229d05";
+    String WFP_MEDIAPLAYER_WIDGET = "eb1966ba-a5b5-48d1-b7ed-546a5fa53461";
+    String WFP_JOIN_TO_GROUP_WIDGET = "095e47c4-9297-47e1-a1bc-da499d777346";
+    String WFP_ACCEPT_REQUEST_WIDGET = "8f22bb3f-25cd-4dd5-b606-310c81c555fb";
+    String WFP_INVITE_FRIEND_WIDGET = "a8e13823-1c4d-4b53-a8bf-7998633036bf";
+    String WFP_COO_GUEST_CONVERTER = "d3872102-8a41-4bd1-928f-f7eb0d2f9339";
+    String WFP_NASMA_USER_CONVERTER = "0698f5e1-fc6d-4a77-b10d-76f751d5fb63";
+    String WFP_BISS_USER_CONVERTER = "ec625733-2a22-4b94-9eb6-46fdac2a1c2d";
+    String WFP_FEEDBACK_POPUP_WIDGET = "454bd13a-7f5e-4095-9c52-64858f6ad07e";
+    String WFP_NOTIFY_ON_UPDATES_WIDGET = "06281e9d-db19-4986-9ded-610aceeca7f7";
+
+    String W_CONTACT_ADD = "464b9df0-a14f-43fb-835a-3eae77ddd1ad";
+    String WFP_PARENT_USER_CONVERTER = "1c285124-beb1-48a9-95ce-d3a59aa4728d";
+    String WFP_PARENT_ACTIVE_ACCOUNT = "ef7320ff-fa2c-48d7-9a17-21a0c4e19807";
+    String W_CONTACT_VIEW = "246ae299-374f-4219-873d-a009ca5feb5a";
+    String WFP_CHANGE_PASSWORD = "504864ac-41f8-4a93-819a-0ffe5be38764";
+    String WFP_PEER2PEER_CHAT = "671bae2e-337d-4095-be9c-6f79a3959e14";
+    String WFP_EMAIL_SETTINGS = "1eefb4d9-d9d2-4887-a47c-bf56dd56bd41";
+    String WFP_DRAGGABLE_CONTAINER = "1caf2b7a-f1dd-4e42-be7f-f1cae4f041a7";
+    String WFP_DRAGGABLE_CONTAINER_ADD_WIDGET_BTN = "b64ff101-ac87-4bcf-ae44-cebe6a2f15d9";
+
+    String WFP_REPORTING_DASHLET = "1c5a271b-8e5f-465f-b3f3-b231b72ec951";
+    String WFP_RANDOM_REPORTING_DASHLET = "19697f83-a6f0-46d4-a453-713f3422cf33";
+    String WFP_REPORTING_SINGLE_DASHBOARD = "bd598ae2-139b-443d-9816-34244109609f";
+    String WFP_RANDOM_REPORTING_SINGLE_DASHBOARD = "930da5c5-909a-40f2-a9d5-642ae3d23576";
+    String WFP_ADD_DASHLET_TO_CUSTOM_DAHBOARD = "c2cf1741-e876-4536-b8df-124907da4105";
+    String WFP_PEER2PEER_MASS_MESSAGE = "ac8c62d2-b249-4399-b4ff-442224195a33";
+
+    String WFP_STOREFRONT_USER_CONVERTER = "3c139775-e7cb-49f2-ae7e-efcbde3bc8af";
+    String WFP_TOP_MENU_WIDGET = "6476198a-88eb-4781-b285-b48e82d79d98";
+    String WFP_WEATHER_WIDGET = "ddfdca1a-d991-4d08-b0ed-d370d86f9f33";
+    String WFP_TODO_LIST_WIDGET = "22f259c3-4bee-4bce-b888-807e74afd6a2";
+    String WFP_EVENT_USER_CONVERTER = "abda7245-4bf2-4e81-ae0f-c16e509caeee";
+    String WFP_WEBSITE_GENERATER = "de6e7d57-32e5-4a59-a844-b0db0af214d8";
+
+    String WFP_COURSE_BOOKING = "888e45f9-2977-405b-8126-c06495b8c303";
+    String WFP_TC_USER_CONVERTOR = "a8b075d9-44d5-4f09-8adb-fb9af1f531f2";
+    String WFP_ADD_EDIT_PERMUTATION = "af364e02-2fbb-4fc3-98af-27e91023393c";
+    String WFP_BIRTHDAY_WIDGET = "aba17168-6766-4d82-8b9b-e548d31815d3";
+    String WFP_MY_UPDATES_WIDGET = "092e100b-10f7-4298-ab18-3c79286c5d6c";
+    String WFP_PEER_UPDATES_WIDGET = "9e7c73a0-89a7-45e7-aab0-a42ce9886d16";
+    String WFP_ACCEPT_CUSTODIAN_ACCOUNT_WIDGET = "ae49318c-eec2-4e04-b2aa-8e490ea23e4a";
+    String WFP_COMPANY_NEWS_WIDGET = "00e35d19-c4de-4cd8-922d-97227c0896e8";
+    String WFP_COMPANY_BLOG_WIDGET = "d8fd8a81-8128-4083-b619-8915c626cf1f";
+
+    String WFP_MANUALS_WIDGET = "1bbaa5e2-6650-4b12-8da5-21e4c2b543d9";
+    String WFP_TERRITORY_WIDGET = "004325f9-8af1-48b9-9166-0d348f9cd965";
+    String WFP_GRID_SYSTEM_WIDGET = "ea13be70-78dc-4846-8420-3d4000fda03e";
+    String WFP_VIDEOS_WIDGET = "513c6150-1dbc-4e7f-a5a1-dd7e376ee261";
+    String WFP_FACEBOOK_WIDGET = "a6e262d7-eb1e-48ce-b94a-88699c6a6b97";
+    String WFP_LINKED_IN_WIDGET = "5cea4236-d616-481a-8674-2a231567a358";
+    String WFP_RESIGNATION_DATE_WIDGET = "2ede3f8a-7a97-45fb-827a-b9309107e757";
+    String WFP_TRAINING_WIDGET = "4fc67ddd-a70a-4bac-bc2f-651db6e7ca8f";
+    String WFP_KPI_ARABIA_USER_FORM = "0ff7f034-b392-4c80-9308-feedc5b13081";
+    String WFP_KPI_ARABIA_MANAGER_FORM = "c6b36680-1436-4ca3-aae9-1a746d271d99";
+    String WFP_KPI_ARABIA_PROMOTER_STORE_USSUE_FORM = "764565b1-01e7-48c2-bf46-79c23ea570fe";
+    String KPI_ARABIA_DAILY_SALES_EXECUTIVE_FORM = "37daa828-e9bc-4fe4-877a-66ad5b49ade8";
+    String WFP_NOTE_WIDGET = "32a835f8-1f79-4439-bdfd-5a963184f858";
+    String WFP_GENESIS_ART_WORK_WIDGET = "fee7cf02-9a21-4daf-a897-cb854bced87c";
+
+    String DETAILS_TAG = "6a2b5ad8-d07c-41cc-b2f8-8ecda1b698ce";
+}

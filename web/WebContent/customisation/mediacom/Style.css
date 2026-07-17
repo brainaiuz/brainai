@@ -1,0 +1,171 @@
+body {
+}
+
+.menuoff {
+    PADDING-RIGHT: 25px;
+    PADDING-LEFT: 25px;
+    color: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    text-decoration: none;
+}
+
+.menuon {
+    PADDING-RIGHT: 25px;
+    PADDING-LEFT: 25px;
+    color: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    text-decoration: none;
+}
+
+.logo {
+    PADDING-RIGHT: 15px;
+    PADDING-LEFT: 15px;
+    PADDING-TOP: 15px;
+    PADDING-BOTTOM: 15px;
+}
+
+.gridHeader {
+    PADDING-LEFT: 7px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    color: #E51565;
+    text-align: center;
+    font-weight: bold;
+
+}
+
+.gridHeaderR {
+    PADDING-LEFT: 7px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    color: #E51565;
+    font-weight: bold;
+
+}
+
+.gridHeaderWhite {
+    PADDING-LEFT: 7px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    color: #fff;
+
+}
+
+.gridList {
+    PADDING-LEFT: 7px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    color: #E51565;
+}
+
+.gridList a {
+
+    color: #E51565;
+}
+
+.gridList a:hover {
+
+    color: #333333;
+}
+
+.gridRightList {
+    PADDING-LEFT: 7px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    color: #333333;
+}
+
+.gridRightList td, .gridList td {
+    padding-left: 3px;
+}
+
+.footer {
+    height: 25px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    color: #333333;
+}
+
+.checkboxImage {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    color: #909294;
+    padding-bottom: 5px;
+    vertical-align: super;
+}
+
+.listingtitle {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    color: #333333;
+    vertical-align: top;
+}
+
+.Button {
+    PADDING-RIGHT: 5px;
+    PADDING-LEFT: 5px;
+    color: #FFF;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    text-decoration: none;
+    cursor: hand;
+    background-color: Transparent;
+    border: none;
+}
+
+.go {
+    color: #999999;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    text-decoration: none;
+
+    PADDING-LEFT: 4px;
+}
+
+.go:hover {
+    color: #7c0041;
+
+}
+
+.Name {
+    PADDING-LEFT: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    color: #E51565;
+    font-weight: bold
+}
+
+.Date {
+    PADDING-LEFT: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    color: #333333;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.ListBoxes {
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    color: #333333;
+}
+
+.table {
+    background-image: url('images/table_bg.jpg');
+    background-position: right;
+    background-repeat: repeat-y;
+}
+
+.txt {
+    overflow: hidden;
+}
+
+.ClientSep {
+    border-bottom: solid 10px #E51565;
+}

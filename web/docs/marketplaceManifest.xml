@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+- Copyright 2010 Google Inc.
+-
+- Licensed to the Apache Software Foundation (ASF) under one
+- or more contributor license agreements. See the NOTICE file
+- distributed with this work for additional information
+- regarding copyright ownership. The ASF licenses this file
+- to you under the Apache License, Version 2.0 (the "License");
+- you may not use this file except in compliance
+- with the License. You may obtain a copy of the License at
+-
+- http://www.apache.org/licenses/LICENSE-2.0
+-
+- Unless required by applicable law or agreed to in writing,
+- software distributed under the License is distributed on an
+- "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+- KIND, either express or implied. See the License for the
+- specific language governing permissions and limitations
+- under the License.
+-->
+<ApplicationManifest xmlns="http://schemas.google.com/ApplicationManifest/2009">
+    <Name>Project Management kpi.com</Name>
+    <Description>Simple, Web-Based, Project Managment Software, kpi Gmail Contextual Gadget</Description>
+
+    <!-- Administrators and users will be sent to this URL for application support -->
+    <Support>
+        <Link rel="support" href="https://www.kpi.com/support" />
+    </Support>
+
+    <!-- Show this link in Google's universal navigation for all users -->
+    <Extension id="navLink" type="link">
+        <Name>kpi.com</Name>
+        <Url>http://app.kpi.com/mp/openid/${DOMAIN_NAME}/All</Url>
+        <Scope ref="calendarAPI"/>
+        <Scope ref="contactsAPI"/>
+        <Scope ref="documentsAPI"/>
+        <Scope ref="provisioningAPI"/>
+    </Extension>
+
+    <!-- Declare our OpenID realm so our app is white listed -->
+    <Extension id="realm" type="openIdRealm">
+        <Url>http://app.kpi.com</Url>
+    </Extension>
+
+
+    <!-- kpi Gmail Gadget -->
+    <!-- EXTRACTORS START -->
+    <Extension id="subject" type="contextExtractor">
+        <Name>kpi Gadget</Name>
+        <Url>google.com:SubjectExtractor</Url>
+        <Triggers ref="KPIGadget"/>
+        <Scope ref="subject"/>
+        <Container name="mail"/>
+    </Extension>
+    <Extension id="message" type="contextExtractor">
+        <Name>kpi Gadget</Name>
+        <Url>google.com:EmailBodyExtractor</Url>
+        <Triggers ref="KPIGadget"/>
+        <Scope ref="email_body"/>
+        <Container name="mail"/>
+    </Extension>
+    <Extension id="sender" type="contextExtractor">
+        <Name>kpi Gadget</Name>
+        <Url>google.com:SenderEmailExtractor</Url>
+        <Triggers ref="KPIGadget"/>
+        <Scope ref="sender_email"/>
+        <Container name="mail"/>
+    </Extension>
+    <Extension id="message_id" type="contextExtractor">
+        <Name>kpi Gadget</Name>
+        <Url>google.com:MessageIDExtractor</Url>
+        <Triggers ref="KPIGadget"/>
+        <Scope ref="message_id"/>
+        <Container name="mail"/>
+    </Extension>
+    <Extension id="recipient_to_email" type="contextExtractor">
+        <Name>kpi Gadget</Name>
+        <Url>google.com:RecipientToEmailExtractor</Url>
+        <Triggers ref="KPIGadget"/>
+        <Scope ref="recipient_to_email"/>
+        <Container name="mail"/>
+    </Extension>
+
+    <!-- EXTRACTORS END -->
+    <Extension id="KPIGadget" type="gadget">
+        <Name>kpi Gadget</Name>
+        <Url>https://app.kpi.com/googlegadget/KPIGadget.xml</Url>
+        <Container name="mail"/>
+        <!-- Uncomment this to enable Caja. -->
+        <!-- <Param name="caja" value="enabled"/> -->
+    </Extension>
+    <!-- kpi Gmail Gadget -->
+
+
+    <!-- Need access to the Calendar API -->
+    <Scope id="calendarAPI">
+        <Url>https://www.google.com/calendar/feeds/</Url>
+        <Reason>This application stores appointments from kpi.com to Google calendar</Reason>
+    </Scope>
+
+    <!-- Need access to the Contacts API -->
+    <Scope id="contactsAPI">
+        <Url>https://www.google.com/m8/feeds/</Url>
+        <Reason>This application retrieves contacts from Google Contacts to kpi.com</Reason>
+    </Scope>
+
+    <!-- Need access to the Documents API -->
+    <Scope id="documentsAPI">
+        <Url>https://docs.google.com/feeds/</Url>
+        <Reason>This application retrieves documents from Google Docs and attach to project/task data</Reason>
+    </Scope>
+
+
+    <!-- Need access to the Provisioning API -->
+    <Scope id="provisioningAPI">
+        <Url>https://apps-apis.google.com/a/feeds/user/#readonly</Url>
+        <Reason>Provisioning</Reason>
+    </Scope>
+
+
+    <!-- kpi Gmail Gadget -->
+    <Scope id="email_body">
+        <Url>tag:google.com,2010:auth/contextual/extractor/BODY</Url>
+        <Reason>Get message body.</Reason>
+    </Scope>
+    <Scope id="subject">
+        <Url>tag:google.com,2010:auth/contextual/extractor/SUBJECT</Url>
+        <Reason>Get message subject</Reason>
+    </Scope>
+    <Scope id="sender_email">
+        <Url>tag:google.com,2010:auth/contextual/extractor/FROM_ADDRESS</Url>
+        <Reason>Get email sender</Reason>
+    </Scope>
+    <Scope id="message_id">
+        <Url>tag:google.com,2010:auth/contextual/extractor/MESSAGE_ID</Url>
+        <Reason>Get message id</Reason>
+    </Scope>
+    <Scope id="recipient_to_email">
+        <Url>tag:google.com,2010:auth/contextual/extractor/TO_ADDRESS</Url>
+        <Reason>Get email recipient</Reason>
+    </Scope>
+    <!-- kpi Gmail Gadget -->
+
+</ApplicationManifest>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+        version="2.0">
+    <description>Jsp Wfp Custom tags</description>
+    <tlib-version>1.0</tlib-version>
+    <short-name>Jsp Wfp Custom tags</short-name>
+    <uri>/wfp-custom-tags</uri>
+    <tag>
+        <name>PagaManagerTag</name>
+        <tag-class>com.finnetlimited.wfpcms.tags.maintags.PageManagerTag</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>pageSettings</name>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>WfpPosition</name>
+        <tag-class>com.finnetlimited.wfpcms.tags.maintags.WfpPositionTag</tag-class>
+        <body-content>empty</body-content>
+    </tag>
+</taglib>

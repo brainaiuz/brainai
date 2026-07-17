@@ -1,0 +1,15 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+
+    <ui:style>
+        .padding-style {
+            padding-bottom: 3px;
+            padding-top: 3px;
+            float: left;
+        }
+    </ui:style>
+    <g:VerticalPanel>
+        <g:HTMLPanel addStyleNames="{style.padding-style}" ui:field="contentPanel"/>
+        <g:HTMLPanel addStyleNames="{style.padding-style}" ui:field="addNewPanel"/>
+    </g:VerticalPanel>
+</ui:UiBinder>

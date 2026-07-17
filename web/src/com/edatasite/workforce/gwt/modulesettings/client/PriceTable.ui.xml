@@ -1,0 +1,797 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:code="urn:import:com.edatasite.workforce.gwt.core.client.ui" xmlns:components="urn:import:com.edatasite.workforce.gwt.core.client.ui.components">
+    <g:HTMLPanel>
+        <div class="selectModules backend-modules">
+            <h4 class="text-center titleBigItalic">
+                <g:HTML ui:field="pleaseSelectModules"/>
+            </h4>
+            <div class="text-center">
+                <code:DataListBox ui:field="hostName"/>
+            </div>
+            <!--Workspace-->
+            <div class="panel group">
+                <div class="panel-heading">
+                    <h3>
+                        <g:Anchor ui:field="workspace"/>
+                        <span class="on-off-switcher">
+                            <g:Button ui:field="onButtonWorkspace"></g:Button>
+                            <g:Button ui:field="offButtonWorkspace"></g:Button>
+                        </span>
+                    </h3>
+                </div>
+
+                <div id="workspace"  class="panel-collapse collapse in">
+                    <g:Anchor addStyleNames="selectAll" href='javascript:;' ui:field="selectAllWorkspace"/>
+                    <ul class="module-items">
+                        <li class="modItem_wrksps-1">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="callendar"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="modItem_wrksps-2">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="meetingMinutes"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="modItem_wrksps-3">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="stuffUpdates"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="modItem_wrksps-4">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="companyNews"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="modItem_wrksps-5">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="notes"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!--Project Management-->
+            <div class="panel group">
+                <div class="panel-heading">
+                    <h3>
+                        <g:Anchor ui:field="projectManagement"/>
+                        <span class="on-off-switcher">
+                            <g:Button ui:field="onButtonPM"></g:Button>
+                            <g:Button ui:field="offButtonPM"></g:Button>
+                        </span>
+                    </h3>
+                </div>
+
+                <div id="projectManagement" class="panel-collapse collapse in">
+                    <g:Anchor addStyleNames="selectAll" href='javascript:;' ui:field="selectAllPM"/>
+                    <ul class="module-items">
+                        <li class="modItem_pm-1">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="taskManagement"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="modItem_pm-2">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="issueTracking"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="modItem_pm-3">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="timesheet"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="modItem_pm-3">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="monthlyTimesheet"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="modItem_pm-4">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="resourcePlanning"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="modItem_pm-5">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="bookingItems"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+
+                        <li class="modItem_pm-6">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="ganttChart"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="modItem_pm-7">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="timer"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="modItem_pm-8">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="importFromMSProject"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <!--<li class="modItem_pm-9">-->
+                            <!--<label>-->
+                                <!--<span class="visual"></span>-->
+                                <!--<span class="checkbox">-->
+                                    <!--<components:KpiCheckBox ui:field="projectEmails"></components:KpiCheckBox>-->
+                                <!--</span>-->
+                            <!--</label>-->
+                        <!--</li>-->
+                        <li class="modItem_pm-10">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="customerCenter"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--CRM-->
+
+            <div class="panel group">
+                <div class="panel-heading">
+                    <h3>
+                        <g:Anchor ui:field="crm"/>
+                        <span class="on-off-switcher">
+                            <g:Button ui:field="onButtonCrm"></g:Button>
+                            <g:Button ui:field="offButtonCrm"></g:Button>
+                        </span>
+                    </h3>
+                </div>
+
+                <div id="crm" class="panel-collapse collapse in">
+                    <g:Anchor addStyleNames="selectAll" href='javascript:;' ui:field="selectAllCrm"/>
+                    <ul class="module-items">
+                        <li class="modItem_crm-1">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="leadManagement"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="modItem_crm-2">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="contactManagement"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="modItem_crm-3">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="opportunityTracking"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="modItem_crm-4">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="activities"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="modItem_crm-5">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="calenderCrm"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="modItem_crm-6">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="workflowRecurrence"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+
+                        <li class="modItem_crm-10">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="smsIntegration"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+
+                        <li class="modItem_crm-11">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="crmRequestForQuotes"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="modItem_crm-12">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="productsServicesCrm"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="modItem_crm-7">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="caseManagement"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="modItem_crm-13">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="solutionsManagement"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="modItem_crm-14">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="task"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+
+            <!--Accounting-->
+
+            <div class="panel group">
+                <div class="panel-heading">
+                    <h3>
+                        <g:Anchor ui:field="accountingAndFinance"/>
+                        <span class="on-off-switcher">
+                            <g:Button ui:field="onButtonAccounting"></g:Button>
+                            <g:Button ui:field="offButtonAccounting"></g:Button>
+                        </span>
+                    </h3>
+                </div>
+
+                <div id="accounting" class="panel-collapse collapse in">
+                    <g:Anchor addStyleNames="selectAll" href='javascript:;' ui:field="selectAllAccounting"/>
+                    <ul class="module-items">
+                        <li class="">
+                            <label>
+                                <span class="salesQuotes-icon"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="salesQuotes"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="">
+                            <label>
+                                <span class="salesOrders-icon"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="salesOrders"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="">
+                            <label>
+                                <span class="requestForQuotes-icon"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="requestForQuotes"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="modItem_acountFin-3">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="requestForPurchase"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="modItem_acountFin-3">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="timesheetInvoice"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="">
+                            <label>
+                                <span class="recurringBills-icon"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="recurringBills"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="">
+                            <label>
+                                <span class="supplierCenter-icon"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="supplierCenter"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="">
+                            <label>
+                                <span class="bankAccounts-icon"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="bankAccounts"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="">
+                            <label>
+                                <span class="chartOfAccounts-icon"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="chartOfAccounts"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="">
+                            <label>
+                                <span class="reservations-icon"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="reservations"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="">
+                            <label>
+                                <span class="consigments-icon"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="consignments"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="modItem_acountFin-1">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="salesInvoising"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="modItem_acountFin-2">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="purchaseOrder"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="modItem_acountFin-3">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="purchaseInvoicing"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="modItem_acountFin-4">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="recurringInvoices"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="modItem_acountFin-5">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="inventoryManagement"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="modItem_acountFin-6">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="expenseReporting"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="modItem_acountFin-7">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="fixedAssests"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="modItem_acountFin-8">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="checks"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="modItem_acountFin-9">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="manualTransactions"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="modItem_acountFin-10">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="customerCenterAccounting"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="modItem_acountFin-10">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="productsServices"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="modItem_acountFin-10">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="inventoryItems"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="modItem_acountFin-10">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="assemblyItems"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="modItem_acountFin-10">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="rentalItems"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="modItem_acountFin-10">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="rentalOrder"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--HRMS-->
+
+            <div class="panel group">
+                <div class="panel-heading">
+                    <h3>
+                        <g:Anchor ui:field="hrms"/>
+                        <span class="on-off-switcher">
+                            <g:Button ui:field="onButtonHRMS"></g:Button>
+                            <g:Button ui:field="offButtonHRMS"></g:Button>
+                        </span>
+                    </h3>
+                </div>
+
+                <div id="hrms" class="panel-collapse collapse in">
+                    <g:Anchor addStyleNames="selectAll" href='javascript:;' ui:field="selectAllHRMS"/>
+                    <ul class="module-items">
+                        <li class="modItem_hrms-1">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="leaveManagement"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="modItem_hrms-2">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="attendingTracking"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="modItem_hrms-3">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="performanceAppraisal"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="modItem_hrms-4">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="goalManagement"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="modItem_hrms-5">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="recruitmentSystem"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="modItem_hrms-6">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="employeeExpenses"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="modItem_hrms-7">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="employeeIncidents"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="modItem_hrms-8">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="onboarding"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="">
+                            <label>
+                                <span class="telegram-icon"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="telegramChats"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+
+            <!--Additional Modules-->
+
+            <div class="panel group">
+                <div class="panel-heading">
+                    <h3>
+                        <g:Anchor ui:field="additionalModules"/>
+                        <span class="on-off-switcher">
+                            <g:Button ui:field="onButtonAdditional"></g:Button>
+                            <g:Button ui:field="offButtonAdditional"></g:Button>
+                        </span>
+                    </h3>
+                </div>
+
+                <div id="additional" class="panel-collapse collapse in">
+                    <g:Anchor addStyleNames="selectAll" href='javascript:;' ui:field="selectAllAdditional"/>
+                    <ul class="module-items">
+                        <li class="modItem_addMod-1">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="payroll"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="modItem_addMod-2">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="reportingSystem"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="modItem_addMod-3">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="documentManagement"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="modItem_addMod-4">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="trainingCenter"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="modItem_addMod-5">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="websites"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="modItem_addMod-6">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="permissionManagement"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="modItem_addMod-7">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="customFields"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="modItem_addMod-8">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="customReferences"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="modItem_addMod-9">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="syncronizeWithGoogle"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="modItem_addMod-10">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="reminders"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="modItem_addMod-11">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="messageCenter"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--Add Ons-->
+
+            <div class="panel group">
+                <div class="panel-heading">
+                    <h3>
+                        <g:Anchor ui:field="addOns"/>
+                        <span class="on-off-switcher">
+                            <g:Button ui:field="onButtonAddOns"></g:Button>
+                            <g:Button ui:field="offButtonAddOns"></g:Button>
+                        </span>
+                    </h3>
+
+                </div>
+                <div id="addOns" class="panel-collapse collapse in">
+                    <g:Anchor addStyleNames="selectAll" href='javascript:;' ui:field="selectAllAddOns"/>
+                    <ul class="module-items">
+                        <li class="modItem_addons-1">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="iPhoneApps"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="modItem_addons-2">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="androidApps"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="modItem_addons-3">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="timesheetPlugin"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="modItem_addons-4">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="outlookPlugin"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="modItem_addons-5">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="storefront"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                        <li class="modItem_addons-10">
+                            <label>
+                                <span class="visual"></span>
+                                <span class="checkbox">
+                                    <components:KpiCheckBox ui:field="invoiceTemplates"></components:KpiCheckBox>
+                                </span>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </g:HTMLPanel>
+
+</ui:UiBinder>

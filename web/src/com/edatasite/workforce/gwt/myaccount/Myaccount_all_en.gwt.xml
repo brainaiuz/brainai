@@ -1,0 +1,6 @@
+<module rename-to="myaccount">
+    <inherits name="com.edatasite.workforce.gwt.myaccount.Myaccount"/>
+    <inherits name="com.edatasite.workforce.gwt.Localization_properties"/>
+</module>
+
+        

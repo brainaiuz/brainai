@@ -1,0 +1,31 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:m='urn:import:gwt.material.design.client.ui'
+             xmlns:u='urn:import:com.edatasite.workforce.gwt.core.client.ui.entryPoints.carcass' xmlns:tabs="urn:import:com.edatasite.workforce.gwt.core.client.ui.entryPoints.carcass.tabs"
+
+>
+
+    <g:HTMLPanel styleName="frame__header">
+        <m:MaterialPanel class="frame__header__item-2" ui:field="companyContainer" visible="false">
+            <m:MaterialPanel class="dropdown-select--arrow dropdown-kit--below dropdown-kit--edge-in">
+
+            </m:MaterialPanel>
+        </m:MaterialPanel>
+        <m:MaterialPanel class="frame__header__item-3" ui:field="addNewMenuContainer" visible="false">
+
+            <m:MaterialPanel class="dropdown-select--arrow dropdown-kit--below dropdown-kit--edge-in" style="display:none" ui:field="emailAccountMenuContainer">
+                <m:MaterialLink class="dropdown-button btn" style="margin-top:5px;" activates="frame__header__email_account" href="javascript:void(0);" ui:field="emailAccountMenu">
+                    <m:MaterialDropDown class="dropdown-content email-account" activator="frame__header__email_account" belowOrigin="true" ui:field="emailAccountMenuList"/>
+                </m:MaterialLink>
+            </m:MaterialPanel>
+        </m:MaterialPanel>
+
+        <m:MaterialPanel class="header-tabs">
+            <!--Dynamic tabs container-->
+            <tabs:KpiTabContainer ui:field="tabContainer"/>
+            <!--<m:MaterialTab styleName="tabs" ui:field="mainTabs"/>-->
+        </m:MaterialPanel>
+
+        <u:UserMenu ui:field="userMenu"></u:UserMenu>
+    </g:HTMLPanel>
+</ui:UiBinder>

@@ -1,0 +1,143 @@
+<div>
+    <div class="contentBar tool-invoice c-block">
+        <div class="contentScroll">
+            <table class="bindContent" cellpadding="0" cellspacing="0">
+                <tbody>
+                <tr>
+                    <td class="mainBar">
+                        <div class="invoice-block">
+                            <div class="sect clear group" style="margin-bottom: 20px">
+                                <div class="invoice-title">
+                                    $$label:title$$
+                                </div>
+                            </div>
+                            <div class="sect group">
+                                <div class="lineItem">
+                                    $$label:account$$
+                                    $$input:account$$
+                                </div>
+                                <div class="lineItem">
+                                    $$label:cashaccount$$
+                                    $$input:cashaccount$$
+                                </div>
+
+                                <div class="lineItem">
+                                    $$label:toFrom$$
+                                    $$input:toFrom$$
+                                </div>
+
+                                <div class="lineItem">
+                                    $$label:reference$$
+                                    $$input:reference$$
+                                </div>
+                                <div class="lineItem">
+                                    $$label:date$$
+                                    $$input:date$$
+                                </div>
+
+                                <div class="lineItem">
+                                    $$label:taxcalc$$
+                                    $$input:taxcalc$$
+                                </div>
+
+                                <div class="lineItem">
+                                    $$label:project$$
+                                    $$input:project$$
+                                </div>
+
+                                <div class="lineItem" style="margin-left: 0;">
+                                    $$label:checknumber$$
+                                    $$input:checknumber$$
+                                </div>
+
+                                <div class="lineItem" style="float: right;">
+                                    $$label:number$$
+                                    $$input:number$$
+                                </div>
+                            </div>
+                            <div class="sect group">
+                                <div clas="lineItem">
+                                    $$label:postdated$$
+                                    $$input:postdated$$
+                                </div>
+                            </div>
+                            <div class="sect">
+                                $$input:itemtable$$
+                            </div>
+                            <div>
+                                $$input:allhistorypanel$$
+                            </div>
+                            <div class="half right">
+                                <div class="sect invoice-subtotal">
+                                    <span class="corner lt"></span>
+                                    <span class="corner rt"></span>
+                                    <span class="corner lb"></span>
+                                    <span class="corner rb"></span>
+                                    $$input:totalstable$$
+                                </div>
+                            </div>
+
+                            <div class="invoice-btns-row sect clear">
+                                <div class="invoice-btn-save">
+                                    $$input:pdfVersionButton$$
+                                </div>
+                                <div class="invoice-btn-save">
+                                    $$input:editButton$$
+                                </div>
+                                <div class="invoice-btn-save">
+                                    $$input:saveButton$$
+                                </div>
+                                <div class="invoice-btn-save">
+                                    $$input:deleteButton$$
+                                </div>
+                                <div class="invoice-btn-approve">
+                                    $$input:closeButton$$
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <!-- End  col -->
+                    <td class="sidebar">
+                        <div class="inv-OptBar">
+
+                            <div class="optBarBlock pdftemplate">
+                                $$label:pdftemplate$$
+                                $$input:pdftemplate$$
+                            </div>
+
+                            <div class="optBarBlock">
+                                <table class="">
+                                    <tbody>
+                                    <tr>
+                                        <td class="exRate" colspan="2">
+                                            $$input:currency$$
+                                        </td>
+                                    </tr>
+                                    <tr class="bankDetails">
+                                        <td>$$label:bank$$</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="optBarBlock invoice-attachments">
+                                $$label:attachments$$
+                                $$input:attachments$$
+                                $$input:uploadbutton$$
+                            </div>
+                            <div class="optBarBlock invoice-customfields">
+                                $$label:customfieldtitle$$
+                                $$input:customfields$$
+                            </div>
+                        </div>
+                        <div class="inv-OptBar">
+                            $$label:notes$$
+                            $$input:notes$$
+                            $$input:addnote$$
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

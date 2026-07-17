@@ -1,0 +1,47 @@
+.operPanel .paging input.currLoc {
+    height: 18px;
+    width: 35px;
+    min-width: 35px;
+}
+
+.btn .caret {
+    display: inline-block;
+}
+
+
+
+
+
+
+/*New Design for GWT auto-select control*/
+img.openIconWrapper {
+/*    margin-left: -18px;
+    height: 21px !important;
+    width: 18px !important;
+    display: inline-block !important;*/
+    top: 1px;
+    height: 21px !important;
+    vertical-align: top;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAVBAMAAAC55aPcAAAAMFBMVEX///8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAALe8QTa0wzT+SLLKMk3KwOrfAAAAKElEQVR4XmOgAdD//xnKiv//BcoS+18IZUnMXwhlCe4RhLHuwViUAwDICQkwkNIgogAAAABJRU5ErkJggg==) no-repeat 50% 50% !important;
+    /*background-size: 18px 23px !important;*/
+}
+
+img.openIconWrapper:hover {
+    -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.4);
+    box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.4);
+/*    -webkit-box-shadow: inset 0 0 3px rgba(208, 228, 246, 0.4);
+    -moz-box-shadow: inset 0 0 3px rgba(208, 228, 246, 0.4);
+    box-shadow: inset 0 0 3px rgba(208, 228, 246, 0.4);*/
+    background-color: #d0e4f6 !important;
+
+}
+/* \New Design for GWT auto-select control*/
+
+
+
+.textbox-style {
+    background-color: transparent !important;
+    border: none;
+    outline: none;
+}

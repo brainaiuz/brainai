@@ -1,0 +1,25 @@
+<META>
+    <POLICY-REFERENCES>
+        <EXPIRY date="Mon, 31 Dec 2018 18:00:00 GMT"/>
+        <POLICY-REF about="#WebsitePolicy">
+            <INCLUDE>/*</INCLUDE>
+        </POLICY-REF>
+    </POLICY-REFERENCES>
+    <POLICIES>
+        <POLICY name="WebsitePolicy" discuri="http://www.workforcetrack.com/content/privacy"
+                opturi="http://www.workforcetrack.com/content/privacy">
+            <ENTITY>
+                <DATA-GROUP>
+                    <DATA ref="#business.name">WorkforceTrack</DATA>
+                    <DATA ref="#business.contact-info.postal.street">15 Kings Avenue</DATA>
+                    <DATA ref="#business.contact-info.postal.city">London</DATA>
+                    <DATA ref="#business.contact-info.postal.stateprov">Bromley</DATA>
+                    <DATA ref="#business.contact-info.postal.postalcode">BR1 4HN</DATA>
+                    <DATA ref="#business.contact-info.postal.country">UK</DATA>
+                    <DATA ref="#business.contact-info.telecom.telephone">+44 (0) 207 096 1245</DATA>
+                    <DATA ref="#business.contact-info.online.email">support@workforcetrack.com</DATA>
+                </DATA-GROUP>
+            </ENTITY>
+        </POLICY>
+    </POLICIES>
+</META>

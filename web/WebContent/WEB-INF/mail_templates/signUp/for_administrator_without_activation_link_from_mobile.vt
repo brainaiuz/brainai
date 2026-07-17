@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>$productName | Registration</title>
+
+    <style type="text/css">
+        <!--
+        body {
+            font-size: 11px;
+        }
+
+        p {
+            margin: 0 0 1em;
+        }
+
+        -->
+    </style>
+
+</head>
+
+<body>
+<table style="margin:0 auto;">
+    <tr>
+
+        <td style="vertical-align:top;padding-bottom:16px;">
+            <table width="100%">
+                <tr>
+                    <td colspan="2" style="border-bottom:2px solid #d0f0f8;">
+                        <div style="width:100%;border-bottom:2px solid #afdddd;">
+                            <img src="$HOST/$logo" alt="logo"
+                                 style="padding-left:25px; padding-top:9px; margin-bottom:10px;"/>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="width:459px; vertical-align:top; padding-top:10px;padding-left:13px; padding-right:8px; padding-bottom:6px;">
+                        <img style="display:block; margin:0;" src="$HOST/activation/art_arc_top.png" alt=""/>
+
+                        <div style="background-color:#d0f0f8; border-bottom:#b2e2ef 1px solid; border-left:#b2e2ef 1px solid; border-right:#b2e2ef 1px solid; clear:both; padding-right:16px;padding-left:9px; padding-top:3px;">
+                            <h3 style="margin-top:0;"> $user.firstName </h3>
+
+                            <p>Welcome and thank you for taking time to sign-up for $productName.</p>
+
+                            <p>
+                                Following are the login details you can use in order to access your account:
+                            </p>
+
+                            <p>
+                               Username: $user.getUserName()<br/>
+                               Password: $password
+                            </p>
+
+                            <p>Thank you for your interest in our product.<br/><br/>
+
+                                $productName support team <br/>
+                                $companyInfo
+
+                        </div>
+                    </td>
+                    <td style="width:249px; vertical-align:top; padding-top:10px;padding-left:8px;padding-right:13px;"
+                        rowspan="2">
+
+                        <img style="display:block; margin:0;" src="$HOST/activation/art_arc_top2.png" alt=""/>
+
+                        <div style="background-color:#d0f0f8; border-left:#b2e2ef 1px solid; border-right:#b2e2ef 1px solid; clear:both; padding-top:3px; padding-left:28px; padding-right:28px;">
+                            <p>Try out new features at no cost</p>
+                            <table style="width:182px; margin:0 0 12px;" cellspacing="0">
+                                <tr>
+                                    <td style="padding:0;">
+                                        <img style="display:block; margin:0;" src="$HOST/activation/art_mini_top.png"
+                                             alt=""/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:0; background-color:#fff;">
+                                        <div style="border-right:2px solid #8BDEF4; border-left:2px solid #8BDEF4; padding:0 5px; text-align:center; line-height:20px;">
+                                            <a href="$HOST/Crm.html"
+                                               style="text-decoration:none; font-size:14px;">$productName CRM<em
+                                                    style="display:block; font-size:11px; color:#000; font-style:normal;">Web
+                                                CRM solution</em></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:0;">
+                                        <img style="display:block; margin:0;" src="$HOST/activation/art_mini_bot.png"
+                                             alt=""/>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table style="width:182px; margin:0 0 12px;" cellspacing="0">
+                                <tr>
+                                    <td style="padding:0;">
+                                        <img style="display:block; margin:0;" src="$HOST/activation/art_mini_top.png"
+                                             alt=""/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:0; background-color:#fff;">
+                                        <div style="border-right:2px solid #8BDEF4; border-left:2px solid #8BDEF4; padding:0 5px; text-align:center; line-height:20px;">
+                                            <a href="$HOST/Accounting.html"
+                                               style="text-decoration:none; font-size:14px;">$productName
+                                                Accounting<em
+                                                        style="display:block; font-size:11px; color:#000; font-style:normal;">Simple
+                                                    Web Accounting</em></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:0;">
+                                        <img style="display:block; margin:0;" src="$HOST/activation/art_mini_bot.png"
+                                             alt=""/>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table style="width:182px; margin:0 0 12px;" cellspacing="0">
+                                <tr>
+                                    <td style="padding:0;">
+                                        <img style="display:block; margin:0;" src="$HOST/activation/art_mini_top.png"
+                                             alt=""/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:0; background-color:#fff;">
+                                        <div style="border-right:2px solid #8BDEF4; border-left:2px solid #8BDEF4; padding:0 5px; text-align:center; line-height:20px;">
+                                            <a href="$HOST/ReportingSystem.html"
+                                               style="text-decoration:none; font-size:14px;">$productName Reporting<em
+                                                    style="display:block; font-size:11px; color:#000; font-style:normal;">Simple
+                                                web reporting/dashboards</em></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:0;">
+                                        <img style="display:block; margin:0;" src="$HOST/activation/art_mini_bot.png"
+                                             alt=""/>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!--<p><strong>Try something new:</strong></p>
+                        <a href="#">Easy Website Builder</a><br/>
+                        <a href="#">Survey and Poll solution</a>-->
+
+                            <table>
+                                <tr>
+                                    <td><img src="$HOST/activation/mark.gif" alt=""/></td>
+                                    <td><a href="$helpHost/legal">Privacy Policy</a></td>
+                                </tr>
+                                <tr>
+                                    <td><img src="$HOST/activation/mark.gif" alt=""/></td>
+                                    <td><a href="$helpHost/content/terms-of-use">Terms of Use</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><img src="$HOST/activation/mark.gif" alt=""/></td>
+                                    <td><a href="$helpHost/content/about">About Us</a></td>
+
+                                </tr>
+                                <tr>
+                                    <td><img src="$HOST/activation/mark.gif" alt=""/></td>
+                                    <td><a href="$helpHost/support">Help
+                                        Support</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <img style="display:block; margin:0;" src="$HOST/activation/art_arc_bot2.png" alt=""/>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td style="vertical-align:top;padding-left:13px; padding-top:6px;padding-right:8px;">
+                        <img src="$HOST/activation/banner.png" width="459" height="137" alt="banner"/>
+                    </td>
+                </tr>
+            </table>
+        </td>
+
+    </tr>
+</table>
+</body>
+</html>

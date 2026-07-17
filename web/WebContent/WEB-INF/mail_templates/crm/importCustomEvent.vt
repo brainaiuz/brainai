@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transational.dtd">
+<html xmlns="http://w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<p><I>Dear $USER_NAME,</I><br/></p>
+
+<p>You had requested an import of $IMPORT_TYPE to <b>$PRODUCT_NAME</b> on $IMPORT_DATE <br/>
+    This is to confirm that we have successfully imported your $IMPORT_TYPE from your CSV file and here is the
+    results: <br/>
+    Requested to import: $REQUESTED_COUNT <br/>
+    Imported: $IMPORTED_COUNT <br/>
+    Ignored: $IGNORED_COUNT (due to parse problems or blank data) <br/>
+    Skipped: $SKIPPED_COUNT (due to duplicate data) <br/>
+    Overwritten: $OVERWRITTEN_COUNT (due to duplicate data)
+</p>
+
+<p>If you've any question please feel free to contact us at $SUPPORT </p>
+
+<p><I>Sincerely yours,</I></p>
+
+<p><I>
+    Customer Service Department, <br/>
+    $PRODUCT_NAME support team <br/>
+</I>
+</p>
+</body>
+</html>

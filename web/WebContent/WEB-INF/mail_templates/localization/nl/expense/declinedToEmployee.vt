@@ -1,0 +1,23 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head><body>
+
+<p>Beste $USER.firstName $USER.lastName,</p><br />
+
+<p>$APPROVER.firstName $APPROVER.lastName heeft uw declaratie aanvraag afgewezen op $DECLINE_DATE.
+    U kunt $APPROVER.firstName $APPROVER.lastName 's opmerkingen inzien en wijzigingen aanbrengen om de aanvraag opnieuw te verzenden.</p>
+
+<p>Klik <a href="$HOST/Accounting.html?link=$LINK&uid=$uid&cid=$companyid" title="Edit Expense Claims" target="_blank">hier</a>
+    om de declaraties in te zien en te wijzigen.</p>
+
+    #if($rejectNote != '')
+    <p>$rejectNote</p>
+    #end
+
+<p>* </font>Als u niet op de link kunt klikken, kopieer dan de volgende regel naar uw web browser:<br />
+    $HOST/Accounting.html?link=$LINK&uid=$uid&cid=$companyid</p>
+
+<p></p>
+
+</body></html>

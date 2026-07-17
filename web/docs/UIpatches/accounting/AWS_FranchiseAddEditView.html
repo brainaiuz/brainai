@@ -1,0 +1,77 @@
+<div>
+    <div class="contentBar tool-invoice c-block">
+        <div class="contentScroll">
+            <table class="bindContent" cellpadding="0" cellspacing="0" style="width:auto; margin: auto;">
+                <tbody>
+                <tr>
+                    <td class="mainBar">
+                        <div class="invoice-block">
+                            <div class="sect clear group" style="margin-bottom: 20px">
+                                <div class="invoice-title">
+                                    $$label:title$$
+                                </div>
+                            </div>
+                            <div class="sect group">
+                                <div class="lineItem">
+                                    $$label:crmaccount$$
+                                    $$input:crmaccount$$
+                                </div>
+                                <div class="lineItem">
+                                    $$label:reference$$
+                                    $$input:reference$$
+                                </div>
+                                <div class="lineItem">
+                                    $$label:month$$
+                                    $$input:month$$
+                                </div>
+                                <div class="lineItem">
+                                    $$label:year$$
+                                    $$input:year$$
+                                </div>
+                                <div class="lineItem" style="float: right;">
+                                    $$label:number$$
+                                    $$input:number$$
+                                </div>
+                            </div>
+
+                            <div class="sect">
+                                $$input:itemtable$$
+                            </div>
+                            <div class="invoice-btns-row sect clear">
+                                <div class="invoice-btn-save">
+                                    $$input:saveButton$$
+                                </div>
+                                <div class="invoice-btn-approve">
+                                    $$input:closeButton$$
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <!-- End  col -->
+                    <td class="sidebar">
+                        <div class="inv-OptBar">
+                            <div class="optBarBlock">
+                            </div>
+                        </div>
+                        <div class="optBarBlock">
+                            <table class="">
+                                <tbody>
+                                <tr>
+                                    <td class="exRate" colspan="2">
+                                        $$input:currency$$
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="inv-OptBar">
+                            <div class="optBarBlock invoice-attachments">
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

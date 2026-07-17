@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transational.dtd">
+<html xmlns="http://w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<p><I>Hi $CREATOR,</I><br/></p>
+
+<p>Please be informed that recurrence workflow automation that you create has run.
+</p>
+<br/>
+<p>Workflow Automation Name: <b> $NAME </b>
+</p>
+<br/>
+<p>Workflow Automation Module: <b> $MODULE </b>
+</p>
+<br/>
+
+</body>
+</html>

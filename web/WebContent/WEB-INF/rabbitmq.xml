@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:rabbit="http://www.springframework.org/schema/rabbit"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/rabbit
+       http://www.springframework.org/schema/rabbit/spring-rabbit.xsd">
+
+    <rabbit:connection-factory id="connectionFactory"
+                               host="${rabbitmq.connection.host}"
+                               port="${rabbitmq.connection.port}"
+                               username="${rabbitmq.connection.username}"
+                               password="${rabbitmq.connection.password}"/>
+
+    <rabbit:template id="rabbitTemplate"
+                     connection-factory="connectionFactory"
+                     retry-template="retryTemplate"
+                     mandatory="true"
+                     exchange="kpi_exchange"/>
+
+    <rabbit:admin id="rabbitAdmin" connection-factory="connectionFactory"/>
+
+    <bean id="retryTemplate" class="org.springframework.retry.support.RetryTemplate">
+        <property name="backOffPolicy">
+            <bean class="org.springframework.retry.backoff.ExponentialBackOffPolicy">
+                <property name="initialInterval" value="500"/>
+                <property name="multiplier" value="10.0"/>
+                <property name="maxInterval" value="10000"/>
+            </bean>
+        </property>
+    </bean>
+
+    <rabbit:admin connection-factory="connectionFactory"/>
+
+    <!--Queues-->
+    <rabbit:queue name="email_fetch_queue"/>
+    <rabbit:queue name="email_convert_to_case_queue"/>
+    <rabbit:queue name="email_tracker_relation_queue"/>
+    <rabbit:queue name="email_upload_to_amazon_queue"/>
+    <rabbit:queue name="batch_out_queue"/>
+    <rabbit:queue name="batch_out_delete_queue"/>
+    <rabbit:queue name="batch_in_queue"/>
+    <rabbit:queue name="batch_in_delete_queue"/>
+    <rabbit:queue name="out_item_by_fifo_queue"/>
+    <rabbit:queue name="delete_out_item_by_fifo_queue"/>
+    <rabbit:queue name="in_item_by_fifo_queue"/>
+    <rabbit:queue name="delete_in_item_by_fifo_queue"/>
+    <rabbit:queue name="list_panel_settings_apply_for_all"/>
+    <rabbit:queue name="user_request_tracking_queue"/>
+    <rabbit:queue name="email_sending_queue"/>
+    <rabbit:queue name="multi_currency_queue"/>
+    <rabbit:queue name="exchange_rate_queue"/>
+    <rabbit:queue name="subsidiaries_queue"/>
+    <rabbit:queue name="subsidiaries_product_queue"/>
+    <rabbit:queue name="subsidiaries_consignment_queue"/>
+    <rabbit:queue name="inter_company_sales_queue"/>
+    <rabbit:queue name="merge_contact_and_tracker_queue"/>
+    <rabbit:queue name="steal_contacts_queue"/>
+    <rabbit:queue name="lead_company_settings_queue"/>
+    <rabbit:queue name="end_of_year_process_queue"/>
+    <rabbit:queue name="web_push_notification_queue"/>
+    <rabbit:queue name="push_server_event_queue"/>
+    <rabbit:queue name="single_payslip_generate_queue"/>
+    <rabbit:queue name="fixed_assets_deprecation_queue"/>
+
+    <!--Bindings-->
+    <rabbit:direct-exchange name="kpi_exchange">
+        <rabbit:bindings>
+            <rabbit:binding queue="email_fetch_queue" key="email_fetch_key"/>
+            <rabbit:binding queue="email_convert_to_case_queue" key="email_convert_to_case_key"/>
+            <rabbit:binding queue="email_tracker_relation_queue" key="email_tracker_relation_key"/>
+            <rabbit:binding queue="email_upload_to_amazon_queue" key="email_upload_to_amazon_key"/>
+            <rabbit:binding queue="list_panel_settings_apply_for_all" key="list_panel_settings_key"/>
+            <rabbit:binding queue="email_sending_queue" key="email_sending_key"/>
+            <rabbit:binding queue="multi_currency_queue" key="multi_currency_key"/>
+            <rabbit:binding queue="exchange_rate_queue" key="exchange_rate_key"/>
+            <rabbit:binding queue="subsidiaries_queue" key="subsidiaries_key"/>
+            <rabbit:binding queue="subsidiaries_product_queue" key="subsidiaries_product_key"/>
+            <rabbit:binding queue="subsidiaries_consignment_queue" key="subsidiaries_consignment_key"/>
+            <rabbit:binding queue="inter_company_sales_queue" key="inter_company_sales_key"/>
+            <rabbit:binding queue="merge_contact_and_tracker_queue" key="merge_contact_and_tracker_key"/>
+            <rabbit:binding queue="steal_contacts_queue" key="steal_contacts_key"/>
+            <rabbit:binding queue="lead_company_settings_queue" key="lead_company_settings_key"/>
+            <rabbit:binding queue="end_of_year_process_queue" key="end_of_year_process_key"/>
+            <rabbit:binding queue="web_push_notification_queue" key="web_push_notification_key"/>
+            <rabbit:binding queue="push_server_event_queue" key="push_server_event_key"/>
+            <rabbit:binding queue="single_payslip_generate_queue" key="single_payslip_generate_key"/>
+            <rabbit:binding queue="fixed_assets_deprecation_queue" key="fixed_assets_deprecation_key"/>
+            <rabbit:binding queue="batch_out_queue" key="batch_out_key"/>
+            <rabbit:binding queue="batch_out_delete_queue" key="batch_out_delete_queue"/>
+            <rabbit:binding queue="batch_in_queue" key="batch_in_queue"/>
+            <rabbit:binding queue="batch_in_delete_queue" key="batch_in_delete_queue"/>
+        </rabbit:bindings>
+    </rabbit:direct-exchange>
+
+    <!--Listeners-->
+    <beans profile="apps, guinmvd, farmalliance, appsmq, staging, dev, ucell, local, light, appsbgfree, appsbgpaid, uz">
+        <rabbit:listener-container connection-factory="connectionFactory" concurrency="10" max-concurrency="20" declaration-retries="3">
+            <rabbit:listener ref="emailFetchListener" method="receive" queues="email_fetch_queue"/>
+            <rabbit:listener ref="emailSendingListener" method="receive" queues="email_sending_queue"/>
+            <rabbit:listener ref="multiCurrencyListener" method="receive" queues="multi_currency_queue"/>
+            <rabbit:listener ref="exchangeRateListener" method="receive" queues="exchange_rate_queue"/>
+            <rabbit:listener ref="subsidiariesListener" method="receive" queues="subsidiaries_queue"/>
+            <rabbit:listener ref="subsidiariesProductListener" method="receive" queues="subsidiaries_product_queue"/>
+            <rabbit:listener ref="subsidiariesConsignmentListener" method="receive" queues="subsidiaries_consignment_queue"/>
+            <rabbit:listener ref="interCompanySalesListener" method="receive" queues="inter_company_sales_queue"/>
+            <rabbit:listener ref="mergeContactAndTrackerListener" method="receive" queues="merge_contact_and_tracker_queue"/>
+            <rabbit:listener ref="stealContactsListener" method="receive" queues="steal_contacts_queue"/>
+            <rabbit:listener ref="leadCompanySettingsListener" method="receive" queues="lead_company_settings_queue"/>
+            <rabbit:listener ref="endOfYearProcessListener" method="receive" queues="end_of_year_process_queue"/>
+            <rabbit:listener ref="fixedAssetsDeprecationListener" method="receive" queues="fixed_assets_deprecation_queue"/>
+            <rabbit:listener ref="emailConvertToCaseListener" method="receive" queues="email_convert_to_case_queue"/>
+            <rabbit:listener ref="emailTrackerRelationListener" method="receive" queues="email_tracker_relation_queue"/>
+            <rabbit:listener ref="emailUploadToAmazonListener" method="receive" queues="email_upload_to_amazon_queue"/>
+            <rabbit:listener ref="listPanelSettingsListener" method="receive" queues="list_panel_settings_apply_for_all"/>
+            <rabbit:listener ref="userRequestTrackingListener" id="userRequestRrackingListenerId" method="receive" queues="user_request_tracking_queue"/>
+        </rabbit:listener-container>
+
+        <rabbit:listener-container connection-factory="connectionFactory" concurrency="10" max-concurrency="20" declaration-retries="0">
+            <rabbit:listener ref="webPushNotificationListener" method="receive" queues="web_push_notification_queue"/>
+            <rabbit:listener ref="pushServerEventListener" method="receive" queues="push_server_event_queue"/>
+        </rabbit:listener-container>
+
+        <rabbit:listener-container group="fifoListenerContainer" type="direct" connection-factory="connectionFactory" concurrency="10" declaration-retries="0">
+            <rabbit:listener id="fifoOutListenerId" ref="fifoOutListener" method="receive" queues="out_item_by_fifo_queue"/>
+            <rabbit:listener id="fifoOutDeleteListenerId" ref="fifoOutDeleteListener" method="receive" queues="delete_out_item_by_fifo_queue"/>
+            <rabbit:listener id="fifoInListenerId" ref="fifoInListener" method="receive" queues="in_item_by_fifo_queue"/>
+            <rabbit:listener id="fifoInDeleteListenerId" ref="fifoInDeleteListener" method="receive" queues="delete_in_item_by_fifo_queue"/>
+            <rabbit:listener id="fifoInListenerId" ref="fifoInListener" method="receive"
+                             queues="in_item_by_fifo_queue"/>
+            <rabbit:listener id="batchOutListener" ref="batchFifoOutListener" method="receive"
+                             queues="batch_out_queue"/>
+            <rabbit:listener id="batchOutDeleteListener" ref="batchFifoOutDeleteListener" method="receive"
+                             queues="batch_out_delete_queue"/>
+            <rabbit:listener id="batchInListener" ref="batchFifoInListener" method="receive" queues="batch_in_queue"/>
+            <rabbit:listener id="batchInDeleteListener" ref="batchFifoInDeleteListener" method="receive"
+                             queues="batch_in_delete_queue"/>
+        </rabbit:listener-container>
+
+        <rabbit:listener-container group="payrunListenerContainer" type="direct" connection-factory="connectionFactory" concurrency="10" declaration-retries="0">
+            <rabbit:listener ref="singlePayslipListener" method="receive" queues="single_payslip_generate_queue"/>
+        </rabbit:listener-container>
+
+        <bean id="emailFetchListener" class="com.edatasite.workforce.gwt.core.server.rabbitmq.receiver.EmailFetchListener"/>
+        <bean id="emailSendingListener" class="com.edatasite.workforce.gwt.core.server.rabbitmq.receiver.MassMailListener"/>
+        <bean id="multiCurrencyListener" class="com.edatasite.workforce.gwt.core.server.rabbitmq.receiver.MultiCurrencyListener"/>
+        <bean id="exchangeRateListener" class="com.edatasite.workforce.gwt.core.server.rabbitmq.receiver.ExchangeRateListener"/>
+        <bean id="subsidiariesListener" class="com.edatasite.workforce.gwt.core.server.rabbitmq.receiver.SubsidiariesListener"/>
+        <bean id="subsidiariesProductListener" class="com.edatasite.workforce.gwt.core.server.rabbitmq.receiver.SubsidiariesProductListener"/>
+        <bean id="subsidiariesConsignmentListener" class="com.edatasite.workforce.gwt.core.server.rabbitmq.receiver.SubsidiariesConsignmentListener"/>
+        <bean id="interCompanySalesListener" class="com.edatasite.workforce.gwt.core.server.rabbitmq.receiver.InterCompanySalesListener"/>
+        <bean id="mergeContactAndTrackerListener" class="com.edatasite.workforce.gwt.core.server.rabbitmq.receiver.MergeContactAndTrackerListener"/>
+        <bean id="stealContactsListener" class="com.edatasite.workforce.gwt.core.server.rabbitmq.receiver.StealContactsListener"/>
+        <bean id="leadCompanySettingsListener" class="com.edatasite.workforce.gwt.core.server.rabbitmq.receiver.LeadCompanySettingsListener"/>
+        <bean id="endOfYearProcessListener" class="com.edatasite.workforce.gwt.core.server.rabbitmq.receiver.EndOfYearProcessListener"/>
+        <bean id="emailConvertToCaseListener" class="com.edatasite.workforce.gwt.core.server.rabbitmq.receiver.EmailConvertToCaseListener"/>
+        <bean id="emailTrackerRelationListener" class="com.edatasite.workforce.gwt.core.server.rabbitmq.receiver.EmailTrackerRelationListener"/>
+        <bean id="emailUploadToAmazonListener" class="com.edatasite.workforce.gwt.core.server.rabbitmq.receiver.EmailUploadToAmazonListener"/>
+        <bean id="listPanelSettingsListener" class="com.edatasite.workforce.gwt.core.server.rabbitmq.receiver.ListPanelSettingsListener"/>
+        <bean id="userRequestTrackingListener" class="com.edatasite.workforce.gwt.core.server.rabbitmq.receiver.UserRequestTrackingListener"/>
+        <bean id="webPushNotificationListener" class="com.edatasite.workforce.gwt.core.server.rabbitmq.receiver.WebPushNotificationListener"/>
+        <bean id="pushServerEventListener" class="com.edatasite.workforce.gwt.core.server.rabbitmq.receiver.PushServerEventListener"/>
+        <bean id="singlePayslipListener" class="com.edatasite.workforce.gwt.core.server.rabbitmq.receiver.SinglePayslipListener"/>
+        <bean id="fixedAssetsDeprecationListener" class="com.edatasite.workforce.gwt.core.server.rabbitmq.receiver.FixedAssetsDeprecationListener"/>
+
+        <!--FIFO Listeners-->
+        <bean id="fifoOutListener" class="com.edatasite.workforce.gwt.core.server.rabbitmq.receiver.FifoOutListener"/>
+        <bean id="batchFifoOutListener"
+              class="com.edatasite.workforce.gwt.core.server.rabbitmq.receiver.BatchFifoOutListener"/>
+        <bean id="batchFifoOutDeleteListener"
+              class="com.edatasite.workforce.gwt.core.server.rabbitmq.receiver.BatchFifoOutDeleteListener"/>
+        <bean id="batchFifoInListener"
+              class="com.edatasite.workforce.gwt.core.server.rabbitmq.receiver.BatchFifoInListener"/>
+        <bean id="batchFifoInDeleteListener"
+              class="com.edatasite.workforce.gwt.core.server.rabbitmq.receiver.BatchFifoInDeleteListener"/>
+        <bean id="fifoInListener" class="com.edatasite.workforce.gwt.core.server.rabbitmq.receiver.FifoInListener"/>
+        <bean id="fifoOutDeleteListener"
+              class="com.edatasite.workforce.gwt.core.server.rabbitmq.receiver.FifoOutDeleteListener"/>
+        <bean id="fifoInDeleteListener" class="com.edatasite.workforce.gwt.core.server.rabbitmq.receiver.FifoInDeleteListener"/>
+
+        <bean id="scheduledTasks" class="com.edatasite.workforce.scheduler.ScheduledTasks"/>
+    </beans>
+</beans>

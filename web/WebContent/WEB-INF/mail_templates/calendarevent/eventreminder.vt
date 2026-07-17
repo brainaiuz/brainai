@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+
+<p><b>Event details:</b></p>
+
+<div style="background-color:lightblue; width:100%;">
+    <p>Title: $EVENT_NAME</p>
+
+    <p>Description: $DESCRIPTION</p>
+
+    <p>When: $DATE</p>
+</div>
+<p>Where: $WHERE</p>
+
+<p>Click <a href="$LINK">here</a> to view your event details on calendar.<br/>
+    * If you are not able to click on the link, you can instead copy and paste the following address in to your web
+    browser:
+    <span style="color: #0033FF">$LINK</span></p>
+
+</body>
+</html>

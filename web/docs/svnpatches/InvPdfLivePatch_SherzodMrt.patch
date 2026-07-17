@@ -1,0 +1,322 @@
+Index: src/com/edatasite/workforce/gwt/core/server/servlets/pdf/invoice/BaseInvoiceViewPDFHandler.java
+===================================================================
+--- src/com/edatasite/workforce/gwt/core/server/servlets/pdf/invoice/BaseInvoiceViewPDFHandler.java	(revision 8429)
++++ src/com/edatasite/workforce/gwt/core/server/servlets/pdf/invoice/BaseInvoiceViewPDFHandler.java	(working copy)
+@@ -134,7 +134,7 @@
+             writeElement("compMailingRegion", comp.getMailingCountryRegion() != null ? ", " + comp.getMailingCountryRegion().getName() : "");
+             writeElement("compMailingCityState", (comp.getMailingCity() != null ? comp.getMailingCity() : ""));
+             writeElement("compMailingCountryState", (comp.getMailingCountryZone() != null && comp.getMailingCountryZone().getCountry() != null ? comp.getMailingCountryZone().getCountry().getName() : ""));
+-            writeElement("compMailingZipCode", (comp.getMailingPostCode() != null ? ", " +comp.getMailingPostCode() : ""));
++            writeElement("compMailingZipCode", (comp.getMailingPostCode() != null ? ", " + comp.getMailingPostCode() : ""));
+ 
+             EdsClientContact requestioned = clientContactManager.get(Integer.valueOf(invoiceData.getRequisitionedBy()));
+             EdsPaymentMethod paymentMethod = paymentMethodManager.get(Integer.valueOf(invoiceData.getPaymentMethodID()));
+@@ -302,15 +302,55 @@
+             }
+ 
+             if (invoiceData.getPaymentInstruction() != null && invoiceData.getPaymentInstruction().length() > 1) {
+-                String notes[] = invoiceData.getPaymentInstruction().split("\r\n");
++                String notes[] = invoiceData.getPaymentInstruction().split("\n");
+                 if (notes.length > 0) {
+-                    startElement("noteInfo");
+-                    for (String note : notes) {
+-                        startElement("notes");
+-                        writeElement("note", note);
+-                        endElement("notes");
++                    if (getFromInvoice() != null && getFromInvoice().equals(SALE_QUOTE)) {
++                        if (notes.length > 4) {
++
++                            startElement("noteInfo");
++                            for (int i = 0; i < 2; i++) {
++                                startElement("notes");
++                                writeElement("note", notes[i]);
++                                endElement("notes");
++                            }
++                            endElement("noteInfo");
++
++
++                            startElement("moreNotes");
++                            startElement("notNoteInfo");
++                            endElement("notNoteInfo");
++
++                            setContactInfo(us);
++                            startElement("noteInfo");
++                            for (int i = 2; i < notes.length; i++) {
++                                startElement("notes");
++                                writeElement("note", notes[i]);
++                                endElement("notes");
++                            }
++                            endElement("noteInfo");
++                            endElement("moreNotes");
++
++
++                        } else {
++                            startElement("noteInfo");
++                            for (String note : notes) {
++                                startElement("notes");
++                                writeElement("note", note);
++                                endElement("notes");
++                            }
++                            endElement("noteInfo");
++                        }
++                    } else {
++                        startElement("noteInfo");
++                        for (String note : notes) {
++                            startElement("notes");
++                            writeElement("note", note);
++                            endElement("notes");
++                        }
++                        endElement("noteInfo");
+                     }
+-                    endElement("noteInfo");
++
++
+                 }
+             } else {
+                 startElement("notNoteInfo");
+@@ -318,10 +358,10 @@
+             }
+ 
+             // In sale invoice if footer has more elements, then extent of its must changed
+-             if (getFromInvoice() != null && getFromInvoice().equals(SALE_INVOICE)){
+-                 if(invInf.getBankAccountId()!=null)
+-                 setFooterExtent(bankAccountManager.get(invInf.getBankAccountId()),invoiceData);
+-             }
++            if (getFromInvoice() != null && getFromInvoice().equals(SALE_INVOICE)) {
++                if (invInf.getBankAccountId() != null)
++                    setFooterExtent(bankAccountManager.get(invInf.getBankAccountId()), invoiceData);
++            }
+ 
+             if (getFromInvoice() != null && getFromInvoice().equals(PURCHASE_INVOICE)) {
+                 if (supplier != null) {
+@@ -348,7 +388,7 @@
+                         i++;
+                     }
+ 
+-                    if (isValid(supplier.getAccountName() )) {
++                    if (isValid(supplier.getAccountName())) {
+                         startElement(i != 0 ? "bankInfo2" : "bankInfo");
+                         writeElement("desc", "Account Name: ");
+                         writeElement("info", supplier.getAccountName());
+@@ -366,7 +406,7 @@
+                         writeElement("info", supplier.getSwiftCode());
+                         endElement(i != 0 ? "bankInfo2" : "bankInfo");
+                     }
+-                    if (isValid(supplier.getIbanCode() )) {
++                    if (isValid(supplier.getIbanCode())) {
+                         startElement(i != 0 ? "bankInfo2" : "bankInfo");
+                         writeElement("desc", "IBAN code: ");
+                         writeElement("info", supplier.getIbanCode());
+@@ -451,15 +491,8 @@
+             }
+ 
+ 
+-            writeElement("infName", us.getFullName() != null ? us.getFullName() : "");
+-            if (us.isEmployee()) {
+-                EdsEmployee emp = employeeManager.get(us.getObjectID());
+-                writeElement("infPhone", (emp.getWorkPhone() != null && !emp.getWorkPhone().equals("")) ? (us.getFullName() != null ? ", " : "") + emp.getWorkPhone() : "");
+-                writeElement("infEmail", us.getEmail() != null && !us.getEmail().equals("") ? ", " + us.getEmail() : "");
+-            } else {
+-                writeElement("infPhone", "");
+-                writeElement("infEmail", "");
+-            }
++            setContactInfo(us);
++
+             writeElement("discount", invoiceData.getDiscountAmount() != 0 ? curr + numberFormat.format(invoiceData.getDiscountAmount()) : "");
+ 
+             endDocument();
+@@ -471,7 +504,19 @@
+ 
+     }
+ 
+-    private void setFooterExtent(EdsBankAccount bAcc,NewInvoice invoiceData) throws SAXException {
++    private void setContactInfo(EdsUser us) throws SAXException {
++        writeElement("infName", us.getFullName() != null ? us.getFullName() : "");
++        if (us.isEmployee()) {
++            EdsEmployee emp = employeeManager.get(us.getObjectID());
++            writeElement("infPhone", (emp.getWorkPhone() != null && !emp.getWorkPhone().equals("")) ? (us.getFullName() != null ? ", " : "") + emp.getWorkPhone() : "");
++            writeElement("infEmail", us.getEmail() != null && !us.getEmail().equals("") ? ", " + us.getEmail() : "");
++        } else {
++            writeElement("infPhone", "");
++            writeElement("infEmail", "");
++        }
++    }
++
++    private void setFooterExtent(EdsBankAccount bAcc, NewInvoice invoiceData) throws SAXException {
+         double extent = 0;
+         int rightRows = 0;
+         int leftRows = 0;
+@@ -539,7 +584,7 @@
+ 
+         if (invoiceData.getPaymentInstruction() != null && invoiceData.getPaymentInstruction().length() > 0) {
+             extent += 1;
+-            String[] instructions = invoiceData.getPaymentInstruction().split("\r");
++            String[] instructions = invoiceData.getPaymentInstruction().split("\n");
+             if (instructions.length > 5) {
+                 if (instructions.length < 8)
+                     extent += 0.3;
+@@ -549,10 +594,10 @@
+                     extent += 0.9;
+                 else if (instructions.length < 18)
+                     extent += 1.2;
+-                else if(instructions.length<22)
+-                    extent+=1.5;
+-                else if(instructions.length>21)
+-                    extent+=2.2;
++                else if (instructions.length < 22)
++                    extent += 1.5;
++                else if (instructions.length > 21)
++                    extent += 2.2;
+             }
+ 
+         }
+Index: src/com/edatasite/workforce/gwt/core/server/servlets/pdf/invoice/SaleQuoteViewPDFHandler.java
+===================================================================
+--- src/com/edatasite/workforce/gwt/core/server/servlets/pdf/invoice/SaleQuoteViewPDFHandler.java	(revision 8429)
++++ src/com/edatasite/workforce/gwt/core/server/servlets/pdf/invoice/SaleQuoteViewPDFHandler.java	(working copy)
+@@ -15,4 +15,8 @@
+      protected String getFileName() {
+         return "Sale_Quote";
+     }
++
++     protected String getFromInvoice(){
++        return SALE_QUOTE;
++    }
+ }
+Index: WebContent/WEB-INF/xslts/invoice/saleQuote_view.xslt
+===================================================================
+--- WebContent/WEB-INF/xslts/invoice/saleQuote_view.xslt	(revision 8429)
++++ WebContent/WEB-INF/xslts/invoice/saleQuote_view.xslt	(working copy)
+@@ -13,10 +13,19 @@
+                                        margin-bottom="2cm" margin-left="1.3cm" margin-right="1.3cm">
+                     <fo:region-body region-name="xsl-region-body"/>
+ 
+-                    <fo:region-after region-name="xsl-region-after" extent="1.8in"/>
++                    <fo:region-after region-name="xsl-region-after" extent="2.2in"/>
+ 
+ 
+                 </fo:simple-page-master>
++
++                  <fo:simple-page-master master-name="moreNotePage" page-height="29.7cm" page-width="21cm" margin-top="1.5cm"
++                                       margin-bottom="2cm" margin-left="1.3cm" margin-right="1.3cm">
++                    <fo:region-body region-name="xsl-region-body" margin-bottom="2cm"/>
++
++                    <fo:region-after region-name="xsl-region-after" extent="2.3in"/>
++
++
++                </fo:simple-page-master>
+             </fo:layout-master-set>
+ 
+             <fo:page-sequence master-reference="simpleA4">
+@@ -404,10 +413,64 @@
+                 </fo:flow>
+ 
+             </fo:page-sequence>
++
++            <xsl:apply-templates select="moreNotes"/>
++
+         </fo:root>
+ 
+     </xsl:template>
+ 
++
++      <xsl:template match="moreNotes">
++
++          <fo:page-sequence master-reference="moreNotePage">
++
++              <fo:static-content flow-name="xsl-region-after">
++                  <xsl:apply-templates select="notNoteInfo"/>
++                  <fo:block font-family="Times New Roman" font-size="11" padding-before="4pt" text-align="center">
++                      This is Sales Quote and not an invoice. Once agreed on Sales Qoute Terms Sales invoice will be generated
++                  </fo:block>
++
++                  <fo:block>
++                      <fo:leader/>
++                  </fo:block>
++
++                  <fo:block font-family="Times New Roman" font-size="11" text-align="center">
++                      If you have any questions concerning this sales quote,
++                      contact
++                      <fo:inline>
++                          <xsl:value-of select="infName"/>
++                      </fo:inline>
++                       <fo:inline font-style="italic">
++                          <xsl:value-of select="infEmail"/>
++                      </fo:inline>
++                  </fo:block>
++
++                  <fo:block>
++                      <fo:leader/>
++                  </fo:block>
++
++                  <fo:block font-weight="bold" font-family="Times New Roman"  font-size="12" text-align="center" margin-bottom="5cm">
++                      THANK YOU FOR YOUR BUSINESS!
++                  </fo:block>
++
++              </fo:static-content>
++
++
++              <fo:flow flow-name="xsl-region-body">
++                 <fo:block>
++
++                     <xsl:apply-templates select="noteInfo"/>
++                 </fo:block>
++
++              </fo:flow>
++
++          </fo:page-sequence>
++
++
++
++      </xsl:template>
++
+     <xsl:template match="otherInformations">
+ 
+         <fo:table-row>
+@@ -533,33 +596,40 @@
+         <fo:block>
+             <fo:leader/>
+         </fo:block>
++        <fo:block>
++            <fo:leader/>
++        </fo:block>
++        <fo:block>
++            <fo:leader/>
++        </fo:block>
+     </xsl:template>
+ 
+ 
+     <xsl:template match="noteInfo">
+         <fo:block>
+ 
+-            <fo:table border="solid" border-width="normal" margin-left="0pt" margin-right="0pt">
++            <fo:table border="solid" border-width="normal" margin-left="0pt" margin-right="0pt" table-omit-header-at-break="false">
+ 
+                 <fo:table-column column-number="1" border="solid" border-width="normal"/>
+ 
+-                <fo:table-body>
+-
+-                    <fo:table-row background-color="rgb(220,220,220)">
++               <fo:table-header>
++                   <fo:table-row background-color="rgb(220,220,220)">
+                         <fo:table-cell column-number="1" padding-before="0.1cm" padding-after="0.1cm">
+                             <fo:block font-weight="bold" font-family="Times New Roman" font-size="10" text-align="center">
+                                Terms and Conditions:
+                             </fo:block>
+                         </fo:table-cell>
+                     </fo:table-row>
++               </fo:table-header>
+ 
+ 
++                <fo:table-body>
++
+                     <fo:table-row>
+                         <fo:table-cell column-number="1" padding-before="0.1cm" padding-after="0.1cm"
+-                                       height="50pt">
++                                       height="70pt" padding-left="0.1cm">
+                             <fo:block font-size="8" text-indent="0.2in">
+                                 <xsl:apply-templates select="notes"/>
+-                                <!-- <xsl:value-of select="notes"/> -->
+                             </fo:block>
+                         </fo:table-cell>
+                     </fo:table-row>

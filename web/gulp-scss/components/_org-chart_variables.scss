@@ -1,0 +1,44 @@
+$orgChartBorderColor: lighten($color-base-2, 9%);
+$orgChartBorderColorSub: $orgChartBorderColor;
+$orgChartBorderColorDark: darken($color-base-1, 5%);
+
+$orgChartHeaderSize: 60px;
+
+$nodeBorderRadius: 5px;
+$nodeBorderRadius: .25vw;
+
+$nodeWidth: 220px;
+$nodeWidth: 11.2vw;
+
+$nodeHeight: 94px;
+$nodeHeight: 4.4vw;
+
+$nodePadding: 5px;
+$nodePadding: .25vw;
+
+$nodeSetParentHeight: 36px;
+$nodeSetParentHeight: 1.3vw;
+
+$subNodeHeight: 54px;
+$subNodeHeight: 2.75vw;
+
+$orgChartSpaceCol: 6px;
+
+$orgChartSpace: 15px;
+$orgChartSpace: 1vw;
+
+$orgChartSpaceSub: $orgChartSpace / 2;
+
+$rhombSize: $nodeBorderRadius;
+$rhombSizeHalf: $rhombSize / 2;
+$nodeStatusBorderSize: $rhombSize;
+$subNodeStatusBorderSize: $nodeStatusBorderSize / 2;
+
+$nodeCountSizeX: $nodeHeight * .42;
+$nodeCountSizeY: $nodeCountSizeX * .50;
+$nodeCountSizeZ: $nodeCountSizeY * .8;
+
+$subNodeHeadMargin: $orgChartSpaceSub;
+$subNodeHeadSize: $orgChartSpace + $subNodeHeadMargin * 2;
+
+$nodeLineRadius: 0.25vw;

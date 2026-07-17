@@ -1,0 +1,107 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+        >
+    <ui:style>
+        .section {
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+
+        .section:before, .section:after {
+            content: "";
+            display: none;
+        }
+
+        .section:after {
+            clear: both;
+        }
+
+        *+html .section {
+            zoom: 1
+        }
+
+        .clear {
+            display: block;
+            clear: both;
+        }
+
+        .half {
+            width: 48%;
+            height: 70px;
+        }
+
+        .right {
+            float: right !important;
+        }
+
+        .left {
+            float: left !important;
+        }
+
+        .title {
+            color: #016eb7;
+            font: bold 16px Arial, sans-serif;
+            margin: 2px 0 0;
+        }
+
+        .title.left {
+            margin-right: 10px;
+        }
+
+        .overAllRate {
+            padding-right: 9px;
+            font-weight: bold;
+            color: #016eb7;
+            margin-top: 5px;
+        }
+
+            /******Start PairDate******/
+        .pairDate {
+        }
+
+        .pairDate.left {
+        }
+
+        .pairDate dt, .pairDate dd {
+            font-size: 11px;
+        }
+
+        .pairDate dt {
+            float: left;
+            width: 51%;
+            color: #0d4372;
+            text-indent: 3px;
+            padding-top: 4px;
+            padding-bottom: 4px;
+        }
+
+        .pairDate dd {
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
+        .performance-note-style {
+            padding-top: 10px;
+        }
+
+            /******End PairDate******/
+    </ui:style>
+
+    <g:HTMLPanel>
+        <!--######-->
+        <div style="width:750px;">
+            <div class="grid-row">
+                <g:HTMLPanel styleName="col-6" ui:field="firstListItem">
+                    <div class="form-group">
+                        <span class="form-group__label" ui:field="headerPAEmployeeName"/>
+                    </div>
+                </g:HTMLPanel>
+                <g:HTMLPanel styleName="col-6" ui:field="secondListItem">
+                    <div class="form-group">
+                        <span class="form-group__label" ui:field="overallRateField"/>
+                    </div>
+                </g:HTMLPanel>
+            </div>
+        </div>
+    </g:HTMLPanel>
+</ui:UiBinder>

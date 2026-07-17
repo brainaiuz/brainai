@@ -1,0 +1,103 @@
+UPDATE defaultlayout SET layout='<div class="contentBar" style="padding:0 10px;">
+    <style>
+        .reachFullWidth table {
+            border: none !important;
+        }
+    </style>
+
+    <div id="click1" class="slideDown-box expand group">
+        <h3 onclick="var myclick=document.getElementById(''click1'');if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf(''expand'')>=0){cls=cls.replace(''expand'','''');}else{cls+='' expand'';}myclick.className=cls;}" class="slideDown-title">$$label:PREPAYMENT_FORM_TITLE$$</h3>
+
+        <fieldset class="slideDown-content group labelLine">
+            <div class="halfSet-1 left">
+                <div class="row">
+                    $$label:CRM_ACCOUNT_LOOKUP$$
+                    <div class="field">
+                        $$input:CRM_ACCOUNT_LOOKUP$$
+                    </div>
+                </div>
+                <div class="row">
+                    $$label:PROJECT$$
+                    <div class="field">
+                        $$input:PROJECT$$
+                    </div>
+                </div>
+
+                <div class="row">
+                    $$label:PAYMENT_ACCOUNT_LOOKUP$$
+                    <div class="field">
+                        $$input:PAYMENT_ACCOUNT_LOOKUP$$
+                    </div>
+                </div>
+
+                <div class="row">
+                    $$label:ACCOUNTS_RECEIVABLE_PAYABLE$$
+                    <div class="field">
+                        $$input:ACCOUNTS_RECEIVABLE_PAYABLE$$
+                    </div>
+                </div>
+
+                <div class="row">
+                    $$label:PREPAYMENT_NOTE$$
+                    <div class="field">
+                        $$input:PREPAYMENT_NOTE$$
+                    </div>
+                </div>
+            </div>
+
+            <div class="halfSet-1 left">
+                <div class="row">
+                    $$label:PREPAYMENT_NUMBER$$
+                    <div class="field">
+                        $$input:PREPAYMENT_NUMBER$$
+                    </div>
+                </div>
+
+                <div class="row">
+                    $$label:DATE_FIELD$$
+                    <div class="field">
+                        $$input:DATE_FIELD$$
+                    </div>
+                </div>
+
+		<div class="row">
+                    $$label:SALE_QUOTE_OR_PURCHASE_ORDER_LOOKUP$$
+                    <div class="field">
+                        $$input:SALE_QUOTE_OR_PURCHASE_ORDER_LOOKUP$$
+                    </div>
+                </div>
+
+                <div class="row">
+                    $$label:REFERENCE$$
+                    <div class="field">
+                        $$input:REFERENCE$$
+                    </div>
+                </div>
+
+                <div class="row">
+                    $$label:PREPAYMENT_AMOUNT$$
+                    <div class="field">
+                        $$input:PREPAYMENT_AMOUNT$$
+                    </div>
+                </div>
+
+                <div class="row">
+                    $$label:CURRENCY_TABLE$$
+                    <div class="field">
+                        $$input:CURRENCY_TABLE$$
+                    </div>
+                </div>
+
+                <div class="row">
+                    $$label:POST_DATE$$
+                    <div class="field">
+                        $$input:POST_DATE$$
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+
+    </div>
+
+
+</div>' WHERE formid='PREPAYMENT_FORM' AND forClient is false AND addform is true AND webform is not true;

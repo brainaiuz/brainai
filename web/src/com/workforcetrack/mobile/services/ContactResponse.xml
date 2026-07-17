@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<WFTResponse>
+    <success/>
+    <body>
+        <fields>
+            <field name="objectID"/>
+            <field name="lastName" value="Anvar"/>
+            <field name="firstName"/>
+            <birthDate/>
+
+            <primaryEmail/>
+            <primaryPhone/>
+            <primaryAddress>
+                <street/>
+                <city/>
+                <state/>
+                <stateID/>
+                <country/>
+                <countryID/>
+                <parentID/>
+                <postcode/>
+            </primaryAddress>
+        </fields>
+
+    </body>
+</WFTResponse>

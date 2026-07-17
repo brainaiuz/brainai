@@ -1,0 +1,50 @@
+<report>
+    <view>
+        <title>CRM Case Detailed</title>
+        <name>Cases Report</name>
+        <category>cases</category>
+        <sqlquery agregateFunc="distinct">
+            <select>
+
+                <table name="Case">
+                    <column name="id" title="id" type="number" formattype="hidden"/>
+                    <column name="leadName" title="Name" type="string" formattype="string"/>
+                    <column name="sourceName" title="Source" type="string" formattype="string"/>
+                    <column name="creationDate" title="Creation Date" type="date" formattype="date"/>
+                </table>
+
+            </select>
+            <from>
+                (
+                with myUserRoles as (select mu.id userID,r.code userRole
+                from "$".myuser mu
+                left join "$".myuser_role mr on mr.users_id=mu.id
+                left join "$".role r on mr.roles_id=r.id and r.isdeleted is not true
+                where mu.deleted is not true)
+
+                select l.id,l.creationDate,r.name sourceName, coalesce(l.firstname,'')||' '||coalesce(l.lastname,'') leadName
+                from "$".crmcontact l
+                left join "$".reference r on l.source=r.id
+                , (select id from "$".myuser where id=#?user_id?#) u
+                left join (select userid
+                ,max(case userRole when 'ADMIN' then 1 else 0 end)=1 isAdmin
+                ,max(case userRole when 'SALESMAN' then 1 else 0 end)=1 isSalesman
+                from myUserRoles group by userid)mur on u.id=mur.userid
+                where l.contacttype=5 and l.deleted is not true and
+                (
+                (true not in (mur.isAdmin, mur.isSalesman) and (u.id in (l.assignee,l.backupAssignee,l.owner)))
+                or
+                true in (mur.isAdmin, mur.isSalesman)
+                )
+                ) t
+
+            </from>
+
+            <where>
+                <terms id="base" value="1=1"/>
+                <replacement id="userid" userid="#?user_id?#"/>
+            </where>
+
+        </sqlquery>
+    </view>
+</report>

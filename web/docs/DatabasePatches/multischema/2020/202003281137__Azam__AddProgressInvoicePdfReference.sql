@@ -1,0 +1,2 @@
+update company set selectFunctioncolumn =(select setval('"anv".pdfreference_id_seq', (select max(id) from "anv".pdfreference))) where id=(select id from company limit 1);
+insert into "anv".pdfreference (code, name) values ('PROGRESS_INVOICING_VIEW', 'Progress Invoice');

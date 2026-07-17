@@ -1,0 +1,53 @@
+<div class="contentBar">
+
+    <ul class="collapsible--panels collapsible--arrows-left collapsible collapsible--gwt required"
+        data-collapsible="expandable">
+        <li class="slideDown-box group active">
+            <div class="collapsible-header active"
+                 onclick="var myclick=this.parentElement;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls; } var myclick=this;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls; }">
+                <a style="cursor: pointer;"><span>$$label:DETAILS$$</span></a>
+            </div>
+            <div class="collapsible-body">
+                <div class="grid-row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:NAME$$</div>
+                            <div class="form-group__content">$$input:NAME$$</div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:DESCRIPTION$$</div>
+                            <div class="form-group__content">$$input:DESCRIPTION$$</div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:RELATED_EMPLOYEES$$</div>
+                            <div class="form-group__content">$$input:RELATED_EMPLOYEES$$</div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:VISIBILITY$$</div>
+                            <div class="form-group__content">$$input:VISIBILITY$$</div>
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:PERIOD$$</div>
+                            <div class="form-group__content">$$input:PERIOD$$</div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:STATUS$$</div>
+                            <div class="form-group__content">$$input:STATUS$$</div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:REPORTED_BY$$</div>
+                            <div class="form-group__content">$$input:REPORTED_BY$$</div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:RESOLVER$$</div>
+                            <div class="form-group__content">$$input:RESOLVER$$</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>

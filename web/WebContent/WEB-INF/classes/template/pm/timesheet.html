@@ -1,0 +1,344 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style type="text/css">
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+        td {
+            padding: 3px;
+        }
+        .title {
+            font-size: 9pt;
+        }
+        .name {
+            font-size: 7pt;
+        }
+        .value {
+            font-size: 8pt;
+        }
+        .personalValue {
+            font-size: 7pt;
+        }
+        .capital {
+            text-transform: capitalize;
+        }
+        .billing-address__tmp-bill td {
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+<div id="body sales-invoice__tmp">
+    <img alt="images" src="https://workforcetrack.s3.amazonaws.com/000000000000/public/65159/a2113e82-397f-49fd-a58a-cdf4f4b93dff?AWSAccessKeyId=AKIAIROQMC77E5UKWBWQ" style="display: none;"/>
+    #if($itextGenericPdfData.companyData.companyName == 'KPI Software Inc' or $itextGenericPdfData.companyData.companyLogoUrl == 'https://apps.kpi.com/customisation/kpi.com/images/kpilogo.png')
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="width: 88px;display: none;"/>
+    #else
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="max-width: 100%; max-height: 100%; display: none;"/>
+    #end
+
+    #set($viewTable = $itextGenericPdfData.customData.get('VIEW_TABLE'))
+    #set($dailyTable = $itextGenericPdfData.customData.get('DAILY_TABLE'))
+    #set($totalTable = $itextGenericPdfData.customData.get('TOTAL_TABLE'))
+
+    <div>
+        <table width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-top: 20px;">
+            <tr>
+                <td dir="$viewTable.name" style="font-weight: bold;" class="title capital">$viewTable.name</td>
+            </tr>
+        </table>
+
+        #if($viewTable.rows.size() > 0)
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top: 10px;">
+                <tr>
+                    <td width="17%" dir="$viewTable.header.get('PROJECT_NAME')" class="name capital" style="vertical-align: top">$viewTable.header.get('PROJECT_NAME')</td>
+                    <td width="15%" dir="$viewTable.header.get('TASK_NAME')" class="name capital" style="padding-left: 3pt;vertical-align: top">$viewTable.header.get('TASK_NAME')</td>
+                    <td width="6%" dir="$viewTable.header.get('SUNDAYSHORT')" class="name capital" style="word-wrap:break-word;padding-left: 3pt;vertical-align: top">$viewTable.header.get('SUNDAYSHORT')</td>
+                    <td width="6%" dir="$viewTable.header.get('MONDAYSHORT')" class="name capital" style="word-wrap:break-word;padding-left: 3pt;vertical-align: top">$viewTable.header.get('MONDAYSHORT')</td>
+                    <td width="6%" dir="$viewTable.header.get('TUESDAYSHORT')" class="name capital" style="word-wrap:break-word;padding-left: 3pt;vertical-align: top">$viewTable.header.get('TUESDAYSHORT')</td>
+                    <td width="6%" dir="$viewTable.header.get('WEDNESDAYSHORT')" class="name capital" style="word-wrap:break-word;padding-left: 3pt;vertical-align: top">$viewTable.header.get('WEDNESDAYSHORT')</td>
+                    <td width="6%" dir="$viewTable.header.get('THURSDAYSHORT')" class="name capital" style="word-wrap:break-word;padding-left: 3pt;vertical-align: top">$viewTable.header.get('THURSDAYSHORT')</td>
+                    <td width="6%" dir="$viewTable.header.get('FRIDAYSHORT')" class="name capital" style="word-wrap:break-word;padding-left: 3pt;vertical-align: top">$viewTable.header.get('FRIDAYSHORT')</td>
+                    <td width="6%" dir="$viewTable.header.get('SATURDAYSHORT')" class="name capital" style="word-wrap:break-word;padding-left: 3pt;vertical-align: top">$viewTable.header.get('SATURDAYSHORT')</td>
+                    <td width="5%" dir="$viewTable.header.get('COMPLETED')" class="name capital" style="word-wrap:break-word;padding-left: 3pt;vertical-align: top">$viewTable.header.get('COMPLETED')</td>
+                    <td width="6%" dir="$viewTable.header.get('ESTIMATEDTIME')" class="name capital" style="word-wrap:break-word;padding-left: 3pt;vertical-align: top">$viewTable.header.get('ESTIMATEDTIME')</td>
+                    <td width="6%" dir="$viewTable.header.get('TOTAL')" class="name capital" style="word-wrap:break-word;padding-left: 3pt;vertical-align: top">$viewTable.header.get('TOTAL')</td>
+                    <td width="9%" dir="$viewTable.header.get('STATUS')" class="name capital" style="word-wrap:break-word;padding-left: 3pt;vertical-align: top">$viewTable.header.get('STATUS')</td>
+                </tr>
+                #foreach($row in $viewTable.rows.values())
+                <tr>
+                    <td style="word-break: break-word;font-weight: bold;vertical-align: top;padding-bottom: 10pt;" class="value">
+                        #if($row.get('PROJECT_NAME') != '')
+                            $row.get('PROJECT_NAME')
+                        #else
+                            —
+                        #end
+                    </td>
+                    <td style="word-break: break-word;font-weight: bold;vertical-align: top;padding-bottom: 10pt;padding-left: 1pt" class="value">
+                        #if($row.get('TASK_NAME') != '')
+                            $row.get('TASK_NAME')
+                        #else
+                            —
+                        #end
+                    </td>
+                    <td style="word-break: break-word;font-weight: bold;vertical-align: top;padding-bottom: 10pt;padding-left: 1pt" class="value">
+                        #if($row.get('SUNDAYSHORT') != '')
+                            $row.get('SUNDAYSHORT')
+                        #else
+                            —
+                        #end
+                    </td>
+                    <td style="word-break: break-word;font-weight: bold;vertical-align: top;padding-bottom: 10pt;padding-left: 1pt" class="value">
+                        #if($row.get('MONDAYSHORT') != '')
+                            $row.get('MONDAYSHORT')
+                        #else
+                            —
+                        #end
+                    </td>
+                    <td style="word-break: break-word;font-weight: bold;vertical-align: top;padding-bottom: 10pt;padding-left: 1pt" class="value">
+                        #if($row.get('TUESDAYSHORT') != '')
+                            $row.get('TUESDAYSHORT')
+                        #else
+                            —
+                        #end
+                    </td>
+                    <td style="word-break: break-word;font-weight: bold;vertical-align: top;padding-bottom: 10pt;padding-left: 1pt" class="value">
+                        #if($row.get('WEDNESDAYSHORT') != '')
+                            $row.get('WEDNESDAYSHORT')
+                        #else
+                            —
+                        #end
+                    </td>
+                    <td style="word-break: break-word;font-weight: bold;vertical-align: top;padding-bottom: 10pt;padding-left: 1pt" class="value">
+                        #if($row.get('THURSDAYSHORT') != '')
+                            $row.get('THURSDAYSHORT')
+                        #else
+                            —
+                        #end
+                    </td>
+                    <td style="word-break: break-word;font-weight: bold;vertical-align: top;padding-bottom: 10pt;padding-left: 1pt" class="value">
+                        #if($row.get('FRIDAYSHORT') != '')
+                            $row.get('FRIDAYSHORT')
+                        #else
+                            —
+                        #end
+                    </td>
+                    <td style="word-break: break-word;font-weight: bold;vertical-align: top;padding-bottom: 10pt;padding-left: 1pt" class="value">
+                        #if($row.get('SATURDAYSHORT') != '')
+                            $row.get('SATURDAYSHORT')
+                        #else
+                            —
+                        #end
+                    </td>
+                    <td style="word-break: break-word;font-weight: bold;vertical-align: top;padding-bottom: 10pt;padding-left: 1pt" class="value">
+                        #if($row.get('COMPLETED') != '')
+                            $row.get('COMPLETED')
+                        #else
+                            —
+                        #end
+                    </td>
+                    <td style="word-break: break-word;font-weight: bold;vertical-align: top;padding-bottom: 10pt;padding-left: 1pt" class="value">
+                        #if($row.get('ESTIMATEDTIME') != '')
+                            $row.get('ESTIMATEDTIME')
+                        #else
+                            —
+                        #end
+                    </td>
+                    <td style="word-break: break-word;font-weight: bold;vertical-align: top;padding-bottom: 10pt;padding-left: 1pt" class="value">
+                        #if($row.get('TOTAL') != '')
+                            $row.get('TOTAL')
+                        #else
+                            —
+                        #end
+                    </td>
+                    <td style="word-break: break-word;font-weight: bold;vertical-align: top;padding-bottom: 10pt;padding-left: 1pt" class="value">
+                        #if($row.get('STATUS') != '')
+                            $row.get('STATUS')
+                        #else
+                            —
+                        #end
+                    </td>
+                </tr>
+                #end
+            </table>
+        #else
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top: 10px;">
+                <tr>
+                    <td width="17%" dir="$viewTable.header.get('PROJECT_NAME')" class="name capital" style="vertical-align: top">$viewTable.header.get('PROJECT_NAME')</td>
+                    <td width="15%" dir="$viewTable.header.get('TASK_NAME')" class="name capital" style="padding-left: 3pt;vertical-align: top">$viewTable.header.get('TASK_NAME')</td>
+                    <td width="6%" dir="$viewTable.header.get('SUNDAYSHORT')" class="name capital" style="word-wrap:break-word;padding-left: 3pt;vertical-align: top">$viewTable.header.get('SUNDAYSHORT')</td>
+                    <td width="6%" dir="$viewTable.header.get('MONDAYSHORT')" class="name capital" style="word-wrap:break-word;padding-left: 3pt;vertical-align: top">$viewTable.header.get('MONDAYSHORT')</td>
+                    <td width="6%" dir="$viewTable.header.get('TUESDAYSHORT')" class="name capital" style="word-wrap:break-word;padding-left: 3pt;vertical-align: top">$viewTable.header.get('TUESDAYSHORT')</td>
+                    <td width="6%" dir="$viewTable.header.get('WEDNESDAYSHORT')" class="name capital" style="word-wrap:break-word;padding-left: 3pt;vertical-align: top">$viewTable.header.get('WEDNESDAYSHORT')</td>
+                    <td width="6%" dir="$viewTable.header.get('THURSDAYSHORT')" class="name capital" style="word-wrap:break-word;padding-left: 3pt;vertical-align: top">$viewTable.header.get('THURSDAYSHORT')</td>
+                    <td width="6%" dir="$viewTable.header.get('FRIDAYSHORT')" class="name capital" style="word-wrap:break-word;padding-left: 3pt;vertical-align: top">$viewTable.header.get('FRIDAYSHORT')</td>
+                    <td width="6%" dir="$viewTable.header.get('SATURDAYSHORT')" class="name capital" style="word-wrap:break-word;padding-left: 3pt;vertical-align: top">$viewTable.header.get('SATURDAYSHORT')</td>
+                    <td width="5%" dir="$viewTable.header.get('COMPLETED')" class="name capital" style="word-wrap:break-word;padding-left: 3pt;vertical-align: top">$viewTable.header.get('COMPLETED')</td>
+                    <td width="6%" dir="$viewTable.header.get('ESTIMATEDTIME')" class="name capital" style="word-wrap:break-word;padding-left: 3pt;vertical-align: top">$viewTable.header.get('ESTIMATEDTIME')</td>
+                    <td width="6%" dir="$viewTable.header.get('TOTAL')" class="name capital" style="word-wrap:break-word;padding-left: 3pt;vertical-align: top">$viewTable.header.get('TOTAL')</td>
+                    <td width="9%" dir="$viewTable.header.get('STATUS')" class="name capital" style="word-wrap:break-word;padding-left: 3pt;vertical-align: top">$viewTable.header.get('STATUS')</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold;vertical-align: top;padding-bottom: 10pt;" class="value">
+                        —
+                    </td>
+                    <td style="font-weight: bold;vertical-align: top;padding-bottom: 10pt;padding-left: 1pt" class="value">
+                        —
+                    </td>
+                    <td style="font-weight: bold;vertical-align: top;padding-bottom: 10pt;padding-left: 1pt" class="value">
+                        —
+                    </td>
+                    <td style="font-weight: bold;vertical-align: top;padding-bottom: 10pt;padding-left: 1pt" class="value">
+                        —
+                    </td>
+                    <td style="font-weight: bold;vertical-align: top;padding-bottom: 10pt;padding-left: 1pt" class="value">
+                        —
+                    </td>
+                    <td style="font-weight: bold;vertical-align: top;padding-bottom: 10pt;padding-left: 1pt" class="value">
+                        —
+                    </td>
+                    <td style="font-weight: bold;vertical-align: top;padding-bottom: 10pt;padding-left: 1pt" class="value">
+                        —
+                    </td>
+                    <td style="font-weight: bold;vertical-align: top;padding-bottom: 10pt;padding-left: 1pt" class="value">
+                        —
+                    </td>
+                    <td style="font-weight: bold;vertical-align: top;padding-bottom: 10pt;padding-left: 1pt" class="value">
+                        —
+                    </td>
+                    <td style="font-weight: bold;vertical-align: top;padding-bottom: 10pt;padding-left: 1pt" class="value">
+                        —
+                    </td>
+                    <td style="font-weight: bold;vertical-align: top;padding-bottom: 10pt;padding-left: 1pt" class="value">
+                        —
+                    </td>
+                    <td style="font-weight: bold;vertical-align: top;padding-bottom: 10pt;padding-left: 1pt" class="value">
+                        —
+                    </td>
+                    <td style="font-weight: bold;vertical-align: top;padding-bottom: 10pt;padding-left: 1pt" class="value">
+                        —
+                    </td>
+                </tr>
+            </table>
+        #end
+
+        <table width="100%" cellspacing="0" cellpadding="0" style="margin-top: 15px; border-bottom: 1px solid #000;">
+            <tr>
+                <td width="100%"></td>
+            </tr>
+        </table>
+
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top: 10px;">
+            #foreach($row in $dailyTable.rows.values())
+            <tr>
+                <td colspan="2" style="width: 29%; font-weight: bold;vertical-align: top;padding-bottom: 10pt;" class="value">
+                    #if($row.get('DAILY_TOTAL') != '')
+                        $row.get('DAILY_TOTAL')
+                    #else
+                        —
+                    #end
+                </td>
+                <td style="width: 5.8%; font-weight: bold;vertical-align: top;padding-bottom: 10pt;" class="value">
+                    #if($row.get('MONDAYSHORT') != '')
+                        $row.get('MONDAYSHORT')
+                    #else
+                        —
+                    #end
+                </td>
+                <td style="width: 5.8%; font-weight: bold;vertical-align: top;padding-bottom: 10pt;" class="value">
+                    #if($row.get('TUESDAYSHORT') != '')
+                        $row.get('TUESDAYSHORT')
+                    #else
+                        —
+                    #end
+                </td>
+                <td style="width: 5.8%; font-weight: bold;vertical-align: top;padding-bottom: 10pt;" class="value">
+                    #if($row.get('WEDNESDAYSHORT') != '')
+                        $row.get('WEDNESDAYSHORT')
+                    #else
+                        —
+                    #end
+                </td>
+                <td style="width: 5.8%; font-weight: bold;vertical-align: top;padding-bottom: 10pt;" class="value">
+                    #if($row.get('THURSDAYSHORT') != '')
+                        $row.get('THURSDAYSHORT')
+                    #else
+                        —
+                    #end
+                </td>
+                <td style="width: 5.8%; font-weight: bold;vertical-align: top;padding-bottom: 10pt;" class="value">
+                    #if($row.get('FRIDAYSHORT') != '')
+                        $row.get('FRIDAYSHORT')
+                    #else
+                        —
+                    #end
+                </td>
+                <td style="width: 5.8%; font-weight: bold;vertical-align: top;padding-bottom: 10pt;" class="value">
+                    #if($row.get('SATURDAYSHORT') != '')
+                        $row.get('SATURDAYSHORT')
+                    #else
+                        —
+                    #end
+                </td>
+                <td style="width: 5.8%; font-weight: bold;vertical-align: top;padding-bottom: 10pt;" class="value">
+                    #if($row.get('SUNDAYSHORT') != '')
+                        $row.get('SUNDAYSHORT')
+                    #else
+                        —
+                    #end
+                </td>
+                <td style="width: 5%; font-weight: bold;vertical-align: top;padding-bottom: 10pt;" class="value">
+                &nbsp;
+                </td>
+                <td style="width: 6%; font-weight: bold;vertical-align: top;padding-bottom: 10pt;" class="value">
+                &nbsp;
+                </td>
+                <td style="width: 6%; font-weight: bold;vertical-align: top;padding-bottom: 10pt;" class="value">
+                &nbsp;
+                </td>
+                <td style="width: 12%; font-weight: bold;vertical-align: top;padding-bottom: 10pt;" class="value">
+                &nbsp;
+                </td>
+            </tr>
+            #end
+        </table>
+
+        <table width="100%" cellspacing="0" cellpadding="0" style="margin-top: 15px; border-bottom: 1px solid #000;">
+            <tr>
+                <td width="100%"></td>
+            </tr>
+        </table>
+
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top: 10px;">
+            #foreach($row in $totalTable.rows.values())
+            <tr>
+                <td style="width: 29.5%; font-weight: bold;vertical-align: top;padding-bottom: 10pt;" class="value">
+                    #if($row.get('TOTAL') != '')
+                        $row.get('TOTAL')
+                    #else
+                        —
+                    #end
+                </td>
+                <td style="width: 35%; font-weight: bold;vertical-align: top;padding-bottom: 10pt;padding-left: 3pt" class="value">
+                    #if($row.get('WEEKLY') != '')
+                        $row.get('WEEKLY')
+                    #else
+                        —
+                    #end
+                </td>
+                <td style="width: 34.5; font-weight: bold;vertical-align: top;padding-bottom: 10pt;padding-left: 3pt" class="value">
+                    #if($row.get('MONTHLY') != '')
+                        $row.get('MONTHLY')
+                    #else
+                        —
+                    #end
+                </td>
+            </tr>
+            #end
+        </table>
+    </div>
+</div>
+</body>
+</html>
+
+

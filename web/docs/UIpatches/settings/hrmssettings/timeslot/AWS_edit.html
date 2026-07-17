@@ -1,0 +1,66 @@
+<div class="contentBar" style="padding:0 10px;margin-top:2px;">
+
+    <div id="click1" class="slideDown-box  group expand">
+        <h3 onclick="var myclick=document.getElementById('click1');if(myclick && myclick.className){;
+}{var cls=myclick.className;if(cls.indexOf('expand')>=0){cls=cls.replace('expand','');}else{cls+=' expand';}myclick.className=cls;}"
+            class="slideDown-title">
+            $$label:DETAILS$$
+        </h3>
+        <fieldset class="slideDown-content group labelLine">
+            <div class="halfSet-1 left">
+                <div class="row">$$label:NAME$$
+                    <div class="field">$$input:NAME$$</div>
+                </div>
+                <div class="row">$$label:DESCRIPTION$$
+                    <div class="field">$$input:DESCRIPTION$$</div>
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset class="slideDown-content group labelLine">
+            <div class="halfSet-1 left">
+                <div class="row">$$label:DATE_FIELD$$
+                    <div class="field">$$input:DATE_FIELD$$</div>
+                </div>
+                <div class="row">$$label:TYPE$$
+                    <div class="field">$$input:TYPE$$</div>
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset class="slideDown-content group labelLine">
+        <div class="field">$$input:TIME_ENTRY_FOR_EACH$$</div>
+            <div class="field">$$input:TIME_ENTRY$$</div>
+        </fieldset>
+        <fieldset class="slideDown-content group labelLine">
+            <div class="field">$$input:DATE_PERIOD$$</div>
+        </fieldset>
+        <fieldset class="slideDown-content group labelLine">
+            <div class="field">$$input:PERIOD$$</div>
+        </fieldset>
+    </div>
+
+    <div id="click2" class="slideDown-box  group expand">
+        <h3 onclick="var myclick=document.getElementById('click2');if(myclick && myclick.className){;
+}{var cls=myclick.className;if(cls.indexOf('expand')>=0){cls=cls.replace('expand','');}else{cls+=' expand';}myclick.className=cls;}"
+            class="slideDown-title">
+            $$label:ASSIGNEE$$
+        </h3>
+        <fieldset class="slideDown-content group labelLine">
+            <div class="row">$$label:ASSIGNEES$$
+                <div class="field">$$input:ASSIGNEES$$</div>
+            </div>
+        </fieldset>
+    </div>
+
+    <div id="timeSlotHistory" class="slideDown-box expand group">
+        <h3 onclick="var myclick=document.getElementById('timeSlotHistory');if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('expand')&gt;=0){cls=cls.replace('expand','');}else{cls+=' expand';}myclick.className=cls;}"
+            class="slideDown-title">$$label:TIMESLOT_HISTORY_LOG$$</h3>
+        <fieldset class="slideDown-content group nobrd">
+            <div class="reachFullWidth">
+                $$input:TIMESLOT_HISTORY_LOG$$
+            </div>
+        </fieldset>
+    </div>
+
+</div>

@@ -1,0 +1,627 @@
+/*
+* New UI 2: Group Box
+*/
+.group-box {
+  /*margin-bottom:40px;*/
+  padding-left: $padding-x-base;
+  padding-right: $padding-x-base;
+
+  .submitApproval__sorting &,
+  .section-box & {
+    margin-left: -$padding-x-base;
+    margin-right: -$padding-x-base;
+  }
+  .addresslabel { // Mirisoev invoice.scss
+    float: none;
+  }
+}
+
+.group-box:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.group-box.box-bg--3 {
+  color: white;
+  padding: 30px $padding-x-base 0px;
+}
+
+.group-box--side-out {
+  margin-left: -$padding-x-base;
+  margin-right: -$padding-x-base;
+}
+
+.group-box--no-padding {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.group-box--align-right .group-box__items {
+  justify-content: flex-end;
+}
+
+.group-box--align-right .group-box__item {
+  flex-grow: 0;
+}
+
+.group-box--multi-row .group-box__items {
+  flex-flow: wrap;
+}
+
+.group-box--multi-row .group-box__item {
+  flex-grow: 0;
+}
+
+.group-box.group-box--align-right:not(.group-box--united) .group-box__item:not(:last-child) {
+  margin-right: 0;
+  margin-left: 18px;
+}
+
+.group-box--equal-hw .group-box__items {
+  align-items: inherit;
+}
+
+.group-box--equal-hw .group-box__item {
+  flex-basis: 0;
+  flex-grow: 1;
+}
+
+.group-box.box-bg--3 .group-box__item-label * {
+  color: white;
+}
+
+.group-box.box-bg--3 input, .group-box.box-bg--3 a {
+  color: $color-accent-2;
+}
+
+.group-box--separate-top {
+  border-top: 1px solid $gray-new-light;
+  padding-top: 30px;
+}
+
+.group-box--stretched {
+
+}
+
+.group-box__title {
+  font-size: 13px;
+  text-transform: uppercase;
+  color: #8D9BAB;
+  font-weight: normal;
+  margin-bottom: 30px;
+}
+
+.group-box__items {
+  display: flex;
+  align-items: flex-start;
+}
+
+.group-box__item {
+  flex-grow: 1;
+  margin-bottom: rem(25px);
+}
+
+.group-box--width-free .group-box__items {
+  /*flex-flow: wrap;*/
+}
+
+.group-box--width-free .group-box__item {
+  flex-grow: 0;
+}
+
+.group-box__item--width-free {
+  flex-grow: 0;
+
+}
+
+.group-box__item--no-overflow {
+  overflow: hidden;
+}
+
+.group-box__item:not(.group-box__item--width-free) {
+  input[type=text],
+  input[type=password],
+  input[type=email],
+  input[type=url],
+  input[type=time],
+  input[type=date],
+  input[type=datetime-local],
+  input[type=tel],
+  input[type=number],
+  input[type=search],
+  .listbox-wrapper,
+  select {
+    &:not(.select-dropdown) {
+      width: 100% !important;
+    }
+  }
+}
+.group-box__item {
+  input[type=text],
+  input[type=password],
+  input[type=email],
+  input[type=url],
+  input[type=time],
+  input[type=date],
+  input[type=datetime-local],
+  input[type=tel],
+  input[type=number],
+  input[type=search] {
+    //box-sizing: border-box;
+    border: none;
+    color: $color-accent-2 !important;
+
+    &:not(.select-dropdown) {
+      padding-left: $control-padding-x;
+      padding-right: $control-padding-x;
+    }
+  }
+}
+
+
+.group-box__item .select-wrapper input,
+.group-box__item .listbox-wrapper,
+.group-box__item select {
+  box-sizing: border-box;
+  border: none;
+  color: $color-accent-2 !important;
+}
+
+.group-box__item--width-free input[type=text], .group-box__item--width-free input[type=password],
+.group-box__item--width-free input[type=email], .group-box__item--width-free input[type=url], .group-box__item--width-free input[type=time],
+.group-box__item--width-free input[type=date], .group-box__item--width-free input[type=datetime-local],
+.group-box__item--width-free input[type=tel], .group-box__item--width-free input[type=number], .group-box__item--width-free input[type=search],
+.group-box__item--width-free .listbox-wrapper,
+.group-box__item--width-free select {
+  //width: 250px;
+}
+
+.group-box--united .group-box__item input[type=text], .group-box--united .group-box__item input[type=password],
+.group-box--united .group-box__item input[type=email], .group-box--united .group-box__item input[type=url], .group-box--united .group-box__item input[type=time],
+.group-box--united .group-box__item input[type=date], .group-box--united .group-box__item input[type=datetime-local],
+.group-box--united .group-box__item input[type=tel], .group-box--united .group-box__item input[type=number], .group-box--united .group-box__item input[type=search],
+.group-box--united .group-box__item .listbox-wrapper,
+.group-box--united .group-box__item select {
+  border: none;
+  border-radius: 0;
+}
+
+.group-box--united .group-box__item:first-child input[type=text], .group-box--united .group-box__item:first-child input[type=password],
+.group-box--united .group-box__item:first-child input[type=email], .group-box--united .group-box__item:first-child input[type=url], .group-box--united .group-box__item:not(:first-child):not(:last-child) input[type=time],
+.group-box--united .group-box__item:first-child input[type=date], .group-box--united .group-box__item:first-child input[type=datetime-local],
+.group-box--united .group-box__item:first-child input[type=tel], .group-box--united .group-box__item:first-child input[type=number], .group-box--united .group-box__item:not(:first-child):not(:last-child) input[type=search],
+.group-box--united .group-box__item:first-child .listbox-wrapper,
+.group-box--united .group-box__item:first-child select {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.group-box--united .group-box__item:last-child input[type=text], .group-box--united .group-box__item:last-child input[type=password],
+.group-box--united .group-box__item:last-child input[type=email], .group-box--united .group-box__item:last-child input[type=url], .group-box--united .group-box__item:not(:first-child):not(:last-child) input[type=time],
+.group-box--united .group-box__item:last-child input[type=date], .group-box--united .group-box__item:last-child input[type=datetime-local],
+.group-box--united .group-box__item:last-child input[type=tel], .group-box--united .group-box__item:last-child input[type=number], .group-box--united .group-box__item:not(:first-child):not(:last-child) input[type=search],
+.group-box--united .group-box__item:last-child .listbox-wrapper,
+.group-box--united .group-box__item:last-child select {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.group-box__item-content {
+  border: $control-border-width solid $control-border-color;
+  //height: 3.26rem; -> force this bug: http://prntscr.com/ju5rys
+  min-height: $button-height;
+  //line-height: 2.92307rem;
+  color: $color-accent-2;
+  background-color: white;
+
+  .group-box--united & {
+    display: flex;
+    align-items: center;
+    border: 1px solid $gray-new-light;
+    border-right-width: 0;
+    border-left-width: 0;
+    margin-right: 0;
+    background: white;
+    > div {
+      flex-grow: 1; //https://prnt.sc/swdeye
+    }
+  }
+  &.center {
+    .group-box--united & {
+      justify-content: center;
+      .gwt-CheckBox {
+        margin-top: 0;
+      }
+    }
+  }
+  > table > tbody > tr > td {
+    vertical-align: middle !important;
+  }
+}
+.emptyTextbox {
+  &__wrapper {
+    position: relative;
+  }
+  &__sign {
+    position: absolute;
+    left: $control-padding-x;
+    right: $control-padding-x;
+    bottom: $button-padding-y;
+    border-bottom: 1px solid $control-border-color;
+  }
+  &:focus {
+    .emptyTextbox__sign {
+      display: none;
+    }
+  }
+}
+
+.group-box__item-content--no-border,
+.group-box--united .group-box__item-content--no-border {
+  border: none !important;
+  background: none;
+}
+
+.group-box:not(.group-box--united) .group-box__item-content {
+  border-radius: $radius-basePlus;
+}
+
+.group-box--united .group-box__item-content {
+
+}
+
+.group-box--united .group-box__item:not(:last-child) .group-box__item-content:after {
+  content: '';
+  display: block;
+  height: 2.30769rem;
+  border-right: 1px solid $gray-new-light;
+}
+
+.group-box:not(.group-box--united) .group-box__item:not(:last-child) {
+  margin-right: 18px;
+}
+
+.group-box.group-box--gap-large .group-box__item:not(:last-child) {
+  margin-right: 38px;
+}
+
+.group-box:not(.group-box--united) .group-box__item:last-child {
+
+}
+
+.group-box--united .group-box__item:first-child > .group-box__item-content {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-left-width: 1px;
+}
+
+.group-box--united .group-box__item:last-child > .group-box__item-content {
+  border-right-width: 1px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.group-box__item-content > .gwt-HTML, .group-box__item-content > .gwt-Label {
+  line-height: 2.92307rem;
+  padding: 0 10px;
+  display: block !important;
+  width: 100%;
+  color: $color-accent-2;
+}
+
+.group-box__item--width-free .group-box__item-content > .gwt-HTML,
+.group-box__item--width-free .group-box__item-content > .gwt-Label,
+.group-box__item--width-free .addressdata {
+  //width: 250px;
+}
+
+$group-box-item-margin-x: 18px;
+//*__group box item mod: split right__*/
+.group-box--united .group-box__item--split-right {
+  margin-right: $group-box-item-margin-x;
+}
+
+.group-box--united .group-box__item--split-right > .group-box__item-content {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-right: 1px solid $gray-new-light;
+}
+
+.group-box--united .group-box__item--split-right > .group-box__item-content:after {
+  content: none !important;
+}
+
+.group-box--united .group-box__item--split-right + .group-box__item > .group-box__item-content {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-left: 1px solid $gray-new-light;
+}
+
+.group-box--united .btn {
+  border: none;
+}
+
+.group-box--united .group-box__item--split-right + .group-box__item .btn {
+  border: none;
+}
+
+.group-box--united .group-box__item--split-right + .group-box__item .openPanel__btn-groups:first-child .btn:first-child {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.group-box .btn-group .btn {
+  ///*border-left: 1px solid #eceff3; TODO couldn't find implemented places*/
+}
+
+.group-box--united {
+  .group-box__item--split-right {
+    input[type=text], input[type=password], input[type=email], input[type=url],
+    input[type=date], input[type=datetime-local], input[type=tel], input[type=number],
+    .listbox-wrapper, select {
+      @include border-right-radius(5px);
+    }
+    input.disabledDataPicker {
+      @include border-radius(0);
+    }
+    + .group-box__item {
+      input[type=text], input[type=password], input[type=email], input[type=url],
+      input[type=date], input[type=datetime-local], input[type=tel], input[type=number],
+      .listbox-wrapper, select {
+        @include border-left-radius(5px);
+      }
+    }
+  }
+  .group-box__item:not(:first-child):not(:last-child) {
+    input[type="time"],
+    input[type="search"] {
+      @include border-radius(5px);
+    }
+  }
+}
+
+//.group-box--united .group-box__item--split-right input[type=text],
+//.group-box--united .group-box__item--split-right input[type=password],
+//.group-box--united .group-box__item--split-right input[type=email],
+//.group-box--united .group-box__item--split-right input[type=url],
+//.group-box--united .group-box__item:not(:first-child):not(:last-child) input[type=time],
+//.group-box--united .group-box__item--split-right input[type=date],
+//.group-box--united .group-box__item--split-right input[type=datetime-local],
+//.group-box--united .group-box__item--split-right input[type=tel],
+//.group-box--united .group-box__item--split-right input[type=number],
+//.group-box--united .group-box__item:not(:first-child):not(:last-child) input[type=search],
+//.group-box--united .group-box__item--split-right .listbox-wrapper,
+//.group-box--united .group-box__item--split-right select {
+//  border-top-right-radius: 5px;
+//  border-bottom-right-radius: 5px;
+//}
+
+//.group-box--united .group-box__item--split-right + .group-box__item input[type=text],
+//.group-box--united .group-box__item--split-right + .group-box__item input[type=password],
+//.group-box--united .group-box__item--split-right + .group-box__item input[type=email],
+//.group-box--united .group-box__item--split-right + .group-box__item input[type=url],
+//.group-box--united .group-box__item:not(:first-child):not(:last-child) input[type=time],
+//.group-box--united .group-box__item--split-right + .group-box__item input[type=date],
+//.group-box--united .group-box__item--split-right + .group-box__item input[type=datetime-local],
+//.group-box--united .group-box__item--split-right + .group-box__item input[type=tel],
+//.group-box--united .group-box__item--split-right + .group-box__item input[type=number],
+//.group-box--united .group-box__item:not(:first-child):not(:last-child) input[type=search],
+//.group-box--united .group-box__item--split-right + .group-box__item .listbox-wrapper,
+//.group-box--united .group-box__item--split-right + .group-box__item select {
+//  border-top-left-radius: 5px;
+//  border-bottom-left-radius: 5px;
+//}
+
+/*__group box item mod: double margin bottom*/
+.group-box__item--double-bottom-gap {
+  margin-bottom: rem(50px);
+}
+
+.group-box__item--double-bottom-gap .group-box__item-content {
+  position: relative;
+}
+
+.group-box__item-outside-component {
+  position: absolute;
+  bottom: rem(-25px);
+  height: rem(15px);
+  //padding: 0 5px;
+  //https://prnt.sc/swcx4e
+  padding-right: 5px;
+  white-space: nowrap;
+  color: #8D9BAB;
+  line-height: 1.5 !important;
+}
+
+.group-box__item .operPanel__btn-groups .btn:not(:last-child) {
+  :not(.rsrcUtlzLayout__filters) > .group-box & {
+    border-right: 1px solid $gray-new-light;
+  }
+}
+
+/*__date due date field__*/
+
+.group-box__item.invoice__date-due-date {
+  display: flex;
+  flex-grow: 0;
+
+  .group-box__item-content {
+  }
+}
+
+.group-box .invoice__date-due-date #gwt-debug-sales_invoice_view_termsAndDuePanel-1 {
+
+}
+
+#gwt-debug-sales_quote_viewtermsAndDuePanel-1 {
+
+}
+
+//GROUP-BOX ITEM
+//.group-box__item {
+//  .pageContent_reporting & {
+//    //&:last-child, don't use this selector due to following reason http://prntscr.com/kbbosg
+//    //&.export-item,
+//    &:last-child {
+//      &.export-item,
+//      &.group-box__item--width-free {
+//        margin-left: auto;
+//      }
+//    }
+//  }
+//  &.export-item {
+//    &.group-box__item--split-right {
+//    }
+//    + .group-box__item:last-child {
+//      margin-left: 0;
+//    }
+//  }
+//}
+
+// \GROUP-BOX ITEM
+
+.group-box .invoice__date-due-date .invoice__terms-due.dropdown-button {
+  position: relative;
+  display: block;
+  margin: 0 1px;
+  color: white;
+  background: #8D9BA8;
+  padding: 3px 10px;
+  border-radius: $radius-basePlus;
+  transition: background 0.1s ease-out 0s;
+
+  &:before {
+    content: '';
+    display: block !important;
+    position: absolute;
+    left: -2px;
+    top: -2px;
+    bottom: -3px;
+    border-left: 1px solid $gray-new-light;
+  }
+}
+
+.group-box .invoice__date-due-date #gwt-debug-sales_invoice_view_termsAndDuePanel-1 .dropdown-button + .dropdown-content {
+  margin-top: 15px;
+}
+
+.group-box .menu-bar .dropdown-content {
+  width: auto !important;
+  padding: 0 !important;
+
+  &--export {
+    margin-left: -70%;
+  }
+}
+
+.group-box .menu-bar .dropdown-content li > span {
+  font-size: 12px !important;
+}
+
+.group-box .menu-bar .dropdown-content li > a [class*="ficon--"] {
+  font-size: 1.4rem;
+}
+
+.group-box #gwt-debug-sales_invoice_view_termsAndDuePanel-1 a.dropdown-button:hover,
+.group-box #gwt-debug-sales_invoice_view_termsAndDuePanel-1 a.dropdown-button.active {
+  text-decoration: none;
+
+}
+
+.group-box__item .simpleGwt-ComboBox {
+  margin-top: 0 !important;
+  display: block !important;
+  width: 100%;
+}
+
+.group-box--united .invoice__date-due-date.group-box__item .invoice__date .group-box__item-content .gwt-TextBox {
+  max-width: 100px !important;
+}
+
+.group-box--united .invoice__date-due-date.group-box__item .invoice__date .group-box__item-content:after {
+  content: '';
+  width: 40px;
+  height: 1px;
+  border-right: 0;
+  border-bottom: 1px solid #8D9BA8;
+  margin: 0 3px;
+}
+
+.dates-range {
+  //position: relative;
+
+  .invoice__date .group-box__item-content:after {
+  }
+}
+
+.group-box--united .invoice__date,
+.group-box--united .invoice__due-date {
+  flex-grow: 0;
+}
+
+.group-box--united .invoice__date {
+  //width:130px;
+  width: 150px;
+}
+
+.group-box--united .data-output .invoice__date {
+  width: auto;
+}
+
+.group-box--united .invoice__due-date input[type='text']:not(.gwt-SuggestBox) {
+  width: 120px !important;
+}
+
+.group-box_item-component .gwt-SuggestBox {
+  line-height: 1.5;
+}
+
+.group-box--united .invoice__date-due-date:last-child .invoice__due-date .group-box__item-content {
+  border-right: 1px solid $gray-new-light;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.group-box--united .invoice__date-due-date:first-child .invoice__date .group-box__item-content {
+  border-left: 1px solid $gray-new-light;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+// LABELS
+.group-box__item-label,
+.wfmform__container .form-group__label {
+  @extend .form-label;
+}
+
+.group-box__item-label,
+.wfmform__container .form-group__label {
+  @include txtTruncate();
+}
+
+.group-box__item-label {
+  min-height: rem(15px); // need save space when there is no text above value
+}
+
+//.group-box__item-label > *,
+.invoice-block .group-box__item-label .label,
+.invoice-block .group-box__item-label .addresslabel {
+  @include form-label();
+}
+
+.group-box__item-label,
+.invoice-block .group-box__item-label .label,
+.invoice-block .group-box__item-label .addresslabel {
+  //text-indent: $control-padding-x;
+}
+
+.group-box__item-label > * {
+  //display: initial;
+}
+
+.group-box__item-label > table {
+}
+
+// \LABELS
+

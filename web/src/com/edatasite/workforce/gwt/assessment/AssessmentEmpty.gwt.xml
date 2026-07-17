@@ -1,0 +1,4 @@
+<module>
+    <inherits name='com.edatasite.workforce.gwt.employee.Employee'/>
+    <inherits name='com.edatasite.workforce.gwt.issue.Issue'/>
+</module>

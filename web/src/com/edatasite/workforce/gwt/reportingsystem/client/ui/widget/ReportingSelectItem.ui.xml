@@ -1,0 +1,17 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+    <g:HTMLPanel tag="label">
+
+        <!--<li class="half">-->
+        <!--<label>-->
+        <input type="checkbox" class="sr-only" ui:field="id"/>
+        <i class="fonticon-star-o checkbox_icon"></i>
+        <i class="fonticon-star-o checkbox_icon"></i>
+
+        <a href="javascript:;" ui:field="name">Profit and Loss</a>
+        <span ui:field="comingSoon" style="color:red; font-size:xx-small;vertical-align: top;">(coming soon)</span>
+        <!--</label>-->
+        <!--</li>-->
+
+    </g:HTMLPanel>
+</ui:UiBinder>

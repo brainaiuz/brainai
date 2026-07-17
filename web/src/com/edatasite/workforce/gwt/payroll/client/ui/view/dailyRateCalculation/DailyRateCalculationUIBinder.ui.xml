@@ -1,0 +1,36 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:w='urn:import:com.edatasite.workforce.gwt.core.client.ui.wfmButton.buttonUtils'
+             xmlns:form="urn:import:com.edatasite.workforce.gwt.core.client.ui.components.form">
+    <g:HTMLPanel addStyleNames="daily-rate-calulation">
+        <div class="panel-box panel-box--right">
+            <div class="panel-box__item">
+                <w:WfmButton2 ui:field="saveButton"/>
+            </div>
+        </div>
+        <ul class="collapsible--panels collapsible--arrows-left collapsible collapsible--gwt required">
+            <li class="slideDown-box group active">
+                <div class="collapsible-header active">
+                    <a style="cursor: pointer;">
+                        <span ui:field="titleLabel"/>
+                    </a>
+                </div>
+                <div class="collapsible-body">
+                    <div class="grid-row">
+                        <div class="col-4">
+                            <form:FormGroup ui:field="paymentForm"/>
+                            <form:FormGroup ui:field="paymentFormula"/>
+                        </div>
+                        <div class="col-4">
+                            <form:FormGroup ui:field="calendarForm"/>
+                        </div>
+                        <div class="col-4">
+                            <form:FormGroup ui:field="employerForm"/>
+                            <form:FormGroup ui:field="workDays"/>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </g:HTMLPanel>
+</ui:UiBinder>

@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../WebContent/mainStyles/new-ui/css/materialize.css">
+    <title>Attendance Report Table Example</title>
+</head>
+<body>
+<div class="content-box">
+    <div class="attendanceReport">
+        <div class="attendanceReport__table-wrapper">
+            <div class="attendanceReport__table-header">
+                <table id="attendanceTableBeta" class="attRepTbl" height="auto"
+                       cellspacing="" cellpadding="">
+                    <thead>
+                    <tr>
+                        <th rowspan="2" class="firstColCell stickerCell th-y--lg"><span
+                                class="frame_affix_top">Employee</span></th>
+                        <th class="stickerCell" colspan="3"><span class="frame_affix_top"
+                                                                  colspan="3"><span
+                                class="daySlot"><strong>Dec-01</strong><small>Mon</small></span></span>
+                        </th>
+                        <th class="stickerCell" colspan="3"><span class="frame_affix_top"
+                                                                  colspan="3"><span
+                                class="daySlot"><strong>Dec-02</strong><small>Tue</small></span></span>
+                        </th>
+                        <th class="stickerCell" colspan="3"><span class="frame_affix_top"
+                                                                  colspan="3"><span
+                                class="daySlot"><strong>Dec-03</strong><small>Wed</small></span></span>
+                        </th>
+                        <th class="stickerCell" colspan="3"><span class="frame_affix_top"
+                                                                  colspan="3"><span
+                                class="daySlot"><strong>Dec-04</strong><small>Thu</small></span></span>
+                        </th>
+                        <th class="stickerCell" colspan="3"><span class="frame_affix_top"
+                                                                  colspan="3"><span
+                                class="daySlot"><strong>Dec-05</strong><small>Fri</small></span></span>
+                        </th>
+                        <th class="stickerCell" colspan="3"><span class="frame_affix_top"
+                                                                  colspan="3"><span
+                                class="daySlot"><strong>Dec-06</strong><small>Sat</small></span></span>
+                        </th>
+                        <th class="stickerCell" colspan="3"><span class="frame_affix_top"
+                                                                  colspan="3"><span
+                                class="daySlot"><strong>Dec-07</strong><small>Sun</small></span></span>
+                        </th>
+                        <th class="stickerCell" colspan="3"><span class="frame_affix_top"
+                                                                  colspan="3"><span
+                                class="daySlot"><strong>Dec-08</strong><small>Mon</small></span></span>
+                        </th>
+                        <th class="stickerCell" colspan="3"><span class="frame_affix_top"
+                                                                  colspan="3"><span
+                                class="daySlot"><strong>Dec-09</strong><small>Tue</small></span></span>
+                        </th>
+                        <th class="stickerCell" colspan="3"><span class="frame_affix_top"
+                                                                  colspan="3"><span
+                                class="daySlot"><strong>Dec-10</strong><small>Wed</small></span></span>
+                        </th>
+                        <th class="stickerCell" colspan="3"><span class="frame_affix_top"
+                                                                  colspan="3"><span
+                                class="daySlot"><strong>Dec-11</strong><small>Thu</small></span></span>
+                        </th>
+                        <th class="stickerCell" colspan="3"><span class="frame_affix_top"
+                                                                  colspan="3"><span
+                                class="daySlot"><strong>Dec-12</strong><small>Fri</small></span></span>
+                        </th>
+                        <th class="stickerCell" colspan="3"><span class="frame_affix_top"
+                                                                  colspan="3"><span
+                                class="daySlot"><strong>Dec-13</strong><small>Sat</small></span></span>
+                        </th>
+                        <th class="stickerCell" colspan="3"><span class="frame_affix_top"
+                                                                  colspan="3"><span
+                                class="daySlot"><strong>Dec-14</strong><small>Sun</small></span></span>
+                        </th>
+                        <th class="stickerCell" colspan="3"><span class="frame_affix_top"
+                                                                  colspan="3"><span
+                                class="daySlot"><strong>Dec-15</strong><small>Mon</small></span></span>
+                        </th>
+                        <th class="stickerCell" colspan="3"><span class="frame_affix_top"
+                                                                  colspan="3"><span
+                                class="daySlot"><strong>Dec-16</strong><small>Tue</small></span></span>
+                        </th>
+                        <th class="stickerCell" colspan="3"><span class="frame_affix_top"
+                                                                  colspan="3"><span
+                                class="daySlot"><strong>Dec-17</strong><small>Wed</small></span></span>
+                        </th>
+                        <th class="stickerCell" colspan="3"><span class="frame_affix_top"
+                                                                  colspan="3"><span
+                                class="daySlot"><strong>Dec-18</strong><small>Thu</small></span></span>
+                        </th>
+                        <th class="stickerCell" colspan="3"><span class="frame_affix_top"
+                                                                  colspan="3"><span
+                                class="daySlot"><strong>Dec-19</strong><small>Fri</small></span></span>
+                        </th>
+                        <th class="stickerCell" colspan="3"><span class="frame_affix_top"
+                                                                  colspan="3"><span
+                                class="daySlot"><strong>Dec-20</strong><small>Sat</small></span></span>
+                        </th>
+                        <th class="stickerCell" colspan="3"><span class="frame_affix_top"
+                                                                  colspan="3"><span
+                                class="daySlot"><strong>Dec-21</strong><small>Sun</small></span></span>
+                        </th>
+                        <th class="stickerCell" colspan="3"><span class="frame_affix_top"
+                                                                  colspan="3"><span
+                                class="daySlot"><strong>Dec-22</strong><small>Mon</small></span></span>
+                        </th>
+                        <th class="stickerCell" colspan="3"><span class="frame_affix_top"
+                                                                  colspan="3"><span
+                                class="daySlot"><strong>Dec-23</strong><small>Tue</small></span></span>
+                        </th>
+                        <th class="stickerCell" colspan="3"><span class="frame_affix_top"
+                                                                  colspan="3"><span
+                                class="daySlot"><strong>Dec-24</strong><small>Wed</small></span></span>
+                        </th>
+                        <th class="stickerCell" colspan="3"><span class="frame_affix_top"
+                                                                  colspan="3"><span
+                                class="daySlot"><strong>Dec-25</strong><small>Thu</small></span></span>
+                        </th>
+                        <th class="stickerCell" colspan="3"><span class="frame_affix_top"
+                                                                  colspan="3"><span
+                                class="daySlot"><strong>Dec-26</strong><small>Fri</small></span></span>
+                        </th>
+                        <th class="stickerCell" colspan="3"><span class="frame_affix_top"
+                                                                  colspan="3"><span
+                                class="daySlot"><strong>Dec-27</strong><small>Sat</small></span></span>
+                        </th>
+                        <th class="stickerCell" colspan="3"><span class="frame_affix_top"
+                                                                  colspan="3"><span
+                                class="daySlot"><strong>Dec-28</strong><small>Sun</small></span></span>
+                        </th>
+                        <th class="stickerCell" colspan="3"><span class="frame_affix_top"
+                                                                  colspan="3"><span
+                                class="daySlot"><strong>Dec-29</strong><small>Mon</small></span></span>
+                        </th>
+                        <th class="stickerCell" colspan="3"><span class="frame_affix_top"
+                                                                  colspan="3"><span
+                                class="daySlot"><strong>Dec-30</strong><small>Tue</small></span></span>
+                        </th>
+                        <th class="stickerCell" colspan="3"><span class="frame_affix_top"
+                                                                  colspan="3"><span
+                                class="daySlot"><strong>Dec-31</strong><small>Wed</small></span></span>
+                        </th>
+                        <th rowspan="2" class="inhour-overtime stickerCell th-x--total">
+                            <span class="frame_affix_top">Normal Days</span></th>
+                        <th rowspan="2" class="inhour-overtime stickerCell th-x--total">
+                            <span class="frame_affix_top">Actual days</span></th>
+                        <th rowspan="2" class="inhour-overtime stickerCell th-x--total">
+                            <span class="frame_affix_top">Monthly Planned</span></th>
+                        <th rowspan="2" class="inhour-overtime stickerCell th-x--total">
+                            <span class="frame_affix_top">Monthly Actual</span></th>
+                    </tr>
+                    <tr>
+                        <th class="stickerCell"><span class="frame_affix_top">IN</span></th>
+                        <th class="stickerCell"><span class="frame_affix_top">OUT</span>
+                        </th>
+                        <th class="stickerCell"><span class="frame_affix_top">AT</span></th>
+                        <th class="stickerCell"><span class="frame_affix_top">IN</span></th>
+                        <th class="stickerCell"><span class="frame_affix_top">OUT</span>
+                        </th>
+                        <th class="stickerCell"><span class="frame_affix_top">AT</span></th>
+                        <th class="stickerCell"><span class="frame_affix_top">IN</span></th>
+                        <th class="stickerCell"><span class="frame_affix_top">OUT</span>
+                        </th>
+                        <th class="stickerCell"><span class="frame_affix_top">AT</span></th>
+                        <th class="stickerCell"><span class="frame_affix_top">IN</span></th>
+                        <th class="stickerCell"><span class="frame_affix_top">OUT</span>
+                        </th>
+                        <th class="stickerCell"><span class="frame_affix_top">AT</span></th>
+                        <th class="stickerCell"><span class="frame_affix_top">IN</span></th>
+                        <th class="stickerCell"><span class="frame_affix_top">OUT</span>
+                        </th>
+                        <th class="stickerCell"><span class="frame_affix_top">AT</span></th>
+                        <th class="stickerCell"><span class="frame_affix_top">IN</span></th>
+                        <th class="stickerCell"><span class="frame_affix_top">OUT</span>
+                        </th>
+                        <th class="stickerCell"><span class="frame_affix_top">AT</span></th>
+                        <th class="stickerCell"><span class="frame_affix_top">IN</span></th>
+                        <th class="stickerCell"><span class="frame_affix_top">OUT</span>
+                        </th>
+                        <th class="stickerCell"><span class="frame_affix_top">AT</span></th>
+                        <th class="stickerCell"><span class="frame_affix_top">IN</span></th>
+                        <th class="stickerCell"><span class="frame_affix_top">OUT</span>
+                        </th>
+                        <th class="stickerCell"><span class="frame_affix_top">AT</span></th>
+                        <th class="stickerCell"><span class="frame_affix_top">IN</span></th>
+                        <th class="stickerCell"><span class="frame_affix_top">OUT</span>
+                        </th>
+                        <th class="stickerCell"><span class="frame_affix_top">AT</span></th>
+                        <th class="stickerCell"><span class="frame_affix_top">IN</span></th>
+                        <th class="stickerCell"><span class="frame_affix_top">OUT</span>
+                        </th>
+                        <th class="stickerCell"><span class="frame_affix_top">AT</span></th>
+                        <th class="stickerCell"><span class="frame_affix_top">IN</span></th>
+                        <th class="stickerCell"><span class="frame_affix_top">OUT</span>
+                        </th>
+                        <th class="stickerCell"><span class="frame_affix_top">AT</span></th>
+                        <th class="stickerCell"><span class="frame_affix_top">IN</span></th>
+                        <th class="stickerCell"><span class="frame_affix_top">OUT</span>
+                        </th>
+                        <th class="stickerCell"><span class="frame_affix_top">AT</span></th>
+                        <th class="stickerCell"><span class="frame_affix_top">IN</span></th>
+                        <th class="stickerCell"><span class="frame_affix_top">OUT</span>
+                        </th>
+                        <th class="stickerCell"><span class="frame_affix_top">AT</span></th>
+                        <th class="stickerCell"><span class="frame_affix_top">IN</span></th>
+                        <th class="stickerCell"><span class="frame_affix_top">OUT</span>
+                        </th>
+                        <th class="stickerCell"><span class="frame_affix_top">AT</span></th>
+                        <th class="stickerCell"><span class="frame_affix_top">IN</span></th>
+                        <th class="stickerCell"><span class="frame_affix_top">OUT</span>
+                        </th>
+                        <th class="stickerCell"><span class="frame_affix_top">AT</span></th>
+                        <th class="stickerCell"><span class="frame_affix_top">IN</span></th>
+                        <th class="stickerCell"><span class="frame_affix_top">OUT</span>
+                        </th>
+                        <th class="stickerCell"><span class="frame_affix_top">AT</span></th>
+                        <th class="stickerCell"><span class="frame_affix_top">IN</span></th>
+                        <th class="stickerCell"><span class="frame_affix_top">OUT</span>
+                        </th>
+                        <th class="stickerCell"><span class="frame_affix_top">AT</span></th>
+                        <th class="stickerCell"><span class="frame_affix_top">IN</span></th>
+                        <th class="stickerCell"><span class="frame_affix_top">OUT</span>
+                        </th>
+                        <th class="stickerCell"><span class="frame_affix_top">AT</span></th>
+                        <th class="stickerCell"><span class="frame_affix_top">IN</span></th>
+                        <th class="stickerCell"><span class="frame_affix_top">OUT</span>
+                        </th>
+                        <th class="stickerCell"><span class="frame_affix_top">AT</span></th>
+                        <th class="stickerCell"><span class="frame_affix_top">IN</span></th>
+                        <th class="stickerCell"><span class="frame_affix_top">OUT</span>
+                        </th>
+                        <th class="stickerCell"><span class="frame_affix_top">AT</span></th>
+                        <th class="stickerCell"><span class="frame_affix_top">IN</span></th>
+                        <th class="stickerCell"><span class="frame_affix_top">OUT</span>
+                        </th>
+                        <th class="stickerCell"><span class="frame_affix_top">AT</span></th>
+                        <th class="stickerCell"><span class="frame_affix_top">IN</span></th>
+                        <th class="stickerCell"><span class="frame_affix_top">OUT</span>
+                        </th>
+                        <th class="stickerCell"><span class="frame_affix_top">AT</span></th>
+                        <th class="stickerCell"><span class="frame_affix_top">IN</span></th>
+                        <th class="stickerCell"><span class="frame_affix_top">OUT</span>
+                        </th>
+                        <th class="stickerCell"><span class="frame_affix_top">AT</span></th>
+                        <th class="stickerCell"><span class="frame_affix_top">IN</span></th>
+                        <th class="stickerCell"><span class="frame_affix_top">OUT</span>
+                        </th>
+                        <th class="stickerCell"><span class="frame_affix_top">AT</span></th>
+                        <th class="stickerCell"><span class="frame_affix_top">IN</span></th>
+                        <th class="stickerCell"><span class="frame_affix_top">OUT</span>
+                        </th>
+                        <th class="stickerCell"><span class="frame_affix_top">AT</span></th>
+                        <th class="stickerCell"><span class="frame_affix_top">IN</span></th>
+                        <th class="stickerCell"><span class="frame_affix_top">OUT</span>
+                        </th>
+                        <th class="stickerCell"><span class="frame_affix_top">AT</span></th>
+                        <th class="stickerCell"><span class="frame_affix_top">IN</span></th>
+                        <th class="stickerCell"><span class="frame_affix_top">OUT</span>
+                        </th>
+                        <th class="stickerCell"><span class="frame_affix_top">AT</span></th>
+                        <th class="stickerCell"><span class="frame_affix_top">IN</span></th>
+                        <th class="stickerCell"><span class="frame_affix_top">OUT</span>
+                        </th>
+                        <th class="stickerCell"><span class="frame_affix_top">AT</span></th>
+                        <th class="stickerCell"><span class="frame_affix_top">IN</span></th>
+                        <th class="stickerCell"><span class="frame_affix_top">OUT</span>
+                        </th>
+                        <th class="stickerCell"><span class="frame_affix_top">AT</span></th>
+                        <th class="stickerCell"><span class="frame_affix_top">IN</span></th>
+                        <th class="stickerCell"><span class="frame_affix_top">OUT</span>
+                        </th>
+                        <th class="stickerCell"><span class="frame_affix_top">AT</span></th>
+                        <th class="stickerCell"><span class="frame_affix_top">IN</span></th>
+                        <th class="stickerCell"><span class="frame_affix_top">OUT</span>
+                        </th>
+                        <th class="stickerCell"><span class="frame_affix_top">AT</span></th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+
+            <div class="attendanceReport__table-body">
+                <div class="gwt-HTML">
+                    <table id="attendanceTableBeta" class="attRepTbl" height="auto" cellspacing="0" cellpadding="0">
+                        <tbody id="attendanceReportScrollTableTbody">
+                        <tr>
+                            <td class="employeeNameCell th-y--lg"><a
+                                    href="#employeeProfile%7CemployeeProfileView/385"><span class="tblUserImg"
+                                                                                            style="background-image: url(&quot;https://wfmtest.s3.amazonaws.com/c65159/u385/2781acc7-2647-4bfb-8075-20c36c0425cc?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1764829758&amp;Signature=rm7qpJVZ8%2FNx9W6mNE3v7t7obFg%3D&quot;)"
+                                ></span>
+                                <dl class="attRepTbl__emplNm">
+                                    <dt>EMP0880</dt>
+                                    <dd>Sardorbek Abdulabbozov Abduvaxob o'g'li</dd>
+                                </dl>
+                                <dl class="attRepTbl_emlTltp">
+                                    <dt>Normal Days</dt>
+                                    <dd>22</dd>
+                                    <dt>Actual days</dt>
+                                    <dd>2</dd>
+                                    <dt>Monthly Planned</dt>
+                                    <dd>176</dd>
+                                    <dt>Monthly Actual</dt>
+                                    <dd>16</dd>
+                                </dl>
+                            </a></td>
+                            <td class="work-month-holiday-in-out"><a href="#">8</td>
+                            <td class="work-month-holiday-in-out"><a href="#">8</td>
+                            <td class="emphasis"><a href="#"><i style="opacity:0.5">8</i></td>
+                            <td class="emphasis"><a href="#"><i style="opacity:0.5">8</i></td>
+                            <td class="emphasis"><a href="#"><i style="opacity:0.5">8</i></td>
+                            <td class="month-weekend" style="cursor: pointer"><span
+                                    style="border-bottom: 2px solid #22DA93; cursor: pointer">DO</span>
+                            </td>
+                            <td class="month-weekend" style="cursor: pointer"><span
+                                    style="border-bottom: 2px solid #22DA93; cursor: pointer">DO</span>
+                            </td>
+                            <td></td>
+                            <td class="emphasis"><a href="#"><i style="opacity:0.5">8</i></td>
+                            <td class="emphasis"><a href="#"><i style="opacity:0.5">8</i></td>
+                            <td class="emphasis"><a href="#"><i style="opacity:0.5">8</i></td>
+                            <td class="emphasis"><a href="#"><i style="opacity:0.5">8</i></td>
+                            <td class="month-weekend" style="cursor: pointer"><span
+                                    style="border-bottom: 2px solid #22DA93; cursor: pointer">DO</span>
+                            </td>
+                            <td class="month-weekend" style="cursor: pointer"><span
+                                    style="border-bottom: 2px solid #22DA93; cursor: pointer">DO</span>
+                            </td>
+                            <td class="emphasis"><a href="#"><i style="opacity:0.5">8</i></td>
+                            <td class="emphasis"><a href="#"><i style="opacity:0.5">8</i></td>
+                            <td class="emphasis"><a href="#"><i style="opacity:0.5">8</i></td>
+                            <td class="emphasis"><a href="#"><i style="opacity:0.5">8</i></td>
+                            <td class="emphasis"><a href="#"><i style="opacity:0.5">8</i></td>
+                            <td class="month-weekend" style="cursor: pointer"><span
+                                    style="border-bottom: 2px solid #22DA93; cursor: pointer">DO</span>
+                            </td>
+                            <td class="month-weekend" style="cursor: pointer"><span
+                                    style="border-bottom: 2px solid #22DA93; cursor: pointer">DO</span>
+                            </td>
+                            <td class="emphasis"><a href="#"><i style="opacity:0.5">8</i></td>
+                            <td class="emphasis"><a href="#"><i style="opacity:0.5">8</i></td>
+                            <td class="emphasis"><a href="#"><i style="opacity:0.5">8</i></td>
+                            <td class="emphasis"><a href="#"><i style="opacity:0.5">8</i></td>
+                            <td class="emphasis"><a href="#"><i style="opacity:0.5">8</i></td>
+                            <td class="month-weekend" style="cursor: pointer"><span
+                                    style="border-bottom: 2px solid #22DA93; cursor: pointer">DO</span>
+                            </td>
+                            <td class="month-weekend" style="cursor: pointer"><span
+                                    style="border-bottom: 2px solid #22DA93; cursor: pointer">DO</span>
+                            </td>
+                            <td class="emphasis"><a href="#"><i style="opacity:0.5">8</i></td>
+                            <td class="emphasis"><a href="#"><i style="opacity:0.5">8</i></td>
+                            <td class="emphasis current-day"><a href="#"><i style="opacity:0.5">8</i>
+                            </td>
+                            <td class="inhour-overtime">
+                                22
+                            </td>
+                            <td class="inhour-overtime">
+                                2
+                            </td>
+                            <td class="inhour-overtime">
+                                176
+                            </td>
+                            <td class="inhour-overtime">
+                                16
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td class="employeeNameCell th-y--lg"><a
+                                    href="#employeeProfile%7CemployeeProfileView/342"><span class="tblUserImg"
+                                                                                            style="background-image: url(&quot;https://wfmtest.s3.amazonaws.com/c65159/u35/65167349-5071-4bdd-9543-62e4516f23dd?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1764829757&amp;Signature=uyq8ymuDGpST02jLU0V8u9DK5d8%3D&quot;)"
+                                ></span>
+                                <dl class="attRepTbl__emplNm">
+                                    <dt>EMP0842</dt>
+                                    <dd>Bexruz Ahmadov</dd>
+                                </dl>
+                                <dl class="attRepTbl_emlTltp">
+                                    <dt>Normal Days</dt>
+                                    <dd>14</dd>
+                                    <dt>Actual days</dt>
+                                    <dd>2</dd>
+                                    <dt>Monthly Planned</dt>
+                                    <dd>112</dd>
+                                    <dt>Monthly Actual</dt>
+                                    <dd>16</dd>
+                                </dl>
+                            </a></td>
+                            <td class="work-month-holiday-in-out"><a href="#">8</td>
+                            <td class="work-month-holiday-in-out"><a href="#">8</td>
+                            <td class="emphasis"><a href="#"><i style="opacity:0.5">8</i></td>
+                            <td class="month-weekend" style="cursor: pointer"><span
+                                    style="border-bottom: 2px solid #22DA93; cursor: pointer">DO</span>
+                            </td>
+                            <td class="month-weekend" style="cursor: pointer"><span
+                                    style="border-bottom: 2px solid #22DA93; cursor: pointer">DO</span>
+                            </td>
+                            <td class="month-weekend" style="cursor: pointer"><span
+                                    style="border-bottom: 2px solid #22DA93; cursor: pointer">DO</span>
+                            </td>
+                            <td class="month-weekend" style="cursor: pointer"><span
+                                    style="border-bottom: 2px solid #22DA93; cursor: pointer">DO</span>
+                            </td>
+                            <td></td>
+                            <td class="emphasis"><a href="#"><i style="opacity:0.5">8</i></td>
+                            <td class="emphasis"><a href="#"><i style="opacity:0.5">8</i></td>
+                            <td class="month-weekend" style="cursor: pointer"><span
+                                    style="border-bottom: 2px solid #22DA93; cursor: pointer">DO</span>
+                            </td>
+                            <td class="month-weekend" style="cursor: pointer"><span
+                                    style="border-bottom: 2px solid #22DA93; cursor: pointer">DO</span>
+                            </td>
+                            <td class="month-weekend" style="cursor: pointer"><span
+                                    style="border-bottom: 2px solid #22DA93; cursor: pointer">DO</span>
+                            </td>
+                            <td class="month-weekend" style="cursor: pointer"><span
+                                    style="border-bottom: 2px solid #22DA93; cursor: pointer">DO</span>
+                            </td>
+                            <td class="emphasis"><a href="#"><i style="opacity:0.5">8</i></td>
+                            <td class="emphasis"><a href="#"><i style="opacity:0.5">8</i></td>
+                            <td class="emphasis"><a href="#"><i style="opacity:0.5">8</i></td>
+                            <td class="month-weekend" style="cursor: pointer"><span
+                                    style="border-bottom: 2px solid #22DA93; cursor: pointer">DO</span>
+                            </td>
+                            <td class="month-weekend" style="cursor: pointer"><span
+                                    style="border-bottom: 2px solid #22DA93; cursor: pointer">DO</span>
+                            </td>
+                            <td class="month-weekend" style="cursor: pointer"><span
+                                    style="border-bottom: 2px solid #22DA93; cursor: pointer">DO</span>
+                            </td>
+                            <td class="month-weekend" style="cursor: pointer"><span
+                                    style="border-bottom: 2px solid #22DA93; cursor: pointer">DO</span>
+                            </td>
+                            <td class="emphasis"><a href="#"><i style="opacity:0.5">8</i></td>
+                            <td class="emphasis"><a href="#"><i style="opacity:0.5">8</i></td>
+                            <td class="emphasis"><a href="#"><i style="opacity:0.5">8</i></td>
+                            <td class="month-weekend" style="cursor: pointer"><span
+                                    style="border-bottom: 2px solid #22DA93; cursor: pointer">DO</span>
+                            </td>
+                            <td class="month-weekend" style="cursor: pointer"><span
+                                    style="border-bottom: 2px solid #22DA93; cursor: pointer">DO</span>
+                            </td>
+                            <td class="month-weekend" style="cursor: pointer"><span
+                                    style="border-bottom: 2px solid #22DA93; cursor: pointer">DO</span>
+                            </td>
+                            <td class="month-weekend" style="cursor: pointer"><span
+                                    style="border-bottom: 2px solid #22DA93; cursor: pointer">DO</span>
+                            </td>
+                            <td class="emphasis"><a href="#"><i style="opacity:0.5">8</i></td>
+                            <td class="emphasis"><a href="#"><i style="opacity:0.5">8</i></td>
+                            <td class="emphasis current-day"><a href="#"><i style="opacity:0.5">8</i>
+                            </td>
+                            <td class="inhour-overtime">14</td>
+                            <td class="inhour-overtime">2</td>
+                            <td class="inhour-overtime">112</td>
+                            <td class="inhour-overtime">16</td>
+                        </tr>
+
+
+                        <tr>
+                            <td class="employeeNameCell th-y--lg">
+                                <a href="#"><span class="tblUserImg" style="background-image: url(&quot;https://wfmtest.s3.amazonaws.com/c65159/u367/95746b74-e433-4120-a689-9aae3b4f5ebb?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1764829757&amp;Signature=QrlzsAExTDwjdVJINgnE0MmbDVg%3D&quot;)" ></span>
+                                <dl class="attRepTbl__emplNm">
+                                    <dt>EMP0863</dt>
+                                    <dd>Abdulhadiy Abdukhakimov</dd>
+                                </dl>
+                                <dl class="attRepTbl_emlTltp">
+                                    <dt>Normal Days</dt>
+                                    <dd>22</dd>
+                                    <dt>Actual days</dt>
+                                    <dd>0</dd>
+                                    <dt>Monthly Planned</dt>
+                                    <dd>176</dd>
+                                    <dt>Monthly Actual</dt>
+                                    <dd>00</dd>
+                                </dl>
+                            </a></td>
+                            <td class="with-lr has-actions">
+                                <span style="border-bottom: 2px solid #2C74DB; cursor: pointer">AL</span><span>8</span>
+                            </td>
+                            <td class="with-lr has-actions">
+                                <span style="border-bottom: 2px solid #2C74DB; cursor: pointer">AL</span><span>8</span>
+                            </td>
+                            <td class="emphasis"><a href="#"><i style="opacity:0.5">8</i></td>
+                            <td class="emphasis"><a href="#"><i style="opacity:0.5">8</i></td>
+                            <td class="emphasis"><a href="#"><i style="opacity:0.5">8</i></td>
+                            <td class="month-weekend" style="cursor: pointer"><span
+                                    style="border-bottom: 2px solid #22DA93; cursor: pointer">DO</span>
+                            </td>
+                            <td class="month-weekend" style="cursor: pointer"><span
+                                    style="border-bottom: 2px solid #22DA93; cursor: pointer">DO</span>
+                            </td>
+                            <td></td>
+                            <td class="emphasis"><a href="#"><i style="opacity:0.5">8</i></td>
+                            <td class="emphasis"><a href="#"><i style="opacity:0.5">8</i></td>
+                            <td class="emphasis"><a href="#"><i style="opacity:0.5">8</i></td>
+                            <td class="emphasis"><a href="#"><i style="opacity:0.5">8</i></td>
+                            <td class="month-weekend" style="cursor: pointer"><span
+                                    style="border-bottom: 2px solid #22DA93; cursor: pointer">DO</span>
+                            </td>
+                            <td class="month-weekend" style="cursor: pointer"><span
+                                    style="border-bottom: 2px solid #22DA93; cursor: pointer">DO</span>
+                            </td>
+                            <td class="emphasis"><a href="#"><i style="opacity:0.5">8</i></td>
+                            <td class="emphasis"><a href="#"><i style="opacity:0.5">8</i></td>
+                            <td class="emphasis"><a href="#"><i style="opacity:0.5">8</i></td>
+                            <td class="emphasis"><a href="#"><i style="opacity:0.5">8</i></td>
+                            <td class="emphasis"><a href="#"><i style="opacity:0.5">8</i></td>
+                            <td class="month-weekend" style="cursor: pointer"><span
+                                    style="border-bottom: 2px solid #22DA93; cursor: pointer">DO</span>
+                            </td>
+                            <td class="month-weekend" style="cursor: pointer"><span
+                                    style="border-bottom: 2px solid #22DA93; cursor: pointer">DO</span>
+                            </td>
+                            <td class="emphasis"><a href="#"><i style="opacity:0.5">8</i></td>
+                            <td class="emphasis"><a href="#"><i style="opacity:0.5">8</i></td>
+                            <td class="emphasis"><a href="#"><i style="opacity:0.5">8</i></td>
+                            <td class="emphasis"><a href="#"><i style="opacity:0.5">8</i></td>
+                            <td class="emphasis"><a href="#"><i style="opacity:0.5">8</i></td>
+                            <td class="month-weekend" style="cursor: pointer"><span
+                                    style="border-bottom: 2px solid #22DA93; cursor: pointer">DO</span>
+                            </td>
+                            <td class="month-weekend" style="cursor: pointer"><span
+                                    style="border-bottom: 2px solid #22DA93; cursor: pointer">DO</span>
+                            </td>
+                            <td class="emphasis"><a href="#"><i style="opacity:0.5">8</i></td>
+                            <td class="emphasis"><a href="#"><i style="opacity:0.5">8</i></td>
+                            <td class="emphasis current-day"><a href="#"><i style="opacity:0.5">8</i>
+                            </td>
+                            <td class="inhour-overtime">
+                                22
+                            </td>
+                            <td class="inhour-overtime">
+                                0
+                            </td>
+                            <td class="inhour-overtime">
+                                176
+                            </td>
+                            <td class="inhour-overtime">
+                                00
+                            </td>
+                        </tr>
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,107 @@
+.settings_permission-management *,
+.settings_permission-management {
+  transition: none !important;
+}
+
+.settings_permission-management {
+  $scrollHeight: 15px;
+
+  margin: 0 !important;
+  height: 100%;
+
+  //.gwt-DecoratedTabBar {}
+  > tbody > tr {
+    &:first-child {
+      @extend %fixed-content;
+      @include pageOpersPanel();
+      background-color: $color-base-contrast;
+    }
+    & + tr {
+      > td {
+        height: 100%;
+        > div {
+          height: 100%;
+          width: 100%;
+
+          //.com-google-gwt-user-cellview-client-DataGrid-Style-dataGridWidget
+          .cellBasedWidget-mod {
+            height: 100% !important; removed By Anvar Request
+
+            > div:last-child {
+              position: relative !important;
+              //height:  100% !important;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  > tbody {
+    //display: table;
+    //width: 100%;
+  }
+  //http://prntscr.com/myaoiz
+  .cellBasedWidget-mod {
+    thead th,
+    tbody > td {
+      padding: 0 5px;
+      font-size: 10px;
+    }
+    thead th {
+      font-weight: 500;
+      text-overflow: unset;
+      white-space: normal;
+      text-transform: none;
+    }
+  }
+  //SCROLLS
+  .com-google-gwt-user-client-ui-NativeHorizontalScrollbar_NativeHorizontalScrollbarUiBinderImpl_GenCss_style-viewport {}
+  .com-google-gwt-resources-client-CommonResources-InlineBlockStyle-inlineBlock {}
+
+  //scroll-x
+  div[style*="bottom: -6px"] {
+    padding-bottom: $scrollHeight;
+    bottom: -$scrollHeight !important;
+  }
+  div[style*="right: -6px"] {
+    padding-right: $scrollHeight;
+    right: -$scrollHeight !important;
+  }
+  div[style*="absolute"][style*="height: 6px"]:not([style*="width: 6px"]),
+  div[style*="absolute"][style*="width: 6px"]:not([style*="height: 6px"]) {
+    &:hover {
+      *::-webkit-scrollbar {
+        height: $scrollHeight !important;
+        width: $scrollHeight !important;
+      }
+    }
+  }
+  div[style*="absolute"][style*="height: 6px"]:not([style*="width: 6px"]) {
+    right: 3px !important;
+    height: $scrollHeight !important;
+
+    &:hover {
+      height: $scrollHeight !important;
+    }
+  }
+  div[style*="absolute"][style*="width: 6px"]:not([style*="height: 6px"]) {
+    bottom: 3px !important;
+    width: $scrollHeight !important;
+    &:hover {
+      //width: $scrollHeight !important;
+    }
+  }
+
+  div[style*="absolute"][style*="height: 6px;"][style*="width: 6px;"] {
+    //width: $scrollHeight !important;
+    //height: $scrollHeight !important;
+  }
+  .JSXRGFB-f-b {
+    background: rgba(0, 0, 0, 0.0588235) !important;
+  }
+
+  * {
+    //transition: none !important; is dublicated - line:2
+  }
+}

@@ -1,0 +1,212 @@
+/*!*DROPDOWN - ARROW ALL*/
+
+@keyframes arrowOpacity {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+[class*="dropdown-kit--"] {
+  position: relative;
+
+  .dropdown-content:not(.dropdown-content-tooltip) {
+    min-width: 100%;
+    width: auto !important;
+  }
+}
+
+//[class*="dropdown-kit--"] .dropdown-button,
+.dropdown-button {
+  position: relative;
+}
+
+[class*="dropdown-kit--arrow--"] {
+  > .dropdown-button {
+    &:before {
+      //z-index: 100; //same with .dropdown-content //May overlap the .dropdown-content > icons
+      //  //z-index: 1030; // to override the dropdown content if .dropdown-content will be higher > see dropdwon.scss
+    }
+  }
+}
+
+/*DROPDOWN - CONTENT > CONTENT*/
+.dropdown-kit--arrow--below, .dropdown-kit--arrow--below--reverse {
+  .dropdown-content .dropdown-content {
+    top: 0 !important;
+    margin-top: 0 !important;
+  }
+}
+
+/*DROPDOWN - ARROW BELOW*/
+.dropdown-kit--arrow--top,
+.dropdown-kit--arrow--below {
+  .dropdown-content-tooltip {
+    margin-left: 20px;
+    .gts-trace & {
+      margin-left: 0;
+    }
+  }
+
+  .gts-trace > & {
+    &:last-child {
+      .dropdown-content-tooltip {
+        margin-left: -20px; //https://prnt.sc/q49jdf
+        white-space: normal;
+      }
+    }
+  }
+
+  &:not(.dropdown-kit--arrow--below--reverse) {
+    > .dropdown-button {
+      @include dropdown-arrow-top();
+      &:before, &:after {
+        top: 90%;
+      }
+      &.active {
+        &:before, &:after {
+          top: 100%;
+          left: 50%;
+        }
+      }
+
+      .main-dir__documents & {
+        &:before, &:after {
+          //margin-top: -$triangleSize;
+        }
+      }
+    }
+
+    > .dropdown-button > .dropdown-content,
+    > .dropdown-content {//https://i.imgur.com/ORFcBZP.png
+      top: 100% !important;
+      margin-top: $triangleSpace; //https://i.imgur.com/ORFcBZP.png
+      .group-box__item-content & {
+        //margin-top: calc(#{$triangleSizeInner} - #{$control-border-width}); //https://i.imgur.com/LYsJ9nU.png
+      }
+
+      .wg_canban__user-notes & {
+        //margin-top: 16px;
+      }
+      .main-dir__documents & {
+        //margin-top: 10px;
+      }
+      .main-directories__sublink > & {
+        //margin-top: 0; //https://prnt.sc/13b74mv //ToDo Check it
+      }
+    }
+  }
+}
+/* \ DROPDOWN - ARROW BELOW*/
+
+/*  DROPDOWN - ARROW TOP*/
+.dropdown-kit--arrow--bottom, .dropdown-kit--arrow--below--reverse  {
+  > .dropdown-button {
+      @include dropdown-arrow-bottom();
+    &:before, &:after {
+      bottom: 90%;
+      left: 50%;
+    }
+    &.active {
+      &:before, &:after {
+        bottom: 100%;
+      }
+    }
+  }
+  .dropdown-content {
+    top: auto !important;
+    bottom: 100%;
+    margin-bottom: $triangleSpace;
+  }
+}
+.dropdown-kit--arrow--below--reverse {
+  > .dropdown-button {
+    &:before, &:after {
+      .wg_canban__user-notes & { //https://prnt.sc/rbgajn
+        //bottom: auto !important;
+        //top: -10px;
+      }
+    }
+  }
+
+  > .dropdown-button > .dropdown-content,
+  > .dropdown-content {
+    top: auto !important; //inline style ovveride
+    bottom: 100% !important;
+    margin-bottom: $triangleSpace;
+
+    .wg_canban__user-notes & {
+      //margin-bottom: 10px;
+    }
+  }
+}
+/* \ DROPDOWN - ARROW TOP*/
+
+
+
+
+/*  DROPDOWN - ARROW TOP*/
+.dropdown-kit--arrow--top {
+  > .dropdown-button {
+    &:before, &:after {
+      left: 50%;
+    }
+  }
+}
+.dropdown-kit--arrow--right {
+  .dropdown-button {
+    @include dropdown-arrow-right();
+    &:before, &:after {
+      right: 100%;
+    }
+    &:before {
+    }
+    &:after {
+    }
+  }
+
+  .dropdown-content {
+    right: 100% !important;
+    margin-right: $triangleSpace;
+  }
+
+  .dropdown-content-tooltip {
+    top: -30px !important;
+    right: 100% !important;
+    left: auto !important;
+    margin-right: $triangleSize;
+  }
+}
+
+/* DROPDOWN - ARROW LEFT */
+.dropdown-kit--arrow--left {
+  .dropdown-button {
+    @include dropdown-arrow-left();
+    &:before, &:after {
+      top: 50%;
+      left: 100%;
+      margin-top: -$triangleSpace;
+    }
+    &:before {
+    }
+    &:after {
+    }
+  }
+  .dropdown-content {
+    top: -30px !important;
+    left: 100% !important;
+    margin-left: $triangleSpace;
+  }
+}
+
+/* \ DROPDOWN - ARROW RIGHT*/
+
+.dropdown-kit--edge-in .dropdown-content {
+  left: 0;
+  right: 0;
+  width: auto !important;
+  min-width: inherit;
+}

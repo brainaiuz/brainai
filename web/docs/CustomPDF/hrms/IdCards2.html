@@ -1,0 +1,44 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style type="text/css">
+        @page {
+            size: 8.71cm 5.46cm;
+            margin: 0 0 0 0;
+        }
+
+        * html {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body style="margin:0;padding:0;">
+<img src="http://localhost:8080/customisation/tc/images/2-1.png" alt=""
+     style="width:331px;margin:0 0 0 0;padding:0; float:left;"/>
+#set($rows = $itextGenericPdfData.customData.get('EMPLOYEE_PROFILE').rows)
+<table style="margin-top:17px;margin-left:19px;">
+    <tr>
+        <td width="77%"></td>
+        <td width="23%">
+            <img src="$rows.get('EMPLOYEE_PHOTO').get('VALUE')"  alt="" style="width: 67px;height:70px;"/>
+        </td>
+    </tr>
+</table>
+<table style="margin-top:37px;margin-left:12px;">
+    <tr>
+        <td align="left">
+            <p style="font-size: 8px">
+
+                $rows.get('EMPLOYEE_NAME').get('NAME') $rows.get('EMPLOYEE_NAME').get('VALUE') <br/>
+                $rows.get('DOB').get('NAME') $rows.get('DOB').get('VALUE') <br/>
+                $rows.get('EMPLOYEE_NUMBER').get('NAME') $rows.get('EMPLOYEE_NUMBER').get('VALUE') <br/>
+                $rows.get('COMPANY_NAME').get('NAME') $rows.get('COMPANY_NAME').get('VALUE') <br/>
+            </p>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

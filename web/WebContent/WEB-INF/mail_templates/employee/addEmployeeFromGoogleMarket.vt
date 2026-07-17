@@ -1,0 +1,11 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head><body><p>#if(!$user.lastName or $user.lastName=='')Dear $user.firstName, #else Dear $user.firstName $user.lastName,#end</p><br />
+<p>Please be informed that $admin.firstName $admin.lastName has created a user account for you.</p>
+<p>In order to activate and login to your account please <a href="$HOST/mp/openid?hd=$googleappsdomain">click here</a><br />
+(or copy/paste and go to following link in your  web browser: $HOST/mp/openid?hd=$googleappsdomain</p>
+
+
+<p>Thank you for your interest in our product.</p>
+
+</body></html>

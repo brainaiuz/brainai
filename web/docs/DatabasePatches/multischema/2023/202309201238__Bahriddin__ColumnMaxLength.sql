@@ -1,0 +1,3 @@
+ALTER TABLE "anv".TaskComment
+ALTER
+COLUMN text TYPE VARCHAR(2000);

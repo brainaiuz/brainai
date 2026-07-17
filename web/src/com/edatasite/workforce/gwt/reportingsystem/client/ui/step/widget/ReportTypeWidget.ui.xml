@@ -1,0 +1,41 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:c='urn:import:com.edatasite.workforce.gwt.core.client.ui.components'
+             xmlns:mh="urn:import:gwt.material.design.client.ui.html">
+    <g:HTMLPanel styleName="tab-content padd_box workarea_head_tabs_content nav_tabs_light_content textPanel clearfix">
+        <div class="" id="customReport_tab_1">
+            <div class="grid-row">
+                <div class="col-4">
+                    <div class="customReport_tab_1__option">
+                        <mh:Div styleName="customReport_tab_1__option-table customReport_tab_1__option-table--tabular" ui:field="tabularBlock">
+                            <mh:Div></mh:Div>
+                            <mh:Div></mh:Div>
+                            <mh:Div></mh:Div>
+                            <mh:Div></mh:Div>
+                            <mh:Div></mh:Div>
+                        </mh:Div>
+                        <div class="customReport_tab_1__option-info">
+                            <c:KpiRadioButton name="reportType" ui:field="tabularRadioButton"></c:KpiRadioButton>
+                            <mh:Paragraph ui:field="tabularReportsInfo"></mh:Paragraph>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="customReport_tab_1__option">
+                        <mh:Div styleName="customReport_tab_1__option-table customReport_tab_1__option-table--summary" ui:field="summaryBlock">
+                            <mh:Div></mh:Div>
+                            <mh:Div></mh:Div>
+                            <mh:Div></mh:Div>
+                            <mh:Div></mh:Div>
+                            <mh:Div></mh:Div>
+                        </mh:Div>
+                        <div class="customReport_tab_1__option-info">
+                            <c:KpiRadioButton name="reportType" ui:field="summaryRadioButton"></c:KpiRadioButton>
+                            <mh:Paragraph ui:field="summaryReportsInfo"></mh:Paragraph>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </g:HTMLPanel>
+</ui:UiBinder>

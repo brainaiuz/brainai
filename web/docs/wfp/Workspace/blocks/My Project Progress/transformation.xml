@@ -1,0 +1,21 @@
+<tr class="odd">
+    <th><a target="_blank" href ='/ProjectManagement.html?link=$rowItem.encryptURL("id","project|summary/")' title="$rowItem.getStringValue("projectname")">$rowItem.getValueLimit("projectname",20)</a>
+</th>
+
+<td>
+$rowItem.getValue("managername")
+</td>
+<td>
+$rowItem.getValue("notComplatedTaskCount") of $rowItem.getValue("taskCount")
+</td>
+
+<td class="date">
+<em class="progBar">
+    <span style="width:$rowItem.getValue("complete")">
+</span>
+<span>$rowItem.getValue("complete")</span>
+</em></td>
+
+
+
+        </tr>

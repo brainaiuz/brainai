@@ -1,0 +1,1 @@
+update "anv".emailtemplate SET messageHtml = replace(messageHtml, 'Pelase', 'Please') where categoryid = (select id from "anv".reference where code =  'EXPENSE_CLAIM_CATEGORY_SUBMIT') and subject like '%Expense Claim&';

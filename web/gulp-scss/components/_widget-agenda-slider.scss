@@ -1,0 +1,188 @@
+//AGENDA WIDGET
+.cat-label,
+.widget-row__icon i {
+  .widget--agenda .widget-row--call & {
+    color: $color-humans;
+  }
+  .widget--agenda .widget-row--meeting & {
+    color: $color-cat--heigh;
+  }
+  .widget--agenda .widget-row--task & {
+    color: $color-base-2;
+  }
+}
+
+
+// AGENDA NAVIGATION SLIDER
+.agenda-nav {
+  //position: relative;
+  //z-index: 3;
+  display: flex;
+  justify-content: space-between;
+  //height: 150px;
+
+  &__days {
+    display: flex;
+
+    //&.slide-next,
+    //&.slide-prev {
+    //  transition: transform ease 1s;
+    //}
+    //&.slide-next {
+    //  transform: translateX(-100%);
+    //}
+    //&.slide-prev {
+    //  transform: translateX(0);
+    //}
+
+    &-holder {
+    flex: 0 0 88%;
+    overflow: hidden;
+    }
+  }
+  &__actions {
+    flex: 0 0 12%;
+    display: flex;
+
+    > * {
+      flex: 0 0 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-left: 1px solid $color-base-0;
+      color: $color-base-2;
+
+      i {
+        font-size: 24px;
+      }
+      &:hover {
+        background-color: $color-base-0;
+      }
+      &.slick-disabled {
+        color: $color-base-0-contrast;
+        cursor: default !important;
+        background-color: transparent;
+      }
+    }
+
+  }
+
+}
+.agenda-nav__action-prev {}
+
+.agenda-nav__action-next {}
+
+.agenda-day {
+  @include widget-row-hover();
+  position: relative;
+  flex: 0 0 10%;
+  padding: 16px 0 10px;
+  text-align: center;
+  cursor: pointer;
+  box-sizing: border-box;
+  outline: none;
+
+  + .agenda-day {
+    //border-left: 1px solid $color-base-0;
+  }
+
+  /* instead of border-left: 1px solid $color-base-0 for ' + .agenda-day'
+    because slick slider cannot count total width with border */
+  + .agenda-day:after {
+    background-color: $color-base-0;
+    width: 1px;
+    position: absolute;
+    content: '';
+    left: 0;
+    top: 0px;
+    bottom: 0px;
+  }
+
+  > * {
+    position: relative;
+    z-index: 2;
+  }
+
+  &__marks {
+    margin-bottom: 12px;
+    line-height: 1;
+    text-align: center;
+    height: 1rem;
+    i {
+      display: inline-block;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      + i {
+        margin-left: 2px;
+      }
+    }
+  }
+  &__sign {
+
+  }
+  &__number {
+
+  }
+  &--current {
+    font-weight: bold;
+    &:before {
+      content: 'TODAY';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-weight: normal;
+      font-size: 8px;
+      line-height: 16px;
+      letter-spacing: 1px;
+      background-color: #c1c8d0;
+      color: #fff;
+    }
+  }
+  &--off {
+    opacity: 0.6;
+  }
+  &.active {
+    &:before {
+      //content: '';
+      //position: absolute;
+      //z-index: 1;
+      //top: 0;
+      //bottom: 0;
+      //left: 0;
+      //right: 0;
+      //background-color: #fff;
+    }
+    &:after {
+      //content: '';
+      //position: absolute;
+      //z-index: 0;
+      //top: 100%;
+      //left: 50%;
+      //margin-top: -8px;
+      //margin-left: -8px;
+      //height: 16px;
+      //width: 16px;
+      //border: 1px solid #dbe0e6;
+      //transform: rotate(45deg);
+      //background-color: #fff;
+      //@include panel-heading-box-shadow();
+    }
+  }
+}
+
+.todo-mark-- {
+  &call {
+    background-color: $color-humans;
+  }
+  &meeting {
+    background-color: $color-cat--heigh;
+  }
+  &task {
+    background-color: $color-accent-2;
+  }
+}
+
+// \AGENDA NAVIGATION SLIDER

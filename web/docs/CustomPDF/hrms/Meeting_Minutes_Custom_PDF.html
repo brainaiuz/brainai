@@ -1,0 +1,315 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style type="text/css" >
+        @page {
+            size: 8.3in 11.7in;
+            margin:160px 50px 140px 50px;
+            padding:0;
+            @top-center {
+                content: element(header);
+            }
+            @bottom-left {
+                content: element(footer);
+            }
+        }
+        #header {
+            margin:20px 10px;
+            display: block;
+            position: running(header);
+        }
+        #footer{
+            margin:20px 10px;
+            display: block;
+            position: running(footer);
+        }
+        #pagenumber:before {
+            content: counter(page);
+        }
+
+        #pagecount:before {
+            content: counter(pages);
+        }
+        .tableBorder{
+            border-top:0.5px solid #000000;
+            border-left:0.5px solid #000000;
+        }
+        .tableBorder td{
+            border-right:0.5px solid #000000;
+            border-bottom:0.5px solid #000000;
+        }
+        body{
+            font-family:Arial;
+        }
+        th{
+            font-family:Arial;
+            font-weight:lighter;
+        }
+        th,td{
+            padding:5px;
+        }
+
+        b,td,span,caption,hr,h1,h2,h3,h4,h5{font-family:Arial;}
+        table {
+            -fs-table-paginate: paginate;
+        }
+        p {
+            margin-top:-10px;
+        }
+        .borderLine1 {
+            border-right: 0.5px solid black;
+            border-left: 0.5px solid black;
+            padding:1px;
+            font-size: 10px;
+        }
+        .borderLineBottom {
+            border-right: 0.5px solid black;
+            border-left: 0.5px solid black;
+            border-bottom: 0.5px solid black;
+            padding: 0;
+        }
+        .Reply td:nth-child(2){
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+#set($meetingTitleData = $itextGenericPdfData.customData.getEntry('CUSTOM_DATA').getValue().rows)
+
+#set($meetingNumber=$itextGenericPdfData.customData.get('CUSTOM_DATA').header.get('MEETING_ID'))
+#set($meetingApologies=$itextGenericPdfData.customData.get('CUSTOM_DATA').header.get('MEETING_APOLOGIES'))
+#set($meetingProject=$itextGenericPdfData.customData.get('CUSTOM_DATA').header.get('MEETING_PROJECT'))
+#set($meetingSubject=$itextGenericPdfData.customData.get('CUSTOM_DATA').header.get('MEETING_SUBJECT'))
+
+#set($meetingPlace=$itextGenericPdfData.customData.get('CUSTOM_DATA').header.get('MEETING_PLACE'))
+#set($meetingTime=$itextGenericPdfData.customData.get('CUSTOM_DATA').header.get('MEETING_DATE_TIME'))
+#set($meetingMinutesBy=$itextGenericPdfData.customData.get('CUSTOM_DATA').header.get('MEETING_MINUTES_BY'))
+#set($meetingPresent=$itextGenericPdfData.customData.get('CUSTOM_DATA').header.get('MEETING_PRESENTS'))
+#set($meetingRepresenting=$itextGenericPdfData.customData.get('CUSTOM_DATA').header.get('MEETING_REPRESENTING'))
+#set($meetingTitle=$itextGenericPdfData.customData.get('CUSTOM_DATA').header.get('MEETING_TITLE'))
+
+#set($meetingNotes=$itextGenericPdfData.customData.get('CUSTOM_DATA').header.get('MEETING_NOTE'))
+#set($nextMeeting=$itextGenericPdfData.customData.get('CUSTOM_DATA').header.get('NEXT_MEETING'))
+
+
+#set($customFields = $itextGenericPdfData.customData.get('CUSTOM_DATA').customFields.get("HRMS"))
+#set($projectName = $customFields.get("Project Name").get("COLUMN_VALUE"))
+#set($distribution = $customFields.get("Distribution").get("COLUMN_VALUE"))
+
+<div id="header">
+    #set($companyName = $itextGenericPdfData.companyData.companyName)
+    #set($companyEmail = $itextGenericPdfData.companyData.companyEmail)
+
+    <table width="100%">
+        <tr>
+            <td width="50%" style="text-align:left; font: 700 20px Arial;">
+                $companyName
+            </td>
+
+            <td width="50%" style="font:16px bold; padding:0; text-align: right; ">
+                Minutes of Meeting
+            </td>
+        </tr>
+        <tr><td colspan="2"></td></tr>
+        <tr>
+            <td width="50%" style="text-align:left; font: 700 20px Arial;">
+
+            </td>
+            <td width="50%" style="font-size:13px; padding:5px; text-align: right;">
+                Sheet <span id="pagenumber"/>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div id="footer">
+    <table width="100%" style="font-size:11px">
+        <tr>
+            <td width="50%" style="text-align: left; margin-left: 20px; font-size: 12px;">
+                AL-Naseem Development
+            </td>
+            <td width="50%" style="text-align: right; margin-right: 20px; font-size: 12px;">
+                MOM-$meetingNumber
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+
+<div style="font-size:14px">
+
+
+
+    <!-- start birinchi table Meeting Minutes Title-->
+    <table cellspacing="0" cellpadding="0" align="center" style="width:100%; margin-top: -60px;">
+        <tr>
+            <td colspan="4"  style="width:100%; border: 0; border-bottom: 0.5px solid black;">
+                $meetingTitle
+            </td>
+        </tr>
+        <tr>
+            <td  style="width:15%; border: 0; border-bottom: 0.5px solid black; text-align: left; font-weight: 600;">
+                Project:
+            </td>
+            <td style="width:35%; border: 0; border-bottom: 0.5px solid black; text-align: left;">
+                $meetingProject
+            </td>
+            <td style="width:15%; border: 0; border-bottom: 0.5px solid black; text-align: left; font-weight: 600;">
+                Subject:
+            </td>
+            <td style="width:35%; border: 0; border-bottom: 0.5px solid black; text-align: left;">
+                $meetingSubject
+            </td>
+        </tr>
+        <tr>
+            <td style=" width:15%; border: 0; border-bottom: 0.5px solid black; text-align: left; font-weight: 600;">
+                Date &amp; Time:
+            </td>
+            <td style="width:35%; border: 0; border-bottom: 0.5px solid black; text-align: left;">
+                $meetingTime
+            </td>
+            <td style="width:15%; border: 0; border-bottom: 0.5px solid black; text-align: left; font-weight: 600;">
+                Meeting NO:
+            </td>
+            <td style="width:35%; border: 0; border-bottom: 0.5px solid black; text-align: left;">
+                $meetingNumber
+            </td>
+        </tr>
+        <tr>
+            <td style="width:15%; border: 0; border-bottom: 0.5px solid black; text-align: left; font-weight: 600;">
+                Meeting Place:
+            </td>
+            <td style="width:35%; border: 0; border-bottom: 0.5px solid black; text-align: left;">
+                $meetingPlace
+            </td>
+            <td style="width:15%; border: 0; border-bottom: 0.5px solid black; text-align: left; font-weight: 600;">
+                Minutes By:
+            </td>
+            <td style="width:35%; border: 0; border-bottom: 0.5px solid black; text-align: left;">
+                $meetingMinutesBy
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="width:50%; border: 0; text-align: left;">
+                <b style="display: block; margin-bottom:5px;">Present:</b><br/>
+                $meetingPresent
+            </td>
+            <td colspan="2" style="width:50%; border: 0; text-align: left; margin-top: -5px;">
+                <b style="display: block; margin-bottom:5px;">Representing:</b><br/>
+                $meetingRepresenting
+            </td>
+        </tr>
+
+        <tr>
+            <td style="width:15%; border: 0; text-align: left;">
+                <b>Agenda Topic:</b><br/>
+            </td>
+            <td colspan="3" style="width:85%; border: 0; text-align: left; margin-top: -5px;">
+                $itextGenericPdfData.customData.get('CUSTOM_DATA').name
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="4" style="width:100%; border: 0; text-align: left; margin-top:50px;">
+                Apologies:
+            </td>
+        </tr>
+        <tr style="height: 60px;">
+            <td colspan="4" style="width:100%; border: 0; border-bottom: 0.5px solid black; text-align: left; text-wrap: normal;">
+                $meetingApologies
+            </td>
+        </tr>
+        <tr>
+            <td style="width:20%; border: 0; border-bottom: 0.5px solid black; text-align: left;">
+                <b>Next Meeting:</b>
+            </td>
+            <td colspan="3" style="width:80%; border: 0; border-bottom: 0.5px solid black; text-align: left;">
+                #if($nextMeeting!="")
+                $nextMeeting
+                #end
+            </td>
+        </tr>
+        <tr>
+            <td style="width:20%; border: 0; text-align: left;">
+                <b>Distribution:</b>
+            </td>
+            <td colspan="3" style="width:80%; border: 0; text-align: left;">
+
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4" style="width:100%; border: 0; text-align: left; padding: 7px;">
+                #if($distribution!='')
+                $distribution
+                #end
+            </td>
+        </tr>
+        <tr>
+            <td style="width:35%; border: 0; text-align: left;">
+                Signed for The Team
+            </td>
+            <td colspan="3" style="width:65%; border: 0; text-align: left;">
+                ................................................................
+            </td>
+        </tr>
+    </table>
+
+    <table cellspacing="0" cellpadding="0" align="center" style="width:100%; margin-top: 60px;">
+        <tr>
+            <td style="font-size: 12px; text-align: left; ">
+                NOTE TO RECIPIENTS:
+            </td>
+        </tr>
+        <tr>
+            <td style="font-size: 12px; text-align: match-parent; height:auto;">
+                $meetingNotes
+            </td>
+        </tr>
+    </table>
+    <!-- end birinchi table Meeting Minutes title-->
+    <!-- start ikkinchi table Meeting Minutes Table Data-->
+
+    <table border="0.5px" width="100%" cellspacing="0" cellpadding="10" align="center" style="page-break-before: always;">
+        <thead>
+        <tr style="font-size: 14px;">
+            <th width="15%" style="font-weight: 600; text-align: center;">Sr No.</th>
+            <th width="40%"  style="font-weight: 600; text-align: center;">MINUTE</th>
+            <th width="15%"  style="font-weight: 600; text-align: center;">ACTION BY WHOM</th>
+            <th width="15%" style="font-weight: 600;text-align: center;">ACTION BY WHEN</th>
+            <th width="15%" style="font-weight: 600; text-align: center;">REVISED ACTION DATE</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        #foreach($row in $itextGenericPdfData.customData.get('CUSTOM_DATA').rows)
+        #set($idkey = $row.get('MEETING_TOPIC_NO'))
+        #if($idkey=='Reply')
+        <tr align="center" style="font-size: 12px;">
+            <td> $row.get('MEETING_TOPIC_NO')</td>               			<!--No-->
+            <td style="color: red;"> $row.get('MEETING_MINUTE_NAME')</td>               			<!--Product Name-->
+            <td> $row.get('MEETING_ACTION_WHOM')</td>
+            <td> $row.get('MEETING_ACTION_WHEN')</td>        <!--Qty/Hrs-->
+            <td> $row.get('MEETING_REVISED_ACTION_DATE')</td> 	<!--Unit Price-->
+        </tr>
+        #else
+        <tr align="center" style="font-size: 12px;">
+            <td> $row.get('MEETING_TOPIC_NO')</td>               			<!--No-->
+            <td> $row.get('MEETING_MINUTE_NAME')</td>               			<!--Product Name-->
+            <td> $row.get('MEETING_ACTION_WHOM')</td>
+            <td> $row.get('MEETING_ACTION_WHEN')</td>        <!--Qty/Hrs-->
+            <td> $row.get('MEETING_REVISED_ACTION_DATE')</td> 	<!--Unit Price-->
+        </tr>
+        #end
+        #end
+        <tr>
+            <td  colspan="5" width="100%" style="padding: 7px; font-size: 12px; text-align: center;" ><b>End of Minutes</b> </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <!--End Meeting Minutes Table Data-->
+</div>
+</body>
+</html>

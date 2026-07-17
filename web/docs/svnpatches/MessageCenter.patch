@@ -1,0 +1,27 @@
+Index: src/com/edatasite/workforce/gwt/messagecenter/client/view/MessageCenterMailView.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/com/edatasite/workforce/gwt/messagecenter/client/view/MessageCenterMailView.java	(revision 60d99612a7a868094391b35b79f8461703630278)
++++ src/com/edatasite/workforce/gwt/messagecenter/client/view/MessageCenterMailView.java	(revision a0ec5d6922e30e950847a2de829be63cf8745870)
+@@ -515,7 +515,8 @@
+         }
+ //        canvas.setWidget(6, 0, getMailTopBottomView(false, false));
+ //        canvas.getFlexCellFormatter().setStyleName(6, 0, "toolbar  my-toolbar-docs");
+-        canvas.setWidget(7, 0, replyPanel);
++        replyPanel.setVisible(false);
++        canvas.setWidget(0, 0, replyPanel);
+     }
+ 
+     private HorizontalPanel getImagePanel(final FlexTable generalTable, final FlexTable details, final HorizontalPanel topPanel) {
+@@ -757,7 +758,8 @@
+     }
+ 
+     private void replyPanelSetOnTop() {
+-        canvas.setWidget(0, 0, replyPanel);
++        replyPanel.setVisible(true);
++        messageView.focusToEmail();
+     }
+ 
+     ;

@@ -1,0 +1,58 @@
+<report>
+    <view>
+        <title>Employee Task Workload</title>
+        <name>Employee Task Workload</name>
+        <category>projectsTaskWorkload</category>
+        <sqlquery>
+            <select agregateFunc="distinct">
+                <table name="Employees">
+                    <column name="id" title="id" type="number" formattype="hidden"/>
+                    <column name="employeename" title="Employee" type="string" formattype="string"/>
+                </table>
+                <table name="Task">
+                    <column name="notstarted" title="Not Started" type="number" formattype="number"/>
+                    <column name="inprogres" title="In progress" type="number" formattype="number"/>
+                    <column name="overdue" title="Overdue" type="number" formattype="number"/>
+                </table>
+            </select>
+            <from>(
+                select distinct u.id
+                , max( coalesce(u.firstname,'')||' '||coalesce(u.lastname,'')) employeename
+                , sum(case r.code when 'NOT_STARTED' then 1 else 0 end) notstarted
+                , sum(case r.code when 'IN_PROGRESS' then 1 else 0 end) inprogres
+                , sum(case r.code not in ('COMPLETED','CLOSED') and t.dueDate is not null when true then 1 else 0 end) overdue
+                from "$".task t
+                left join "$".reference r on t.statusid=r.id
+                left join "$".employeetask et on t.id=et.taskid
+                left join "$".projectEmployee pe on et.projectEmployeeId=pe.id
+                left join "$".teamEmployee te on pe.employeeDepartmentId=te.id
+                left join "$".myuser u on te.employeeId=u.id
+                ,(select mu.users_id userid,max(case r.code when 'TL' then 1 else 0 end) TL,max(tm.id) teamID
+                ,max(case r.code when 'ADMIN' then 1 else 0 end) isadmin
+                from "$".myuser_role mu
+                join "$".role r on mu.roles_id=r.id and mu.users_id=2
+                left join "$".team tm on tm.leaderid=mu.users_id and tm.isdeleted is not true
+                group by mu.users_id) rl
+                where u.deleted is not true and t.deleted is not true and u.id is not null
+                and trim(coalesce(u.firstname,'')||' '||coalesce(u.lastname,''))!='' and u.deleted is not true
+                and (t.isissue is not true)
+                and
+                (
+                (rl.tl=1 and te.teamId=rl.teamID)
+                or
+                (rl.tl=0 and u.id=rl.userid)
+                or rl.isadmin=1
+                )
+                and ( #?replacement?# )
+                group by u.id
+                )t
+            </from>
+            <where>
+                <terms id="base" value="1=1"/>
+                <replacement code="isAdmin" name="Admin" value="1=1" role="ADMIN,DR"/>
+                <replacement code="teamLeader" name="Department Leader" value="(rl.tl=1 and te.teamId=rl.teamID)" role="TL"/>
+                <replacement code="myTasks" name="My Tasks" value="(rl.tl=0 and u.id=rl.userid)" role=""/>
+            </where>
+        </sqlquery>
+    </view>
+</report>

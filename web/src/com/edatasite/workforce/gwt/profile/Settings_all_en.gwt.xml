@@ -1,0 +1,4 @@
+<module rename-to="settings">
+    <inherits name='com.edatasite.workforce.gwt.profile.Settings'/>
+    <inherits name="com.edatasite.workforce.gwt.Localization_properties"/>
+</module>

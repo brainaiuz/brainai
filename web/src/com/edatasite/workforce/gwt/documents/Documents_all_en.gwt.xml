@@ -1,0 +1,4 @@
+<module rename-to="documents">
+    <inherits name="com.edatasite.workforce.gwt.documents.Documents"/>
+    <inherits name="com.edatasite.workforce.gwt.Localization_properties"/>
+</module>

@@ -1,0 +1,1 @@
+update permission set name='Remove Leave Request' where code='HRMS_REMOVE_REQUEST';

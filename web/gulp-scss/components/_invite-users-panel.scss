@@ -1,0 +1,81 @@
+.invited-users {
+  a {
+    color: $text-color-base;
+  }
+  
+  .ficon--check {
+    color: $success-color;
+  }
+}
+
+.invite-users {
+  .btn.fadeIn--trigger {
+    display: block;
+    width: 100%;
+    @extend .margin-bottom-sm;
+  }
+
+  .invite-user-form.fade--in {
+    @extend .margin-bottom-sm;
+  }
+}
+
+.invite-user-form {
+
+  .pseudo-input {
+    margin-bottom: 20px;
+  }
+  &__role {
+    .form-group__content {
+      display: flex;
+      flex-direction:column;
+      justify-content: center;
+    }
+
+    .ficon--info {
+      margin: 0 0 0 5px;
+      font-size: 1.5em;
+      vertical-align: -3px;
+      color: $color-base-2;
+    }
+  }
+}
+
+
+.fade {
+  &InEl {
+    overflow: hidden;
+  }
+  &--out {
+    max-height: 0;
+    transition: max-height .3s ease;
+  }
+
+  &--in {
+    overflow: visible;
+    animation-duration: .2s;
+    animation-fill-mode: both;
+    animation-name: zoomIn;
+
+    .invite-users & {
+      max-height: 400px;
+    }
+  }
+}
+
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale3d(1, .2, .2);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+
+
+
+

@@ -1,0 +1,245 @@
+@charset "UTF-8";
+//@import "components/color";
+
+// Utils
+@import "node_modules/sass-rem/rem";
+// Variables;
+@import "components/variables"; //contains the bootstrap-4 grid system
+// Reset
+@import "components/normalize";
+// Fonts
+@import "components/roboto";
+
+// Mixins
+//@import "components/prefixer";
+@import "components/custom--mixins";
+
+// components
+@import "components/global";
+//@import "components/grid";
+//@import "components/grid/grid"; //bootstrap-4 grid system
+@import "components/typography";
+//@import "components/cards";
+@import "components/toast";
+@import "components/tabs";
+@import "components/pg_google__tabs";
+
+@import "components/form-extends";
+@import "components/tooltip";
+@import "components/tooltipster";
+@import "components/buttons";
+@import "components/input-group"; //new added from bootstrap
+@import "components/button-group"; //new added from bootstrap
+@import "components/dropdown";
+@import "components/dropdown-split";
+@import "components/custom-select2";
+@import "components/dropdown-kit";
+
+@import "components/waves";
+@import "components/modal";
+@import "components/collapsible";
+@import "components/group-box";
+@import "components/grid-box";
+//@import "components/chips";
+//@import "components/materialbox";
+//@import "components/form";
+//@import "components/table_of_contents";
+@import "components/sideNav";
+//@import "components/preloader";
+//@import "components/slider";
+
+//@import "components/date_picker/default.scss";
+//@import "components/date_picker/default.date.scss";
+//@import "components/date_picker/default.time.scss";
+
+//CUSTOM
+//@import "components/jquery.scrollbar";
+
+@import "icons-font";
+@import "icons-svg";
+@import "components/checkboxes";
+@import "components/common-assets";
+@import "components/forms";
+
+@import "components/multi-lookup";
+@import "components/quick-add-form";
+@import "components/custom-form";
+@import "components/customSelectDropdown";
+
+@import "components/frame-layout";
+@import "components/frame-header";
+@import "components/frame-footer";
+@import "components/invite-users-panel";
+
+@import "components/profile-card";
+@import "components/main-modules";
+@import "components/frame-nav";
+@import "components/page-nav";
+@import "components/alerts";
+@import "components/switcher";
+@import "components/commonDND";
+@import "components/facet-filter";
+@import "components/drag-tiles";
+@import "components/panels";
+@import "components/hover-scroll-width";
+@import "components/operPanel";
+@import "components/paging";
+@import "components/columns";
+@import "components/file-uploader";
+@import "components/modules-switch";
+@import "components/hero-input";
+@import "components/payment-gateway-panel";
+//@import "listing-oper-panels";
+@import "components/panel-w-switch";
+
+@import "components/clock-active";
+@import "components/gwt-corrections";
+
+@import "components/org-chart_variables";
+@import "components/org-chart-new";
+@import "components/supervisor";
+
+@import "components/orgChartNew_variables";
+@import "components/orgChartNew-setup";
+@import "components/orgChartNew-board"; // contains variables for below orgChartNew-* and color-picker
+@import "components/orgChartNew-assets";
+@import "components/orgChartNew-functionsSideBar";
+@import "components/color-picker";
+
+@import "components/orgChartNew-chart--dabeng";
+@import "components/orgChartNew-profilePopUp";
+
+@import "components/terminalAtt-sideNav";
+@import "components/terminalAtt-popup";
+
+
+@import "components/loader-dots";
+@import "components/loading-lds";
+@import "components/loader";
+@import "components/panel-box";
+@import "components/scroll-box";
+@import "components/treeFoldable";
+
+@import "components/section-box";
+@import "components/summary-form";
+@import "components/mod";
+@import "temp/gridstack";
+@import "components/grid-stack-mod";
+
+@import "components/custom-page";
+@import "components/form-group";
+@import "components/photo-upload";
+@import "components/email-accounts";
+@import "components/reporting";
+@import "components/reporting-create";
+
+@import "components/kpitables";
+@import "components/attReprt-ResUtilz";
+@import "components/attendanceReport";
+@import "components/resUtilization";
+@import "components/advanced-grid-table";
+@import "components/table-budgetBeta";
+@import "components/attTrmnlTbl";
+
+
+@import "components/slick";
+@import "components/widgets";
+@import "components/widget-updates";
+@import "components/widget-agenda-slider";
+@import "components/widget-getting-started";
+@import "components/widget-holidays";
+@import "components/widget-timeslot";
+@import "components/widget-combo";
+@import "components/charts";
+
+@import "components/wg_my-contacts";
+@import "components/dialpad";
+@import "components/message-center";
+@import "components/data-import-guide";
+@import "components/timer";
+@import "components/balance-sheet";
+//@import "components/live-chat.bkp";
+@import "components/help-chat";
+
+@import "components/noteWidget";
+@import "components/wg_notes";
+@import "components/cp_phone";
+@import "components/wg_upload-panel";
+@import "components/progress-panel";
+@import "components/plans_and_pricing";
+@import "components/order_summary";
+@import "components/add-form-page";
+@import "components/compose";
+@import "components/features-list";
+@import "components/pdf-edit";
+@import "components/sign-up-steps";
+@import "components/quickView-listing";
+@import "components/guide";
+@import "components/pg_data-source";
+@import "components/pg_leave";
+@import "components/pg_custom_";
+@import "components/gwt-DatePicker";
+@import "components/gwt-DialogBox";
+@import "components/gwt-cal";
+@import "components/gwt-PopupPanel";
+@import "components/gwt-InlineCellEditor";
+@import "components/gwt-tree";
+@import "components/wg-lang-select";
+@import "components/assignees-widget";
+@import "components/timesheet-approval";
+@import "components/submitForApproval-table";
+@import "components/conversion-balance";
+@import "components/file-upload-steps";
+@import "components/reconcile-compare";
+@import "components/skillPanel";
+
+
+//@mixin color-scheme-example($name, $color: unquote($name)) {
+//  padding: 10px;
+//  &:before {
+//    //content: '#{$name}';
+//  }
+//  background: $color;
+//  //color: invert($color);
+//}
+//.color-base-contrast {
+//  @include color-scheme-example('$color-base-contrast' $color-base-contrast);
+//}
+//.color-base-0 {
+//  @include color-scheme-example('$color-base-0' $color-base-0);
+//}
+//.color-base-1 {
+//  @include color-scheme-example('$color-base-1' $color-base-1);
+//}
+//.color-base-2 {
+//  @include color-scheme-example('$color-base-2' $color-base-2);
+//}
+//.color-accent-1 {
+//  @include color-scheme-example('$color-accent-1' $color-accent-1);//order_summary.scss
+//}
+//.color-accent-2 {
+//  @include color-scheme-example('$color-accent-2' $color-accent-2);
+//}
+
+
+
+//@import "components/table-basic";
+@import "components/table-foldable-cells";
+@import "components/table-reporting-sections";
+@import "components/table-months";
+//@import "components/table-listing";
+@import "components/table-colGroups";
+
+@import "components/backend";
+
+
+@import "temp/temp";
+@import "temp/theme";
+@import "temp/invoice";
+@import "temp/KanbanDND";
+@import "temp/dynamictable";
+@import "temp/unknownCSS";
+@import "temp/transition";
+@import "temp/dashboard.grid";
+@import "temp/recurringWidget";
+@import "temp/bootstrapTimepicker";

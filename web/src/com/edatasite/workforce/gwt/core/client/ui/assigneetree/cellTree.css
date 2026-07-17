@@ -1,0 +1,118 @@
+.selectedLabel {
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 300px;
+    border: 1px solid gray;
+    height: 280px;
+}
+
+.selectedLabel .cellBasedWidget-mod > div:last-child {
+    /*height: auto !important;*/
+    /*bottom: -17px !important;*/
+    /*top: 41px !important;*/
+    height: 238px !important;
+}
+
+.selectedLabel input[type="text"] {
+    /*width: 40px;*/
+}
+
+.addAssignees {
+}
+
+.addAssignees>div {
+}
+
+.addAssignees>div:first-child {
+    /*margin-top: 20px;*/
+}
+
+.addAssignees>div+div {
+    padding-left: 20px;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAsUlEQVR42mNgGBIgvP3Bf7I1x3c/+B/ccI08A+J7Hv5fuv//f//qC6QbENF+H6w5c9b//16lJ0gzILT1Hlhz6zqg7Z1//7vkHyDegOCWu/8X7f3/vwOoOWPOz/92dT//22dsJ80FdsW3/6fP+f3fv+vbf53Cd/8tEtaTHgb6Kef/mxS9+K+S9em/ceQy8mLBIOnEf9m0r/91g+eRnw70Uy//1/Cd9p+ilKjiMeE/w/AFAFKOYJgptZ8qAAAAAElFTkSuQmCC) no-repeat 3px 50%;
+}
+
+.tree>div {
+    position: relative;
+    width: 260px;
+    height: 280px;
+    margin-top: 20px;
+    border: 1px solid #ccc;
+}
+
+
+
+    /*.addAssignees*/
+    /*.addAssignees*/
+
+.tree .sortSwitcher {
+    position: absolute;
+    top: -19px;
+    width: 100%;
+}
+
+.tree .selectOpt {
+}
+
+.addAssignees .selectOpt .gwt-TextBox {
+    /*width: 87%;*/
+    /*margin: 2px 3px 0;*/
+}
+
+    /*.addAssignees */
+.tree .selectOpt .sect {
+}
+
+.tree .selectOpt .sect .gwt-CheckBox {
+    float: left;
+    margin-top: 7px;
+    margin-left: 21px;
+}
+
+    /*.addAssignees
+   .tree .selectOpt .sect .gwt-Button {
+       float: right;
+   } */
+
+.tree .selectOpt+div {
+    overflow:auto;
+    clear: both;
+    height: 218px;
+}
+
+.tree .cellTreeWidget {
+    margin: 5px 0 0;
+    position: absolute;
+    bottom: 0;
+    top: 48px;
+    left: 0;
+    right: 0;
+}
+
+*+html .tree .cellTreeWidget {
+    position: relative;
+    height: 227px;
+}
+
+.cellTreeWidget .cellTreeTopItem {
+    text-transform: uppercase;
+}
+
+    /*.cellTreeWidget>div>div , .cellTreeWidget>div>div,*/
+.cellTreeWidget .cellTreeItem {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.cellTreeWidget .cellTreeItem.cellTreeTopItem+div {
+    color: #999;
+}
+
+.cellTreeWidget .cellTreeSelectedItem {
+    background: transparent;
+    color: #333;
+}
+
+.addAssignees {
+    overflow: hidden;
+}

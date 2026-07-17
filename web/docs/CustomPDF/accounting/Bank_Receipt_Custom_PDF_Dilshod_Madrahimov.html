@@ -1,0 +1,204 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style type="text/css" >
+        @page {
+            size: 8.3in 11.7in;
+            margin:160px 30px 140px 30px;
+            padding:0;
+            @top-center {
+                content: element(header);
+            }
+            @bottom-left {
+                content: element(footer);
+            }
+        }
+        #header {
+            margin:20px 10px;
+            display: block;
+            position: running(header);
+        }
+        #footer{
+            margin:20px 10px;
+            display: block;
+            position: running(footer);
+        }
+        #pagenumber:before {
+            content: counter(page);
+        }
+
+        #pagecount:before {
+            content: counter(pages);
+        }
+        .tableBorder{
+            border-top:1px solid #000000;
+            border-left:1px solid #000000;
+        }
+        .tableBorder td{
+            border-right:1px solid #000000;
+            border-bottom:1px solid #000000;
+        }
+        body{
+            font-family:Calibri;
+        }
+        th{
+            font-family:Calibri;
+            font-size:11px;
+            font-weight:lighter;
+        }
+        th,td{
+            padding:5px;
+        }
+
+        b,p,td,span,caption,hr,h1,h2,h3,h4,h5{font-family:Calibri;}
+        table {
+            -fs-table-paginate: paginate;
+        }
+        .title{
+            border-top:1px solid #000000;
+            border-bottom:1px solid #000000;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+#set($companyData = $itextGenericPdfData.getBaseInvoice().getCompanyData())
+#set($detailsData = $itextGenericPdfData.getBaseInvoice().getCustomBillToAddress().getRows())
+#set($itemData = $itextGenericPdfData.getBaseInvoice().getCustomProductTable().getRows())
+
+<div id="header">
+    <table width="100%">
+        <tr>
+            <td width="50%" align="left">
+                <img src="$itextGenericPdfData.companyData.companyLogoUrl"/>
+            </td>
+            <td width="50%">
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div id="footer">
+    <table width="100%" style="border-top:1px solid #000000;font-size: 11px">
+        <tr>
+            <td align="center" style="font-size:14px;">
+                APSE IT Solution L.L.C, P O Box 213123 Dubai, UAE. T: +97143881662 F: +97143881652 E:acc@apse.co
+            </td>
+        </tr>
+
+    </table>
+</div>
+
+<div style="font-size:11px">
+
+    <table width="100%">
+        <tr>
+            <td style="font-size:14px;font-weight:bold;text-align:center;">
+                $detailsData.get('NUMBER').get('COLUMN_VALUE')
+            </td>
+        </tr>
+    </table>
+
+    <table width="100%">
+        <tr>
+            <td style="font-size:14px;text-align:right;">
+                <b>Date:</b> $detailsData.get('DATE').get('COLUMN_VALUE')
+            </td>
+        </tr>
+    </table>
+
+    <table width="100%">
+        <tr>
+            <td style="font-size:14px;font-weight:bold;text-align:center;padding-bottom:20px;">
+                BANK RECEIPT VOUCHER
+            </td>
+        </tr>
+    </table>
+
+    <div style="border:1px solid #000000;margin-bottom:30px;">
+
+        <table width="100%" style="margin-top:20px">
+            <tr>
+                <td style="font-size:14px;text-align:left;">
+                    <b>Received From</b>  $detailsData.get('NAME_LIST').get('COLUMN_VALUE')
+                </td>
+            </tr>
+        </table>
+
+
+        <table width="100%" class="tableBorder" align="center" cellspacing="0" cellpadding="0" style="margin-top:20px;page-break-inside:avoid;">
+            <thead style="padding:2px;font-weight:bold;">
+            <tr align="center">
+                <td width="20%" bgcolor="#BEB7C7">ACCOUNT CODE</td>
+                <td width="25%" bgcolor="#BEB7C7">HEAD OF ACCOUNTS DEBITED</td>
+                <td width="20%" bgcolor="#BEB7C7">ORIGINAL AMOUNT</td>
+                <td width="15%" bgcolor="#BEB7C7">$detailsData.get('CURRENCY').get('COLUMN_VALUE')</td>
+                <td width="20%" bgcolor="#BEB7C7">PROJECT</td>
+            </tr>
+            </thead>
+            <tbody>
+            #if ($itemData)
+            #foreach($item in $itemData)
+            <tr style="page-break-inside: avoid;" align="center">
+                <td>$item.get('ACCOUNT_CODE')</td>
+                <td>$item.get('ACCOUNT_NAME')</td>
+                <td>$item.get('AMOUNT')</td>
+                <td>$item.get('BASE_AMOUNT')</td>
+                <td>$item.get('PROJECT')</td>
+            </tr>
+            #end
+            #end
+            </tbody>
+        </table>
+
+        <table width="100%" align="center" style="margin-bottom:20px;">
+            <tr>
+                <td width="65%"><b>Amount in Words : </b>AED Only $detailsData.get('TOTAL_WORD').get('COLUMN_VALUE') </td>
+                <td width="35%" align="center" style="border-left:1px solid #000000;border-bottom:1px solid #000000">$detailsData.get('CURRENCY').get('COLUMN_VALUE')  $detailsData.get('TOTAL').get('COLUMN_VALUE') </td>
+            </tr>
+        </table>
+
+        <table width="100%">
+            <tr><td class="title" width="100%">1. Description</td></tr>
+            <tr><td width="100%"> $detailsData.get('NARRATION').get('COLUMN_VALUE') </td></tr>
+
+            <tr><td class="title" width="100%">2. Details Of Invoices / Vouchers</td></tr>
+            <tr><td width="100%"> $detailsData.get('DESCRIPTION_LIST').get('COLUMN_VALUE') </td></tr>
+
+            <tr><td class="title"  width="100%">3. Payment Reference</td></tr>
+            <tr><td width="100%"> $detailsData.get('REFERENCE').get('COLUMN_VALUE') </td></tr>
+        </table>
+
+        <table width="100%" class="tableBorder" align="center" cellspacing="0" cellpadding="0" style="margin-top:20px;margin-bottom:20px;page-break-inside:avoid;">
+            <tr>
+                <td width="25%"><b>CHQ/TRF NO</b></td>
+                <td width="25%"><b>Dated</b></td>
+                <td width="25%"><b>Bank A/C No.</b></td>
+                <td width="25%"><b>Debit GL AC</b></td>
+            </tr>
+            <tr>
+                <td width="25%">$detailsData.get('CHECK_NUMBER').get('COLUMN_VALUE')</td>
+                <td width="25%">$detailsData.get('DATE').get('COLUMN_VALUE')</td>
+                <td width="25%">$detailsData.get('BANK_ACCOUNT_NUMBER').get('COLUMN_VALUE')</td>
+                <td width="25%">$detailsData.get('BANK_ACCOUNT_CODE').get('COLUMN_VALUE')</td>
+            </tr>
+        </table>
+
+    </div>
+
+    <table width="100%">
+        <tr>
+            <td width="50%"><b>Prepared By :</b>  ..........................................................</td>
+        </tr>
+        <br></br>
+        <br></br>
+        <tr>
+            <td width="50%"><b>Approved By :</b> .........................................................</td>
+        </tr>
+    </table>
+
+</div>
+
+</body>
+</html>

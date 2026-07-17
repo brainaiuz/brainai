@@ -1,0 +1,15 @@
+## Assessment rate notification for initiator
+## $assessment - EdsAssessment
+## $date - current date
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head><body><p>Dear $employeeAssessment.assessment.reviewer.getName(),</p>
+
+<p>Please be advised that now you have reviewed the employee appraisal for $employeeAssessment.employee.getName() on $date, an email notification has been sent to your employee informing them about the appraisal.</p>
+
+<p>The employee can review your comments and rates on the appraisal and then return it to you. Once the employee has completed the self review you will receive an email review notification.</p>
+<p>The PDF version of the employee appraisal is attached for your attention.</p>
+
+<p></p>
+</body></html>

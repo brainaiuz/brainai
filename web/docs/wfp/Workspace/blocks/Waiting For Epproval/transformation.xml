@@ -1,0 +1,17 @@
+<ul class="list-1 miniBadge visitings widget">
+    <li></li>
+
+
+
+    <li>
+
+        <a class="quarter" target="_blank"
+           href='/Hrms.html?link=$rowItem.encryptURL("id/employeeid", "leaverequest|/")'>
+            <span class="username" title="$rowItem.getStringValue("employeename")">$rowItem.getValueLimit("employeename",13)</span>
+    </a>
+    <span title="$rowItem.getStringValue("reason")">$rowItem.getValueLimit("reason", 13)</span>
+
+<div class = "twodate date">
+<p>$rowItem.getLongDateValue("startdate") - $rowItem.getLongDateValue("enddate")</p>
+</div>
+        </li>

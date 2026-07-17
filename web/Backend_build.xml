@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<project name="Backend" basedir=".">
+
+    <import file="Base_build.xml">
+
+    </import>
+
+    <target name="Backend">
+        <antcall target="MAIN">
+            <param name="permutation" value="com.edatasite.workforce.gwt.backend.Backend"/>
+        </antcall>
+    </target>
+
+</project>

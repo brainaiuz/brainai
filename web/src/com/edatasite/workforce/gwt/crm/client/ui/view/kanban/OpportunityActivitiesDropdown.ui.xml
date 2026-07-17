@@ -1,0 +1,63 @@
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:g="urn:import:com.google.gwt.user.client.ui"
+             xmlns:m="urn:import:gwt.material.design.client.ui"
+             xmlns:mhtml="urn:import:gwt.material.design.client.ui.html"
+             xmlns:kpicomponents="urn:import:com.edatasite.workforce.gwt.core.client.ui.components">
+
+
+    <m:MaterialPanel styleName="wg_canban__dropdown">
+        <m:MaterialPanel styleName="wg_canban__dropdown-header">
+            <m:MaterialPanel styleName="wg_canban__dropdown-activities"></m:MaterialPanel>
+        </m:MaterialPanel>
+        <m:MaterialPanel styleName="wg_canban__dropdown-content">
+            <m:MaterialPanel styleName="wg_canban__dropdown-title" ui:field="title" ></m:MaterialPanel>
+            <m:MaterialPanel styleName="wg_canban__dropdown-text" ui:field="checklistContainer">
+                <!-- checklist -->
+                <!--<m:MaterialPanel styleName="wg_canban__dropdown-checklist">
+                    <m:MaterialPanel styleName="wg_canban__dropdown-checklist-item wg_canban__dropdown-checklist-item&#45;&#45;task">
+                        <m:MaterialPanel styleName="wg_canban__dropdown-checklist-aside">
+                            &lt;!&ndash;<label class="gwt-control control control&#45;&#45;checkbox">
+                                <input type="checkbox"/><span class="control__indicator"></span>
+                            </label>&ndash;&gt;
+                            <kpicomponents:KpiCheckBox/>
+                        </m:MaterialPanel>
+                        <m:MaterialPanel styleName="wg_canban__dropdown-checklist-content ">
+                            <m:MaterialPanel styleName="wg_canban__dropdown-checklist-title">CRM: Today task</m:MaterialPanel>
+                            <m:MaterialPanel styleName="wg_canban__dropdown-checklist-created">
+                                <m:MaterialLabel styleName="wg_canban__dropdown-checklist-date">24 Apr, 2018</m:MaterialLabel>
+                                <m:MaterialLabel styleName="wg_canban__dropdown-checklist-time">11:00:00 pm</m:MaterialLabel>
+                            </m:MaterialPanel>
+                        </m:MaterialPanel>
+                    </m:MaterialPanel>
+                    <div class="wg_canban__dropdown-checklist-item wg_canban__dropdown-checklist-item&#45;&#45;event">
+                        <div class="wg_canban__dropdown-checklist-aside">
+                            <label class="gwt-control control control&#45;&#45;checkbox">
+                                <input type="checkbox"/><span class="control__indicator"></span>
+                            </label>
+                        </div>
+                        <div class="wg_canban__dropdown-checklist-content">
+                            <div class="wg_canban__dropdown-checklist-title">Event meeting</div>
+                            <div class="wg_canban__dropdown-checklist-created">
+                                <span class="wg_canban__dropdown-checklist-date">24 Apr, 2018</span>
+                                <span class="wg_canban__dropdown-checklist-time">11:00:00 pm</span>
+                            </div>
+                        </div>
+                    </div>
+                </m:MaterialPanel>-->
+            </m:MaterialPanel>
+        </m:MaterialPanel>
+        <m:MaterialPanel styleName="wg_canban__dropdown-footer">
+            <m:MaterialPanel styleName="cp_btn-list">
+                <m:MaterialPanel styleName="cp_btn-list-item">
+                    <m:MaterialLink styleName="elm_btn elm_btn--add" ui:field="addTaskLink"></m:MaterialLink><!--style="cursor: pointer;"-->
+                    <m:MaterialLabel styleName="cp_btn-list-item-title material-label" ui:field="addTaskLabel">Add Task</m:MaterialLabel>
+                </m:MaterialPanel>
+                <m:MaterialPanel styleName="cp_btn-list-item">
+                    <m:MaterialLink styleName="elm_btn elm_btn--add" ui:field="addEventLink"></m:MaterialLink><!--style="cursor: pointer;"-->
+                    <m:MaterialLabel styleName="cp_btn-list-item-title material-label" ui:field="addEventLabel">Add Event</m:MaterialLabel>
+                </m:MaterialPanel>
+            </m:MaterialPanel>
+        </m:MaterialPanel>
+    </m:MaterialPanel>
+
+</ui:UiBinder>

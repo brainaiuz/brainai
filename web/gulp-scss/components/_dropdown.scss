@@ -1,0 +1,744 @@
+
+$dropdown-selected-bg: darken($dropdown-hover-bg-color, 4%);
+.dropdown-content, .dropdown-content * {
+
+}
+
+.dropdown-content {
+  @extend %dropdown-content-size;
+  @include dropdown-content-style;
+  display: none;
+  opacity: 0;
+  text-align: left;
+
+  a {
+    position: relative;
+    // На планшете при нажатии на ссылку браузер ловит событие touch и закрывает меню вместо перехода по ссылке.
+    // Это! Запрещает браузеру обрабатывать жесты на ссылках,оставляя только чистый клик */
+    // !!! Fixed in SplitButton.java and MaterialSplitButton.java
+    //touch-action: manipulation;
+
+    //&:after {
+    //  content: '';
+    //  position: absolute;
+    //  top: 0;
+    //  left: 0;
+    //  right: 0;
+    //  bottom: 0;
+    //  z-index: 100; /* Перекрывает всё внутри li */
+    //}
+  }
+}
+.dropdown-content--sm {
+  @extend %dropdown-content-size;
+  @include dropdown-content-style;
+  > li {
+    @include dropdown-content-list-item-size( $dropdown-item-height / 2, $dropdown-content-padding-y / 2,  $dropdown-content-padding-x / 2);
+    @include dropdown-content-list-item-style;
+  }
+}
+
+.dropdown-content:not(.dropdown-content-tooltip) { //https://prnt.sc/rsuw4e
+  > li {
+    @include dropdown-content-list-item-size;
+    @include dropdown-content-list-item-style;
+
+    //padding-left: $dropdown-content-padding-x;
+    //padding-right: $dropdown-content-padding-x;
+
+    *:not(.main-modules) > & {
+      > .java-wrap > a,
+      > a, > span { // also impact to helpChat https://i.imgur.com/r3Ch0tm.png
+        display: flex !important;
+        align-items: center;
+        height: 100%;
+      }
+
+      > .text-center {
+        justify-content: center;
+      }
+    }
+    //color: $off-black;
+
+    &:hover, &.active, &.selected {
+
+      a {
+        &:hover {
+          //color: inherit;
+          //text-decoration: none;
+        }
+      }
+    }
+
+    //HOVER AND ACTIVE
+    &:hover {
+      .listBox-primary & { //ToDo
+        background-color: $dropdown-hover-bg-color--primary;
+      }
+    }
+
+    &.active.selected:hover,
+    &.active.selected,
+    &.selected {
+      .listBox-primary & {
+        background-color: darken($dropdown-hover-bg-color--primary, 8%);
+      }
+    }
+
+    // \HOVER AND ACTIVE
+
+    &.divider {
+      min-height: 0;
+      height: 1px;
+    }
+
+    & > span > label {
+      top: 1px;
+      left: 3px;
+      height: 18px;
+    }
+
+    > a {
+      .dropdown-content li > a {
+        display: flex;
+        align-items: center;
+      }
+
+      .dropdown-content li > a > i {
+        flex-shrink: 0;
+        width: 1em;
+        margin-right: 0.7em;
+      }
+
+    }
+
+    // Icon alignment override
+    & > a > i {
+      height: inherit;
+      line-height: inherit;
+    }
+
+    &:last-child {
+      &:after {
+        display: none;
+      }
+    }
+
+    .dropdown-select,
+    [class*="dropdown-select"] & {
+      @include dropdown-content-list-item-select-style;
+    }
+  }
+
+  &.select-dropdown {
+    z-index: 1032;
+    max-height: 260px;
+  }
+
+  //NESTED DROPDOWN LISTS
+  // operPanel dropdown (https://prnt.sc/li48fs)
+  @at-root .dropdown-content--2,
+  .menu-bar > .btn + .dropdown-content {
+    overflow: visible !important;
+  }
+  .menu-bar > .btn + & {
+    width: 240px !important;
+  }
+
+  .page-opers__actions & {
+  }
+
+  .dropdown-button {
+    position: relative;
+  }
+
+  //.dropdown-button +
+  .dropdown-content {
+    right: auto;
+    left: 100% !important;
+    margin-top: 0;
+
+    .dropdown-flow--left & {
+      left: auto !important;
+      right: 100% !important;
+    }
+  }
+
+  // \ operPanel dropdown
+
+  .btn[data-alignment="right"] + &,
+  .dropdown-button[data-alignment="right"] + & {
+    left: auto !important;
+    right: 0 !important;
+
+    > li > a {
+      justify-content: flex-end;
+    }
+
+    .dropdown-button:after {
+      right: auto;
+      left: 16px;
+      transform: rotate(180deg);
+    }
+
+    .dropdown-content {
+      left: auto !important;
+      right: 100% !important;
+      margin-right: -1rem;
+    }
+  }
+
+  .dropdown-button {
+    box-shadow: none !important;
+  }
+
+  &.select-dropdown {
+    > li {
+      &.selected {
+        cursor: default;
+      }
+    }
+  }
+}
+
+.dropdown-content.dropdown-content--sm {
+  > li > a {
+    padding-top: $dropdown-content-padding-y / 2;
+    padding-bottom: $dropdown-content-padding-y / 2;
+  }
+}
+
+.dropdown-button {
+  .dropdown-content & {
+    position: relative;
+
+    &:after {
+      @extend .ficon--;
+      @extend .ficon--keyboard-arrow-right:before;
+      display: block !important;
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      margin-top: -8px;
+      right: 5px;
+    }
+  }
+}
+
+#gwt-debug-pdf_button {
+  .dropdown-content & {
+    &:after {
+      @extend .ficon--;
+      @extend .ficon--keyboard-arrow-right:before;
+      right: -8px;
+    }
+  }
+}
+
+.listBox-primary { // ToDo
+  .select-dropdown {
+    color: #fff !important;
+    background-color: $color-accent-1 !important;
+
+    * {
+      color: #fff;
+
+      &:hover {
+        color: darken(#fff, 1);
+      }
+    }
+
+    &.dropdown-content {
+    }
+  }
+
+  .caret:before {
+    color: #fff !important;
+  }
+}
+
+.dropdown-button:not(.btn--icon):not(.btn) {
+  //text-align: left;
+  @extend .from-control--action;
+
+  &.active {
+    //@extend .z-depth-2;
+  }
+}
+
+// ARROW - DROPDOWNS like <select>
+.dropdown-select--arrow {
+  position: relative;
+
+  .dropdown-button {
+    &:after {
+      @extend .ficon--;
+      @extend .ficon--keyboard-arrow-down:before;
+    }
+
+    &.active:after {
+      @extend .ficon--keyboard-arrow-up:before;
+    }
+  }
+}
+
+.dropdown-select--arrow:not(.main-modules) .dropdown-button {
+  padding-right: rem(40px);
+
+  &:after {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    margin-top: -0.5em;
+  }
+
+  &.btn-large {
+    &:after {
+      margin-top: -.1em;
+    }
+  }
+}
+
+.main-modules.dropdown-select--arrow .dropdown-button {
+  &:after {
+    margin-left: rem(10px);
+    font-size: 1.4em;
+  }
+}
+
+// CUSTOM SELECT STYLE DROPDOWNS
+[class*="dropdown-kit--"] {
+
+}
+
+// CUSTOM GWT DROPDOWNS
+.gwt-ListBox {
+  input.select-dropdown {
+    cursor: pointer;
+    @include txtTruncate();
+  }
+}
+
+.pseudoSelect {
+  position: relative;
+  display: inline-block;
+  outline: none;
+
+  .curValue {
+    position: relative;
+    @extend input[type].select-dropdown;
+    display: flex;
+    align-items: center;
+
+    em {
+      font-style: normal;
+    }
+
+    &:before {
+      @extend .ficon--;
+      @extend .ficon--keyboard-arrow-down;
+      position: absolute;
+      top: 50%;
+      right: 11px;
+      margin-top: -0.5em;
+      font-size: 1.5rem;
+      line-height: 1;
+      color: $color-accent-2;
+    }
+
+  }
+
+  > ul {
+    @extend %dropdown-content-size;
+    @include dropdown-content-style;
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    //min-width: 100%;
+    > li {
+      @include dropdown-content-list-item-size;
+      @include dropdown-content-list-item-style;
+      @include dropdown-content-list-item-select-style;
+      padding: $dropdown-content-padding-y $dropdown-content-padding-x !important;
+
+      &:last-child {
+        &:after {
+          //display: none;
+        }
+      }
+    }
+  }
+
+  &.expanded {
+    > ul {
+      display: block;
+      opacity: 1;
+    }
+  }
+}
+
+//.optGroupCover
+.pseudoSelect:not(.listingPanelPseudoSelect) {
+  //width: auto !important; // http://prntscr.com/iflh92
+}
+
+.gwt-SuggestBoxPopup {
+  //@include dropdown-content-style;
+  @include dropdown-content-style;
+  //@extend %dropdown-content-size;
+  z-index: 9999;
+  //display: block; /*TEMP*/
+  //opacity: 1; /*TEMP*/
+  background: #fff;
+
+  .suggestPopupContent {
+    max-height: 180px;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    .item {
+      @include dropdown-content-list-item-size;
+      @include dropdown-content-list-item-style;
+
+      &.item-selected {
+        background-color: $dropdown-selected-bg;
+      }
+    }
+
+  }
+}
+
+.suggestPopupTop,
+.suggestPopupBottom {
+  display: none;
+}
+
+.suggestPopupMiddleRight,
+.suggestPopupMiddleLeft {
+  padding: 0;
+}
+
+.suggestPopupMiddleCenter {
+  padding: 0;
+}
+
+.suggestPopupContent {
+  > [role="menubar"] > table {
+    .item {
+      line-height: 22px;
+      padding: 9px 16px;
+      color: $color-base-2;
+
+      &:hover {
+        background-color: #f7f9fa;
+      }
+    }
+
+    .item-selected {
+      background: transparent;
+    }
+  }
+}
+
+.gwt-MenuItem {
+  img[src$="clear.cache.gif"] {
+    display: none;
+  }
+
+  > img + div {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+
+//.gwt-SuggestBoxPopup .suggestPopupMiddleCenterInner,
+
+//.gwt-dropdown-popup {}
+.dropBtn-popup { //similar with .action-listing-popup see below
+  @include dropdown-content-style;
+  outline: none;
+  &:has(.gwt-PopupPanel) {
+    border: none;
+    background: transparent;
+    border-radius: $modalRadius;
+  }
+
+  //.gwt-MenuBar-vertical,
+  .gwt-MenuBar {
+    background-color: transparent !important; // #fff bg override rounded borders
+
+    table > tbody > tr:last-child .gwt-MenuItem {
+      &:after {
+        display: none !important;
+      }
+    }
+  }
+
+  .gwt-MenuItem {
+    @include dropdown-content-list-item-select-style;
+  }
+}
+
+.subMenuIcon {
+  width: 0;
+  padding: 0 !important;
+  overflow: visible;
+  position: relative;
+
+  .gwt-MenuBar & {
+  }
+
+  img {
+    display: none;
+  }
+
+  &:after { //https://prnt.sc/swebg4
+    position: absolute;
+    top: 50%;
+    right: 0;
+    margin-top: -.7em;
+    font-family: 'icomoon';
+    content: '\e914';
+  }
+
+  &:hover,
+  .gwt-MenuItem:hover + & {
+    background-color: $dropdown-hover-bg-color;
+  }
+}
+
+//.subMenuIcon-selected,
+.gwt-MenuItem-selected, .gwt-MenuItem-selected + td {
+  background-color: $color-base-contrast;
+}
+
+//.dropBtn-popup .popupContent td
+//.gwt-MenuBar > table > tbody > tr > td
+.gwt-MenuItem {
+  @include dropdown-content-list-item-size;
+  @include dropdown-content-list-item-style;
+  //padding: $dropdown-content-padding-y $dropdown-content-padding-x !important;
+
+  &:after {
+    display: block !important;
+  }
+
+  > span {
+    display: inline-block;
+    min-height: 0;
+  }
+
+  > img + span {
+    padding: 0 16px 0 0 !important;
+  }
+
+  .list-action-menu-icon {
+    background-image: none;
+  }
+}
+
+td.gwt-MenuItem {
+  height: $dropdown-item-height;
+}
+
+.subMenuIcon {
+}
+
+//import menu
+
+.menu-bar {
+  ul.dropdown-content .dropdown-content {
+    margin-left: -5px; //removed because doesnt' work
+  }
+}
+
+body .menu-bar .dropdown-content li {
+  @include dropdown-content-list-item-size;
+  white-space: nowrap;
+}
+
+.menu-bar .dropdown-content li > a {
+  position: relative;
+  z-index: 1;
+}
+
+.menu-bar .dropdown-content li.has-child:before {
+  @extend .ficon--;
+  @extend .ficon--chevron-right;
+  position: absolute;
+  z-index: 0;
+  right: 8px;
+  top: 50%;
+  font-size: 1.3rem;
+  margin-top: -0.5em;
+  color: $color-accent-2;
+}
+
+.ficon--more-horiz {
+  &:before {
+    letter-spacing: 0.5px;
+  }
+
+  &.action-listing {
+    &:before {
+      font-size: $baseFontSize * 1.4;
+    }
+  }
+  .dropdown-button & {
+    font-size: $button-font-size-shared;
+  }
+}
+
+//listing table dropdown gwt popup
+.action-listing-popup {
+  @extend .dropBtn-popup;
+  min-width: 180px;
+
+  tr.popupTop,
+  tr.popupBottom,
+  td.popupMiddleRight,
+  td.popupMiddleLeft {
+    display: none;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  .popupMiddleCenter {
+    background-color: #fff;
+    border-radius: $radius-basePlus;
+  }
+
+  tr {
+    padding: 8px 0;
+  }
+}
+
+
+.gwt-MenuBarPopup {
+  @extend .dropBtn-popup;
+}
+
+.operPanel_paging .dropdown-content li {
+  @include dropdown-content-list-item-select-style;
+}
+
+// CUSTOM DROPDOWNS
+
+// GWT LOOKUP (gwt-SuggestBoxPopup) hide/show when page scrolled
+.gwt-dropdown--hide {
+  animation: .3s fadeInVisible;
+  animation-fill-mode: forwards;
+}
+
+.gwt-dropdown--show {
+  opacity: 1;
+  display: block;
+}
+
+@keyframes fadeInVisible {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+// \ GWT LOOKUP hide/show when page scrolled
+
+//SELECT2
+.select2-results__options {
+  > li {
+  }
+}
+
+//#infoDropDown
+.dropdown-content-tooltip {
+  //width: 20rem !important;
+  width: auto !important; //https://prnt.sc/scoo20
+  min-width: 20rem;
+  text-transform: none;
+  padding: 1.5rem;
+  font-size: 1rem;
+  min-height: 68px; //https://prnt.sc/rsuw4e
+  white-space: nowrap; //https://prnt.sc/otko60
+  > li {
+    > a {
+      float: left;
+    }
+  }
+
+  &.tooltip-long-text {
+    white-space: normal;
+  }
+}
+
+
+//MADE BY the following REQUEST > https://adchem.kpi.com/Accounting.html#itemList%7Cadd/add/1/PRICE_CALCULATOR_FORM/Price%20Calculator
+.dropdown-content {
+  //z-index: 1030; will lead to arrow-down (:before, :after) bugs
+  body > & {
+    box-sizing: border-box;
+
+    @media screen and (min-width: 1367px) {
+      min-width: 150px; //https://prnt.sc/pwy3u1
+    }
+
+    @media screen and (max-width: 1366px) {
+      min-width: 100px;
+    }
+  }
+}
+
+/* MATERIAL CONFLICTS */
+[class*="dropdown-select--"] .dropdown-button {
+  display: inline-block;
+  @include txtTruncate();
+  background: #fff;
+}
+
+.dropdown-select .dropdown-button.active,
+[class*="dropdown-select--"] .dropdown-button.active {
+  z-index: 101; /*dropdown-button should be located ablove the list*/
+}
+
+.dropdown-content.select-dropdown {
+  .tree-view-level-2 {
+    text-transform: uppercase;
+    padding-left: 15px;
+  }
+
+  .tree-view-level-3 {
+    font-size: 10px;
+    padding-left: 30px;
+  }
+}
+
+.attendanceReport {
+  .paging-group .dropdown-content {
+    visibility: hidden
+  }
+}
+
+.wg_canban__card-footer.card-action {
+  .dropdown-kit--arrow--below--reverse .dropdown-content {
+    //top: 100% !important;
+    //bottom: auto !important;
+    //margin-top: 10px;
+  }
+
+  .wg_canban__user .dropdown-kit--arrow--below--reverse > .dropdown-button.active:before, .wg_canban__user .dropdown-kit--arrow--below--reverse > .dropdown-button.active:after {
+    //transform: rotate(0);
+    //border-width: 8px;
+    //bottom: auto !important;
+    //top: 100% !important;
+    //left: 5px;
+    //left: -$triangleSpacex !important; //i.imgur.com/ih0EFhi.png
+  }
+}

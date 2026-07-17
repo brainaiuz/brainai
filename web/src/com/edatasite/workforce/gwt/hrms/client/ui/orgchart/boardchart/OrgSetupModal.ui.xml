@@ -1,0 +1,84 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:m='urn:import:gwt.material.design.client.ui.html'
+             xmlns:cb='urn:import:com.edatasite.workforce.gwt.core.client.ui.wfmButton.buttonUtils'>
+
+    <g:HTMLPanel ui:field="root" styleName="modal-holder">
+
+        <div class="modal">
+            <div class="modal-wrapper form-compressed">
+
+                <div class="modal-header">
+                    <g:FlowPanel ui:field="closeIcon" styleName="close-x"/>
+                    <h5 class="modal-title">Создать оргструктуру</h5>
+                </div>
+
+                <div class="modal-content">
+
+                    <div class="colorPickBox">
+                        <m:Div ui:field="colorCurrent" class="colorPickBox__preview"/>
+
+                        <g:FlowPanel styleName="colorPickList" ui:field="colorList">
+
+                            <g:Button ui:field="colorBtn1"
+                                      styleName="colorPickItem active"/>
+
+                            <g:Button ui:field="colorBtn2"
+                                      styleName="colorPickItem"/>
+
+                            <g:Button ui:field="colorBtn3"
+                                      styleName="colorPickItem"/>
+
+                            <g:Button ui:field="colorBtn4"
+                                      styleName="colorPickItem"/>
+
+                            <g:Button ui:field="colorBtn5"
+                                      styleName="colorPickItem"/>
+
+                            <g:Button ui:field="colorBtn6"
+                                      styleName="colorPickItem"/>
+
+                            <g:Button ui:field="colorBtn7"
+                                      styleName="colorPickItem"/>
+
+                            <g:Button ui:field="colorBtn8"
+                                      styleName="colorPickItem"/>
+
+                            <g:Button ui:field="colorBtn9"
+                                      styleName="colorPickItem"/>
+
+                            <g:Button ui:field="colorBtn10"
+                                      styleName="colorPickItem"/>
+
+                        </g:FlowPanel>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form-group__label">Название</div>
+                        <div class="form-group__content">
+                            <g:TextBox ui:field="nameInput"
+                                       styleName="form-control"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form-group__label">Описание</div>
+                        <div class="form-group__content">
+                            <g:TextBox ui:field="descInput"
+                                       styleName="form-control"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer text-right">
+                    <cb:WfmButton2 class="btn btn--primary disabled" ui:field="createBtn"/>
+                    <cb:WfmButton2 class="btn btn--default" ui:field="cancelBtn"/>
+                </div>
+            </div>
+        </div>
+
+        <g:SimplePanel ui:field="overlay"
+                       styleName="lean-overlay"/>
+    </g:HTMLPanel>
+</ui:UiBinder>

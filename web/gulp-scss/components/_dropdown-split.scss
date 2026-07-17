@@ -1,0 +1,161 @@
+//!!CUSTOM!!
+// SPLIT DROPDOWN
+[class*="dropdown-split--"] {
+  //min-width: 110px; //https://prnt.sc/s3qtam lead to the next problem //https://prnt.sc/s4i7c9
+}
+.dropdown-split {
+  position: relative;
+
+  .dropdown-button {
+
+    &.active {
+      + .dropdown-content {
+        display: block;
+        opacity: 1;
+      }
+    }
+  }
+  &--open:not(.dropdown-split--top) {
+    .btn {
+      @include border-bottom-radius(0);
+    }
+  }
+  &--top.dropdown-split--open {
+    .btn {
+      @include border-top-radius(0);
+    }
+  }
+
+  .btn {
+    margin: 0 !important; //need when somewhere used margin to split buttons .btn + .btn
+
+    &:hover {
+      &.btn--primary {
+        background-color: darken($button-color-primary, 21%);
+      }
+      &.btn--default {
+        background-color: darken($button-color-default, 5%);
+      }
+    }
+  }
+  .btn--default {
+    &:hover {
+      border-color: $button-border-color-default;
+    }
+  }
+}
+
+.dropdown-split__toggle {
+  position: static;
+  border-left: none !important;
+  > .btn {
+    max-width: 57px;
+    padding: 0 10px;
+    box-shadow: none;
+    i {
+      margin: 0 0 0 -1px;
+    }
+  }
+  .dropdown-button {
+    display: flex !important; //https://prnt.sc/s1bff2
+    outline: none;
+    &.btn--outline {
+      &.btn--default {
+        border-left-color: $button-border-color-default;
+      }
+    }
+  }
+
+  .dropdown-content {
+    box-shadow: none;
+    top: 100% !important;
+    right: 0;
+    left: auto !important;
+    width: auto !important;
+    min-width: 100%;
+
+    :not(.dropdown-split--top) > & {
+      @include border-top-radius(0);
+    }
+    .dropdown-split--top & {
+      top: auto !important;
+      bottom: 100%;
+      @include border-bottom-radius(0);
+    }
+
+    > li {
+      &:hover {
+        //background-color: rgba(0, 0, 0, 0.12);
+        background-color: rgba(236, 239, 243, 0.22);
+      }
+      &:after {
+        display: none;
+      }
+
+      > a {
+        padding-left: rem(14px) !important;
+        padding-right: rem(12px) !important;
+        white-space: nowrap;
+        opacity: .9;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+    &.dropdown-content--2 {
+      .dropdown-content {
+        bottom: 0; //https://prnt.sc/s3iwiy
+      }
+    }
+  }
+
+  //color versions
+  .dropdown-button {
+    &.btn--primary {
+      background-color: darken($button-color-primary, 5%);
+      border-color: darken($button-color-primary, 5%);
+      color: #fff;
+
+      & + .dropdown-content {
+        background-color: $button-color-primary;
+        border-color: $button-color-primary;
+
+        > li {
+          > a {
+            color: #fff;
+            &:hover {
+              color: #fff;
+            }
+          }
+          &:hover {
+            background-color: darken($button-color-primary, 21%);
+          }
+        }
+      }
+    }
+    &.btn--default:not(.btn--outline) {
+      background-color: darken($button-color-default, 5%);
+      &:hover {
+        border-left-color: transparent;
+      }
+
+      & + .dropdown-content {
+        background-color: $button-color-default;
+        border-color: $button-color-default;
+
+        > li {
+          > a {
+            color: $button-text-color-default;
+          }
+        }
+      }
+    }
+  }
+
+  .ficon--more-horiz:before {
+    /*opacity: 0.9;*/
+  }
+}
+
+// \ SPLIT DROPDOWN

@@ -1,0 +1,64 @@
+<ul class="collapsible--panels collapsible--arrows-left collapsible collapsible--gwt required"
+    data-collapsible="expandable">
+    <li class="slideDown-box group active">
+        <div class="collapsible-header active"
+             onclick="var myclick=this.parentElement;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls; } var myclick=this;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls; }">
+            <a style="cursor: pointer;"><span>$$label:TITLE$$</span></a>
+        </div>
+        <div class="collapsible-body">
+            <div class="grid-row">
+                <!-- Column #1 -->
+                <div class="col-6">
+                    <div class="form-group">
+                        <div class="form-group__label">$$label:CODE$$</div>
+                        <div class="form-group__content">$$input:CODE$$</div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-group__label">$$label:NAME$$</div>
+                        <div class="form-group__content">$$input:NAME$$</div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-group__label">$$label:DESCRIPTION$$</div>
+                        <div class="form-group__content">$$input:DESCRIPTION$$</div>
+                    </div>
+
+                </div>
+
+                <!-- Column #2 -->
+                <div class="col-6">
+                    <div class="form-group">
+                        <div class="form-group__label">&nbsp;</div>
+                        <div class="form-group__content">$$input:ACTIVE$$</div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-group__label">$$label:TYPE$$</div>
+                        <div class="form-group__content">$$input:TYPE$$</div>
+                    </div>
+                    $$input:SIMPLE_DISCOUNT_TYPE$$
+                    $$input:MULTI_RANGE_DISCOUNT_TYPE$$
+                </div>
+            </div>
+            $$input:DISCOUNT_PANEL$$
+        </div>
+    </li>
+    <li class="slideDown-box group active">
+        <div class="collapsible-header active"
+             onclick="var myclick=this.parentElement;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls; } var myclick=this;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls; }">
+            <a style="cursor: pointer;"><span>$$label:APPLY_TO$$</span></a>
+        </div>
+        <div class="collapsible-body">
+            <div class="grid-row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <div class="form-group__content">$$input:CLIENTS$$</div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <div class="form-group__content">$$input:PRODUCTS$$</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>

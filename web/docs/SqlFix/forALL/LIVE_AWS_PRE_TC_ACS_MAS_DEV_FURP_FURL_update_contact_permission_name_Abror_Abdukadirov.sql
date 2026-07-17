@@ -1,0 +1,1 @@
+update permission set name = 'CRM Remove Contact' where code = 'CRM_REMOVE_CONTACT' and parent = (select id from permission where code = 'CRM_CONTACTS_LIST');

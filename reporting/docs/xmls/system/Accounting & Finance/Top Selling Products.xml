@@ -1,0 +1,28 @@
+<report>
+    <view>
+        <title>Top Selling Products</title>
+        <name>Top Selling Products</name>
+        <category>Top Selling Products</category>
+        <sqlquery>
+            <select agregateFunc="distinct">
+                <table name="Products Sales">
+                    <column name="t.id" title="id" type="number" formattype="hidden"/>
+                    <column name="t.name" title="Product Name" type="string" formattype="string"/>
+                    <column name="t.sales" title="Sales" type="number" formattype="money"/>
+                    <column name="t.quantity" title="Quantity" type="number" formattype="money"/>
+                </table>
+            </select>
+            <from> (SELECT i.name AS name,ic.id, sum(ii.net) AS sales, sum(ii.qty) as quantity
+                FROM "$".invoice ic
+                INNER JOIN "$".invoiceitem ii ON ii.invoice_id = ic.id
+                INNER JOIN "$".item i ON ii.item_id = i.id
+                where ic.invoicedate BETWEEN date_trunc('month', now())  AND now()
+                GROUP BY i.name,ic.id
+                ORDER BY sales desc) t
+            </from>
+            <where>
+                <terms id="base" value="1=1"/>
+            </where>
+        </sqlquery>
+    </view>
+</report>

@@ -1,0 +1,8 @@
+.GWTUpld-abs .GWTUpld {
+    position:relative;
+}
+.GWTUpld-abs .GWTUpld .gwt-FileUpload {
+    position:absolute;
+    top:-6px;
+    left:-4px;
+}

@@ -1,0 +1,21 @@
+insert into modelfield(form_ID, field_ID, columntype, fsection, forder, mandatory) values
+('SUPPLIER_FORM', 'CRM_ACCOUNT_TAX_TREATMENT', 'COL_1', 'CRM_ACCOUNT_FINANCIAL_INFORMATION', 0, true),
+('SUPPLIER_FORM', 'CRM_ACCOUNT_TRN', 'COL_1', 'CRM_ACCOUNT_FINANCIAL_INFORMATION', 1, true),
+('SUPPLIER_FORM', 'CRM_ACCOUNT_PLACEOFSUPPLY_STATE', 'COL_1', 'CRM_ACCOUNT_FINANCIAL_INFORMATION', 2, true),
+('SUPPLIER_FORM', 'CRM_ACCOUNT_PLACEOFSUPPLY_COUNTRY', 'COL_1', 'CRM_ACCOUNT_FINANCIAL_INFORMATION', 2, true);
+update modelfield set forder = 3 where form_id = 'SUPPLIER_FORM' and field_id = 'CLIENT_VAT';
+
+insert into "0".modelfield(form_ID, field_ID, columntype, fsection, forder, mandatory) values
+('SUPPLIER_FORM', 'CRM_ACCOUNT_TAX_TREATMENT', 'COL_1', 'CRM_ACCOUNT_FINANCIAL_INFORMATION', 0, true),
+('SUPPLIER_FORM', 'CRM_ACCOUNT_TRN', 'COL_1', 'CRM_ACCOUNT_FINANCIAL_INFORMATION', 1, true),
+('SUPPLIER_FORM', 'CRM_ACCOUNT_PLACEOFSUPPLY_STATE', 'COL_1', 'CRM_ACCOUNT_FINANCIAL_INFORMATION', 2, true),
+('SUPPLIER_FORM', 'CRM_ACCOUNT_PLACEOFSUPPLY_COUNTRY', 'COL_1', 'CRM_ACCOUNT_FINANCIAL_INFORMATION', 2, true);
+update "0".modelfield set forder = 3 where form_id = 'SUPPLIER_FORM' and field_id = 'CLIENT_VAT';
+
+insert into "anv".modelfield(form_ID, field_ID, columntype, fsection, forder, mandatory) values
+('SUPPLIER_FORM', 'CRM_ACCOUNT_TAX_TREATMENT', 'COL_1', 'CRM_ACCOUNT_FINANCIAL_INFORMATION', 0, true),
+('SUPPLIER_FORM', 'CRM_ACCOUNT_TRN', 'COL_1', 'CRM_ACCOUNT_FINANCIAL_INFORMATION', 1, true),
+('SUPPLIER_FORM', 'CRM_ACCOUNT_PLACEOFSUPPLY_STATE', 'COL_1', 'CRM_ACCOUNT_FINANCIAL_INFORMATION', 2, true),
+('SUPPLIER_FORM', 'CRM_ACCOUNT_PLACEOFSUPPLY_COUNTRY', 'COL_1', 'CRM_ACCOUNT_FINANCIAL_INFORMATION', 2, true);
+update "anv".modelfield set forder = 3 where form_id = 'SUPPLIER_FORM' and field_id = 'CLIENT_VAT';
+

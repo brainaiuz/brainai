@@ -1,0 +1,19 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:c='urn:import:com.edatasite.workforce.gwt.core.client.ui.components.form'
+             xmlns:m='urn:import:gwt.material.design.client.ui'
+             xmlns:dynamicTable="urn:import:com.edatasite.workforce.gwt.core.client.ui.dynamicTable">
+    <g:HTMLPanel ui:field="container">
+        <div class="grid-row">
+            <div class="col-12">
+                <c:FormGroup ui:field="paymentDateField"/>
+                <c:FormGroup ui:field="referenceField"/>
+                <c:FormGroup ui:field="fromAccountField"/>
+                <c:FormGroup ui:field="toAccountField"/>
+                <c:FormGroup ui:field="bankAccountField"/>
+                <c:FormGroup ui:field="detailsField"/>
+                <c:FormGroup ui:field="amountField"/>
+            </div>
+        </div>
+    </g:HTMLPanel>
+</ui:UiBinder>

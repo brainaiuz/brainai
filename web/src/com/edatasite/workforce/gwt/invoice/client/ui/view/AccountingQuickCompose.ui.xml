@@ -1,0 +1,57 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:kpi='urn:import:com.edatasite.workforce.gwt.core.client.ui'
+             xmlns:kpiNew='urn:import:com.edatasite.workforce.gwt.core.client.ui.components'
+             xmlns:m='urn:import:gwt.material.design.client.ui'
+             xmlns:mhtml='urn:import:gwt.material.design.client.ui.html'
+             xmlns:components="urn:import:com.edatasite.workforce.gwt.core.client.ui.newuiform"
+             xmlns:fileUpload="urn:import:com.edatasite.workforce.gwt.core.client.ui.components.fileUpload">
+    <g:HTMLPanel ui:field="panel">
+
+        <g:HTMLPanel styleName="form-group">
+            <mhtml:Label ui:field="fromLabel" styleName="form-group__label"/>
+            <kpi:DataListBox ui:field="from"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group">
+            <mhtml:Label ui:field="toLabel" styleName="form-group__label"/>
+            <g:HTMLPanel ui:field="to"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group">
+            <g:HTMLPanel ui:field="bccPanel"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group">
+            <mhtml:Label ui:field="subjectLabel" styleName="form-group__label"/>
+            <g:TextBox ui:field="subject"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group">
+            <mhtml:Label ui:field="contactLabel" styleName="form-group__label"/>
+            <kpi:DataListBox ui:field="contact"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group">
+            <mhtml:Label ui:field="templateLabel" styleName="form-group__label"/>
+            <kpi:DataListBox ui:field="template"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group">
+            <mhtml:Label ui:field="pdfTemplateLabel" styleName="form-group__label"/>
+            <kpi:DataListBox ui:field="pdfTemplate"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group">
+            <g:HTMLPanel ui:field="content"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group">
+            <mhtml:Label ui:field="copyToMeLabel" styleName="form-group__label"/>
+            <kpiNew:KpiSwitcher ui:field="copyToMe"/>
+        </g:HTMLPanel>
+
+        <m:MaterialPanel ui:field="uploadPanel"/>
+
+    </g:HTMLPanel>
+</ui:UiBinder>

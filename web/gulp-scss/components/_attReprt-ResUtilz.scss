@@ -1,0 +1,391 @@
+//ATTENDANCE TRACKING & RESOURCE UTILIZATION TABLES
+
+$resUtilsCellHeight: 38px;
+$resUtilsCellWidth: 48px;
+$levelPadding: $tableCellPadding-x * 2;
+$levelPadding: $padding-x-base; // to fit with opersPanel left padding
+$rowArrowSize: $levelPadding / 4 * .95; // the size of arrow of foldable rows
+$totalCellWidth: 70px;
+$userTblImg:  $resUtilsCellHeight * .75;
+$userTblImgSpace: $rowArrowSize * 2;
+$rsrcUtlzTblLFirstColBg: #fff;
+$rsrcUtlzTblSectBrdr: opacify($color-base-0, 0.9);
+
+@mixin subtle-stripes(
+  $bg-color: rgba(255, 255, 255, 0.7), // Фон
+  $stripe-color: $color-base-0,        // Цвет полосы
+  $fade-strength: 50%,                 // Сила градиентного затухания
+  $size: 6px,                          // Шаг повторения
+  $stripe-width: 2px,                  // Толщина полосы
+  $angle: -45deg                       // Угол наклона
+) {
+  // Создаем затухающий градиент из основного цвета
+  $fade-color: rgba(red($stripe-color), green($stripe-color), blue($stripe-color), 0);
+
+  position: relative;
+  > * {
+    z-index: 1;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+                    $angle,
+                    $bg-color 0px,
+                    $bg-color ($size - $stripe-width), // Оставляем место перед полосой
+                    $stripe-color ($size - $stripe-width), // Начало полосы
+                    $fade-color ($size) // Градиентное затухание
+    );
+    z-index: 0;
+    //opacity: 0.4;
+    pointer-events: none;
+  }
+}
+
+
+@mixin totalCell($width: $totalCellWidth, $font-weight: bold, $color: #000) {
+  width: $width;
+  font-weight: $font-weight;
+  color: $color;
+}
+
+//ToDo: temporary solution
+.com-edatasite-workforce-gwt-core-client-ui-resourceUtil-ResourceUtilizationView_ResourceUtilizationViewUiBinderImpl_GenCss_style-utilization-background.fixed-content {
+  display: none;
+}
+
+//RESUORCE UTILIZATION and ATTENDANCE REPORT TABLES
+.attendanceReport__filters,
+.rsrcUtlzLayout__filters {
+  padding-right: 10px;
+  z-index: 5;
+  > .group-box {}
+}
+//\ FILTERS PANELS
+
+
+//TABLEs CAPTION ROW
+.attendanceReport__table-header,
+.rsrcUtlzTbl-out__thead,
+{
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 4; //less than filters //https://i.imgur.com/wINI8xt.png
+  //padding-right: 0 !important;
+}
+.attendanceReport__table-header,
+.rsrcUtlzTbl-out__thead,
+.attendanceReport__filters {
+  .has-tabs & {
+    margin-top: $oneRowPanelHeight - $fixedPanelPadding / 2;
+  }
+}
+
+//for resUtilz
+//.col-group-day .daySlot,
+.daySlot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.attendanceReport__table-header > table thead tr > *:after,
+.rsrcUtlzTbl thead tr > *:after, #attendanceTableBeta.cellBasedWidget-mod thead tr > *:after {
+
+}
+
+// \ TABLEs CAPTION ROW
+
+
+table.attRepTbl,
+table.rsrcUtlzTbl {
+  display: table;
+  table-layout: fixed;
+  min-width: 100%;
+  width: max-content !important;
+  background-color: #fff;
+
+  a {
+    color: inherit;
+  }
+
+  > thead {
+    @include theadShadow;
+
+    > tr {
+      > * { // override the rule for .cellBasedWidget-mod thead th and prevent <style>
+        @include theadBasedCell($fz: $theadBaseFontSize-sm);
+        border-bottom: none;
+
+        > span:not(.daySlot) {
+          display: inline; //override <style> inline-block to fix align center
+        }
+      }
+    }
+    // FIRST Sticked COLUMN of tables
+    > tr:first-child > *:first-child,
+    > tr > .firstColCell {
+      padding-left: $levelPadding;
+      a:hover {
+        color: #0d59b3;
+      }
+      > span {
+        font-weight: bold;
+        line-height: 1;
+      }
+    }
+  }
+
+  > tbody > tr:hover > * {
+    $shHeight: $resUtilsCellHeight / 2;
+    $shadowColor: rgba(160, 160, 160, 0.045);
+    box-shadow: inset 0 calc(-2 * #{$shHeight}) 0 0 $shadowColor, // top shadow
+    inset 0 calc(2 * #{$shHeight}) 0 0 $shadowColor; // bottom shadow
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+    filter: brightness(0.999);
+
+    &:after {
+        opacity: 0.8;
+    }
+  }
+
+  > * > tr > * {
+    position: relative; //needed for decoration lines <span> for cells https://i.imgur.com/qVZA3fG.png
+    height: $resUtilsCellHeight;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important; //to prevent <style> on Resurce Utilization report
+    border: 1px solid $color-base-0;
+    text-align: center;
+    > *:not(svg) {
+      position: relative;
+      z-index: 1; // for overlaying the :before of .mongh-weekend e.g.
+    }
+    > a:only-child:has(> * + *) {
+
+    }
+
+    &:not(:first-child):not(.inhour-overtime):not(.total-day):not(.total-middle-day) {
+    }
+
+
+
+    &.has-actions {
+      cursor: pointer;
+    }
+  }
+  // ширина для ВСЕХ «не первых колонок», кроме специальных итоговых
+  > * > tr > *:not(.firstColCell):not(.employeeNameCell):not(.inhour-overtime):not(.total-day):not(.total-middle-day) {
+    width: $resUtilsCellWidth;
+  }
+
+  // FIRST Sticked COLUMN of tables
+  //.employeeNameCell
+  //.resourceEmpNaME
+  //.timeSTHourNaME
+  //.timeSHTHourNaME
+  //.overAllTimeSHTHourNaME
+  //.lrHoursNaME
+  //.projNaME
+  //.taskNaME
+
+  // THEAD: только первая строка (EMPLOYEE)
+  > thead > tr:first-child > th:first-child,
+  > thead > tr > .firstColCell,
+
+    // TBODY: первая колонка
+  > tbody > tr > th:first-child,
+  > tbody > tr > .firstColCell,
+  > tbody > tr > .employeeNameCell:first-child {
+    position: sticky !important;
+    left: 0;
+    z-index: 3; // less than table head row
+    padding-left: $levelPadding;
+    border: 1px solid $rsrcUtlzTblSectBrdr; // have no idea but it's needed for Resource Utilization table to make it the same with Attendance Report table
+    font-size: rem(11px);
+    text-align: left;
+    color: $color-accent-2;
+    background-color: $rsrcUtlzTblLFirstColBg;
+    //background-clip: border-box;
+    padding-right: 0; // to override <style>
+    border-right: 1px solid #fff;
+    > * {
+      padding-right: $tableCellPadding-x;
+      // only AttRep show additional rows alignment - you can move to _attendanceReport.scss:
+      vertical-align: middle;
+      line-height: 1;
+    }
+
+    &:before, &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      height: 100%;
+      width: 1px;
+      background: $rsrcUtlzTblLFirstColBg;
+    }
+    &:before {
+      left: -1px;
+    }
+    &:after {
+      right: -1px;
+      opacity: 0.9;
+      transition: opacity 0.2s;
+      pointer-events: none;
+      box-shadow:
+              //-1px 0 0 0 rgba(0, 0, 0, 0.1), // Левая грань
+              3px 0 8px rgba(0, 0, 0, 0.2), // Основная тень вправо
+              6px 0 15px rgba(0, 0, 0, 0.1), //Дополнительное размытие
+              10px 0 25px rgba(0, 0, 0, 0.05); // Дальнее мягкое затухание
+    }
+  }
+  // \ FIRST Sticked COLUMN of tables
+
+
+  &.scrolledX {
+    > * > tr > *:first-child {
+      opacity: 1;
+    }
+  }
+}
+
+
+
+  //.attendanceReport__table-body td.employeeNameCell > a,
+  .employeeNameCell > a,
+  .resUtilzLevel-1 {
+    display: flex;
+    align-items: center;
+    width: 100%; // to prevent text overflow
+    height: 100%;
+    cursor: pointer; // for resource utilization report
+    > * {
+      min-width: 0; // to prevent text overflow
+      &:not(:first-child):not(.attRepTbl_emlTltp) {
+        flex: 1 1 calc(100% - (#{$userTblImg} + #{$userTblImgSpace}));
+        width: 0; //To prevent text overflow
+
+        > * { //.attRepTbl__emplNm
+          //max-width: 100%;
+        }
+      }
+    }
+  }
+
+//user data for resource utilization and attendance report
+.attRepTbl__emplNm {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2px 4px;
+  align-items: baseline;
+  max-width: 100%;
+
+  .rsrcUtlzTbl tr:hover &,
+  .attRepTbl tr:hover & {
+    color: #000;
+  }
+
+  $dtFz: 85%;
+  > dt {
+    font-size: $dtFz;
+    font-family: monospace;
+    text-transform: uppercase;
+    opacity: .87;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &:after {
+      content: ':';
+    }
+  }
+
+  > dd {
+    @include txtTruncate();
+    text-transform: none;//override gwt <style>
+    & + dt {
+      font-size: $dtFz * .91764;
+      letter-spacing: -0.02em;
+    }
+  }
+}
+
+
+//LAST COLUMN of tables
+
+
+.tblUserImg {
+  flex: 0 0 $userTblImg;
+  height: $userTblImg;
+  margin-right: $userTblImgSpace;
+  //object-fit: cover;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    position: relative;
+
+    &::after {
+      position: absolute;
+      z-index: -1;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      content: '';
+      background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAtCAMAAAANxBKoAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQ1IDc5LjE2MzQ5OSwgMjAxOC8wOC8xMy0xNjo0MDoyMiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTkgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkJGQTdCNzA3MUYyRTExRUFCNzczRDBCQUEzMkM3QzEwIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkJGQTdCNzA4MUYyRTExRUFCNzczRDBCQUEzMkM3QzEwIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6QkZBN0I3MDUxRjJFMTFFQUI3NzNEMEJBQTMyQzdDMTAiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6QkZBN0I3MDYxRjJFMTFFQUI3NzNEMEJBQTMyQzdDMTAiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4MlIa9AAABuVBMVEUmND+0ubxYYmqvtLclMz62ur0sOUS4vL8mMz+xtrm1ury1ubwrOEO3u763vL4qN0InNEAnNUAuO0ayt7pcZm6wtbihpqoqOEMoNUB8hIopN0IpNkGzt7qIj5QrOEQwPUe4vb8rOUS0ubuyt7lncHgqN0MoNUFjbXS2u70pNkKnrbCMk5gsOkVZY2s2QkwoNkE6RlCytrmtsrWDi5CepKhSXGVXYWl+how2Qk1sdXyorrF1foSeo6eiqKs4RE49SVOxtbiutLZpcnl0fIO4vL5VX2gnND9yeoFZY2xTXmY/S1VDTlgxPklsdX1veH+do6dPWWJ0fYOmrK+zuLoxPUiYn6MzP0p3f4aHjpR4gIdVYGiaoKSxtrhUXmdGUVtMV1+NlJhATFW6vsA5RU+nrK+SmZ2fpal+hYyboqYxPkijqKyhp6teaHBCTleBiI6qsLOJkJWqr7JUX2eOlZo0QEtocXhAS1WzuLtrdHuLk5eDipBncHc9SVKUm58kMj4lMz9ibHNNWGEjMT1BTFY5RVBPWmMzQEpHUlxveH4sOUV4gIZJVV5CTVewtLeorbBKVV6HjpOus7YtOkWNvKhkAAAB2klEQVR42tzV51MTQRgG8Dtvb6/X9EIS0ui9xALSlGIBFKwgFhTsvaKg0gQLsvmLycAY9o7sAjN+4vn8m51n7n13j8kfJsyR0lAtP6g2QGT87YUwCB9AQzCdrul40vrmY5cY208HjHfVmpKSUqz+Yjhv0LWabxEktJPJxKdHBlVnZxMcKkYoC0CKZup4DCOkV3wla2hfSeIYRf2rMaIOfo86jkY9cjtD1OCEhpzRrgGiFkO8SyubFlnn9uiXQXKTU+4m/HNyb9HrPltLk3tnGk9KDuxDv6so07khOLTeYlFmmTnuZzH8ofpLFUXbC1Ov5CJOotFFm7Yn9fDchLA9UM4jzPyInBZrSTomnu2crzc/P/TJvCy1XlTjdy57LbW0DhiXkmPK/W8Z8+5Nb/uzSND7WPbwoXy4lFbh3JlCBYn3/7y11Pi+rW9E9hQKCTVxY6+GDTlhZwGbeMXX/Iet9Py7ErsPQFGDtL67rRyH36AB4NYN55slVDq+ptumS2fLKhEp8gMVOnTwl8QRNacM9Tu0GNIQOfx1C9flV/0piu7eWA5gOvuXUqQQ9rWJaVCh0zDS1wCmmacJmSVHudcrYrrWXhk8Rk5dWxzi32TdYmgx4VH8p/0fvSXAADC6zlFwDMumAAAAAElFTkSuQmCC);
+      background-size: $userTblImg $userTblImg;
+      background-position: center;
+      border-radius: 50%;
+    }
+  }
+
+
+  // COLORS for cells
+.rsrcUtlzTbl .work-company-holiday,
+.attRepTbl .work-company-holiday {
+  //background-color: #f4a523;
+  color: #000000;
+
+  &::before {
+    content: '';
+    width: 65%;
+    height: 2px;
+    background: #f4a523;
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+
+  }
+}
+
+  table.rsrcUtlzTbl td.total-day,
+  .attendanceReport__table-header th.inhour-overtime {
+    /*background-color: #007de7;
+    color: #ffffff;
+    overflow: hidden;
+    text-align: center;
+    vertical-align: middle;
+    zoom: 1;*/
+  }
+
+  table.rsrcUtlzTbl td.total-middle-day,
+  .attendanceReport__table-body td.inhour-overtime,
+  .attendanceReport__table-body td.grandTotalTotal,
+  .attendanceReport__table-body #totalLeaveType tr:nth-child(2) td:last-child {
+    /*background-color: #007de7;
+    color: white !important;
+    overflow: hidden;
+    text-align: center;
+    vertical-align: middle;
+    zoom: 1;*/
+  }
+
+
+
+// \ RESUORCE UTILIZATION and ATTENDANCE REPORT TABLES

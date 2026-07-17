@@ -1,0 +1,40 @@
+@import url(reset.css);
+
+.signUp-form {
+	width:264px;
+	margin:0 auto;}
+	.form-item {
+		margin:0 0 20px;}
+		.form-item label {
+			display:block;
+			margin:0 0 4px;
+			font-family:Verdana;}
+		.form-text {
+			width:254px;
+			padding:5px 3px 3px 6px;
+			font-size:12px;
+			border:0;
+			background:url(images/bg_form_text.png) no-repeat 0 0;}
+	.form-select {
+		display:block;
+		width:261px;
+		margin:0 auto;}
+	.form-submit {
+		display:block;
+		width:201px;
+		height:37px;
+		line-height:36px;
+		margin:0 auto;
+		font-size:16px;
+		font-weight:bold;
+		color:#fff;
+
+		-webkit-text-shadow:0 -1px 0 rgba(32, 105, 136, 0.7);
+		-moz-text-shadow:0 -1px 0 rgba(32, 105, 136, 0.7);
+		-ms-text-shadow:0 -1px 0 rgba(32, 105, 136, 0.7);
+		-o-text-shadow:0 -1px 0 rgba(32, 105, 136, 0.7);
+		text-shadow:0 -1px 0 rgba(32, 105, 136, 0.7);
+
+		cursor:pointer;
+		border:0;
+		background:url(images/bg_btn_horizontal.png) no-repeat 0 -152px;}

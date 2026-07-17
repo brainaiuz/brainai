@@ -1,0 +1,2 @@
+delete from "anv".model where formid = 'PAYROLL_CASH_ADVANCE_FORM' and viewname = 'CashAdvanceList';
+insert into "anv".model (formid, title, viewname, active) values('PAYROLL_CASH_ADVANCE_FORM', 'Cash Advance', 'CashAdvanceList', true);

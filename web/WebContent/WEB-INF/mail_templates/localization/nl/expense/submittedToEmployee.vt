@@ -1,0 +1,15 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head><body>
+
+<p>Beste $USER.firstName $USER.lastName,</p><br />
+
+<p>Uw declaratie is verzonder naar $APPROVER.firstName $APPROVER.lastName ter goedkeuring op $SUBMIT_DATE</p>
+
+<p>De PDF versie van de declaratie is bijgevoegd ter informatie.</p>
+
+<p>Indien $APPROVER.firstName $APPROVER.lastName de declaratie beoordeeld heeft ontvangt u hier per e-mail een notificatie van.</p>
+
+<p></p>
+
+</body></html>

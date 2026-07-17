@@ -1,0 +1,40 @@
+<report>
+    <view>
+        <title>Top Customers</title>
+        <name>Top Customers</name>
+        <category>top customers</category>
+        <sqlquery>
+            <select>
+                <table name="Invoice">
+                    <column name="customer" title="Customer's Name" type="string" formattype="string"/>
+                    <column name="amount" title="Amount" type="number" formattype="money"/>
+                    <column name="currencyname" title="Currency" type="string" formattype="string"/>
+                </table>
+            </select>
+            <from> (
+                select max(customer) customer
+                , sum( case when si.iscreditnote = true then ((i.subtotal-i.totaldiscount)/i.exchangeRate)*(-1) else ((i.subtotal-i.totaldiscount)/i.exchangeRate) end) amount
+                --		, sum((case when si.isCreditNote then(-1) else 1 end)*i.subtotal) amount
+                , max(cur.name) currencyname
+                from (select ca.id, ca.name customer
+                from "$".crmaccount ca
+                join "$".crmAccount_types cat on ca.id=cat.crmaccount_id
+                join "$".reference tp on cat.type_id=tp.id
+                where ca.deleted is not true and tp.code ='CUSTOMER') ca
+                left join "$".saleinvoice si on ca.id=si.client_id
+                join "$".invoice i on si.id=i.id and i.type = 'RECEIVABLE'
+                left join "$".reference st on i.status_id=st.id
+                left join "public".company comp on comp.id=$
+                left join "public".financialsettings fs on comp.financialSettingsId=fs.id
+                left join "public".currency cur on fs.currency_id=cur.id
+
+                where st.code in ('OVER_DUE','PAID','APPROVE','OPEN')
+                group by ca.id
+                ) t
+            </from>
+            <where>
+                <terms id="base" value="1=1"/>
+            </where>
+        </sqlquery>
+    </view>
+</report>

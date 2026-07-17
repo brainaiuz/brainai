@@ -1,0 +1,9 @@
+<module rename-to="webforms">
+    <inherits name='com.edatasite.workforce.gwt.core.Core'/>
+    <inherits name='com.edatasite.workforce.gwt.crm.CRMMain'/>
+    <inherits name='com.edatasite.workforce.gwt.contact.ContactEmpty'/>
+    <inherits name='com.edatasite.workforce.gwt.crmcase.CrmCaseEmpty'/>
+    <entry-point class='com.edatasite.workforce.gwt.webforms.client.WebFormsEntryPoint'/>
+    <inherits name="com.edatasite.workforce.gwt.Localization_properties"></inherits>
+    <inherits name="com.google.gwt.user.Debug"/>
+</module>

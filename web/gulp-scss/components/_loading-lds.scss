@@ -1,0 +1,88 @@
+/* LOADING*/
+//See also _preloader.scss
+.loader-wrapper {
+  z-index: 2;
+}
+
+.material-preloader {
+  border: 1px solid #ced5db;
+  border-radius: $radius-basePlus;
+  background-color: rgba(255, 255, 255, 0.82);
+}
+
+.lds-message {
+  position: relative;
+  width: 100px !important;
+  height: 40px !important;
+  -webkit-transform: scale(0.45) translate(-49px, -67px);
+  transform: scale(0.45) translate(-49px, -67px);
+
+  > div {
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    top: 70px;
+    -webkit-animation: lds-message 1s cubic-bezier(0.3, 0, 0.7, 1) infinite;
+    animation: lds-message 1s cubic-bezier(0.3, 0, 0.7, 1) infinite;
+
+    &:nth-of-type(4n + 1) {
+      background: #007de7;
+    }
+    &:nth-of-type(4n + 2) {
+      background: $color-accent-2;
+    }
+    &:nth-of-type(4n + 3) {
+      background: #8d9ba8;
+    }
+    &:nth-of-type(4n) {
+      background: #000000;
+    }
+    &:nth-of-type(4n + 1) {
+      left: 32px;
+      -webkit-animation-delay: -0.666666666666667s;
+      animation-delay: -0.666666666666667s;
+    }
+    &:nth-of-type(4n + 2) {
+      left: 82px;
+      -webkit-animation-delay: -0.333333333333333s;
+      animation-delay: -0.333333333333333s;
+    }
+    &:nth-of-type(4n + 3) {
+      left: 132px;
+      -webkit-animation-delay: 0s;
+      animation-delay: 0s;
+    }
+  }
+}
+
+
+@keyframes lds-message {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  50% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+}
+@-webkit-keyframes lds-message {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  50% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+}
+/* \ LOADING*/

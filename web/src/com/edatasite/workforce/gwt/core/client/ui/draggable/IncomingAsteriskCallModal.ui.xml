@@ -1,0 +1,25 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:kpi="urn:import:com.edatasite.workforce.gwt.core.client.ui.wfmButton.buttonUtils">
+
+    <ui:style>
+        .parentWrapper {
+            position: absolute;
+            z-index: 9;
+            background-color: #FFFFFF;
+            border: 1px solid #d3d3d3;
+            text-align: center;
+            padding:20px;
+            cursor:pointer;
+        }
+    </ui:style>
+    <g:HTMLPanel ui:field="parentWrapper" styleName="{style.parentWrapper}">
+        <!-- Draggable DIV -->
+        <g:HTML ui:field="msg"></g:HTML>
+
+        <p>
+            <kpi:WfmButton2 text="Close" ui:field="closeButton"/>
+        </p>
+    </g:HTMLPanel>
+
+</ui:UiBinder>

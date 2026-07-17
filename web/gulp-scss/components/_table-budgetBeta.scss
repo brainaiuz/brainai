@@ -1,0 +1,64 @@
+.cellColor__month {
+  background: $gray-middle;
+  &-2 {
+    background: #244f6d;
+  }
+}
+.cellColor__total {
+  background: #d0edcc;
+  &-2 {
+    background: #3e851f;
+  }
+}
+
+.t_budgetBeta {
+  table-layout: fixed;
+  > thead, tfoot, tbody:not(.spaceHolder) {
+    > tr > * {
+      border: 1px solid #000;
+    }
+  }
+  > thead {
+    > tr > * {
+      border-color: #fff;
+    }
+  }
+  tbody.spaceHolder > tr > td {
+    height: 20px;
+  }
+  &__wrapper {
+
+  }
+  &__header {
+    &__r1 {
+      td {
+        font-weight: bold;
+      }
+    }
+    &__r2 {
+      color: #fff;
+    }
+    td {
+      text-align: center;
+    }
+  }
+  &_hRow {
+    background: $blue-light;
+    color: #fff;
+    th {
+      text-align: center;
+    }
+  }
+  &_fRow {
+    > td {
+      font-weight: bold;
+    }
+  }
+
+  tfoot {
+    text-transform: uppercase;
+    td {
+      background: #d0edcc;
+    }
+  }
+}

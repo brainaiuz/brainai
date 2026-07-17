@@ -1,0 +1,5 @@
+<module rename-to="chart">
+    <inherits name="com.edatasite.workforce.gwt.chart.Chart"/>
+    <inherits name="com.edatasite.workforce.gwt.core.Core"/>
+    <set-property name="locale" value="default"/>
+</module>

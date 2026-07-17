@@ -1,0 +1,62 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder
+        xmlns:ui='urn:ui:com.google.gwt.uibinder'
+        xmlns:g='urn:import:com.google.gwt.user.client.ui'
+        xmlns:design="urn:import:gwt.material.design.client.ui"
+        xmlns:boardchart='urn:import:com.edatasite.workforce.gwt.hrms.client.ui.orgchart.boardchart'>
+
+    <!-- корневой контейнер -->
+    <g:HTMLPanel ui:field="root" styleName="orgBoard">
+
+        <!-- Шапка страницы с регулировками размера -->
+        <g:FlowPanel styleName="orgBoard__top orgBoard-header">
+            <g:FlowPanel ui:field="companyNameRow" styleName="orgBoardCompany">
+                <g:FlowPanel ui:field="companyNameContainer" styleName="orgBoardCompany__field">
+                    <g:Label ui:field="companyName" styleName="orgBoardCompany__name"/>
+                </g:FlowPanel>
+                <g:FocusPanel ui:field="companyNameEdit"
+                              styleName="orgBoardCompany__act"
+                              title="Редактировать название"/>
+            </g:FlowPanel>
+
+            <g:FlowPanel styleName="orgBoard-controls">
+                <g:FlowPanel styleName="orgChart__switchView">
+                    <design:MaterialButton ui:field="refreshBtn"/>
+                </g:FlowPanel>
+                <g:FlowPanel styleName="zoomSlider">
+                    <boardchart:RangeSlider ui:field="zoomSlider"
+                                            minValue="10" maxValue="200" stepSize="10"
+                                            styleName="zoomSlider__line"/>
+                    <g:Label ui:field="zoomLabel"
+                             styleName="zoomSlider__text">100%
+                    </g:Label>
+                </g:FlowPanel>
+
+                <g:FlowPanel ui:field="viewButtonHost"/>
+
+            </g:FlowPanel>
+        </g:FlowPanel>
+
+        <g:FlowPanel styleName="orgBoard__main">
+            <!-- Поле с названием чартбоард-->
+            <g:FlowPanel ui:field="descriptRow" styleName="descriptRow">
+                <g:FlowPanel ui:field="descriptionContainer"
+                             styleName="descriptRow__field">
+                    <g:Label ui:field="descriptionText"
+                             styleName="form-control descriptRow-textDiv">
+                        Оргструктура для моей клиники
+                    </g:Label>
+                </g:FlowPanel>
+
+                <g:FocusPanel ui:field="descriptionEdit"
+                              styleName="descriptRow__fieldAct"
+                              title="Редактировать описание"/>
+
+            </g:FlowPanel>
+
+            <!-- Основная область с оргструктурой -->
+            <g:FlowPanel ui:field="centerContent" styleName="orgBoard-scrollX"/>
+        </g:FlowPanel>
+
+    </g:HTMLPanel>
+</ui:UiBinder>

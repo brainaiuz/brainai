@@ -1,0 +1,39 @@
+<report>
+    <view>
+        <title>CRM Campaign Report</title>
+        <name>Campaign Report</name>
+        <category>Campaign</category>
+        <sqlquery>
+            <select agregateFunc="distinct">
+                <table name="Campaign">
+                    <column name="cm.id" title="id" type="number" formattype="hidden"/>
+                    <column name="(mu.firstname || ' ' || mu.lastname)" title="Assignee" type="string"
+                            formattype="string"/>
+                    <column name="cm.name" title="Campaign Name" type="string" formattype="string"/>
+                    <column name="trf.name" title="Type" type="string" formattype="string"/>
+                    <column name="srf.name" title="Status" type="string" formattype="string"/>
+                    <column name="cm.startdate" title="Start Date" type="date" formattype="date_without_time"/>
+                    <column name="cm.enddate" title="End Date" type="date" formattype="date_without_time"/>
+                    <column name="cm.expectedrevenue" title="Expected Revenue" type="number" formattype="string"/>
+                    <column name="cm.budgetcost" title="Budget Cost" type="number" formattype="string"/>
+                    <column name="cm.actualcost" title="Actual Cost" type="number" formattype="string"/>
+                    <column name="cm.expectedresponse" title="Expected Response" type="number" formattype="string"/>
+                    <column name="cm.numbersent" title="Number Sent" type="string" formattype="string"/>
+                </table>
+            </select>
+            <from>
+                "$".campaign AS cm
+                LEFT JOIN "$".myuser mu ON mu.id = cm.campaignowner
+                LEFT JOIN "$".reference trf ON trf.id = cm.type
+                LEFT JOIN "$".reference srf ON srf.id = cm.status
+            </from>
+            <where>
+                <terms id="base" value="cm.deleted is not true"/>
+                <!--<terms id="userid" userid="" company="cm.company_id" />
+                    <terms id="managerid" userid="" company="cm.company_id" />
+                    <terms id="leaderid" userid="" company="cm.company_id" />
+                    <terms id="admin" company="cm.company_id" />-->
+            </where>
+        </sqlquery>
+    </view>
+</report>

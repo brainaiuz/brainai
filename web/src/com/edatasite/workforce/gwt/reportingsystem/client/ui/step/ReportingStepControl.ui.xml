@@ -1,0 +1,133 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:w='urn:import:com.edatasite.workforce.gwt.reportingsystem.client.ui.step.widget'
+        >
+    <g:HTMLPanel>
+
+        <!--Start Content Place-->
+        <!-- <div class="contentPlaceHolder"> -->
+        <!-- <div class="contentPlaceCover"> -->
+        <g:HTMLPanel ui:field="contengForm">
+            <!--style="padding:0 20px;"-->
+
+            <!-- <div class="contentScroll"> -->
+            <!-- ######################### START NEW CONTENT! ######################### -->
+
+            <div class="pageContent_reporting_custom bt_area" ui:field="stepControlPanel">
+                <div class="workareaContent bt_area clearfix inputs_sm">
+                    <div class="workarea_title_zone">
+                        <span class="fonticon-help pull-right">
+                            <a href="https://wiki.kpi.com/document/reporting-and-dashboard/reporting-system" ui:field="help">Help</a>
+                        </span>
+
+                        <h1 class="workarea_title"> <span ui:field="customReport">CUSTOM REPORT:</span>
+                            <span class="text-primary" ui:field="reportName">Loading....</span>
+                        </h1>
+                    </div>
+
+
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs workarea_head_tabs nav_tabs_light" role="tablist" ui:field="menuItems">
+                        <li class="active" id="menuItems_1">
+                            <a ui:field="step1" href="#customReport_tab_1" role="tab" data-toggle="tab">Report Type</a>
+                        </li>
+                        <li ui:field="groupingMenuItem" class="hide">
+                            <a ui:field="step2" href="#customReport_tab_2" role="tab" data-toggle="tab">Grouping</a>
+                        </li>
+                        <li id="menuItems_3">
+                            <a ui:field="step3" href="#customReport_tab_3" role="tab" data-toggle="tab">Columns</a>
+                        </li>
+                        <li id="menuItems_4">
+                            <a ui:field="step4" href="#customReport_tab_4" role="tab" data-toggle="tab">Summaries</a>
+                        </li>
+                        <li id="menuItems_5">
+                            <a ui:field="step5" href="#customReport_tab_5" role="tab" data-toggle="tab">Select Chart</a>
+                        </li>
+                        <li id="menuItems_6">
+                            <a ui:field="step6" href="#customReport_tab_6" role="tab" data-toggle="tab">Advanced
+                                Filter
+                            </a>
+                        </li>
+                    </ul>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content padd_box workarea_head_tabs_content nav_tabs_light_content textPanel clearfix">
+                        <div class="tab-pane active inputs_sm" id="customReport_tab_1">
+                            <div class="row baseMargin_top_double">
+                                <div class="col-md-6">
+                                    <div class="radio baseMargin_bottom">
+                                        <label>
+                                            <input ui:field="tableType" type="radio" name="reportType"/>
+                                            <label ui:field="tabularReport">Tabular Report</label>
+                                        </label>
+                                    </div>
+
+                                    <img class="img-responsive baseMargin_bottom"
+                                         src="mainStyles/reporting/img/reportType_tabular.png"
+                                         alt="image"/>
+
+                                    <div class="halp-block" ui:field="tabularReportsInfo">Tabular reports are the simplest and fastest way
+                                        to list your data
+                                    </div>
+
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="radio baseMargin_bottom">
+                                        <label class="text">
+                                            <input ui:field="summaryType" type="radio" name="reportType"/>
+                                            <label  ui:field="summarReport">Summary Report</label>
+                                        </label>
+                                    </div>
+
+                                    <img class="img-responsive baseMargin_bottom"
+                                         src="mainStyles/reporting/img/reportType_summary.png"
+                                         alt="image"/>
+
+                                    <div class="halp-block" ui:field="summarReportList">Summary reports list your data with subtotals
+                                        and other summary information.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <w:ReportingGrouping ui:field="grouping" styleName="tab-pane"/>
+
+                        <w:ReportingSelectColumns ui:field="selectReport" styleName="tab-pane inputs_sm"/>
+
+
+                        <w:ReportingSummaryColumns ui:field="summaryColumns" styleName="tab-pane inputs_sm"/>
+
+                        <!--<g:HTMLPanel ui:field="chartPanel"/>-->
+                        <w:ReportingChart ui:field="reportingChart" styleName="tab-pane inputs_sm"/>
+
+                        <w:ReportingAdvancedFilter ui:field="advancedFilter" styleName="tab-pane"/>
+
+
+                        <footer class="footer_reporting clear baseMargin_top_double text-right" style="margin:10px">
+                            <button ui:field="home" type="button" class="btn btn-default pull-left">Home</button>
+                            <button ui:field="backButton" type="button" class="btn btn-default pull-left">Back</button>
+                            <button ui:field="previous" type="button" class="btn btn-default pull-left"
+                                    style="margin-left:3px">Previous
+                            </button>
+                            <button ui:field="runReport" type="button" class="btn btn-default">Run Report</button>
+                            <button ui:field="nextButton" type="button" class="btn btn-default">Next</button>
+                        </footer>
+
+
+                    </div>
+                </div>
+                <!--\workareaContent-->
+            </div>
+
+            <!-- ######################### END NEW CONTENT! ######################### -->
+
+            <!-- </div> End contentScroll -->
+        </g:HTMLPanel>
+        <!-- End contentBar -->
+
+        <!-- End </div>contentPlaceHolder -->
+
+    </g:HTMLPanel>
+</ui:UiBinder>

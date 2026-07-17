@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <title>
+        OrgBoard Test Horizontal2
+    </title>
+    <link rel="stylesheet" href="../WebContent/googlegadget/select2.min.css">
+    <link rel="stylesheet" href="../WebContent/mainStyles/new-ui/css/materialize.css">
+    <!--    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />-->
+    <!--    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>-->
+
+    <style>
+        .col > h6 {
+        }
+
+        .depCard__headingTitle kbd {
+            font-size: .8em;
+            text-transform: none;
+            /*background-color: #edf1f5;*/
+            /*background-color: #bfe8ff;*/
+            /*color: #174da6;*/
+            font-family: system-ui, math;
+        }
+
+        code {
+            color: #930c53;
+            font-size: .9em;
+        }
+    </style>
+    <style>
+        /*
+        Для тестирования локально вам потребуются базовые стили
+        из вашего SCSS (например, $orgBoardPadding-x, $orgBoardPadding-y,
+        min-height, display: flex и т.д.)
+        */
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .frame__content__body {
+            height: 100vh; /* Имитация родительского контейнера, дающего высоту */
+            padding: 0;
+        }
+
+        /* ОСНОВНАЯ ЛОГИКА ИЗ _orgChartNew-board.scss */
+        .orgBoard {
+        }
+
+        /* ЗАКРЕПЛЕНИЕ ВЕРХНИХ ЭЛЕМЕНТОВ */
+        .orgBoard__top {
+        }
+
+        .descriptRow {
+        }
+
+        /* ОБЛАСТЬ С КАРТОЧКАМИ */
+        .orgBoard__main {
+        }
+
+        .orgBoard-scrollX {
+        }
+
+        /* СТИЛИ КАРТОЧЕК И ЛИНИЙ */
+        .depTree {
+        }
+
+        .depNode {
+            /*outline: 1px solid crimson;*/
+        }
+
+        .depCard {
+            background-color: #bbffe8;
+            /*background-color: mediumaquamarine;*/
+        }
+
+        .depChildren {
+            /*outline: 1px solid #0da88c;*/
+        }
+
+        .depCard::before {
+        }
+    </style>
+</head>
+<body class="frame__body" style="overflow: auto;" data-new-gr-c-s-check-loaded="14.1264.0" data-gr-ext-installed="">
+
+<div class="frame__content__body">
+    <div class="workarea" id="workarea"><div class="orgBoard"><div class="orgBoard__top orgBoard-header"><div class="orgBoardCompany"><div class="orgBoardCompany__name">BARAKA UZ</div></div><div class="orgBoard-controls"><div class="orgChart__switchView"><button type="button" style="cursor: pointer;" class="btn btn--icon" tabindex="0" id="gwt-debug-reload_button" data-delay="350" data-position="top" data-tooltip-id="e4c8a128-c2e2-1de2-dbcd-93d819e6ac2b" data-tooltip="Refresh"><svg class=" icon--rotateCw"><use href="mainStyles/new-ui/icons/sprite__panels.svg?v=3.1.0#rotateCw"></use></svg></button></div><div class="zoomSlider"><input type="range" step="10" class="zoomSlider__line" min="10" max="200" value="100" style="--fill-percent: 47.368421052631575%;"><div class="zoomSlider__text">100%</div></div><div><div class="btn viewButton btn--lightgrey"><div class="viewButton__icon"><svg class=" icon--verticalchart2"><use href="mainStyles/new-ui/icons/sprite__panels.svg?v=3.1.0#verticalchart2"></use></svg></div><span class="viewButton__text">Вид</span><div class="viewButton__caret"><svg class=" icon--chevronDown"><use href="mainStyles/new-ui/icons/sprite__panels.svg?v=3.1.0#chevronDown"></use></svg></div></div></div></div></div> <div class="orgBoard__main"><div class="descriptRow"><div class="descriptRow__field"><div class="form-control descriptRow-textDiv">BARAKA UZ</div></div><div tabindex="0" class="descriptRow__fieldAct" title="Редактировать описание"><input type="text" tabindex="-1" aria-hidden="true" style="opacity: 0; height: 1px; width: 1px; z-index: -1; overflow: hidden; position: absolute;"><svg class=" icon--editPen"><use href="mainStyles/new-ui/icons/sprite__panels.svg?v=3.1.0#editPen"></use></svg></div></div><div class="orgBoard-scrollX"><div class="depTree" style="transform-origin: 0px 0px 0px; transform: scale(1); width: 1458px; height: 649px;"><div class="depNode depRoot"><div class="depCard"><div class="depCard__heading"><div class="depCard__headingTitle">Ijrochi direktor ofisi</div><div tabindex="0" class="dropdown-button btn-small btn--icon depCard__actBtn"><input type="text" tabindex="-1" aria-hidden="true" style="opacity: 0; height: 1px; width: 1px; z-index: -1; overflow: hidden; position: absolute;"><svg class=" icon--settings"><use href="mainStyles/new-ui/icons/sprite__panels.svg?v=3.1.0#settings"></use></svg></div></div><div class="depCard__sect depEmployees"><div class="depEmployeesList"><div class="depEmployeeRow"><div class="avatar" style="background-image: url(https://workforcetrack.s3.amazonaws.com/c327596/u9/6d9b2f3e-fdd6-4ac5-8d45-f3211cbceef4?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Date=20260326T053125Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=259200&amp;X-Amz-Credential=AKIAIROQMC77E5UKWBWQ%2F20260326%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Signature=18e17e43b228456b3e1fe8442073a5c0bd8d4198272c48fb6765f120d8c5223d)"><img src="https://workforcetrack.s3.amazonaws.com/c327596/u9/6d9b2f3e-fdd6-4ac5-8d45-f3211cbceef4?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Date=20260326T053125Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=259200&amp;X-Amz-Credential=AKIAIROQMC77E5UKWBWQ%2F20260326%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Signature=18e17e43b228456b3e1fe8442073a5c0bd8d4198272c48fb6765f120d8c5223d" class="avatar__img responsive-img"></div><div class="depEmployeeInf"><div class="depEmployeeInf__position"><div class="gwt-Label">Reklama agenti</div></div><a class="depEmployeeInf__name" href="javascript:void(0);">Qosimjon  Qosimov </a></div></div><div class="depEmployeeRow"><div class="avatar" style="background-image: url(https://wfmtest.s3.amazonaws.com/c327596/u9/7e303dbc-4f6a-4575-8aae-42bb6da4a3e8?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1775116712&amp;Signature=DYt7cEjfXVxYcVJZTF9yvEI5p4k%3D)"><img src="https://wfmtest.s3.amazonaws.com/c327596/u9/7e303dbc-4f6a-4575-8aae-42bb6da4a3e8?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1775116712&amp;Signature=DYt7cEjfXVxYcVJZTF9yvEI5p4k%3D" class="avatar__img responsive-img"></div><div class="depEmployeeInf"><div class="depEmployeeInf__position"><div class="gwt-Label">Position</div></div><a class="depEmployeeInf__name" href="javascript:void(0);">Sardorbek  Abdullayev </a></div></div><div class="depEmployeeRow"><div class="avatar" style="background-image: url(https://workforcetrack.s3.amazonaws.com/c327596/u4/7085cfb0-e1a0-441c-b3fc-d63e784eb396?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Date=20260323T040610Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=259200&amp;X-Amz-Credential=AKIAIROQMC77E5UKWBWQ%2F20260323%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Signature=024757d7a7d4df62faa8173959ae2711b8642a702463b15dfad4b59152fc206a)"><img src="https://workforcetrack.s3.amazonaws.com/c327596/u4/7085cfb0-e1a0-441c-b3fc-d63e784eb396?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Date=20260323T040610Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=259200&amp;X-Amz-Credential=AKIAIROQMC77E5UKWBWQ%2F20260323%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Signature=024757d7a7d4df62faa8173959ae2711b8642a702463b15dfad4b59152fc206a" class="avatar__img responsive-img"></div><div class="depEmployeeInf"><div class="depEmployeeInf__position"><div class="gwt-Label">Sotuvchi maslaxatchi</div></div><a class="depEmployeeInf__name" href="javascript:void(0);">Shaxriyor Jabborov</a></div></div><div class="depEmployeeRow"><div class="avatar" style="background-image: url(https://workforcetrack.s3.amazonaws.com/c327596/u9/d634c649-c823-4740-8d4a-b321fecf466d?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Date=20260323T040609Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=259200&amp;X-Amz-Credential=AKIAIROQMC77E5UKWBWQ%2F20260323%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Signature=f53b5471b81423b89f6882718a1f1b17ef2f7f23d6518fe682805b54821f5386)"><img src="https://workforcetrack.s3.amazonaws.com/c327596/u9/d634c649-c823-4740-8d4a-b321fecf466d?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Date=20260323T040609Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=259200&amp;X-Amz-Credential=AKIAIROQMC77E5UKWBWQ%2F20260323%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Signature=f53b5471b81423b89f6882718a1f1b17ef2f7f23d6518fe682805b54821f5386" class="avatar__img responsive-img"></div><div class="depEmployeeInf"><div class="depEmployeeInf__position"><div class="gwt-Label">Position</div></div><a class="depEmployeeInf__name" href="javascript:void(0);">Jahongir Ikromjonov</a></div></div><div class="depEmployeeRow"><div class="avatar"><span>JN</span></div><div class="depEmployeeInf"><div class="depEmployeeInf__position"><div class="gwt-Label">Position</div></div><a class="depEmployeeInf__name" href="javascript:void(0);">Jasurbek  Nabiyev </a></div></div><div class="depEmployeeRow"><div class="avatar" style="background-image: url(https://workforcetrack.s3.amazonaws.com/c327596/u9/31c4629e-8117-4c35-9aec-c0f35e151126?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Date=20260323T040611Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=259200&amp;X-Amz-Credential=AKIAIROQMC77E5UKWBWQ%2F20260323%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Signature=c20e4364a3ee9676543ceaddf1f405c0b8227116b171555b0ded6b67a23295f5)"><img src="https://workforcetrack.s3.amazonaws.com/c327596/u9/31c4629e-8117-4c35-9aec-c0f35e151126?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Date=20260323T040611Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=259200&amp;X-Amz-Credential=AKIAIROQMC77E5UKWBWQ%2F20260323%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Signature=c20e4364a3ee9676543ceaddf1f405c0b8227116b171555b0ded6b67a23295f5" class="avatar__img responsive-img"></div><div class="depEmployeeInf"><div class="depEmployeeInf__position"><div class="gwt-Label">Position</div></div><a class="depEmployeeInf__name" href="javascript:void(0);">Zahro Rahmatova </a></div></div></div></div><div class="depCard__sect depShortDesc" style="display: none;" aria-hidden="true"><div class="depCard__sectTitle">Work activities:</div><div class="depShortDescText"></div></div><div class="depCard__sect depFullDesc" style="display: none;" aria-hidden="true"><div class="depCard__sectTitle">Key deliverable:</div><div class="depFullDescText"></div></div><div class="depCard__sect depMetrics" style="display: none;" aria-hidden="true"><div class="depCard__sectTitle">Metrics:</div><div class="depMetricsList"></div></div></div><div class="depChildren children-horizontal"><div class="depNode"><div class="depCard" style="background-color: #DDFDD7"><div class="depCard__heading"><div class="depCard__headingTitle">Head Department</div><div tabindex="0" class="dropdown-button btn-small btn--icon depCard__actBtn"><input type="text" tabindex="-1" aria-hidden="true" style="opacity: 0; height: 1px; width: 1px; z-index: -1; overflow: hidden; position: absolute;"><svg class=" icon--settings"><use href="mainStyles/new-ui/icons/sprite__panels.svg?v=3.1.0#settings"></use></svg></div></div><div class="depCard__sect depEmployees"><div class="depEmployeesList"><div class="depEmployeeRow"><div class="avatar" style="background-image: url(https://wfmtest.s3.amazonaws.com/c327596/u9/0950b1d8-7a26-4093-a56a-ec9e0f5abceb?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1775116669&amp;Signature=ZCO%2BzohFnczvapyCqvetwHlyN8w%3D)"><img src="https://wfmtest.s3.amazonaws.com/c327596/u9/0950b1d8-7a26-4093-a56a-ec9e0f5abceb?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1775116669&amp;Signature=ZCO%2BzohFnczvapyCqvetwHlyN8w%3D" class="avatar__img responsive-img"></div><div class="depEmployeeInf"><div class="depEmployeeInf__position"><div class="gwt-Label">Hisobchi</div></div><a class="depEmployeeInf__name" href="javascript:void(0);">Maftuna  Mahmudova </a></div></div></div></div><div class="depCard__sect depShortDesc"><div class="depCard__sectTitle">Work activities:</div><div class="depShortDescText">Описание: Филиалнинг барқарор ривожланишини таъминлаш, ички жараёнларни оптималлаштириш ва хавфсиз иш муҳитини яратиш учун масъул лавозим. Ходимларнинг самарали фаолиятини ташкил этиш, хавфсизлик қоидаларига риоя этилишини назорат қилиш ва филиалнинг</div></div><div class="depCard__sect depFullDesc" style="display: none;" aria-hidden="true"><div class="depCard__sectTitle">Key deliverable:</div><div class="depFullDescText"></div></div><div class="depCard__sect depMetrics" style="display: none;" aria-hidden="true"><div class="depCard__sectTitle">Metrics:</div><div class="depMetricsList"></div></div></div><div class="depChildren children-horizontal"><div class="depNode"><div class="depCard" style="background-color: #ECE6FF"><div class="depCard__heading"><div class="depCard__headingTitle">ФИЛИАЛ РАХБАРИ</div><div tabindex="0" class="dropdown-button btn-small btn--icon depCard__actBtn"><input type="text" tabindex="-1" aria-hidden="true" style="opacity: 0; height: 1px; width: 1px; z-index: -1; overflow: hidden; position: absolute;"><svg class=" icon--settings"><use href="mainStyles/new-ui/icons/sprite__panels.svg?v=3.1.0#settings"></use></svg></div></div><div class="depCard__sect depEmployees" style="display: none;" aria-hidden="true"><div class="depEmployeesList"></div></div><div class="depCard__sect depShortDesc"><div class="depCard__sectTitle">Work activities:</div><div class="depShortDescText">ЯҚМ: БЕЛГИЛАНГАН САВДО РЕЖАСИНИ БАЖАРИЛАËТГАН ВА ДАРОМАДИ МУНТАЗАМ ЎСИБ БОРАËТГАН ФИЛИАЛ</div></div><div class="depCard__sect depFullDesc" style="display: none;" aria-hidden="true"><div class="depCard__sectTitle">Key deliverable:</div><div class="depFullDescText"></div></div><div class="depCard__sect depMetrics" style="display: none;" aria-hidden="true"><div class="depCard__sectTitle">Metrics:</div><div class="depMetricsList"></div></div></div><div class="depChildren" style="display: none;" aria-hidden="true"></div></div></div></div></div></div></div></div></div></div></div>
+</div>
+
+
+<!--JS LIBS-->
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>-->
+<script type="text/javascript" src="../WebContent/mainStyles/new-ui/js/jquery.min.js"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>-->
+<script type="text/javascript" src="../WebContent/mainStyles/new-ui/js/materialize-1.0.0.min.js"></script>
+<script type="text/javascript" src="../WebContent/googlegadget/select2.min.js"></script>
+<!--\ JS LIBS-->
+<!--CUSTOM SCRIPTS-->
+<script src="static-html-examples.js" defer>
+    //see content to find colorPicker, tree-foldable, customModal... scripts
+</script>
+<script src="static-orgchart-assets.js" defer>
+    //see content to find colorPicker, tree-foldable, customModal... scripts
+</script>
+<!--\ CUSTOM SCRIPTS-->
+
+<!--CURRENT PAGE SCRIPT-->
+<script>
+    // =========================================================================
+    // Zoom logic (static page)
+    // =========================================================================
+
+    const zoomInput = document.getElementById('zoom');
+    const zoomValue = document.getElementById('zoomValue');
+    const depTree = document.getElementById('depTree');
+    const scrollX = document.getElementById('scrollX');
+
+    if (!zoomInput || !zoomValue || !depTree || !scrollX) {
+        console.warn('[OrgBoard static] Required elements not found', {
+            zoomInput, zoomValue, depTree, scrollX
+        });
+    }
+
+    function measureBaseSize(el) {
+        // Save inline styles we will touch
+        const prevTransform = el.style.transform;
+        const prevOrigin = el.style.transformOrigin;
+        const prevW = el.style.width;
+        const prevH = el.style.height;
+
+        // Reset to measure true (unscaled) content size
+        el.style.transform = 'none';
+        el.style.transformOrigin = '';
+        el.style.width = 'auto';
+        el.style.height = 'auto';
+
+        const baseW = Math.ceil(el.scrollWidth);
+        const baseH = Math.ceil(el.scrollHeight);
+
+        // Restore (applyZoom will set final values right after)
+        el.style.transform = prevTransform;
+        el.style.transformOrigin = prevOrigin;
+        el.style.width = prevW;
+        el.style.height = prevH;
+
+        return {baseW, baseH};
+    }
+
+    function applyZoom() {
+        if (!zoomInput || !zoomValue || !depTree || !scrollX) return;
+
+        const z = Number(zoomInput.value) / 100;
+        zoomValue.textContent = Math.round(z * 100) + '%';
+
+        const {baseW, baseH} = measureBaseSize(depTree);
+
+        depTree.style.transformOrigin = '0 0';
+        depTree.style.transform = `scale(${z})`;
+        depTree.style.width = Math.ceil(baseW * z) + 'px';
+        depTree.style.height = Math.ceil(baseH * z) + 'px';
+
+        // Keep scrollLeft within valid range after resizing content
+        const maxLeft = Math.max(0, scrollX.scrollWidth - scrollX.clientWidth);
+        if (scrollX.scrollLeft > maxLeft) scrollX.scrollLeft = maxLeft;
+    }
+
+    function applyZoomDeferred() {
+        requestAnimationFrame(applyZoom);
+    }
+
+    // Slider handler (range emits 'input' continuously)
+    if (zoomInput) zoomInput.addEventListener('input', applyZoomDeferred);
+
+    // Recalc after images load (your cards have avatars)
+    window.addEventListener('load', applyZoomDeferred);
+
+    // Optional: resize
+    window.addEventListener('resize', applyZoomDeferred);
+
+    // Initial
+    applyZoomDeferred();
+</script>
+
+<!--\CURRENT PAGE SCRIPT-->
+</body>
+</html>

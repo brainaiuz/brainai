@@ -1,0 +1,23 @@
+
+update permission set parent=(select id from permission where code='SETTINGS_ACCOUNTING_SETTINGS'), context='SETTINGS' where code='ACCOUNTING_INVOICE_SETTINGS';
+update permission set parent=(select id from permission where code='SETTINGS_ACCOUNTING_SETTINGS'), context='SETTINGS' where code='ACCOUNTING_FINANCIAL_SETTINGS';
+update permission set parent=(select id from permission where code='SETTINGS_ACCOUNTING_SETTINGS'), context='SETTINGS' where code='ACCOUNTING_PRODUCT_CATEGORIES_LIST';
+update permission set parent=(select id from permission where code='SETTINGS_ACCOUNTING_SETTINGS'), context='SETTINGS' where code='ACCOUNTING_SAASU_INTEGRATION_SETTINGS';
+update permission set parent=(select id from permission where code='SETTINGS_ACCOUNTING_SETTINGS'), context='SETTINGS' where code='ACCOUNTING_ACCOUNT_NUMBERING';
+update permission set parent=(select id from permission where code='SETTINGS_ACCOUNTING_SETTINGS'), context='SETTINGS' where code='ACCOUNTING_CONVERSION_BALANCE';
+update permission set parent=(select id from permission where code='SETTINGS_ACCOUNTING_SETTINGS'), context='SETTINGS' where code='ACCOUNTING_NUMBERING_SETTINGS';
+update permission set parent=(select id from permission where code='SETTINGS_ACCOUNTING_SETTINGS'), context='SETTINGS' where code='ACCOUNTING_PRICE_LEVELS_LIST';
+update permission set parent=(select id from permission where code='SETTINGS_ACCOUNTING_SETTINGS'), context='SETTINGS' where code='ACCOUNTING_CURRENCY_RATES_LIST';
+update permission set parent=(select id from permission where code='SETTINGS_ACCOUNTING_SETTINGS'), context='SETTINGS' where code='ACCOUNTING_TAX_RATES_LIST';
+update permission set parent=(select id from permission where code='SETTINGS_ACCOUNTING_SETTINGS'), context='SETTINGS' where code='ACCOUNTING_UNIT_MEASUREMENTS_LIST';
+update permission set parent=(select id from permission where code='SETTINGS_ACCOUNTING_SETTINGS'), context='SETTINGS' where code='ACCOUNTING_BRANDS_LIST';
+update permission set parent=(select id from permission where code='SETTINGS_ACCOUNTING_SETTINGS'), context='SETTINGS' where code='ACCOUNTING_TERMS_LIST';
+update permission set parent=(select id from permission where code='SETTINGS_ACCOUNTING_SETTINGS'), context='SETTINGS' where code='ACCOUNTING_DISCOUNTS_LIST';
+update permission set parent=(select id from permission where code='SETTINGS_ACCOUNTING_SETTINGS'), context='SETTINGS' where code='ACCOUNTING_SHIPPING_METHODS_LIST';
+update permission set parent=(select id from permission where code='SETTINGS_ACCOUNTING_SETTINGS'), context='SETTINGS' where code='ACCOUNTING_INVOICE_TEMPLATES_LIST';
+update permission set parent=(select id from permission where code='SETTINGS_ACCOUNTING_SETTINGS'), context='SETTINGS' where code='ACCOUNTING_ADD_ON_SETTINGS';
+update permission set parent=(select id from permission where code='SETTINGS_ACCOUNTING_SETTINGS'), context='SETTINGS' where code='ACCOUNTING_ACCOUNT_LIST';
+update permission set context='SETTINGS' where code='ACCOUNTING_ACCOUNT_ADD';
+update permission set context='SETTINGS' where code='ACCOUNTING_ACCOUNT_EDIT';
+update permission set context='SETTINGS' where code='ACCOUNTING_ACCOUNT_DELETE';
+update permission set context='SETTINGS' where code='ACCOUNTING_ACCOUNT_SUMMARY';

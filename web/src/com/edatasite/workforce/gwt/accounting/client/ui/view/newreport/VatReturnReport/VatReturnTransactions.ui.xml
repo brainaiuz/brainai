@@ -1,0 +1,31 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:m.html="urn:import:gwt.material.design.client.ui.html"
+             xmlns:m='urn:import:gwt.material.design.client.ui'>
+    <g:HTMLPanel>
+        <div class="grid-row">
+            <div class="title-section" style="width:100%; text-align:center">
+                <h5 ui:field="companyName"/>
+                <h4 ui:field="boxTitle"/>
+                <m.html:Paragraph ui:field="periodAsReportTitle"/>
+            </div>
+        </div>
+        <div class="grid-row">
+            <table class="table m2">
+                <thead class="point_affix_top text-nowrap">
+                    <tr>
+                        <th>DATE</th>
+                        <th>ENTRY#</th>
+                        <th>TRANSACTION TYPE</th>
+                        <th>Customer/Supplier Name</th>
+                        <th>Customer/Supplier TRN</th>
+                        <th ui:field="taxableAmountTitle" align="right">TAXABLE AMOUNT</th>
+                        <th ui:field="taxAmountTitle" align="right">TAX AMOUNT</th>
+                    </tr>
+                </thead>
+                <tbody ui:field="tbody"/>
+            </table>
+            <m.html:Div ui:field="noResultMessage" styleName="section-box box-bg--1 center-align-Cell" style="width:100%"/>
+        </div>
+    </g:HTMLPanel>
+</ui:UiBinder>

@@ -1,0 +1,29 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:w='urn:import:com.edatasite.workforce.gwt.reportingsystem.client.ui.widget'
+             xmlns:mh="urn:import:gwt.material.design.client.ui.html">
+    <g:HTMLPanel styleName="pg_reports_home">
+        <div class="operPanel__wrapper">
+            <div class="operPanel--header operPanel">
+                <mh:Div styleName="operPanel__actions" ui:field="searchWidgetPanel">
+
+                </mh:Div>
+                <div class="operPanel__settings"></div>
+            </div>
+        </div>
+
+        <div class="pageContent_reporting bt_area">
+            <div class="workareaContent clearfix">
+                <g:HTMLPanel ui:field="panels" styleName="tab-content workarea_head_tabs_content">
+                    <!--<div class="tab-content">-->
+                    <div class="tab-pane padd_box">
+                        <div class="row textPanel padd_box delimit_top">
+                            <g:HTMLPanel ui:field="resultPanel" styleName="custom_font"/>
+                            <mh:UnorderedList styleName="collapsible--panels collapsible--arrows-left collapsible" ui:field="folders"></mh:UnorderedList>
+                        </div>
+                    </div>
+                </g:HTMLPanel>
+            </div>
+        </div>
+    </g:HTMLPanel>
+</ui:UiBinder>

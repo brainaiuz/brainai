@@ -1,0 +1,43 @@
+<report>
+    <view>
+        <title>Team`s Signed Contracts This Week</title>
+        <name>Team`s Signed Contracts This Week</name>
+        <category>crm</category>
+        <sqlquery>
+            <select agregateFunc="distinct">
+                <table name="Team`s Signed Contracts This Week">
+                    <column name="oid" title="id" type="number" formattype="hidden"/>
+                    <column name="stageName" title="Employee Name" type="string" formattype="string"/>
+                    <column name="statusCount" title="Count" type="number" formattype="number"/>
+                </table>
+            </select>
+            <from>
+                (
+                select 0 as oid, count(t.statusCount)-1 as statusCount, t.stageName FROM (
+                select 0 as oid, 0 as statusCount, mu.firstname || ' ' || mu.lastname as stageName FROM "$".employee e
+                inner join "$".myuser mu on e.id = mu.id
+                inner join "$".myuser_role mur on mu.id = mur.users_id
+                inner join "$".role r on r.id = mur.roles_id and r.code in ('DR','ADMIN','SALESMAN','SALESPERSON',
+                'CREATOR')
+                group by stageName
+                UNION ALL
+                SELECT max(o.id) as oid, count(o.id) statusCount, max(u.firstname || ' ' || u.lastname) stageName
+                FROM "$".opportunity o
+                LEFT JOIN "$".reference r ON r.id=o.stage
+                left join "$".myuser u on u.id = o.owner
+                WHERE o.deleted is not true
+                AND o.historical is not true
+                and (o.modificationDate between (now()-'7 day'::interval) and now())
+                and r.code = 'CLOSED_WON'
+                GROUP BY o.owner, o.id
+                ) t
+                GROUP BY t.stagename
+                ORDER BY statusCount
+                ) t
+            </from>
+            <where>
+                <terms id="base" value="1=1"/>
+            </where>
+        </sqlquery>
+    </view>
+</report>

@@ -1,0 +1,3 @@
+--- For zero scheme
+DELETE FROM "0".genericSettings WHERE key='ENABLE_SERVER_PUSH_NOTIFICATION';
+INSERT INTO "0".genericSettings(key,value) VALUES ('ENABLE_SERVER_PUSH_NOTIFICATION','YES');

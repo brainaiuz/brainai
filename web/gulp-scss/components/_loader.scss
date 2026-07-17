@@ -1,0 +1,16 @@
+.progress-ring__circle {
+  fill: none;
+  stroke-width: 12;
+}
+
+.progress-ring__background {
+  stroke: $color-base-2;
+}
+
+.progress-ring__progress {
+  stroke: $color-accent-1;
+  transform-origin: 50% 50%;
+  transition: stroke-dashoffset 0.35s;
+  stroke-dasharray: 339.292;
+  stroke-dashoffset: 339.292;
+}

@@ -1,0 +1,16 @@
+<tr class="odd">
+    <th>
+        <a class="left" target="_blank" href='/Hrms.html?link=$rowItem.encryptURL("id","event|summary/")'
+           title="$rowItem.getStringValue(" creationdate")'">$rowItem.getValueLimit("creationdate",20)
+    </a>
+</th>
+
+<td>
+<span>$rowItem.getStringValue("subject")</span>
+</td>
+
+<td>
+$rowItem.getValue("assignees")
+</td>
+
+        </tr>

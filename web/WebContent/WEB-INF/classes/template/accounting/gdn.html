@@ -1,0 +1,253 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+        th, td {
+            padding: 5px;
+        }
+        .product-head th{
+            border-bottom: 1px solid #000;
+            font-size: 9pt;
+            font-weight: bold;
+        }
+        .product-head td{
+            border-bottom: 1px solid #ced5db;
+            font-size: 9pt;
+        }
+        .main_table {
+            border: 1px solid #0a0a0a;
+            width: 95%;
+            margin: 20px 10px 15px 10px;
+            border-collapse: collapse;
+
+        }
+        .first_table {
+            width: 95%;
+            margin: 20px 10px 15px 10px;
+        }
+        .main_table td {
+            padding: 15px;
+        }
+        .td_header {
+            border: 1px solid #0a0a0a;
+            background-color: #0a0a0a;
+            color: white;
+        }
+        .td_header_num {
+            width: 5%;
+            border: 1px solid #0a0a0a;
+        }
+        .unitMeasure {
+            font-size: 8px;
+            font-weight: normal;
+        }
+        .align_0 {
+            text-align: left;
+        }
+        .align_1 {
+            text-align: center;
+        }
+        .align_2 {
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+<div>
+
+    <img alt="images" src="https://workforcetrack.s3.amazonaws.com/000000000000/public/65159/a2113e82-397f-49fd-a58a-cdf4f4b93dff?AWSAccessKeyId=AKIAIROQMC77E5UKWBWQ" style="display: none;"/>
+    #if($itextGenericPdfData.companyData.companyName == 'KPI Software Inc' or $itextGenericPdfData.companyData.companyLogoUrl == 'https://apps.kpi.com/customisation/kpi.com/images/kpilogo.png')
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="width: 88px;display: none;"/>
+    #else
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="max-width: 100%; max-height: 100%; display: none;"/>
+    #end
+
+    #set($numAndDatesTable = $itextGenericPdfData.baseInvoice.customNumberAndDatesTable.rows)
+    #set($gdnNumberLabel = $numAndDatesTable.get("GDN_NUMBER").get("COLUMN_NAME"))
+    #set($customerLabel = $numAndDatesTable.get("CLIENT").get("COLUMN_NAME"))
+    #set($shipDateLabel = $numAndDatesTable.get("SHIPPING_DATE").get("COLUMN_NAME"))
+    #set($clientContactLabel = $numAndDatesTable.get("CLIENT_CONTACT").get("COLUMN_NAME"))
+    #set($creatorLabel = $numAndDatesTable.get("GRN_CREATOR").get("COLUMN_NAME"))
+    #set($invoiceNoLabel = $numAndDatesTable.get("INV_NUMBER").get("COLUMN_NAME"))
+    #set($orderNoLabel = $numAndDatesTable.get("QT_NUMBER").get("COLUMN_NAME"))
+    #set($poNumberLabel=$customNumberAndDatesTable.get('PO_NUMBER').get('COLUMN_NAME'))
+    #set($currencyLabel = $numAndDatesTable.get("CURRENCY").get("COLUMN_NAME"))
+    #set($termsCondition = $numAndDatesTable.get("TERMS_CONDITION").get("COLUMN_NAME"))
+    #set($shippingLabel = $numAndDatesTable.get("SHIPPING_LABEL").get("COLUMN_NAME"))
+    #set($clientEmailLabel = $numAndDatesTable.get("CLIENT_EMAIL").get("COLUMN_NAME"))
+    #set($clientPhoneLabel = $numAndDatesTable.get("CLIENT_PHONE").get("COLUMN_NAME"))
+    #set($referenceLabel = $numAndDatesTable.get("REFERENCE").get("COLUMN_NAME"))
+
+    #set($referenceValue = $numAndDatesTable.get("REFERENCE").get("COLUMN_VALUE"))
+    #set($termsConditionValue = $numAndDatesTable.get("TERMS_CONDITION").get("COLUMN_VALUE"))
+    #set($gdnNumberValue = $numAndDatesTable.get("GDN_NUMBER").get("COLUMN_VALUE"))
+    #set($customerValue = $numAndDatesTable.get("CLIENT").get("COLUMN_VALUE"))
+    #set($clientPhoneValue = $numAndDatesTable.get("CLIENT_PHONE").get("COLUMN_VALUE"))
+    #set($clientEmailValue = $numAndDatesTable.get("CLIENT_EMAIL").get("COLUMN_VALUE"))
+    #set($shipDateValue = $numAndDatesTable.get("SHIPPING_DATE").get("COLUMN_VALUE"))
+    #set($clientContactValue = $numAndDatesTable.get("CLIENT_CONTACT").get("COLUMN_VALUE"))
+    #set($currencyLabelValue = $numAndDatesTable.get("CURRENCY").get("COLUMN_VALUE"))
+    #set($creatorValue = $numAndDatesTable.get("GRN_CREATOR").get("COLUMN_VALUE"))
+    #set($invoiceNoValue = $numAndDatesTable.get("INV_NUMBER").get("COLUMN_VALUE"))
+    #set($orderNoValue = $numAndDatesTable.get("QT_NUMBER").get("COLUMN_VALUE"))
+    #set($shippingLabelValue = $numAndDatesTable.get("SHIPPING_LABEL").get("COLUMN_VALUE"))
+    #set($poNumberValue=$customNumberAndDatesTable.get('PO_NUMBER').get('COLUMN_VALUE'))
+
+    #set($addressName=$numAndDatesTable.get("BILL_ADDRESS").get("COLUMN_VALUE"))
+    #set($addressCity=$numAndDatesTable.get("BILL_CITY").get("COLUMN_VALUE"))
+    #set($addressCountry=$numAndDatesTable.get("BILL_COUNTRY").get("COLUMN_VALUE"))
+    #set($addressZipcode=$numAndDatesTable.get("BILL_ZIPCODE").get("COLUMN_VALUE"))
+
+    #if ($addressName == '')
+    #set($addressName = '')
+    #end
+    #if ($addressCity == '')
+    #set($addressCity = '')
+    #end
+    #if ($addressCountry == '')
+    #set($addressCountry = '')
+    #end
+    #if ($addressZipcode == '')
+    #set($addressZipcode = '')
+    #end
+    #set($fullAddress = $addressName + ' ' + $addressCity + ' ' + $addressCountry + ' ' + $addressZipcode)
+    #set($fullAddress = $fullAddress.trim())
+
+
+    <table class="first_table" >
+        <tr>
+            <td style="padding: 0; width: 50%; vertical-align: top">
+                <table style="font-size: 9pt; width: 100%;" cellspacing="0" cellpadding="0" border="0">
+                    <tr>
+                        <td style="width: 15%; vertical-align: top; font-weight: bold;">$customerLabel:</td>
+                        <td style="width: 85%; vertical-align: top">$customerValue</td>
+                    </tr>
+                    #if ($addressName != '' or $addressCity != '' or $addressCountry != '' or $addressZipcode != '')
+                    <tr>
+                        <td style="font-weight: bold; vertical-align: top">Address:</td>
+                        <td style="vertical-align: top;">$fullAddress</td>
+                    </tr>
+                    #end
+                    #if($clientContactValue != '')
+                    <tr>
+                        <td style="font-weight: bold; vertical-align: top">$clientContactLabel:</td>
+                        <td style="vertical-align: top">$clientContactValue</td>
+                    </tr>
+                    #end
+                    #if($clientEmailValue != '')
+                    <tr>
+                        <td style="font-weight: bold; vertical-align: top">$clientEmailLabel:</td>
+                        <td style="vertical-align: top">$clientEmailValue</td>
+                    </tr>
+                    #end
+                    #if($clientPhoneValue != '')
+                    <tr>
+                        <td style="font-weight: bold; vertical-align: top">$clientPhoneLabel:</td>
+                        <td style="vertical-align: top">$clientPhoneValue</td>
+                    </tr>
+                    #end
+                </table>
+            </td>
+            <td style="width: 10%;"></td>
+            <td style="width: 40%; vertical-align: top; padding: 0;">
+                <table style="width: 100%; font-size: 9pt; padding-left: 5px" cellspacing="0" cellpadding="0" border="0">
+                    <tr>
+                        <td width="40%" style="font-weight: bold;" valign="top">$gdnNumberLabel:</td>
+                        <td width="60%" style="word-wrap: break-word;" valign="top">$gdnNumberValue</td>
+                    </tr>
+                    #if($invoiceNoValue != '')
+                    <tr>
+                        <td style="font-weight: bold;" valign="top">$invoiceNoLabel:</td>
+                        <td  valign="top">$invoiceNoValue</td>
+                    </tr>
+                    #end
+                    <tr>
+                        <td style="font-weight: bold;" valign="top">$orderNoLabel:</td>
+                        <td  valign="top">$orderNoValue</td>
+                    </tr>
+                    #if($poNumberValue != '')
+                    <tr>
+                        <td style="font-weight: bold;" valign="top">$poNumberLabel:</td>
+                        <td  valign="top">$poNumberValue</td>
+                    </tr>
+                    #end
+                    <tr>
+                        <td style="font-weight: bold;" valign="top">$shipDateLabel:</td>
+                        <td  valign="top">$shipDateValue</td>
+                    </tr>
+                    #if($referenceValue != '')
+                    <tr>
+                        <td style="font-weight: bold;" valign="top">$referenceLabel:</td>
+                        <td valign="top">$referenceValue</td>
+                    </tr>
+                    #end
+                    #if($creatorValue != '')
+                    <tr>
+                        <td style="font-weight: bold; vertical-align: top">$creatorLabel:</td>
+                        <td valign="top">$creatorValue</td>
+                    </tr>
+                    #end
+                </table>
+            </td>
+        </tr>
+    </table>
+
+
+    #set($headerNo = $itextGenericPdfData.customData.get('ITEMS').header.get('NO'))
+    #set($headerName = $itextGenericPdfData.customData.get('ITEMS').header.get('NAME'))
+    #set($headerDescription = $itextGenericPdfData.customData.get('ITEMS').header.get('DESCRIPTION'))
+    #set($headerUM = $itextGenericPdfData.customData.get('ITEMS').header.get('UNIT_MEASUREMENT'))
+    #set($headerQty = $itextGenericPdfData.customData.get('ITEMS').header.get('QTY'))
+    #set($headerReceivedQty = $itextGenericPdfData.customData.get('ITEMS').header.get('ITEM_QTY'))
+    <table class="main_table" cellspacing="0" cellpadding="0" >
+        <tr>
+            <td class="td_header_num" style="text-align: left; width: 5%; background-color: #0a0a0a; color: white" >$headerNo</td>
+            <td class="td_header" style="width: 20%; background-color: #0a0a0a; color: white">$headerName</td>
+            <td class="td_header" style="width: 30%; background-color: #0a0a0a; color: white">$headerDescription</td>
+            <td class="td_header" style="width: 10%; background-color: #0a0a0a; color: white">$headerUM</td>
+            <td class="td_header" style="width: 10%; background-color: #0a0a0a; color: white; text-align: right">$headerQty</td>
+            <td class="td_header" style="width: 10%; background-color: #0a0a0a; color: white; text-align: right">$headerReceivedQty</td>
+        </tr>
+        #set($counter = 0)
+        #set($size = $itextGenericPdfData.customData.get('ITEMS').rows.size())
+        #foreach($row in $itextGenericPdfData.customData.get('ITEMS').rows)
+        #if ($counter < $size)
+        <tr>
+            <td style="text-align: left">
+                $row.get('NO')
+            </td>
+            <td>
+                $row.get('NAME')
+            </td>
+            <td>
+                #if ($row.get('DESCRIPTION') != '')
+                $row.get('DESCRIPTION')
+                #else
+                N/A
+                #end
+            </td>
+            <td>
+                #if ($row.get('UNIT_MEASUREMENT') != '')
+                $row.get('UNIT_MEASUREMENT')
+                #else
+                N/A
+                #end
+            </td>
+            <td style="text-align: right">
+                $row.get('QTY')
+            </td>
+            <td style="text-align: right">
+                $row.get('ITEM_QTY')
+            </td>
+        </tr>
+        #set($counter = $counter + 1)
+        #end
+        #end
+    </table>
+</div>
+</body>
+</html>

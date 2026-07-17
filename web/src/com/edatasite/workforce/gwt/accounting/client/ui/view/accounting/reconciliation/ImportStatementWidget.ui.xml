@@ -1,0 +1,247 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+>
+    <g:HTMLPanel styleName="" tag="li" ui:field="li">
+        <body class="frame__body fitted-content left-menu-closed  has-frame__info">
+            <div class="frame has-scroll--vertical" style="overflow-y: auto; height: 100%;">
+                <div class="frame__header">
+                    <div class="frame__header__item-2" style="display: none;">
+                        <div class="dropdown-select--arrow dropdown-kit--below dropdown-kit--edge-in"></div>
+                    </div>
+                    <div class="frame__header__item-3" style="display: none;">
+                        <div style="display:none"
+                             class="dropdown-select--arrow dropdown-kit--below dropdown-kit--edge-in">
+                            <a href="javascript:void(0);" class="btn gwt-uid-67 dropdown-button">
+                                <ul id="gwt-uid-67" class="email-account dropdown-content"></ul>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="header-tabs">
+                        <ul class="tabs">
+                            <li class="tab">
+                                <a href="#">
+                                    <span title="Dashboard">Bank Accounts</span>
+                                </a>
+                            </li>
+                            <div class="indicator" style="right: 993.864px; left: 107.156px;"></div>
+                            <li class="tab">
+                                <a href="#" class="active">
+                                    <span title="Import Statement">Import Statement</span>
+                                    <i class="close"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="user-menu">
+                        <div class="frame__user__trial" style="display: none;">
+                            <div class="trial-informer">
+                                <span></span>
+                                <button class="btn btn--trial">
+                                    <span>Upgrade</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="user-menu-dynamic">
+                            <div class="user-menu-item"
+                            >
+                                <a class="button-collapse">
+                                    <span class="user-menu-item__icon">
+                                        <svg class=" icon--clock">
+                                            <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#clock"></use>
+                                        </svg>
+                                        <span class="badge" style="display: none;"></span>
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="user-menu-item"
+                            >
+                                <a class="button-collapse">
+                                    <span class="user-menu-item__icon">
+                                        <svg class=" icon--phone">
+                                            <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#phone"></use>
+                                        </svg>
+                                        <span class="badge" style="display: none;"></span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="user-menu-item">
+                            <a class="button-collapse"
+                            >
+                                <span class="user-menu-item__icon">
+                                    <svg class=" icon--bell">
+                                        <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#bell"></use>
+                                    </svg>
+                                    <span class="badge">1</span>
+                                </span>
+                            </a>
+                        </div>
+                        <div class="user-menu-item">
+                            <a class="button-collapse"
+                            >
+                                <span class="user-menu-item__icon">
+                                    <svg class=" icon--mail">
+                                        <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#mail"></use>
+                                    </svg>
+                                    <span class="badge" style="display: none;"></span>
+                                </span>
+                            </a>
+                        </div>
+                        <div class="user-menu-item">
+                            <a class="button-collapse"
+                            >
+                                <span class="icon-settings"></span>
+                                <svg class=" icon--settings">
+                                    <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#settings"></use>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="frame__modules">
+                    <div class="frame__nav"></div>
+                    <div class="main-modules">
+                        <div>
+                            <div class="user-profile">
+                                <a class="user-profile__menu dropdown-button">
+                                    <span class="user-profile-img">
+                                        <img alt="" src="../WebContent/mainStyles/new-ui/images/kpilogo.svg"/>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        <ul>
+                            <li class="main-modules__item main-modules__item--workspace">
+                                <a href="Workspace.html">
+                                    <svg class=" icon--home">
+                                        <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#home"></use>
+                                    </svg>
+                                    <span></span>
+                                </a>
+                            </li>
+                            <li class="main-modules__item main-modules__item--accounting">
+                                <a>
+                                    <svg class=" icon--accounting">
+                                        <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#accounting"></use>
+                                    </svg>
+                                    <span>Accounts</span>
+                                </a>
+                            </li>
+                            <li class="main-modules__item main-modules__item--sales">
+                                <a>
+                                    <svg class=" icon--sales">
+                                        <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#sales"></use>
+                                    </svg>
+                                    <span>Sales</span>
+                                </a>
+                            </li>
+                            <li class="main-modules__item--active main-modules__item main-modules__item--humans">
+                                <a>
+                                    <svg class=" icon--humans">
+                                        <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#humans"></use>
+                                    </svg>
+                                    <span>Humans</span>
+                                </a>
+                            </li>
+                            <li class="main-modules__item main-modules__item--projects">
+                                <a>
+                                    <svg class=" icon--projects">
+                                        <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#projects"></use>
+                                    </svg>
+                                    <span>Projects</span>
+                                </a>
+                            </li>
+                            <li class="main-modules__item main-modules__item--payroll">
+                                <a>
+                                    <svg class=" icon--payroll">
+                                        <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#payroll"></use>
+                                    </svg>
+                                    <span>Payroll</span>
+                                </a>
+                            </li>
+                            <li class="main-modules__item main-modules__item--reports">
+                                <a>
+                                    <svg class=" icon--reporting">
+                                        <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#reporting"></use>
+                                    </svg>
+                                    <span>Reports</span>
+                                </a>
+                            </li>
+                            <li class="main-modules__item main-modules__item--docs">
+                                <a>
+                                    <svg class=" icon--documents">
+                                        <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#documents"></use>
+                                    </svg>
+                                    <span>Docs</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="kpi-modules-overlay" style="display: none;"></div>
+                    </div>
+                    <div class="frame__modules__footer">
+                        <a class="left-menu-trigger">
+                            <i class="ficon--chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+                                <div class="section-box box-bg--1">
+                                    <!--//START UPLOAD STEPS-->
+                                    <div class="uploadSteps__wrapper">
+                                        <div class="uploadSteps">
+<!--                                            <div class="uploadSteps__tabs">-->
+<!--                                                <ul class="tabs step-tabs">-->
+<!--                                                    &lt;!&ndash; Har bir tab uchun ID qo‘shildi &ndash;&gt;-->
+<!--                                                    <li class="tab active">-->
+<!--                                                        <g:HTMLPanel ui:field="uploadStepTab" styleName="btn active">-->
+<!--                                                            <p class="btn" style="btn-large active">-->
+<!--                                                                <span class="badge">1</span>-->
+<!--                                                                <span>Upload</span>-->
+<!--                                                            </p>-->
+<!--                                                        </g:HTMLPanel>-->
+<!--                                                    </li>-->
+<!--                                                    <li class="tab">-->
+<!--                                                        <g:HTMLPanel ui:field="importSettingsTab">-->
+<!--                                                            <p class="btn-large">-->
+<!--                                                                <span class="badge">2</span>-->
+<!--                                                                <span>Import settings</span>-->
+<!--                                                            </p>-->
+<!--                                                        </g:HTMLPanel>-->
+<!--                                                    </li>-->
+<!--                                                    <li class="tab">-->
+<!--                                                        <g:HTMLPanel ui:field="reviewStepTab">-->
+<!--                                                            <p class="btn-large">-->
+<!--                                                                <span class="badge">3</span>-->
+<!--                                                                <span>Review</span>-->
+<!--                                                            </p>-->
+<!--                                                        </g:HTMLPanel>-->
+<!--                                                    </li>-->
+<!--                                                </ul>-->
+<!--                                            </div>-->
+                                            <div class="uploadSteps__tabs">
+                                                <ul class="tabs step-tabs">
+                                                    <li class="tab"> <g:HTMLPanel ui:field="uploadStepTab" styleName="btn active"> <a  class="btn"> <span class="badge">1</span> <span>Upload</span> </a> </g:HTMLPanel></li>
+                                                    <li class="tab"> <g:HTMLPanel ui:field="importSettingsTab"> <a class="btn"> <span class="badge">2</span> <span>Import settings</span> </a> </g:HTMLPanel></li>
+                                                    <li class="tab">  <g:HTMLPanel ui:field="reviewStepTab"><a  class="btn"> <span class="badge">3</span> <span>Review</span> </a> </g:HTMLPanel></li>
+                                                </ul>
+                                            </div>
+                                            <g:HTMLPanel styleName="uploadSteps__content" ui:field="mainStepsContainer">
+
+                                            </g:HTMLPanel>
+                                            <div class="uploadSteps__footer"></div>
+                                        </div>
+                                    </div>
+<!--                                    <div class="uploadSteps__footer"></div>-->
+                                    <div class="frame__info fixed-content">
+                                        <div class="frame__info__actions">
+                                            <g:Button ui:field="backButton"></g:Button>
+                                        </div>
+                                        <div class="frame__info__actions">
+                                            <g:Button ui:field="nextButton"></g:Button>
+                                        </div>
+                                    </div>
+                                    <!--//END UPLOAD STEPS-->
+                                </div>
+            </div>
+        </body>
+    </g:HTMLPanel>
+</ui:UiBinder>

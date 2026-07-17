@@ -1,0 +1,52 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+    <g:HTMLPanel>
+        <div class="pg_order-summary">
+            <div class="page-title" ui:field="pageTitle">Order Summary</div>
+            <p ui:field="pageDescription">This screen will present you with all information for your order based on your selections, please review it for accuracy, if you need to make any changes simply click the "EDIT" button. Once you are comfortable with the information and accuracy of your order simply click the "Continue" button at the bottom of the screen.</p>
+
+            <g:HTMLPanel ui:field="pdfPanel"></g:HTMLPanel>
+            <table class="order-summary__table">
+                <thead>
+                    <tr>
+                        <th ui:field="item">Item</th>
+                        <th ui:field="unitPrice">Unit price</th>
+                        <th ui:field="quantityLabel" class="text-right">Quantity</th>
+                        <th ui:field="totalYear" class="text-right">Total/year</th>
+                    </tr>
+                </thead>
+                <tbody ui:field="itemTableBody">
+                </tbody>
+            </table>
+            <div class="cp_receipt__block">
+                <div class="pg_order-summary-callout-block">
+                    <h5 ui:field="securePage">About your subscription. Secure page.</h5>
+                    <div class="cp_callout">
+                        <p ui:field="securePageDesc1">Your connection to the <a href="http://kpi.com" target="_blank">kpi.com</a> service is always secure as we use the HTTPS protocol and a valid,trusted security certificate. Our subscription billing is handled by a Stripe/Paypal is our secure payment service provider.
+                        </p>
+                        <p ui:field="securePageDesc2">All subscriptions will be automatically reviewed from your selected payment method on a recurring basis and we'll send you a receipt each time. We do not store you card details. You can upgrade, download or cancel anytime. If the subscription is canceled, refunds and termination of access will follow the Terms of Service. Prices are in US Dollars and subject to change. By clicking Pay Now you agree to our Terms of Use.</p>
+                    </div>
+                </div>
+                <div class="cp_receipt" style="">
+                    <table>
+                        <tbody class="cp_receipt__list" ui:field="totalReceiptTableBody">
+                        </tbody>
+                        <tbody class="cp_receipt__sumup" ui:field="totalSumUpTableBody">
+                        </tbody>
+                        <tfoot ui:field="totalTableFooter">
+                        </tfoot>
+                    </table>
+
+                    <div class="cp_receipt__buttons">
+                        <g:Anchor ui:field="updateLink" styleName="btn btn--default cp_receipt__button">
+                            <span ui:field="updateLinkSpan">Edit</span>
+                        </g:Anchor>
+                        <g:Anchor ui:field="makePaymentLink" styleName="btn btn--primary cp_receipt__button">
+                            <span ui:field="makePaymentLinkSpan">Continue</span>
+                        </g:Anchor>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </g:HTMLPanel>
+</ui:UiBinder>

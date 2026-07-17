@@ -1,0 +1,2 @@
+INSERT INTO "anv".genericsettings (key, value)
+VALUES ('ENABLE_LOCATION_DEPARTMENT_POSITION_RELATIONS', 'NO');

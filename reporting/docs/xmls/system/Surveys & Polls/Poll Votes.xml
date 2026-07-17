@@ -1,0 +1,33 @@
+<report>
+    <view>
+        <title>Poll Votes</title>
+        <name>Poll Votes</name>
+        <category>poll</category>
+        <sqlquery>
+            <select agregateFunc="distinct">
+                <!--  Please only enter type property {'number' or 'date or clock' }   -->
+                <table name="Poll">
+                    <column name="coalesce(p.name, p.text)" title="Poll Name" type="string" formattype="string"/>
+                    <column name="(case when lv.id is null then pa.value_text when lv.is_editable=false then lv.name else lv.name || ' ' || pa.value_text end)"
+                            title="Answer" type="string" formattype="string"/>
+                    <column name="cnt.name" title="Country" type="string" formattype="string"/>
+                    <column name="pa.ip_adress" title="IP Address" type="string" formattype="string"/>
+                    <column name="pa.date" title="Date of vote" type="date" formattype="date"/>
+                    <column name="pa.status" title="Vote Status" type="string" formattype="string"/>
+                    <column name="p.status" title="Poll Status" type="string" formattype="string"/>
+                    <column name="myu.username" title="Respondent" type="string" formattype="string"/>
+                </table>
+            </select>
+            <from>
+                "$".bmt_poll p
+                inner join "$".bmt_poll_answer pa ON p.id = pa.poll_id
+                left join "$".bmt_list_value lv ON pa.value_id = lv.id
+                left join "public".country cnt on cnt.id=pa.country_id
+                left join (select u.firstname ||' '|| u.lastname as username, u.id  from "$".myuser u) myu on pa.respondent = myu.id
+            </from>
+            <where>
+                <terms id="base" value="1=1"/>
+            </where>
+        </sqlquery>
+    </view>
+</report>

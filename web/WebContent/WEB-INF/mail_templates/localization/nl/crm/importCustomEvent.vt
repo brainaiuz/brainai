@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transational.dtd">
+<html xmlns="http://w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<p>Beste $USER_NAME,<br/></p>
+
+<p>U heeft een aanvraag ingediend om $IMPORT_NAME te importeren in <b>$productName</b> op $IMPORT_DATE <br>
+Wij kunnen u mededelen dat het importeren van $IMPORT_NAME gelukt is, hieronder volgen de resultaten: <br>
+Verzocht om te importeren: $IMPORT_FILE_SIZE $IMPORT_NAME <br>
+Geïmporteerd: $IMPORTED_FILE_SIZE $IMPORT_NAME <br>
+<!--if {-->
+#if ($IMPORT_FILES)
+Toegevoegd aan bestaande $IMPORT_NAME: $CLIENT_CONTACT_SIZE ClientContacts <br>
+#end
+<!--}-->
+Genegeerd: $IMPORT_FILE_IGNORED (vanwege duplicaten of lege velden) <br>
+</p>
+
+<p>Heeft u nog verder vragen, neem dan gerust contact met ons op bij $support </p>
+<br/>
+<p>Met vriendelijke groet,</p>
+
+<p>
+
+$productName support team <br/>
+
+</p>
+$companyInfo
+</body>
+</html>

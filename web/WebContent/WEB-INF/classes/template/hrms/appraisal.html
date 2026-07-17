@@ -1,0 +1,194 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <style type="text/css">
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+
+        td {
+            padding: 3px;
+        }
+
+        .title {
+            font-size: 9pt;
+        }
+
+        .name {
+            font-size: 7pt;
+        }
+
+        .value {
+            font-size: 8pt;
+        }
+
+        .personalValue {
+            font-size: 7pt;
+        }
+
+        .nameCapital {
+            text-transform: capitalize;
+        }
+        .tableBorder {
+            border-top: 1px solid #4B4B4B;
+            border-left: 1px solid #4B4B4B;
+        }
+        .tableBorder td{
+            border-right: 1px solid #4B4B4B;
+            border-bottom: 1px solid #4B4B4B;
+        }
+
+    </style>
+</head>
+<body>
+<div>
+    <img alt="images"
+         src="https://workforcetrack.s3.amazonaws.com/000000000000/public/65159/a2113e82-397f-49fd-a58a-cdf4f4b93dff?AWSAccessKeyId=AKIAIROQMC77E5UKWBWQ"
+         style="display: none;"/>
+    #if($itextGenericPdfData.companyData.companyName == 'KPI Software Inc' or
+    $itextGenericPdfData.companyData.companyLogoUrl == 'https://apps.kpi.com/customisation/kpi.com/images/kpilogo.png')
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="width: 88px; display: none;"/>
+    #else
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl"
+         style="max-width: 100%; max-height: 100%; display: none;"/>
+    #end
+
+    #set($singleAssessmentData = $itextGenericPdfData.baseInvoice.customNumberAndDatesTable.rows)
+    #set($assignGoals = $singleAssessmentData.get('ASSIGNED_GOALS').get('COLUMN_VALUE'))
+    #set($employeeCompetencies = $singleAssessmentData.get('EMPLOYEE_COMPETENCIES').get('COLUMN_VALUE'))
+    #set($competencies = $itextGenericPdfData.baseInvoice.customProductTableList.get(0))
+    #set($goals = $itextGenericPdfData.baseInvoice.customProductTableList.get(1))
+
+    #if($competencies.rows.values().size() > 0)
+    <table width="100%" cellpadding="0" cellspacing="0" style="font-size: 14px;">
+        <tr>
+            <td width="100%">$employeeCompetencies</td>
+        </tr>
+    </table>
+    #end
+    #if($competencies.rows.values().size() > 0)
+    <table width="100%" cellpadding="0" cellspacing="0" style="font-size: 13px;">
+        #foreach($row in $competencies.rows.values())
+        <tr>
+            <td width="100%" style="color: #fff; background-color: #363636; padding-left: 10px;">$row.get('SKILL_NAME')</td>
+        </tr>
+        #if($row.get('WEIGHT_AMOUNT') != '')
+        <tr>
+            <td style="color: #fff; background-color: #363636" align="right">$row.get('WEIGHT_AMOUNT')</td>
+        </tr>
+        #end
+        <tr>
+            <td style="padding-top: 15px; padding-bottom: 15px;">
+                $row.get('SKILL_DESCRIPTION')
+            </td>
+        </tr>
+        #if($row.get('ROLE') != '')
+        <tr>
+            <td>
+                <table width="100%" cellspacing="0" cellpadding="0" class="tableBorder" style="font-size: 13px;">
+                    <tr>
+                        <td width="100%" style="color: #DDDDDD; background-color: #DDDDDD;">
+                            test
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left: 15px;">
+                            $row.get('ROLE') <br/>
+                            $row.get('COMMENTS')
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        #end
+        <tr>
+            <td style="color: #fff; background-color: #fff;">
+                test
+            </td>
+        </tr>
+        #end
+    </table>
+    #end
+    #if($goals.rows.values().size() > 0)
+    <table width="100%" cellpadding="0" cellspacing="0" style="margin-top: 20px; font-size: 14px;">
+        <tr>
+            <td width="100%">$assignGoals</td>
+        </tr>
+    </table>
+    #end
+    #if($goals.rows.values().size() > 0)
+    <table cellpadding="0" cellspacing="0" style="font-size: 13px;" width="100%">
+        #foreach($row in $goals.rows.values())
+        <tr>
+            <td style="color: #fff; background-color: #363636; padding-left: 10px;" width="100%">$row.get('SKILL_NAME')</td>
+        </tr>
+        #if($row.get('WEIGHT_AMOUNT') != '')
+        <tr>
+            <td align="right" style="color: #fff; background-color: #363636">$row.get('WEIGHT_AMOUNT')</td>
+        </tr>
+        #end
+        <tr>
+            <td style="padding-top: 15px; padding-bottom: 15px;">
+                $row.get('SKILL_DESCRIPTION')
+            </td>
+        </tr>
+        #if($row.get('ROLE') != '')
+        <tr>
+            <td>
+                <table cellpadding="0" cellspacing="0" class="tableBorder" style="font-size: 13px;" width="100%">
+                    <tr>
+                        <td style="color: #DDDDDD; background-color: #DDDDDD;" width="100%">
+                            test
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left: 15px;">
+                            $row.get('ROLE') <br/>
+                            $row.get('COMMENTS')
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        #end
+        <tr>
+            <td style="color: #fff; background-color: #fff;">
+                test
+            </td>
+        </tr>
+        #end
+    </table>
+    #end
+
+    #set($employeeNameLabel = $singleAssessmentData.get('EMPLOYE_NAME').get('COLUMN_NAME'))
+    #set($managerNameLabel = $singleAssessmentData.get('MANAGER_NAME').get('COLUMN_NAME'))
+    #set($dateLabel = $singleAssessmentData.get('DATE').get('COLUMN_NAME'))
+    #set($signatureLabel = $singleAssessmentData.get('SIGNATURE').get('COLUMN_VALUE'))
+
+    #set($employeeName = $singleAssessmentData.get('EMPLOYE_NAME').get('COLUMN_VALUE'))
+    #set($managerName = $singleAssessmentData.get('MANAGER_NAME').get('COLUMN_VALUE'))
+    #set($date = $singleAssessmentData.get('DATE').get('COLUMN_VALUE'))
+
+    <table width="100%" cellpadding="0" cellspacing="0" style="margin-top: 50px; font-size: 13px;">
+        <tr>
+            <td width="40%">$employeeNameLabel: $employeeName</td>
+            <td width="10%">$signatureLabel:</td>
+            <td width="25%" style="border-bottom: 1px solid #000;"></td>
+            <td width="5%">$dateLabel:</td>
+            <td width="20%" style="border-bottom: 1px solid #000;"></td>
+        </tr>
+    </table>
+
+    <table width="100%" cellpadding="0" cellspacing="0" style="margin-top: 20px; font-size: 13px;">
+        <tr>
+            <td width="40%">$managerNameLabel: $managerName</td>
+            <td width="10%">$signatureLabel:</td>
+            <td width="25%" style="border-bottom: 1px solid #000;"></td>
+            <td width="5%">$dateLabel:</td>
+            <td width="20%" style="border-bottom: 1px solid #000;"></td>
+        </tr>
+    </table>
+
+</div>
+</body>
+</html>

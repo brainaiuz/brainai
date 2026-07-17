@@ -1,0 +1,75 @@
+{
+  "customBillToAddress": {
+    "rows": {
+      "NARRATION": {
+        "COLUMN_NAME": "Narration",
+        "COLUMN_VALUE": "Money Transfer from Bank Account to Cash Account"
+      },
+      "DATE": {
+        "COLUMN_NAME": "Date",
+        "COLUMN_VALUE": "March 01, 2019"
+      },
+      "NUMBER": {
+        "COLUMN_NAME": "Reference Number",
+        "COLUMN_VALUE": "REF12345"
+      },
+      "Number": {
+        "COLUMN_NAME": "Number",
+        "COLUMN_VALUE": "MT0002"
+      }
+    }
+  },
+  "customProductTable": {
+    "header": {
+      "ACCOUNT_NAME": "Account",
+      "NAME": "Name",
+      "DESCRIPTION": "Description",
+      "DEBIT": "Debit Amt",
+      "CREDIT": "Credit Amt",
+      "PROJECT": "Project",
+      "DEPARTMENT": "Department"
+    },
+    "rows": {
+      "0": {
+        "ACCOUNT_NAME": "Bank of America",
+        "NAME": "",
+        "DESCRIPTION": "",
+        "DEBIT": "",
+        "CREDIT": "45,000.00",
+        "PROJECT": "",
+        "DEPARTMENT": ""
+      },
+      "1": {
+        "ACCOUNT_NAME": "Petty Cash",
+        "NAME": "",
+        "DESCRIPTION": "",
+        "DEBIT": "45,000.00",
+        "CREDIT": "",
+        "PROJECT": "",
+        "DEPARTMENT": ""
+      }
+    }
+  },
+  "customTotalTable": {
+    "rows": {
+      "DEBIT_TOTAL": {
+        "COLUMN_NAME": "45,000.00"
+      },
+      "CREDIT_TOTAL": {
+        "COLUMN_NAME": "45,000.00"
+      },
+      "CURRENCY": {
+        "COLUMN_NAME": "USD"
+      },
+      "BASE_DEBIT_TOTAL": {
+        "COLUMN_NAME": "45,000.00"
+      },
+      "BASE_CREDIT_TOTAL": {
+        "COLUMN_NAME": "45,000.00"
+      },
+      "BASE_CURRENCY": {
+        "COLUMN_NAME": "USD"
+      }
+    }
+  }
+}

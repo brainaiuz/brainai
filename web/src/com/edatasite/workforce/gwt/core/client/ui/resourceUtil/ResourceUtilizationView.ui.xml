@@ -1,0 +1,99 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+    <ui:style>
+        .spanElements {}
+
+        .spanElements span {}
+
+        .spanStyles {}
+
+        .spanOptAlloc {
+            background: #00a8ea;
+        }
+
+        .spanUnderAlloc {
+            background: #b1e877;
+        }
+
+        .spanHoliday {
+            background: #f4a523;
+            color: black;
+        }
+
+        .spanOverAlloc {
+            background: #f7cdcc;
+        }
+
+        .spanLeaveReq {
+            background: #86ca40;
+            color: black;
+        }
+        .spanUnauthorizedLeaveReq {
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            text-transform: uppercase;
+            background: #d2011a;
+        }
+
+        .spanTaskDuration {
+            background: #78d5f8;
+        }
+
+        .wordSpanElements {}
+
+        .exportButtonPosition {}
+
+        .utilization-background {
+            position: fixed;
+            bottom: 0;
+            top: 100px;
+            background-color: white;
+        }
+
+    </ui:style>
+
+    <g:HTMLPanel styleName="rsrcUtlzLayout" ui:field="generalContent">
+        <!---->
+        <g:HTMLPanel styleName="rsrcUtlzLayout__filters fixed-content" ui:field="contentTop"></g:HTMLPanel>
+
+        <g:HTMLPanel styleName="{style.utilization-background} rsrcUtlzTbl-outerHTMLPanel fixed-content"></g:HTMLPanel><!--//ToDo: what is this?-->
+        <!---->
+        <g:HTMLPanel styleName="rsrcUtlzLayout__body" ui:field="content"></g:HTMLPanel>
+
+        <g:HTMLPanel styleName="rsrcUtlzLayout__footer rsrcUtlzTbl-legend" ui:field="contentBottom">
+            <!--first div-->
+            <div class="{style.spanElements}">
+                <!--optimally allocated-->
+                <span class="{style.spanOptAlloc} {style.spanStyles}"
+                      ui:field="spanOptimallyAllocated"><!--&nbsp;--></span>
+                <span class="{style.wordSpanElements}" ui:field="wordOptimallyAllocated"><!--&nbsp;--></span>
+                <!--under allocated-->
+                <span class="{style.spanUnderAlloc} {style.spanStyles}"
+                      ui:field="spanUnderAllocated"><!--&nbsp;--></span>
+                <span class="{style.wordSpanElements}" ui:field="wordUnderAllocated"><!--&nbsp;--></span>
+                <!--over allocated-->
+                <span class="{style.spanOverAlloc} {style.spanStyles}" ui:field="spanOverAllocated"><!--&nbsp;--></span>
+                <span class="{style.wordSpanElements}" ui:field="wordOverAllocated"><!--&nbsp;--></span>
+                <!--unauthorized leave-->
+                <span class="{style.spanUnauthorizedLeaveReq} {style.spanStyles}" ui:field="spanUnauthorizedLeaveRequest"><!--&nbsp;--></span>
+                <span class="{style.wordSpanElements}" ui:field="wordUnauthorizedLeaveRequest"><!--&nbsp;--></span>
+
+                <g:HTMLPanel  addStyleNames="{style.exportButtonPosition}" ui:field="exportPanel"></g:HTMLPanel>
+                <!--</div>-->
+            <!--second div-->
+                <!--<div class="{style.spanElements}">-->
+                <!--task duration-->
+                <span class="{style.spanTaskDuration} {style.spanStyles}"
+                      ui:field="spanTaskDuration"><!--&nbsp;--></span>
+                <span class="{style.wordSpanElements}" ui:field="wordTaskDuration"><!--&nbsp;--></span>
+                <!--holiday-->
+                <span class="{style.spanHoliday} {style.spanStyles}" ui:field="spanHoliday"><!--&nbsp;--></span>
+                <span class="{style.wordSpanElements}" ui:field="wordHoliday"><!--&nbsp;--></span>
+                <!--leave request-->
+                <span class="{style.spanLeaveReq} {style.spanStyles}" ui:field="spanLeaveRequest"><!--&nbsp;--></span>
+                <span class="{style.wordSpanElements}" ui:field="wordLeaveRequest"><!--&nbsp;--></span>
+            </div>
+        </g:HTMLPanel>
+    </g:HTMLPanel>
+</ui:UiBinder>

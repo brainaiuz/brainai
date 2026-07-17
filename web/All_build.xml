@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<project name="All">
+    <import file="Settings_build.xml"/>
+    <import file="Accounting_build.xml"/>
+    <import file="Backend_build.xml"/>
+    <import file="CRM_build.xml"/>
+    <import file="Myaccount_build.xml"/>
+    <import file="Payroll_build.xml"/>
+    <import file="PM_build.xml"/>
+    <import file="Documents_build.xml"/>
+    <import file="Hrms_build.xml"/>
+    <import file="MessageCenter_build.xml"/>
+    <import file="ReportingSystem_build.xml"/>
+    <import file="TrainingCenter_build.xml"/>
+    <import file="../reporting/gwtbuild.xml"/>
+
+    <target name="coreGen">
+        <antcall target="Settings"/>
+        <delete dir="../gwt-unitCache/"/>
+        <antcall target="Accounting"/>
+        <delete dir="../gwt-unitCache/"/>
+        <antcall target="Backend"/>
+        <delete dir="../gwt-unitCache/"/>
+        <antcall target="CRM"/>
+        <delete dir="../gwt-unitCache/"/>
+        <antcall target="Myaccount"/>
+        <delete dir="../gwt-unitCache/"/>
+        <antcall target="Payroll"/>
+        <delete dir="../gwt-unitCache/"/>
+        <antcall target="PM"/>
+        <delete dir="../gwt-unitCache/"/>
+        <antcall target="Documents"/>
+        <delete dir="../gwt-unitCache/"/>
+        <antcall target="Hrms"/>
+        <delete dir="../gwt-unitCache/"/>
+        <antcall target="MessageCenter"/>
+        <delete dir="../gwt-unitCache/"/>
+        <antcall target="ReportingSystem"/>
+        <delete dir="../gwt-unitCache/"/>
+        <antcall target="TrainingCenter"/>
+        <delete dir="../gwt-unitCache/"/>
+    </target>
+
+    <target name="All">
+        <delete dir="../gwt-unitCache/"/>
+        <antcall target="coreGen"/>
+    </target>
+
+</project>

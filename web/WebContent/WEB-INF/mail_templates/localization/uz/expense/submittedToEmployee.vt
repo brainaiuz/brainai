@@ -1,0 +1,16 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head><body>
+
+<p>Дорогой $USER.firstName $USER.lastName,</a><br />
+
+<p>Пожалуйста, примите к сведению что Ваше Требвание к Расходу было отправлено $APPROVER.firstName $APPROVER.lastName
+для рассмотрения в $SUBMIT_DATE</p>
+
+<p>PDF версия Требования к Расходу прикреплена.</p>
+
+<p>Как только $APPROVER.firstName $APPROVER.lastName утвердит или отклонит отчет Вы получите уведомление по электронной почте о статусе.</p>
+
+<p></p>
+
+</body></html>

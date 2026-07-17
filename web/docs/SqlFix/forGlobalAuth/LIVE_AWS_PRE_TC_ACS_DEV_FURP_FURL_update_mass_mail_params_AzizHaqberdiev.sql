@@ -1,0 +1,1 @@
+update massmailparams set unsubscribeText = replace(unsubscribeText, '\n','%0A');

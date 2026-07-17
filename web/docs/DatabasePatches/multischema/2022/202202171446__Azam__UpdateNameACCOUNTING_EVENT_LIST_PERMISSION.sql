@@ -1,0 +1,1 @@
+update permission set name='Activities' where code='ACCOUNTING_EVENT_LIST';

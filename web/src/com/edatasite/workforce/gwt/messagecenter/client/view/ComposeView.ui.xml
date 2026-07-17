@@ -1,0 +1,45 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:kpi='urn:import:com.edatasite.workforce.gwt.core.client.ui'
+             xmlns:m='urn:import:gwt.material.design.client.ui'
+             xmlns:mhtml='urn:import:gwt.material.design.client.ui.html'
+             xmlns:fileUpload="urn:import:com.edatasite.workforce.gwt.core.client.ui.components.fileUpload">
+    <g:HTMLPanel ui:field="panel">
+
+        <g:HTMLPanel styleName="form-group" ui:field="fromContainer">
+            <mhtml:Label ui:field="fromLabel" styleName="form-group__label"/>
+            <kpi:DataListBox ui:field="from"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group">
+            <mhtml:Label ui:field="toLabel" styleName="form-group__label"/>
+            <g:HTMLPanel ui:field="to"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group">
+            <g:HTMLPanel ui:field="bccPanel"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group">
+            <mhtml:Label ui:field="subjectLabel" styleName="form-group__label"/>
+            <g:TextBox ui:field="subject"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group" ui:field="templateContainer">
+            <mhtml:Label ui:field="templateLabel" styleName="form-group__label"/>
+            <kpi:DataListBox ui:field="template"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group">
+            <g:HTMLPanel ui:field="content"/>
+        </g:HTMLPanel>
+
+        <m:MaterialPanel ui:field="uploadPanel"/>
+
+        <g:HTMLPanel styleName="form-group">
+            <mhtml:Label ui:field="linkLabel" styleName="form-group__label"/>
+            <m:MaterialPanel ui:field="linkPanel"/>
+        </g:HTMLPanel>
+
+    </g:HTMLPanel>
+</ui:UiBinder>

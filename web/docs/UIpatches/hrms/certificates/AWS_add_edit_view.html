@@ -1,0 +1,38 @@
+<div class="contentBar" style="padding:0 10px; margin-top:2px;">
+
+    <div id="information" class="slideDown-box expand group">
+        <h3 onclick="var myclick=document.getElementById('information');if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('expand')>=0){cls=cls.replace('expand','');}else{cls+=' expand';}myclick.className=cls;}"
+            class="slideDown-title">$$label:INFORMATION$$</h3>
+        <fieldset class="slideDown-content group nobrd labelLine">
+            <div>
+                <div class="row">$$label:NUMBER$$
+                    <div class="field">$$input:NUMBER$$</div>
+                </div>
+                <div class="row">$$label:EMPLOYEE$$
+                    <div class="field">$$input:EMPLOYEE$$</div>
+                </div>
+                <div class="row">$$label:CERTIFICATE_TYPE$$
+                    <div class="field">$$input:CERTIFICATE_TYPE$$</div>
+                </div>
+                <div class="row" id="APPROVER">$$label:APPROVER$$
+                    <div class="field">$$input:APPROVER$$</div>
+                </div>
+                <div class="row">$$label:CONTENT$$
+                    <div class="field" style="width:804px;">$$input:CONTENT$$</div>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    <div id="DOCUMENT_CELL_TREE" class="slideDown-box expand group hideCustomField">
+        <h3 onclick="var myclick=document.getElementById('DOCUMENT_CELL_TREE');if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('expand')>=0){cls=cls.replace('expand','');}else{cls+=' expand';}myclick.className=cls;}"
+            class="slideDown-title">$$label:DOCUMENT_CELL_TREE$$</h3>
+        <fieldset class="slideDown-content group nobrd labelLine">
+            <div>
+                <div class="row">
+                    <div class="field">$$input:DOCUMENT_CELL_TREE$$</div>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+
+</div>

@@ -1,0 +1,130 @@
+.trmnlAtt-modal {
+  // 1. Компактная шапка в один ряд
+  .modal-header {
+    background-color: $color-base-1;
+    padding: 6px $panel-padding;
+    border-bottom: none;
+    min-height: auto;
+
+    .trmnlAtt-user {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+
+      .modal-title {
+        font-size: $fontsize-1;
+        margin: 0;
+        white-space: nowrap;
+      }
+
+      &__role {
+        font-size: $font-size-sm;
+        color: $color-base-2;
+        white-space: nowrap;
+      }
+    }
+  }
+
+  // 2. Зеленый бейдж (принудительно)
+  .badge {
+    border-radius: $border-radius;
+    background-color: $success-color;
+  }
+
+  .trmnlAtt-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .trmnlAtt-card {
+    &__head {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+    &__title {
+      font-size: $fontsize-1; //15px
+    }
+
+    &__grid {
+      display: flex;
+      gap: 15px;
+      align-items: stretch;
+    }
+  }
+
+  // Внутри .trmnlAtt-grid
+  .trmnlAtt-col {
+    display: flex;
+    flex-direction: column;
+
+    &:has(.wg_photo-upload) {
+      flex: 0 0 150px; // Фиксируем фото (оно не должно тянуться)
+    }
+    &:has(.trmnlAtt-map) {
+      flex: 1 1 280px; // Карта заберет всё оставшееся свободное место
+    }
+  }
+
+  .trmnlAtt-label {
+    font-size: $font-size-sm; // 10.5px
+    //color: $color-base-1;
+    color: $text-muted;
+    margin-bottom: 4px;
+  }
+
+  .trmnlAtt-photo-box,
+  .trmnlAtt-map {
+    width: 100%;
+    height: 150px;
+    border-radius: $radius-big;
+    overflow: hidden;
+  }
+
+  .trmnlAtt-photo-box {
+    padding: 0 !important;
+    background-color: #eeeff3;
+
+    .wg_photo-upload__content,
+    .profile-card-img__wrapper,
+    .profile-card-img {
+      width: 100% !important;
+      height: 100% !important;
+      margin: 0;
+      border-radius: $radius-big;
+    }
+
+    .wg_photo-upload__title, .btn--dashed, .profile-card-img__btn {
+      display: none !important;
+    }
+  }
+
+  .trmnlAtt-map img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .trmnlAtt-meta {
+    margin-top: 6px;
+    font-size: 0.9em;
+    a {
+      color: $text-muted;
+      text-decoration: underline;
+
+      &:hover {
+        text-decoration: none;
+        color: $text-color-base;
+      }
+    }
+  }
+
+  .modal-footer {
+    flex-direction: row; // override .row-reverse from _modal.scss
+    align-items: center;
+    justify-content: space-between;
+  }
+}

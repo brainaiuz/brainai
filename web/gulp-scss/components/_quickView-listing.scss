@@ -1,0 +1,26 @@
+.quickView-listing {
+  .side-nav__heading {
+    padding-left: 29px;
+  }
+
+  .gwt-ScrollTable {
+    .headerWrapper {
+      position: absolute !important;
+      background-color: transparent;
+      border-bottom: 1px solid #000 !important;
+      
+      html:not([dir="rtl"]) & {
+        left: 0 !important;
+        padding-right: 0 !important;
+      }
+
+      .headerTable > tbody > tr > td:not(:last-child):after {
+        display: none;
+      }
+    }
+
+    .dataTable > tbody > tr {
+      background-color: transparent;
+    }
+  }
+}

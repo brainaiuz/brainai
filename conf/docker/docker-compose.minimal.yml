@@ -1,0 +1,54 @@
+# Minimal KPI Infrastructure - MongoDB, Redis, RabbitMQ (essentials only)
+# Usage: docker compose -f docker-compose.minimal.yml up -d
+
+services:
+  kpi-mongodb:
+    extends:
+      file: ./mongodb/compose.yml
+      service: mongodb
+    volumes:
+      - kpi-mongodb-data:/data/db
+    networks:
+      - kpi-network
+
+  kpi-redis:
+    extends:
+      file: ./redis/compose.yml
+      service: redis
+    volumes:
+      - kpi-redis-data:/data
+    networks:
+      - kpi-network
+
+  kpi-rabbitmq:
+    extends:
+      file: ./rabbitmq/compose.yml
+      service: rabbitmq
+    volumes:
+      - ./rabbitmq/etc/definitions.json:/etc/rabbitmq/definitions.json:${VOLUME_SUFFIX:-ro}
+      - ./rabbitmq/etc/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf:${VOLUME_SUFFIX:-ro}
+      - kpi-rabbitmq-data:/var/lib/rabbitmq/mnesia/rabbit@kpi-rabbitmq
+    networks:
+      - kpi-network
+
+  kpi-solr:
+    extends:
+      file: ./solr/compose.yml
+      service: solr
+    volumes:
+      - ../../solrCores86:/var/solr/data
+    networks:
+      - kpi-network
+
+volumes:
+  kpi-mongodb-data:
+    name: "${KPI_MONGODB_HOST}-data"
+  kpi-rabbitmq-data:
+    name: "${KPI_RABBITMQ_HOST}-data"
+  kpi-redis-data:
+    name: "${KPI_REDIS_HOST}-data"
+
+networks:
+  kpi-network:
+    name: "kpi-${PROJECT_ENV}-network"
+    driver: bridge

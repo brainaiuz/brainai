@@ -1,0 +1,44 @@
+<report>
+    <view>
+        <title>Lead Industry</title>
+        <name>Lead Industry</name>
+        <category>leads</category>
+        <sqlquery>
+            <select agregateFunc="distinct">
+                <table name="Lead">
+                    <column name="id" title="id" type="number" formattype="hidden"/>
+                    <column name="leadsource" title="Lead Source" type="string" formattype="string" basicfilter="true"/>
+                    <column name="creationDate" title="Lead Creation Date" type="date" formattype="date" customdateformat="DD Mon, YYYY" basicfilter="true"/>
+                    <column name="leadindustry" title="Industry" type="string" formattype="string" basicfilter="true"/>
+                    <column name="leadassignee" title="Lead Assignee" type="string" formattype="string" basicfilter="true"/>
+                </table>
+                <table name="Contact">
+                    <column name="leademail" title="Email" type="string" formattype="string"/>
+                    <column name="leadname" title="Lead Name" type="string" formattype="string" basicfilter="true"/>
+                </table>
+                <table name="Company Information">
+                    <column name="crmaccountname" title="Account" type="string" formattype="string" basicfilter="true"/>
+                </table>
+            </select>
+            <from>
+                (
+                select  c.id, srs.name leadsource, coalesce(c.firstname,'')||' '||coalesce(c.lastname,'') leadname, ind.name leadindustry,ca.name crmaccountname,c.creationDate,c.primaryemail leademail
+                ,coalesce(emp.firstname,'')||' '||coalesce(emp.lastname,'') leadassignee
+                from "$".crmcontact c
+                left join "$".reference srs on c.source=srs.id
+                left join "$".crmAccount ca on c.crmAccount=ca.id
+                left join "$".reference ind on ca.industry=ind.id
+                left join "$".myuser emp on c.assignee=emp.id
+                where c.deleted is not true and c.contacttype=5
+                ) t
+            </from>
+            <where>
+                <terms id="base" value="1=1"/>
+                <!--<terms id="userid" userid="" company="ld.company_id" />
+                    <terms id="managerid" userid="" company="ld.company_id" />
+                    <terms id="leaderid" userid="" company="ld.company_id" />
+                    <terms id="admin" company="ld.company_id" />-->
+            </where>
+        </sqlquery>
+    </view>
+</report>

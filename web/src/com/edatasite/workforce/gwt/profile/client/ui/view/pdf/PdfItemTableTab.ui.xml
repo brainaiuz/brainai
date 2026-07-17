@@ -1,0 +1,22 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:w='urn:import:com.edatasite.workforce.gwt.core.client.ui.panel'
+             xmlns:b='urn:import:com.edatasite.workforce.gwt.core.client.ui.wfmButton.buttonUtils'>
+    <g:HTMLPanel styleName="grid-row">
+        <g:HTMLPanel styleName="col-12">
+            <g:HTMLPanel styleName="pdf-edit-switcher btn-group">
+                <b:WfmButton2 ui:field="labelsButton"></b:WfmButton2>
+                <b:WfmButton2 ui:field="layoutButton"></b:WfmButton2>
+            </g:HTMLPanel>
+        </g:HTMLPanel>
+        <g:HTMLPanel styleName="col-6 panels-stack" ui:field="leftPanel"></g:HTMLPanel>
+        <g:HTMLPanel styleName="col-6 panels-stack" ui:field="rightPanel"></g:HTMLPanel>
+        <g:HTMLPanel ui:field="labelPanel">
+            <g:HTMLPanel styleName="form-row drag-tiles__caption">
+                <g:HTMLPanel styleName="col-7">Columns</g:HTMLPanel>
+                <g:HTMLPanel styleName="col-2">Width(%)</g:HTMLPanel>
+                <g:HTMLPanel styleName="col-3">Label</g:HTMLPanel>
+            </g:HTMLPanel>
+        </g:HTMLPanel>
+    </g:HTMLPanel>
+</ui:UiBinder>

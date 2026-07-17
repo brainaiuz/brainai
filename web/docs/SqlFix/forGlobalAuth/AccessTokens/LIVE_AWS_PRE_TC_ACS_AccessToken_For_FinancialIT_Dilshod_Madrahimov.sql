@@ -1,0 +1,1 @@
+INSERT INTO apiaccesstoken(token, description,blocked,modulecode) VALUES ('73734623-27e1-4f6b-9a32-d8e83f6f7f76','Access token for Financial IT','f','CRM_MODULE');

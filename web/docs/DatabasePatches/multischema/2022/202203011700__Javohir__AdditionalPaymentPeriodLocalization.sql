@@ -1,0 +1,12 @@
+update "anv".additionalpayment set month='january' where monthid=0;
+update "anv".additionalpayment set month='february' where monthid=1;
+update "anv".additionalpayment set month='march' where monthid=2;
+update "anv".additionalpayment set month='april' where monthid=3;
+update "anv".additionalpayment set month='may' where monthid=4;
+update "anv".additionalpayment set month='june' where monthid=5;
+update "anv".additionalpayment set month='july' where monthid=6;
+update "anv".additionalpayment set month='august' where monthid=7;
+update "anv".additionalpayment set month='september' where monthid=8;
+update "anv".additionalpayment set month='october' where monthid=9;
+update "anv".additionalpayment set month='november' where monthid=10;
+update "anv".additionalpayment set month='december' where monthid=11;

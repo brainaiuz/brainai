@@ -1,0 +1,2 @@
+delete from "anv".permission_context where permissioncode='SAVE_FILTER' and contextcode='ACCOUNTING';
+insert into "anv".permission_context (permissioncode,contextcode) values ('SAVE_FILTER','ACCOUNTING');

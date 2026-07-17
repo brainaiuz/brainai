@@ -1,0 +1,10 @@
+//SCROLL JUMPING FIX
+.side-nav__body.has-scroll--vertical > .scroll-offset {
+  width: calc(100% + 6px); /*scroll compensation*/
+}
+.scroll-offset__wrapper:hover .has-scroll--vertical > .scroll-offset,
+.side-nav.drawer:hover .has-scroll--vertical > .scroll-offset,
+.has-scroll--vertical:hover > .scroll-offset
+{
+  //width: auto;
+}

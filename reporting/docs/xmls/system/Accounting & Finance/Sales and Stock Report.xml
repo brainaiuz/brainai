@@ -1,0 +1,112 @@
+<report>
+    <view>
+        <title>Sales and Stock Report</title> <name>Sales and Stock Report</name> <category>Sales and Stock Report</category>
+        <sqlquery>
+            <select>
+                <table name="Sales and Stock Report">
+                    <column name="id" title="Company ID" type="number" formattype="number" />
+                    <column name="company" title="Company" type="string"  formattype="string"/>
+                    <column name="product" title="Product" type="string"  formattype="string"/>
+                    <column name="transid" title="Transaction ID" type="number" />
+                    <column name="trancdate" title="Transaction Date" type="date" formattype="date" customdateformat="Mon dd, yyyy" />
+                    <column name="quantity" title="Quantity" type="number"  formattype="number"/>
+                    <column name="price" title="Price" type="number" formattype="money" />
+                    <column name="transcode" title="Transaction Code" type="string"  formattype="string"/>
+                    <column name="trantype" title="Transaction Type" type="string"  formattype="string"/>
+                    <column name="point" title="Point" type="number"  formattype="number"/>
+                </table>
+            </select>
+            <from>
+                ( select a.id id, a.name company, a.product product, a.transid transid, a.trancdate trancdate, a.quantity quantity, a.price price, a.transaction_code  transcode,
+                (case when a.dtype='EdsStockAdjustmentTransaction' then 'Adjustment' else  'Sales' end) trantype,
+                (case when a.point is null then 1 else a.point end) point
+                from
+                (
+                select c.id, c.name, item.name product, (c.id || '' || istock.id) transid, istock.transaction_date trancdate, istock.quantity quantity, istock.price,  istock.transaction_code, tran.dtype, tran.deleted, icf.double_value1 point
+                from  "31473".transaction tran
+                join "31473".item_stock istock on istock.transactionid = tran.id
+                join "31473".item item on istock.item_id = item.id
+                left join "31473".itemcustomfields icf on item.id = icf.id
+                join "public".company c on c.id=31473
+                UNION
+                select c.id, c.name, item.name product, (c.id || '' || istock.id) transid, istock.transaction_date trancdate, istock.quantity quantity, istock.price,  istock.transaction_code, tran.dtype, tran.deleted, icf.double_value1 point
+                from  "31724".transaction tran
+                left join "31724".item_stock istock on istock.transactionid = tran.id
+                join "31724".item item on istock.item_id = item.id
+                left join "31724".itemcustomfields icf on item.id = icf.id
+                join "public".company c on c.id=31724
+                UNION
+                select c.id, c.name, item.name product, (c.id || '' || istock.id) transid, istock.transaction_date trancdate, istock.quantity quantity, istock.price,  istock.transaction_code, tran.dtype, tran.deleted, icf.double_value1 point
+                from "31725".transaction tran
+                join "31725".item_stock istock on istock.transactionid = tran.id
+                join "31725".item item on istock.item_id = item.id
+                left join "31725".itemcustomfields icf on item.id = icf.id
+                join "public".company c on c.id=31725
+                UNION
+                select c.id, c.name, item.name product, (c.id || '' || istock.id) transid, istock.transaction_date trancdate, istock.quantity quantity, istock.price,  istock.transaction_code, tran.dtype, tran.deleted, icf.double_value1 point
+                from "31726".transaction tran
+                left join "31726".item_stock istock on istock.transactionid = tran.id
+                join "31726".item item on istock.item_id = item.id
+                left join "31726".itemcustomfields icf on item.id = icf.id
+                join "public".company c on c.id=31726
+                UNION
+                select c.id, c.name, item.name product, (c.id || '' || istock.id) transid, istock.transaction_date trancdate, istock.quantity quantity, istock.price,  istock.transaction_code, tran.dtype, tran.deleted, icf.double_value1 point
+                from "31727".transaction tran
+                join "31727".item_stock istock on istock.transactionid = tran.id
+                join "31727".item item on istock.item_id = item.id
+                left join "31727".itemcustomfields icf on item.id = icf.id
+                join "public".company c on c.id=31727
+                UNION
+                select c.id, c.name, item.name product, (c.id || '' || istock.id) transid, istock.transaction_date trancdate, istock.quantity quantity, istock.price,  istock.transaction_code, tran.dtype, tran.deleted, icf.double_value1 point
+                from "31728".transaction tran
+                join "31728".item_stock istock on istock.transactionid = tran.id
+                join "31728".item item on istock.item_id = item.id
+                left join "31728".itemcustomfields icf on item.id = icf.id
+                join "public".company c on c.id=31728
+                UNION
+                select c.id, c.name, item.name product, (c.id || '' || istock.id) transid, istock.transaction_date trancdate, istock.quantity quantity, istock.price,  istock.transaction_code, tran.dtype, tran.deleted, icf.double_value1 point
+                from "31823".transaction tran
+                left join "31823".item_stock istock on istock.transactionid = tran.id
+                join "31823".item item on istock.item_id = item.id
+                left join "31823".itemcustomfields icf on item.id = icf.id
+                join "public".company c on c.id=31823
+                UNION
+                select c.id, c.name, item.name product, (c.id || '' || istock.id) transid, istock.transaction_date trancdate, istock.quantity quantity, istock.price,  istock.transaction_code, tran.dtype, tran.deleted, icf.double_value1 point
+                from "32430".transaction tran
+                join "32430".item_stock istock on istock.transactionid = tran.id
+                join "32430".item item on istock.item_id = item.id
+                left join "32430".itemcustomfields icf on item.id = icf.id
+                join "public".company c on c.id=32430
+                UNION
+                select c.id, c.name, item.name product, (c.id || '' || istock.id) transid, istock.transaction_date trancdate, istock.quantity quantity, istock.price,  istock.transaction_code, tran.dtype, tran.deleted, icf.double_value1 point
+                from "32431".transaction tran
+                join "32431".item_stock istock on istock.transactionid = tran.id
+                join "32431".item item on istock.item_id = item.id
+                left join "32431".itemcustomfields icf on item.id = icf.id
+                join "public".company c on c.id=32431
+                UNION
+                select c.id, c.name, item.name product, (c.id || '' || istock.id) transid, istock.transaction_date trancdate, istock.quantity quantity, istock.price,  istock.transaction_code, tran.dtype, tran.deleted, icf.double_value1 point
+                from "32462".transaction tran
+                left join "32462".item_stock istock on istock.transactionid = tran.id
+                join "32462".item item on istock.item_id = item.id
+                left join "32462".itemcustomfields icf on item.id = icf.id
+                join "public".company c on c.id=32462
+                UNION
+                select c.id, c.name, item.name product, (c.id || '' || istock.id) transid, istock.transaction_date trancdate, istock.quantity quantity, istock.price,  istock.transaction_code, tran.dtype, tran.deleted, icf.double_value1 point
+                from "32463".transaction tran
+                join "32463".item_stock istock on istock.transactionid = tran.id
+                join "32463".item item on istock.item_id = item.id
+                left join "32463".itemcustomfields icf on item.id = icf.id
+                join "public".company c on c.id=32463
+
+                ) a where a.deleted is not true)  t
+            </from>
+            <where> <terms id="base" value="1=1"/>
+                <!-- <terms id="userid" userid="" company="t.company_id"/>
+                <terms id="managerid" userid="" company="t.company_id"/>
+                <terms id="leaderid" userid="" company="t.company_id"/>
+                <terms id="admin" company="t.company_id"/>-->
+            </where>
+        </sqlquery>
+    </view>
+</report>

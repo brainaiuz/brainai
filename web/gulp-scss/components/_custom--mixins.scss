@@ -1,0 +1,1309 @@
+@import "gulp-scss/components/mixins/border-radius";
+
+// LINKS
+@mixin link($color:$link-color) {
+  color: $color;
+  text-decoration: none;
+  cursor: pointer;
+  // Gets rid of tap active state
+  -webkit-tap-highlight-color: transparent;
+
+  &:hover, &:focus {
+    //color: darken($color, 15%); //!important; //important for .dropdown-content > li.active a:hover custom <a> el
+    color: darken($color, 10%);
+  }
+}
+
+@mixin closeHover($scale: 1.15) {
+  &:hover {
+    transform: scale(#{$scale});
+    transition: transform .15s ease;
+  }
+}
+
+// FORM CONTROLS
+@mixin form-control-readonly {
+  color: $input-disabled-color !important;
+  background-color: $input-disabled-bg !important;
+  cursor: default;
+}
+
+@mixin form-control-disabled {
+  @include form-control-readonly;
+  user-select: none;
+}
+
+@mixin form-control-size($hightVers: height, $lineHeight: true) {
+  box-sizing: border-box;
+  letter-spacing: .5px; // for div.form-control. The same with input, textarea -> see below @mixin form-control-style
+  #{$hightVers}: $input-height;
+  @if $lineHeight {
+    line-height: $input-btn-line-height;
+  }
+}
+
+@mixin form-control-style(
+  $borderColor: $control-border-color,
+  $paddingX: $control-padding-x,
+  $color: true,
+  $withPadding: true
+) {
+  border: $control-border-width solid $borderColor;
+  line-height: $input-btn-line-height;
+
+  // паддинги можно отключать
+  @if $withPadding {
+    padding-left:  $paddingX;
+    padding-right: $paddingX;
+  }
+
+  border-radius: $control-border-radius;
+  text-decoration: none;
+  letter-spacing: .5px;
+  font-style: normal;
+  font-size: $control-font-size;
+  outline: none;
+
+  @if $color {
+    color: $color-form-control; // for link buttons <a class="
+    &:hover {
+      color: $control-text-color;
+    }
+  }
+}
+
+@mixin common-input-mixin(
+  $paddingY:    $button-padding-y,
+  $paddingLeft: $control-padding-x,
+  $paddingRight:$control-padding-x,
+  $borderColor: $control-border-color,
+
+  // Nуправление layout
+  $display:      block,   //  display:block
+  $width:        100%,    //  width:100%
+  $setLayout:    true     // если false — вообще не ставим display/width
+) {
+  // Берём оформление без паддингов
+  @include form-control-style(
+    $borderColor:  $borderColor,
+    $color:        true,
+    $withPadding:  false
+  );
+
+  // layout можно выключить
+  @if $setLayout {
+    display: $display;
+    width: $width;
+  }
+
+  // Паддинги задаём по сторонам — так проще отдельно менять right
+  padding-top:    $paddingY;
+  padding-bottom: $paddingY;
+  padding-left:   $paddingLeft;
+  padding-right:  $paddingRight;
+
+  background-color: #fff;
+  background-image: none;
+  background-clip: padding-box;
+}
+
+@mixin text-input-mixin() {
+  @include form-control-size; //height, line-height
+  @include common-input-mixin();
+  white-space: nowrap;
+}
+
+@mixin caretPlate($top: 0, $bottom: 0, $right: 0) {
+  overflow: hidden; // to prevent :before content text going out of the box
+  width: $dropdown-caret-width;
+  max-width: 20%;
+  min-width: 15px;
+  display: inline-flex !important;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 1; //https://prnt.sc/s1r2et crm
+  top: $top;
+  bottom: $bottom;
+  right: $right;
+  //height: calc(100% - 3px); //to fix <svg> version - materialize default
+  @include border-right-radius($control-border-radius);
+
+  &:not(.disabled) {
+    cursor: pointer;
+    background-clip: content-box;
+    background-color: #fff;
+
+    .hero-input & {
+      background-color: $hero-input-bg;
+    }
+  }
+  &.disabled {
+    background: linear-gradient(to right, rgba(245, 247, 249, 0) 0%, rgba(245, 247, 249, 1) 100%);
+  }
+  html[dir="rtl"] & {
+    right: auto;
+    left: 1px
+  }
+}
+
+@mixin caretSign($top: 0, $bottom: 0, $right: 0) {
+  font-size: 0;
+  color: $control-caret-color;
+
+  &:not(.disabled) {
+    &:after {
+      background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+
+      .hero-input & {
+        background: linear-gradient(to right, rgba($hero-input-bg, 0) 0%, rgba($hero-input-bg, 1) 100%);
+      }
+    }
+  }
+
+  &:before {
+    @extend .ficon--;
+    margin: 0 !important;
+    line-height: 1;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 100%;
+    width: 30%;
+  }
+}
+
+// \ FORM CONTROLS
+
+// BUTTONS
+@mixin button-style($color: true) {
+  @extend %form-control-size;
+  @include form-control-style($borderColor: transparent, $paddingX: $button-padding-x, $color: $color);
+  //border-width: 1px;
+  transition: background-color .1s ease;
+
+  .group-box__item-content & {
+    height: $control-height-noBorder;
+    line-height: $input-btn-line-height - $control-border-width * 2;
+  }
+}
+
+@mixin button-style-sm() {
+  @extend %form-control-size-small; //height, line-height, nowrap
+  @include form-control-style($borderColor: transparent, $paddingX: ($button-padding-x * .4), $color: false);
+}
+
+@mixin button-style-md() {
+  //%extend %form-control-size-medium; //height, line-height, nowrap
+  height: $button-height-medium;
+  line-height: $button-line-height-medium;
+  font-size: $button-font-size-medium;
+  @include form-control-style($borderColor: transparent, $paddingX: $button-padding-x, $color: false);
+}
+
+@mixin button-style-lg() { //ToDo check it
+  @extend %form-control-size-large; //height, line-height, nowrap
+  @include form-control-style($borderColor: transparent, $paddingX: $button-padding-x, $color: false);
+}
+
+// \ BUTTONS
+
+//ARROW FOLDABLE
+@mixin arrowRight($size, $color) {
+  width: 0;
+  height: 0;
+  border-top: $size solid transparent; // Верхняя часть треугольника
+  border-bottom: $size solid transparent; // Нижняя часть треугольника
+  border-left: $size solid $color; // Ширина треугольника равна $size
+}
+
+@mixin unfoldingArrow($size: 4px, $paddingLeft: $size * 2, $color: $color-accent-1, $elPos: absolute, $shift: ($size * 2), $el: before, $extra: ()) {
+  padding-left: $paddingLeft;
+
+  &:#{$el} {
+    @include arrowRight($size, $color);
+    content: "";
+    display: inline-block;
+    position: #{$elPos};
+    left: $shift;
+    transition: transform 0.3s ease; // Добавляем плавный поворот
+    cursor: pointer;
+  }
+  &.expandedElement:#{$el} {
+    transform: rotate(90deg); // Поворот на 90 градусов при раскрытии
+  }
+}
+
+
+// DROPDOWN ITEMS
+@mixin dropdown-content-style($radius: $radius-basePlus, $elevation: 2) {
+  /* Check elevation level:
+     1.5 usually corresponds to $popupBoxShadow logic
+     2 or higher corresponds to standard Material Z-levels
+  */
+  @if $elevation == 1.5 {
+    @extend .z-depth-1-half;
+  } @else {
+    @extend .z-depth-2;
+  }
+
+  background-color: $dropdown-bg-color;
+
+  /* Use global border variable for consistency */
+  border: 1px solid $dropdown-border-color;
+  border-radius: #{$radius};
+  color: $gray-darkest;
+}
+
+@mixin dropdown-arrow-appearance() {
+  &:before, &:after {
+    position: absolute;
+    opacity: 0;
+  }
+  &.active {
+    &:before, &:after {
+      opacity: 1;
+      content: '';
+      animation: arrowOpacity .3s ease;
+    }
+  }
+}
+
+$dropdownArrowBdc: darken($dropdown-border-color, 7%);
+
+@mixin dropdown-arrow-top($figZindex: 100, $figBg: white, $figBorderColor: $dropdownArrowBdc, $figSize: $triangleSize, $figBorderSize: 1px) {
+  @include dropdown-arrow-appearance();
+  &:before, &:after {
+    aspect-ratio: 1.5 / 1;
+  }
+  &:before {
+    z-index: $figZindex - 1;
+    --b: #{$figBorderSize};
+    height: $figSize;
+    clip-path: polygon(
+                    50% 0,
+                    100% 100%,
+                    0 100%,
+                    50% 0,
+                    50% var(--b),
+                    calc(var(--b) / 1) 100%,
+                    calc(100% - var(--b) / 1) 100%,
+                    50% var(--b)
+    );
+    background: $figBorderColor;
+  }
+  &.active {
+    &:before, &:after {
+      transition: top .3s ease;
+      transform: translateY($triangleSpaceBetween + $figBorderSize) translateX(-50%);
+    }
+  }
+  &:after {
+    z-index: $figZindex;
+    --b: #{$figBorderSize};
+    height: $figSize + $figBorderSize;
+    clip-path: polygon(
+                    50% var(--b),
+                    calc(var(--b)) 100%,
+                    calc(100% - var(--b)) 100%,
+    );
+    background: $figBg;
+  }
+}
+
+@mixin dropdown-arrow-bottom($figZindex: 100, $figBg: white, $figBorderColor: $dropdownArrowBdc, $figSize: $triangleSize, $figBorderSize: 1px) {
+  @include dropdown-arrow-appearance();
+  &:before, &:after {
+    aspect-ratio: 1.5 / 1;
+  }
+  &:before {
+    z-index: $figZindex - 1;
+    --b: #{$figBorderSize};
+    height: $figSize;
+    clip-path: polygon(
+                    50% 100%,
+                    100% 0,
+                    0 0,
+                    50% 100%,
+                    50% calc(100% - var(--b)),
+                    calc(var(--b) / 1) 0,
+                    calc(100% - var(--b) / 1) 0,
+                    50% calc(100% - var(--b))
+    );
+    background: $figBorderColor;
+  }
+  &.active {
+    &:before, &:after {
+      transition: bottom .3s ease;
+      transform: translateY(-($triangleSpaceBetween + $figBorderSize)) translateX(-50%);
+    }
+  }
+  &:after {
+    z-index: $figZindex;
+    --b: #{$figBorderSize};
+    height: $figSize + $figBorderSize;
+    clip-path: polygon(
+                    50% calc(100% - var(--b)),
+                    calc(var(--b)) 0,
+                    calc(100% - var(--b)) 0
+    );
+    background: $figBg;
+  }
+}
+
+@mixin dropdown-arrow-left($figZindex: 100, $figBg: white, $figBorderColor: $dropdownArrowBdc, $figSize: $triangleSize, $figBorderSize: 1px) {
+  @include dropdown-arrow-appearance();
+  &:before, &:after {
+    aspect-ratio: 1 / 1.5;
+    width: $figSize;
+  }
+  &:before {
+    z-index: $figZindex - 1;
+    --b: #{$figBorderSize};
+    clip-path: polygon(
+                    0 50%, //левый центр
+                    100% 100%, //нижний правый
+                    100% 0, //верхний правый
+                    0 50%, //левый центр
+                    var(--b) 50%, //левый центр
+                    100% var(--b), //верхний правый
+                    100% calc(100% - var(--b)), //нижний правый
+                    var(--b) 50% //левый центр
+    );
+    background: $figBorderColor;
+  }
+  &.active {
+    &:before, &:after {
+      transition: right .3s ease;
+      //margin-left: $triangleSpaceBetween + $figBorderSize;
+      transform: translateX($triangleSpaceBetween + $figBorderSize);
+    }
+  }
+  &:after {
+    z-index: $figZindex;
+    --b: #{$figBorderSize};
+    clip-path: polygon(var(--b) 50%, calc(100% + var(--b)) 0, 100% calc(100% - var(--b)), 0 calc(50% - var(--b)));
+    background: $figBg;
+  }
+}
+
+@mixin dropdown-arrow-right($figZindex: 100, $figBg: white, $figBorderColor: $dropdownArrowBdc, $figSize: $triangleSize, $figBorderSize: 1px) {
+  @include dropdown-arrow-appearance();
+  &:before, &:after {
+    aspect-ratio: 1 / 1.5;
+    width: $figSize;
+
+  }
+  // галочка
+  &:before {
+    z-index: $figZindex - 1;
+    --b: #{$figBorderSize};
+    clip-path: polygon(
+                    100% 50%, /// Правый центр
+                    0 0, // Верхний левый
+                    0 100%, // Нижний левый
+                    100% 50%, // Правый центр
+                    calc(100% - var(--b)) 50%, // Внутренний правый центр
+                    0 calc(100% - var(--b)), // Нижний левый внутренний
+                    0 var(--b), ///* Верхний левый внутренний
+                    calc(100% - var(--b)) 50% // Завершение на внутреннем правом центре
+    );
+
+    background: $figBorderColor;
+  }
+  &.active {
+    &:before, &:after {
+      transition: right .3s ease;
+      transform: translateX(-($triangleSpaceBetween + $figBorderSize));
+    }
+  }
+  &:after {
+    z-index: $figZindex;
+    --b: #{$figBorderSize};
+    clip-path: polygon(-1px 100%, calc(100% - 1px) 50%, -1px 0px);
+    background: $figBg;
+  }
+}
+
+@mixin dropdown-content-size {
+  overflow-y: auto;
+  clear: both;
+  position: absolute;
+  z-index: 99;
+  max-height: 420px;
+  //min-width: 100px;
+  //min-width: 60px; //check it Decreased by Murad Demands (settings panel page size dropdown)
+  // Oveflow to make scroll also not possible because there might be multilevel lists
+  margin: 0;
+  will-change: width, height;
+  @media screen and (max-height: 900px) {
+    max-height: 370px;
+  }
+  @media screen and (max-height: 768px) {
+    max-height: 320px;
+  }
+  .operPanel & {
+    max-height: 84vh;
+  }
+}
+
+@mixin dropdown-content-list-item-style {
+  text-align: left;
+  &:after {
+    display: block;
+    content: '';
+    position: absolute;
+    bottom: 0;
+    height: 1px;
+    background: #e6eaee;
+    opacity: .5;
+    transition: opacity .3s ease-in;
+
+    .form-control & {
+      left: 0;
+      right: 0;
+    }
+  }
+
+  &.active.selected {
+    > a {
+      //color: #fff; make text invisible in gwt-listbox <select>
+    }
+  }
+  &.active {
+    > a {
+      color: $link-color;
+      background-color: rgba($link-color, .1);
+    }
+  }
+
+  &:hover, &:focus {
+    background-color: $dropdown-hover-bg-color;
+
+    &:after {
+      opacity: 1;
+    }
+  }
+  &.active.selected:hover,
+  &.active.selected,
+  &.selected {
+    background-color: $dropdown-selected-bg;
+  }
+
+  &:last-child:after {
+    background: transparent;
+  }
+}
+
+@mixin dropdown-content-list-item-select-style {
+  white-space: nowrap;
+
+  &:after {
+    //background: $dropdown-border-color;
+    background: $color-base-1;
+  }
+
+  &.active.selected {
+    > a {
+    }
+  }
+
+  &:hover, &:focus {
+    background-color: $dropdown-hover-bg-color;
+
+    a {
+    }
+
+    &:after {
+    }
+  }
+}
+
+@mixin dropdown-content-list-item-style--2 {
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 5px;
+    background-color: $warning-color;
+    opacity: 0;
+  }
+
+  &:hover, &:focus {
+    background-color: #fffaf2;
+    transition: background-color 0.3s ease-in;
+
+    &:before {
+      opacity: 1;
+      transition: opacify 0.3s ease-in;
+    }
+  }
+}
+
+@mixin dropdown-content-list-item-size($hight: $dropdown-item-height ,$paddingY: $dropdown-content-padding-y, $paddingX: $dropdown-content-padding-x, $lHeight: null) {
+  &, * {
+    //box-sizing: border-box; looks like it is not needed
+  }
+
+  position: relative;
+  cursor: pointer;
+  //width: 100%; looks like it is not needed
+  //min-height: $hight;
+
+  & > span,
+  & > .java-wrap > a,
+  & > a {
+    display: block;
+    min-height: $hight;
+    @if ($lHeight != null) {
+      line-height: $lHeight;
+    }
+    padding: $paddingY $paddingX !important;
+    color: $text-color-base;
+  }
+  & > .java-wrap a {
+    color: $text-color-base;
+  }
+
+  &:after {
+    left: $paddingX;
+    right: $paddingX;
+  }
+}
+
+// \ DROPDOWN ITEMS
+@mixin collapsible-transition {
+  transition: .25s all cubic-bezier(1, 0.25, 0.25, .8);
+}
+
+@mixin base-transition($props...) {
+  $transitions: ();
+
+  @each $prop in $props {
+    // формируем список вида: "color .25s ease-in, background-color .25s ease-in, ..."
+    $transitions: append($transitions, #{$prop} .25s ease-in, comma);
+  }
+
+  transition: $transitions;
+}
+
+@mixin txtTruncate($mode: default, $important: false, $overflow: null) {
+  $suffix: if($important, "!important", "");
+
+  @if $mode == initial {
+    // If $overflow is not provided, use 'visible' (backward compatibility)
+    overflow: if($overflow, $overflow, visible) #{$suffix};
+    white-space: normal #{$suffix};
+    text-overflow: initial #{$suffix};
+  } @else {
+    // Standard truncation logic
+    overflow: if($overflow, $overflow, hidden) #{$suffix};
+    white-space: nowrap #{$suffix};
+    text-overflow: ellipsis #{$suffix};
+  }
+}
+
+@mixin panel-heading-box-shadow() {
+  box-shadow: 0 2px 7px 0 rgba(0, 0, 0, 0.099);
+}
+
+@mixin widget-row-hover() {
+  border-bottom: 1px solid transparent;
+  transition: max-height .9s ease, background-color .3s ease, border-bottom-color .3s ease, box-shadow .3s ease;
+
+  &.active,
+  &:hover {
+    @include panel-heading-box-shadow;
+    background-color: #fff;
+    border-bottom-color: $color-base-0-contrast;
+  }
+}
+
+@mixin collapse-els {
+  font-size: 0 !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  height: 0 !important;
+  line-height: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  opacity: 0 !important;
+  //transform: scaleY(0);
+}
+
+
+
+
+//Backdrop Layer
+@mixin backdrop-base(
+  $pos: fixed,
+  $z: null, // No z-index by default
+  $top: 0,
+  $height: 100%,
+  $bg: $backdrop-color-default,
+  $opacity: $backdrop-opacity-default
+) {
+  position: $pos;
+  top: $top;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: $height;
+  background-color: $bg;
+  opacity: $opacity;
+
+  // Render z-index only if a value is provided
+  @if $z != null {
+    z-index: $z;
+  }
+
+  //pointer-events: auto;
+  will-change: opacity;
+  transition: $backdrop-transition-default;
+}
+
+//PANELS
+@mixin panel-list($radius: $radius-big, $background: #fff) {
+  border-radius: $radius;
+  background-color: $background;
+  padding-left: $gridGutterSingle;
+  padding-right: $gridGutterSingle;
+
+  > * {
+    margin-left: -$gridGutterSingle;
+    margin-right: -$gridGutterSingle;
+    padding: $gridGutterSingle;
+  }
+
+  > :first-child {
+    @include border-top-radius($radius)
+  }
+  > :last-child {
+    @include border-bottom-radius($radius)
+  }
+}
+
+@mixin panelStyle(
+  $radius: $radius-big,
+  $padding-x: $panel-padding, // Обобщенный паддинг
+  $background: #fff,
+  $bdcolor: $panelBorderColor,
+  $bordered: false,
+  $body: false,
+  $heading: false,
+  $footer: false,
+  $parent: null // Для корректного BEM в модификаторах
+) {
+  // Определяем, к кому обращаться: к самому себе или к указанному родителю
+  $selector: if($parent != null, $parent, &);
+
+  border-radius: $radius;
+  background-color: $background;
+
+  @if $bordered {
+    border: 1px solid $bdcolor;
+    #{$selector}__heading:where(:not(:last-child)) {
+      border-bottom: 1px solid $bdcolor;
+    }
+  }
+
+  @if $heading {
+    #{$selector}__heading {
+      padding: ($padding-x * 0.8) $padding-x !important; // Вертикальный чуть меньше для баланса
+      @include border-top-radius($radius);
+    }
+  }
+
+  @if $body {
+    #{$selector}__body {
+      padding: 0 $padding-x $padding-x; // Классика: верхний отступ управляется логикой ниже
+
+      &:only-child,
+      &:first-child:where(:not(:last-child)),
+      & + & {
+        padding-top: $padding-x;
+      }
+
+      &:last-child {
+        @include border-bottom-radius($radius);
+      }
+    }
+
+    #{$selector}__heading + #{$selector}__body {
+      padding-top: ($padding-x * 0.8);
+    }
+  }
+
+  @if $footer {
+    #{$selector}__footer {
+      padding: 0 $padding-x $padding-x;
+      @include border-bottom-radius($radius);
+    }
+  }
+}
+
+//COLLAPSIBLE
+@mixin collapsible-arrow() {
+  &:after {
+    position: absolute;
+    top: 50%;
+    margin-top: -.5em;
+    font-weight: bold;
+    font-size: 27px;
+    font-size: rem(27px);
+    line-height: 1;
+    @extend .ficon--;
+    @extend .ficon--keyboard-arrow-down:before;
+  }
+  //li.active &,
+  &.active {
+    &:after {
+      @extend .ficon--keyboard-arrow-up:before;
+    }
+  }
+}
+
+
+@mixin css-close-button($size) {
+  position: relative;
+  font-size: 0;
+  line-height: 0;
+  &:before, &:after {
+    content: '';
+    position: absolute;
+    height: $size;
+    width: 1px;
+    left: 50%;
+    top: 50%;
+    margin-top: -($size / 2);
+    opacity: .5;
+    background-color: $text-color-base;
+  }
+  &:before {
+    transform: rotate(45deg);
+  }
+  &:after {
+    transform: rotate(-45deg);
+  }
+  &:hover {
+    &:before, &:after {
+      opacity: 1;
+    }
+  }
+}
+
+@mixin iconActionHover($startOpacity: 0.7, $hoverOpacity: 1, $disabledOpacityFactor: 0.6) {
+  opacity: $startOpacity;
+  &:not(.disabled) {
+    &:hover, &:focus {
+      opacity: $hoverOpacity;
+    }
+
+    &:active {
+      opacity: $hoverOpacity;
+    }
+  }
+  &.disabled {
+    opacity: $startOpacity * $disabledOpacityFactor;
+    cursor: not-allowed;
+  }
+}
+
+@mixin close-button() {
+  @include iconActionHover;
+}
+
+@mixin table-cell-heading {
+  padding-bottom: rem(10px);
+  font-weight: 500;
+  font-size: rem(8px);
+  text-transform: uppercase;
+}
+
+
+@mixin table-actions-svg {
+  color: $color-accent-2;
+  svg {
+    height: 14px;
+    width: 14px;
+    vertical-align: middle;
+
+    &.icon--trash2 {
+      height: 13px;
+      width: 13px;
+    }
+  }
+  &:hover {
+    color: $text-color-base;
+  }
+}
+
+@mixin table-cell-decorator-colors {
+  outline: 1px solid rgba(0, 0, 0, 0.1);
+  outline-offset: -1px;
+  background-color: #fff !important; //https://prnt.sc/s2ord1
+  transition: background 0.2s ease;
+}
+
+//https://live.staticflickr.com/65535/54713866515_18f2e4a0d1_b.jpg
+@mixin table-cell-decorator {
+  max-width: none;
+  overflow: visible;
+  position: relative;
+  z-index: 1; //https://prnt.sc/qelizp
+}
+
+@mixin table-base($layout: null, $padding-x: $tableCellPadding-x) {
+  // Если Используем аргумент то будет свойство table-layout
+  @if $layout != null {
+    table-layout: $layout;
+  }
+
+  > tbody > tr > *,
+  > tfoot > tr > * {
+    // Используем аргумент для паддингов
+    padding-left: $padding-x;
+    padding-right: $padding-x;
+
+    :not(&:has(.gwt-CheckBox, .control--checkbox, .action-listing)) {
+      @include txtTruncate();
+    }
+
+    vertical-align: middle;
+    height: $tableCellHeight;
+
+    @at-root .table-bordered#{&} {
+      + * {
+        //border-left: 1px solid $gray-light;
+      }
+    }
+  }
+
+  /* header cell */
+  thead > tr > *,
+  tr.thead > * {
+    //padding: 0 10px; //https://prnt.sc/set8gs
+  }
+
+  a:hover {
+    opacity: 0.7;
+  }
+
+  &:not(.table--overflow-off) > tbody > tr > td:hover {
+    ///*overflow: visible;*/
+    ///* this cause issue T3798 */
+    ///*position: relative;*/
+  }
+}
+
+@mixin row-spacing($space: $tableCellPadding-y) {
+  // Выбираем каждую строку <tr>, которой предшествует другая <tr>
+  // (то есть, все строки, кроме самой первой)
+  tr:not(.thead) + tr > * {
+    // Применяем верхний отступ ко всем ячейкам (*) этой строки
+    padding-top: $space;
+  }
+}
+
+// Mixin for TblSmartTxtCell.java created contet in (td/th) with truncated text
+@mixin cell-truncate($bg-color: #fffede, $border-color: rgba(0, 0, 0, 0.25), $pad-x: 6px, $pad-y: 1px, $radius: $radius-basePlus, $shadow: 0 $pad-y ($pad-x * .75) rgba(0, 0, 0, 0.15)) {
+  .truncTxt-root {
+    position: relative;
+    display: block !important;
+    width: 100% !important;
+    @include txtTruncate;
+  }
+
+  .truncTxt-pop {
+    transition: color .12s ease, box-shadow .12s ease, opacity .12s ease;
+  }
+
+  &:hover {
+    .truncTxt-root {
+      overflow: visible;
+      white-space: normal;
+      text-overflow: initial;
+    }
+
+    .truncTxt-pop {
+      position: absolute;
+      z-index: 1;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+
+      min-width: 100px;
+      //max-width: #{'min(40vw, 630px)'};
+      max-width: 100%;
+
+      color: $text-color-base;
+
+      // 1) «Паддинг» фоном: расширяем прямоугольник на X/Y
+      &::before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        pointer-events: none;
+        left: -#{$pad-x};
+        right: -#{$pad-x};
+        top: -#{$pad-y};
+        bottom: -#{$pad-y};
+        background: $bg-color;
+        border-radius: $radius;
+        box-shadow: inset 0 0 0 1px #{$border-color}, // border внутри области popup-а
+        #{$shadow}; // внешняя тень
+      }
+    }
+  }
+}
+
+@mixin operPanel-shadow {
+  box-shadow: 0 2px 2px 0 rgba($color-accent-2, .14);
+}
+
+@mixin theadShadow {
+  color: $text-color-base;
+  box-shadow: $theadShadow;
+  background-color: $theadBg;
+}
+
+@mixin theadShadowInset {
+  box-shadow: $theadShadowInset;
+  background-color: $theadBg;
+}
+
+@mixin theadBasedCell($padding: 0 $tableCellPadding-x, $fz: $theadBaseFontSize, $cursor: null) {
+  height: $theadHeight;
+  padding: #{$padding};
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: #{$fz};
+  // Ensure cursor is only included if it has a valid value
+  @if $cursor != null {
+    cursor: $cursor;
+  }
+}
+
+@mixin drag-tile-style($bg: $bg-tile, $brdrStyle: solid, $brdrColor: $control-border-color, $radius: $radius-tile) {
+  border-radius: $radius;
+  border: 1px $brdrStyle $brdrColor;
+  background: $bg;
+}
+
+@mixin dataPicker-current {
+  background: $color-accent-1 !important;
+  //background: $color-accent-2 !important;
+  //background: $color-base-2 !important;
+  color: #fff !important;
+}
+
+@mixin dataPicker-highlight {
+  //background: rgba($color-accent-1, .25);
+  background: #d5e8ff;
+  //color: white;
+  cursor: pointer;
+}
+
+@mixin dataPicker-select {
+  background: transparentize($color-leave, .6);
+  //color: #fff !important;
+}
+
+@mixin sideNavHover {
+  border-radius: 30px;
+  &.active,
+  &:hover {
+    background-color: $color-base-contrast;
+  }
+}
+
+@mixin sideNavActiveDash {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  display: block !important;
+}
+
+@mixin sideNavActive--accounting {
+  background-color: rgba($color-accounts, .1);
+  color: $color-accounts;
+  &:after {
+    background-color: $color-accounts;
+  }
+}
+
+@mixin sideNavActive--sales {
+  background-color: rgba($color-sales, .1);
+  color: $color-sales;
+  &:after {
+    background-color: $color-sales;
+  }
+}
+
+@mixin sideNavActive--humans {
+  background-color: rgba($color-humans, .1);
+  color: $color-humans;
+  &:after {
+    background-color: $color-humans;
+  }
+}
+
+@mixin sideNavActive--projects {
+  background-color: rgba($color-projects, .1);
+  color: $color-projects;
+  &:after {
+    background-color: $color-projects;
+  }
+}
+
+@mixin sideNavActive--payroll {
+  background-color: rgba($color-payroll, .1);
+  color: $color-payroll;
+  &:after {
+    background-color: $color-payroll;
+  }
+}
+
+@mixin sideNavActive--reports {
+  background-color: rgba($color-reports, .1);
+  color: $color-reports;
+  &:after {
+    background-color: $color-reports;
+  }
+}
+
+@mixin sideNavActive--documents {
+  background-color: rgba($color-docs, .1);
+  color: $color-docs;
+  &:after {
+    background-color: $color-docs;
+  }
+}
+
+@mixin sideNavActive--settings {
+  background-color: rgba($black-base, .1);
+  color: $black-base;
+  &:after {
+    background-color: $black-base;
+  }
+}
+
+//$pageNav-separator: $color-base-1;
+@mixin pageNavItemBefore {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: 4px;
+  bottom: 4px;
+  right: 0;
+  width: 1px;
+  background: $color-base-1;
+}
+
+@mixin historyPoint {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  width: rem(9px);
+  height: rem(9px);
+  border: rem(2px) solid $color-base-contrast;
+  background-color: $gray-darkest;
+}
+
+@mixin rhomb($el:before, $pos:left, $size:6px, $color:#a7b2bc) {
+  &:#{$el} {
+    content: '';
+    position: absolute;
+    #{$pos}: -($size / 2);
+    width: $size;
+    height: $size;
+    transform: rotate(-45deg);
+    background: $color;
+
+
+    @if $pos == left or $pos == right {
+      top: 50%;
+      margin-top: -($size / 2);
+      @content;
+    }
+
+    @if $pos == top or $pos == bottom {
+      left: 50%;
+      margin-left: -($size / 2);
+      @content;
+    }
+  }
+}
+
+@mixin before-after($top: false, $bottom: false, $left: false, $right: false, $content:'') {
+  &:before, &:after {
+    content: $content;
+    position: absolute;
+    @content;
+    @if $top {
+      top: $top;
+    }
+    @if $bottom {
+      bottom: $bottom;
+    }
+    @if $left {
+      left: $left;
+    }
+    @if $right {
+      right: $right;
+    }
+  }
+}
+
+@mixin before($top: false, $bottom: false, $left: false, $right: false, $content:'') {
+  &:before {
+    content: $content;
+    position: absolute;
+    @content;
+    @if $top {
+      top: $top;
+    }
+    @if $bottom {
+      bottom: $bottom;
+    }
+    @if $left {
+      left: $left;
+    }
+    @if $right {
+      right: $right;
+    }
+  }
+}
+
+@mixin after($top: false, $bottom: false, $left: false, $right: false, $content:'') {
+  &:after {
+    content: $content;
+    position: absolute;
+    @content;
+    @if $top {
+      top: $top;
+    }
+    @if $bottom {
+      bottom: $bottom;
+    }
+    @if $left {
+      left: $left;
+    }
+    @if $right {
+      right: $right;
+    }
+  }
+}
+
+@mixin table_2col($padding: 5px, $cellWidth: 50%) {
+  > tbody > tr > td {
+    width: $cellWidth;
+
+    &:first-child {
+      padding-right: $padding;
+    }
+
+    &:last-child {
+      padding-left: $padding;
+    }
+  }
+}
+
+//Layout mixins
+@mixin triple-growCenter($selector, $display: flex, $space-x: $gridGutterSingle, $prefix: 'icon', $sufix: 'txt', $postfix: 'act') {
+  #{$selector} {
+    display: $display;
+    justify-content: stretch;
+    align-items: center;
+
+    &__#{$sufix} {
+      flex: 1 auto;
+      margin-left: $space-x;
+      margin-right: $space-x;
+    }
+
+    &__#{$prefix}, &__#{$postfix} {
+      flex: 0 auto;
+      display: grid;
+      place-content: center;
+    }
+
+    &__#{$prefix} {
+      img {
+        max-width: 100%;
+      }
+    }
+
+    &__#{$postfix} {
+      i {
+        display: flex;
+        cursor: pointer;
+
+        &:hover {
+          @include closeHover();
+        }
+      }
+    }
+  }
+}
+
+@mixin figure-h() {
+  display: flex;
+  align-items: center;
+  &__img {
+    flex-grow: 0;
+    flex-shrink: 0;
+  }
+  &__capt {
+
+  }
+
+  .figure-image {
+
+  }
+}
+
+//EXTENDS
+%fixed-content {
+  position: fixed !important;
+  transition: left $leftBar-transition;
+
+  html:not([dir="rtl"]) & {
+    left: $frameModulesSize !important;
+    right: 0 !important;
+
+    .fitted-content & {
+      padding-right: 0 !important;
+    }
+  }
+
+  html[dir="rtl"] & {
+    left: 0 !important;
+    padding-left: $padding-x-base !important;
+  }
+
+  html[dir="rtl"] & {
+    right: $frameModulesSize !important;
+  }
+
+  .left-menu-open & {
+    html:not([dir="rtl"]) & {
+      left: ($frameNavSize + $frameModulesSizeOpen) !important;
+    }
+
+    html[dir="rtl"] & {
+      right: ($frameNavSize + $frameModulesSizeOpen) !important;
+    }
+  }
+}
+
+

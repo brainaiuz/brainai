@@ -1,0 +1,37 @@
+<div class="contentBar" style="padding:0 10px;padding-top:3px;">
+    <div id="click1" class="slideDown-box  group expand">
+        <h3 onclick="var myclick=document.getElementById('click1');if(myclick &amp;&amp; myclick.className){;
+}{var cls=myclick.className;if(cls.indexOf('expand')>=0){cls=cls.replace('expand','');}else{cls+=' expand';}myclick.className=cls;}"
+            class="slideDown-title">$$label:DETAILS$$</h3>
+
+        <fieldset class="slideDown-content group labelLine">
+            <div class="halfSet-1 left">
+                <div class="row">$$label:ASSIGNEE$$
+                    <div class="field">$$input:ASSIGNEE$$</div>
+                </div>
+                <div class="row">$$label:CREATED_DATE$$
+                    <div class="field">$$input:CREATED_DATE$$</div>
+                </div>
+            </div>
+
+            <div class="halfSet-1 left">
+                <div class="row">$$label:PROJECT$$
+                    <div class="field">$$input:PROJECT$$</div>
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset class="slideDown-content group labelLine">
+            <div class="halfSet-1 left">
+                <div class="field">$$input:FILTER_PANEL$$</div>
+            </div>
+        </fieldset>
+
+        <fieldset class="slideDown-content group labelLine">
+            <div class="halfSet-1 left">
+                <div class="field">$$input:TABLE_PANEL$$</div>
+            </div>
+        </fieldset>
+
+    </div>
+</div>

@@ -1,0 +1,14 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head><body>
+
+<p>Dear ${managername} ,</p>
+
+<p>${requestername} would like to request a cash advance of ${totalword} ${currencyname} (${currencysign} ${requestedamount}) to cover ${purpose}.</p>
+<p>I propose to repay the advance over month(s), and I authorize the company to deduct the amount of ${currencysign} ${requestedamount} from my salary until the advance is fully paid.</p>
+
+<p>Click <a href="${url}" title="View Cash Advance">here</a>  to view the Cash Advance where you can approve or reject it.</p>
+
+<p>Thank you for your consideration.</p>
+
+</body></html>

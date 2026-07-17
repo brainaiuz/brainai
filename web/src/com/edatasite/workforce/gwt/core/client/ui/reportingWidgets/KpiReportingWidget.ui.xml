@@ -1,0 +1,19 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:m.html="urn:import:gwt.material.design.client.ui.html"
+             xmlns:form="urn:import:com.edatasite.workforce.gwt.core.client.ui.components.form"
+             xmlns:m="urn:import:gwt.material.design.client.ui">
+    <g:HTMLPanel>
+        <m.html:Div ui:field="tableWidgets">
+            <m.html:Label ui:field="tableTitle"/>
+            <g:FlexTable ui:field="tableWidget"/>
+        </m.html:Div>
+        <m.html:Div ui:field="areaWidgets">
+            <m:html.DL>
+                <m:html.DT ui:field="currentAmountField"/>
+                <m:html.DD ui:field="increasePersontField"/>
+                <m:html.DD ui:field="comparisionField"/>
+            </m:html.DL>
+        </m.html:Div>
+    </g:HTMLPanel>
+</ui:UiBinder>

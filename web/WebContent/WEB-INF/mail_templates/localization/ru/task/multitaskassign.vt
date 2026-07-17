@@ -1,0 +1,19 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body><p>Уважаемый(ая) $recipientName,</p>
+
+<p>Пожалуйста, будьте информированы, что $creatorName назначил вас следующим задачам в $date.</p>
+
+<p>Задачи:</p>
+    #foreach($task in $tasks)
+    <p>
+        <a href="$host/ProjectManagement.html?link=$task.getAction()"
+           title="View task">$task.getName()</a>
+    </p>
+    #end
+</body>
+</html>

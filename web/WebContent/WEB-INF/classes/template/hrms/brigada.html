@@ -1,0 +1,251 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <style type="text/css">
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+
+        th {
+            padding: 3px;
+        }
+
+        #otherTable td {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 3px;
+            padding-right: 3px;
+        }
+
+        #firstTable td {
+            padding: 3px;
+            font-size: 12px !important;
+        }
+
+        .product-head th {
+            border-bottom: 1px solid #000;
+            font-size: 10pt !important;
+            font-weight: bold;
+        }
+
+        .product-head td {
+            border-bottom: 1px solid #ced5db;
+            font-size: 9pt;
+        }
+
+        .title {
+            font-size: 9pt;
+            margin-top: 25px;
+        }
+
+        .product-head {
+            font-size: 12pt !important;
+            margin-top: 20px !important;
+        }
+
+        .name {
+            font-size: 7pt;
+        }
+
+        .value {
+            font-size: 8pt;
+        }
+    </style>
+</head>
+<body>
+
+#set($numberLabel =
+$itextGenericPdfData.baseInvoice.getCustomNumberAndDatesTable().rows.get("Number").get("COLUMN_NAME"))
+#set($nameLabel = $itextGenericPdfData.baseInvoice.getCustomNumberAndDatesTable().rows.get("NAME").get("COLUMN_NAME"))
+#set($statusLabel =
+$itextGenericPdfData.baseInvoice.getCustomNumberAndDatesTable().rows.get("STATUS").get("COLUMN_NAME"))
+#set($managerLabel =
+$itextGenericPdfData.baseInvoice.getCustomNumberAndDatesTable().rows.get("PROJECT_MANAGER").get("COLUMN_NAME"))
+#set($backupManagerLabel =
+$itextGenericPdfData.baseInvoice.getCustomNumberAndDatesTable().rows.get("PROJECT_BACKUP_MANAGERS").get("COLUMN_NAME"))
+#set($teamLabel =
+$itextGenericPdfData.baseInvoice.getCustomNumberAndDatesTable().rows.get("TEAM_INFORMATION").get("COLUMN_NAME"))
+#set($number = $itextGenericPdfData.baseInvoice.getCustomNumberAndDatesTable().rows.get("Number").get("COLUMN_VALUE"))
+#set($name = $itextGenericPdfData.baseInvoice.getCustomNumberAndDatesTable().rows.get("NAME").get("COLUMN_VALUE"))
+#set($status = $itextGenericPdfData.baseInvoice.getCustomNumberAndDatesTable().rows.get("STATUS").get("COLUMN_VALUE"))
+#set($manager =
+$itextGenericPdfData.baseInvoice.getCustomNumberAndDatesTable().rows.get("PROJECT_MANAGER").get("COLUMN_VALUE"))
+#set($backupManager =
+$itextGenericPdfData.baseInvoice.getCustomNumberAndDatesTable().rows.get("PROJECT_BACKUP_MANAGERS").get("COLUMN_VALUE"))
+#set($employeeLabel =
+$itextGenericPdfData.baseInvoice.getCustomNumberAndDatesTable().rows.get("EMPLOYEE_NAME").get("COLUMN_NAME"))
+#set($departmentLabel =
+$itextGenericPdfData.baseInvoice.getCustomNumberAndDatesTable().rows.get("POSITION").get("COLUMN_NAME"))
+#set($positionLabel =
+$itextGenericPdfData.baseInvoice.getCustomNumberAndDatesTable().rows.get("DEPARTMENT").get("COLUMN_NAME"))
+
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+        <th align="left" style="font-size: 9pt; font-weight: bold;" width="100%">$teamLabel</th>
+    </tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" id="firstTable" style="margin-top: 10px; font-size: 14pt;"
+       width="100%">
+    <tr>
+        <td style="padding: 0; margin: 0;" valign="top" width="50%">
+            <table cellpadding="0" cellspacing="0" width="100%">
+                <tr>
+                    <td class="name nameCapital" width="100%">$numberLabel</td>
+                </tr>
+                <tr>
+                    <td class="value" style="font-weight: bold;">
+                        $number
+                    </td>
+                </tr>
+            </table>
+        </td>
+        <td style="padding: 0; margin: 0;" valign="top" width="30%">
+            <table cellpadding="0" cellspacing="0" width="100%">
+                <tr>
+                    <td class="name nameCapital" width="100%">$statusLabel</td>
+                </tr>
+                <tr>
+                    <td class="value" style="font-weight: bold;">
+                        $status
+                    </td>
+                </tr>
+            </table>
+        </td>
+        <td style="padding: 0; margin: 0;" valign="top" width="20%">
+            <table cellpadding="0" cellspacing="0" width="100%">
+                <tr>
+                    <td class="name nameCapital" width="100%">$managerLabel</td>
+                </tr>
+                <tr>
+                    <td class="value" style="font-weight: bold;">
+                        $manager
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+
+    <tr style="padding: 0; margin: 0;" valign="top" width="50%">
+        <td>
+            <table>
+                <tr>
+                    <td>
+
+                    </td>
+                </tr>
+            </table>
+        </td>
+        <td>
+            <table>
+                <tr>
+                    <td>
+
+                    </td>
+                </tr>
+            </table>
+        </td>
+        <td>
+            <table>
+                <tr>
+                    <td>
+
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr style="padding: 0; margin: 0;" valign="top" width="50%">
+        <td>
+            <table>
+                <tr>
+                    <td>
+
+                    </td>
+                </tr>
+            </table>
+        </td>
+        <td>
+            <table>
+                <tr>
+                    <td>
+
+                    </td>
+                </tr>
+            </table>
+        </td>
+        <td>
+            <table>
+                <tr>
+                    <td>
+
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+
+    <tr>
+        <td style="padding: 0; margin: 0;" valign="top" width="50%">
+            <table cellpadding="0" cellspacing="0" width="100%">
+                <tr>
+                    <td class="name nameCapital" width="100%">$nameLabel</td>
+                </tr>
+                <tr>
+                    <td class="value" style="font-weight: bold;">
+                        $name
+                    </td>
+                </tr>
+            </table>
+        </td>
+        <td style="padding: 0; margin: 0;" valign="top" width="30%">
+            <table cellpadding="0" cellspacing="0" width="100%">
+                <tr>
+                    <td class="name nameCapital" width="100%"></td>
+                </tr>
+                <tr>
+                    <td class="value" style="font-weight: bold;">
+
+                    </td>
+                </tr>
+            </table>
+        </td>
+        <td style="padding: 0; margin: 0;" valign="top" width="20%">
+            <table cellpadding="0" cellspacing="0" width="100%">
+                <tr>
+                    <td class="name nameCapital" width="100%">$backupManagerLabel</td>
+                </tr>
+                <tr>
+                    <td class="value" style="font-weight: bold;">
+                        $backupManager
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+
+<table border="0" cellpadding="0" cellspacing="0" class="product-head" width="100%">
+    <tr>
+        <th align="left" width="33%">$employeeLabel</th>
+        <th align="left" width="33%">$departmentLabel</th>
+        <th align="left" width="33%">$positionLabel</th>
+    </tr>
+    #foreach($row in $itextGenericPdfData.baseInvoice.getCustomProductTable().rows)
+    <tr>
+        <td>
+            $row.get('EMPLOYEE_NAME')
+        </td>
+        <td>
+            $row.get('department')
+        </td>
+        <td>
+            $row.get('POSITION')
+        </td>
+    </tr>
+    #end
+</table>
+</body>
+</html>

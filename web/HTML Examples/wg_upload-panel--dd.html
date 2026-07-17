@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--CSS-->
+    <link rel="stylesheet" href="../WebContent/mainStyles/new-ui/css/materialize.css">
+    <!--JS-->
+    <script src="../WebContent/mainStyles/new-ui/js/jquery.min.js"></script>
+    <script src="../WebContent/mainStyles/new-ui/js/materialize-0.97.5.min.js"></script>
+</head>
+
+<body>
+<div class="kpi-upload">
+    <div class="kpi-upload__main-content">
+        <div class="kpi-upload__tabs">
+            <div class="kpi-upload__tabs-item kpi-upload__tabs-item--active">
+                <i class="ficon--folder-bold mr-2"></i> Upload
+            </div>
+            <div class="kpi-upload__tabs-item ">
+                <img src="../WebContent/mainStyles/new-ui/images/new-kpi-logo2.svg?v=2" alt="logo" width="30" >
+                &nbsp;&nbsp;<span>Storage</span>
+            </div>
+            <div class="kpi-upload__tabs-item ">
+                <i class="ficon--googledrive" style="font-size:30px; color:#507FF7;"></i>
+            </div>
+            <div class="kpi-upload__tabs-item kpi-upload__tabs-item--locked">
+                <i class="ficon--office365"></i>
+            </div>
+        </div>
+        <div class="dropzone" dir="ltr" style="position: relative; overflow: hidden;">
+            <div>
+                <div class="kpi-upload__upload-icon"><i class="ficon--download-cloud"></i></div>
+                <div class="dropzone-message">Drag and drop files here or <a href="javascript:;">Browse</a></div>
+                <div class="dropzone-submessage">You can drag & drop files from your desktop onto this area</div>
+            </div>
+            <input type="file" multiple="multiple" style="position: absolute; right: 0px; top: 0px; margin: 0px; padding: 0px; cursor: pointer; opacity: 0; height: 52px; width: 258px;">
+            <div class="kpi-upload__content-wrapper kpi-upload__description">
+                <input type="text" placeholder="Write a note" />
+            </div>
+        </div>
+    </div>
+    <div class="kpi-upload__side-content">
+        <div class="kpi-upload__side-header">
+            <div class="kpi-upload__content-wrapper">
+                Uploading 3 items
+            </div>
+        </div>
+        <div class="kpi-upload__upload-file">
+            <div class="kpi-upload__content-wrapper">
+                <div class="kpi-upload__upload-file-status">
+                </div>
+                <div class="kpi-upload__upload-file-row">
+                    <span class="kpi-upload__upload-file-progress">
+                        <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.5 0C10.7543 0 12.9163 0.895533 14.5104 2.48959C16.1045 4.08365 17 6.24566 17 8.5C17 10.7543 16.1045 12.9163 14.5104 14.5104C12.9163 16.1045 10.7543 17 8.5 17C6.24566 17 4.08365 16.1045 2.48959 14.5104C0.895533 12.9163 0 10.7543 0 8.5C0 6.24566 0.895533 4.08365 2.48959 2.48959C4.08365 0.895533 6.24566 0 8.5 0" transform="translate(3 3)" stroke="#8D9BA8" stroke-width="2" stroke-linecap="round" stroke-dasharray="0 250.2" ></path>
+</svg>
+                    </span>
+                    <span class="kpi-upload__upload-file-name">Name.jpg</span>
+                </div>
+            </div>
+            <div class="kpi-upload__upload-file-delete">
+                <i class="ficon--close"></i>
+            </div>
+        </div>
+        <div class="kpi-upload__upload-file">
+            <div class="kpi-upload__content-wrapper">
+                <div class="kpi-upload__upload-file-status">
+                </div>
+                <div class="kpi-upload__upload-file-row">
+                    <span class="kpi-upload__upload-file-progress">
+                        <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.5 0C10.7543 0 12.9163 0.895533 14.5104 2.48959C16.1045 4.08365 17 6.24566 17 8.5C17 10.7543 16.1045 12.9163 14.5104 14.5104C12.9163 16.1045 10.7543 17 8.5 17C6.24566 17 4.08365 16.1045 2.48959 14.5104C0.895533 12.9163 0 10.7543 0 8.5C0 6.24566 0.895533 4.08365 2.48959 2.48959C4.08365 0.895533 6.24566 0 8.5 0" transform="translate(3 3)" stroke="#8D9BA8" stroke-width="2" stroke-linecap="round" stroke-dasharray="25 250.2" ></path>
+</svg>
+                    </span>
+                    <span class="kpi-upload__upload-file-name">Name 2.jpg</span>
+                </div>
+            </div>
+            <div class="kpi-upload__upload-file-delete">
+                <i class="ficon--close"></i>
+            </div>
+        </div>
+        <div class="kpi-upload__upload-file">
+            <div class="kpi-upload__content-wrapper">
+                <div class="kpi-upload__upload-file-status">
+                </div>
+                <div class="kpi-upload__upload-file-row">
+                    <span class="kpi-upload__upload-file-progress">
+                        <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.5 0C10.7543 0 12.9163 0.895533 14.5104 2.48959C16.1045 4.08365 17 6.24566 17 8.5C17 10.7543 16.1045 12.9163 14.5104 14.5104C12.9163 16.1045 10.7543 17 8.5 17C6.24566 17 4.08365 16.1045 2.48959 14.5104C0.895533 12.9163 0 10.7543 0 8.5C0 6.24566 0.895533 4.08365 2.48959 2.48959C4.08365 0.895533 6.24566 0 8.5 0" transform="translate(3 3)" stroke="#8D9BA8" stroke-width="2" stroke-linecap="round" stroke-dasharray="52 250.2" ></path>
+</svg>
+                    </span>
+                    <span class="kpi-upload__upload-file-name">Name 2.jpg</span>
+                </div>
+            </div>
+            <div class="kpi-upload__upload-file-delete">
+                <i class="ficon--close"></i>
+            </div>
+        </div>
+        <div class="kpi-upload__upload-file">
+            <div class="kpi-upload__content-wrapper">
+                <div class="kpi-upload__upload-file-status">
+                </div>
+                <div class="kpi-upload__upload-file-row">
+                    <span class="kpi-upload__upload-file-progress">
+                        <i class="ficon--check"></i>
+                    </span>
+                    <span class="kpi-upload__upload-file-name">Name 2.jpg</span>
+                </div>
+            </div>
+            <div class="kpi-upload__upload-file-delete">
+                <i class="ficon--close"></i>
+            </div>
+        </div>
+        <div class="kpi-upload__section">
+            <div class="kpi-upload__content-wrapper">
+                <div class="form-group">
+                    <div class="form-group__label">
+                        Select Storage to upload files
+                    </div>
+                    <div class="form-group__content">
+                        <select>
+                            <option>Test</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-group__content">
+                        <button type="button" class="btn btn--primary"><span>Save</span></button>
+                        <button type="button" class="btn btn--default"><span>Cancel</span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

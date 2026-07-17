@@ -1,0 +1,22 @@
+<module>
+    <inherits name='com.edatasite.workforce.gwt.task.Task'/>
+    <inherits name='com.edatasite.workforce.gwt.project.Project'/>
+    <inherits name='com.edatasite.workforce.gwt.team.Team'/>
+    <inherits name='com.edatasite.workforce.gwt.employee.Employee'/>
+    <inherits name='com.edatasite.workforce.gwt.issue.Issue'/>
+    <inherits name="com.edatasite.workforce.gwt.client.Client"/>
+    <inherits name="com.edatasite.workforce.gwt.location.Location"/>.
+    <inherits name="com.edatasite.workforce.gwt.gettingstarted.GettingStarted"/>
+    <inherits name="com.edatasite.workforce.gwt.timesheet.Timesheet"/>
+    <inherits name="com.edatasite.workforce.gwt.wfmTimer.WfmTimer"/>
+    <inherits name="com.edatasite.workforce.gwt.importfile.ImportFile"/>
+    <inherits name="com.edatasite.workforce.gwt.newemployee.NewEmployee"/>
+    <inherits name="com.edatasite.workforce.gwt.contact.ContactEmpty"/>
+    <inherits name="com.edatasite.workforce.gwt.webforms.WebFormsMain"/>
+    <inherits name="org.gwt.advanced.Grid"/>
+    <inherits name='com.edatasite.workforce.gwt.submodule.todo.TodoEmpty'/>
+    <inherits name='com.edatasite.workforce.gwt.dashboardwidget.DashboardWidget'/>
+<!--    <inherits name="com.googlecode.gwt.charts.Charts"/>-->
+    <inherits name='com.edatasite.workforce.gwt.invoice.Invoice'/>
+    <inherits name='com.edatasite.workforce.gwt.accounting.AccountingEmpty'/>
+</module>

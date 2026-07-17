@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+<h2>Bug Rapport voor $report.assignee.getName()</h2>
+
+<p><b>Bug :</b> $report.bugDescription</p>
+<p><b>Status :</b> $report.status.name</p>
+<p><b>Rapport Datum :</b> $date</p>
+<p><b>Bedrijf:</b> $companyName</p>
+<p><b>Gebruiker:</b> $name</p>
+<p><b>Email :</b> $report.email</p>
+<p><b>Sectie:</b> $report.createdFrom</p>
+<p><b>Opmerking:</b> $report.comment</p>
+<input type="hidden" value="$keywords"/>
+
+</body>
+</html>

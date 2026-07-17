@@ -1,0 +1,75 @@
+.cp_phone{
+  display: flex;
+  align-items: center;
+}
+.cp_phone__call{
+  border-radius: $radius-basePlus;
+  overflow: hidden;
+}
+.cp_phone__text{
+  width: 26px;
+  height: 26px;
+  color: white;
+  line-height: 31px;
+  text-align: center;
+  border-radius: 50%;
+  margin-right: 10px;
+  cursor: pointer;
+  //border:2px solid #73cf19;
+  color: #73cf19;
+  font-weight: bold;
+  flex-shrink:0;
+  transition:all 0.2s ease-out 0s;
+  background-color: rgba( $gray-dark, .2 );
+  &:hover,
+  .gwt-ScrollTable tr.highlighted &{
+    background: #73cf19;
+    color:white;
+  }
+}
+.cp_phone__number .ficon--phone + span{
+  font-size: 1.1rem;
+  vertical-align: middle;
+  display: inline;
+}
+.cp_phone__number{
+  //width: 180px; //https://prnt.sc/tbnb41
+  line-height: 1.2;
+  display: block;
+  //border:2px solid #007de7;
+  border-radius: 30px;
+  padding: 5px 8px;
+  @include txtTruncate();
+  transition:all 0.2s ease-out 0s;
+  background-color: rgba( $gray-dark, .2 );
+  &:hover,
+  .gwt-ScrollTable tr.highlighted &{
+    background: #007de7;
+    color:white;
+  }
+}
+.cp_phone__number .ficon--phone{
+  margin-right: 5px;
+  margin-right: 5px;
+  font-size: 16px;
+  vertical-align: middle;
+}
+
+.cp_phone--no-number{
+  .cp_phone__text, .cp_phone__number,
+  .cp_phone__text:hover, .cp_phone__number:hover,
+  .gwt-ScrollTable tr.highlighted & .cp_phone__text, .gwt-ScrollTable tr.highlighted & .cp_phone__number{
+    background-color: rgba( $gray-dark, .2 );
+    //border-color:#8d9ba8;
+    color:#8d9ba8;
+    cursor: not-allowed;
+  }
+
+}
+
+.notesPanel {}
+.noteTable {
+  table-layout: fixed;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}

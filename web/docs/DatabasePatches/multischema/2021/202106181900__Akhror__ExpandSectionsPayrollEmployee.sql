@@ -1,0 +1,1 @@
+update "anv".customformsection set expanded = true where form_id = 'PAYROLL_STARTER_FORM';

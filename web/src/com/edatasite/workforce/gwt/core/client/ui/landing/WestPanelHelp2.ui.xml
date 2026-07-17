@@ -1,0 +1,28 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+    <!--<ui:style>-->
+    <!--.content .headerM {font-size: 12px; color: #1f4f8f; font-weight: bold;}-->
+    <!--.content dl, .content .searchForm {margin:0 0 15px;}-->
+    <!--.content dt {margin-top:8px; color:#0077BF; cursor:pointer;}-->
+    <!--.content dt:hover {text-decoration:underline;}-->
+    <!--.content dd{margin-left:10px; display:none; color:#787878;}-->
+    <!--/*if delete this style class*/-->
+    <!--.content dd.activeElement{display:block;}-->
+    <!--.content .more {float:right;padding-right: 12px;padding-bottom: 8px; text-decoration: none;}-->
+    <!--.content .more:hover {text-decoration: underline;}-->
+
+    <!--</ui:style>-->
+    <!--addStyleNames="{style.content}"-->
+    <g:HTMLPanel addStyleNames="shortFAQ" ui:field="content">
+        <!--class="{style.headerM}"-->
+        <span ui:field="headerMessage">
+        </span>
+        <dl ui:field="dListItem">
+        </dl>
+        <!--addStyleNames="{style.searchForm}"-->
+        <g:HTMLPanel ui:field="searchPanel">
+        </g:HTMLPanel>
+        <!--addStyleNames="{style.more}"-->
+        <g:Anchor href="javascript:;" ui:field="moreHelp"/>
+    </g:HTMLPanel>
+</ui:UiBinder>

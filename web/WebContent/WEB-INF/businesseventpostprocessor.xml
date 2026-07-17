@@ -1,0 +1,630 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+        default-lazy-init="true"
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+    <bean name="baseEventPostProcessor"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.BaseEventsPostProcessorImpl">
+        <!--<property name="activityEventDispatcherManager" ref="activityEventDispatcherManager"/>-->
+        <property name="businessEventDisposer" ref="businessEventDisposer"/>
+        <property name="businessEventDispatcherManager" ref="businessEventDispatcherManager"/>
+        <property name="eventPostProcessorProducer" ref="eventPostProcessorProducer"/>
+        <property name="mapping">
+            <map>
+                <entry key="taskEventListenerString" value-ref="taskEventListener"/>
+                <entry key="employeeTaskEventListenerString" value-ref="employeeTaskEventListener"/>
+                <entry key="projectEventListenerString" value-ref="projectEventListener"/>
+                <entry key="projectSolrSensitiveDataChangeListenerString" value-ref="projectSolrSensitiveDataChangeListener"/>
+                <entry key="projectManagerEventListenerString" value-ref="projectManagerEventListener"/>
+                <entry key="projectEmployeeEventListenerString" value-ref="projectEmployeeEventListener"/>
+                <entry key="employeeDepartmentEventListenerString" value-ref="employeeDepartmentEvent"/>
+                <entry key="employeeEventListenerString" value-ref="employeeEventListener"/>
+                <entry key="employeeEventFromGoogleMarketListenerString" value-ref="employeeEventFromGoogleMarketListener"/>
+                <entry key="departmentEventListenerString" value-ref="departmentEventListener"/>
+                <entry key="existingEmployeeEventListenerString" value-ref="existingEmployeeEventListener"/>
+                <entry key="projectBuckupManagerEventListenerString" value-ref="projectBuckupManagerEventListener"/>
+                <entry key="projectStatusEventListenerString" value-ref="projectStatusEventListener"/>
+                <entry key="clientEventListenerString" value-ref="clientEventListener"/>
+                <entry key="issueEventListenerString" value-ref="issueEventListener"/>
+                <entry key="locationEventListenerString" value-ref="locationEventListener"/>
+                <entry key="crmSolutionEventListenerString" value-ref="crmSolutionEventListener"/>
+                <entry key="crmAccountEventListenerString" value-ref="crmAccountEventListener"/>
+                <entry key="crmWebFormEventListenerString" value-ref="crmWebFormEventListener"/>
+                <entry key="crmLeadEventListenerString" value-ref="crmLeadEventListener"/>
+                <entry key="workflowActionDetectedEventListenerString" value-ref="workflowActionDetectedEventListener"/>
+                <entry key="crmCampaignEventListenerString" value-ref="crmCampaignEventListener"/>
+                <entry key="crmMailingListEventListenerString" value-ref="crmMailingListEventListener"/>
+                <entry key="crmContactCategoryEventListenerString" value-ref="crmContactCateoryEventListener"/>
+                <entry key="crmOpportunityEventListenerString" value-ref="crmOpportunityEventListener"/>
+                <entry key="timesheetEventListenerString" value-ref="timesheetEventListener"/>
+                <entry key="noteEventListenerString" value-ref="noteEventListener"/>
+                <entry key="systemFolderCreateEventListenerString" value-ref="systemFolderEventListener"/>
+                <entry key="apiEmployeeProfilePicUploadEventListenerString" value-ref="apiEmployeeProfilePicUploadEventListener"/>
+                <entry key="leadEventListenerString" value-ref="leadEventListener"/>
+                <entry key="activityEventListenerString" value-ref="activityEventListener"/>
+                <entry key="googleCalendarGuestsEventListenerString" value-ref="googleCalendarGuestsEventListener"/>
+                <entry key="recurringTaskEventListenerString" value-ref="recurringTaskEventListener"/>
+                <entry key="recurringBgTaskEventListenerString" value-ref="recurringBgTaskEventListener"/>
+                <entry key="recurringBgCourseScheduleEventListenerString" value-ref="recurringBgCourseScheduleEventListener"/>
+                <entry key="projectFolderEventListenerString" value-ref="projectFolderEventListener"/>
+                <entry key="taskSolrEventListenerString" value-ref="taskSolrEventListener"/>
+                <entry key="taskRegisterUpdatesEventListenerString" value-ref="taskRegisterUpdatesEventListener"/>
+                <entry key="importTasksFromMPPFileEventListenerString" value-ref="importTasksFromMPPFileEventListener"/>
+                <entry key="employeeAssessmentEventListenerString" value-ref="employeeAssessmentEventListener"/>
+                <entry key="assessmentAppraisalUpdateChangeRateEventListenerString" value-ref="assessmentAppraisalUpdateChangeRateEventListener"/>
+                <entry key="copyEmployeeTaskDailyLoadToTimeSheetEventListenerString" value-ref="copyEmployeeTaskDailyLoadToTimeSheetEventListener"/>
+                <entry key="statusTaskEventListenerString" value-ref="statusTaskEventListener"/>
+                <entry key="crmCaseEventListenerString" value-ref="crmCaseEventListener"/>
+                <entry key="userAuthEventListenerString" value-ref="userAuthEventListener"/>
+                <entry key="workstreamEventListenerString" value-ref="workstreamEventListener"/>
+                <entry key="taskDocumentsReIndexEventListenerString" value-ref="taskDocumentsReIndexEventListener"/>
+                <entry key="projectDocumentsReIndexEventListenerString" value-ref="projectDocumentsReIndexEventListener"/>
+                <entry key="sickRequestEventListenerString" value-ref="sickRequestEventListener"/>
+                <entry key="placementEventListenerString" value-ref="placementEventListener"/>
+                <entry key="buildAssemblyEventListener" value-ref="buildAssemblyEventListener"/>
+                <entry key="timeslotEventListenerString" value-ref="timeslotEventListener"/>
+                <entry key="accountingProjectSolrEventListenerString" value-ref="accountingProjectSolrEventListener"/>
+                <entry key="employeeIndexEventListenerString" value-ref="employeeIndexEventListener"/>
+                <entry key="holidayEventListenerString" value-ref="holidayEventListener"/>
+                <entry key="telegramChatEventListenerString" value-ref="telegramChatEventListener"/>
+                <entry key="allSolrEventListenerString" value-ref="allSolrEventListener"/>
+                <entry key="attachmentEventListenerString" value-ref="attachmentEventListener"/>
+                <entry key="taskCloneListenerImplString" value-ref="taskCloneListener"/>
+                <entry key="additionalPaymentEventListenerString" value-ref="additionalPaymentEventListener"/>
+                <entry key="shiftEventListenerString" value-ref="shiftEventListener"/>
+                <entry key="rotationEventListenerString" value-ref="rotationEventListener"/>
+                <entry key="groupPlacementEventListenerString" value-ref="groupPlacementEventListener"/>
+                <entry key="productCategoryEventListenerString" value-ref="productCategoryEventListener"/>
+                <entry key="companySettingsEventListenerString" value-ref="companySettingsEventListener"/>
+            </map>
+        </property>
+        <property name="custommapping">
+            <map>
+                <entry key="folderCustomEventListenerString" value-ref="folderCustomEventListener"/>
+                <entry key="importFileCustomEventListenerString" value-ref="importCustomEventListener"/>
+                <entry key="fileCustomEventListenerString" value-ref="fileCustomEventListener"/>
+                <entry key="folderRemoveGroupEntriesEventListenerString" value-ref="folderRemoveGroupEntriesEventListener"/>
+                <entry key="folderRemoveUserEntriesEventListenerString" value-ref="folderRemoveUserEntriesEventListener"/>
+                <entry key="taskRbacToSolrEventListenerString" value-ref="taskRbacToSolrEventListener"/>
+                <entry key="leadCustomEventLisemailFetchingCustomEventListenerStringtenerString" value-ref="leadCustomEventListener"/>
+                <entry key="emailFetchingCustomEventListenerString" value-ref="emailFetchingCustomEventListener"/>
+                <entry key="messageCenterCustomEventListenerString" value-ref="messageCenterCustomEventListener"/>
+                <entry key="mailingListCustomEventListenerString" value-ref="crmMailingListCustomEventListener"/>
+                <entry key="ownerChangeCustomEventListenerString" value-ref="ownerChangeCustomEventListener"/>
+                <entry key="draftEmailMustBeDeletedCustomEventListenerString" value-ref="emailFetchingCustomEventListener"/>
+                <entry key="newsCustomEventListenerString" value-ref="newsCustomEventListener"/>
+                <!--<entry key="emailFetchingByCompanyCustomEventListenerString" value-ref="emailFetchingByCompanyCustomEventListener"/>-->
+                <entry key="crmContactCustomEventListenerString" value-ref="crmContactCustomEventListener"/>
+                <entry key="opportunityCustomEventListenerString" value-ref="crmContactCustomEventListener"/>
+                <entry key="crmAccountCustomEventListenerString" value-ref="crmContactCustomEventListener"/>
+                <entry key="contactCategoryCustomEventListenerString" value-ref="crmContactCustomEventListener"/>
+                <entry key="accountsEventListenerString" value-ref="accountsEventListener"/>
+                <entry key="saleInvoiceCustomEventListenerString" value-ref="saleInvoiceCustomEventListener"/>
+                <entry key="vatReturnCustomEventListenerString" value-ref="vatReturnCustomEventListener"/>
+                <entry key="projectCustomEventListenerString" value-ref="projectCustomEventListener"/>
+                <entry key="importEmployeeAttandenceCustomEventListenerString" value-ref="importEmployeeAttandanceCustomEventListener"/>
+                <entry key="syncGoogleContactsEventListenerString" value-ref="syncGoogleContactsEventListener"/>
+                <entry key="companyRegistrationCustomEventListenerString" value-ref="companyRegistrationCustomEventListener"/>
+                <entry key="clientContactEventListenerString" value-ref="clientContactEventListener"/>
+                <entry key="salesQuoteEventListenerString" value-ref="salesQuoteEventListener"/>
+                <entry key="purchaseOrderEventListenerString" value-ref="purchaseEventListener"/>
+                <entry key="salesOrderEventListenerString" value-ref="saleOrderEventListener"/>
+                <entry key="purchaseInvoiceEventListenerString" value-ref="purchaseInvoiceEventListener"/>
+                <entry key="saleInvoiceEventListenerString" value-ref="saleInvoiceEventListener"/>
+                <entry key="manualJournalEventListenerString" value-ref="manualTransactionEventListener"/>
+                <entry key="productEventListenerString" value-ref="productEventListener"/>
+                <entry key="bankAccountEventListenerString" value-ref="bankAccountEventListener"/>
+                <entry key="chartOfAccountEventListenerString" value-ref="chartOfAccountEventListener"/>
+                <entry key="fixedAssetEventListenerString" value-ref="fixedAssetEventListener"/>
+                <entry key="checkEventListenerString" value-ref="checkEventListener"/>
+                <entry key="expenseReportEventListenerString" value-ref="expenseReportEventListener"/>
+                <entry key="rfqEventListenerString" value-ref="rfqEventListener"/>
+                <entry key="rfpEventListenerString" value-ref="rfpEventListener"/>
+                <entry key="stockTransferEventListenerString" value-ref="stockTransferEventListener"/>
+                <entry key="stockAdjustmentEventListenerString" value-ref="stockAdjustmentEventListener"/>
+                <entry key="invoicePaymentEventListenerString" value-ref="invoicePaymentEventListener"/>
+                <entry key="calendarEventGuestCustomEventListenerString" value-ref="calendarEventGuestCustomEventListener"/>
+                <entry key="bugReportRegistrationCustomEventListenerString" value-ref="bugReportRegistrationCustomEventListener"/>
+                <entry key="fileHeaderEventListenerString" value-ref="fileHeaderEventListener"/>
+                <entry key="customFieldCustomEventListenerString" value-ref="customFieldCustomEventListener"/>
+                <entry key="courseBookingEventListenerString" value-ref="courseBookingEventListener"/>
+                <entry key="studentCourseScheduleEventListenerString" value-ref="courseBookingEventListener"/>
+                <entry key="customFieldEventListenerString" value-ref="customFieldEventListener"/>
+                <entry key="projectBudgetCustomEventListenerString" value-ref="projectBudgetCustomEventListener"/>
+                <entry key="benefitRequestEventListenerString" value-ref="benefitRequestEventListener"/>
+                <entry key="courseScheduleEventListenerString" value-ref="courseScheduleEventListener"/>
+                <entry key="invoiceGeneratorScheduleEventListenerString" value-ref="courseScheduleEventListener"/>
+                <entry key="singlePayrunEventListenerString" value-ref="singlePayrunEventListener"/>
+                <entry key="groupPayrunEventListenerString" value-ref="groupPayrunEventListener"/>
+                <entry key="cashAdvanceEventListenerString" value-ref="cashAdvanceEventListener"/>
+                <entry key="pensionSchemeEventListenerString" value-ref="pensionSchemeEventListener"/>
+                <entry key="endOfServiceSettingsEventListenerString" value-ref="endOfServiceSetingsEventListener"/>
+                <entry key="expensePaymentEventListenerString" value-ref="expensePaymentEventListener"/>
+                <entry key="bankTransferEventListenerString" value-ref="bankTransferEventListener"/>
+                <entry key="bankTransferAppliedEventListenerString" value-ref="bankTransferAppliedEventListener"/>
+                <entry key="manualJournalAppliedEventListenerString" value-ref="manualJournalAppliedEventListener"/>
+                <entry key="recurringInvoiceEventListenerString" value-ref="recurringInvoiceEventListener"/>
+                <entry key="batchPaymentEventListenerString" value-ref="batchPaymentEventListener"/>
+                <entry key="prepaymentEventListenerString" value-ref="prepaymentEventListener"/>
+                <entry key="employeeStepEventListenerString" value-ref="employeeStepEventListener"/>
+                <entry key="employeeSupervisorChangeEventListenerString" value-ref="employeeSupervisorChangeEventListener"/>
+                <entry key="kanbanCalculateEventListenerString" value-ref="kanbanCalculateEventListener"/>
+                <entry key="customFormItemsEventListenerString" value-ref="customFormItemsEventListener"/>
+                <entry key="saleInvoiceTransactionCustomEventListenerString" value-ref="saleInvoiceTransactionCustomEventListener"/>
+                <entry key="deferredTransactionCustomEventListenerString" value-ref="deferredTransactionCustomEventListener"/>
+                <entry key="taskCloneListenerString" value-ref="taskCloneListener"/>
+            </map>
+        </property>
+    </bean>
+    <tx:annotation-driven/>
+    <bean name="taskEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.TaskEventListenerImpl">
+    </bean>
+    <bean name="employeeTaskEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.EmployeeTaskEventListenerImpl">
+    </bean>
+    <bean name="projectEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.ProjectEventListenerImpl">
+    </bean>
+    <bean name="projectSolrSensitiveDataChangeListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.ProjectSolrSensitiveDataChangeListener">
+    </bean>
+
+    <bean name="projectEmployeeEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.ProjectEmployeeEventListenerImpl">
+    </bean>
+
+
+    <bean name="projectManagerEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.ProjectManagerEventListenerImpl">
+    </bean>
+
+
+    <bean name="employeeDepartmentEvent"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.EmployeeDepartmentEventListenerImpl">
+    </bean>
+
+
+    <bean name="employeeEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.NewEmployeeEventListenerImpl">
+    </bean>
+
+    <bean name="employeeEventFromGoogleMarketListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.NewEmployeeFromGoogleMarketEventListenerImpl">
+    </bean>
+    <bean name="employeeIndexEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.EmployeeEventListenerImpl">
+    </bean>
+
+
+    <bean name="clientContactEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.ClientContactEventListenerImpl">
+    </bean>
+
+    <bean name="clientEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.ClientEventListenerImpl">
+    </bean>
+
+    <bean name="departmentEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.DepartmentEventListenerImpl">
+    </bean>
+
+    <bean name="productCategoryEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.ProductCategoryEventListenerImpl">
+    </bean>
+
+    <bean name="existingEmployeeEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.ExistingEmployeeEventListenerImpl">
+    </bean>
+    <bean name="projectBuckupManagerEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.ProjectBackupManagerEventListenerImpl">
+    </bean>
+
+    <bean name="projectStatusEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.ProjectStatusEventListenerImpl">
+    </bean>
+
+    <bean name="issueEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.IssueEventListenerImpl">
+    </bean>
+
+    <bean name="locationEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.LocationEventListenerImpl">
+    </bean>
+
+    <bean name="accountsEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.accounting.AccountsEventListenerImpl">
+    </bean>
+
+    <bean name="saleInvoiceEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.accounting.SaleInvoiceEventListenerImpl">
+    </bean>
+
+    <bean name="recurringInvoiceEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.accounting.RecurringInvoiceEventListenerImpl">
+    </bean>
+    <bean name="manualTransactionEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.accounting.ManualJournalEventListenerImpl">
+    </bean>
+
+    <bean name="salesQuoteEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.accounting.SalesQuoteEventListenerImpl">
+    </bean>
+
+    <bean name="singlePayrunEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.payroll.SinglePayrunEventListenerImpl">
+    </bean>
+
+    <bean name="groupPayrunEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.payroll.GroupPayrunEventListenerImpl">
+    </bean>
+
+    <bean name="cashAdvanceEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.payroll.CashAdvanceEventListenerImpl">
+    </bean>
+
+    <bean name="pensionSchemeEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.payroll.PensionSchemeEventListenerImpl">
+    </bean>
+
+    <bean name="endOfServiceSetingsEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.payroll.EndOfServiceSettingsEventListenerImpl">
+    </bean>
+
+    <bean name="purchaseEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.accounting.PurchaseOrderEventListenerImpl">
+    </bean>
+
+    <bean name="saleOrderEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.accounting.SalesOrderEventListenerImpl">
+    </bean>
+
+
+    <bean name="purchaseInvoiceEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.accounting.PurchaseInvoiceEventListenerImpl">
+    </bean>
+    <bean name="productEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.accounting.ProductEventListenerImpl">
+    </bean>
+    <bean name="bankAccountEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.accounting.BankAccountEventListenerImpl">
+    </bean>
+
+    <bean name="chartOfAccountEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.accounting.ChartOfAccountEventListenerImpl">
+    </bean>
+
+    <bean name="fixedAssetEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.accounting.FixedAssetEventListenerImpl">
+    </bean>
+    <bean name="checkEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.accounting.ChecksEventListenerImpl">
+    </bean>
+
+    <bean name="expenseReportEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.accounting.ExpenseReportEventListenerImpl">
+    </bean>
+    <bean name="rfqEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.accounting.RequestForQuoteEventListenerimpl">
+    </bean>
+    <bean name="rfpEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.accounting.RequestForPurchaseEventListenerImpl">
+    </bean>
+
+    <bean name="stockTransferEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.accounting.StockTransferEventListenerImpl">
+    </bean>
+
+    <bean name="stockAdjustmentEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.accounting.StockAdjustmentEventListenerImpl">
+    </bean>
+
+    <bean name ="expensePaymentEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.accounting.ExpensePaymentEventListenerImpl">
+    </bean>
+
+    <bean name="bankTransferEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.accounting.BankTransferEventListenerImpl">
+    </bean>
+    <bean name="bankTransferAppliedEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.accounting.BankTransferAppliedEventListenerImpl">
+    </bean>
+    <bean name="manualJournalAppliedEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.accounting.ManualEntryAppliedEventListenerImpl">
+    </bean>
+
+    <bean name="prepaymentEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.accounting.PrepaymentEventListenerImpl">
+    </bean>
+
+    <bean name="batchPaymentEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.accounting.BatchPaymentEventListenerImpl">
+    </bean>
+
+    <bean name="invoicePaymentEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.accounting.InvoicePaymentEventListenerImpl">
+    </bean>
+
+
+    <bean name="timesheetEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.TimeSheetEventListenerImpl">
+    </bean>
+
+    <bean name="noteEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.NoteEventListenerImpl">
+    </bean>
+
+
+    <bean name="businessEventDisposer"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.BusinessEventDisposerImpl">
+    </bean>
+
+    <bean name="systemFolderEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.SystemFolderEventListenerImpl">
+    </bean>
+    <bean name="apiEmployeeProfilePicUploadEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.ApiEmployeeProfilePicUploadEventListenerImpl">
+    </bean>
+    <bean name="folderCustomEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.customevents.FolderCustomEventListenerImpl">
+    </bean>
+    <bean name="fileCustomEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.customevents.FileCustomEventListenerImpl">
+    </bean>
+    <bean name="folderRemoveGroupEntriesEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.customevents.FolderRemoveGroupEntriesEventListener">
+    </bean>
+    <bean name="folderRemoveUserEntriesEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.customevents.FolderRemoveUserEntriesEventListenerImpl">
+    </bean>
+    <bean name="customFieldCustomEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.customevents.CustomFieldCustomEventListenerImpl">
+    </bean>
+    <bean name="taskRbacToSolrEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.customevents.TaskRbacToSolrEventListenerImpl">
+    </bean>
+    <bean name="emailFetchingCustomEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.customevents.EmailFetchingCustomEventListenerImpl">
+    </bean>
+    <bean name="leadCustomEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.customevents.LeadCustomEventListenerImpl">
+    </bean>
+    <bean name="messageCenterCustomEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.customevents.MessageCenterCustomEventListenerImpl">
+    </bean>
+    <bean name="crmMailingListCustomEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.customevents.CrmMailingListCustomEventListenerImpl">
+    </bean>
+    <bean name="ownerChangeCustomEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.customevents.OwnerChangeCustomEventListenerImpl">
+    </bean>
+    <bean name="newsCustomEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.customevents.NewsCustomEventListenerImpl">
+    </bean>
+    <bean name="importCustomEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.customevents.ImportCustomEventListenerImpl">
+    </bean>
+
+
+    <bean name="syncGoogleContactsEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.customevents.SyncGoogleContactsEventListenerImpl">
+    </bean>
+    <bean name="crmContactCustomEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.customevents.CrmContactCustomEventListenerImpl">
+    </bean>
+
+    <bean name="saleInvoiceCustomEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.customevents.SaleInvoiceCustomEventListenerImpl">
+    </bean>
+    <bean name="vatReturnCustomEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.customevents.VatReturnCustomEventListenerImpl">
+    </bean>
+    <bean name="leadEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.LeadEventListenerImpl">
+    </bean>
+    <bean name="crmSolutionEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.CrmSolutionEventListenerImpl">
+    </bean>
+    <bean name="crmAccountEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.CrmAccountEventListenerImpl">
+    </bean>
+    <bean name="crmWebFormEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.CrmWebFormEventListenerImpl">
+    </bean>
+    <bean name="crmLeadEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.CrmLeadEventListenerImpl">
+    </bean>
+    <bean name="workflowActionDetectedEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.WorkflowActionDetectedEventListenerImpl">
+    </bean>
+    <bean name="crmCampaignEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.CrmCampaignEventListenerImpl">
+    </bean>
+
+    <bean name="crmOpportunityEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.CrmOpportunityEventListenerImpl">
+    </bean>
+    <bean name="crmContactCateoryEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.CrmContactCategoryEventListener">
+    </bean>
+    <bean name="crmMailingListEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.CrmMailingListEventListenerImpl">
+    </bean>
+
+
+    <bean name="projectCustomEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.customevents.ProjectCustomEventListenerImpl">
+    </bean>
+
+    <bean name="importEmployeeAttandanceCustomEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.customevents.ImportEmployeeAttandanceEventListenerImpl">
+    </bean>
+
+    <bean name="activityEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.ActivityEventListenerImpl">
+    </bean>
+
+    <bean name="googleCalendarGuestsEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.GoogleCalendarGuestsEventListenerImpl">
+    </bean>
+
+    <bean name="recurringTaskEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.RecurringTaskEventListenerImpl">
+    </bean>
+
+    <bean name="recurringBgTaskEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.RecurringBgTaskEventListenerImpl">
+    </bean>
+    <bean name="recurringBgCourseScheduleEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.RecurringBgCourseScheduleListenerImpl">
+    </bean>
+
+    <bean name="projectFolderEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.ProjectFolderEventListenerImpl">
+    </bean>
+    <bean name="companyRegistrationCustomEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.customevents.CompanyRegistrationCustomEventListenerImpl">
+    </bean>
+
+    <bean name="taskSolrEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.TaskSolrEventListenerImpl">
+    </bean>
+    <bean name="taskRegisterUpdatesEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.TaskRegisterUpdatesEventListenerImpl">
+    </bean>
+    <bean name="importTasksFromMPPFileEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.ImportTasksFromMPPFileEventListenerImpl">
+    </bean>
+
+    <bean name="employeeAssessmentEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.AssessmentEventListenerImpl"/>
+
+    <bean name="assessmentAppraisalUpdateChangeRateEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.AssessmentAppraisalUpdateChangeRateEventListenerImpl"/>
+
+    <bean name="copyEmployeeTaskDailyLoadToTimeSheetEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.CopyEmployeeTaskDailyLoadToTimeSheetEventListenerImpl"/>
+
+    <bean id="statusTaskEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.StatusTaskEventListenerImpl">
+    </bean>
+
+    <bean name="calendarEventGuestCustomEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.customevents.CalendarEventGuestCustomEventListenerImpl">
+    </bean>
+
+    <bean name="crmCaseEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.CrmCaseEventListeneImpl">
+    </bean>
+
+
+    <bean name="userAuthEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.UserAuthEventListenerImpl">
+    </bean>
+    <bean name="workstreamEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.WorkstreamEventListenerImpl">
+    </bean>
+
+    <bean name="taskDocumentsReIndexEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.TaskDocumentsReIndexEventListenerImpl"/>
+
+    <bean name="projectDocumentsReIndexEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.ProjectDocumentsReIndexEventListenerImpl"/>
+    <bean name="bugReportRegistrationCustomEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.customevents.BugReportRegistrationCustomEventListenerImpl"/>
+
+    <bean name="timeslotEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.TimeslotEventListenerImpl"/>
+
+    <bean name="holidayEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.HolidayEventListenerImpl"/>
+
+    <bean name="fileHeaderEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.FileHeadertEventListenerImpl">
+    </bean>
+
+    <bean name="placementEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.PlacementEventListenerImpl"/>
+
+    <bean name="buildAssemblyEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.accounting.BuildAssemblyEventListenerImpl"/>
+
+    <bean name="sickRequestEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.LeaveRequestEventListenerImpl"/>
+
+    <bean name="courseBookingEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.customevents.CourseBookingEventListenerImpl">
+    </bean>
+    <bean name="courseScheduleEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.customevents.CourseScheduleCustomEventListenerImpl">
+    </bean>
+
+    <bean name="accountingProjectSolrEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.AccountingProjectSolrEventListenerImpl">
+    </bean>
+
+    <bean name="customFieldEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.CustomFieldEventListenerImpl">
+    </bean>
+
+    <bean name="benefitRequestEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.customevents.BenefitRequestEventListenerImpl">
+    </bean>
+
+    <bean name="ganttchartTaskEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.GanttChartTaskEventListenerImpl">
+    </bean>
+
+    <bean name="projectBudgetCustomEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.customevents.ProjectBudgetCustomEventListenerImpl">
+    </bean>
+
+    <bean name="employeeStepEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.customevents.EmployeeStepCustomEventListenerImpl">
+    </bean>
+
+    <bean name="employeeSupervisorChangeEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.customevents.EmployeeSupervisorChangeEventListenerImpl">
+    </bean>
+
+    <bean name="telegramChatEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.TelegramChatEventListenerImpl">
+    </bean>
+
+    <bean name="kanbanCalculateEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.customevents.KanbanCalculationEventListenerImpl">
+    </bean>
+
+    <bean name="allSolrEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.AllSolrEventListenerImpl">
+    </bean>
+
+    <bean name="attachmentEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.AttachmentEventListenerImpl">
+    </bean>
+
+    <bean name="taskCloneListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.TaskCloneListenerImpl">
+    </bean>
+
+    <bean name="customFormItemsEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.CustomFormItemsEventListenerImpl">
+    </bean>
+    <bean name="saleInvoiceTransactionCustomEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.customevents.TransactionCustomEventListenerImpl"/>
+    <bean name="deferredTransactionCustomEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.customevents.DeferredTransactionCustomEventListenerImpl"/>
+
+    <bean name="additionalPaymentEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.payroll.AdditionalPaymentEventListenerImpl"/>
+    <bean name="shiftEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.hrms.ShiftEventListenerImpl"/>
+    <bean name="rotationEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.hrms.RotationEventListenerImpl"/>
+    <bean name="groupPlacementEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.hrms.GroupPlacementEventListenerImpl"/>
+    <bean name="companySettingsEventListener"
+          class="com.edatasite.workforce.gwt.core.server.eventdispatcher.impl.CompanySettingsEventListener"/>
+
+</beans>

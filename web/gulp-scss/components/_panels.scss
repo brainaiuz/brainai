@@ -1,0 +1,208 @@
+$panelSectPadding: $gridGutterSingle; //$padding-x-half = $padding-x-base / 2
+
+%panel-style { // used before foe @extend
+  @include panelStyle();
+}
+
+.panelSect { //https://i.imgur.com/ikIzmDY.png
+  @include panelStyle($padding-x: $panelSectPadding, $body: true, $background: $color-base-contrast);
+}
+
+.alert-block { //https://i.imgur.com/dFj1vud.png
+  @include panelStyle($heading: true, $body: true, $footer: true);
+}
+
+
+
+%panel--bordered {
+  @include panelStyle($bordered: true, $heading: true, $body: true, $footer: true);
+  &.panel--rows { //https://live.staticflickr.com/65535/55057651249_c5e3091085_b.jpg
+    .panel__body {
+      + .panel__body {
+        border-top: 1px solid $panelBorderColor;
+      }
+    }
+  }
+}
+.panel--bordered {
+  @extend %panel--bordered;
+}
+.panel {
+    @include panelStyle($heading: true, $body: true, $footer: true);
+
+  // Стили только для МАЛЕНЬКОЙ панели
+  &--md {
+    @include panelStyle(
+            $padding-x: ($panel-padding * 0.75),
+            $heading: true,
+            $body: true,
+            $footer: true,
+            $parent: ".panel" // Передаем как строку в кавычках
+    );
+  }
+
+  &__heading {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    > .grid-row {
+      flex: 1;
+    }
+
+    &:where(:not(:last-child)) {
+      border-bottom: 1px solid $gray-new-light;
+    }
+
+    .close {
+      position: absolute;
+      top: 50%;
+      right: 5px;
+      opacity: 0;
+
+      &:before {
+        display: inline-block;
+        //content: '\2715';
+        //content: '\2716';
+        //content: '\2A2F';
+        margin-top: -0.5em;
+        font-size: 1.4rem;
+        line-height: 1;
+        vertical-align: top;
+        color: #000;
+      }
+    }
+
+    .gwt-CheckBox:first-child,
+    .control:first-child {
+      margin-right: 3px;
+    }
+
+
+  }
+  &__title {
+    margin: 0;
+    padding-top: 8px;
+    padding-bottom: 8px;
+
+    &.dragdrop-handle {
+      flex-grow: 1;
+    }
+  }
+
+  &__footer {
+    //padding-left: $panel-padding !important;
+    //padding-right: $panel-padding !important;
+    //padding-bottom: $panel-padding;
+
+    &:only-child {
+      padding-top: $panel-padding;
+    }
+  }
+
+  &:hover {
+    .panel__heading .close {
+      opacity: 0.6;
+    }
+  }
+}
+.panel__heading {
+  align-items: center;
+  justify-content: space-between; // .feature-panel .panel__heading
+  .switch {
+    margin-right: -5px;
+  }
+}
+.alert-block:hover,
+.panel:hover {
+  .panel__heading {
+    .close {
+      opacity: 0.6;
+      transition: opacity .2s ease-in-out;
+    }
+  }
+}
+.panels-stack {
+  .panel--bordered + .panel--bordered,
+  .panel + .panel {
+    margin-top: 20px;
+  }
+}
+//.collapsible.collapsible--mini-panels,
+.collapsible.collapsible--panels {
+  > li {
+    @extend %panel-style;
+
+    + li {
+      margin-top: 10px;
+    }
+  }
+}
+
+.simple-panel {
+  padding: 0 $panel-padding;
+  border-radius: $radius-base;
+  background-color: $color-base-contrast;
+  box-shadow: 0 3px 4px 0 rgba(black, .2);
+
+  .form-group {
+    margin-top: $formGroupMargin;
+  }
+}
+
+.paymentGatewayPanels {
+  display: flex;
+  flex-wrap: wrap;
+
+  > * {
+    flex: 0 0 33%;
+    padding: rem(10px);
+  }
+}
+.paymentGatewayPanel {
+  @include panelStyle($border-radius, rem(15px), $heading: true, $body: true, $footer: true);
+  height: 100%; //to make PayPal and Stripe plates equal height
+  display: flex;
+  flex-direction: column;
+
+  > * {
+    flex-grow: 0;
+  }
+  &--passed,
+  &:hover {
+    border-color: $button-border-color-success;
+    background-color: $color-base-contrast;
+  }
+
+  &__heading {
+    img {
+      max-width: 100%;
+      margin-top: 15px;
+      margin-bottom: 5px;
+
+      .paymentGatewayPanel--twilio & {
+        width: 200px;
+        height: auto;
+      }
+      .paymentGatewayPanel--asterisk & {
+        width: 104px;
+        height: auto;
+        margin-left: 12px;
+      }
+    }
+    .paymentGatewayPanel--stripe & {
+
+    }
+  }
+
+  &__body {
+    flex-grow: 1;
+  }
+
+  &__footer {
+    padding-left: rem(15px);
+    padding-right: rem(15px);
+    padding-bottom: rem(15px);
+    text-align: right;
+  }
+}

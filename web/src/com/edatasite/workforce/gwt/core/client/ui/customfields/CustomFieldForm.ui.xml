@@ -1,0 +1,79 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:kpi='urn:import:com.edatasite.workforce.gwt.core.client.ui'
+             xmlns:components='urn:import:com.edatasite.workforce.gwt.core.client.ui.components'
+             xmlns:mhtml='urn:import:gwt.material.design.client.ui.html'>
+    <g:HTMLPanel ui:field="panel">
+        <g:HTMLPanel styleName="form-group" visible="false">
+            <mhtml:Label ui:field="entityTypeLabel" styleName="form-group__label"/>
+            <kpi:DataListBox ui:field="entityType"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group">
+            <mhtml:Label ui:field="nameLabel" styleName="form-group__label"/>
+            <g:TextBox ui:field="name"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group">
+            <mhtml:Label ui:field="aliasLabel" styleName="form-group__label"/>
+            <g:TextBox ui:field="alias"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group">
+            <mhtml:Label ui:field="dataTypeLabel" styleName="form-group__label"/>
+            <kpi:DataListBox ui:field="dataType"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group">
+            <mhtml:Label ui:field="fieldTypeLabel" styleName="form-group__label"/>
+            <kpi:DataListBox ui:field="fieldType"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group" ui:field="scalePanel" visible="false">
+            <mhtml:Label ui:field="scaleLabel" styleName="form-group__label"/>
+            <g:TextBox ui:field="scale"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group" ui:field="minValuePanel" visible="false">
+            <mhtml:Label ui:field="minValueLabel" styleName="form-group__label"/>
+            <g:TextBox ui:field="minValue"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group" ui:field="lookupTypePanel" visible="false">
+            <mhtml:Label ui:field="lookupTypeLabel" styleName="form-group__label"/>
+            <kpi:DataListBox ui:field="lookupType"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group" ui:field="referencePanel" visible="false">
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group" ui:field="queryPanel" visible="false">
+            <mhtml:Label ui:field="queryFieldLabel" styleName="form-group__label"/>
+            <g:TextArea ui:field="queryField"/>
+        </g:HTMLPanel>
+        <div class="grid-row">
+            <div class="col-6">
+                <g:HTMLPanel styleName="form-group" ui:field="requiredPanel" visible="false">
+                    <mhtml:Label ui:field="requiredLabel" styleName="form-group__label"/>
+                    <components:KpiSwitcher ui:field="required"/>
+                </g:HTMLPanel>
+            </div>
+            <div class="col-6">
+                <g:HTMLPanel styleName="form-group" ui:field="disabledPanel" visible="false">
+                    <mhtml:Label ui:field="disabledLabel" styleName="form-group__label"/>
+                    <components:KpiSwitcher ui:field="disabled"/>
+                </g:HTMLPanel>
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="col-12">
+                <g:HTMLPanel styleName="form-group" ui:field="showToDiv">
+                </g:HTMLPanel>
+            </div>
+        </div>
+        <g:HTMLPanel styleName="form-group" ui:field="predValuesPanel" visible="false">
+            <mhtml:Label ui:field="predValuesLabel" styleName="form-group__label"/>
+            <g:HTMLPanel ui:field="predValues"/>
+        </g:HTMLPanel>
+    </g:HTMLPanel>
+</ui:UiBinder>

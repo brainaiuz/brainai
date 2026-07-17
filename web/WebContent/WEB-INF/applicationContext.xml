@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:aop="http://www.springframework.org/schema/aop"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xmlns:tx="http://www.springframework.org/schema/tx"
+        xmlns:p="http://www.springframework.org/schema/p"
+        xmlns:mvc="http://www.springframework.org/schema/mvc"
+        xmlns:task="http://www.springframework.org/schema/task"
+        xmlns="http://www.springframework.org/schema/beans"
+        xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/task
+        http://www.springframework.org/schema/task/spring-task.xsd
+">
+
+    <aop:aspectj-autoproxy/>
+
+    <bean name="corePlaceHolder" class="com.edatasite.workforce.appContext.SpringPropertiesUtil" id="corePlaceHolder">
+        <property name="ignoreUnresolvablePlaceholders" value="false"/>
+        <property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE"/>
+        <property name="searchSystemEnvironment" value="true"/>
+        <property name="locations">
+            <list>
+                <value>classpath*:config/${spring.profiles.active}/hibernate.properties</value>
+                <value>classpath*:config/${spring.profiles.active}/application.properties</value>
+                <value>classpath*:config/${spring.profiles.active}/bgconfig.properties</value>
+                <value>classpath*:config/${spring.profiles.active}/massmailbounce.properties</value>
+                <value>classpath*:config/${spring.profiles.active}/mongodb.properties</value>
+                <value>classpath*:config/${spring.profiles.active}/rabbitmq.properties</value>
+                <value>classpath*:config/version.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <tx:annotation-driven/>
+    <context:annotation-config/>
+    <context:component-scan base-package=
+    "com.edatasite.workforce.core.config
+    ,com.edatasite.workforce.core.config.datasource
+    ,com.workforcetrack.mobile.services
+    ,com.edatasite.workforce.gwt.core.server.db.impl
+    ,com.edatasite.workforce.gwt.accounting.server
+    ,com.edatasite.workforce.gwt.assessment.server
+    ,com.edatasite.workforce.gwt.availability.server
+    ,com.edatasite.workforce.gwt.backend.server
+    ,com.edatasite.workforce.gwt.client.server
+    ,com.edatasite.workforce.gwt.crm.server
+    ,com.edatasite.workforce.gwt.dashboard.server
+    ,com.edatasite.workforce.gwt.documents.server
+    ,com.edatasite.workforce.gwt.employee.server
+    ,com.edatasite.workforce.gwt.expenses.server
+    ,com.edatasite.workforce.gwt.ganttchart.server
+    ,com.edatasite.workforce.gwt.gettingstarted.server
+    ,com.edatasite.workforce.gwt.googlecalendar.server
+    ,com.edatasite.workforce.gwt.googlecontacts.server
+    ,com.edatasite.workforce.gwt.googledocuments.server
+    ,com.edatasite.workforce.gwt.hrms.server
+    ,com.edatasite.workforce.gwt.invoice.server
+    ,com.edatasite.workforce.gwt.issue.server
+    ,com.edatasite.workforce.gwt.location.server
+    ,com.edatasite.workforce.gwt.messagecenter.server
+    ,com.edatasite.workforce.gwt.myaccount.server
+    ,com.edatasite.workforce.gwt.news.server
+    ,com.edatasite.workforce.gwt.payroll.server
+    ,com.edatasite.workforce.gwt.profile.server
+    ,com.edatasite.workforce.gwt.project.server
+    ,com.edatasite.workforce.gwt.signup.server
+    ,com.edatasite.workforce.gwt.task.server
+    ,com.edatasite.workforce.gwt.team.server
+    ,com.edatasite.workforce.gwt.timesheet.server
+    ,com.edatasite.workforce.gwt.trainingcenter.server
+    ,com.edatasite.workforce.gwt.wfmTimer.server
+    ,com.edatasite.workforce.gwt.workstream.server
+    ,com.edatasite.workforce.gwt.reportingsystem.server
+    ,com.edatasite.workforce.gwt.hrms.server.app
+    ,com.edatasite.workforce.gwt.core.server.app
+    ,com.edatasite.workforce.gwt.documents.server.app
+    ,com.edatasite.workforce.gwt.contact.server.app
+    ,com.edatasite.workforce.gwt.importfile.server.app
+    ,com.edatasite.workforce.gwt.meetingMinutes.server
+    ,com.edatasite.workforce.gwt.dashboardwidget.server.app
+    ,com.edatasite.workforce.gwt.core.server.db.emailfetching.mongo
+    ,com.finnetlimited.reportservice.core.server.db.dao.schema
+    ,com.edatasite.workforce.core.tools
+    ,com.edatasite.workforce.gwt.core.server.eventdispatcher.impl
+    ,com.edatasite.workforce.gwt.core.server.commons
+    ,com.edatasite.workforce.gwt.core.server.gwd
+    ,com.edatasite.workforce.gwt.core.server.controllers
+    ,com.edatasite.workforce.gwt.core.server.office365
+    ,com.edatasite.workforce.gwt.core.client.rpc.fakeContainer
+    ,com.edatasite.workforce.gwt.office365.server.app
+    ,com.edatasite.workforce.gwt.note.server
+    ,com.edatasite.workforce.gwt.materialkanban.server
+    ,com.edatasite.workforce.gwt.core.server.rabbitmq
+    ,com.edatasite.workforce.gwt.contactcategory.server
+    ,com.edatasite.workforce.gwt.core.server.zatca
+    ,com.edatasite.workforce.core.service
+    ,com.edatasite.workforce.core.kafka.producer
+    ,com.edatasite.workforce.core.kafka.listener
+    ,com.edatasite.workforce.core.solr.component
+    ,com.edatasite.workforce.core.solr.facet">
+
+    </context:component-scan>
+    <task:annotation-driven/>
+    <mvc:annotation-driven/>
+
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"/>
+
+    <bean id="checkPermissionAspect" class="com.edatasite.workforce.rest.aspects.CheckPermissionAspect"/>
+    <bean id="methodExecutionTimeAspect" class="com.edatasite.workforce.aspects.MethodExecutionTimeAspect">
+        <constructor-arg index="0" ref="methodExecutionStatisticService"/>
+    </bean>
+    <bean id="methodExecutionStatisticService" class="com.edatasite.workforce.aspects.MethodExecutionStatisticService"/>
+
+    <bean id="baseManager" abstract="true" lazy-init="true"
+          class="com.edatasite.workforce.gwt.core.server.db.impl.BaseManager">
+        <property name="jpaTemplate" ref="jpaTemplate"/>
+    </bean>
+
+    <bean id="wfmRegistrar" class="com.edatasite.workforce.gwt.core.server.servlets.WfmRegistrar">
+        <property name="customEditors">
+            <map>
+                <entry key="java.util.Date">
+                    <bean class="com.edatasite.workforce.gwt.core.server.DateEditor"/>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean class="com.edatasite.workforce.appContext.ApplicationContextProvider"/>
+
+    <import resource="service.xml"/>
+    <import resource="actions.xml"/>
+    <import resource="gadget-service.xml"/>
+
+
+    <import resource="commons.xml"/>
+    <import resource="businesseventpostprocessor.xml"/>
+    <import resource="backgroundServices.xml"/>
+    <import resource="pdf.xml"/>
+    <import resource="mongodb-conf.xml"/>
+    <import resource="localization.xml"/>
+
+
+    <bean id="localeChangeInterceptor"
+          class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+        <property name="paramName" value="locale"/>
+    </bean>
+
+    <bean id="localeResolver"
+          class="org.springframework.web.servlet.i18n.CookieLocaleResolver"/>
+
+    <bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+        <property name="definitions">
+            <list>
+                <value>/WEB-INF/defs/templates.xml</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="viewResolver"
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+          p:prefix="/WEB-INF/jsp/" p:suffix=".jsp" p:redirectHttp10Compatible="false"/>
+
+    <import resource="validations.xml"/>
+
+</beans>

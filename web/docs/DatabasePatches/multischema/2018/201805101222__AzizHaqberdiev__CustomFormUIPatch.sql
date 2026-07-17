@@ -1,0 +1,53 @@
+delete from defaultlayout_new_ui where formid = 'CUSTOM_FORM_FORM';
+insert into defaultlayout_new_ui (active,addform,editform,formid,title,layout) values (true,true,true,'CUSTOM_FORM_FORM','Custom Form Add/Edit','<div class="contentBar" style="padding:0 10px;margin-top:2px;">
+
+    <ul class="collapsible--panels collapsible--arrows-left collapsible collapsible--gwt required"
+        data-collapsible="expandable">
+        <li class="slideDown-box group active">
+            <div class="collapsible-header active"
+                 onclick="var myclick=this.parentElement;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf("active")>=0){cls=cls.replace("active","");}else{cls+=" active";}myclick.className=cls; } var myclick=this;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf("active")>=0){cls=cls.replace("active","");}else{cls+=" active";}myclick.className=cls; }">
+                <a style="cursor: pointer;"><span>$$label:DETAILS$$</span></a>
+            </div>
+            <div class="collapsible-body">
+                <div class="grid-row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:FORM_ID$$</div>
+                            <div class="form-group__content">$$input:FORM_ID$$</div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:TITLE$$</div>
+                            <div class="form-group__content">$$input:TITLE$$</div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:TYPE$$</div>
+                            <div class="form-group__content">$$input:TYPE$$</div>
+                        </div>
+                        <div class="form-group hideCustomField">
+                            <div class="form-group__label">$$label:ACTIVE$$</div>
+                            <div class="form-group__content">$$input:ACTIVE$$</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:CUSTOM_HTML$$</div>
+                            <div class="form-group__content">$$input:CUSTOM_HTML$$</div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:CUSTOM_CSS$$</div>
+                            <div class="form-group__content">$$input:CUSTOM_CSS$$</div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:MULTI_TABLE_PANEL$$</div>
+                            <div class="form-group__content">$$input:MULTI_TABLE_PANEL$$</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>');

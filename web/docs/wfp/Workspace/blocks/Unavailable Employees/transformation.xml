@@ -1,0 +1,23 @@
+<ul class="list-1 personInfo widget">
+    <li></li>
+
+
+    <li>
+        <a class="left imgHolder" target="_blank" href='/Hrms.html?link=$rowItem.encryptURL("id", "employeeProfile|hrmsleaveRequests/")'>
+            #set($imageUrl = $rowItem.getImageUrl("photoid"))
+            #if ($imageUrl == "" )
+            <span class="imgHolder"><img alt="image" src="/wfp/templates/wfpdefault/images/prifile_mini_default.gif"></span>
+            #else
+            <span class="imgHolder"><img alt="image" src='$rowItem.getImageUrl("photoid")'></span>
+            #end
+        </a>
+        <div class="left">
+            <a title='$rowItem.getStringValue("employeename")' href='/Hrms.html?link=$rowItem.encryptURL("id", "employeeProfile|hrmsleaveRequests/")'
+               style="line-height: 46px">
+                $rowItem.getValueLimit("employeename",13)
+            </a>
+        </div>
+        <div class="twodate date" style="line-height: 46px">
+            $rowItem.getShortDateValue("startdate")  - $rowItem.getShortDateValue("enddate")
+        </div>
+    </li>

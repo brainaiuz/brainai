@@ -1,0 +1,152 @@
+.pg_google__tabs {
+  .gwt-TabBarItem-wrapper {
+    //background-color: transparent;
+    + .gwt-TabBarItem-wrapper:not(.gwt-TabBarItem-wrapper-selected) {
+      position: relative;
+      &:after {
+        content: '';
+        position: absolute;
+        top: 4px;
+        bottom: 4px;
+        left: 0;
+        width: 1px;
+        background: #ced5db;
+      }
+    }
+    &.gwt-TabBarItem-wrapper-selected + .gwt-TabBarItem-wrapper {
+      &:after {
+        background-color: transparent;
+      }
+    }
+  }
+  .gwt-DecoratedTabBar {
+    > tbody > tr {
+      display: flex;
+      height: $button-height;
+      //border: $nav-tabs-border-width solid $nav-tabs-border-color; > Lead to additional width
+      border-radius: $radius-base;
+      > * {
+        height: 100%;
+      }
+    }
+  }
+}
+
+
+
+
+.gwt-DecoratedTabBar {
+  border-collapse: separate;
+  border-radius: $radius-base;
+  border: $nav-tabs-border-width solid $nav-tabs-border-color;
+
+  &[style*="width: 100%"] {
+    table-layout: fixed; //modal "Edit Category" //https://prnt.sc/r1qxn1
+  }
+
+  .gwt-TabBarItem-selected .tabMiddleCenter,
+  .gwt-TabBarItem-selected .tabMiddleLeft,
+  .gwt-TabBarItem-selected .tabMiddleRight {
+    //background-color: transparent !important;
+  }
+
+  .gwt-TabBarItem .tabMiddleCenter,
+  .tabMiddleLeft,
+  .tabMiddleRight,
+  .tabTopLeft,
+  .tabTopCenter,
+  .tabTopRight {
+    //background: transparent !important;
+  }
+
+
+
+  .gwt-TabBarItem {
+    .tabMiddleCenter {
+      //font-weight: normal;
+      //padding: 0 !important;
+
+      .pointer {
+        background: $color-accent-2;
+        padding: 3px;
+        border-radius: 50%;
+        height: 17px;
+        width: 17px;
+      }
+    }
+    .gwt-HTML b {
+      font-weight: normal;
+    }
+  }
+
+}
+
+.gwt-TabBarFirst-wrapper,
+.gwt-TabBarRest-wrapper {
+  display: none;
+}
+
+.gwt-TabBarItem-wrapper {
+  position: relative;
+  vertical-align: middle !important;
+  transition: background-color 0.36s !important;
+  cursor: pointer;
+  height: $tableCellHeight;
+  &:not(.gwt-TabBarItem-wrapper-selected):before {
+    @include pageNavItemBefore;
+    right: -1px;
+  }
+
+  > * {
+    //width: auto !important;
+  }
+  .tabTop {
+    display: none;
+  }
+  .tabMiddleLeft { ////https://prnt.sc/rfu4wj
+    width: 10px !important;
+  }
+  .tabMiddleRight {
+    width: 8px !important; //due to the separator centering
+  }
+  .gwt-TabBarItem {
+    height: 100%;
+    //margin-left: 0 !important;
+  }
+  &-selected {
+    background-color: #8D9BA8;
+    color: white;
+    cursor: pointer;
+    .settings_permission-management & {
+      //background-color: transparent; //https://prnt.sc/qdlgq1  //Settings.html##customFieldManagement%7Ceditcustomfield/82/accountingcustomfields
+    }
+  }
+  .gwt-Label {
+    font-weight: 500;
+  }
+  [role="tab"] {
+    outline: none !important;
+  }
+}
+
+
+
+//https://prnt.sc/rfu4wj
+.gwt-DecoratedTabBar {
+  .tabMiddleCenter {
+    color: inherit !important;
+    background: none !important;
+    font-weight: inherit !important;
+    cursor:  inherit !important;
+    text-align: inherit !important;
+    padding: 0 !important;
+  }
+  .gwt-TabBarItem {
+    margin-left: auto !important;
+  }
+  .tabMiddleLeft, .tabMiddleRight,
+  .gwt-TabBarItem-selected .tabMiddleLeft, .gwt-TabBarItem-selected .tabMiddleRight {
+    background: none !important;
+  }
+}
+

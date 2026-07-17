@@ -1,0 +1,243 @@
+$tf-col-width: 160px;
+//$tf-col-status: 160px;
+//$tf-col-salesPerson: 160px;
+//$tf-col-customer: 160px;
+//$tf-col-ammount-1: 160px;
+//$tf-col-ammount-2: 160px;
+//$tf-col-1-group: ($tf-col-status + $tf-col-salesPerson + $tf-col-customer + $tf-col-ammount-1 + $tf-col-ammount-2);
+
+$tf-cellBorder: $tableDelimiter;
+$tf-totalBorder-1: $color-base-1;
+$tf-totalBorder-2: $color-base-2;
+$tf-totalBg: $color-base-0;
+$tf-labelBg: $gray-lighter;
+
+.tf,
+.tf table,
+.kpi-thead__table {
+  //width: auto;
+  table-layout: fixed;
+}
+.reporting-table-container .kpi-thead {
+  > tr > * {
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+  }
+}
+
+.tf-wrapper {
+  overflow: auto;
+}
+//tf = table foldable
+.tf {
+  border-bottom: 1px solid $tf-cellBorder;
+  border-left: 1px solid $tf-cellBorder;
+
+  td {
+    height: $button-height;
+  }
+  &-col-0 {
+    width: 180px;
+    padding-right: 0 !important;
+    &:before {
+      //content: '';
+      //display: block;
+      .tf.tf--level-1 & {
+        //width: 186px;
+      }
+      .kpi-thead & {
+        //width: 180px;
+      }
+    }
+  }
+  &--level-1 {
+    border-left: none;
+    &.expanded {
+      > tbody > tr {
+        &:first-child {
+          border-top: 1px solid $tf-cellBorder;
+        }
+        > .tf__toggle,
+        > .tf__totalLabel,
+        > td > table > tfoot > tr > td .tf__totalRow {
+          background: darken($tf-labelBg, 5%);
+        }
+      }
+    }
+  }
+  &--level-2 {
+    &.expanded {
+      > tbody > tr {
+        > .tf__toggle,
+        > .tf__totalLabel,
+        > td > table > tfoot > tr > td .tf__totalRow {
+          background: darken($tf-labelBg, 3%);
+        }
+      }
+    }
+  }
+  &--level-last {
+    &.expanded {
+      > tbody > tr > .tf__toggle,
+      > tbody > tr > .tf__totalLabel,
+      > tbody > tr > td > table > tfoot > tr > td .tf__totalRow > * {
+        background: $tf-labelBg;
+      }
+    }
+    > tbody > tr > .tf__obj {
+
+      > table > tbody > tr > td > table {
+        > tbody > tr {
+          > td {
+            border-left: 1px solid $tf-cellBorder;
+            border-right: 1px solid $tf-cellBorder;
+            border-bottom: 1px solid $tf-cellBorder;
+          }
+          + tr:not(:last-child) > td {
+            border-top: 1px solid $tf-cellBorder;
+            border-bottom: 1px solid $tf-cellBorder;
+          }
+        }
+      }
+    }
+  }
+
+  &__toggle {
+    position: relative;
+    min-height: $tableCellHeight;
+    padding-top: 6px;
+    padding-left: $firstCellLeftPadding !important;
+
+    > .plusMinus {
+      position: absolute;
+      left: 0;
+    }
+
+    @at-root #{selector-append(td, &)} {
+      //to exclude th from selection
+      vertical-align: top;
+      > .plusMinus {
+        position: absolute;
+        top: 2px;
+      }
+    }
+
+    @at-root #{selector-append(th, &)} {
+      // for thead
+      text-align: left;
+      > .plusMinus {
+        &.btn-small {
+          //margin-left: -$firstCellLeftPadding;
+          top: 50%;
+          margin-top: -($button-height-small / 2);
+        }
+      }
+    }
+  }
+  //&__obj {vertical-align: top;}
+
+  &__totalLabel {
+    font-weight: bold;
+    vertical-align: bottom;
+  }
+  &__totalLabel > div {
+    line-height: ($tableCellHeight + rem(1px));
+    padding: 0 $tableCellPadding-x;
+  }
+  &__totalLabel,
+  &__totalRow td {
+    font-weight: bold;
+  }
+
+  border-left: 1px solid $tf-totalBorder-2;
+  &.expanded {
+    border-bottom: 1px solid $tf-totalBorder-2;
+
+    > tbody > tr {
+      > .tf__toggle {
+        > .plusMinus {
+          + span {
+            display: inline-block;
+            max-width: 100%;
+          }
+        }
+      }
+      //> .tf__totalLabel > div,
+      > td > table > tfoot > tr > td {
+        border-top: 1px solid $tf-totalBorder-1;
+      }
+      > .tf__obj {
+        > table > tfoot > tr > td > table {
+          > * > tr {
+            > td:nth-last-child(-n+3) {
+              border-right: 1px solid $tf-cellBorder;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.collapsed {
+    > tbody > tr {
+      > .tf__totalLabel,
+      > .tf__obj > table > tbody {
+        display: none;
+        @include collapse-els;
+      }
+      > .tf__toggle {
+        border-bottom: 1px solid $tf-cellBorder;
+      }
+
+      > .tf__obj {
+        > table > tfoot > tr > td > table {
+          > * > tr {
+            > td {
+              border-right: 1px solid $tf-cellBorder;
+              &:first-child {
+                border-left: 1px solid $tf-cellBorder;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &-grandTotal {
+    margin-top: -1px;
+    &.tf {
+      border-bottom: none;
+    }
+
+    .total_row {
+      //border-top: 1px solid $color-base-contrast !important;
+      > td {
+        border-top: 1px solid $tf-totalBorder-2;
+        position: relative;
+        &:before {
+          content:'';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 1px;
+          border-top: 1px solid $tf-totalBorder-1;
+          //border-bottom: 1px solid $tf-totalBorder-2;
+        }
+      }
+    }
+  }
+  &[id*="trIndex-"] {
+    &:last-child {
+    }
+  }
+}
+
+
+//TF COLUMNS WIDTH
+.tf-col {
+  box-sizing: border-box;
+  padding-left: $tableCellPadding-x;
+  padding-right: $tableCellPadding-x;
+  //width: $tf-col-width;
+}

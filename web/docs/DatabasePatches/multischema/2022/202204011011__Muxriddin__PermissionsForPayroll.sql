@@ -1,0 +1,30 @@
+delete from "anv".permission_context where permissioncode in ('MY_BENEFIT_REQUEST_LIST',
+                                                              'HRMS_LIVE_REQUEST',
+                                                              'HRMS_EXPENCE_REPORT',
+                                                              'EMPLOYEE_DOCUMENTS_LIST',
+                                                              'CETIFICATE_OF_EMPLOYMENT_LIST',
+                                                              'HRMS_ACTIVITIES_VIEW',
+                                                              'HRMS_PERSONAL_GOALS',
+                                                              'HRMS_TALENT_PROFILE_LIST',
+                                                              'HRMS_INCIDENT_LIST',
+                                                              'HRMS_DEPENDENT',
+                                                              'HRMS_ONBOARDING_CHECKLIST_EDIT',
+                                                              'HRMS_ONBOARDING_CHECKLIST_VIEW',
+                                                              'HRMS_VIEW_EMPLOYEE_CHANGE_LOG') and contextcode = 'PAYROLL';
+
+delete from "anv".permission_context where permissioncode = 'HRMS_TALENT_PROFILE_LIST' and contextcode = 'HRMS';
+
+insert into "anv".permission_context(permissioncode, contextcode) values ('MY_BENEFIT_REQUEST_LIST', 'PAYROLL'),
+                                                                           ('HRMS_LIVE_REQUEST', 'PAYROLL'),
+                                                                           ('HRMS_EXPENCE_REPORT', 'PAYROLL'),
+                                                                           ('EMPLOYEE_DOCUMENTS_LIST', 'PAYROLL'),
+                                                                           ('CETIFICATE_OF_EMPLOYMENT_LIST', 'PAYROLL'),
+                                                                           ('HRMS_ACTIVITIES_VIEW', 'PAYROLL'),
+                                                                           ('HRMS_PERSONAL_GOALS', 'PAYROLL'),
+                                                                           ('HRMS_TALENT_PROFILE_LIST', 'PAYROLL'),
+                                                                           ('HRMS_TALENT_PROFILE_LIST', 'HRMS'),
+                                                                           ('HRMS_INCIDENT_LIST', 'PAYROLL'),
+                                                                           ('HRMS_DEPENDENT', 'PAYROLL'),
+                                                                           ('HRMS_ONBOARDING_CHECKLIST_EDIT', 'PAYROLL'),
+                                                                           ('HRMS_ONBOARDING_CHECKLIST_VIEW', 'PAYROLL'),
+                                                                           ('HRMS_VIEW_EMPLOYEE_CHANGE_LOG', 'PAYROLL');

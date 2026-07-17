@@ -1,0 +1,98 @@
+
+/* pass walidation */
+.pass-validation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 4px;
+    line-height: 1;
+}
+
+.pass-validation__view {
+}
+
+.pass-validation__text {
+    font-size: 12px;
+}
+
+.pass-validation__view {
+    display: flex;
+    flex: 0 0 62%;
+    flex-shrink: 0;
+    padding-top: 4px;
+}
+
+.pass-validation__view > * {
+    position: relative;
+    margin-right: 5px;
+    width:20px;
+    height:20px;
+    line-height: 20px;
+    text-align: center;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    background-color: #f3f4f9;
+    color: #b5abab;
+}
+.pass-validation__view > *:after{
+    content: "\f023";
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.pass-validation--state-1 .pass-validation__view > *:not(.pass-validation__view__step-1):after{
+    content: "\f13e";
+}
+.pass-validation--state-2 .pass-validation__view > *:not(.pass-validation__view__step-1):not(.pass-validation__view__step-2):after{
+    content: "\f13e";
+}
+
+.pass-validation {
+
+}
+.pass-validation--state-1 .pass-validation__view__step-1,
+.pass-validation--state-2 .pass-validation__view__step-1,
+.pass-validation--state-3 .pass-validation__view__step-1,
+.pass-validation--state-1 .pass-validation__text {
+    color: #ff8180;
+}
+.pass-validation--state-2 .pass-validation__view__step-2,
+.pass-validation--state-3 .pass-validation__view__step-2,
+.pass-validation--state-2 .pass-validation__text {
+    color: #f9c575;
+}
+.pass-validation--state-3 .pass-validation__view__step-3
+,.pass-validation--state-3 .pass-validation__text {
+    color: #6fc7a4;
+}
+
+.pass-validation__text > * {
+    line-height: 20px;
+    padding-top: 4px;
+}
+
+.cp_login__field--pass{
+    position: relative;
+}
+.cp_login__field--pass input{
+    padding-right: 100px;
+    box-sizing: border-box;
+}
+.cp_login__field--pass .pass-validation__view{
+    position: absolute;
+    width:auto;
+    top:12px;
+    right:0;
+}
+
+.cp_login__field--pass .pass-validation{
+    justify-content: flex-end;
+}
+.modal-form  .pass-validation__view--mod{
+    top:16px !important;
+    right:20px !important;
+}

@@ -1,0 +1,14 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder
+        xmlns:ui="urn:ui:com.google.gwt.uibinder"
+        xmlns:g="urn:import:com.google.gwt.user.client.ui"
+        xmlns:c="urn:import:com.google.gwt.user.cellview.client"
+        xmlns:groupBox="urn:import:com.edatasite.workforce.gwt.core.client.ui.components.groupBox">
+
+    <g:HTMLPanel styleName="timesheet__container">
+        <groupBox:GBox ui:field="toolbar"></groupBox:GBox>
+
+        <c:DataGrid styleName="cellBasedWidget-mod cellBasedWidget-mod--like-listing cellBasedWidget-mod--timesheet cellBasedWidget-mod--cell-not-overflow" ui:field='dataGrid'/>
+
+    </g:HTMLPanel>
+</ui:UiBinder>

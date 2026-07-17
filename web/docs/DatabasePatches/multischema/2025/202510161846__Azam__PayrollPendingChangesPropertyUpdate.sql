@@ -1,0 +1,1 @@
+UPDATE "anv".property SET defaultname = 'Pending Changes', plural = 'Pending Changes', shortcut = 'PC', singular = 'Pending Changes' where objectname='employeeTemplateList';

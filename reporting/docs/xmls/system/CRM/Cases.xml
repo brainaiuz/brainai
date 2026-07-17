@@ -1,0 +1,59 @@
+<report>
+    <view>
+        <title>CRM Case Detailed</title>
+        <name>Cases Report</name>
+        <category>cases</category>
+        <sqlquery agregateFunc="distinct">
+            <select>
+
+                <table name="Case">
+                    <column name="id" title="id" type="number" formattype="hidden"/>
+                    <column name="caseNumberString" title="Case ID" type="string" formattype="string"/>
+                    <column name="subject" title="Subject" type="string" formattype="string"/>
+                    <column name="priorityName" title="Priority" type="string" formattype="string"/>
+                    <column name="caseOrigionName" title="Orign" type="string" formattype="string"/>
+                    <column name="creationDate" title="Date" type="date" formattype="date"/>
+                </table>
+
+            </select>
+            <from>
+                (
+                with myUserRoles as (select mu.id userID,r.code userRole,cc.crmcontactid,c.crmAccount,e.id employee,te.teamID
+                from "$".myuser mu
+                left join "$".clientcontact cc on cc.id=mu.id
+                left join "$".myuser_role mr on mr.users_id=mu.id
+                left join "$".role r on mr.roles_id=r.id and r.isdeleted is not true
+                left join "$".crmContact c on cc.crmcontactid=c.id and c.deleted is not true
+                left join "$".employee e on mu.id=e.id
+                left join "$".teamEmployee te on te.employeeId=e.id and te.isdeleted is not true
+                where mu.deleted is not true)
+
+                select c.id,caseNumberString,subject,r.name priorityName,c.creationDate ,cor.name caseOrigionName
+                from "$".crmcase c
+                left join "$".reference r on c.priority=r.id
+                left join "$".reference cor on c.caseOrigion=cor.id
+                , (select id from "$".myuser u where id=#?user_id?#) u
+                left join(select max(crmcontactid) crmcontactid,userID, max(crmAccount) crmAccount,max(teamID) teamID
+                , case max(case userRole when 'CLIENT' then 0 else 1 end) when 0 then 1 else 0 end onlyClientAccess
+                , max(case userRole when 'ADMIN' then 1 else 0 end) isAdmin
+                , max(case employee when userid then 1 else 0 end) isEmployee
+                , max(case when userRole in ('ADMIN','DR','SALESMAN','CUSTOMER_SERVICE_MANAGER') then 1 else 0 end) hasEitherRoles
+                from myUserRoles group by userID) roles on u.id=roles.userID
+                where c.deleted is not true and c.inTrash is not true and
+                (
+                roles.isAdmin=1
+                or (roles.onlyClientAccess =1 and (roles.crmcontactid=c.releatedto or roles.crmAccount=c.crmAccount))
+                or (roles.isEmployee=1 and roles.hasEitherRoles=0 and (u.id in (c.owner, c.resolver) or (roles.teamID is not null and roles.teamID=c.department_id and c.owner is null)))
+                )
+                ) t
+
+            </from>
+
+            <where>
+                <terms id="base" value="1=1"/>
+                <replacement id="userid" userid="#?user_id?#"/>
+            </where>
+
+        </sqlquery>
+    </view>
+</report>

@@ -1,0 +1,14 @@
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:gb="urn:import:com.edatasite.workforce.gwt.core.client.ui.components"
+             xmlns:mh="urn:import:gwt.material.design.client.ui.html"
+             xmlns:m="urn:import:gwt.material.design.client.ui">
+    <m:MaterialPanel styleName="wg_notes">
+        <mh:Div styleName="wg_notes__add" ui:field="addCmd">
+            <mh:Anchor styleName="wg_notes__add-btn">
+                <mh:Icon styleName="ficon--plus"></mh:Icon>
+            </mh:Anchor>
+            <mh:Span ui:field="writeTitle" styleName="wg_notes__add-label"></mh:Span>
+        </mh:Div>
+        <mh:Div ui:field="listDiv" styleName="wg_notes__history"></mh:Div>
+    </m:MaterialPanel>
+</ui:UiBinder>

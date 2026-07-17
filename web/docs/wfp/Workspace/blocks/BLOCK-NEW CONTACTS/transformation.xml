@@ -1,0 +1,26 @@
+<li>
+    <a class="left imgHolder" href="#" >
+
+        #set($imageUrl = $rowItem.getImageUrl("photoid"))
+        #if ($imageUrl == "" )
+        <span class="imgHolder"><img alt="image" src="/wfp/templates/wfpdefault/images/prifile_mini_default.gif"></span>
+        #else
+        <span class="imgHolder"><img alt="image" src='$rowItem.getImageUrl("photoid")'></span>
+        #end
+
+    </a>
+    <div class="left">
+        <a class="userName" target="_blank" href='/Crm.html?link=$rowItem.encryptURL("id","contact|summary/")' title='$rowItem.getValue("leadname")'>$rowItem.getValueLimit("leadname",13)</a>
+        <em class="userJob">$rowItem.getStringValue("rolename")</em>
+    </div>
+    <div style="position: absolute;left: 52%;">$rowItem.getStringValue("companyname")
+        #set($email = $rowItem.getStringValue("email"))
+        #if ($email == "")
+        #else
+        <br/>
+        <a class="userName" target="_blank" href='Crm.html#messagecenter'>$rowItem.getValueLimit("email", 20)</a>
+        #end
+    </div>
+
+
+</li>

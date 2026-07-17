@@ -1,0 +1,6 @@
+<module rename-to="documents">
+    <inherits name='com.edatasite.workforce.gwt.documents.DocumentsMain'/>
+    <inherits name='com.edatasite.workforce.gwt.crm.CRMMain'/>
+    <entry-point class='com.edatasite.workforce.gwt.documents.client.Documents'/>
+    <inherits name="com.edatasite.workforce.gwt.Localization_properties"></inherits>
+</module>

@@ -1,0 +1,162 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style type="text/css">
+        body {
+            font-family: 'Arial', sans-serif;
+            font-weight: 300;
+            font-size: 9pt;
+            line-height: 1.4;
+        }
+        th {
+            text-align: left;
+        }
+        .sales-invoice-table-pdf th {
+            border-bottom: 1px solid black;
+            font-size: 9pt;
+        }
+        .sales-invoice-table-pdf td {
+            border-bottom: 1px solid #ced5db;
+            font-size: 9pt;
+        }
+        .sales-invoice__tmp * {
+            line-height: 1.4;
+        }
+        .billing-address__tmp-bill td {
+            line-height: 1.4;
+        }
+        .currency_code__tmp {
+            font-size: 8px;
+            font-weight: normal;
+        }
+        .page-break {
+            display:inline-block ! important;
+            page-break-inside: auto ! important;
+        }
+    </style>
+</head>
+<body>
+<div id="body sales-invoice__tmp">
+    <img alt="images" src="https://workforcetrack.s3.amazonaws.com/000000000000/public/65159/a2113e82-397f-49fd-a58a-cdf4f4b93dff?AWSAccessKeyId=AKIAIROQMC77E5UKWBWQ" style="display: none;"/>
+    #if($itextGenericPdfData.companyData.companyName == 'KPI Software Inc' or $itextGenericPdfData.companyData.companyLogoUrl == 'https://apps.kpi.com/customisation/kpi.com/images/kpilogo.png')
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="width: 88px;display: none;"/>
+    #else
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="max-width: 100%; max-height: 100%; display: none;"/>
+    #end
+
+    #set($newsTable = $itextGenericPdfData.customData.get('NEWS').rows)
+    #set($commentTable = $itextGenericPdfData.customData.get('NEWS_COMMENTS').rows.values())
+
+    #set($subjectLabel=$newsTable.get('Subject').get('COLUMN_NAME'))
+    #set($dateLabel=$newsTable.get('PUBLISHED_DATE').get('COLUMN_NAME'))
+    #set($userNameLabel=$newsTable.get('USER_NAME').get('COLUMN_NAME'))
+    #set($locationLabel=$newsTable.get('LOCATION').get('COLUMN_NAME'))
+    #set($visibilityLabel=$newsTable.get('VISIBILITY').get('COLUMN_NAME'))
+    #set($descriptionLabel=$newsTable.get('DESCRIPTION').get('COLUMN_NAME'))
+
+    #set($subject=$newsTable.get('Subject').get('COLUMN_VALUE'))
+    #set($date=$newsTable.get('PUBLISHED_DATE').get('COLUMN_VALUE'))
+    #set($userName=$newsTable.get('USER_NAME').get('COLUMN_VALUE'))
+    #set($location=$newsTable.get('LOCATION').get('COLUMN_VALUE'))
+    #set($visibility=$newsTable.get('VISIBILITY').get('COLUMN_VALUE'))
+    #set($description=$newsTable.get('DESCRIPTION').get('COLUMN_VALUE'))
+    <div>
+        <table class="billing-address__tmp-bill" align="left" border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 36pt; line-height: 1.4; font-size: 9pt;" width="60%">
+            <tbody>
+            #if($subject != '')
+            <tr>
+                <td align="left" style="color: #0a0a0a; padding:4px 0; width:100%; word-wrap: break-word;" dir="$subjectLabel"><strong>$subjectLabel:</strong> <span>$subject </span></td>
+            </tr>
+            #end
+            #if($visibility != '')
+            <tr>
+                <td align="left" style="color: #0a0a0a; padding:4px 0; width:100%; word-wrap: break-word;" dir="$visibilityLabel"><strong>$visibilityLabel:</strong> <span>$visibility </span></td>
+            </tr>
+            #end
+            </tbody>
+        </table>
+
+        <table align="right" border="0" cellpadding="5" cellspacing="0" class="invoice-info"
+               style="margin-bottom: 36pt;font-size: 9pt; margin-left:10%; width:30%;">
+            <tbody>
+            #if($date != '')
+            <tr>
+                <th align="left" dir="$dateLabel"><strong>$dateLabel:</strong></th>
+                <td align="right" dir="$date" style="color: #0a0a0a; padding-right:0;">$date</td>
+            </tr>
+            #end
+            #if($userName != '')
+            <tr>
+                <th align="left" dir="$userNameLabel">$userNameLabel:</th>
+                <td align="right" dir="$userName" style="color: #0a0a0a; padding-right:0;">$userName</td>
+            </tr>
+            #end
+            #if($location != '')
+            <tr>
+                <th align="left" dir="$locationLabel">$locationLabel:</th>
+                <td align="right" dir="$location" style="color: #0a0a0a; padding-right:0;">$location</td>
+            </tr>
+            #end
+            </tbody>
+        </table>
+    </div>
+
+    <table cellpadding="0" cellspacing="0" class="payment-cards page-break" style="margin-bottom: 36pt;font-size: 9pt;" width="100%">
+        <tbody>
+            <tr>
+               <td dir="$descriptionLabel" style="font-size: 10pt;padding-bottom:15px;"><strong>$descriptionLabel:</strong></td>
+            </tr>
+            <tr>
+               <td style="word-wrap:break-word">$description</td>
+            </tr>
+        </tbody>
+    </table>
+
+    #if($commentTable.size() > 0)
+    <table cellpadding="0" cellspacing="0" style="font-size: 9pt;" width="100%">
+        <tbody>
+            <tr>
+                <td width="100%" colspan="4" style="font-size: 10pt;"><strong>$itextGenericPdfData.customData.get('NEWS_COMMENTS').name:</strong></td>
+            </tr>
+            #foreach($row in $commentTable)
+            <tr>
+                <td style="width: 10%;padding-top: 20px;vertical-align: top;">
+                    #if($row.get('USER_IMAGE') != '')
+                    <img alt="images" src="$row.get('USER_IMAGE')" style="width: 40px; height: 40px; border-radius: 100%;"/>
+                    #else
+                        #set($first = '')
+                        #set($last = '')
+                        #set($count = 0)
+                        #set($usernameArray = $row.get('USER_NAME').split(' '))
+                        #foreach($username in $usernameArray)
+                            #if($count >  1)
+                                #break
+                            #end
+                            #if($count == 0)
+                                #if($username != '')
+                                    #set($first = $username.substring(0, 1))
+                                #end
+                            #else
+                                #if($username != '')
+                                    #set($last = $username.substring(0, 1))
+                                #end
+                            #end
+                            #set($count = $count + 1)
+                        #end
+                        #set($first = $first + $last)
+                        <div style="width: 40px; height: 40px; border-radius: 100%; line-height: 40px; text-align: center; background-color: #8D9BA8; color: white; font-size: 11pt;">$first</div>
+                    #end
+                </td>
+                <td style="width: 20%;padding-top: 32px;vertical-align: top;">$row.get('USER_NAME')</td>
+                <td style="width: 20%;padding-top: 32px;vertical-align: top;">$row.get('COMMENT_DATE')</td>
+                <td style="width: 50%;padding-top: 32px;vertical-align: top;">$row.get('COMMENT')</td>
+            </tr>
+            #end
+        </tbody>
+    </table>
+    #end
+</div>
+</body>
+</html>
+
+

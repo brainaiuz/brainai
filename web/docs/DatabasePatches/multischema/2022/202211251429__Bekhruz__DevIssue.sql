@@ -1,0 +1,1 @@
+update "anv".financialsettings set submitVatManually = true;

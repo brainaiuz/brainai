@@ -1,0 +1,687 @@
+.ipe {
+}
+
+    /*--------------------- Footer BEGIN -------------------------*/
+.ipe #footer {
+    position: fixed;
+    bottom: 0; /*left:47%; margin-left:-471px;*/
+    /*   _left: 0;*/
+    left: 0; /*_margin-left: 0;*/
+    width: 100%;
+    height: 30px; /*_width: auto;*/
+    clear: both;
+    color: #fff;
+    background: #002641 url(../images/themes/blue/bg_footer.png) repeat-x 0 0;
+}
+
+.ipe #footer a {
+    color: #fff;
+}
+
+.ipe #footer p a {
+    text-decoration: underline;
+}
+
+.ipe #footer ul li {
+    margin: 0 10px 0 0;
+    padding: 0 10px 0 0;
+    border-right: 1px solid #fff;
+}
+
+.ipe .footer-inner {
+    overflow: hidden;
+    zoom: 1;
+    padding: 9px 29px 10px;
+}
+
+    /*--------------------- Footer END -----------------------------*/
+
+    /*--------------------- Titles BEGIN ---------------------------*/
+.ipe .title {
+    font-size: 16px;
+    margin: 0 0 10px;
+    color: #0070bf;
+}
+
+.ipe .sub-title {
+    font-size: 14px;
+    color: #00375e;
+    margin: 0 0 15px;
+}
+
+    /*--------------------- Titles END -----------------------------*/
+
+    /*--------------------- Tab Titles BEGIN -----------------------*/
+.ipe .tab-t1,
+.ipe .tab-t2,
+.ipe .tab-t3,
+.ipe .tab-t1 span,
+.ipe .tab-t2 span,
+.ipe .tab-t3 span {
+    float: left;
+    height: 28px;
+    background-image: url(images/themes/blue/bg_tab_title.png);
+}
+
+.ipe .tab-t1,
+.ipe .tab-t2,
+.ipe .tab-t3 {
+    display: inline;
+    clear: both;
+    margin: 0;
+    padding: 0 29px 0 0;
+    font-size: 14px;
+    background-repeat: no-repeat;
+}
+
+.ipe .tab-t1 span,
+.ipe .tab-t2 span,
+.ipe .tab-t3 span {
+    line-height: 28px;
+    padding: 0 10px 0 30px;
+    color: #fff;
+    background-repeat: repeat-x;
+}
+
+.ipe .tab-t1 {
+    background-color: #206000;
+    background-position: 100% 0;
+}
+
+.ipe .tab-t1 span {
+    background-position: 0 -29px;
+}
+
+.ipe .tab-t2 {
+    background-color: #002742;
+    background-position: 100% -58px;
+}
+
+.ipe .tab-t2 span {
+    background-position: 0 -87px;
+}
+
+.ipe .tab-t3 {
+    background-color: #810b00;
+    background-position: 100% -116px;
+}
+
+.ipe .tab-t3 span {
+    background-position: 0 -145px;
+}
+
+    /*--------------------- Tab Titles END -------------------------*/
+
+    /*--------------------- Buttons BEGIN --------------------------*/
+.ipe .btn span {
+    position: relative;
+}
+
+.ipe .btn-1,
+.ipe .btn-1 span {
+    float: left;
+    height: 24px;
+    line-height: 24px;
+    font-weight: bold;
+    color: #000;
+    background-image: url(images/themes/blue/bg_btn1.png);
+    background-repeat: no-repeat;
+}
+
+.ipe .btn-1 {
+    margin: 0 2px 0 0;
+    padding: 0 0 0 11px;
+}
+
+.ipe .btn-1 span {
+    padding: 0 9px 0 0;
+    margin: 0 -2px 0 0;
+    background-position: 100% 0;
+}
+
+.ipe .btn-prev,
+.ipe .btn-prev span {
+    float: left;
+    height: 24px;
+    line-height: 24px;
+    font-weight: bold;
+    color: #000;
+    background-image: url(images/themes/blue/bg_btn_prev.png);
+    background-repeat: no-repeat;
+}
+
+.ipe .btn-prev {
+    padding: 0 0 0 25px;
+}
+
+.ipe .btn-prev span {
+    margin: 0 -11px 0 0;
+    padding: 0 11px 0 0;
+    background-position: 100% 0;
+}
+
+.ipe .btn-next,
+.ipe .btn-next span {
+    float: left;
+    height: 24px;
+    line-height: 24px;
+    font-weight: bold;
+    color: #000;
+    background-image: url(images/themes/blue/bg_btn_next.png);
+    background-repeat: no-repeat;
+}
+
+.ipe .btn-next {
+    margin: 0 2px 0 0;
+    padding: 0 0 0 11px;
+}
+
+.ipe .btn-next span {
+    padding: 0 23px 0 0;
+    margin: 0 -2px 0 0;
+    background-position: 100% 0;
+}
+
+.ipe .slippery-2 .btn.right {
+    margin: 0 2px 0 10px;
+}
+
+    /*--------------------- Buttons END ----------------------------*/
+
+    /*--------------------- Select List BEGIN ----------------------*/
+.ipe .select-list.left {
+    margin: 0 30px 0 0;
+}
+
+.ipe .select-list {
+    overflow-y: scroll;
+    zoom: 1;
+    min-width: 220px;
+    height: 320px;
+    border: 1px solid #b2b2b2;
+    border-right-color: #000;
+    border-bottom-color: #000;
+    font-size: 13px;
+    background: #eaeaea;
+}
+
+.ipe .select-list li {
+    display: inline;
+    cursor: pointer;
+}
+
+.ipe .select-list li a {
+    display: block;
+    padding: 2px;
+}
+
+.ipe .select-list li a:hover, .select-list li.act a {
+    text-decoration: none !important;
+    background-color: #9cd3ee;
+}
+
+    /*--------------------- Select List END ------------------------*/
+
+    /*--------------------- Zebra BEGIN ----------------------------*/
+.ipe .zebra th {
+    padding: 5px 10px 4px;
+    color: #00375e;
+    text-align: left;
+    background-image: url(images/themes/blue/bg_zebra_th.png);
+    background-repeat: repeat-x;
+    background-position: 0 -23px;
+    background-color: #f1f2f4;
+}
+
+.ipe .zebra th.act {
+    background-position: 0 0;
+    background-color: #d5e8f9;
+}
+
+.ipe .zebra .stronger td {
+    background-color: #e7edf0;
+}
+
+.ipe .zebra td ul li a {
+    color: #00699e;
+}
+
+.ipe .zebra th,
+.ipe .zebra td {
+    border-right: 1px solid #d5d5d5;
+}
+
+    /*--------------------- Zebra END ------------------------------*/
+
+    /*--------------------- Steps BEGIN ----------------------------*/
+.ipe .steps li span,
+.ipe .steps li span em {
+    float: left;
+    /*background-image: url(images/themes/blue/bg_steps_reporting.png);*/
+}
+
+.ipe .steps li span {
+    height: 30px;
+    padding: 3px 34px 3px 10px;
+    text-decoration: none !important;
+    color: #fff;
+    background-position: 0 -252px;
+    background-repeat: repeat-x;
+    background-color: #004b79;
+}
+
+.ipe .steps li span.act {
+    color: #000;
+    background-position: 0 -216px;
+    background-color: #ff7901;
+    cursor: inherit;
+}
+
+    /*.ipe .steps li span em {
+        position: absolute;
+        top: 0;
+        width: 29px;
+        height: 45px;
+        background-repeat: no-repeat;
+    }*/
+
+.ipe .steps li span em.right-angle {
+    right: 0;
+    background-position: 0 -288px;
+}
+
+.ipe .steps li span.act em.right-angle {
+    background-position: 0 0;
+}
+
+.ipe .steps li span em.left-angle {
+    left: -29px;
+}
+
+.ipe .steps li span.first-step em.left-angle {
+    background-position: 0 -108px;
+}
+
+.ipe .steps li span.first-step.act em.left-angle {
+    background-position: 0 -72px;
+}
+
+.ipe .steps li span em.left-angle {
+    display: none;
+}
+
+.ipe .steps li span.act em.left-angle {
+    display: block;
+    background-position: 0 -415px;
+}
+
+.ipe .steps li span.act em.left-angle {
+    display: block;
+    background-position: 0 -36px;
+}
+
+.ipe .steps li span.last-step em.right-angle {
+    background-position: 0 -180px;
+}
+
+.ipe .steps li span.last-step.act em.right-angle {
+    background-position: 0 -144px;
+}
+
+    /*--------------------- Steps END ------------------------------*/
+
+    /*--------------------- Columns BEGIN --------------------------*/
+.ipe .colums tr th,
+.ipe .colums tr.thead th {
+    height: 25px;
+    text-align: left;
+    vertical-align: middle;
+    background-image: url(images/themes/blue/bg_htitle.png);
+    background-repeat: repeat-x;
+}
+
+.ipe .colums tr th {
+    font-size: 12px;
+    padding: 0 20px;
+    color: #015d9f;
+    background-position: 0 -29px;
+    background-color: #9f9f9f;
+}
+
+.ipe .colums tr th a {
+    font-size: 11px;
+    color: #015d9f;
+}
+
+.ipe .colums tr.thead th {
+    color: #fff;
+    background-position: 0 0;
+    background-color: #015d9f;
+}
+
+.ipe .colums tr.thead th a {
+    color: #fff;
+}
+
+    /*--------------------- Columns END -------------------------*/
+
+    /*--------------------- Plates BEGIN ------------------------*/
+.ipe .plate-1, .plate-1-outer {
+    background-image: url(images/themes/blue/bg_plate1.png);
+    background-repeat: no-repeat;
+}
+
+.ipe .plate-1 {
+    width: 944px;
+    margin: 0 0 20px;
+    padding: 0 0 5px;
+    background-position: -945px 100%;
+}
+
+.ipe .plate-1-outer {
+    padding: 5px 0 0;
+    background-position: 0 0;
+}
+
+.ipe .plate-1-inner {
+    padding: 10px 20px;
+    border-right: 1px solid #dce2e6;
+    border-left: 1px solid #dce2e6;
+    background: #d9e4eb url(images/themes/blue/bg_plate1_inner.png) repeat-x 0 0;
+}
+
+.ipe .plate-1 form {
+    font-size: 11px;
+}
+
+.ipe .plate-1 form select {
+    width: 180px;
+}
+
+.ipe .plate-1 form a {
+    font-weight: bold;
+    color: #ff7300;
+}
+
+    /* .plate-1 */
+
+    /* .plate-2 */
+.ipe .plate-2,
+.ipe .plate-2-outer {
+    background-image: url(images/themes/blue/bg_plate2.png);
+    background-repeat: no-repeat;
+}
+
+.ipe .plate-2 {
+    width: 270px;
+    padding: 0 0 5px;
+    background-position: -271px 100%;
+}
+
+.ipe .plate-2-outer {
+    padding: 5px 0 0;
+    background-position: 0 0;
+}
+
+.ipe .plate-2-inner {
+    padding: 12px 16px;
+    border-right: 1px solid #e6e6e6;
+    border-left: 1px solid #e6e6e6;
+    background: #ebebeb url(images/themes/blue/bg_plate2_inner.png) repeat-x 0 0;
+}
+
+    /* END .plate-2 */
+
+    /* .plate-3 */
+.ipe .plate-3,
+.ipe .plate-3-outer {
+    background-image: url(images/themes/blue/bg_plate3.png);
+    background-repeat: no-repeat;
+}
+
+.ipe .plate-3 {
+    width: 377px;
+    padding: 0 0 5px;
+    overflow: hidden;
+    zoom: 1;
+    background-position: -378px 100%;
+}
+
+.ipe .plate-3-outer {
+    padding: 5px 0 0;
+    background-position: 0 0;
+}
+
+.ipe .plate-3-inner {
+    padding: 12px 16px;
+    border-right: 1px solid #dce2e6;
+    border-left: 1px solid #dce2e6;
+    background: #d8e3eb url(images/themes/blue/bg_plate3_inner.png) repeat-x 0 0;
+}
+
+    /* END .plate-3 */
+
+    /* plate-4 */
+.ipe .plate-4 {
+    width: 269px;
+    padding: 12px 0 0;
+    margin: 0 0 20px;
+    background: #fef7d6 url(images/themes/blue/bg_plate4.png) no-repeat 0 0;
+}
+
+.ipe .plate-4-outer {
+    background: url(images/themes/blue/bg_plate4_outer.png) repeat-y 0 0;
+}
+
+.ipe .plate-4-inner {
+    padding: 0 12px 12px;
+    background: url(images/themes/blue/bg_plate4_inner.png) no-repeat 0 100%;
+}
+
+    /*--------------------- Plates END --------------------------*/
+
+    /*--------------------- Header BEGIN ------------------------*/
+.ipe #header {
+    position: relative;
+    height: 108px;
+    background: url(http://iperesearch.com/Content/images/bg_banner.png) repeat-x 0 0;
+}
+
+.ipe #logo {
+    height: 108px !important;
+    background: url("http://iperesearch.com/Content/images/logo.png") no-repeat scroll 20px 15px transparent !important;
+}
+
+.ipe .f3 input.btn {
+    width: 60px;
+    height: 24px;
+    border: 0;
+    font-weight: bold;
+    background: #ff9a00 url(images/themes/blue/bg_f3_btn.png) no-repeat 0 0;
+}
+
+.ipe .theader .gheader {
+    font-size: 12px;
+    padding: 0 20px;
+    color: #015d9f;
+    background-image: url(images/themes/blue/bg_htitle.png);
+    background-repeat: repeat-x;
+    background-position: 0 -29px;
+    background-color: #9f9f9f;
+    vertical-align: middle;
+}
+
+.ipe .theader .gheader a {
+    font-size: 11px;
+    color: #015d9f;
+}
+
+.ipe .theader .bheader {
+    color: #fff;
+    background-image: url(images/themes/blue/bg_htitle.png);
+    background-repeat: repeat-x;
+    background-position: 0 0;
+    background-color: #015d9f;
+    vertical-align: middle;
+}
+
+.ipe .theader .bheader a {
+    color: #fff;
+}
+
+    /*--------------------- Header END --------------------------*/
+
+    /*--------------------- Report List BEGIN -------------------*/
+.ipe .report-list tr td {
+    padding: 2px 5px;
+    vertical-align: middle;
+    border: 1px solid #9ABAE9;
+
+}
+
+.ipe .report-list .title {
+    color: black;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    background: #ff9a00;
+}
+
+.ipe .report-list .title a {
+    color: black;
+    text-decoration: none;
+}
+
+.ipe .report-list .total {
+    /*font-weight:bold;*/
+    background: #fac743;
+}
+
+.ipe .sub-total {
+    background: #fac743;
+    border-top-color: #9ABAE9;
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-bottom-color: #9ABAE9;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-left: 1px solid #fac743;
+    border-right: 1px solid #fac743;
+}
+
+    /*--------------------- Report List END ---------------------*/
+
+.ipe .order-table .column {
+    border: 1px solid #9ABAE9;
+}
+
+.ipe .order-table .column-title {
+    text-align: center;
+    background: #ff9a00;
+    padding: 2px 5px;
+    border: 1px solid #9ABAE9;
+}
+
+    /* Dialog Box begin style */
+.ipe .gwt-DialogBox .Caption {
+    background: #bbbbbb url(images/themes/blue/bg_htitle.png) repeat-x 0 -28px;
+    padding: 4px 4px 4px 8px;
+    cursor: default;
+    font-weight: bold;
+    border-bottom: 1px solid #015d9f;
+    border-top: 1px solid #015d9f;
+}
+
+.ipe .gwt-DialogBox .dialogContent {
+    background: white;
+}
+
+.ipe .gwt-DialogBox .dialogMiddleCenter {
+    padding: 10px;
+    background: white;
+    height: 100%;
+}
+
+.ipe .gwt-DialogBox .dialogBottomCenter {
+    background: #015d9f; /*height:2px;*/
+}
+
+.ipe .gwt-DialogBox .dialogMiddleLeft {
+    background: #015d9f;
+}
+
+.ipe .gwt-DialogBox .dialogMiddleRight {
+    background: #015d9f;
+}
+
+.ipe .gwt-DialogBox .dialogTopLeft {
+    background: #015d9f;
+}
+
+.ipe .gwt-DialogBox .dialogTopRight {
+    background: #015d9f;
+}
+
+.ipe .gwt-DialogBox .dialogBottomLeft {
+    background: #015d9f;
+}
+
+.ipe .gwt-DialogBox .dialogBottomRight {
+    background: #015d9f;
+}
+
+.ipe .drs-export {
+    color: #004B79;
+    cursor: pointer;
+    text-decoration: underline;
+    vertical-align: middle;
+}
+
+.ipe .drs-loading-panel {
+    color: #004B79;
+    font-weight: bold;
+    position: fixed !important;
+    text-align: center;
+    vertical-align: middle;
+    padding: 5px 10px;
+}
+
+    /* export link style end*/
+
+.ipe .help-menu li a {
+    color: #FFFFFF;
+}
+
+.ipe .logoutLink {
+    color: #FFFFFF;
+    cursor: pointer;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-decoration: underline;
+}
+
+.ipe .noLink {
+    color: #FFFFFF;
+    padding-left: 10px;
+}
+
+.ipe .companyNameStyle {
+    color: #000000;
+    padding-left: 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.ipe .maxLogoHeight {
+    max-height: 53px;
+    height: auto !important;
+    height: 53px;
+}
+
+.ipe .tabularInfo {
+    background: url("/images/themes/blue/tabularInfo.png") no-repeat;
+}
+
+.ipe .summariesInfo {
+    background: url("/images/themes/blue/summariesInfo.png") no-repeat;
+}

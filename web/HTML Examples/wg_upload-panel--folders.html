@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--CSS-->
+    <link rel="stylesheet" href="../WebContent/mainStyles/new-ui/css/materialize.css">
+    <!--JS-->
+    <script src="../WebContent/mainStyles/new-ui/js/jquery.min.js"></script>
+    <script src="../WebContent/mainStyles/new-ui/js/materialize-0.97.5.min.js"></script>
+</head>
+
+<body>
+    <div class="kpi-upload">
+        <div class="kpi-upload__main-content">
+            <div class="kpi-upload__tabs">
+                <div class="kpi-upload__tabs-item kpi-upload__tabs-item">
+                    <i class="ficon--folder-bold mr-2"></i> Upload
+                </div>
+                <div class="kpi-upload__tabs-item kpi-upload__tabs-item--active">
+                    <img src="../WebContent/mainStyles/new-ui/images/new-kpi-logo2.svg?v=2" alt="logo" width="30" >
+                    &nbsp;&nbsp;<span>Storage</span>
+                </div>
+                <div class="kpi-upload__tabs-item ">
+                    <i class="ficon--googledrive" style="font-size:30px; color:#507FF7;"></i>
+                </div>
+                <div class="kpi-upload__tabs-item kpi-upload__tabs-item--locked">
+                    <i class="ficon--office365"></i>
+                </div>
+            </div>
+            <div class="kpi-upload__list">
+                <div class="kpi-upload__list-header">
+                    <div class="searchForm">
+                        <input type="text" maxlength="255" class="gwt-TextBox" placeholder="Search" id="gwt-debug-searchBox">
+                        <em class="searchForm__btn" id="gwt-debug-search_button"></em>
+                    </div>
+                </div>
+                <div class="kpi-upload__checkbox-list">
+                    <div class="kpi-upload__checkbox-item">
+                        <span class="gwt-CheckBox">
+                                                <input type="checkbox" value="on" id="kpi-upload__checkbox-item-1" tabindex="0">
+                                                <label for="kpi-upload__checkbox-item-1">AJ Macken</label>
+                                            </span>
+                    </div>
+                    <div class="kpi-upload__checkbox-item">
+                        <span class="gwt-CheckBox">
+                                                <input type="checkbox" value="on"  id="kpi-upload__checkbox-item-2" tabindex="0">
+                                                <label for="kpi-upload__checkbox-item-2">AK Willis Accountin</label>
+                                            </span>
+                    </div>
+                    <div class="kpi-upload__checkbox-item">
+                        <span class="gwt-CheckBox">
+                                                <input type="checkbox" value="on" id="kpi-upload__checkbox-item-3" tabindex="0">
+                                                <label for="kpi-upload__checkbox-item-3">A.Genser & Associ</label>
+                                            </span>
+                    </div>
+                </div>
+                <div class="kpi-upload__list-more"><span>Load more</span></div>
+            </div>
+        </div>
+        <div class="kpi-upload__side-content">
+            <div class="kpi-upload__side-header">
+                <div class="kpi-upload__content-wrapper">
+                    Folder Name
+                </div>
+            </div>
+            <div class="kpi-upload__folders-wrap">
+                <div class="kpi-upload__folder">
+                    <div data-toggle="collapse" data-target="#kpi-upload__folder-child-1-2" class="collapsed kpi-upload__folder-parent kpi-upload__folder-parent--expanded kpi-upload__folder-depth-1"><span>System Folder</span></div>
+                    <div class="kpi-upload__folder-child collapse" id="kpi-upload__folder-child-1-2">
+                        <div class="kpi-upload__upload-file">
+                            <div class="kpi-upload__folder">
+                                <div data-toggle="collapse" data-target="#kpi-upload__folder-child-1" class="collapsed kpi-upload__folder-parent kpi-upload__folder-parent--expanded kpi-upload__folder-depth-1"><span> Folder depth 2</span></div>
+                                <div class="kpi-upload__folder-child collapse" id="kpi-upload__folder-child-1">
+                                    <div class="kpi-upload__upload-file">
+                                        <div class="kpi-upload__content-wrapper">
+                                            <div class="kpi-upload__upload-file-status">
+                                            </div>
+                                            <div class="kpi-upload__upload-file-row">
+                                                Folder depth-2 item 1
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="kpi-upload__upload-file">
+                                        <div  class="kpi-upload__folder">
+                                            <div data-toggle="collapse" data-target="#kpi-upload__folder-child-abcd" class="collapsed kpi-upload__folder-parent kpi-upload__folder-depth-1"><span>System Folder</span></div>
+                                            <div class="kpi-upload__folder-child collapse" id="kpi-upload__folder-child-abcd">
+                                                <div class="kpi-upload__upload-file">
+                                                    <div class="kpi-upload__content-wrapper">
+                                                        <div class="kpi-upload__upload-file-status">
+                                                        </div>
+                                                        <div class="kpi-upload__upload-file-row"> Folder depth-3</div>
+                                                    </div>
+                                                </div>
+                                                <div class="kpi-upload__upload-file">
+                                                    <div class="kpi-upload__content-wrapper">
+                                                        <div class="kpi-upload__upload-file-status">
+                                                        </div>
+                                                        <div class="kpi-upload__upload-file-row"> Folder depth-3 item 1</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="kpi-upload__upload-file">
+                            <div class="kpi-upload__content-wrapper">
+                                <div class="kpi-upload__upload-file-status">
+                                </div>
+                                <div class="kpi-upload__upload-file-row">Data Stoc</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div  class="kpi-upload__folder">
+                    <div data-toggle="collapse" data-target="#kpi-upload__folder-child-2" class="collapsed kpi-upload__folder-parent kpi-upload__folder-depth-1"><span>System Folder</span></div>
+                    <div class="kpi-upload__folder-child collapse" id="kpi-upload__folder-child-2">
+                        <div class="kpi-upload__upload-file">
+                            <div class="kpi-upload__content-wrapper">
+                                <div class="kpi-upload__upload-file-status">
+                                </div>
+                                <div class="kpi-upload__upload-file-row">West Camp</div>
+                            </div>
+                        </div>
+                        <div class="kpi-upload__upload-file">
+                            <div class="kpi-upload__content-wrapper">
+                                <div class="kpi-upload__upload-file-status">
+                                </div>
+                                <div class="kpi-upload__upload-file-row">Folder</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="kpi-upload__section">
+                <div class="kpi-upload__content-wrapper">
+                    <div class="form-group">
+                        <div class="form-group__content">
+                            <button type="button" class="btn btn--primary"><span>Save</span></button>
+                            <button type="button" class="btn btn--default"><span>Cancel</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:w='urn:import:com.edatasite.workforce.gwt.core.client.ui'
+             xmlns:mw="urn:import:gwt.material.design.client.ui"
+             xmlns:mh="urn:import:gwt.material.design.client.ui.html"
+             xmlns:c="urn:import:com.edatasite.workforce.gwt.core.client.ui.components">
+    <mw:MaterialSideNavContent>
+        <mh:Div ui:field="secondCol">
+            <mw:MaterialSideNavContent>
+                <mh:Div styleName="side-nav__heading" ui:field="secondHeaderContainer">
+                    <mh:Div ui:field="secondHeader">
+
+                    </mh:Div>
+                </mh:Div>
+                <mh:Div ui:field="secondBodyContainer" styleName="side-nav__body">
+                    <mw:MaterialPanel styleName="scroll-offset" ui:field="secondBody">
+
+                    </mw:MaterialPanel>
+                </mh:Div>
+            </mw:MaterialSideNavContent>
+        </mh:Div>
+
+        <mh:Div ui:field="mainCol">
+            <mw:MaterialSideNavContent>
+                <mh:Div styleName="side-nav__heading">
+                    <mh:Div ui:field="contentHeader">
+
+                    </mh:Div>
+                </mh:Div>
+                <mw:MaterialPanel styleName="side-nav__body" ui:field="bodyContainer">
+                    <mw:MaterialPanel styleName="scroll-offset" ui:field="contentBody">
+
+                    </mw:MaterialPanel>
+                </mw:MaterialPanel>
+                <mh:Div styleName="side-nav__footer" ui:field="contentFooter">
+                </mh:Div>
+            </mw:MaterialSideNavContent>
+        </mh:Div>
+    </mw:MaterialSideNavContent>
+</ui:UiBinder>

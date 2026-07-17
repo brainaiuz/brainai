@@ -1,0 +1,813 @@
+// Text inputs
+/*@include text-input-mixin();*/
+  //@extend %form-control-size;
+span.text-input {
+  display: flex;
+  align-items: center;
+}
+
+.x-form-invalid.addFieldSet .input-group //https://prnt.sc/sk5u89
+,.error .simpleGwt-ComboBox .form-control
+,.select2-container.x-form-invalid .select2-selection //https://prnt.sc/ueprs9
+,.x-form-invalid:not(.addFieldSet):not(.select2-container):not(.gwt-CheckBox) {
+  border: $control-border-width solid $danger-color !important;
+} //moved from _mod.scss
+.x-form-invalid.gwt-CheckBox {
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    border-bottom: $control-border-width solid $danger-color !important;
+    .customwidget & {
+      bottom: -5px;
+    }
+  }
+}
+
+input[style*="color:"] {
+  color: $color-form-control !important; // inline style prevent - http://prntscr.com/iqxz3o
+}
+
+.text-input.input--large {
+  height: $button-height-large;
+  line-height: $button-line-height-large;
+}
+
+// Styling for input field wrapper
+.input-field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  label {
+    @extend .form-label; // actually for .quick-add .form-group .input-field label
+    order: -1;
+    cursor: text;
+    margin-bottom: auto; // group-box and input-group select-wrapper fix
+  }
+  // Решение проблемы "призрачного" скролла из-за пустых меток
+  label:empty,
+  .material-label:empty {
+    display: none !important;
+  }
+
+  input,
+  .select-wrapper {
+    order: 1;
+    [class*="col-1"] > & {
+      width: auto; // FireFox min width of the input fix, relevant for small screens (https://prnt.sc/qdfz95)
+    }
+  }
+
+  // Prefix Icons
+
+}
+/* Указываем, что контейнер должен учитывать свои размеры */ // May Lead to the problems -> https://imgur.com/7n3TJqw
+//.input-field {
+//  container-type: inline-size; /* Учитываем ширину контейнера */
+//  container-name: control-container;
+//}
+//
+///* Применяем стили, если ширина контейнера меньше 100px */
+//@container control-container (max-width: 100px) {
+//  .select-wrapper {
+//    font-size: 0.8em;
+//    word-spacing: -0.5px;
+//    letter-spacing: -0.1px;
+//
+//    .select-dropdown {
+//      text-indent: $control-padding-x * 0.8 !important;
+//    }
+//
+//    .caret:before {
+//      font-size: 0.7em;
+//    }
+//  }
+//}
+
+.pseudo-input {
+  @extend %form-control-size;
+  @include form-control-style($borderColor: $control-border-color);
+}
+
+/** Text Inputs **/
+
+textarea {
+  @extend %form-control-style;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  min-height: $input-height; //for add-files Anvarbek request
+  width: 100%;
+  resize: vertical;
+  .textAreaPanel & {
+    width: 100%;
+  }
+}
+.materialize-textarea {
+  max-width: 100%;
+}
+
+
+/** Start Select Field **/
+$rem-fallback: true;
+input[type].select-dropdown {
+  position: relative; //should be above the arrow (caret) button otherwise button this button is not clickable (http://prntscr.com/lwjbu6)
+}
+
+
+// SELECT2
+.caret.disabled,
+.select-wrapper.disabled .caret {
+  opacity: .8;
+  cursor: default;
+}
+
+.custom-select,
+.simpleGwt-ComboBox,
+.select-wrapper {
+  position: relative;
+}
+
+
+.caret {
+  //top: 1px;
+  //bottom: 1px;
+  //right: 1px;
+}
+svg.caret {
+  //top: 0;
+  //bottom: 0;
+  //right: 0;
+  height: 100%; //to fix <svg> version - materialize default
+}
+.select2-selection__arrow, //https://prnt.sc/1q70y4q sales - oportunities - add - холдинг
+.custom-select .caret,
+.simpleGwt-ComboBox .caret,
+.select-wrapper .caret,
+.customControl .caret,
+.customControl .controlClear
+{
+  @include caretPlate(1px, 1px, 1px);
+}
+
+//we need 1px position for the caret which container is wrapped with the bordered .form-control container  //https://i.imgur.com/gyPPnMv.png
+// and 0px position for the caret which container is not wrapped with the bordered .form-control container //https://i.imgur.com/JF0vINu.png
+.form-control .caret {
+  top: 0;
+  bottom: 0;
+  right: 0;
+}
+.select2-selection__arrow b,
+.custom-select .caret,
+.simpleGwt-ComboBox .caret,
+.select-wrapper .caret {
+  @include caretSign();
+}
+
+.advanced-GridPanel .data-cell .simpleGwt-ComboBox .caret { // may be connected to this https://prnt.sc/sd2eox
+  top: 1px;
+  bottom: 1px;
+  //right: - ($control-padding-x * .9);
+  @include border-right-radius($radius-base);
+}
+
+.select2-container--disabled .select2-selection__arrow b:after {
+  display: none;
+}
+
+.simpleGwt-ComboBox {
+  display: block !important; // to override inline style "display: inline"
+  //.gwt-SuggestBox
+  .form-control {
+    //width: 100%; unnecessary duplicate
+    padding-right: $dropdown-caret-width;
+    @include txtTruncate();
+    &[style*="width"] {
+      width: 100% !important; //https://prnt.sc/s2nqta
+    }
+  }
+  .caret {
+    &:before {
+      margin-left: 5px;
+      //@extend .ficon--keyboard-arrow-down;
+    }
+  }
+  .ficon--cancel {
+    @include border-right-radius($radius-base);
+  }
+}
+
+//Arrow Down style
+.select2-selection__arrow b,
+.custom-select .caret,
+.select-wrapper .caret, .customControl .caret {
+  &:before {
+    @extend .ficon--keyboard-arrow-down;
+    font-size: 1.8rem;
+    color: $control-caret-color;
+  }
+}
+
+.select-wrapper {
+
+  select {
+    display: none;
+  }
+  select.browser-default {
+    display: block;
+  }
+
+  // Disabled styles
+  > .dropdown-content {
+    &:not(.select-dropdown) {
+      > li > * {
+         // to make text the same with input
+      }
+    }
+    > li > * {
+      padding-left: $control-padding-x !important;
+      padding-right: $control-padding-x !important;
+      letter-spacing: .5px;
+    }
+  }
+}
+
+.select2-container--default.select2-container--disabled .select2-selection--single,
+.select2-container--default.select2-container--disabled .select2-selection--single .select2-selection__arrow b, // added for cursor fix
+.select-wrapper input.select-dropdown:disabled {
+  @include form-control-disabled;
+
+}
+
+.select-wrapper i {
+  color: rgba(0, 0, 0, .3);
+}
+
+.select-dropdown li.disabled,
+.select-dropdown li.disabled > span,
+.select-dropdown li.optgroup {
+  @include form-control-disabled;
+}
+
+.select-dropdown li.optgroup {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/****************
+  End Select Field
+*****************/
+
+/************************
+   Text Inputs + Textarea
+*************************/
+select {
+  background: #fff url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAGCAYAAAGwZV42AAAAAXNSR0IArs4c6QAAAIpJREFUKBVjYMALgtPK/+NVQFgyJK38IUhVcFrFA8KqiVTBGJpWHsXOwLwfpP4H0z+nNTM6luLVG5JePg/ohN14FQElGUMzK+3///23hpGRyX71zPZrMA2h6ZVa////P8DAxBAGtO0ATJxYmhGmMCS9opLh//8woIDDf0bG/UD2mjWzOttg8oOGBgBeICwSAz7qXQAAAABJRU5ErkJggg==) no-repeat 100% 50%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  box-sizing: border-box;
+  padding-right: rem(30px);
+  padding-left: $control-padding-x;
+  height: $input-height;
+  width: 100%;
+  border-color: $control-border-color;
+
+  .select-wrapper & {
+    height: 100%;
+  }
+
+  & ::-ms-expand {
+    display: none;
+  }
+
+  &:focus {
+    border-color: $control-border-color-hover;
+  }
+
+  &:hover,
+  &:focus {
+    outline: none !important;
+  }
+
+  option {
+    //padding: 5px 10px;
+
+    &:hover,
+    &:focus,
+    &:checked {
+      //background: $dropdown-border-color;
+      color: $color-accent-1;
+    }
+  }
+
+  &[readonly="readonly"] {
+    @include form-control-readonly;
+  }
+  &:disabled {
+    @include form-control-disabled;
+  }
+  &[multiple] {
+    background-image: none;
+  }
+}
+
+.custom-select {
+  @extend %form-control-style;
+  display: inline-block;
+
+  select {
+    position: relative;
+    z-index: 1;
+    @extend %form-control-size;
+    white-space: nowrap;
+    background-color: transparent;
+    border: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+
+  .caret {
+    z-index: 0;
+  }
+}
+
+.material-label {
+  &:not(.wg_canban__oportunity-total):not(.txt-elem--ellipsis) {
+    &:last-child {
+      //position: absolute; // DON't use it //http://prntscr.com/mteasl
+    }
+  }
+}
+
+.input-two-digit {
+  width: 36px;
+  max-width: 36px;
+}
+/***************************
+   GWT FORM ELEMENTS
+****************************/
+.form-group {
+  margin-bottom: $formGroupMargin;
+  .form-compressed & {
+    margin-bottom: ($formGroupMargin * .75);
+  }
+  .quick-add & {
+    margin-bottom: 20px;
+  }
+  .single-formGroup & {
+    margin-bottom: 0;
+  }
+}
+.form-group__label {
+  span + .gwt-CheckBox {
+    margin-left: 5px;
+  }
+}
+.form-group__content {
+  min-height: $button-height;
+
+  #labelLEAVE_FOR_PERIOD + & {
+    min-height: unset;
+  }
+
+  label + label {
+    margin-left: 10px;
+  }
+
+  > table:not(.dynamictable):not(.table-info) > tbody > tr > td {
+    //(sometimes .form-control wrapped with table) https://prnt.sc/qzc92z
+    + td > .form-control {
+      &:first-child {
+        margin-left: 3px; //https://prnt.sc/qzb8mi
+      }
+      &[style*="width: 100%"],
+      &:not([style*="width"]) {
+        width: calc(100% - 3px) !important;
+      }
+    }
+  }
+  > .input-field > .material-label {
+    &[style*="margin"] { //https://prnt.sc/r0ohnx ! select2  + span > .material-label
+      margin: 0 !important;
+    }
+  }
+
+  &[class*="align-items-"] {
+    display: flex; //https://prnt.sc/rdp3my
+  }
+}
+
+.form-group__content table[style*='display: inline'] {
+  display: table !important;
+}
+
+//https://i.imgur.com/nHTxrzu.png
+.gwt-HTML, .form-group__label {
+  + .form-group__content {
+    table.textAreaPanel table.counterGreen .counterLabel {
+      margin-top: -17px;
+    }
+  }
+}
+
+
+.gwt-SuggestBox {
+  .simpleGwt-ComboBox & {
+    //padding-right: 35px !important;
+  }
+  .simpleGwt-ComboBox.simpleGwt-ComboBox--w-reset & {
+    padding-right: 54px !important;
+  }
+}
+
+.simpleGwt-ComboBox .gwt-SuggestBox + .caret,
+.customControl.customControl--search .caret {
+  &:before {
+    @extend .ficon--search;
+    font-size: 1.3rem;
+  }
+}
+.simpleGwt-ComboBox {
+  input {
+    //@extend input[type].select-dropdown; // is exist above
+
+    &:focus {
+      //background-color: #fff; //force to hide borders http://prntscr.com/llj5wd
+    }
+
+    .gwt-SuggestBox {
+      @include border-right-radius(0); // listing edit-cell issue
+    }
+
+    .operPanel & {
+      display: block !important;
+      //width: auto !important;
+      max-width: 180px;
+      color: $color-form-control !important;
+    }
+  }
+  .operPanel & {
+    max-width: 180px;
+  }
+
+  .operPanel &.mod--longer input {
+    max-width: none;
+  }
+
+  &.mod--longer {
+    width: 280px;
+  }
+
+
+  &.is-loading {
+    .gwt-SuggestBox + .caret {
+      &:before {
+        height: 100%;
+        width: 100%;
+        //margin: -20px 0 0 -10px;
+        content: '';
+        background: url('/mainStyles/new-ui/images/spinner.svg') 50% 50%;
+      }
+    }
+  }
+  .operPanel & {
+    float: none !important;
+    margin: 0 !important;
+  }
+  .operPanel__actions > * + & {
+    margin-left: $operPanelElsMargin-x !important; // backend custom forms fix https://prnt.sc/s9peuz
+
+  }
+}
+
+.simpleGwt-ComboBox.mod--search:not(.is-loading) .gwt-SuggestBox + .caret:before { //Evgeniy added
+  //@extend .ficon--search;
+  //margin-left: 2px;
+}
+
+.suggestPopupContent > [role="menubar"] > table .item:hover,
+.operPanel__btn:hover {
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -5px;
+  margin-left: -5px;
+
+  > .col,
+  > [class*="col-"] {
+    padding-right: 5px;
+    padding-left: 5px;
+  }
+}
+
+//T3263
+.timer__body .simpleGwt-ComboBox .caret {
+  width: 35px;
+}
+
+.timer__body .simpleGwt-ComboBox .caret:before {
+  font-size: 1rem;
+}
+.input-group .input-field {
+  height: $input-height;
+  line-height: $input-btn-line-height;
+
+  .select2-selection {
+    height: $input-height - rem(2px); //https://prnt.sc/r33xc5
+    line-height: $input-height - rem(2px); //https://prnt.sc/r33xc5
+  }
+}
+.datePicker-cell:not(.form-control),
+.form-control-sm { //https://prnt.sc/scix0y
+  width: 100%; //https://prnt.sc/shwuze
+  border-radius: $control-border-radius;
+  border: $control-border-width solid $control-border-color;
+  height: $input-height-sm;
+  line-height: $input-btn-line-height;
+  padding: $input-btn-padding-y-sm $input-btn-padding-x-sm;
+  font-size: $font-size-sm;
+}
+
+.gwt-PasswordTextBox,
+.form-control {
+  text-decoration: none;
+  font-style: normal;
+  background-color: #fff;
+  background-image: none;
+  background-clip: padding-box;
+  @include form-control-size();
+  color: $color-form-control;
+
+  .caret {
+    color: $contol-placeholder-color;
+    fill: $contol-placeholder-color;
+  }
+  svg.caret {
+    color: transparent;
+  }
+  &.control-link {
+    color: $link-color;
+    .caret {
+      color: lighten($link-color, 40%);
+      fill: lighten($link-color, 40%);
+    }
+  }
+
+  &:where(:not(table), :not(.control-inline)) {
+    display: block;
+  }
+  &.control-inline {
+    display: inline-block;
+  }
+  &:where(:not(.control-link)) {
+    border: $control-border-width solid $control-border-color;
+  }
+  .state-off & {
+    opacity: .6;
+  }
+  [class*="col-"] > & {
+    width: 100%;
+  }
+
+  input[type="text"] {
+    height: $input-height - ($control-border-width * 2);
+  }
+
+  &,
+  .select-dropdown,
+  .gwt-SuggestBox,
+  .select2.select2-container--default .select2-selection--multiple,
+  .select2.select2-container--default .select2-selection--single,
+  .select2.select2-container--default.select2-container--focus .select2-selection--multiple {
+    border-radius: $control-border-radius;
+    font-size: $control-font-size;
+    //color: inherit;
+    padding: $button-padding-y $control-padding-x;
+    text-overflow: ellipsis;
+
+    &:focus {
+      outline: none;
+    }
+  }
+  &--parent {
+    padding: 0;
+    border-radius: 0;
+  }
+
+  & .select-wrapper.gwt-ListBox,
+  & .select-dropdown,
+  & .gwt-SuggestBox {
+    border: none;
+    margin-top: 0;
+    margin-bottom: 0;
+    width: 100%;
+    min-height:  100%;
+    outline: none;
+    //line-height: $input-btn-line-height;
+  }
+  & .select-dropdown,
+  & .gwt-ListBox {
+      //the width of this input affect to the width of the ul.dropdown-content
+  }
+  & input.select-dropdown {
+    text-indent: $control-padding-x;
+  }
+  //& .caret + input[type="text"],
+  & .select-dropdown { // the ul.dropdown-content takes its widht from this input, and paddings also affect to it width!
+    padding-right: 0;
+    padding-left: 0;
+
+    html[dir="rtl"] & {
+      padding-right: $control-padding-x;
+      padding-left: $dropdown-caret-width;
+    }
+    > li {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  //&.listBox-small,
+  //&.listBox-cat,
+  &.simpleGwt-ComboBox,
+  &.listbox-wrapper {
+    padding: 0;
+  }
+  &.simpleGwt-ComboBox {
+    padding-left: $control-padding-x;
+
+    .gwt-SuggestBox,
+    .form-control {
+      //margin-left: -$control-padding-x; removed due to the next issue: http://prntscr.com/ni0g6g
+      margin-right: -$control-padding-x;
+    }
+  }
+  &.simpleGwt-ComboBox {
+    input.gwt-SuggestBox {
+      padding-right: $dropdown-caret-width;
+    }
+  }
+
+  input {
+    background-color: transparent; // prevent input bg overlap parent container with borders - http://prntscr.com/lg681p
+  }
+
+  > .form-control {
+    padding: 0;
+    border: 0 !important;
+  }
+  &.timepicker__show,
+  &:focus {
+    border-color: $control-border-color-hover;
+  }
+
+  .filter_panel_flex &,
+  .searchForm &,
+  .widget-finder-search &,
+  .quick-add &,
+  //.form-group__content &,  unnecessary duplicate
+  .col-12 > .form-group > &
+   {
+    width: 100%; //used only for this upload
+  }
+  .group-box__item-content & {
+    height: $control-height-noBorder;
+    line-height: $input-btn-line-height - $control-border-width * 2;
+    border: none;
+  }
+
+  &--light, &--light .form-control {
+    border-color: transparent;
+    height: ($input-height * .75);
+    line-height: ($input-btn-line-height * .75);
+    input[type="text"] {
+      height: 100%;
+    }
+
+    .select-wrapper {
+      height: 100% !important;
+    }
+  }
+}
+input.form-control {
+  width: 100%; //ToDo check row:672
+}
+.form-control.disabled,
+.form-control[disabled] {
+    @include form-control-disabled;// see also add-form-page.scss:81
+  //pointer-events: none; //https://prnt.sc/vcga9s
+  caret-color: transparent;
+  }
+
+input.input-datepicker {
+  //min-width: 91px;
+  width: 15ch;
+  //max-width: 100px;
+}
+input.input-amount {
+  //min-width: 80px;
+  width: 12ch;
+  //max-width: 100px;
+  text-align: right;
+}
+
+
+// CURRENCY long value, //listbox-wrapper
+div.form-control:not(.input-field):not(.form-control--parent) {
+  @include txtTruncate();
+
+  &:focus,
+  &:hover {
+    position: relative;
+    z-index: 999;
+    overflow: visible;
+    white-space: normal;
+    text-shadow: -5px -5px 10px #fff,
+    -4px -4px 10px #fff,
+    -3px -3px 10px #fff,
+    -2px -2px 10px #fff,
+    -1px -1px 10px #fff,
+    0 0 10px #fff,
+    1px 1px 10px #fff,
+    2px 2px 10px #fff,
+    3px 3px 10px #fff,
+    4px 4px 10px #fff,
+    5px 5px 10px #fff,
+  }
+}
+
+.form-control--lg {
+  //height: $input-height-lg;
+  //line-height: $input-btn-line-height;
+}
+
+textarea.form-control {
+  height: auto;
+}
+
+.cellSpace-x > tbody > tr > td:not(.empty-cell) + td { //e.g PM > Add Task > Requring //https://prnt.sc/ru8zdl
+  padding-left: 10px;
+}
+
+
+//https://prnt.sc/r5n8gz Modal
+table[class^="fromToRow--"] {
+  width: auto;
+  margin-bottom: 10px;
+  .gwt-HTML {
+    display: inline-block;
+    padding: 0 10px 0 5px;
+  }
+  &.fromToRow--cost {
+    td:nth-child(2) {
+      width: 120px;
+    }
+  }
+  &.fromToRow--creation {
+    td:nth-child(3) {
+      width: 120px;
+    }
+  }
+}
+
+.formLine-table {
+  table-layout: auto;
+  &__act {
+    width: 1px;
+    padding-left: $padding-y-base;
+  }
+}
+
+.disabledDataPicker {
+  border-radius: 0;
+}
+
+
+//CusromForm MaterialRichEditor
+.txtRichEditor {
+  .gwt-Label {}
+
+  &__labelWrapper {
+    .btn-small {
+      white-space: nowrap;
+    }
+  }
+
+  &__labelLeft {
+    .gwt-Label {
+      @include form-label();
+    }
+  }
+  &__labelRight {
+    td[align="left"] {
+      text-align: right !important;
+    }
+  }
+}

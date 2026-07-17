@@ -1,0 +1,19 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head><body><p><b><center>NOTIFICATIE</center></b></p><br />
+<p>
+    HOST: $HOST
+</p>
+<p>$companyName heeft zich aangemeld voor $productName van $mobileDevice op $TIME<br />
+    Bijgevoegde bedrijfsinformatie: </a><br /></p>
+
+<p>Bedrijfsnaam: $companyName<br />
+    Land: $user.company.countryZone.country.name<br/>
+    IP-adres:$remoteAddr<br/>
+    Beheerder: $user.firstName $user.lastName<br/>Gebruikersnaam: $user.getUserName() </p>
+Telefoon: $user.company.phone<br/>
+
+<p>Met vriendelijke groet, <br />
+    $productName Support Team</p>
+
+</body></html>

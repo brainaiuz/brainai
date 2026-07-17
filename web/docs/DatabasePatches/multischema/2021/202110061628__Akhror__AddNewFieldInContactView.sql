@@ -1,0 +1,3 @@
+insert into "anv".modelfield(columntype, field_id, forder, form_id, fsection,section,type, widget, hide) values ('COL_1', 'TELEGRAM', 2, 'CONTACT_FORM', 'CONTACT_INFORMATION', 'CONTACT_INFORMATION', 'text', 'MULTITABLE', true),
+                                                                                                                ('COL_1', 'TELEGRAM', 2, 'CANDIDATE_FORM', 'CONTACT_INFORMATION', 'CONTACT_INFORMATION', 'text', 'MULTITABLE', true),
+                                                                                                                ('COL_1', 'TELEGRAM', 2, 'LEAD_FORM', 'LEAD_INFORMATION', 'CONTACT_INFORMATION', 'text', 'MULTITABLE', true);

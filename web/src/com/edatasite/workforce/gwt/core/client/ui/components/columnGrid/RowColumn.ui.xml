@@ -1,0 +1,9 @@
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:gb="urn:import:com.edatasite.workforce.gwt.core.client.ui.components"
+             xmlns:m="urn:import:gwt.material.design.client.ui"
+             xmlns:mh="urn:import:gwt.material.design.client.ui.html">
+    <m:MaterialPanel styleName="column">
+        <mh:Heading size="H5" styleName="custom-form-item__dt file--RowCulumn" ui:field="label"></mh:Heading>
+        <mh:Div  styleName="field" ui:field="component"></mh:Div>
+    </m:MaterialPanel>
+</ui:UiBinder>

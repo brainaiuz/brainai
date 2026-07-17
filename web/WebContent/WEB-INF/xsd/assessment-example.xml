@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<a:assessment xmlns:a="assessment-1.0.xsd">
+    <a:evaluator>Lochin Shodiev</a:evaluator>
+    <a:employee>Iskandar Zaynutdinov</a:employee>
+    <a:date>2007-07-29</a:date>
+    <a:overall>6</a:overall>
+    <a:skill-rating>
+        <a:skill>JSF (Java Server Faces)</a:skill>
+        <a:rating>7</a:rating>
+        <a:comments>
+            <a:comment>
+                <a:author>Iskandar Zaynutdinov</a:author>
+                <a:date>2007-07-21</a:date>
+                <a:content>I am very good in faces</a:content>
+            </a:comment>
+            <a:comment>
+                <a:author>Lochin Shodiev</a:author>
+                <a:date>2007-07-21</a:date>
+                <a:content>You are not so good in faces as you think</a:content>
+            </a:comment>
+        </a:comments>
+    </a:skill-rating>
+</a:assessment>

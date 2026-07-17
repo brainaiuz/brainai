@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transational.dtd">
+<html xmlns="http://w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<p><I>Дорогой $USER_NAME,</I><br/></p>
+
+<p>Вы дали запрос на импорт $IMPORT_NAME к <b>$productName</b> в $IMPORT_DATE <br>
+    Это сообщение было отправлено для подтверждения того что мы успешно импортировали Ваш $IMPORT_NAME с Вашего CSV файла и ниже приведены результаты: <br>
+    Запрошен импорт: $IMPORT_FILE_SIZE $IMPORT_NAME <br>
+    Импортирован: $IMPORTED_FILE_SIZE $IMPORT_NAME <br>
+    <!--if {-->
+    #if ($IMPORT_FILES)
+        Добавление в существующий $IMPORT_NAME: $CLIENT_CONTACT_SIZE ClientContacts <br>
+    #end
+    <!--}-->
+    Ignored: $IMPORT_FILE_IGNORED (из-за дупликатов или пустых данных) <br>
+</p>
+
+<p>Если у Вас есть какие-либо вопросы пожалуйста свяжитесь с нами: $support </p>
+
+<p><I>Искренне Ваш,</I></p>
+
+<p><I>
+    Отдел обслуживания клиентов, <br/>
+    Команда поддержки $productName <br/>
+</I>
+</p>
+$companyInfo
+</body>
+</html>

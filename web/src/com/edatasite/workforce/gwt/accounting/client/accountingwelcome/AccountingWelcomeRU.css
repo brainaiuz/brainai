@@ -1,0 +1,235 @@
+/* welcome page style*/
+.welcomeMain {
+    margin-left: 10px;
+    width: 850px;
+    height: 130px;
+}
+
+.mainTable {
+    padding: 10px;
+}
+
+.topTableStyle {
+    height: 124px;
+    margin: 7px 15px 0 10px;
+}
+
+.top-l {
+    background: url(accounting/images/welcome/left-bcg.jpg) no-repeat;
+    width: 6px;
+}
+
+.top-c {
+    background: url(accounting/images/welcome/bcg.jpg) repeat-x;
+}
+
+.top-r {
+    background: url(accounting/images/welcome/right-bcg.jpg) no-repeat;
+    width: 6px;
+}
+
+.topCenter {
+    margin-left: 5px;
+    padding: 0 0 8px 0;
+}
+
+.welcomeTitle {
+    color: #1F4F8F;
+    /*font-family: tahoma, verdana, helvetica;*/
+    font-size: 12px;
+}
+
+.topText {
+    /*font-family: tahoma, verdana, helvetica;*/
+    font-size: 12px;
+}
+    /* START general styles */
+.guideCover {
+    position:relative;
+    padding:10px;
+    font-size:12px;
+    /*font-family:Arial;*/
+    color:#1f4f8f;
+}
+.prodLink {
+    position:absolute;
+    font-weight:bold;
+    color:#1f4f8f;
+    text-decoration:none;
+    text-align:center;
+    text-shadow:0 1px 0 rgba(255, 255, 255, 0.5);
+    max-width: 106px;
+}
+.noProdLink {
+    position:absolute;
+    color:#1f4f8f;
+    text-decoration:none;
+    text-align:center;
+    text-shadow:0 1px 0 rgba(255, 255, 255, 0.5);
+    max-width: 106px;
+}
+.prodLink a {
+    text-decoration:none !important;
+}
+.prodLink:hover {
+    text-decoration:underline;
+}
+    /* END general styles */
+
+.accountingCover {
+    height: 406px;
+    width: 1011px;
+    background: url(accounting/images/welcome/bg_accounting_cover.png) no-repeat 0 0;
+
+}
+
+.accountingLink-1 {
+    left: 44px;
+    top: 71px;
+}
+
+.accountingLink-2 {
+    left: 16px;
+    top: 270px;
+}
+
+.accountingLink-3 {
+    left:30px;
+    top: 386px;
+}
+
+.accountingLink-4 {
+    left: 197px;
+    top: 18px;
+}
+
+.accountingLink-5 {
+    left: 200px;
+    top: 221px;
+}
+
+.accountingLink-6 {
+    left: 205px;
+    top: 336px;
+}
+
+.accountingLink-7 {
+    left: 342px;
+    top: 14px;
+}
+
+.accountingLink-8 {
+    left:304px;
+    top: 151px;
+}
+
+.accountingLink-9 {
+    left: 370px;
+    top: 228px;
+}
+
+.accountingLink-10 {
+    left: 379px;
+    top: 344px;
+}
+
+.accountingLink-11 {
+    left: 496px;
+    top: 61px;
+}
+
+.accountingLink-12 {
+    left:537px;
+    top: 228px;
+}
+
+.accountingLink-13 {
+    right:268px;
+    top: 63px;
+}
+
+.accountingLink-14 {
+    right: 112px;
+    top: 69px;
+}
+
+.accountingLink-15 {
+    right: 375px;
+    top: 351px;
+}
+
+.accountingLink-16 {
+    right: 254px;
+    top: 362px;
+}
+
+.accountingLink-17 {
+    right: 157px;
+    top: 362px;
+}
+
+.accountingLink-18 {
+    right: 19px;
+    top: 362px;
+}
+
+/*  Wfm Blue Button for accounting welcome page*/
+.wfm-blue-button, .wfm-blue-button button {
+    overflow: hidden;
+    height: 32px;
+    color: #204D89;
+    font-weight: bold;
+    font-size: 11px;
+    color: #1f4f8f;
+    /*font-family: tahoma, verdana, helvetica;*/
+
+    background-image: url(accounting/images/welcome/btn_blue.png);
+    background-repeat: no-repeat;
+}
+
+.wfm-blue-button {
+    float: left;
+    clear: both;
+    padding: 0 0 0 5px;
+    margin-right: 10px;
+    background-position: 0 0;
+}
+
+.wfm-blue-button.active, .wfm-blue-button:active,
+.wfm-blue-button:hover, .wfm-blue-button.hover {
+    background-position: 0 -34px;
+}
+
+.wfm-blue-button.disabled, .wfm-blue-button.disabled button {
+    background: #ccc;
+    color: #888;
+}
+
+.wfm-blue-button button {
+    /*//width:0;   overflow:visible;    */
+    padding: 8px 5px 8px 0;
+    border: none !important;
+    background-color: lightblue;
+    background-position: 100% 0;
+    cursor: pointer;
+}
+
+html  > body .wfm-blue-button button {
+    margin-right: 0;
+    padding-right: 6px; /*for Safari*/
+}
+
+.wfm-blue-button button:focus {
+    outline: 0;
+}
+
+.wfm-blue-button.active button, .wfm-blue-button:active button,
+.wfm-blue-button:hover button, .wfm-blue-button.hover button {
+    background-position: 100% -34px;
+}
+
+.wfm-blue-button.active button, .wfm-blue-button:active button {
+    color: green;
+}
+
+/* End of wfm-blue-button*/

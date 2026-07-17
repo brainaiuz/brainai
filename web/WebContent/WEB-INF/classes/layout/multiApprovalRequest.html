@@ -1,0 +1,48 @@
+<div class="contentBar" style="padding:0 10px;margin-top:2px;">
+
+    <ul class="collapsible--panels collapsible--arrows-left collapsible collapsible--gwt required"
+        data-collapsible="expandable">
+        <li class="slideDown-box group active">
+            <div class="collapsible-header active"
+                 onclick="var myclick=this.parentElement;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls; } var myclick=this;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls; }">
+                <a style="cursor: pointer;"><span>$$label:DETAILS$$</span></a>
+            </div>
+            <div class="collapsible-body">
+                <div class="grid-row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:DATE_PERIOD$$</div>
+                            <div class="form-group__content">$$input:DATE_PERIOD$$</div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:DEPARTMENT$$</div>
+                            <div class="form-group__content">$$input:DEPARTMENT$$</div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:VIEW_RESULT_BUTTON$$</div>
+                            <div class="form-group__content">$$input:VIEW_RESULT_BUTTON$$</div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:DATE_FIELD$$</div>
+                            <div class="form-group__content">$$input:DATE_FIELD$$</div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:EMPLOYEE$$</div>
+                            <div class="form-group__content">$$input:EMPLOYEE$$</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <div class="form-group__content">$$input:RESULT_PANEL$$</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </li>
+    </ul>
+</div>

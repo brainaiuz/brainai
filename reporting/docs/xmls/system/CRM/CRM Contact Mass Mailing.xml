@@ -1,0 +1,64 @@
+<report>
+    <view>
+        <title>CRM Contact/Mass Mailing</title>
+        <name>crmcontactsmassmailing</name>
+        <category>crmmassmailing</category>
+        <sqlquery>
+            <select agregateFunc="distinct">
+                <table name="CRM Contact">
+                    <column name="t.fullname" title="Full Name" type="string" formattype="string"/>
+                    <column name="t.department" title="Department" type="string" formattype="string"/>
+                    <column name="t.companyname" title="Company Name" type="string" formattype="string"/>
+                    <column name="t.accounttype" title="Account Type" type="string" formattype="string"/>
+                    <column name="t.email" title="Email" type="string" formattype="string"/>
+                    <column name="t.phone" title="Phone" type="string" formattype="string"/>
+                    <column name="t.assignee" title="Assignee" type="string" formattype="string"/>
+                </table>
+                <table name="Mass Mailing">
+                    <column name="t.campaignname" title="Campaign" type="string" formattype="string"/>
+                    <column name="t.subject" title="Subject" type="string" formattype="string"/>
+                    <column name="t.sentdate" title="Sent Date" type="date" formattype="date"/>
+                    <column name="t.openedcount" title="Opened Count" type="number" formattype="string"/>
+                    <column name="t.bounced" title="Bounced" type="string" formattype="string"/>
+                    <column name="t.unsubscribed" title="Unsubscribed" type="string" formattype="string"/>
+                </table>
+            </select>
+            <from>
+                (SELECT l.id,
+                l.firstname || ' ' || l.lastname as fullname,
+                l.department as department ,
+                a.name AS companyname,
+                atr.name AS accounttype,
+                campaign.name as campaignname,
+                l.primaryEmail as email,
+                l.primaryPhone as phone,
+                mu.firstname || ' ' || mu.lastname AS assignee,
+                mm.subject as subject,
+                mm.lastUpdateTime as sentdate,
+                mt.openedCount as openedcount,
+                (CASE WHEN lsmsstatus.code='ONBOUNCE' THEN true ELSE false END) AS bounced,
+                (CASE WHEN lml.deleted=true THEN true ELSE false END) AS unsubscribed
+
+                FROM "$".leadsendmessagestatus lsms
+                LEFT JOIN "$".crmContact l ON lsms.entity_id = l.id
+                INNER JOIN "$".reference lsmsstatus ON lsms.statusid = lsmsstatus.id
+                LEFT JOIN "$".crmAccount a ON l.crmAccount = a.id
+                left join "$".crmaccount_types typeIDs on typeIDs.crmaccount_id = a.id
+                LEFT JOIN "$".reference atr ON typeIDs.type_id= atr.id
+                LEFT JOIN "$".myUser mu ON l.assignee = mu.id
+                INNER JOIN "$".mailmessage mm ON lsms.messageid = mm.id
+                LEFT JOIN "$".messagetrack mt ON mm.id=mt.messageid AND mt.entity_id = l.id
+                LEFT JOIN "$".leadmaillist lml ON lml.entity_id = l.id
+                INNER JOIN "$".campaign campaign ON mm.campaignid = campaign.id
+                WHERE mm.status =
+                (
+                select r.id from "$".reference r INNER JOIN "$".reference rp ON rp.id=r.parentid where
+                rp.code='_MESSAGE_STATUSES' and r.code='SENT'
+                )) t
+            </from>
+            <where>
+                <terms id="base" value="1=1"/>
+            </where>
+        </sqlquery>
+    </view>
+</report>

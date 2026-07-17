@@ -1,0 +1,729 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+        default-lazy-init="true"
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:annotation-config/>
+    <context:component-scan base-package="com.edatasite.workforce.core.config.datasource"/>
+
+    <bean name="groupGoalsListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.GroupGoalsListExcelHandler">
+    </bean>
+
+    <bean name="chartOfAccountListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.ChartOfAccountListExcelHandler">
+    </bean>
+
+    <bean name="crmContactListCSVHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.csv.CrmContactListCSVHandler"/>
+
+    <bean name="courseUserCSVHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.csv.CourseUserCSVHandler"/>
+
+    <bean name="timesheetCSVHandler" class="com.edatasite.workforce.gwt.core.server.servlets.csv.TimesheetCSVHandler"/>
+
+    <bean name="journalReportCSVHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.csv.JournalReportCSVHandler"/>
+
+    <bean name="backendChartHandler" class="com.edatasite.workforce.gwt.core.server.commons.BackendChartHandler"/>
+
+    <bean name="projectListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.ProjectListExcelHandler">
+    </bean>
+    <bean name="brigadaListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.BrigadaListExcelHandler">
+    </bean>
+
+    <bean name="projectBudgetSheetExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.ProjectBudgetSheetExcelHandler">
+    </bean>
+
+    <bean name="projectBudgetExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.ProjectBudgetExcelHandler">
+    </bean>
+
+    <bean name="downloadResourceUtilizationExcel"
+          class="com.edatasite.workforce.gwt.core.server.commons.ResourceUtilizationExcelHandler">
+    </bean>
+
+    <bean name="taskListExcelHandler" class="com.edatasite.workforce.gwt.core.server.commons.TaskListExcelHandler">
+    </bean>
+
+    <bean name="asteriskEmployeeListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.AsteriskEmployeeListExcelHandler">
+    </bean>
+
+    <bean name="timesheetApprovalListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.TimesheetApprovalListExcelHandler">
+    </bean>
+
+    <bean name="monthlyTimesheetViewExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.MonthlyTimesheetViewExcelHandler">
+    </bean>
+
+    <bean name="clientListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.ClientListExcelHandler">
+    </bean>
+
+    <bean name="employeeListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.EmployeeListExcelHandler">
+        <property name="excelReferenceMessageSource" ref="allReferenceWfmMessageSource"/>
+    </bean>
+
+    <bean name="groupPayrunListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.GroupPayrunListExcelHandler">
+    </bean>
+
+    <bean name="productCategoryListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.ProductCategoryListExcelHandler"/>
+
+    <bean name="departmentListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.DepartmentListExcelHandler">
+        <property name="excelReferenceMessageSource" ref="allReferenceWfmMessageSource"/>
+    </bean>
+
+    <bean name="issueListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.IssueListExcelHandler">
+        <property name="excelReferenceMessageSource" ref="allReferenceWfmMessageSource"/>
+    </bean>
+
+    <bean name="noteListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.NoteListExcelHandler">
+        <property name="excelReferenceMessageSource" ref="allReferenceWfmMessageSource"/>
+    </bean>
+
+    <bean name="notesExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.NotesExcelHandler">
+        <property name="excelReferenceMessageSource" ref="allReferenceWfmMessageSource"/>
+    </bean>
+
+    <bean name="timeSlotListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.TimeSlotListExcelHandler"/>
+
+    <bean name="publicHolidaysExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.HolidaysExcelHandler"/>
+
+    <bean name="bugListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.BugListExcelHandler"/>
+
+    <bean name="rejectedImportRecordsExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.RejectedImportRecordsExcelHandler"/>
+
+    <bean name="paypalServiceHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.PayPalServiceHandler"/>
+
+    <bean name="stripeWebhook"
+          class="com.edatasite.workforce.gwt.core.server.commons.StripeWebhook"/>
+
+    <bean name="worldPayServiceHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.WorldPayServiceHandler"/>
+
+    <bean name="unitMeasurementsListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.UnitMeasurementsListExcelHandler">
+        <property name="accountingService" ref="accountingService"/>
+        <property name="excelReferenceMessageSource" ref="allReferenceWfmMessageSource"/>
+    </bean>
+    <bean name="wftGoogleCheckoutNotificationHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.WFTGoogleCheckoutNotificationHandler">
+        <property name="messageManager" ref="messageManager"/>
+        <property name="googleCheckoutOrderManager" ref="googleCheckoutOrderManager"/>
+    </bean>
+    <bean name="budgetSheetExcelReport"
+          class="com.edatasite.workforce.gwt.core.server.commons.BudgetSheetExcelReportHandler">
+    </bean>
+
+    <bean name="attendanceReportImportExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.AttendanceReportImportExcelHandler">
+    </bean>
+
+    <bean name="attendanceReportExportExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.AttendanceReportExportExcelHandler">
+    </bean>
+
+    <bean name="attendanceReportExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.AttendanceReportBetaExportExcelHandler">
+    </bean>
+
+    <bean name="attendanceReportPdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.AttendanceReportPdfHandler">
+    </bean>
+
+    <bean name="terminalAttendanceExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.TerminalAttendanceExcelHandler">
+    </bean>
+
+    <bean name="terminalAttendancePdfHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.TerminalAttendancePdfHandler">
+    </bean>
+
+    <bean name="downloadAttendanceTerminalListExcel"
+          class="com.edatasite.workforce.gwt.core.server.commons.AttendanceTerminalListExcelHandler">
+    </bean>
+
+    <bean name="attendanceTerminalListPDFHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.AttendanceTerminalListPDFHandler">
+    </bean>
+
+    <bean name="downloadAttendanceMarksListExcel"
+          class="com.edatasite.workforce.gwt.core.server.commons.AttendanceMarksListExcelHandler">
+    </bean>
+
+    <bean name="attendanceMarksListPDFHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.AttendanceMarksListPdfHandler">
+    </bean>
+
+    <bean name="paPDFChartHandler" class="com.edatasite.workforce.gwt.core.server.commons.PAPDFChartHandler"/>
+
+    <bean name="downloadHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.DownloadHandler"/>
+
+    <bean name="downloadLocalHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.DownloadLocalHandler"/>
+
+    <bean name="downloadFromEmailHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.DownloadFromEmailHandler"/>
+
+    <!--<bean name="downloadContentHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.DownloadContentHandler"/>-->
+
+    <bean name="downloadSecureHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.DownloadSecureHandler"/>
+
+    <bean name="saleQuotesListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.SaleQuotesListExcelHandler">
+    </bean>
+
+    <bean name="saleOrdersListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.SalesOrderListExcelHandler">
+    </bean>
+
+    <bean name="saleInvoicesListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.SaleInvoicesListExcelHandler">
+    </bean>
+
+    <bean name="batchPaymentListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.BatchPaymentListExcelHandler">
+    </bean>
+
+    <bean name="recurringInvoicesListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.RecurringInvoiceListExcelHandler">
+    </bean>
+
+    <bean name="requestQuoteListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.RequestQuoteListExcelHandler">
+    </bean>
+
+    <bean name="shippingDataListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.ShippingDataListExcelHandler">
+    </bean>
+
+    <bean name="recurringBillListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.RecurringBillListExcelHandler">
+    </bean>
+
+    <bean name="purchaseOrderListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.PurchaseOrderListExcelHandler">
+    </bean>
+
+    <bean name="purchaseInvoiceExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.PurchaseInvoiceExcelHandler">
+    </bean>
+
+    <bean name="accountingSupplierListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.AccountingSupplierListExcelHandler">
+    </bean>
+
+    <bean name="fixedAssetListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.FixedAssetListExcelHandler">
+    </bean>
+
+    <bean name="prePaymentListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.PrePaymentListExcelHandler">
+        <property name="excelReferenceMessageSource" ref="pdfWfmMessageSource"/>
+    </bean>
+
+    <bean name="taxRatesSupplierListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.TaxRatesSupplierListExcelHandler">
+    </bean>
+
+    <bean name="reservationExelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.ReservationExelHandler">
+    </bean>
+
+    <!--<bean name="quickSynchHistoryExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.pdf.QuickbookSynchHistoryExcelHandler"/>-->
+
+
+    <bean name="pickListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.PickListExcelHandler">
+    </bean>
+
+    <bean name="shippingMethodListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.ShippingMethodsListExcelHandler">
+    </bean>
+
+    <bean name="usageHistoryListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.UsageHistoryListExcelHandler"/>
+
+    <bean name="expenseReportListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.ExpenseReportListExcelHandler">
+    </bean>
+
+    <bean name="bankAccountListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.BankAccountListExcelHandler">
+    </bean>
+
+    <bean name="bankCheckListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.BankCheckListExcelHandler">
+    </bean>
+
+    <bean name="accountTransactionsListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.AccountTransactionsListExcelHandler">
+    </bean>
+
+    <bean name="bankTransferListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.BankTransferListExcelHandler">
+    </bean>
+
+    <bean name="manualTransactionListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.ManualTransactionListExcelHandler">
+    </bean>
+
+    <bean name="manualTransactionSampleGeneratorExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.ManualTransactionSampleGeneratorExcelHandler">
+    </bean>
+
+    <bean name="crmContactListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.ContactListExcelHandler">
+    </bean>
+
+    <bean name="crmLeadsExcelHandler" parent="crmContactListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.CrmLeadsExcelHandler"/>
+
+    <bean name="crmAccountExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.CrmAccountsExcelHandler">
+    </bean>
+
+
+    <bean name="companyGoalListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.CompanyGoalListExcelHandler">
+    </bean>
+
+    <bean name="personalGoalsListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.PersonalGoalsListExcelHandler">
+    </bean>
+
+    <bean name="employeesGoalListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.EmployeesGoalsListExcelHandler">
+    </bean>
+    <bean name="businessGoalListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.BusinessGoalListExcelHandler">
+    </bean>
+    <bean name="departmentGoalListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.DepartmentGoalListExcelHandler">
+    </bean>
+    <bean name="projectGoalListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.ProjectGoalListExcelHandler">
+    </bean>
+    <bean name="crmOpportunitiesExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.CrmOpportunitiesExcelHandler">
+    </bean>
+    <bean name="crmCampaignsExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.CrmCampaignsExcelHandler">
+    </bean>
+    <bean name="crmActivitiesExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.CrmActivitiesExcelHandler">
+    </bean>
+    <bean name="downloadCrmEventExcel"
+          class="com.edatasite.workforce.gwt.core.server.commons.EventListExcelHandler">
+    </bean>
+
+    <bean name="backendViewExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.BackendViewExcelHandler"
+          scope="prototype">
+    </bean>
+
+    <bean name="backendViewListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.BackendViewListExcelHandler">
+    </bean>
+    <bean name="backendReturningViewExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.BackendReturningViewExcelHandler">
+        <property name="backendService" ref="backendService"/>
+    </bean>
+
+    <bean name="backendSubscriptiontypeViewExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.BackendSubscriptiontypeViewExcelHandler">
+        <property name="backendService" ref="backendService"/>
+    </bean>
+
+    <bean name="bugListSummaryViewExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.BugListSummaryViewExcelHandler">
+        <property name="backendService" ref="backendService"/>
+    </bean>
+
+    <bean name="bugListPerSectionViewExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.BugListPerSectionViewExcelHandler">
+        <property name="backendService" ref="backendService"/>
+    </bean>
+
+    <bean name="accessLogListViewExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.AccessLogListViewExcelHandler">
+        <property name="backendService" ref="backendService"/>
+    </bean>
+
+    <bean name="crmCasesListViewExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.CrmCasesListViewExcelHandler">
+    </bean>
+
+    <bean name="employeeStepsListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.EmployeeStepsListExcelHandler">
+    </bean>
+
+    <bean name="crmSolutionsListViewExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.CrmSolutionsListViewExcelHandler">
+    </bean>
+
+    <bean name="gantChartExportExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.GantChartExportExcelHandler">
+    </bean>
+    <bean name="journalReportExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.JournalReportExcelHandler">
+    </bean>
+    <bean name="transactionByPeriodExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.TransactionByPeriodExcelHandler">
+    </bean>
+    <bean name="balanceSheetExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.BalanceSheetExcelHandler">
+    </bean>
+    <bean name="profitLostViewExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.ProfitLostViewExcelHandler">
+    </bean>
+    <bean name="trialBalanceExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.TrialBalanceExcelHandler">
+    </bean>
+    <bean name="cashFlowExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.CashFlowExcelHandler">
+    </bean>
+    <bean name="stockValuationExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.StockValuationExcelHandler">
+    </bean>
+    <bean name="uaeVatReturnExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.UAEVatReturnExcelHandler">
+    </bean>
+
+    <bean name="ukVatReturnExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.UKVatReturnExcelHandler">
+    </bean>
+
+    <bean name="agingSummaryExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.AgingSummaryExcelHandler">
+    </bean>
+
+    <bean name="crmAccountBalanceExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.CrmAccountBalanceExcelHandler">
+    </bean>
+
+    <bean name="weeklySubscriptionExcelReportHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.WeeklySubscriptionReportExcelHandler">
+    </bean>
+
+
+    <bean name="pdfPaymentHandler" class="com.edatasite.workforce.gwt.core.server.commons.PdfPaymentHandler">
+    </bean>
+
+    <bean name="mastercardPaymentHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.MastercardPaymentHandler">
+    </bean>
+
+    <bean name="mastercardPaymentValidateHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.MastercardRedirectHandler">
+    </bean>
+
+    <bean name="locationListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.LocationListExcelHandler">
+    </bean>
+
+    <bean name="contractListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.ContractListExcelHandler">
+        <property name="projectService" ref="projectService"/>
+        <property name="excelReferenceMessageSource" ref="allReferenceWfmMessageSource"/>
+    </bean>
+
+    <bean name="positionListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.PositionListExcelHandler">
+    </bean>
+
+    <bean name="productsServicesListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.ProductsServicesListExcelHandler">
+    </bean>
+
+    <bean name="productsServicesStockListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.ProductsServicesStockListExcelHandler">
+    </bean>
+
+    <bean name="invoicePaypalServiceHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.InvoicePayPalServiceHandler">
+    </bean>
+
+    <bean name="elavonPaymentServiceHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.ElavonPaymentServiceHandler">
+    </bean>
+    <bean name="newsListExcelHandler" class="com.edatasite.workforce.gwt.core.server.commons.NewsListExcelHandler">
+    </bean>
+
+    <bean name="meetingMinutesListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.MeetingMinutesListExcelHandler">
+    </bean>
+
+    <bean name="requestForPurchaseExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.RequestForPurchaseListExcelHandler">
+    </bean>
+
+    <bean name="annualAllowanceBalanceReportExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.AnnualAllowanceBalanceReportExcelHandler">
+    </bean>
+    <bean name="annualBalanceReportExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.AnnualBalanceReportExcelHandler">
+    </bean>
+    <bean name="downloadLeaveRequestListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.LeaveRequestListExcelHandler">
+    </bean>
+
+    <bean name="downloadLeaveAllowanceListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.LeaveAllowanceListExcelHandler">
+    </bean>
+
+    <bean name="meetingMinuteViewExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.MeetingMinuteViewExcelHandler">
+    </bean>
+
+    <!--<bean name="websiteExportHandler" class="com.edatasite.workforce.gwt.core.server.commons.WebsiteExportHandler">
+    </bean>-->
+
+    <bean name="queryCSVHandler" class="com.edatasite.workforce.gwt.core.server.servlets.csv.QueryListCSVHandler">
+    </bean>
+
+    <bean name="warehousesListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.WarehouseListExcelHandler">
+    </bean>
+
+    <bean name="warehouseProductsListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.WarehouseProductsListExcelHandler">
+    </bean>
+
+    <bean name="mailMessagesExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.MassMailMessagesExcelHandler">
+    </bean>
+
+    <bean name="csvReportHandler"
+          class="com.finnetlimited.reportservice.core.server.handler.CsvReportHandler"/>
+
+    <bean name="excelReportHandler"
+          class="com.finnetlimited.reportservice.core.server.handler.ExcelReportHandler"/>
+
+    <bean name="pdfReportHandler" scope="prototype"
+          class="com.finnetlimited.reportservice.core.server.handler.PdfReportHandler"
+          parent="abstractITextPostPdfHandler"/>
+    <bean name="reportingRecurrencePdfServiceImpl" scope="prototype"
+          class="com.finnetlimited.reportservice.core.server.ReportingRecurrencePdfServiceImpl"
+    >
+    </bean>
+    <bean name="pdfRuntimeReportHandler" scope="prototype"
+          class="com.finnetlimited.reportservice.core.server.handler.PdfRuntimeReportHandler"
+          parent="abstractITextPostPdfHandler"/>
+
+    <bean name="excelImportHandler"
+          class="com.finnetlimited.reportservice.core.server.handler.ExcelImportHandler">
+        <property name="dataSourceXLS" ref="reportingDataSource"/>
+        <property name="coreService" ref="reportingCoreService"/>
+    </bean>
+
+    <bean name="wfpNewsRssHandler"
+          class="com.finnetlimited.reportservice.core.server.handler.WfpNewsRssHandler">
+    </bean>
+
+    <bean name="solrCoreCompanyStatisticExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.SolrCoreCompanyExcellHandler">
+    </bean>
+
+    <bean name="projectExportToMSProjectHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.ProjectExportToMSProjectHandler"/>
+
+    <bean name="vacancyListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.VacancyListExcelHandler">
+    </bean>
+
+    <bean name="shortListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.ShortListExcelHandler">
+    </bean>
+
+    <bean name="candidateListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.CandidateListExcelHandler">
+    </bean>
+
+    <bean name="placementListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.PlacementListExcelHandler">
+    </bean>
+
+    <bean name="bookingItemsListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.BookingItemListExcelHandler">
+    </bean>
+
+    <bean name="baseInvoiceExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.BaseInvoiceExcelHandler"/>
+
+    <!--Training Center-->
+    <bean name="courseListExcelHandler" class="com.edatasite.workforce.gwt.core.server.commons.CourseListExcelHandler"/>
+    <bean name="registratedStudentListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.RegistratedStudentListExcelHandler"/>
+    <bean name="scheduledCourseListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.ScheduledCourseListExcelHandler"/>
+    <bean name="courseBookingListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.CourseBookingListExcelHandler"/>
+    <bean name="studentListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.StudentListExcelHandler"/>
+    <bean name="enquiryListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.EnquiryListExcelHandler"/>
+    <bean name="changeScheduleTimesHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.ChangeScheduleTimesHandler"/>
+    <bean name="changeScheduleEventsHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.ChangeScheduleEventsHandler"/>
+    <bean name="localizationExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.LocalizationExcelHandler"/>
+
+    <bean name="newPayslipTableExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.NewPayslipTableExcelHandler"/>
+
+    <!--<bean name="taxiPayrunTableExcelHandler" class="com.edatasite.workforce.gwt.core.server.commons.TaxiPayrunTableExcelHandler"/>-->
+
+    <bean name="invoiceClientApproveHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.InvoiceClientApproveHandler">
+    </bean>
+
+    <bean name="endOfServiceReportExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.EndOfServiceReportExcelHandler">
+    </bean>
+
+    <bean name="crmContactListVCardHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.vcard.ContactExportVCardHandler">
+    </bean>
+    <bean name="sifFileGenerator"
+          class="com.edatasite.workforce.gwt.core.server.commons.SifFileGenerator">
+    </bean>
+    <bean name="cashAdvanceReportExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.CashAdvanceReportExcelHandler">
+    </bean>
+    <bean name="salaryReportExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.SalaryReportExcelHandler">
+    </bean>
+
+    <bean name="groupPayrunViewExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.GroupPayrunViewExcelHandler">
+    </bean>
+    <bean name="paymentMethodExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.PaymentMethodListExcelHandler">
+    </bean>
+    <bean name="paymentDeductionCategoriesExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.PaymentDeductionCategoriesExcelHandler">
+    </bean>
+    <bean name="singlePayrunListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.SinglePayrunListExcelHandler">
+    </bean>
+    <bean name="cashAdvanceListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.CashAdvanceListExcelHandler">
+    </bean>
+    <bean name="magentoEventNotificationHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.MagentoEventNotificationHandler">
+    </bean>
+    <bean name="linkEntityTransactionItemHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.LinkEntityTransactionItemHandler">
+    </bean>
+    <bean name="linkEntityTransactionItemHandlerV2"
+          class="com.edatasite.workforce.gwt.core.server.commons.LinkEntityTransactionItemHandlerV2">
+    </bean>
+    <bean name="contactRelatedEmailsHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.ContactRelatedEmailsHandler">
+    </bean>
+    <bean name="previousYearAllowanceHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.PreviousYearAllowanceHandler">
+    </bean>
+    <bean name="switchLayoutHandler"
+          class="com.edatasite.workforce.gwt.core.server.servlets.SwitchLayoutHandler"/>
+    <bean name="gdnOrderViewExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.GDNOrderViewExcelHandler"/>
+
+    <bean name="incidentListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.IncidentListExcelHandler">
+        <property name="excelReferenceMessageSource" ref="allReferenceWfmMessageSource"/>
+    </bean>
+
+    <bean name="appraisalsArchiveListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.AppraisalsArchiveListExcelHandler">
+    </bean>
+    <bean name="competenceListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.CompetenceListExcelHandler">
+        <property name="assessmentService" ref="assessmentService"/>
+    </bean>
+    <bean name="customFormItemListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.CustomFormItemListExcelHandler">
+    </bean>
+    <bean name="reconcilationReportExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.ReconcilationReportExcelHandler">
+    </bean>
+    <bean name="stockAdjustmentListHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.StockAdjustmentListExcelHandler">
+    </bean>
+    <bean name="stockTransferListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.StockTransferListExcelHandler">
+    </bean>
+    <bean name="itemBatchHistoryListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.ItemBatchHistoryListExcelHandler">
+    </bean>
+    <bean name="benefitRequestListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.BenefitRequestListExcelHandler">
+    </bean>
+    <bean name="newsImageConvertServlet"
+          class="com.edatasite.workforce.gwt.core.server.servlets.NewsImageConvertServlet">
+    </bean>
+    <bean name="requiredCFsToQuickAddServlet"
+          class="com.edatasite.workforce.gwt.core.server.servlets.RequiredCFsToQuickAddServlet">
+    </bean>
+    <bean name="inventoryTransaction"
+          class="com.edatasite.workforce.gwt.core.server.servlets.InventoryTransactionServlet">
+    </bean>
+    <bean name="grnGdnCorrectionServlet"
+          class="com.edatasite.workforce.gwt.core.server.servlets.GrnGdnCorrectionServlet">
+    </bean>
+    <bean name="additionalPaymentListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.AdditionalPaymentExcelHandler">
+    </bean>
+    <bean name="rotationListExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.RotationListExcelHandler">
+    </bean>
+    <bean name="headHunterServlet"
+          class="com.edatasite.workforce.gwt.core.server.servlets.HeadHunterServlet">
+    </bean>
+    <bean name="groupPlacementExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.GroupPlacementListExcelHandler">
+    </bean>
+    <bean name="hhCallbackServlet"
+          class="com.edatasite.workforce.gwt.core.server.servlets.HHCallbackServlet">
+    </bean>
+    <bean name="whatsAppCallbackServlet"
+          class="com.edatasite.workforce.gwt.core.server.servlets.WhatsAppCallbackSevlet">
+    </bean>
+    <bean name="myGovFetchServlet"
+          class="com.edatasite.workforce.gwt.core.server.servlets.EmployeeFetchFromMygovServlet">
+    </bean>
+    <bean name="additionalPaymentViewExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.AdditionalPaymentViewExcelHandler">
+    </bean>
+    <bean name="additionalPaymentAddEditExcelHandler"
+          class="com.edatasite.workforce.gwt.core.server.commons.AdditionalPaymentAddEditExcelHandler">
+    </bean>
+
+</beans>

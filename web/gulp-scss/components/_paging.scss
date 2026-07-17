@@ -1,0 +1,201 @@
+// PAGING
+.paging {
+  display: inline-flex;
+  align-items: center;
+  margin: 0;
+
+  > li {
+    + li {
+      margin-left: 0;
+    }
+  }
+  .gwt-TextBox {
+    text-align: center !important;
+  }
+
+  .btn {
+    border-radius: 0;
+    border: none;
+  }
+
+  &__prevpage {
+    .btn {
+      @include border-left-radius($radius-base)
+    }
+  }
+  &__nextpage {
+    .btn {
+      @include border-right-radius($radius-base)
+    }
+  }
+  &__currentpage {
+    .form-control,
+    .gwt-TextBox {
+      border: none;
+      border-radius: 0;
+      text-align: center !important;
+    }
+  }
+}
+// \ PAGING
+
+
+// PAGING STAT
+.pagingStat {
+  @extend %form-control-size;
+  @include form-control-style(transparent);
+  @extend .btn--white;
+  white-space: nowrap;
+  display: flex; // because this is the <span> el
+  align-items: center;
+  &:empty {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .paging-group & {
+    @include border-radius($radius-base 0 0 $radius-base);
+  }
+
+  &__wrapper {
+    position: relative;
+    .dropdown-content {
+      top: 100% !important;
+
+      .attendanceReport__bottom-bar & {
+        top: auto !important;
+        bottom: 100% !important;
+      }
+    }
+  }
+}
+
+.operPanel .pagingStat span {
+  display: block;
+
+  &:empty:after {
+    content: '\00a0';
+    display: inline;
+  }
+}
+
+.paging-group {
+  display: flex;
+  &.text-right {
+    justify-content: end;
+  }
+
+  &__wrapper {
+    border-color: transparent !important;
+  }
+
+  > * {
+    display: flex;
+  }
+
+  .dropdown-button {
+    box-shadow: none !important;
+    &:focus,
+    &:hover {
+      box-shadow: none !important;
+    }
+  }
+
+  .paging > li:first-child {}
+
+  .paging__prevpage {
+    .btn {
+      @include border-left-radius(0)
+    }
+  }
+}
+
+
+//AI Reporting Chat Paging
+
+
+$chevron-color: $color-base-1;
+$chevron-active-color: $black-base;
+$chevron-hover-color: black;
+$chevron-size: .55em;
+$chevron-border-width: 2px;
+
+.pgFlipp {
+  display: flex;
+  align-items: center;
+  gap: 0 $chevron-size * .7;
+
+  &__prev,
+  &__next {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &::before {
+      content: "";
+      position: relative;
+      display: block;
+      width: $chevron-size;
+      height: $chevron-size;
+      border: solid currentColor;
+      border-width: $chevron-border-width $chevron-border-width 0 0;
+    }
+
+    &.active {
+      cursor: pointer;
+      color: $chevron-active-color;
+
+      &:hover {
+        color: $chevron-hover-color;
+      }
+    }
+  }
+
+  &__prev {
+    color: $chevron-color;
+    &::before {
+      transform: rotate(-135deg);
+      left: $chevron-size / 4;
+    }
+  }
+
+  &__next {
+    color: $chevron-color;
+    &::before {
+      transform: rotate(45deg);
+      right: $chevron-size / 4;
+    }
+  }
+
+  &__index {
+    display: flex;
+    align-items: center;
+
+    > * {
+      display: inline-block;
+      line-height: 1;
+    }
+  }
+
+  &__cur {
+    font-weight: bold;
+  }
+
+  &__ttl {
+    $slashShift: .4em;
+    position: relative;
+    padding-left: $slashShift;
+    color: $text-muted;
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: calc(50%);
+      width: 1px;
+      height: .7em;
+      transform: translate(-#{$slashShift * .65}, -50%) rotate(20deg);
+      background: $text-muted;
+    }
+  }
+}

@@ -1,0 +1,280 @@
+.aePricing h2.planTitle{font-size:14px;text-align:center;margin-top:0;position:relative;padding-bottom:25px;}
+.aePricing h2.planTitle:after{content:'';position:absolute;left:50%;bottom:0;width:30%;margin-left:-15%;display:inline-block;border-top:1px solid #e3e2e1;border-bottom:1px solid #fff;}
+.aePricing h1.planSubTitle{font-size:24px;text-transform:uppercase;text-align:center;margin-bottom:15px;margin-top:0;}
+.aePricing .bundlesFields{width:100%;position:relative;height:auto;margin-bottom:20px;overflow:auto;color:#8e8e8e;}
+.aePricing .bundlesFields .columns{float:left;width:20%;height:auto;padding-left:3px;padding-right:3px;position:relative;background:#fff;}
+.aePricing .bundlesFields .columns:first-child{padding-left:0;}
+.aePricing .bundlesFields .columns:last-child{padding-right:0;}
+.aePricing .bundlesFields .columns .insideColumn{position:relative;width:100%;border:1px solid #484848;border-bottom:10px solid #484848;height:auto;cursor:pointer;}
+.aePricing .bundlesFields .columns .insideColumn:hover,
+.aePricing .bundlesFields .columns .insideColumn:focus,
+.aePricing .bundlesFields .columns.active .insideColumn{background-color:#e8edf9 !important;}
+.aePricing .nav > li > a{padding:10px 0;}
+.aePricing .bundlesFields .columns .insideColumn .planHeaderName{background:#484848;width:100%;text-align:center;color:#fff;font-size:24px;vertical-align:middle;}
+.aePricing .bundlesFields .columns .insideColumn .planPriceField{height:75px;border-bottom:1px solid #484848;line-height:85px;}
+.aePricing .bundlesFields .columns .insideColumn .planPriceField h3{margin-bottom:0;text-align:center;color:#8e8e8e;}
+.aePricing .bundlesFields .columns .insideColumn .planPriceField h3.priceType{font-size:14px !important;margin-top:10px;font-weight:bold;}
+.aePricing .bundlesFields .columns .insideColumn .planPriceField h3.price{font-size:40px;font-weight:bold;margin-top:0;color:#2aaae1;}
+.aePricing .bundlesFields .columns .insideColumn .planAttributesField{border-top:5px solid #e9f2fa;text-align:center;}
+h5.planSubTitle{text-align:center;color:#908d8c;}
+.aePricing .bundlesFields .columns .insideColumn .planAttributesField ul{padding-left:0;margin-bottom:10px;}
+.aePricing .bundlesFields .columns .insideColumn .planAttributesField ul.planAttributes li{list-style:none;font-size:12px;text-align:center;padding-top:8px;padding-bottom:8px;}
+.aePricing .bundlesFields .columns .insideColumn .planAttributesField ul.planAttributes li:nth-child(even){background:#e9f2fa;}
+.aePricing h1.customiseYourPlan{font-size:24px;text-transform:uppercase;text-align:center;margin-top:0;position:relative;padding-bottom:15px;padding-top:15px;}
+.aePricing h1.customiseYourPlan span{padding-left:10px;text-transform:lowercase;font-size:16px;}
+.aePricing h1.customiseYourPlan span:before{content:'*';position:relative;color:#229ed6;}
+.aePricing h1.customiseYourPlan:before{content:'';position:absolute;left:50%;top:0;width:30%;margin-left:-15%;display:inline-block;border-top:1px solid #e3e2e1;border-bottom:1px solid #fff;}
+.aePricing h1.customiseYourPlan:after{content:'';position:absolute;left:50%;bottom:0;width:30%;margin-left:-15%;display:inline-block;border-top:1px solid #e3e2e1;border-bottom:1px solid #fff;}
+a.btn.btn-primary.btn-contact-trial{min-width:60%;margin:0 10px;margin-bottom:10px;border-radius:0;background:#00acee;border-color:#00acee;}
+a.btn.btn-primary.btn-contact-trial:hover,
+a.btn.btn-primary.btn-contact-trial:focus{background:#1a75bc;border-color:#1a75bc;}
+.aePricing .planCustomizing{position:relative;width:100%;padding:0;margin-top:20px;margin-bottom:40px;overflow:auto;}
+.aePricing .planCustomizing .left-panel,
+.aePricing .right-panel,
+.aePricing .planCustomizing .users-column{float:left;position:relative;}
+.aePricing .planCustomizing .users-column{width:25%;background:#fff;}
+.aePricing .planCustomizing .left-panel{padding-right:5px;width:45%;background:#fff;}
+.aePricing .right-panel{padding-left:0;width:400px;background:#fff;position:fixed;top:30px;right:0;z-index:1;border:1px solid #1a76bc;}
+.aePricing .planCustomizing .panel-column{border:1px solid #484848;width:100%;}
+.aePricing .planCustomizing .users-column .panel-column{border-right:none;}
+.aePricing .panel-column .planHeaderName{height:62px;background:#484848;width:100%;text-align:center;color:#fff;font-size:24px;line-height:20px;line-height:62px;vertical-align:middle;}
+.aePricing .panel-column .customField{padding-top:5px;padding-bottom:5px;}
+.aePricing .panel-column .number-of-users{width:100%;height:40px;border-radius:5px;-webkit-border-radius:5px;-moz-border-radius:5px;padding-left:10px;}
+.aePricing .panel-column .number-of-users:after{content:'';width:17px;height:30px;position:absolute;right:10px;top:5px;background:url("../img/select-arrow.png") no-repeat center center;display:block;z-index:10;}
+.aePricing .panel-column .customField1{padding:10px;}
+.aePricing .panel-column .customField2,
+.aePricing .panel-column .customField3{padding-top:0;padding-bottom:0;}
+.aePricing .panel-column .customField3{min-height:183px;}
+.aePricing .panel-column table{margin-bottom:0;border-spacing:0}
+.aePricing .planCustomizing .panel-column th{width:40%;text-transform:uppercase;}
+.aePricing .planCustomizing .panel-column td span{font-weight:bold;color:#2aaae1;}
+.aePricing .panel-column .nav-tabs > li{width:25%;text-align:center;text-transform:uppercase;background:#f7f8f8;}
+.aePricing .panel-column .nav-tabs > li > a{margin-right:0;border-radius:0 !important;border:1px solid #e3e2e1;border-right:none;color:#7c7878;}
+.aePricing .panel-column .nav-tabs > li:first-child > a{border-left:none;}
+.aePricing .panel-column .nav-tabs,
+.aePricing .panel-column .nav-tabs > li.active > a{border-bottom:none;}
+.aePricing .panelConsulting{position:relative;overflow:auto;width:100%;height:auto;padding:0;margin-top:20px;margin-bottom:50px;}
+.aePricing .panelConsulting .insideConsulting{position:relative;width:100%;height:auto;float:left;border:1px solid #1a76bc;display:table;}
+.aePricing .panelConsulting .insideConsulting .leftPanel{position:relative;float:none;width:20%;border-right:1px solid #1a76bc;display:table-cell;line-height:20px;vertical-align:middle;text-align:center;font-size:16px;color:#229ed6;font-weight:bold;background:#fff;}
+.aePricing .panelConsulting .insideConsulting .rightPanel{position:relative;float:none;width:80%;display:table-cell;padding:10px 20px;}
+.aePricing .planCustomizing .panel-column h1#price{text-align:center;color:#2aaae1;font-size:40px;margin-top:5px;}
+.aePricing .panelConsulting table{width:100%;margin:0;padding:0;}
+.aePricing .panelConsulting table thead th{height:50px;background:#1a76bc;color:#fff;text-align:center;text-transform:uppercase;border:1px solid #ddd;line-height:30px;font-size:18px;}
+.aePricing .panelConsulting table tbody tr td{border:1px solid #ddd;color:#007be4;padding:5px 15px !important;text-align:center;}
+.aePricing .panelConsulting table colgroup{background:#fff;}
+.aePricing .panelConsulting table tbody tr td:first-child{color:#333333;font-weight:bold;text-align:left;}
+.aePricing .panelConsulting table tbody tr td:nth-child(even){}
+.aePricing .panelConsulting table tbody tr td:not(:first-child){cursor:pointer;}
+.aePricing .panelConsulting table tbody tr td.text-centered{text-align:center;font-weight:normal;}
+.aePricing .panelConsulting table tbody tr td.bgcolor{background:#fff;color:#000;font-weight:normal;}
+.one-off-prices-column span.price{font-size:25px;font-weight:bold;}
+.one-off-prices-column td.hd-green{font-size:25px;color:#1a76bc !important;}
+.nav-tabs li span{display:block;font-size:10px;margin-top:5px;}
+.row.consulting-field{margin-left:0;margin-right:0;border:1px solid #dddddd;}
+.consulting-field .column1,
+.consulting-field .column2,
+.consulting-field .column3,
+.consulting-field .column4{cursor:pointer;padding-left:0;padding-right:0;}
+.consulting-field .list-group{margin-bottom:0;padding-left:0;}
+.consulting-field .list-group-item:first-child,
+.consulting-field .list-group-item:last-child{border-top-right-radius:0;border-top-left-radius:0;border-bottom-left-radius:0;border-bottom-left-radius:0;}
+.consulting-field .list-group-item{position:relative;display:block;padding:10px 10px;margin-bottom:-1px;background-color:#ffffff;border-bottom:1px solid #dddddd;}
+colgroup{display:table-column-group;}
+colgroup.slim{cursor:pointer;}
+.panelConsulting .hover{background-color:#e8edf9 !important;}
+.panelConsulting .active{background-color:#e8edf9 !important;}
+input.consulting,
+input.smart-bundle{height:20px;width:20px;margin:0;}
+input.btn.btn-primary.btn-buy-now{position:relative;font-size:16px;}
+.num-of-users, .consulting-service-type, .smart-bundle-field{margin-top:10px;margin-left:10px;font-weight:bold;}
+.consulting-service-type, .smart-bundle-field{margin-top:0 !important;}
+.num-of-users span, .consulting-service-type span, .smart-bundle-field span{color:#2aaae1;}
+.calc-tab{padding-bottom:10px;}
+.calc-tab > .tab-pane{text-align:center;}
+a.linkMore.right{margin-left:100px;}
+
+
+.aePricing .div-table{display:table;width:100%;background:#fff;}
+.aePricing .div-table-row{display:table-row;}
+.aePricing .div-table-cell{display:table-cell;border-right:1px solid #2175c1;border-collapse:collapse;color:#007be4;text-align:center;}
+.aePricing .div-table-cell:first-child{color:#333333;font-weight:bold;text-align:left;width:300px;border-left:1px solid #2175c1;}
+.aePricing .div-support .div-table-cell{color:#000;}
+.aePricing .div-table-cell .hd-green{font-size:25px;color:#1a76bc !important;}
+.aePricing .div-table-cell .thead{height:65px;background:#484848;color:#fff;text-align:center;text-transform:uppercase;line-height:30px;font-size:18px;padding:0 !important;}
+.aePricing .div-table-cell .row{padding:5px 15px !important;margin:0 !important;border-bottom:1px solid #2175c1;}
+.row.tbody:nth-child(odd){background-color:#e9f2fb;}
+.row-body .row.tbody:nth-child(even){background-color:#e9f2fb;}
+.row-body .row.tbody:nth-child(odd){background-color:#fff;}
+p.mobile-title{display:none;}
+.aePricing .right-panel{border:1px solid #2175c1;}
+.display-mode{height:0;margin:0;overflow:hidden;padding:0;}
+.display-mode span{display:inline-block;height:1px;width:1px;}
+@media only screen and (max-width:712px){.display-mode .tablet,
+.display-mode .tablet-landscape,
+.display-mode .desktop{display:none;}
+}
+@media only screen and (min-width:713px) and (max-width:954px){.display-mode .mobile,
+.display-mode .tablet-landscape,
+.display-mode .desktop{display:none;}
+}
+@media only screen and (min-width:955px) and (max-width:1195px){.display-mode .mobile,
+.display-mode .tablet,
+.display-mode .desktop{display:none;}
+}
+@media (min-width:1196px){.display-mode .mobile,
+.display-mode .tablet,
+.display-mode .tablet-landscape{display:none;}
+}
+.custom-radio{width:30px;height:30px;display:inline-block;background:url('../img/checkbox.png') top no-repeat;background-position:0;background-size:60px;}
+.custom-radio.selected{background-position:-30px;}
+.insideColumn.active{background-color:#e9f2fa;}
+h1#price{color:#1a76bc;}
+.cards{text-align:center;margin-bottom:20px;}
+.cards img{height:40px;}
+@media screen and (max-width:768px){h5.planSubTitle{font-size:12px;}
+    .aePricing h1.customiseYourPlan,
+    .aePricing h1.planSubTitle{font-size:15px}
+    .aePricing .right-panel{position:relative;width:100%;border:1px solid #1a76bc;top:0;margin-bottom:20px;}
+    .aePricing .bundlesFields .columns{width:50%;margin-bottom:20px;}
+    .aePricing .bundlesFields .columns .insideColumn .planHeaderName{font-size:20px;}
+    .aePricing .planCustomizing .users-column,
+    .aePricing .planCustomizing .left-panel{width:100%;}
+    .aePricing .planCustomizing .left-panel{padding-right:0;}
+    .aePricing .div-table-cell{width:100%;display:block;border:1px solid #2175c1;margin-bottom:10px;}
+    .aePricing .div-table-cell:first-child{display:none;}
+    p.mobile-title{display:block;color:#000;margin:0 0 5px;font-weight:bold;}
+    .aePricing .panel-column .nav-tabs > li > a{font-size:10px;}
+    .aePricing .panel-column .nav-tabs li span{font-size:8px;}
+    .aePricing .right-panel .panel-column .planHeaderName{height:30px;line-height:30px;font-size:18px;}
+    input.btn.btn-primary.btn-buy-now{width:90%;}
+    .cards img{width:100%;height:auto;}
+}
+
+.pricing-type-selectbox {
+    margin-bottom: 20px;
+    position: relative;
+}
+.pricing-type-selectbox .img-flag {
+    position: absolute;
+    left: -100px;
+    width: 100px;
+    text-align: right;
+    height: 40px;
+}
+#UAEPricing .bundle-fields {
+    margin-bottom: 20px;
+}
+#UAEPricing .panel {
+    border: 0;
+}
+#UAEPricing .panel-heading {
+    background-color: #484848;
+    color: #fff;
+    border-color: #484848;
+    font-size: 24px;
+    text-align: center;
+    line-height: 62px;
+}
+#UAEPricing .panel-body {
+    padding: 0;
+    color: #000;
+}
+#UAEPricing .panel-body .list-group {
+    margin-bottom: 0;
+}
+#UAEPricing .panel-body .list-group .list-group-item {
+    border-bottom: 1px solid #d3d3d3;
+    background-color: #ebebeb;
+    border-radius: 0 !important;
+}
+#UAEPricing .bundle-fields .panel-body .price {
+    width: 100%;
+    text-align: center;
+    font-size: 36px;
+    position: relative;
+}
+#UAEPricing .bundle-fields .panel-body .price span,
+#UAEPricing .bundle-fields .panel-body .price sup {
+    font-size: 12px;
+}
+#UAEPricing .bundle-fields .panel-body .price sup {
+    top: -18px;
+}
+#UAEPricing .panel-body .list-group .list-group-item.inside-btn {
+    text-align: center;
+    padding-top: 20px;
+}
+.padding-left-30 {
+    padding-left: 30px !important;
+}
+#UAEPricing .customize-uae-plan {
+    margin-bottom: 20px;
+}
+#UAEPricing .customize-uae-plan .plan-heading .panel {
+    margin-bottom: 0 !important;
+}
+#UAEPricing .customize-uae-plan .plan-body .panel {
+    background-color: #ebebeb;
+}
+#UAEPricing .customize-uae-plan .plan-body .panel .table th {
+    border: 0;
+    border-bottom: 1px solid #dedede;
+    font-weight: normal;
+    font-size: 16px;
+
+}
+#UAEPricing .customize-uae-plan .plan-body .panel .table {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+#UAEPricing .customize-uae-plan .plan-body .panel .table,
+#UAEPricing .customize-uae-plan .plan-body .panel .table td {
+    border: 0;
+}
+#UAEPricing .customize-uae-plan .plan-body .panel .table td {
+    line-height: 34px;
+}
+#UAEPricing .customize-uae-plan .plan-body .panel .table input[type='number'] {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555555;
+    background-color: inherit;
+    background-image: none;
+    border: 0;
+    border-bottom: 1px solid #d3d3d3;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    -webkit-transition: none;
+    -o-transition: none;
+    transition: none;
+}
+#UAEPricing .customize-uae-plan .plan-body .well.overall-price {
+    margin-bottom: 20px;
+    background-color: #484848;
+    padding: 15px;
+    color: #fff;
+    text-align: center;
+    font-size: 20px;
+}
+.aePricing.international #UAEPricing, .aePricing.uae #internationalPricing, .aePricing.uae .right-panel.international {
+    display: block !important;
+}
+.aePricing.uae #UAEPricing, .aePricing.international #internationalPricing, .aePricing.international .right-panel.international {
+    display: block;
+}
+.aePricing .img-flag {
+    position: absolute;
+    left: -110px;
+    height: 34px;
+}
+.aePricing .img-flag img {
+    height: 34px;
+}
+.aePricing.international .img-flag {
+    display: none;
+}

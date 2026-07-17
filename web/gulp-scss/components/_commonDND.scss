@@ -1,0 +1,56 @@
+// BASIC STYLES FOR ALL DRAG AND DROP
+//  div.dragdrop-dropTarget.dragdrop-boundary
+//    > table
+//      > table.dragdrop-dropTarget
+//        > div.dragdrop-draggable (has .dragdrop-handle)
+
+%positionerStyle {
+  @include drag-tile-style(transparent, dashed, $gray-lighter);
+  color: transparent; // to hide the ※ symbol
+}
+.dragdrop-positioner, .dragdrop-flow-panel-positioner {
+  @extend %positionerStyle;
+  z-index: 100;
+  .panel-w-switch & { //added for customize form
+    border-color: $gray-middle;
+  }
+}
+
+.dragdrop-dropTarget {
+  > tbody > tr {
+    &:not(:last-child) {
+      padding-bottom: 4px; // customyze dnd filters panel https://prnt.sc/onqZ1fho-hVd
+    }
+
+    + tr > td {
+      padding-top: 4px;
+    }
+  }
+  // transferred from the components\_facet-filter.scss
+}
+.dragdrop-movable-panel > .dragdrop-draggable {
+  //width: 100%;
+}
+.dragdrop-draggable:not(.multiDayAppointment) {
+  width: 100%; // customize filters dragging state https://prnt.sc/gKP55lnS4e64
+}
+
+.dragdrop-movable-panel {}
+
+
+// transferred from the components\_gwt-cal.scss
+//.dragdrop-dropTarget {
+//  &:not([class*="margin-"]) {
+//    margin: 0;
+//  }
+//}
+
+// transferred from the components\table-reporting-sections.scss
+//.side-nav .dragdrop-dropTarget > table > tbody > tr > td table.dragdrop-dropTarget {
+//  margin-left: 0;
+//  margin-right: 0;
+//}
+
+.dragdrop-boundary table.dragdrop-dropTarget {
+  table-layout: fixed;
+}

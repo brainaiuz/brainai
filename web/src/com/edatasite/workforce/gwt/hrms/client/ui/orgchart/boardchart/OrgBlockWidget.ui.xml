@@ -1,0 +1,17 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+
+    <g:FlowPanel ui:field="root" styleName="orgBlock">
+
+        <g:FlowPanel ui:field="header" styleName="orgBlock-header">
+            <g:Label ui:field="title" styleName="orgBlock-title"/>
+            <g:Label ui:field="subtitle" styleName="orgBlock-subtitle"/>
+            <g:Label ui:field="owner" styleName="orgBlock-owner"/>
+            <g:HTML ui:field="description" styleName="orgBlock-desc"/>
+            <g:HTML ui:field="metrics" styleName="orgBlock-metrics"/>
+        </g:FlowPanel>
+
+        <g:FlowPanel ui:field="positionsGrid" styleName="orgBlock-grid"/>
+    </g:FlowPanel>
+</ui:UiBinder>

@@ -1,0 +1,15 @@
+Type;Code;Name;Description;Tax Rate;Expense Claims;Enable Payments
+Current Asset;602;Petty Cash;Cash balances used for sundry expenses;Zero Rated;No;No
+Current Asset;620;Prepayments;An expenditure that has been paid for in advance;Zero Rated;No;No
+Current Asset;1240;Company Credit Card;Credit card where company can accept payments;Standard;No;Yes
+Current Liability;805;Accruals;Any services the business has received but have not yet been invoiced for e.g. Accountancy Fees;;No;No
+Current Liability;2210;P.A.Y.E.;;;No;No
+Direct Expenses;320;Direct Wages;Payment of wages/salary to an employee whose work can be directly linked to the product or service;;No;No
+Direct Expenses;6203;P.R.(Literature & Brochures);Expenses incurred for Literature and Brochures;;Yes;No
+Equity;950;Ordinary Shares;Paid up capital;Zero Rated;No;No
+Fixed Asset;710;Office Equipment;Office equipment that is owned and controlled by the business;Zero Rated;Yes;No
+Long Term Liability;900;Loan;Any money that has been borrowed from a creditor;;No;No
+Other Income;4904;Rent Income;Income from renting;Standard;No;No
+Overhead;190;Depreciation;;;No;No
+Overhead;400;Advertising & Marketing;Expenses incurred for advertising and marketing;;Yes;No
+Revenue;202;Sales;Income from any normal business activity;Standard;No;No

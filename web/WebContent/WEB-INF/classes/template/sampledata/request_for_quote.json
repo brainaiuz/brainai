@@ -1,0 +1,76 @@
+{
+  "customBillToAddress": {
+    "name": "Bill To:",
+    "rows": {
+      "requestfrom": {
+        "COLUMN_NAME":"Request From",
+        "COLUMN_VALUE": "Company Suppliers"
+      },
+      "Date": {
+        "COLUMN_NAME": "RFQ Date",
+        "COLUMN_VALUE": "20/02/2019"
+      },
+      "vlidUntil": {
+        "COLUMN_NAME": "Due Date",
+        "COLUMN_VALUE": "04/03/2019"
+      },
+      "Number": {
+        "COLUMN_NAME": "RFQ #",
+        "COLUMN_VALUE": "RFQ0018"
+      },
+      "COMPANY_ADDRESS": {
+        "COLUMN_NAME": "",
+        "COLUMN_VALUE": "Jumeirah Lakes Tower Dubai United Arab Emirates Dubai BC25673"
+      },
+      "INTRODUCTION": {
+        "COLUMN_NAME": "Introduction",
+        "COLUMN_VALUE": "Lorem Ipsum is simply dummytext of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummytext ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type"
+      },
+      "project": {
+        "COLUMN_NAME": "Project",
+        "COLUMN_VALUE": "Bank Charges"
+      },
+      "SQ_NUMBER": {
+        "COLUMN_NAME": "Quote #",
+        "COLUMN_VALUE": "SQ0012"
+      }
+    }
+  },
+  "customProductTable": {
+    "header": {
+      "NO": "No.",
+      "NAME": "Product/Service",
+      "DESCRIPTION": "Description",
+      "QTY": "Qty",
+      "ITEM_COMISSION": "Commission%",
+      "UNIT": "U/M",
+      "ITEM_COST_PRICE": "COST",
+      "SUPPLIER": "SUPPLIER",
+      "REMARKS": "REMARKS"
+    },
+    "rows": {
+      "0": {
+        "NO": "1",
+        "NAME": "Online Training",
+        "DESCRIPTION": "(Optional) online demo session through Webex (3 sessions- max 9 hours)",
+        "QTY": "1.00",
+        "ITEM_COMISSION": "10%",
+        "UNIT": "kg",
+        "ITEM_COST_PRICE": "10.00",
+        "SUPPLIER": "Alied Plastics",
+        "REMARKS": "hello worlds"
+      },
+      "1": {
+        "NO": "2",
+        "NAME": "Online Training",
+        "DESCRIPTION": "(Optional) online demo session through Webex (3 sessions- max 9 hours)",
+        "QTY": "12.00",
+        "ITEM_COMISSION": "15%",
+        "UNIT": "kg",
+        "ITEM_COST_PRICE": "10.00",
+        "SUPPLIER": "Alied Plastics",
+        "REMARKS": "hello worlds"
+      }
+    }
+  }
+}

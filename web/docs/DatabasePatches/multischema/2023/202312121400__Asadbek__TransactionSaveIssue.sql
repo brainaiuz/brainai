@@ -1,0 +1,1 @@
+SELECT setval('transaction_id_man_seq', (SELECT MAX(id) FROM  "anv".transaction));

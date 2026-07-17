@@ -1,0 +1,317 @@
+﻿@media screen and (max-width:1306px)
+{
+
+}
+@media only screen and (max-width:870px)
+{
+
+}
+
+@media only screen and (max-width:1455px) and (min-width:870px)
+{
+
+}.lonrml992 { display:none;}
+@media (max-width: 990px)
+{
+.lonrml { display:none;}.lonrml992 { display:block;}
+}
+@media (max-width: 1260px)
+{
+   .left_ico_logo
+   {
+       display:none;
+   }
+}
+@media (max-width: 1000px)
+{
+    .MenuDiv_wrapper
+    {
+        display:none !important;
+    }
+       .big_menu
+  {
+      display:block !important;
+  }
+  
+.row
+{
+    padding:0 15px;
+}
+
+.FooterDivGroups
+{
+    margin-left: 0;
+    padding-left:50px;
+}
+.FooterDiv .sub_content
+{
+       margin-bottom: 40px;
+    margin-left: 100px;
+    margin-top: 40px;
+    
+    
+}
+.copyright
+{
+    margin-left: 0;
+}
+.PoweredBy
+{
+     margin-bottom: 12px;
+    margin-right: 0;
+}
+.slider_bookcont_wrapper
+{
+    padding:20px 10px;
+    display:inline-block;
+}
+.Check_Availability
+{
+    clear:left;
+    margin-top:20px;
+}
+.My_Reservation
+{
+    margin-top:20px;
+}
+.news_image
+{
+    width:100%;
+}
+.box_home_main .box_image.min_h
+{
+   min-height:100%;
+}
+ #map-canvas
+{
+     min-height:100%;
+}
+.about_offer_left .about_holder .p_Text 
+{
+    height:auto;
+    
+}
+.News_box_Holder img
+{
+    max-height:100%;
+}
+.topcont_wrapper .topcont_wrapper_Left
+{
+    display:none;
+}
+.topcont_wrapper .topcont_wrapper_Right .Lang_Holder
+{
+      display: inline-block;
+    float: left;
+    margin-left: 0;
+    margin-right: -28px;
+    margin-top: 5px;
+    max-width: 115px;
+    padding: 0;
+    text-align: right;
+    width: 100%;
+}
+.main_holdercont_wrapper .main_holdercont_wrapper_right
+{
+    display:none;
+}
+
+}
+@media (max-width: 800px)
+{
+    .middle_cont_wrapper .item_holder_Right
+    {
+        min-width:83%;
+    }
+  
+
+}
+@media (max-width: 780px)
+{
+
+  
+
+}
+@media (max-width: 767px)
+{
+ 
+.row
+{
+    padding:0 5px;
+}
+
+
+.topcont_wrapper .topcont_wrapper_Left
+{
+    display:none;
+}
+.date_1,.select-wrapper,.Corporate_code_text,.Check_Availability,.My_Reservation
+{
+    width:100%;
+    max-width:100%;
+    margin: 0;
+    margin-bottom:10px;
+}
+.slider_bookcont
+{
+    position:relative;
+}
+.weather_holder .weather_High
+{
+    margin-right: 0;
+}
+.weather_holder .weather_date
+{
+    clear:left;
+}
+.weather_holder .weather_Low,.weather_holder .weather_High
+{
+    font-size:12px;
+}
+.box_home_main_holder .box_home_main_Contener:nth-child(1n+1),.box_home_main_holder .box_home_main_Contener:nth-child(2n+2) ,.box_home_main_holder .box_home_main_Contener:nth-child(3n+3) {
+    padding: 0 !important;
+     margin-bottom:15px;
+}
+.about_offer_left,.about_offer_right
+{
+    padding: 0;
+    margin-bottom:15px;
+}
+ .about_offer_holder
+ {
+     margin: 0;
+ }
+ .News_box_Holder .box_Holder_right a
+ {
+      margin: 10px 0;
+ }
+.main_holdercont_wrapper .main_holdercont_wrapper_right
+{
+    padding:0 10px;
+}
+.main_holdercont_wrapper .main_holdercont_wrapper_right.new_max
+{
+    max-width:100%;
+}
+.slider_bookcont
+{
+    display:none;
+}
+.News_box_Holder_inner img
+{
+    max-height:100%;
+    max-width:100%;
+}
+.News_box_Holder_inner .box_Holder_right
+{
+    padding: 0;
+    margin-top:15px;
+}
+.topcont_wrapper .topcont_wrapper_Right .slogen_holder
+{
+    display:none;
+}
+.FtrCountainer
+{
+     padding: 0 10px;
+}
+.FooterGroupLinks {
+   
+    padding-right: 0;
+}
+.FooterGroupLinksLnk
+{
+    margin-right: 0;
+}
+.news_image_2
+{
+    margin-top:15px;
+}
+.Service_holder_wper
+{
+    background-image:none;
+}
+}
+@media (max-width: 740px)
+{
+ .text_top_holder_wrap{	width:70%;	font-size:15px;	}
+}
+@media (max-width: 600px)
+{
+    .FooterDiv .sub_content
+{
+       margin-bottom: 40px;
+    margin-left: 30px;
+    margin-top: 40px;
+    width:220px;
+    
+}
+.list_carousel_News li
+{
+    max-width:500px !important
+}
+   
+.FooterDiv .sub_content .Sub_txt_holder {
+    background-color: transparent;
+    border: 0 solid #CCCCCC;
+    display: inline-block;
+    float: left;
+    text-align: left;
+    max-width: 186px;
+}
+.FooterDiv .sub_content .Sub_txt_holder .btn_Sub
+{
+    margin-top:15px;
+}
+
+}
+@media (max-width: 550px)
+{
+.list_carousel_News li
+{
+    max-width:350px !important
+}
+   .PoweredBy
+   {
+       text-align:left;
+   }
+
+}
+@media (max-width: 490px)
+{
+}
+@media (max-width: 400px)
+{img.lonrml992 { width:100%; margin-top:15px;}
+.topcont_wrapper .topcont_wrapper_Left {
+    padding-left: 2px;
+}
+.list_carousel_Test li
+{
+    width:200px !important;
+}
+.list_carousel_Test
+{
+      width:100% !important;
+}
+.topcont_wrapper .topcont_wrapper_Left .A_Text
+{
+}
+
+.list_carousel_News li
+{
+    max-width:300px !important
+}
+.contact_details_list li
+{
+    font-size:13px;
+}
+
+}
+@media (max-width: 350px)
+{
+.list_carousel_News li
+{
+    max-width:250px !important
+}
+
+}

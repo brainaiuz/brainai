@@ -1,0 +1,329 @@
+insert into "anv".modelfield (form_id, field_id, mandatory, columntype,fsection, forder) values('PRODUCT', 'SERIAL_NUMBER', false, 'COL_1', 'INVENTORY_STOCK_INFORMATION', 1);
+
+
+delete  from "anv".form_property where form_id ='PRODUCT';
+insert into "anv".form_property (form_id, settingsjsondata)
+values ('PRODUCT',
+        '[
+  {
+    "code": "TYPE",
+    "title": "Type",
+    "aliasName": "TYPE",
+    "changed": false,
+    "required": false,
+    "widget": "DropDown",
+    "selectedId": null,
+    "defaultValue": "",
+    "disabled": false
+  },
+  {
+    "code": "NAME",
+    "title": "Name",
+    "aliasName": "NAME",
+    "changed": false,
+    "required": false,
+    "widget": "TextBox",
+    "selectedId": null,
+    "defaultValue": "",
+    "disabled": false
+  },
+  {
+    "code": "NUMBER",
+    "title": "Number",
+    "aliasName": "NUMBER",
+    "changed": false,
+    "required": false,
+    "widget": null,
+    "selectedId": null,
+    "defaultValue": "",
+    "disabled": false
+  },
+  {
+    "code": "DESCRIPTION",
+    "title": "Description",
+    "aliasName": "DESCRIPTION",
+    "changed": false,
+    "required": false,
+    "widget": "TextBox",
+    "selectedId": null,
+    "defaultValue": "",
+    "disabled": false
+  },
+  {
+    "code": "ACTIVE",
+    "title": "Active",
+    "aliasName": "ACTIVE",
+    "changed": false,
+    "required": false,
+    "widget": "CheckBox",
+    "selectedId": null,
+    "defaultValue": true,
+    "disabled": false
+  },
+  {
+    "code": "PURCHASE_PRICE",
+    "title": "Purchase Price",
+    "aliasName": "PURCHASE_PRICE",
+    "changed": false,
+    "required": false,
+    "widget": "TextBox",
+    "selectedId": null,
+    "defaultValue": "",
+    "disabled": false
+  },
+  {
+    "code": "SALES_PRICE",
+    "title": "Selling Price",
+    "aliasName": "SALES_PRICE",
+    "changed": false,
+    "required": false,
+    "widget": "TextBox",
+    "selectedId": null,
+    "defaultValue": "",
+    "disabled": false
+  },
+  {
+    "code": "PURCHASE_ACCOUNT",
+    "title": "Purchase Account",
+    "aliasName": "PURCHASE_ACCOUNT",
+    "changed": false,
+    "required": false,
+    "widget": "LOOKUP",
+    "selectedId": null,
+    "defaultValue": "",
+    "disabled": false
+  },
+  {
+    "code": "SALES_ACCOUNT",
+    "title": "Sales Account",
+    "aliasName": "SALES_ACCOUNT",
+    "changed": false,
+    "required": false,
+    "widget": "LOOKUP",
+    "selectedId": null,
+    "defaultValue": "",
+    "disabled": false
+  },
+  {
+    "code": "FROM_PURCHASE_INVOICE",
+    "title": "Is it purchased from a supplier",
+    "aliasName": "FROM_PURCHASE_INVOICE",
+    "changed": false,
+    "required": false,
+    "widget": "DropDown",
+    "selectedId": null,
+    "defaultValue": false,
+    "disabled": false,
+    "systemRequired": true
+  },
+  {
+    "code": "SOLD_TO_CUSTOMERS",
+    "title": "Is it sold to customer?",
+    "aliasName": "SOLD_TO_CUSTOMERS",
+    "changed": false,
+    "required": false,
+    "widget": "DropDown",
+    "selectedId": null,
+    "defaultValue": false,
+    "disabled": false,
+    "systemRequired": true
+  },
+  {
+    "code": "ENABLE_IT",
+    "title": "Enable Journal Entries for Inventory Transaction",
+    "aliasName": "ENABLE_IT",
+    "changed": false,
+    "required": false,
+    "widget": "CheckBox",
+    "selectedId": null,
+    "defaultValue": false,
+    "disabled": false
+  },
+  {
+    "code": "CATEGORY",
+    "title": "Category",
+    "aliasName": "CATEGORY",
+    "changed": false,
+    "required": false,
+    "widget": "DropDown",
+    "selectedId": null,
+    "defaultValue": "",
+    "disabled": false
+  },
+  {
+    "code": "BRAND",
+    "title": "Brand",
+    "aliasName": "BRAND",
+    "changed": false,
+    "required": false,
+    "widget": "DropDown",
+    "selectedId": null,
+    "defaultValue": "",
+    "disabled": false
+  },
+  {
+    "code": "DISCOUNT_PANEL",
+    "title": "Discounts",
+    "aliasName": "DISCOUNT_PANEL",
+    "changed": false,
+    "required": false,
+    "widget": "DropDown",
+    "selectedId": null,
+    "defaultValue": "",
+    "disabled": false
+  },
+  {
+    "code": "TAX",
+    "title": "Tax Rate",
+    "aliasName": "TAX",
+    "changed": false,
+    "required": false,
+    "widget": "LOOKUP",
+    "selectedId": null,
+    "defaultValue": "",
+    "disabled": false
+  },
+  {
+    "code": "TAX2",
+    "title": "Tax Rate2",
+    "aliasName": "TAX2",
+    "changed": false,
+    "required": false,
+    "widget": "LOOKUP",
+    "selectedId": null,
+    "defaultValue": "",
+    "disabled": false
+  },
+  {
+    "code": "SKU_NUMBER",
+    "title": "SKU Number",
+    "aliasName": "SKU_NUMBER",
+    "changed": false,
+    "required": false,
+    "widget": "TextBox",
+    "selectedId": null,
+    "defaultValue": "",
+    "disabled": false
+  },
+  {
+    "code": "UPC_NUMBER",
+    "title": "UPC Number",
+    "aliasName": "UPC_NUMBER",
+    "changed": false,
+    "required": false,
+    "widget": "TextBox",
+    "selectedId": null,
+    "defaultValue": "",
+    "disabled": false
+  },
+  {
+    "code": "SUPPLIERS",
+    "title": "Suppliers",
+    "aliasName": "SUPPLIERS",
+    "changed": false,
+    "required": false,
+    "widget": "LOOKUP",
+    "selectedId": null,
+    "defaultValue": "",
+    "disabled": false
+  },
+  {
+    "code": "MANUFACTURER",
+    "title": "Manufacturer",
+    "aliasName": "MANUFACTURER",
+    "changed": false,
+    "required": false,
+    "widget": "TextBox",
+    "selectedId": null,
+    "defaultValue": "",
+    "disabled": false
+  },
+  {
+    "code": "UNIT_MEASUREMENT",
+    "title": "Unit Measurement",
+    "aliasName": "UNIT_MEASUREMENT",
+    "changed": false,
+    "required": false,
+    "widget": "LOOKUP",
+    "selectedId": null,
+    "defaultValue": "",
+    "disabled": false
+  },
+  {
+    "code": "BARCODE",
+    "title": "Barcode",
+    "aliasName": "BARCODE",
+    "changed": false,
+    "required": false,
+    "widget": "TextBox",
+    "selectedId": null,
+    "defaultValue": "",
+    "disabled": false
+  },
+  {
+    "code": "PART_NUMBER",
+    "title": "Part Number",
+    "aliasName": "PART_NUMBER",
+    "changed": false,
+    "required": false,
+    "widget": "TextBox",
+    "selectedId": null,
+    "defaultValue": "",
+    "disabled": false
+  },
+  {
+    "code": "MULTI_CURRENCY_SALES_PRICE",
+    "title": "Multi currency sales price settings",
+    "aliasName": "MULTI_CURRENCY_SALES_PRICE",
+    "changed": false,
+    "required": false,
+    "widget": "LOOKUP",
+    "selectedId": null,
+    "defaultValue": "",
+    "disabled": false
+  },
+  {
+    "code": "MULTI_CURRENCY_COST_PRICE",
+    "title": "Multi currency cost price settings",
+    "aliasName": "MULTI_CURRENCY_COST_PRICE",
+    "changed": false,
+    "required": false,
+    "widget": "LOOKUP",
+    "selectedId": null,
+    "defaultValue": "",
+    "disabled": false
+  },
+  {
+    "code": "ASSET_ACCOUNT",
+    "title": "Asset Account",
+    "aliasName": "ASSET_ACCOUNT",
+    "changed": false,
+    "required": true,
+    "widget": "LOOKUP",
+    "selectedId": null,
+    "defaultValue": "",
+    "disabled": false
+  },
+  {
+    "code": "AS_OF",
+    "title": "As of",
+    "aliasName": "AS_OF",
+    "changed": false,
+    "required": true,
+    "widget": "DatePicker",
+    "selectedId": null,
+    "defaultValue": "",
+    "disabled": false
+  },
+  {
+    "code": "SERIAL_NUMBER",
+    "title": "Serial Number",
+    "aliasName": "SERIAL_NUMBER",
+    "changed": false,
+    "required": false,
+    "widget": "DropDown",
+    "selectedId": null,
+    "defaultValue": "",
+    "disabled": false
+  }
+]');

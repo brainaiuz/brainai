@@ -1,0 +1,47 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:mh="urn:import:gwt.material.design.client.ui.html"
+>
+    <g:HTMLPanel styleName="" tag="li" ui:field="li">
+        <mh:Div class="collapsible-header" ui:field="headerDiv">
+            <mh:Anchor style="cursor: pointer;">
+                <mh:Span ui:field="title"></mh:Span>
+            </mh:Anchor>
+        </mh:Div>
+        <div class="collapsible-body">
+            <div class="grid-row mb-4">
+                <div class="col-8">
+                    <div class="highchart-block highchart-block--boxed box-radius box-bg--2">
+                        <div class="highchart-block__header">
+                            <div class="operPanel--header operPanel">
+                                <div class="operPanel__actions">
+                                    <div class="highchart-block__title">Test Title</div>
+                                </div>
+                                <div class="operPanel__settings">
+                                    <select class="gwt-ListBox">
+                                        <option value="2015">2015</option>
+                                        <option value="2016">2016</option>
+                                        <option value="2017">2017</option>
+                                        <option value="2018">2018</option>
+                                        <option value="2019">2019</option>
+                                    </select>
+                                    <select class="gwt-ListBox">
+                                        <option value="2015">2015</option>
+                                        <option value="2016">2016</option>
+                                        <option value="2017">2017</option>
+                                        <option value="2018">2018</option>
+                                        <option value="2019">2019</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+                        <mh:Div styleName="highchart-block__chart" ui:field="chartPanel"></mh:Div>
+                    </div>
+                </div>
+                <mh:Div styleName="col-4" ui:field="reportItems">
+                </mh:Div>
+            </div>
+        </div>
+    </g:HTMLPanel>
+</ui:UiBinder>

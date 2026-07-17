@@ -1,0 +1,147 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style type="text/css">
+        @page {
+            size: 2.8in 100.8in;
+            margin: 0 0 0 0;
+            padding: 0;
+            @top-center {
+                content: element(header);
+            }
+            @bottom-left {
+                content: element(footer);
+            }
+        }
+
+        #header {
+            margin: 0;
+            display: block;
+            position: running(header);
+        }
+
+        #footer {
+            display: block;
+            position: running(footer);
+        }
+
+        #pagenumber:before {
+            content: counter(page);
+        }
+
+        #pagecount:before {
+            content: counter(pages);
+        }
+
+        body {
+            font-family: Montserrat;
+        }
+
+        b, p, td, span, caption, hr, h1, h2, h3, h4, h5 {
+            font-family: Montserrat;
+        }
+
+        table {
+            -fs-table-paginate: paginate;
+        }
+
+        th, td {
+            padding: 3px;
+        }
+        caption {
+            padding: 8px;
+            caption-side: top;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+<div id="header">
+
+</div>
+<div id="footer">
+
+</div>
+<div style="font-size: 11px;">
+
+    <table width="100%" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+            <td width="100%" align="center">
+                <img src="https://workforcetrack.s3.amazonaws.com/000000000000/public/74682/43e06466-86e0-43e3-9ecc-ede192e64d9e"/>
+            </td>
+        </tr>
+    </table>
+
+    <table width="100%" cellspacing="0" cellpadding="0">
+        #foreach($row in $itextGenericPdfData.customData.get("KUNLIK_SAVDO_DATA").rows)
+        #if($row.get("DATE") != '')
+        <thead>
+        <tr>
+            <td style="font-weight: bold;" align="center">
+
+                $row.get("DATE")
+            </td>
+        </tr>
+        </thead>
+        #end
+        #if($row.get("USER") != '')
+        <caption>$row.get("USER")</caption>
+        #end
+        #if($row.get("TYPE") != '')
+        <tr>
+            <td width="100%" style="font-weight: bold;">
+                <table width="100%" cellpadding="0" cellspacing="0">
+                    #if($row.get("TYPE") != 'Kunlik transactionlar' and $row.get("TYPE") != '1.Kunlik transactionlar')
+                    <tr>
+                        <td width="50%">$row.get("TYPE")</td>
+                        <td width="50%" align="right"></td>
+                    </tr>
+                    #end
+                </table>
+            </td>
+        </tr>
+        #end
+        #if($row.get("PAYMENT_METHOD") != '' && $row.get("PUL_TC") != '0.00')
+        <tr>
+            <td width="100%">
+                <table width="100%" cellpadding="0" cellspacing="0">
+                    #if($row.get("PAYMENT_METHOD") == 'Kunlik savdo')
+                    <tr>
+                        <td width="50%" style="font-weight: bold;">1. $row.get("PAYMENT_METHOD")</td>
+                        <td width="50%" style="font-weight: bold;" align="right">$row.get("PUL_TC")</td>
+                    </tr>
+                    #else
+                    <tr>
+                        <td width="50%">$row.get("PAYMENT_METHOD")</td>
+                        <td width="50%" align="right">$row.get("PUL_TC")</td>
+                    </tr>
+                    #end
+                </table>
+            </td>
+        </tr>
+        #end
+        #end
+    </table>
+
+    <table width="100%" cellspacing="0" cellpadding="0" style="margin-top: 20px;">
+        <tr>
+            <td width="100%" style="border-bottom: 1px solid #000;">
+                &#160;
+            </td>
+        </tr>
+        <tr>
+            <td style="border-bottom: 1px solid #000;">
+                &#160;
+            </td>
+        </tr>
+        <tr>
+            <td style="border-bottom: 1px solid #000;">
+                &#160;
+            </td>
+        </tr>
+    </table>
+
+</div>
+</body>
+</html>

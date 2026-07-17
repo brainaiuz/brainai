@@ -1,0 +1,22 @@
+﻿## Issue add notification
+## $report - Newly created issue
+## $date- Newly created issue
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+<h2>Отчет об ошибках для $report.assignee.getName()</h2>
+
+<p><b>Ошибка :</b> $report.bugDescription</p>
+<p><b>Статус :</b> $report.status.name</p>
+<p><b>Дата отчета :</b> $date</p>
+<p><b>Компания:</b> $companyName</p>
+<p><b>Пользователь :</b> $name</p>
+<p><b>Электронная почта :</b> $report.email</p>
+<p><b>Раздел :</b> $report.createdFrom</p>
+<p><b>Комментарий :</b> $report.comment</p>
+<input type="hidden" value="$keywords"/>
+</body>
+</html>

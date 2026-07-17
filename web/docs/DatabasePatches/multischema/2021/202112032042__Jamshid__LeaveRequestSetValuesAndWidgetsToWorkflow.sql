@@ -1,0 +1,12 @@
+update "anv".modelfield set source = 'REFERENCE@_SICK_STATUS', widget = 'LOOKUP' where form_id = 'LEAVE_REQUEST_FORM' and field_id = 'STATUS';
+update "anv".modelfield set source = 'REFERENCE@_SICK_STATUS', widget = 'LOOKUP' where form_id = 'LEAVE_REQUEST_FORM' and field_id = 'PREV_APPROVER_STATUS';
+update "anv".modelfield set source = 'REFERENCE@_SICK_STATUS', widget = 'LOOKUP' where form_id = 'LEAVE_REQUEST_FORM' and field_id = 'CURRENT_APPROVER_STATUS';
+update "anv".modelfield set source = 'REFERENCE@_SICK_STATUS', widget = 'LOOKUP' where form_id = 'LEAVE_REQUEST_FORM' and field_id = 'NEXT_APPROVER_STATUS';
+update "anv".modelfield set source = 'HRMS@SUPERVISOR', widget = 'LOOKUP' where form_id = 'LEAVE_REQUEST_FORM' and field_id = 'REGISTERED_BY';
+update "anv".modelfield set source = 'HRMS@MANAGER', widget = 'LOOKUP' where form_id = 'LEAVE_REQUEST_FORM' and field_id = 'APPROVER';
+update "anv".modelfield set source = 'HRMS@MANAGER', widget = 'LOOKUP' where form_id = 'LEAVE_REQUEST_FORM' and field_id = 'NEXT_APPROVER';
+update "anv".modelfield set source = 'HRMS@MANAGER', widget = 'LOOKUP' where form_id = 'LEAVE_REQUEST_FORM' and field_id = 'CURRENT_APPROVER';
+update "anv".modelfield set source = 'HRMS@MANAGER', widget = 'LOOKUP' where form_id = 'LEAVE_REQUEST_FORM' and field_id = 'PREV_APPROVER';
+update "anv".modelfield set source = 'HRMS@LEAVEREASONS', widget = 'LOOKUP' where form_id = 'LEAVE_REQUEST_FORM' and field_id = 'REASON';
+update "anv".modelfield set widget = 'DatePicker' where form_id = 'LEAVE_REQUEST_FORM' and field_id = 'DUE_DATE';
+update "anv".modelfield set widget = 'DatePicker' where form_id = 'LEAVE_REQUEST_FORM' and field_id = 'START_DATE';

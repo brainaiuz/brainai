@@ -1,0 +1,11 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:m="urn:import:gwt.material.design.client.ui"
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+
+    <g:HTMLPanel>
+        <m:MaterialPanel>
+            <g:AbsolutePanel ui:field="absolutePanel" width="100%"/>
+        </m:MaterialPanel>
+    </g:HTMLPanel>
+</ui:UiBinder>

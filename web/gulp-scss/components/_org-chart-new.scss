@@ -1,0 +1,966 @@
+@import "org-chart_variables.scss";
+
+
+
+@mixin nodeWrapTop() {//horizontal view, top line
+  @include before($orgChartSpace, false, calc(50% + #{$orgChartSpace} / 2), false) {
+    min-width: $orgChartSpace;
+    min-height: $orgChartSpace;
+    border-top: 1px solid $orgChartBorderColor;
+    border-left: 1px solid $orgChartBorderColor;
+    @include border-radius($nodeBorderRadius 0 0 0);
+    @content;
+  }
+}
+//@mixin nodeWrapTopHorizontal() {//horizontal view, top line
+//  @include before($orgChartSpace, false, calc(50% + #{$orgChartSpace} / 2), false) {
+//    min-width: $orgChartSpace;
+//    height: $orgChartSpace;
+//    border-top: 1px solid $orgChartBorderColor;
+//    border-left: 1px solid $orgChartBorderColor;
+//    @include border-radius($nodeBorderRadius 0 0 0);
+//    @content;
+//  }
+//}
+@mixin nodeWrapLeft() { //vertical view, left line
+  @include before($orgChartSpace - .03, 50%, 0, false) {
+    min-width: $orgChartSpace;
+    margin-bottom: - ($orgChartSpace);
+    border-top: 1px solid $orgChartBorderColor;
+    border-left: 1px solid $orgChartBorderColor;
+    border-bottom: 1px solid $orgChartBorderColor;
+    @include border-radius($nodeBorderRadius 0 0 $nodeBorderRadius);
+    margin-top: 0.5px;
+    @content;
+  }
+}
+@mixin nodeWrapBottom() {//vertical view, bottom line
+  @include after(100%, false, ($orgChartSpace * 2), 50%) {
+    height: $orgChartSpace;
+    border-right: 1px solid $orgChartBorderColor;
+    border-bottom: 1px solid $orgChartBorderColor;
+    border-bottom-right-radius: $nodeBorderRadius;
+    box-sizing: content-box; //fix inconsistensy in horizontal view
+    @content;
+  }
+}
+
+
+.arrow-toggle {
+  > i {
+    position: relative;
+    width: 15px;
+    width: .55vw;
+    height: 1px;
+    display: inline-block;
+
+    @include before-after(0) {
+      display: inline-block;
+      top: -1px;
+      width: 75%;
+      height: 1px;
+      border-radius: 1px;
+      background-color: $orgChartBorderColorDark;
+      background-color: $link-color;
+      transition: all .2s ease;
+    }
+
+    &:before {
+      left: 0;
+      right: 50%;
+      transform: rotate(45deg);
+    }
+
+    &:after {
+      right: 0;
+      left: 50%;
+      transform: rotate(-45deg);
+    }
+
+    .show-data > tbody > tr > td > div > div & {
+      &:before {
+        transform: rotate(-45deg);
+      }
+
+      &:after {
+        transform: rotate(45deg);
+      }
+    }
+  }
+}
+
+//TOP HEADER PANEL
+.orgChart {
+  margin: ($orgChartHeaderSize + 15px) 10px 10px;
+
+  &__header {
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    top: $frameHeaderSize;
+    right: auto !important;
+    background-color: rgba(white, .8);
+    height: $orgChartHeaderSize;
+
+    > div + div {
+      padding-left: 10px;
+    }
+
+    .orgChart__switchView:last-child {
+      //margin-left: auto; //https://prnt.sc/1umfcl3
+    }
+  }
+
+  &__switch {
+    display: flex;
+    align-items: baseline;
+  }
+
+  &__title {
+    line-height: 40px;
+    margin-left: 10px;
+  }
+
+  &__reset {
+    float: right;
+    position: static !important;
+  }
+}
+
+// \\TOP HEADER PANEL
+
+//RHOMB
+.node:not(.orgNode), .subNodeItem {
+  @include rhomb(before, left, $rhombSize, $orgChartBorderColor);
+}
+
+//End RHOMB
+
+//COMMON STYLES FOR NODES PLATE
+.nodeWrapp {
+  @include before(0, 0, 0, 0) {
+    border-radius: $nodeBorderRadius;
+    border: 1px solid $orgChartBorderColor;
+    border-top-width: $nodeStatusBorderSize;
+    background: #fff;
+  }
+;
+
+  &:hover:before {
+    border-width: ($nodePadding) $nodePadding $nodePadding;
+    border-color: lighten($link-color, 30%);
+    transition: border-color .3s ease, border-width .3s ease;
+  }
+}
+
+.node:not(.orgNode) {
+  $boderTop: 3px;
+  position: relative;
+  min-height: $nodeHeight;
+  width: $nodeWidth;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: $nodePadding $nodePadding $nodeSetParentHeight;
+  border-radius: $nodeBorderRadius;
+
+  //rhomb variations
+  &:before {
+    .level--1 > .nodeCell:only-child & {
+      display: none;
+    }
+
+    .firstRow:last-child > td > table > tbody > .nodes &,
+    .nodesView--h &,
+    .nodesSingle &,
+    .nodesMultipleFirst & { //https://prnt.sc/20l3fuf
+      left: 50%;
+      top: 0;
+      margin-left: -($rhombSizeHalf);
+    }
+  }
+
+  @include rhomb(after, bottom, $rhombSize, $orgChartBorderColor) {
+    .hide-data > table > .nodes:last-child &,
+    .nodesView--h + .nextLevelRow:last-child > td > .hide-data &,
+    .nodes ~ .nextLevelRow > .nextLevel > table > tbody > tr.nodes:only-child > td > div > div > &,
+    .nextLevelRowAlt:last-child .nodes:last-child &,
+    .has-subNodes.hide-data > tbody > [class*="level--"]:nth-last-child(2) > td & {
+      opacity: 0;
+    }
+  }
+  //\rhomb variations
+}
+
+$nodeTooltipColor: $black-base;
+.nodeHgroup {
+  position: relative;
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+  padding: $nodePadding 0 0 2px;
+  max-width: 100%;
+  cursor: default;
+
+  h2 > a, em > span {
+    display: inline-block;
+    width: 100%;
+    line-height: 1.1;
+    @include txtTruncate;
+  }
+
+  h2, em {
+    position: relative;
+    display: inline-block;
+    padding-top: $nodePadding;
+
+    &:before,
+    &:after {
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      pointer-events: none;
+      visibility: hidden;
+      opacity: 0;
+      background: $nodeTooltipColor;
+      border: 1px solid #fff;
+      box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.05);
+    }
+
+    &:before {
+      content: attr(data-tooltip);
+      width: 100%;
+      height: fit-content;
+      margin-left: -50%;
+      padding: $nodePadding * 1.5;
+      border-radius: $nodeBorderRadius;
+      text-align: center;
+      line-height: 1.4;
+      font-size: .9em;
+      color: #fff;
+      transform: translateY(0) scaleY(0);
+    }
+
+    &:after {
+      content: '';
+      margin-left: -$nodePadding;
+      width: $nodePadding * 2;
+      height: $nodePadding * 2;
+      border-top: none;
+      border-right: none;
+      transform: translateY(-$nodePadding * 3) scaleY(0) rotateX(-45deg);
+    }
+
+    &:hover:before,
+    &:hover:after {
+      visibility: visible;
+      opacity: 1;
+      transition-delay: .6s !important;
+    }
+
+    &:hover:before {
+      transform: translateY(-$nodePadding) scaleY(1);
+      transition: opacity .3s, transform .3s;
+    }
+
+    &:hover:after {
+      transform: translateY(0) scaleY(1) rotate(-45deg);
+      transition: opacity .3s, transform .4s;
+    }
+  }
+
+  h2 {
+    margin: 0;
+    font-size: rem(10px);
+    font-size: .6vw;
+  }
+
+  em {
+    font-size: rem(9px);
+    font-size: .5vw;
+  }
+}
+
+.nodeCount-left,
+.nodeCount-right {
+  position: absolute;
+  bottom: ($nodePadding + ($nodeSetParentHeight / 2 - $nodeCountSizeY / 2));
+  width: $nodeCountSizeX;
+  height: $nodeCountSizeY;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 5px;
+  color: $text-muted;
+  border-radius: $nodeBorderRadius;
+  text-align: center;
+  background: darken($color-base-contrast, 1%);
+
+  @include before(0, 0, 0, 0) {
+    z-index: 1;
+    border-radius: $nodeBorderRadius;
+  }
+;
+
+  &:hover {
+    background: darken($color-base-contrast, 5%);
+    cursor: pointer;
+  }
+
+  > span {
+    font-size: .8em;
+    font-size: .45vw;
+
+    + i {
+      margin-left: 5px;
+    }
+  }
+}
+
+.nodeCount-left {
+  left: $nodePadding;
+  flex-direction: column;
+}
+
+.nodeCount-right {
+  right: $nodePadding;
+}
+
+.nodeSetParent {
+  position: absolute;
+  bottom: $nodePadding;
+  left: 50%;
+  margin-left: - ($nodeSetParentHeight / 2);
+  @include border-radius($nodeBorderRadius);
+
+  > .btn--circle {
+    position: relative;
+    height: $nodeSetParentHeight;
+    width: $nodeSetParentHeight;
+    transform: scale(1.1);
+
+    svg {
+      stroke: none;
+      fill: none;
+      opacity: 0;
+      .node:hover & {
+        opacity: 1;
+        transition: opacity .3s ease;
+      }
+    }
+  }
+}
+
+// \\COMMON STYLES FOR NODES PLATE
+
+
+//ORGANISATION CHART STYLES //ToDo remove comment
+
+.nodeTable--ext {
+  position: relative;
+  left: - $orgChartSpace;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+
+  td {
+    //text-align: left; the same is being in global.scss
+    vertical-align: top;
+  }
+}
+
+.tline {
+  position: relative;
+}
+[class*="level--"] + .tlines + tr > td:only-child > table > tbody > .tlines-multipleFirst > .tline
+//,[class*="level--"] + .tlines + tr > td:not(:only-child) > table > tbody > .tlines-multipleFirst > .tline
+//,.tlines-multipleFirst > .tline
+//,[class*="level--"] + .tlines + tr > td:not(:only-child) > table > tbody > .tlines-single > .tline
+
+ {
+
+  //&.tleft:nth-last-child(2),
+  //&.tright:nth-child(2),
+  //+ .tleftTop,
+  //+ .trightTop {
+  //  @include before($orgChartSpace, false) {
+  //    height: $orgChartSpace;
+  //    width: ($nodeWidth / 2) + $nodeBorderRadius * 2;
+  //    border-top: 1px solid blue;
+  //  }
+  //}
+  //&.tleft:nth-last-child(2):before,
+  //+ .tleftTop:before {
+  //  left: - $nodeBorderRadius;
+  //}
+  //&.tright:nth-last-child(2):before,
+  //+ .trightTop:before {
+  //  right: - $nodeBorderRadius;
+  //}
+}
+[class*="level--"] + .tlines-single + tr.tlines-multipleFirst > td:not(:only-child) {
+
+}
+
+.tlines {
+  //&.tlines-single {
+  //  background: lightskyblue;
+  //}
+  //&.tlines-multipleFirst {
+  //  background: #d2070e;
+  //}
+  //Horizontal view after Every node with child
+  //&.test--2 {
+  //  background: #03df1c;
+  //}
+
+  //&.test--7 {
+  //  background: black;
+  //}
+  //&.test--3 {
+  //  background: blue;
+  //}
+  //&.test--4 {
+  //  background: lightcoral;
+  //}
+  //&.test--5 {
+  //  background: lightgreen;
+  //}
+  //&.test--6 {
+  //  background: #fa47ea;
+  //}
+  //&.test--8 {
+  //  background: #fae409;
+  //}
+}
+//LEVELS
+//.nodesSingleCell:only-child > table > tbody > tr > .nodeCell,
+.nodesView--h.nodesMultipleFirst > .nodeCell,
+.nodesSingle + .subNodes .subNodeCell,
+.nodesSingle.level--1 > .nodeCell {
+  text-align: center;
+}
+.nodeSingleChildCell > table > tbody > .nodesSingle > .nodeCell:only-child {
+  text-align: center;
+}
+//tr:not(.nextLevelRow) > .nodeSingleChildCell > table > tbody > .nodesSingle > .nodeCell:only-child {
+//  text-align: center;
+//  background: lightskyblue;
+//}
+
+//First horizontal line of nodesMultiple https://yadi.sk/i/siEQCGJri66txQ
+.nodeSingleChildCell:not(:only-child) {
+  position: relative;
+  padding: 0 $orgChartSpaceCol 0;
+
+  .nodeSingleChildCell & {
+    padding-left: $orgChartSpaceCol / 2;
+    padding-right: $orgChartSpaceCol / 2;
+  }
+
+  //horizontal connection lines
+  > table > tbody > .nodes {
+    > .nodeCell {
+      @include before($orgChartSpace, false) {
+        border-top: 1px solid $orgChartBorderColor;
+      }
+    }
+    &.nodesSingle {
+      .nextLevelWrapp {
+        &:before {
+          left: 50%;
+        }
+      }
+    }
+  }
+  &:not(:first-child):not(:last-child) .nodeCell {
+    &:before {
+      left:  - $orgChartSpaceCol;
+      right:  - $orgChartSpaceCol;
+    }
+  }
+  &:first-child {
+    > table > tbody > tr.nodesSingle > .nodeCell {
+      &:before {
+        left: calc(50% + #{$nodeBorderRadius});
+        right: - $orgChartSpaceCol * 2;
+      }
+    }
+    > table > tbody > tr.nodesMultiple {
+      > .nodeCell {
+        &:before {
+          left: ($nodeWidth / 2 ) + ($orgChartSpace + $nodeBorderRadius);
+          right: - $orgChartSpaceCol * 2;
+        }
+      }
+      &.nodesView--h {
+        > .nodeCell:before {
+          left: calc(50% + #{$nodeBorderRadius});
+        }
+      }
+    }
+  }
+  &:last-child {
+    > table > tbody > tr.nodesSingle > .nodeCell {
+      &:before {
+        left:  - $orgChartSpaceCol * 2;
+        right: calc(50% + #{$nodeBorderRadius});
+      }
+    }
+    > table > tbody > tr.nodesMultiple > .nodeCell {
+      &:before {
+        left: 0;
+        width: $nodeWidth / 2 - $nodeBorderRadius;
+      }
+    }
+  }
+}
+
+.nodeCell {
+  position: relative;
+  text-align: left;
+}
+
+.subNodeCell > .subNodeWrapp {
+  .nodes + .subNodes:not(:last-child) > &,
+  .nodes ~ .nextLevelRow > .nextLevel > table.show-data > tbody > tr:not(:last-child) > & {
+    .show-data > tbody > & {
+      .firstRow:not(:last-child) > td > table > tbody > .firstRow:not(:last-child) > td > & {
+        padding-bottom: 0;
+      }
+      .firstRow:last-child > td > table > tbody > .firstRow:last-child > td > & {
+        padding-bottom: $orgChartSpace;
+
+        @include before(($orgChartSpace + $nodeBorderRadius), 0, $orgChartSpace) {
+          min-width: $orgChartSpace;
+          border-left: 1px solid $orgChartBorderColor;
+          border-bottom: 1px solid $orgChartBorderColor;
+          border-bottom-left-radius: $nodeBorderRadius;
+        }
+        @include after(calc(100% - .5px), -#{$orgChartSpace}, #{$orgChartSpace + $orgChartSpace}, false) {
+          width: ($nodeWidth / 2) - $orgChartSpace;
+          border-right: 1px solid $orgChartBorderColor;
+          border-top: 1px solid $orgChartBorderColor;
+          border-radius: 0 $nodeBorderRadius 0 0;
+        }
+      }
+
+
+    }
+  }
+}
+
+.mainOfRow ~ tr.nextLevelRow > td > table > tbody > .nodes .node {
+
+}
+.nodesMultipleFirst + .firstRow > .nextLevel > table > tbody > tr.nodes .nextLevelWrapp .node {
+
+}
+
+.firstRow:last-child > .nextLevel {
+  > table > tbody > .nodes .nextLevelWrapp {
+    .node {
+      //background: palegoldenrod;
+    }
+  }
+}
+
+//.firstRow:last-child > td > table > tbody > tr.firstRow:not(:last-child) {
+//  > td > table > tbody > .nodes .nextLevelWrapp {
+//    .node {
+//      background: paleturquoise;
+//    }
+//  }
+//}
+
+.otherRow > td > table > tbody > .nodes .nodeWrapp {
+
+}
+
+.firstRow:not(:last-child) > td > table > tbody > .firstRow:not(:last-child) {
+  > td > table > tbody > tr.nodes .node {
+   // outline: 2px solid palevioletred;
+  }
+}
+
+.nextLevel {
+  position: relative;
+  .nodesMultiple ~ .nextLevelRow & {
+    padding-left: $orgChartSpace;
+  }
+  .nodesMultiple ~ .firstRow:last-child > & {
+    padding-left: 0;
+  }
+
+  .nodes ~ .nextLevelRow:not(:last-child) > & {
+    &:not(:only-child) {
+      @include before(false, false, $orgChartSpace) {
+        border-left: 1px solid $orgChartBorderColor;
+        top: $orgChartSpace + $nodeBorderRadius;
+        bottom: -$orgChartSpace;
+
+        .nextLevelRow:last-child > & {
+          bottom: $orgChartSpace;
+        }
+      }
+    }
+  }
+}
+//end .nextLevel
+
+
+.nextLevelWrapp, .nodeWrapp {
+  display: inline-block;
+  position: relative;
+}
+.nextLevelWrapp {
+  //paddings
+  .nodesMultiple.nodesView--v & {
+    padding-top: ($orgChartSpace * 2);
+    padding-left: $orgChartSpace;
+    .firstRow:last-child > .nextLevel > table > tbody > & {
+      padding-top: $orgChartSpace;
+    }
+  }
+  .nodesMultiple.nodesView--h & {
+    padding-top: ($orgChartSpace * 2);
+  }
+
+  .level--1 ~ tr > td:only-child .nodesSingle & {
+    padding-top: $orgChartSpace;
+  }
+
+  .level--1 ~ tr > td:not(:only-child) .nodesSingle & {
+    padding-top: ($orgChartSpace * 2);
+  }
+
+  //lines
+  .nodeTable--int > tbody > .nextLevelRow.otherRow > td > table > tbody > .nodesMultiple &,
+  .nodeTable--int > tbody > .nextLevelRow.firstRow:not(:last-child) > td > table > tbody > .nodesMultiple & {
+    @include nodeWrapLeft() {
+    }
+  }
+
+  .nodeTable--int > tbody > .nextLevelRow.otherRow > td > table > tbody > .nodesMultiple & {
+    &:before {
+      border-top: none;
+      border-top-left-radius: 0;
+    }
+  }
+
+
+
+
+  .nodeSingleChildCell:not(:only-child) > table > tbody > .nodes & {
+    @include nodeWrapTop() {}
+  }
+  .nodeSingleChildCell:not(:only-child) > table > tbody > .nodesView--h & {
+    &:before {
+      left: 50%;
+    }
+  }
+  .nodeSingleChildCell:last-child:not(:only-child) > table > tbody > .nodes & {
+    &:before {
+      left: 0;
+      border-left: none;
+      border-right: 1px solid $orgChartBorderColor;
+      border-radius: 0 $nodeBorderRadius 0 0;
+    }
+  }
+  .nodeSingleChildCell:last-child:not(:only-child) > table > tbody > .nodesView--v & {
+    &:before {
+      right: calc(50% - #{$orgChartSpace / 2});
+    }
+  }
+  .nodeSingleChildCell:last-child:not(:only-child) > table > tbody > .nodesView--h & {
+    &:before {
+      right: 50%;
+    }
+  }
+
+  @include nodeWrapBottom() {
+    .nodesMultiple.nodesView--v & {
+      right: calc(50% - #{$orgChartSpace / 2});
+    }
+    .nodesMultipleFirst.nodesView--h & {
+      right: 50%;
+    }
+    .nodesMultipleFirst.nodesView--h & {
+       left: $orgChartSpace;
+     }
+
+    //HIDE EXTRA bottom LINES
+    [class*="level--"]:only-child > td > &,
+    .has-subNodes.hide-data > tbody > .nodes:only-child > td > &,
+    .has-subNodes.hide-data > tbody > [class*="level--"]:nth-last-child(2) > td > & {
+      opacity: 0;
+    }
+
+
+    .nodesSingle > .nodeCell:only-child > & {
+      margin-right: auto;
+      border-bottom: 0;
+
+      .hide-data > tbody > & {
+        //left: auto;
+      }
+
+      .show-data > tbody > & {
+        left: $orgChartSpace;
+      }
+    }
+    tr.level--1 + tr:last-child > td:first-child:only-child .level--2 + tr > td:last-child:not(:only-child) .level--3 {
+      left: $orgChartSpace;
+    }
+
+    //.nodesView--h + .nextLevelRow:last-child > td > .hide-data & {
+    //  opacity: 0;
+    //}
+
+    .firstRow:not(:last-child) > td > table > tbody > .firstRow:not(:last-child) & {
+    }
+
+    .firstRow:last-child > td > table.hide-data > tbody > .nodes:not(:nth-last-child(n+3)) & {
+      left: auto;
+    }
+    .firstRow:last-child > td > table > tbody > tr.firstRow:not(:last-child) & {
+      left: 0;
+    }
+  }
+}
+
+// \\ LEVELS
+
+
+// COMMON STYLES FOR SUBNODES PLATE
+.subNodes {
+  .hide-data > tbody > & {
+    .subNodeCell {
+      overflow: hidden;
+      height: 0;
+    }
+
+    .subNodeItem {
+      width: 0; // for transition
+    }
+  }
+}
+
+.subNodeCell {
+  position: relative;
+  //text-align: center; //horizontal view fix
+}
+
+.subNodeWrapp {
+  position: relative;
+  display: inline-block;
+
+  table.hide-data > tbody > tr > td > & {
+    display: block; //https://prnt.sc/218a0tn
+    height: 0;
+    overflow: hidden;
+  }
+}
+
+.subNode {
+  position: relative;
+  margin-left: ($orgChartSpace + $orgChartSpaceSub);
+  padding: $orgChartSpace 0 0 0;
+  font-size: .7vw;
+
+  @include before($orgChartSpace, false, -$orgChartSpaceSub) {
+    width: ($orgChartSpace * 2);
+    height: $subNodeHeadSize + $orgChartSpaceSub;
+    border-top: 1px solid $orgChartBorderColorSub;
+    border-left: 1px solid $orgChartBorderColorSub;
+    border-radius: $nodeBorderRadius 0 0 0;
+    //margin-top: -1px; //to fit borders to each other
+  }
+
+  > h2 {
+    overflow: hidden;
+    max-height: $subNodeHeadSize;
+    margin: $orgChartSpaceSub 0 ($orgChartSpaceSub * .7);
+    font-size: 1em;
+    line-height: 1.2;
+    text-align: center;
+  }
+}
+
+.subNodeItem {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: $subNodeHeight;
+  width: $subNodeHeight * 4.2;
+  padding: 5px;
+  border: 1px solid $orgChartBorderColorSub;
+  border-top-width: $subNodeStatusBorderSize;
+  border-radius: $subNodeHeight;
+  background: $color-base-0-contrast;
+  transition: width .3s ease;
+
+  .figImage {
+    flex: 0 0 $subNodeHeight;
+
+    &:before {
+      background: $orgChartBorderColorSub;
+    }
+  }
+
+  .circular-portrait {
+    position: relative;
+    width: ($subNodeHeight - $nodePadding * 2);
+    height: ($subNodeHeight - $nodePadding * 2);
+    border-radius: 50%;
+    overflow: hidden;
+
+    img {
+      position: relative;
+      z-index: 2;
+      height: ($subNodeHeight - $nodePadding * 2);
+      width: 100%;
+      object-fit: cover;
+    }
+
+    @include after(0, 0, 0, 0) {
+      border: 3px solid $color-base-contrast;
+      background-color: $color-base-contrast;
+    }
+  ;
+  }
+
+  .figCaption {
+    display: flex;
+    min-width: 0; // to fix truncate overflos for <em>
+    flex-direction: column;
+
+    &:not(:hover) {
+      h5, em {
+        @include txtTruncate;
+      }
+    }
+
+    h5 {
+      margin: 0;
+      font-size: 1em;
+      text-transform: none;
+    }
+
+    em {
+      display: inline-block;
+      font-style: normal;
+      font-size: .9em;
+
+    }
+  }
+}
+
+.emplTree {
+  list-style-type: none;
+  position: relative;
+  margin: 0;
+  text-align: left;
+
+  ul {
+    position: relative;
+    margin-left: $orgChartSpace;
+  }
+
+  li {
+    position: relative;
+    margin-top: $orgChartSpaceSub;
+
+    &:not(:only-child) {
+      @include before-after();
+    }
+
+    > ul > li,
+    &:not(:first-child) {
+      @include before(-($orgChartSpaceSub), 50%, -($orgChartSpaceSub)) {
+        width: $orgChartSpaceSub;
+        margin-bottom: -$subNodeStatusBorderSize / 2;
+        border-left: 1px solid $orgChartBorderColorSub;
+        border-bottom: 1px solid $orgChartBorderColorSub;
+        border-bottom-left-radius: $nodeBorderRadius;
+      }
+    }
+
+    &:not(:last-child) {
+      @include after(50%, 0, false, 100%) {
+        margin-top: -$rhombSize;
+        width: $orgChartSpaceSub;
+        border-left: 1px solid $orgChartBorderColorSub;
+      }
+    }
+  }
+
+  > li:first-child {
+    > .subNodeItem {
+      @include after(-($orgChartSpaceSub), 50%, -($orgChartSpaceSub)) {
+        width: $orgChartSpaceSub;
+        margin-left: -1px;
+        border-left: 1px solid $orgChartBorderColorSub;
+        border-bottom: 1px solid $orgChartBorderColorSub;
+        border-bottom-left-radius: $nodeBorderRadius;
+      }
+    ;
+    }
+  }
+
+  .subNodeItem + ul {
+    margin-left: $subNodeHeight / 2;
+    padding-left: $orgChartSpaceSub;
+    @include before(-($orgChartSpaceSub), false, 0) {
+      height: ($subNodeHeight / 2 + $rhombSize);
+      border-left: 1px solid $orgChartBorderColorSub;
+    }
+    @include rhomb(after, left, $rhombSize) {
+      top: -($orgChartSpaceSub);
+      margin-left: 1px;
+      bottom: auto;
+    }
+  }
+}
+
+// \\COMMON STYLES FOR SUBNODES PLATE
+
+
+//SUPERVISOR STRUCTURE STYLES
+.spvrStructure {
+  .subNodeWrapp {
+    display: inline-block;
+  }
+
+  .subNode {
+    border: 1px solid #000;
+    border-radius: $nodeBorderRadius;
+    background-color: $color-base-1;
+    text-align: center;
+    min-width: $nodeWidth;
+
+    .figImage {
+      position: relative;
+
+      img {
+        height: 120px;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .figCaption {
+      font-size: 1rem;
+    }
+
+    h2 {
+      font-size: 1.1em;
+    }
+
+    h3 {
+      font-size: .9em;
+    }
+  }
+}

@@ -1,0 +1,71 @@
+<report>
+    <view>
+        <title>CRM Leads Report</title>
+        <name>Leads Report</name>
+        <category>leads</category>
+        <sqlquery>
+            <select agregateFunc="distinct">
+                <table name="Lead">
+
+                    <column name="(ass.firstname ||' '|| ass.lastname)" title="Assignee" type="string"
+                            formattype="string"/>
+                    <column name="(backupAss.firstname ||' '|| backupAss.lastname)" title="Backup Assignee" type="string" formattype="string"/>
+                    <column name="(owner.firstname ||' '|| owner.lastname)" title="Owner" type="string" formattype="string"/>
+
+
+                    <column name="cgn.name" title="Campaign" type="string" formattype="string"/>
+                    <column name="(CASE WHEN ld.emailoptout = true THEN 'yes' ELSE 'no' END)" title="Email Opt Out"
+                            type="string" formattype="string"/>
+                    <column name="sou.name" title="Lead Source" type="string" formattype="string"/>
+                    <column name="st.name" title="Lead Status" type="string" formattype="string"/>
+                    <column name="ld.creationDate" title="Created Date" type="date" formattype="date_without_time"/>
+                    <column name="ld.modificationDate" title="Last Modified" type="date" formattype="date" customdateformat="DD Mon, YYYY HH24:MI"/>
+                </table>
+                <table name="Contact">
+                    <column name="ld.id" title="Lead ID" type="number" formattype="hidden"/>
+                    <column name="ld.primaryemail" title="Email" type="string" formattype="string"/>
+                    <column name="ld.firstname" title="Firstname" type="string" formattype="string"/>
+                    <column name="ld.lastname" title="Lastname" type="string" formattype="string"/>
+                    <column name="ld.primaryphone" title="Phone" type="string" formattype="phone"/>
+                    <column name="ld.title" title="Title" type="string" formattype="string"/>
+                </table>
+
+                <table name="Company Information">
+                    <column name="annualRevenue.name" title="Annual Revenue" type="string" formattype="string"/>
+                    <column name="cac.name" title="Company Name" type="string" formattype="string"/>
+                    <column name="co.name" title="Country Name" type="string" formattype="string"/>
+                    <column name="ca.city" title="City" type="string" formattype="string"/>
+                    <column name="rtg.name" title="Rating" type="string" formattype="string"/>
+                    <column name="ind.name" title="Industry" type="string" formattype="string"/>
+                    <column name="websites.value" title="Website" type="string" formattype="string"/>
+                    <column name="numberOfEmployees.name" title="# of Employees" type="string" formattype="string"/>
+                </table>
+            </select>
+            <from>
+                "$".crmcontact ld
+                left join "$".myuser ass ON ass.id = ld.assignee
+                left join "$".myuser backupass ON backupass.id = ld.backupassignee
+                left join "$".myuser owner ON owner.id = ld.owner
+                LEFT JOIN "$".crmaccount cac ON cac.id = ld.crmaccount
+                left join "$".reference ind on ind.id = cac.industry
+                left join "$".reference sou on sou.id = ld.source
+                left join "$".campaign cgn on cgn.id = ld.campaign
+                left join "$".reference st on st.id = ld.status
+                left join "$".reference annualRevenue on annualRevenue.id = cac.annualRevenueId
+                left join "$".reference numberOfEmployees on numberOfEmployees.id = cac.numberOfEmployeesId
+                left join "$".reference rtg on rtg.id = ld.rating
+                LEFT JOIN "$".crmcontactitemparams websites ON websites.contactid = ld.id AND websites.relationid = 1
+                and websites.paramid = 4
+                LEFT JOIN "$".address ca ON ca.contactid = ld.id AND ca.entityType= 'contact'
+                LEFT JOIN "public".country co ON co.id = ca.countryid
+            </from>
+            <where>
+                <terms id="base" value="ld.deleted is not true and ld.contacttype = 5"/>
+                <!--<terms id="userid" userid="" company="ld.company_id" />
+                <terms id="managerid" userid="" company="ld.company_id" />
+                <terms id="leaderid" userid="" company="ld.company_id" />
+                <terms id="admin" company="ld.company_id" />-->
+            </where>
+        </sqlquery>
+    </view>
+</report>

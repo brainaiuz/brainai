@@ -1,0 +1,2 @@
+INSERT INTO "anv".modelfield(fieldsetstyle, fieldstyle, field_id, form_id, forder, fsection, halfsetstyle, widget, type, sorder, rowstyle)
+values ('slideDown-content group labelLine', 'field', 'PROJECT_CODE', 'IMPORT_BANK_TRANSACTION_FORM', 13, 'OPTIONAL_INFORMATIONS', 'halfSet-1 left', 'DropDown', 'text', 11, 'row hideCustomField');

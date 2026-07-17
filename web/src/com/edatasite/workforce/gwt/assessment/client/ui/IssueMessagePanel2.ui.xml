@@ -1,0 +1,35 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+    <ui:style>
+        .content {
+            width: 200px;
+            height: 85px;
+            background: #FFD9AA;
+            border-radius: 10px 10px 10px 10px;
+        }
+
+        .left {
+            float: left !important;
+        }
+
+        .right {
+            float: right !important;
+        }
+
+        .image-style {
+            width: 50px;
+            margin-left: 5px;
+            margin-top: 10px;
+        }
+
+        .note-style {
+            width: 140px;
+            margin-top: 15px;
+        }
+    </ui:style>
+
+    <g:HTMLPanel addStyleNames="{style.content}">
+        <img src="" alt="" class="{style.image-style} {style.left}" ui:field="iconMessage"/>
+        <g:HTML addStyleNames="{style.note-style} {style.right}" ui:field="performanceNoteMessage"/>
+    </g:HTMLPanel>
+</ui:UiBinder>

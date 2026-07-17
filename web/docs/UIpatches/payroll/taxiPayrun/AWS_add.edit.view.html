@@ -1,0 +1,70 @@
+<div class="contentBar" style="padding:0 10px;padding-top:3px;">
+    <div id="click1" class="slideDown-box expand group">
+        <h3 onclick="var myclick=document.getElementById('click1');if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('expand')>=0){cls=cls.replace('expand','');}else{cls+=' expand';}myclick.className=cls;}"
+            class="slideDown-title">
+            $$label:PAYSLIP_TABLE$$</h3>
+        <fieldset class="slideDown-content group labelLine" id="clientContact">
+            <div class="halfSet-1 left">
+                <div class="row">
+                    $$label:PREPARER$$
+                    <div class="field">
+                        $$input:PREPARER$$
+                    </div>
+                </div>
+                <div class="row">
+                    $$label:APPROVER$$
+                    <div class="field">
+                        $$input:APPROVER$$
+                    </div>
+                </div>
+                <div class="row">
+                    $$label:MONTH$$
+                    <div class="field">
+                        <div style="float:left">
+                            $$input:MONTH$$
+                        </div>
+                        <div style="float:right; margin-left: 10px">
+                            $$input:YEAR$$
+                        </div>
+                    </div>
+                </div>
+                <div class="row hideCustomField">
+                    $$input:COPY_FROM$$
+                </div>
+                <div class="row hideCustomField">
+                    $$label:APPROVE_ALL$$
+                    <div style="float: left; padding-right: 15px">
+                        $$input:APPROVE_ALL$$
+                    </div>
+                    <div style="margin-left: 10px; white-space:nowrap; font-style: italic;">
+                        $$input:APPROVE_ALL_HINT$$
+                    </div>
+                </div>
+
+            </div>
+            <div class="halfSet-1 left">
+                <div class="row hideCustomField">
+                    $$label:PAYROLL_BATCH$$
+                    <div class="field">
+                        $$input:PAYROLL_BATCH$$
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <fieldset class="slideDown-content group nobrd">
+            <div style="position: absolute;">
+                <div class="cell-widget">
+                    $$input:EMPLOYEE_PAYSLIP_TABLE$$
+                </div>
+                <div class="total-table">
+                    <span class="corner lt"></span>
+                    <span class="corner rt"></span>
+                    <span class="corner lb"></span>
+                    <span class="corner rb"></span>
+                    $$input:TOTAL_PANEL$$
+                </div>
+            </div>
+        </fieldset>
+
+    </div>
+</div>

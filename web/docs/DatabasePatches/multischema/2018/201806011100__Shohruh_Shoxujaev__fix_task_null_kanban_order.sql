@@ -1,0 +1,1 @@
+UPDATE "anv".task SET kanban_order=65535 WHERE kanban_order is null;

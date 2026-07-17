@@ -1,0 +1,41 @@
+<report>
+    <view>
+        <title>Open case by Priority</title>
+        <name>Open case by Priority</name>
+        <category>cases</category>
+        <sqlquery>
+            <select agregateFunc="distinct">
+                <table name="Case">
+                    <column name="id" title="id" type="number" formattype="hidden"/>
+                    <column name="statusName" title="Status" type="string" formattype="string"/>
+                    <column name="priorityName" title="Priority" type="string" formattype="string"/>
+                    <column name="newCount" title="New" type="number" formattype="number"/>
+                    <column name="reopenedCount" title="Reopened" type="number" formattype="number"/>
+                    <column name="closedCount" title="Closed" type="number" formattype="number"/>
+                    <column name="waitingCount" title="Waiting for Reply" type="number" formattype="number"/>
+                    <column name="escalatedCount" title="Escalated" type="number" formattype="number"/>
+                    <column name="onHoldCount" title="On Hold" type="number" formattype="number"/>
+                </table>
+            </select>
+            <from>(
+                select max(s.name) statusName, max(p.name) priorityName
+                ,sum(case s.code  when 'NEW' then 1 else 0 end) newCount
+                ,sum(case s.code  when 'REOPENED' then 1 else 0 end) reopenedCount
+                ,sum(case s.code  when 'CS_CLOSED' then 1 else 0 end) closedCount
+                ,sum(case s.code  when 'WAITING_FOR_REPLY' then 1 else 0 end) waitingCount
+                ,sum(case s.code  when 'ESCALATED' then 1 else 0 end) escalatedCount
+                ,sum(case s.code  when 'CS_ON_HOLD' then 1 else 0 end) onHoldCount
+                from "$".crmcase c
+                join "$".reference s on c.status=s.id
+                join "$".reference p on c.priority=p.id
+                where s.code in ('NEW','REOPENED','CS_CLOSED','WAITING_FOR_REPLY','ESCALATED','CS_ON_HOLD')
+                and c.deleted is not true
+                group by p.code, s.code
+                ) t
+            </from>
+            <where>
+                <terms id="base" value="1=1"/>
+            </where>
+        </sqlquery>
+    </view>
+</report>

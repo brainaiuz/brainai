@@ -1,0 +1,14 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+    <g:HTMLPanel styleName="grid-row">
+        <g:HTMLPanel styleName="col-6" ui:field="pdfTypePanel"></g:HTMLPanel>
+        <g:HTMLPanel styleName="col-6" ui:field="templateNamePanel"></g:HTMLPanel>
+        <g:HTMLPanel styleName="col-6" ui:field="defaultPanel"></g:HTMLPanel>
+        <g:HTMLPanel styleName="col-6" ui:field="orientationPanel"></g:HTMLPanel>
+        <g:HTMLPanel styleName="col-6" ui:field="marginTopPanel"></g:HTMLPanel>
+        <g:HTMLPanel styleName="col-6" ui:field="marginBottomPanel"></g:HTMLPanel>
+        <g:HTMLPanel styleName="col-6" ui:field="marginLeftPanel"></g:HTMLPanel>
+        <g:HTMLPanel styleName="col-6" ui:field="marginRightPanel"></g:HTMLPanel>
+        <g:HTMLPanel styleName="col-6" ui:field="fontPanel"></g:HTMLPanel>
+    </g:HTMLPanel>
+</ui:UiBinder>

@@ -1,0 +1,40 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+
+    <g:FlowPanel styleName="depNode">
+
+        <g:FlowPanel ui:field="cardPanel" styleName="depCard">
+
+            <g:FlowPanel styleName="depCard__heading">
+                <g:HTML ui:field="departmentName" styleName="depCard__headingTitle"/>
+
+                <g:FocusPanel ui:field="headerActions" styleName="dropdown-button btn-small btn--icon depCard__actBtn"/>
+            </g:FlowPanel>
+
+            <g:FlowPanel ui:field="employeesSection" styleName="depCard__sect depEmployees">
+                <!--                <g:Label styleName="depCard__sectTitle">Департамент раҳбари / Ходимлар</g:Label>-->
+                <g:FlowPanel ui:field="employeesList" styleName="depEmployeesList"/>
+            </g:FlowPanel>
+
+            <g:FlowPanel ui:field="shortDescriptionSection" styleName="depCard__sect depShortDesc">
+                <g:Label ui:field="shortDescriptionLabel" styleName="depCard__sectTitle">:</g:Label>
+                <g:HTML ui:field="shortDescription" styleName="depShortDescText"/>
+            </g:FlowPanel>
+
+            <g:FlowPanel ui:field="descriptionSection" styleName="depCard__sect depFullDesc">
+                <g:Label ui:field="descriptionLabel" styleName="depCard__sectTitle">:</g:Label>
+                <g:HTML ui:field="description" styleName="depFullDescText"/>
+            </g:FlowPanel>
+
+            <g:FlowPanel ui:field="metricsSection" styleName="depCard__sect depMetrics">
+                <g:Label ui:field="metricsLabel" styleName="depCard__sectTitle">:</g:Label>
+                <g:FlowPanel ui:field="metricsList" styleName="depMetricsList"/>
+            </g:FlowPanel>
+
+        </g:FlowPanel>
+
+        <g:FlowPanel ui:field="childrenPanel" styleName="depChildren"/>
+
+    </g:FlowPanel>
+</ui:UiBinder>

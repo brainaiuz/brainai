@@ -1,0 +1,30 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:w='urn:import:com.edatasite.workforce.gwt.core.client.ui'
+             xmlns:w1='urn:import:com.edatasite.workforce.gwt.accounting.client.ui'
+             xmlns:m='urn:import:gwt.material.design.client.ui'
+             xmlns:m.html="urn:import:gwt.material.design.client.ui.html"
+             xmlns:groupBox="urn:import:com.edatasite.workforce.gwt.core.client.ui.components.groupBox">
+
+    <g:HTMLPanel ui:field="topPanel" styleName="pageContent_reporting" >
+
+        <div class="fixed-filters-panel-wrapper">
+            <groupBox:SectionBoxPanel ui:field="headerPanel"/>
+        </div>
+
+        <div id="mainContent" class="inputs_sm">
+            <!--<div class="textPanel clearfix delimit_top">-->
+                <!--<div class="title_group text-center">-->
+                    <!--<div class="title_group_subinfo">-->
+                        <!--<div class="date" ui:field="headerDateText"/>-->
+                        <!--<div class="date" ui:field="currencyText"/>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <div class="textPanel clearfix delimit_top">
+                <div ui:field="journalReportSection"/>
+            </div>
+        </div>
+    </g:HTMLPanel>
+</ui:UiBinder>

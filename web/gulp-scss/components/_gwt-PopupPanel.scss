@@ -1,0 +1,202 @@
+.gwt-PopupPanel {
+  position: absolute; //add to positioning the close in example page
+  @include dropdown-content-style($radius: $modalRadius);
+  padding: $gwtPopupPanel-padding;
+  &:not(.emplActionsPopup) {
+  }
+  &:not(.calendarPopup) {
+
+  }
+  //border: none;
+
+  &.calendarPopup {
+    border: 1px solid $gray-border;
+    box-shadow: $popupBoxShadow;
+  }
+
+
+  .close-x {
+    position: absolute;
+    z-index: 11; // to be over the popupContent
+    top: 8px;
+    right: 1.25rem;
+    cursor: pointer;
+  }
+
+  .accept, .cancel {
+    width: 40px;
+    height: 40px;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    font-family: 'icomoon';
+    line-height: 40px;
+    text-align: center;
+    transition: opacity 0.2s;
+    opacity: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .accept:hover, .cancel:hover {
+    opacity: 0.7;
+  }
+
+  .accept {
+    border-radius: $modalRadius 0 0 $modalRadius;
+    background-color: $success2-color;
+    font-size: 15px;
+    color: white;
+
+    &:before {
+      content: "\e902";
+    }
+  }
+
+  .cancel {
+    &:before {
+      content: "\e91b";
+    }
+  }
+
+  .popupContent {
+    border: none !important;
+  }
+
+  .content td {
+    display: block;
+  }
+
+  .gwt-TextArea {
+    width: 100%;
+  }
+
+  .accept-cancel-group {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+
+}
+//Timesheet scroll area issue fix https://prnt.sc/snv1x2 and T10968 task gif attachment
+.timesheetEditCellPopup {
+  position: sticky !important;
+  display: inline-block;
+  &__cover {
+
+  }
+  &__time {}
+  &__note {}
+  &__hourType {
+    margin-top: $padding-y-base;
+    .popupContent > table {
+      width: 100%;
+    }
+  }
+  &__errorMessage {
+    margin: 10px 0 $padding-y-base; // also as space above the .accept-cancel-group buttons
+    color: $error-color;
+  }
+}
+
+.gwt-PopupPanel,
+.gwt-InlineCellEditor {
+  .cancel {
+    border-radius: 0 $modalRadius $modalRadius 0;
+    background-color: #F7F8FA;
+
+    img {
+      display: none;
+    }
+  }
+}
+
+.gwt-InlineCellEditor {
+  input {
+    /*border: none;*/
+    //outline: none; //almost being for .form-control
+
+  }
+
+  select {
+    /*outline: none;*/
+    margin-right: 20px;
+  }
+}
+
+
+
+//TIMESHEET POPUP
+.tmshtPopup {
+  &-taskName {
+    overflow-y: auto;
+    max-height: 54px;
+  }
+}
+
+//AI Helper Panel
+.aiHintPopup {
+  width: 280px;
+  @extend %panel--bordered;
+  padding: 10px 0 10px 10px;
+
+  > .popupContent {
+    height: 100%;
+  }
+
+  &__scroll {
+    overflow-y: auto;
+    height: 100%;
+    //width: 100%;
+    //box-sizing: content-box;
+    padding-right: 10px;
+
+    > * {
+      height: 100%;
+
+      &:has(> :nth-child(3)) {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+    }
+  }
+}
+
+.aiHint {
+  &:hover {
+    cursor: pointer;
+    color: $link-color;
+    .aiHint__time {
+      background-color: light($link-color, 90%);
+    }
+  }
+
+  &__section {
+    $padding: $padding-y-base;
+
+    &:not(:last-child) {
+      padding-bottom: $padding;
+    }
+
+    & + & {
+      padding-top: $padding;
+      border-top: 1px solid $border-color;
+    }
+  }
+
+  &__time {
+    display: inline-block;
+    padding: 1px 5px;
+    margin-bottom: 5px;
+    border-radius: 2px;
+    background-color: $color-base-0;
+  }
+
+  &__desc {
+    display: block;
+  }
+}
+

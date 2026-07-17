@@ -1,0 +1,2 @@
+delete from "anv".genericsettings where key ='CONVERT_BATCH_SERIALS_EACH_OF_THEM_NEW_LINE_ITEM';
+insert into "anv".genericsettings(key,value) values ('CONVERT_BATCH_SERIALS_EACH_OF_THEM_NEW_LINE_ITEM', 'NO');

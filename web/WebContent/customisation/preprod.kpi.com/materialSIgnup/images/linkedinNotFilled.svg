@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="6470 758 48 48">
+    <defs>
+        <style>
+            .cls-1 {
+            fill: #fff;
+            }
+
+            .cls-2 {
+            fill: #0976b4;
+            }
+        </style>
+    </defs>
+    <g id="linked_in" data-name="linked in" transform="translate(6010 -90)">
+        <circle id="Ellipse_51" data-name="Ellipse 51" class="cls-1" cx="24" cy="24" r="24"
+                transform="translate(460 848)"/>
+        <path id="Union_106" data-name="Union 106" class="cls-2"
+              d="M-5969,24V7.862h5.6V24Zm19.026-.207V14.98c0-1.806-.514-3.616-2.608-3.616s-2.969,1.81-2.969,3.66v8.769h-5.586V7.657h5.586V9.829c1.47-1.9,2.747-2.682,5.063-2.682s6.085,1.1,6.085,7.472v9.174ZM-5969,2.861A2.86,2.86,0,0,1-5966.14,0a2.859,2.859,0,0,1,2.857,2.861,2.857,2.857,0,0,1-2.857,2.857A2.858,2.858,0,0,1-5969,2.861Z"
+              transform="translate(6441 859)"/>
+    </g>
+</svg>

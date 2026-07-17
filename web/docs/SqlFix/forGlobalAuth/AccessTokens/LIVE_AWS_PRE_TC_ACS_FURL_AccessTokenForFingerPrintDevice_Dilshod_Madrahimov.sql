@@ -1,0 +1,1 @@
+INSERT INTO apiaccesstoken(token, description,blocked) VALUES ('f24936ba-afff-4084-8ebc-5fbdbb7ecf62','Access token for finger print device','f');

@@ -1,0 +1,90 @@
+{
+  "customBillToAddress": {
+    "rows": {
+      "CASH_ACCOUNT": {
+        "COLUMN_NAME": "Cash Account",
+        "COLUMN_VALUE": "Petty Cash"
+      },
+      "BANK_ACCOUNT": {
+        "COLUMN_NAME": "Bank Account",
+        "COLUMN_VALUE": "Petty Cash"
+      },
+      "DATE": {
+        "COLUMN_NAME": "Date",
+        "COLUMN_VALUE": "March 01, 2019"
+      },
+      "REFERENCE": {
+        "COLUMN_NAME": "Reference",
+        "COLUMN_VALUE": "INV2014"
+      },
+      "NUMBER": {
+        "COLUMN_NAME": "No.",
+        "COLUMN_VALUE": "REM0633"
+      },
+      "project": {
+        "COLUMN_NAME": "Project",
+        "COLUMN_VALUE": "N/A"
+      },
+      "NARRATION": {
+        "COLUMN_NAME": "Narration",
+        "COLUMN_VALUE": "N/A"
+      },
+      "CURRENCY": {
+        "COLUMN_NAME": "Currency",
+        "COLUMN_VALUE": "USD"
+      }
+    }
+  },
+  "customProductTable": {
+    "header": {
+      "ACCOUNT_NAME": "Account",
+      "DESCRIPTION": "Description",
+      "REFERENCE": "Reference",
+      "NAME": "Name",
+      "AMOUNT": "Amount",
+      "TAX_AMOUNT": "Tax"
+    },
+    "rows": {
+      "0": {
+        "ACCOUNT_NAME": "INV0011",
+        "DESCRIPTION": "INV0011",
+        "REFERENCE": "INV0011",
+        "NAME": "Demo company",
+        "AMOUNT": "50.00",
+        "TAX_AMOUNT": "0.00"
+      },
+      "1": {
+        "ACCOUNT_NAME": "INV0011",
+        "DESCRIPTION": "INV0011",
+        "REFERENCE": "INV0011",
+        "NAME": "Demo company",
+        "AMOUNT": "50.00",
+        "TAX_AMOUNT": "0.00"
+      }
+    }
+  },
+  "customTotalTable": {
+    "rows": {
+      "TOTAL": {
+        "COLUMN_NAME": "Total",
+        "COLUMN_VALUE": "100.00"
+      },
+      "TOTAL_IN_BASE": {
+        "COLUMN_NAME": "Total",
+        "COLUMN_VALUE": "100.00"
+      },
+      "SUBTOTAL": {
+        "COLUMN_NAME": "Subtotal",
+        "COLUMN_VALUE": "100.00"
+      },
+      "TOTAL_WORD": {
+        "COLUMN_NAME": "Total Word",
+        "COLUMN_VALUE": "One hundred and 0/10"
+      },
+      "TAX_TOTAL": {
+        "COLUMN_NAME": "Vat",
+        "COLUMN_VALUE": "0.00"
+      }
+    }
+  }
+}

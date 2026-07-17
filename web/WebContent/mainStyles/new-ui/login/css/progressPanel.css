@@ -1,0 +1,152 @@
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.progress-panel--remove-sample-data {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+
+    /* Адаптивные размеры вместо фиксированных */
+    width: 90%;
+    max-width: 600px;
+    height: auto;
+    max-height: 90vh;
+    box-sizing: border-box;
+    border-radius: 8px;
+    overflow-y: auto; /* На случай маленьких экранов в ландшафтном режиме */
+}
+
+.progress-panel__header {
+    font-size: 1.3rem;
+    text-align: center;
+    margin: 15px auto 35px;
+    max-width: 420px;
+}
+
+.progress-panel__steps {
+    display: flex;
+    flex-wrap: wrap; /* Чтобы шаги переносились, если не влезают в ряд */
+    justify-content: center;
+    gap: 15px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.progress-panel__step {
+    text-align: center;
+    min-width: 120px;
+    flex: 1 1 0;
+    position: relative;
+    color: #8d9ba8;
+}
+
+.progress-panel__step--success { color: #1D252C; }
+
+.progress-panel__step-circle {
+    align-items: center;
+    background-color: #8d9ba8;
+    border-radius: 100%;
+    justify-content: center;
+    height: 35px;
+    width: 35px;
+    display: inline-flex;
+    margin-bottom: 20px;
+    transition: background-color 0.3s;
+}
+
+.progress-panel__step--success .progress-panel__step-circle {
+    background-color: #2bbf57;
+}
+
+.progress-panel__step-icon {
+    transform: translateY(60px);
+    transition: transform 0.2s;
+}
+
+.progress-panel__step-icon.ficon--check-thin {
+    color: #fff;
+    font-size: 1.6rem;
+}
+
+.progress-panel__step--success .progress-panel__step-icon--success {
+    transform: translateX(0);
+}
+
+/* Progress Panel - Improved Text Carousel */
+.progress-panel__current-desc {
+    position: relative;
+    min-height: 3.5em;           /* фиксированная высота чтобы не прыгало */
+    margin: 20px 0 30px 0;
+    overflow: hidden;
+}
+
+.progress-panel__current-desc-item {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(15px);
+    transition: all 0.45s ease-out;
+    font-size: 1.32rem;
+    color: #8d9ba8;
+    line-height: 1.35;
+}
+
+/* Активный текст */
+.progress-panel__current-desc-item--active {
+    opacity: 1;
+    transform: translateY(0);
+    color: #1D252C;
+}
+
+/* Уже прошедший текст (уходит вверх) */
+.progress-panel__current-desc-item--passed {
+    opacity: 0;
+    transform: translateY(-25px);
+}
+
+/* Loader */
+.cs-loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cs-loader-inner {
+    width: 80%;
+    transform: translateY(-50%);
+    text-align: center;
+}
+
+.cs-loader-inner i {
+    display: inline-block;
+    font-style: normal;
+    font-size: 20px;
+    color: #2D3A45;
+    opacity: 0;
+}
+
+.cs-loader-inner i + i { margin-left: .2vw; }
+
+@keyframes lol {
+    0% { opacity: 0; transform: translateX(-300px); }
+    33% { opacity: 1; transform: translateX(0); }
+    66% { opacity: 1; transform: translateX(0); }
+    100% { opacity: 0; transform: translateX(300px); }
+}
+
+.cs-loader-inner i:nth-child(6) { animation: lol 3s infinite ease-in-out; }
+.cs-loader-inner i:nth-child(5) { animation: lol 3s 100ms infinite ease-in-out; }
+.cs-loader-inner i:nth-child(4) { animation: lol 3s 200ms infinite ease-in-out; }
+.cs-loader-inner i:nth-child(3) { animation: lol 3s 300ms infinite ease-in-out; }
+.cs-loader-inner i:nth-child(2) { animation: lol 3s 400ms infinite ease-in-out; }
+.cs-loader-inner i:nth-child(1) { animation: lol 3s 500ms infinite ease-in-out; }

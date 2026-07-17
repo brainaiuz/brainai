@@ -1,0 +1,1 @@
+ant Pricing -f ./web/AutoCompile.xml

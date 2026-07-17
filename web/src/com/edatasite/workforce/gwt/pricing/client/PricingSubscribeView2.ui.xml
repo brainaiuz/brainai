@@ -1,0 +1,192 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:wfm='urn:import:com.edatasite.workforce.gwt.core.client.ui' xmlns:components="urn:import:com.edatasite.workforce.gwt.core.client.ui.components">
+    <g:HTMLPanel>
+        <div class="clear-block" id="contentPlace">
+            <!-- Start sidebar-left -->
+            <!--<div class="sidebar" id="sidebar-left"/>-->
+            <!-- End sidebar-left -->
+
+            <!-- Start sidebar-right -->
+            <div class="sidebar" id="sidebar-right"/>
+            <!-- End sidebar-right -->
+            <!-- Start MAIN -->
+            <!--<div id="{style.main}" class="{style.c-box}">-->
+            <div id="main">
+
+                <!--<dl class="rangeLine">
+                    <dt><span ui:field="headerPricingPage"/></dt>
+                    <dd>
+                        <g:Anchor href="javascript:;" ui:field="features"/>
+                    </dd>
+                    <dd>
+                        <g:Anchor href="javascript:;" ui:field="comparePrices"/>
+                    </dd>
+                    <dd class="act">
+                        <g:Anchor href="javascript:;" ui:field="prices"/>
+                    </dd>
+                </dl>
+
+                <label class="notePlease" ui:field="helpContentMessage"/>-->
+
+                <div class="packagesBox">
+                    <div class="plateBox2 chooseOpt">
+                        <label>
+                            <span ui:field="iWantToUseKPIDOTCOM"/>
+                            <span class="selectCover">
+                                    <wfm:DataListBox ui:field="usersSelectItem" addStyleNames="user-select-list-box"/>
+                                <!--<span class="pseudoSelect" ui:field="pseudoSelectField"/>-->
+                            </span>
+                            <!--<wfm:PopUpDropDownBox ui:field="popupDropDown"/>-->
+                            <span ui:field="selectedUSERS"/>
+                        </label>
+
+                        <table class="chooseOptTable">
+                            <colgroup>
+                                <col class="col-1"/>
+                                <col class="col-2"/>
+                                <col class="col-3"/>
+                                <col class="col-4"/>
+                                <col class="col-5"/>
+                            </colgroup>
+                            <thead>
+                                <tr class="">
+                                    <th scope="row"/>
+                                    <th scope="row" class="colHead" ui:field="oneMonth"/>
+                                    <th scope="row" class="colHead" ui:field="threeMonth"/>
+                                    <th scope="row" class="colHead" ui:field="sixMonth"/>
+                                    <th scope="row" class="colHead" ui:field="oneYear"/>
+                                </tr>
+                            </thead>
+
+                            <tfoot>
+                                <tr>
+                                    <th scope="row"/>
+                                    <td colspan="4">
+                                        <g:HTML ui:field="forUKBasedVAT" addStyleNames="vatStyle"/>
+                                        <components:KpiCheckBox ui:field="taxCheck" addStyleNames="vatCheckBoxStyle"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"/>
+                                    <td class="slideBtn2">
+                                        <g:Button ui:field="buyNowOneMonth"/>
+                                    </td>
+                                    <td class="slideBtn2">
+                                        <g:Button ui:field="buyNowThreeMonth"/>
+                                    </td>
+                                    <td class="slideBtn2">
+                                        <g:Button ui:field="buyNowSixMonth"/>
+                                    </td>
+                                    <td class="slideBtn2">
+                                        <g:Button ui:field="buyNowOneYear"/>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                <tr class="odd">
+                                    <th scope="row" ui:field="pricePerUserMonth"/>
+                                    <td><g:HTML ui:field="pricePerUserMonthOneMonth"/></td>
+                                    <td><g:HTML ui:field="pricePerUserMonthThreeMonth"/></td>
+                                    <td><g:HTML ui:field="pricePerUserMonthSixMonth"/></td>
+                                    <td><g:HTML ui:field="pricePerUserMonthOneYear"/></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" ui:field="totalAmountPerUser"/>
+                                    <td><g:HTML ui:field="totalAmountTotalUserPerOneMonth"/></td>
+                                    <td><g:HTML ui:field="totalAmountTotalUserPerThreeMonth"/></td>
+                                    <td><g:HTML ui:field="totalAmountTotalUserPerSixMonth"/></td>
+                                    <td><g:HTML ui:field="totalAmountTotalUserPerOneYear"/></td>
+                                </tr>
+                                <tr class="odd totalRow">
+                                    <th scope="row" ui:field="discount"/>
+                                    <td><g:HTML ui:field="discountPercentPerOneMonth"/></td>
+                                    <td><g:HTML ui:field="discountPercentPerThreeMonth"/></td>
+                                    <td><g:HTML ui:field="discountPercentPerSixMonth"/></td>
+                                    <td><g:HTML ui:field="discountPercentPerOneYear"/></td>
+                                </tr>
+                            </tbody>
+
+                            <tbody class="thRow">
+                                <tr>
+                                    <th scope="row" ui:field="priceAfterDiscount"/>
+                                    <td><g:HTML ui:field="priceAfterDiscountPerUserOneMonth"/><g:HTML ui:field="totalPricePerUserOneMonth"/></td>
+                                    <td><g:HTML ui:field="priceAfterDiscountPerUserThreeMonth"/><g:HTML ui:field="totalPricePerUserThreeMonth"/></td>
+                                    <td><g:HTML ui:field="priceAfterDiscountPerUserSixMonth"/><g:HTML ui:field="totalPricePerUserSixMonth"/></td>
+                                    <td><g:HTML ui:field="priceAfterDiscountPerUserOneYear"/><g:HTML ui:field="totalPricePerUserOneYear"/></td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+                        <!--[if lte IE 8]>
+                            <span class="bgAngle topLeft"></span>
+                            <span class="bgAngle topRight"></span>
+                            <span class="bgAngle bottomLeft"></span>
+                            <span class="bgAngle bottomRight">&nbsp;</span>
+                        <![endif]-->
+                    </div>
+
+                    <div class="plateBox chooseOpt-result">
+                        <h3 class="title2" ui:field="whatInMyPackage"/>
+                        <ul>
+                            <li>
+                                <!--<g:Anchor href="javascript:;" ui:field="packageProjectManagement"/>-->
+                                <g:HTML addStyleNames="style-package" ui:field="packageProjectManagement"/>
+                            </li>
+                            <li>
+                                <!--<g:Anchor href="javascript:;" ui:field="packageHRMS"/>-->
+                                <g:HTML addStyleNames="style-package" ui:field="packageHRMS"/>
+                            </li>
+                            <li>
+                                <!--<g:Anchor href="javascript:;" ui:field="packageCRM"/>-->
+                                <g:HTML addStyleNames="style-package" ui:field="packageCRM"/>
+                            </li>
+                            <li>
+                                <!--<g:Anchor href="javascript:;" ui:field="packageAccountingAndFinance"/>-->
+                                <g:HTML addStyleNames="style-package" ui:field="packageAccountingAndFinance"/>
+                            </li>
+                            <li>
+                                <!--<g:Anchor href="javascript:;" ui:field="packagePayroll"/>-->
+                                <g:HTML addStyleNames="style-package" ui:field="packagePayroll"/>
+                            </li>
+                            <li>
+                                <!--<g:Anchor href="javascript:;" ui:field="packageDocuments"/>-->
+                                <g:HTML addStyleNames="style-package" ui:field="packageDocuments"/>
+                            </li>
+                            <li>
+                                <!--<g:Anchor href="javascript:;" ui:field="packageDashboard"/>-->
+                                <g:HTML addStyleNames="style-package" ui:field="packageDashboard"/>
+                            </li>
+                        </ul>
+
+                        <!--[if lte IE 8]>
+                            <span class="bgAngle topLeft"></span>
+                            <span class="bgAngle topRight"></span>
+                            <span class="bgAngle bottomLeft"></span>
+                            <span class="bgAngle bottomRight">&nbsp;</span>
+                        <![endif]-->
+                    </div>
+
+                </div>
+                <!-- End packagesBox -->
+
+                <div class="welcomeBann clear">
+                    <div class="sect">
+                        <label ui:field="youCanTasteKPIDOTCOM"/>
+                        <a title="Try It for Free" class="btn btnTryIt" href="javascript:;" ui:field="tryNOW"/>
+                    </div>
+
+                    <!--<div class="sect">
+                        <label ui:field="letUsShowYouWhatKPIDOTCOM"/>
+                        <a title="Schedule a Demo" class="btn btnScheduleDemo" href="/" ui:field="scheduleADEMO"/>
+                    </div>-->
+
+                </div>
+
+            </div>
+            <!-- End MAIN-->
+
+        </div>
+    </g:HTMLPanel>
+</ui:UiBinder>

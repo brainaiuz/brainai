@@ -1,0 +1,1 @@
+ant TrainingCenter -f ./web/AutoCompile.xml

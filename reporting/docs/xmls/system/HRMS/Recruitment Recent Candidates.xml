@@ -1,0 +1,45 @@
+<report>
+    <view>
+        <title>Recruitment Recent Candidates</title>
+        <name>Recruitment Recent Candidates</name>
+        <category>hrms</category>
+        <sqlquery>
+            <select agregateFunc="distinct">
+                <table name="Recruitment Recent Candidates">
+                    <column name="id" title="id" type="number" formattype="hidden"/>
+                    <column name="createdDate" title="Created Date" type="date" formattype="date"
+                            customdateformat="Month DD, YYYY"/>
+                    <column name="candidateName" title="Candidate Name" type="string" formattype="string"/>
+                    <column name="email" title="Email" type="string" formattype="string"/>
+                    <column name="phone" title="Phone" type="string" formattype="string"/>
+                    <column name="ownerName" title="Owner" type="string" formattype="string"/>
+                    <column name="source" title="Source" type="string" formattype="string"/>
+                    <column name="status" title="Status" type="string" formattype="string"/>
+                    <column name="vacancy" title="Matched vacancies" type="string" formattype="string"/>
+                    <column name="dateOfBirth" title="Date Of Birth" type="date" formattype="date"
+                            customdateformat="Month DD, YYYY"/>
+                </table>
+            </select>
+            <from>
+                (
+                select can.id, can.creationdate createdDate, can.primaryemail email, replace(can.primaryPhone, '|', '')
+                phone, coalesce(can.firstname||' '||can.lastname) candidateName,
+                max(mu.firstname||' '||mu.lastname) ownerName, max(r.name) status,
+                array_to_string(array_agg(v.jobtitle), ', ') vacancy,
+                can.dateofbirth dateOfBirth, max(refe.name) source from "$".crmcontact can
+                LEFT JOIN "$".myuser mu ON (can.owner=mu.id)
+                LEFT JOIN "$".candidate_vacancies cv ON (cv.candidate_id=can.id)
+                LEFT JOIN "$".vacancy v ON (cv.vacancy_id=v.id)
+                LEFT JOIN "$".reference r ON (can.status=r.id)
+                LEFT JOIN "$".reference refe ON (can.source=refe.id)
+                WHERE can.deleted is not true
+                AND can.contacttype = 6
+                GROUP BY can.id
+                ) t
+            </from>
+            <where>
+                <terms id="base" value="1=1"/>
+            </where>
+        </sqlquery>
+    </view>
+</report>

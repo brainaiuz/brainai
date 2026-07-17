@@ -1,0 +1,92 @@
+/*
+* Email accounts
+*/
+
+.wg_email-accounts{
+  min-width:340px;
+  .collapsible>li{
+      margin-bottom: 10px;
+    &.active{
+      box-shadow: 0px 2px 10px 0px rgba(83, 102, 119, 0.2);
+    }
+  }
+  .collapsible-header {
+    padding:0;
+    margin:0px;
+    text-transform: none;
+    &:hover{
+      background: none;
+    }
+    &:after{
+      font-size: 22px;
+    }
+    &.active .reports-link-control__name{
+      border-bottom-left-radius:0px;
+      border-bottom-right-radius:0px;
+    }
+  }
+  .reports-link-control{
+    margin: 0;
+    padding: 0;
+  }
+  .reports-link-control__name{
+    padding: 20px 25px;
+    display: flex;
+
+  }
+  .collapsible-body{
+    padding-top:0;
+    padding-bottom: 0;
+  }
+  .reports-link-control__bage{
+    display: flex;
+    align-items:center;
+  }
+
+  .reports-link-control__bage .ficon--bell{
+    line-height:1;
+    font-size: 13px;
+    width:auto;
+    margin-right: 10px;
+
+    float: none;
+  }
+  .reports-link-control__bage span{
+    line-height:1.4;
+    max-width: 40px;
+    @include txtTruncate();
+  }
+  .reports-link-control__bage + span{
+    max-width: 185px;
+    @include txtTruncate();
+  }
+}
+.wg_email-accounts__list-item{
+  background: white;
+  border-top: 1px solid $gray-new-light;
+  padding: 10px 25px;
+  &:hover{
+    background-color: #F7F8FA;
+  }
+
+  &:last-child{
+    border-bottom-left-radius:5px;
+    border-bottom-right-radius:5px;
+  }
+}
+.wg_email-accounts__from-address-text, .wg_email-accounts__from-subject{
+  max-width: 230px;
+  @include txtTruncate();
+}
+.wg_email-accounts__from-address{
+  display: flex;
+  justify-content: space-between;
+  color: #8D9BA8;
+}
+.wg_email-accounts__from-date{
+  margin-left: 10px;
+  color: #8D9BA8;
+}
+.wg_email-accounts__from-subject{
+  color: $color-accent-2;
+}

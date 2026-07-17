@@ -1,0 +1,34 @@
+1.Instructions to write xml doc customise *.nocache.js file.
+2.You are inherits to (*.html,*.jsp) page *.nocache.js file and that setting this *.nocache.js writing this is xml doc
+
+    I.  <div id="wfm-module-settings" style="display:none;">
+            ....
+        </div>
+
+         a) write div tag and div attribute valueequals "wfm-module-settings" constant
+         b) this div tag not shows in users and write style display none
+
+    II. <div id="wfm-module-settings" style="display:none;">
+            <module name="moduleName" height="500px" width="1200px" rootid="entryPoint add Div ID" showheader="false" showallcontainer="true">
+            </module>
+        </div>
+
+        a) <module> xml tag  *.nocache.js file setting (one <module> .. <module> one entry point class or one *.nocache.js file setting)
+        b)
+
+
+Example:
+        <div id="wfm-module-settings" style='display:none;'>
+            <module name="crm" height="400px" width="1200px" rootid="crmbody" showheader="false">
+                <containers>
+                    <container historyname="accountList_2" showleftmenu="false" sections="contactList_2"/>
+                    <container historyname="crmWelcome" sections="all"/>
+                </containers>
+            </module>
+            <module name="pm" height="500px" width="1200px" rootid="pmbody" showheader="false">
+                <containers>
+                    <container historyname="myworkspace" showleftmenu="false" sections="timesheet"/>
+                </containers>
+            </module>
+         </div>
+

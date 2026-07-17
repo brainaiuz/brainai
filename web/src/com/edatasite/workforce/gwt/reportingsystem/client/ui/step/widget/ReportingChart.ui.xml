@@ -1,0 +1,75 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:m.html="urn:import:gwt.material.design.client.ui.html"
+             xmlns:form="urn:import:com.edatasite.workforce.gwt.core.client.ui.components.form"
+             xmlns:m="urn:import:gwt.material.design.client.ui" xmlns:unit="urn:import:com.edatasite.workforce.gwt.reportingsystem.client.ui.step.widget.unit">
+    <g:HTMLPanel>
+        <m.html:Div class="panel-filters">
+            <!--Chart type list-->
+            <m.html:UnorderedList class="chart-view" ui:field="chartTypeList"/>
+
+            <m.html:Div ui:field="chartConfigDiv">
+
+                <m.html:Div class="panel-filters__section chart-main-options">
+                    <!--main configuration part-->
+                    <m.html:Div class="grid-row" ui:field="mainConfigRow">
+                        <!--Axis container-->
+                        <m.html:Div class="col-6">
+                            <m.html:Div class="grid-row">
+                                <m.html:Div class="col-7">
+                                    <form:FormGroup ui:field="xAxisField"/>
+                                </m.html:Div>
+                                <m.html:Div class="col-5">
+                                    <form:FormGroup ui:field="drillField"/>
+                                </m.html:Div>
+                            </m.html:Div>
+
+                        </m.html:Div>
+
+                        <m.html:Div class="col-6">
+                            <m.html:Div class="grid-row">
+                                <m.html:Div class="col-4">
+                                    <form:FormGroup ui:field="splitField"/>
+                                </m.html:Div>
+                                <m.html:Div class="col-4">
+                                    <form:FormGroup ui:field="sortingField"/>
+                                </m.html:Div>
+                                <m.html:Div class="col-4">
+                                    <form:FormGroup ui:field="customSorderField"/>
+                                </m.html:Div>
+                            </m.html:Div>
+                        </m.html:Div>
+
+                    </m.html:Div>
+
+                    <!--series part-->
+                    <m.html:Div class="grid-row">
+                        <m.html:Div class="col-6">
+                            <m.html:Div ui:field="seriesContainer"/>
+                        </m.html:Div>
+
+                        <!--Share module container-->
+                        <m.html:Div class="col-6">
+                            <form:FormGroup ui:field="modulesField"/>
+                        </m.html:Div>
+                    </m.html:Div>
+
+                </m.html:Div>
+
+                <!--advanced configuration part-->
+                <g:HTMLPanel styleName="panel-chart panel-filters__section">
+                    <!--Chart preview container-->
+                    <m.html:Div class="panel-chart-graph">
+                        <m.html:Div ui:field="previewChartContainer"/>
+                    </m.html:Div>
+
+                    <unit:ChartAdvancedOpt ui:field="chartAdvancedOpt"/>
+                </g:HTMLPanel>
+
+            </m.html:Div>
+
+        </m.html:Div>
+
+
+    </g:HTMLPanel>
+</ui:UiBinder>

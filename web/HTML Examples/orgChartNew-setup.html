@@ -1,0 +1,724 @@
+<!doctype html>
+<html class="" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>New Supervisor Structure</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--CSS-->
+    <link rel="stylesheet" href="../WebContent/mainStyles/new-ui/css/materialize.css">
+</head>
+<body class="frame__body has-operPanel fitted-content left-menu-closed">
+<!-- CUSTOM SCROLL-->
+<!--<script type="text/javascript" src="../../web/WebContent/mainStyles/new-ui/js/jquery.scrollbar.min.js"></script>-->
+<!-- \ CUSTOM SCROLL-->
+
+<div class="frame has-scroll--vertical">
+    <div class="frame__header">
+        <div aria-hidden="true" class="frame__header__item-2" style="display: none;">
+            <div class="dropdown-select--arrow dropdown-kit--below dropdown-kit--edge-in"></div>
+        </div>
+        <div aria-hidden="true" class="frame__header__item-3" style="display: none;">
+            <div style="display:none" class="dropdown-select--arrow dropdown-kit--below dropdown-kit--edge-in"><a
+                    style="margin-top:5px;" href="javascript:void(0);" class="btn gwt-uid-67 dropdown-button"
+                    data-activates="gwt-uid-67">
+                <ul id="gwt-uid-67" class="email-account dropdown-content"></ul>
+            </a></div>
+        </div>
+        <div class="header-tabs">
+            <ul class="tabs" style="width: 100%;">
+                <li class="tab"><a href="#dashboard" style="cursor: pointer;" class=""><span
+                        title="Dashboard">Dashboard</span></a></li>
+                <div class="indicator" style="right: 993.864px; left: 107.156px;"></div>
+                <li class="tab"><a href="#saleinvoiceadd" style="cursor: pointer;" class="active"><span
+                        title="Add Sales Invoice">Add Sales Invoice</span><i class="close"></i></a></li>
+            </ul>
+        </div>
+        <div class="user-menu">
+            <div aria-hidden="true" class="frame__user__trial" style="display: none;">
+                <div class="trial-informer"><span></span>
+                    <button class="btn btn--trial"><span>Upgrade</span></button>
+                </div>
+            </div>
+            <div class="user-menu-dynamic">
+                <div class="user-menu-item" data-delay="350" data-position="bottom"
+                     data-tooltip-id="8b0c411f-101a-4044-acc5-9c811fad5026" data-tooltip="Timer"><a
+                        class="button-collapse" style="cursor: pointer;"><span class="user-menu-item__icon"><svg
+                        class=" icon--clock"><use
+                        href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#clock"></use></svg><span
+                        class="badge" aria-hidden="true" style="display: none;"></span></span></a></div>
+                <div class="user-menu-item" data-delay="350" data-position="bottom"
+                     data-tooltip-id="ca4170a8-c9e6-48d7-aea0-d1b4263bf863" data-tooltip="Call"><a
+                        class="button-collapse" style="cursor: pointer;"><span class="user-menu-item__icon"><svg
+                        class=" icon--phone"><use
+                        href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#phone"></use></svg><span
+                        class="badge" aria-hidden="true" style="display: none;"></span></span></a></div>
+            </div>
+            <div class="user-menu-item" style="">
+                <a class="button-collapse" style="cursor: pointer;" data-delay="350" data-position="bottom"
+                   data-tooltip-id="fcae765f-b147-ca82-49cc-2697869d98da" data-tooltip="Notifications"><span
+                        class="user-menu-item__icon">
+                    <svg class=" icon--bell"><use
+                            href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#bell"></use></svg><span
+                        class="badge" style="">1</span></span>
+                </a>
+            </div>
+            <div class="user-menu-item" style=""><a class="button-collapse" style="cursor: pointer;" data-delay="350"
+                                                    data-position="bottom"
+                                                    data-tooltip-id="1aec85c3-229b-9909-c2ba-b3a68ee54346"
+                                                    data-tooltip="Emails"><span class="user-menu-item__icon"><svg
+                    class=" icon--mail"><use
+                    href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#mail"></use></svg><span
+                    class="badge" aria-hidden="true" style="display: none;"></span></span></a></div>
+            <div class="user-menu-item"><a class="button-collapse" style="cursor: pointer;" data-delay="350"
+                                           data-position="bottom" data-tooltip-id="6fc79d96-50b6-88f3-6a3a-59ef18882540"
+                                           data-tooltip="Settings"><span class="icon-settings"></span>
+                <svg class=" icon--settings">
+                    <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#settings"></use>
+                </svg>
+            </a></div>
+        </div>
+    </div>
+
+    <div class="frame__modules">
+        <div class="frame__nav">
+
+
+        </div>
+        <div class="main-modules">
+            <div class="">
+                <div class="user-profile">
+                    <a class="user-profile__menu dropdown-button" style="cursor: pointer;">
+                    <span class="user-profile-img"
+                          style="background-image:url('https://wfmtest.s3.amazonaws.com/000000000000/public/49913/static/df49791b-664e-4536-88be-3aa86ccf79b4?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1570109243&amp;Signature=%2FQ70lDJFDal57C0TNvse6PA1g9s%3D');">
+                    <img src="https://wfmtest.s3.amazonaws.com/000000000000/public/49913/static/df49791b-664e-4536-88be-3aa86ccf79b4?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1570109243&amp;Signature=%2FQ70lDJFDal57C0TNvse6PA1g9s%3D">
+                    </span>
+                    </a>
+                </div>
+            </div>
+            <ul>
+                <li class="main-modules__item main-modules__item--workspace"><a href="Workspace.html"
+                                                                                style="cursor: pointer;">
+                    <svg class=" icon--home">
+                        <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#home"></use>
+                    </svg>
+                    <span></span></a></li>
+                <li class="main-modules__item main-modules__item--accounting"><a style="cursor: pointer;">
+                    <svg class=" icon--accounting">
+                        <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#accounting"></use>
+                    </svg>
+                    <span>Accounts</span></a></li>
+                <li class="main-modules__item main-modules__item--sales"><a style="cursor: pointer;">
+                    <svg class=" icon--sales">
+                        <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#sales"></use>
+                    </svg>
+                    <span>Sales</span></a></li>
+                <li class="main-modules__item--active main-modules__item main-modules__item--humans"><a
+                        style="cursor: pointer;">
+                    <svg class=" icon--humans">
+                        <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#humans"></use>
+                    </svg>
+                    <span>Humans</span></a></li>
+                <li class="main-modules__item main-modules__item--projects"><a style="cursor: pointer;">
+                    <svg class=" icon--projects">
+                        <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#projects"></use>
+                    </svg>
+                    <span>Projects</span></a></li>
+                <li class="main-modules__item main-modules__item--payroll"><a style="cursor: pointer;">
+                    <svg class=" icon--payroll">
+                        <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#payroll"></use>
+                    </svg>
+                    <span>Payroll</span></a></li>
+                <li class="main-modules__item main-modules__item--reports"><a style="cursor: pointer;">
+                    <svg class=" icon--reporting">
+                        <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#reporting"></use>
+                    </svg>
+                    <span>Reports</span></a></li>
+                <li class="main-modules__item main-modules__item--docs"><a style="cursor: pointer;">
+                    <svg class=" icon--documents">
+                        <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#documents"></use>
+                    </svg>
+                    <span>Docs</span></a></li>
+            </ul>
+            <div class="kpi-modules-overlay" style="display: none;"></div>
+        </div>
+        <div class="frame__modules__footer"><a class="left-menu-trigger" style="cursor: pointer;"><i
+                class="ficon--chevron-right"></i></a></div>
+    </div>
+
+
+    <div class="operPanel__wrapper">
+        <div class="operPanel--header operPanel">
+            <div class="operPanel__actions">
+                <div id="gwt-debug-hrmsEmployeesList_new_button_id"><span><div class="btn btn--new btn--circle"><svg
+                        class="icon--plus"><use
+                        href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#plus"></use></svg></div></span>
+                </div>
+                <div class="searchForm"><span class="searchForm__btn" id="gwt-debug-search_button"><svg
+                        class=" icon--search"><use
+                        href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#search"></use></svg></span><span
+                        class="searchForm__control"><input type="text" maxlength="255" class="form-control"
+                                                           autocomplete="off" id="gwt-debug-searchBox"
+                                                           placeholder="Search"></span><span class="searchForm__x"><svg
+                        class=" icon--x"><use
+                        href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#x"></use></svg></span><i
+                        class="ficon--chevron-left material-icons" aria-hidden="true"
+                        style="cursor: pointer; display: none;"></i></div>
+                <div class="operPanel__btn-groups">
+                    <div class="filter-group"><span class="btn btn--icon" id="gwt-debug-filter_button" data-delay="350"
+                                                    data-position="top"
+                                                    data-tooltip-id="bc862e34-d353-8f86-1423-88b22f0f27af"
+                                                    data-tooltip="Filter"><svg class=" icon--filter"><use
+                            href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#filter"></use></svg></span>
+                        <div class="optGroupCover pseudoSelect" aria-hidden="true" style="width: 150px; display: none;">
+                            <span class="curValue"><em>Please Select</em></span>
+                            <ul>
+                                <li>Please Select</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <span class="btn btn--icon" id="reset_button" data-delay="350" data-position="top"
+                          data-tooltip-id="c2b5064f-8955-cfeb-52a4-325866f3f8ab" data-tooltip="Reset"><svg
+                            class=" icon--repeat"><use
+                            href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#repeat"></use></svg></span><span
+                        class="btn btn--icon" id="reload_button" data-delay="350" data-position="top"
+                        data-tooltip-id="8b649e78-1c39-5263-4078-f2839d1a64d8" data-tooltip="Refresh"><svg
+                        class=" icon--rotateCw"><use
+                        href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#rotateCw"></use></svg></span>
+                    <div class="btn-group dropdown-kit--arrow--below menu-bar">
+                        <a href="#" class="btn btn--icon gwt-uid-102 dropdown-button">
+                            <svg class=" icon--downloadCloud">
+                                <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#downloadCloud"></use>
+                            </svg>
+                        </a>
+                    </div>
+                    <div style="display: none;"></div>
+                </div>
+                <div class="operPanel__advanced-filter" aria-hidden="true" style="display: none;"></div>
+            </div>
+            <div class="operPanel__settings">
+                <div class="paging-group opers-2 operPanel--paging">
+                    <div class="pagingStat__wrapper"><a id="gwt-debug-total_link_id" data-activates="gwt-uid-103"
+                                                        class="gwt-uid-103 dropdown-button" style="cursor: pointer;">
+                        <div class="gwt-HTML pagingStat"></div>
+                    </a>
+                        <ul id="gwt-uid-103" class="dropdown-content"><a id="gwt-debug-total_link_id"
+                                                                         data-activates="gwt-uid-103"
+                                                                         class="gwt-uid-103 dropdown-button"
+                                                                         style="cursor: pointer;">
+                        </a>
+                            <li style="display: block;"><a id="gwt-debug-total_link_id" data-activates="gwt-uid-103"
+                                                           class="gwt-uid-103 dropdown-button"
+                                                           style="cursor: pointer;"></a><a id="gwt-debug-newest_page_id"
+                                                                                           style="cursor: pointer;"><span>Newest</span></a>
+                            </li>
+                            <li style="display: block;"><a aria-hidden="true" id="gwt-debug-oldest_page_id"
+                                                           style="cursor: pointer; display: none;"><span>Oldest</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <ul class="paging">
+                        <li id="gwt-debug-prevpage_id" class="paging__prevpage"><a class="btn btn--white btn--icon"
+                                                                                   style="cursor: pointer;">
+                            <svg class=" icon--chevronLeft">
+                                <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#chevronLeft"></use>
+                            </svg>
+                        </a></li>
+                        <li id="gwt-debug-current_page_id" class="paging__currentpage">
+                            <input type="text" maxlength="255" class="form-control" autocomplete="off" dir="ltr"
+                                   style="width: 3em; text-align: right;" value="1">
+                        </li>
+                        <li id="gwt-debug-nextPage_id" class="paging__nextpage"><a class="btn btn--white btn--icon"
+                                                                                   style="cursor: pointer;">
+                            <svg class=" icon--chevronRight">
+                                <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#chevronRight"></use>
+                            </svg>
+                        </a></li>
+                        <li>
+                            <div class="errorMessage"></div>
+                        </li>
+                    </ul>
+                </div>
+                <div class=""><span class="btn btn--icon" id="gwt-debug-customise_button" data-delay="350"
+                                    data-position="top" data-tooltip-id="71d9b4d2-9846-eab9-4c7c-c73032853169"
+                                    data-tooltip="Customize"><svg class=" icon--sliders"><use
+                        href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#sliders"></use></svg></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="frame__content scrollbar-external_wrapper">
+        <div class="frame__content__body scrollbar-external">
+            <div class="whiteBGR">
+                <div class="workarea" id="workarea">
+
+                    <div class="content-box">
+                        <!--START NEW SUPERVISOR STRUCTURE-->
+
+                        <div class="setupPanel">
+                            <div class="setupPanel__logo">
+                                <div class="logoGroup">
+                                    <div class="logoGroup__img">
+                                        <svg width="49" height="49" viewBox="0 0 49 49" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                  d="M15 45V33.75H3.75C3.75 33.75 2.1967 33.75 1.09835 32.6517C1.09835 32.6517 0 31.5533 0 30V18.75C0 18.75 0 17.1967 1.09835 16.0984C1.09835 16.0984 2.1967 15 3.75 15H15V3.75C15 3.75 15 2.1967 16.0984 1.09835C16.0984 1.09835 17.1967 0 18.75 0H30C30 0 31.5533 0 32.6517 1.09835C32.6517 1.09835 33.75 2.1967 33.75 3.75V15H45C45 15 46.5533 15 47.6517 16.0984C47.6517 16.0984 48.75 17.1967 48.75 18.75V30C48.75 30 48.75 31.5533 47.6517 32.6517C47.6517 32.6517 46.5533 33.75 45 33.75H33.75V45C33.75 45 33.75 46.5533 32.6517 47.6517C32.6517 47.6517 31.5533 48.75 30 48.75H18.75C18.75 48.75 17.1967 48.75 16.0984 47.6517C16.0984 47.6517 15 46.5533 15 45ZM18.75 45H30V31.875C30 30.8395 30.8395 30 31.875 30H45V18.75H31.875C30.8395 18.75 30 17.9105 30 16.875V3.75H18.75V16.875C18.75 17.9105 17.9105 18.75 16.875 18.75H3.75V30H16.875C17.9105 30 18.75 30.8395 18.75 31.875V45Z"
+                                                  fill="#78A4D8"/>
+                                        </svg>
+                                    </div>
+
+                                    <div class="logoGroup__caption">
+                                        Клиника
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h3 class="setupPanel__title">Какую оргструктуру вы хотите создать?</h3>
+
+                            <div class="setupPanel__body">
+                                <div class="setupLine">
+                                    <div class="setupOpt">
+                                        <div class="setupOpt__img">
+                                            <svg width="129" height="140" viewBox="0 0 129 140" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M29.5 33V59H63H93.5V112.5" stroke="#DBDBDB"/>
+                                                <rect width="70" height="50" rx="10" fill="#E2F9FF"/>
+                                                <rect x="59" y="65" width="70" height="40" rx="8" fill="#FFE3D0"/>
+                                                <g clip-path="url(#clip0_169_117)">
+                                                    <path d="M95 123H93V127H89V129H93V133H95V129H99V127H95V123ZM94 118C88.49 118 84 122.49 84 128C84 133.51 88.49 138 94 138C99.51 138 104 133.51 104 128C104 122.49 99.51 118 94 118ZM94 136C89.59 136 86 132.41 86 128C86 123.59 89.59 120 94 120C98.41 120 102 123.59 102 128C102 132.41 98.41 136 94 136Z"
+                                                          fill="#BDBDBD"/>
+                                                </g>
+                                                <defs>
+                                                    <clipPath id="clip0_169_117">
+                                                        <rect width="24" height="24" fill="white"
+                                                              transform="translate(82 116)"/>
+                                                    </clipPath>
+                                                </defs>
+                                            </svg>
+
+                                        </div>
+                                        <div class="setupOpt__txt">
+                                            Настроить вручную
+                                        </div>
+                                    </div>
+
+                                    <div class="setupOpt">
+                                        <div class="setupOpt__view">
+                                            <svg width="19" height="13" viewBox="0 0 19 13" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                      d="M18.6961 6.50384C18.6961 6.50384 18.5216 6.89651 18.1656 7.46191C18.1656 7.46191 17.4642 8.57595 16.5357 9.50444C16.5357 9.50444 13.5401 12.5 9.375 12.5C9.375 12.5 5.20987 12.5 2.21431 9.50444C2.21431 9.50444 1.28582 8.57595 0.584386 7.46191C0.584386 7.46191 0.228387 6.89651 0.0538677 6.50384C-0.0179559 6.34223 -0.0179559 6.15777 0.0538678 5.99616C0.0538678 5.99616 0.228387 5.6035 0.584386 5.03809C0.584386 5.03809 1.28581 3.92405 2.21431 2.99556C2.21431 2.99556 5.20987 0 9.375 0C9.375 0 13.5401 0 16.5357 2.99556C16.5357 2.99556 17.4642 3.92405 18.1656 5.03809C18.1656 5.03809 18.5216 5.60349 18.6961 5.99616C18.768 6.15777 18.768 6.34223 18.6961 6.50384ZM17.1078 6.7959C17.1078 6.7959 17.3021 6.4874 17.4287 6.25C17.4287 6.25 17.3021 6.0126 17.1078 5.7041C17.1078 5.7041 16.4811 4.70875 15.6518 3.87944C15.6518 3.87944 13.0224 1.25 9.375 1.25C9.375 1.25 5.72763 1.25 3.09819 3.87944C3.09819 3.87944 2.26888 4.70876 1.64218 5.7041C1.64218 5.7041 1.44794 6.01259 1.32132 6.25C1.32132 6.25 1.44794 6.48741 1.64218 6.7959C1.64218 6.7959 2.26888 7.79124 3.09819 8.62056C3.09819 8.62056 5.72763 11.25 9.375 11.25C9.375 11.25 13.0224 11.25 15.6518 8.62056C15.6518 8.62056 16.4811 7.79125 17.1078 6.7959Z"
+                                                      fill="#78A4D8"/>
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                      d="M9.375 2.5C9.375 2.5 10.9283 2.5 12.0266 3.59835C12.0266 3.59835 13.125 4.6967 13.125 6.25C13.125 6.25 13.125 7.8033 12.0266 8.90165C12.0266 8.90165 10.9283 10 9.375 10C9.375 10 7.8217 10 6.72335 8.90165C6.72335 8.90165 5.625 7.8033 5.625 6.25C5.625 6.25 5.625 4.6967 6.72335 3.59835C6.72335 3.59835 7.8217 2.5 9.375 2.5ZM9.375 3.75C9.375 3.75 8.33947 3.75 7.60723 4.48223C7.60723 4.48223 6.875 5.21447 6.875 6.25C6.875 6.25 6.875 7.28553 7.60723 8.01777C7.60723 8.01777 8.33947 8.75 9.375 8.75C9.375 8.75 10.4105 8.75 11.1428 8.01777C11.1428 8.01777 11.875 7.28553 11.875 6.25C11.875 6.25 11.875 5.21447 11.1428 4.48223C11.1428 4.48223 10.4105 3.75 9.375 3.75Z"
+                                                      fill="#78A4D8"/>
+                                            </svg>
+                                        </div>
+                                        <div class="setupOpt__img">
+                                            <svg width="196" height="106" viewBox="0 0 196 106" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <rect width="196" height="5" rx="0.5" fill="#E2F9FF"/>
+                                                <rect y="14" width="17" height="15" rx="1" fill="#FFE5F9"/>
+                                                <rect x="56" y="14" width="50" height="14" rx="1" fill="#F0EDFF"/>
+                                                <rect x="108" y="14" width="52" height="14" rx="1" fill="#FFF9D7"/>
+                                                <rect x="162" y="14" width="34" height="14" rx="1" fill="#E7ECFF"/>
+                                                <rect y="31" width="17" height="37" rx="1" fill="#FFE5F9"/>
+                                                <rect x="56" y="30" width="15" height="36" rx="1" fill="#F0EDFF"/>
+                                                <rect x="108" y="30" width="18" height="36" rx="1" fill="#FFF9D7"/>
+                                                <rect y="70" width="17" height="36" rx="1" fill="#FFE5F9"/>
+                                                <rect x="162" y="30" width="17" height="53" rx="1" fill="#E7ECFF"/>
+                                                <rect x="19" y="14" width="17" height="13" rx="1" fill="#FFE5F9"/>
+                                                <rect x="19" y="29" width="17" height="26" rx="1" fill="#FFE5F9"/>
+                                                <rect x="73" y="30" width="15" height="26" rx="1" fill="#F0EDFF"/>
+                                                <rect x="128" y="30" width="15" height="26" rx="1" fill="#FFF9D7"/>
+                                                <rect x="19" y="57" width="17" height="26" rx="1" fill="#FFE5F9"/>
+                                                <rect x="181" y="30" width="15" height="26" rx="1" fill="#E7ECFF"/>
+                                                <rect x="73" y="58" width="15" height="27" rx="1" fill="#F0EDFF"/>
+                                                <rect x="38" y="14" width="16" height="13" rx="1" fill="#FFE5F9"/>
+                                                <rect x="38" y="29" width="16" height="24" rx="1" fill="#FFE5F9"/>
+                                                <rect x="90" y="30" width="16" height="24" rx="1" fill="#F0EDFF"/>
+                                                <rect x="145" y="30" width="15" height="24" rx="1" fill="#FFF9D7"/>
+                                                <rect x="38" y="55" width="16" height="34" rx="1" fill="#FFE5F9"/>
+                                                <rect x="90" y="56" width="16" height="34" rx="1" fill="#F0EDFF"/>
+                                                <rect y="7" width="196" height="5" rx="0.5" fill="#FFE3D0"/>
+                                            </svg>
+
+                                        </div>
+                                        <div class="setupOpt__txt">
+                                            Классическая
+                                        </div>
+                                    </div>
+
+                                    <div class="setupOpt">
+                                        <div class="setupOpt__view">
+                                            <svg width="19" height="13" viewBox="0 0 19 13" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                      d="M18.6961 6.50384C18.6961 6.50384 18.5216 6.89651 18.1656 7.46191C18.1656 7.46191 17.4642 8.57595 16.5357 9.50444C16.5357 9.50444 13.5401 12.5 9.375 12.5C9.375 12.5 5.20987 12.5 2.21431 9.50444C2.21431 9.50444 1.28582 8.57595 0.584386 7.46191C0.584386 7.46191 0.228387 6.89651 0.0538677 6.50384C-0.0179559 6.34223 -0.0179559 6.15777 0.0538678 5.99616C0.0538678 5.99616 0.228387 5.6035 0.584386 5.03809C0.584386 5.03809 1.28581 3.92405 2.21431 2.99556C2.21431 2.99556 5.20987 0 9.375 0C9.375 0 13.5401 0 16.5357 2.99556C16.5357 2.99556 17.4642 3.92405 18.1656 5.03809C18.1656 5.03809 18.5216 5.60349 18.6961 5.99616C18.768 6.15777 18.768 6.34223 18.6961 6.50384ZM17.1078 6.7959C17.1078 6.7959 17.3021 6.4874 17.4287 6.25C17.4287 6.25 17.3021 6.0126 17.1078 5.7041C17.1078 5.7041 16.4811 4.70875 15.6518 3.87944C15.6518 3.87944 13.0224 1.25 9.375 1.25C9.375 1.25 5.72763 1.25 3.09819 3.87944C3.09819 3.87944 2.26888 4.70876 1.64218 5.7041C1.64218 5.7041 1.44794 6.01259 1.32132 6.25C1.32132 6.25 1.44794 6.48741 1.64218 6.7959C1.64218 6.7959 2.26888 7.79124 3.09819 8.62056C3.09819 8.62056 5.72763 11.25 9.375 11.25C9.375 11.25 13.0224 11.25 15.6518 8.62056C15.6518 8.62056 16.4811 7.79125 17.1078 6.7959Z"
+                                                      fill="#78A4D8"/>
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                      d="M9.375 2.5C9.375 2.5 10.9283 2.5 12.0266 3.59835C12.0266 3.59835 13.125 4.6967 13.125 6.25C13.125 6.25 13.125 7.8033 12.0266 8.90165C12.0266 8.90165 10.9283 10 9.375 10C9.375 10 7.8217 10 6.72335 8.90165C6.72335 8.90165 5.625 7.8033 5.625 6.25C5.625 6.25 5.625 4.6967 6.72335 3.59835C6.72335 3.59835 7.8217 2.5 9.375 2.5ZM9.375 3.75C9.375 3.75 8.33947 3.75 7.60723 4.48223C7.60723 4.48223 6.875 5.21447 6.875 6.25C6.875 6.25 6.875 7.28553 7.60723 8.01777C7.60723 8.01777 8.33947 8.75 9.375 8.75C9.375 8.75 10.4105 8.75 11.1428 8.01777C11.1428 8.01777 11.875 7.28553 11.875 6.25C11.875 6.25 11.875 5.21447 11.1428 4.48223C11.1428 4.48223 10.4105 3.75 9.375 3.75Z"
+                                                      fill="#78A4D8"/>
+                                            </svg>
+                                        </div>
+                                        <div class="setupOpt__img">
+                                            <svg width="106" height="118" viewBox="0 0 106 118" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <rect width="106" height="5" rx="0.5" fill="#E2F9FF"/>
+                                                <rect y="7" width="106" height="5" rx="0.5" fill="#FFE3D0"/>
+                                                <rect y="14" width="54" height="10" rx="1" fill="#E7ECFF"/>
+                                                <rect y="26" width="17" height="15" rx="1" fill="#E7ECFF"/>
+                                                <rect x="56" y="14" width="50" height="10" rx="1" fill="#F0EDFF"/>
+                                                <rect y="43" width="17" height="37" rx="1" fill="#E7ECFF"/>
+                                                <rect x="56" y="26" width="15" height="36" rx="1" fill="#F0EDFF"/>
+                                                <rect y="82" width="17" height="36" rx="1" fill="#E7ECFF"/>
+                                                <rect x="19" y="26" width="17" height="13" rx="1" fill="#E7ECFF"/>
+                                                <rect x="19" y="41" width="17" height="26" rx="1" fill="#E7ECFF"/>
+                                                <rect x="73" y="26" width="15" height="26" rx="1" fill="#F0EDFF"/>
+                                                <rect x="19" y="69" width="17" height="26" rx="1" fill="#E7ECFF"/>
+                                                <rect x="73" y="54" width="15" height="27" rx="1" fill="#F0EDFF"/>
+                                                <rect x="38" y="26" width="16" height="13" rx="1" fill="#E7ECFF"/>
+                                                <rect x="38" y="41" width="16" height="24" rx="1" fill="#E7ECFF"/>
+                                                <rect x="90" y="26" width="16" height="24" rx="1" fill="#F0EDFF"/>
+                                                <rect x="38" y="67" width="16" height="34" rx="1" fill="#E7ECFF"/>
+                                                <rect x="90" y="52" width="16" height="34" rx="1" fill="#F0EDFF"/>
+                                            </svg>
+
+                                        </div>
+                                        <div class="setupOpt__txt">
+                                            Упрощенная
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="setupPanel__actions">
+                                <button class="btn btn--primary disabled" id="setupMainCreateBtn"  data-modal-id="orgchartSetup-modal--1">Создать</button>
+                            </div>
+                        </div>
+
+                        <!--END NEW SUPERVISOR STRUCTURE-->
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="quick-add__wrapper" style="display: none;">
+        <div class="kpi-sidenav-overlay" style="display: flex;"></div>
+        <ul class="quick-add user-menu-settings side-nav drawer right-aligned" id="80E47377-3DDB-49E2-882E-1FA46F2DB5B5"
+            style="width: 390px; right: 0px;">
+            <li style="display: block;">
+                <div class="side-nav-close" style="">
+                    <svg class=" icon--x">
+                        <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#x"></use>
+                    </svg>
+                </div>
+            </li>
+            <div class="sidenav-content" style="display: flex;"><a data-activates="80E47377-3DDB-49E2-882E-1FA46F2DB5B5"
+                                                                   class="80E47377-3DDB-49E2-882E-1FA46F2DB5B5 dropdown-button show-on-medium-and-down show-on-large"
+                                                                   style="cursor: pointer; position: absolute; visibility: visible;"></a>
+                <div class="side-nav__heading">
+                    <div class="side-nav__title">
+                        <div class="side-nav__title-group"><span>Settings</span></div>
+                    </div>
+                </div>
+                <div class="side-nav__body">
+                    <div class="scroll-offset">
+                        <div>
+                            <ul class="collapsible">
+                                <li class="main-dir__profilesettings item-open">
+                                    <div class="collapsible-header"><a
+                                            style="cursor: pointer;"><span>Profile  </span></a>
+                                    </div>
+                                    <div class="collapsible-body item-open">
+                                        <ul>
+                                            <li><a href="https://dev.kpi.com/Settings.html#profileSettings|profile"
+                                                   style="cursor: pointer;"><span>Profile</span></a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="main-dir__usercredential item-open">
+                                    <div class="collapsible-header"><a
+                                            style="cursor: pointer;"><span>User Credentials</span></a></div>
+                                    <div class="collapsible-body item-open">
+                                        <ul>
+                                            <li><a href="https://dev.kpi.com/Settings.html#userCredential|credentials"
+                                                   style="cursor: pointer;"><span>User Credentials</span></a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="main-dir__accountingsettings item-open">
+                                    <div class="collapsible-header"><a
+                                            style="cursor: pointer;"><span>Accounts</span></a>
+                                    </div>
+                                    <div class="collapsible-body item-open">
+                                        <ul>
+                                            <li>
+                                                <a href="https://dev.kpi.com/Settings.html#accountingSettings|invoiceSettings"
+                                                   style="cursor: pointer;"><span>Invoice Settings</span></a></li>
+                                            <li>
+                                                <a href="https://dev.kpi.com/Settings.html#accountingSettings|financialSettings"
+                                                   style="cursor: pointer;"><span>Financial Settings</span></a></li>
+                                            <li>
+                                                <a href="https://dev.kpi.com/Settings.html#accountingSettings|accounttypesettings"
+                                                   style="cursor: pointer;"><span>Account Numbering</span></a></li>
+                                            <li>
+                                                <a href="https://dev.kpi.com/Settings.html#accountingSettings|productnumberingsettings"
+                                                   style="cursor: pointer;"><span>Numbering Settings</span></a></li>
+                                            <li><a href="https://dev.kpi.com/Settings.html#accountingSettings|texes"
+                                                   style="cursor: pointer;"><span>Tax Rates</span></a></li>
+                                            <li><a href="https://dev.kpi.com/Settings.html#accountingSettings|exrates"
+                                                   style="cursor: pointer;"><span>Currency Rates</span></a></li>
+                                            <li>
+                                                <a href="https://dev.kpi.com/Settings.html#accountingSettings|priceLevelList"
+                                                   style="cursor: pointer;"><span>Price Levels</span></a></li>
+                                            <li><a href="https://dev.kpi.com/Settings.html#accountingSettings|terms"
+                                                   style="cursor: pointer;"><span>Terms</span></a></li>
+                                            <li>
+                                                <a href="https://dev.kpi.com/Settings.html#accountingSettings|discountList"
+                                                   style="cursor: pointer;"><span>Discounts</span></a></li>
+                                            <li>
+                                                <a href="https://dev.kpi.com/Settings.html#accountingSettings|unitmeasurementsList"
+                                                   style="cursor: pointer;"><span>Measurements</span></a></li>
+                                            <li>
+                                                <a href="https://dev.kpi.com/Settings.html#accountingSettings|productCategoriesList"
+                                                   style="cursor: pointer;"><span>Product Categories</span></a></li>
+                                            <li>
+                                                <a href="https://dev.kpi.com/Settings.html#accountingSettings|brandsList"
+                                                   style="cursor: pointer;"><span>Brands</span></a></li>
+                                            <li>
+                                                <a href="https://dev.kpi.com/Settings.html#accountingSettings|shippintMethod"
+                                                   style="cursor: pointer;"><span>Shipping Methods</span></a></li>
+                                            <li>
+                                                <a href="https://dev.kpi.com/Settings.html#accountingSettings|paymentmethodlist"
+                                                   style="cursor: pointer;"><span>Payment Methods</span></a></li>
+                                            <li>
+                                                <a href="https://dev.kpi.com/Settings.html#accountingSettings|accountList"
+                                                   style="cursor: pointer;"><span>Chart of Accounts</span></a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="main-dir__workflowsettings">
+                                    <div class="collapsible-header"><a style="cursor: pointer;"><span>Automation</span></a>
+                                    </div>
+                                    <div class="collapsible-body">
+                                        <ul>
+                                            <li>
+                                                <a href="https://dev.kpi.com/Settings.html#workflowSettings|workflowRuleList"
+                                                   style="cursor: pointer;"><span>Rules</span></a></li>
+                                            <li>
+                                                <a href="https://dev.kpi.com/Settings.html#workflowSettings|workflowActivitiesList"
+                                                   style="cursor: pointer;"><span>Upcoming Activities</span></a></li>
+                                            <li>
+                                                <a href="https://dev.kpi.com/Settings.html#workflowSettings|approvalProcess"
+                                                   style="cursor: pointer;"><span>Approval process</span></a></li>
+                                            <li>
+                                                <a href="https://dev.kpi.com/Settings.html#workflowSettings|systemMessages"
+                                                   style="cursor: pointer;"><span>Workflow Notifications</span></a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="side-nav__footer"></div>
+            </div>
+        </ul>
+    </div>
+
+    <div>
+        <div class="kpi-sidenav-overlay" style="display: none;"></div>
+        <div tabindex="0" style="height: 100%;"><input type="text" tabindex="-1" aria-hidden="true"
+                                                       style="opacity: 0; height: 1px; width: 1px; z-index: -1; overflow: hidden; position: absolute;">
+            <ul class="quick-add side-nav drawer right-aligned" id="6A63855D-1798-4B47-85FC-6F9660891CC9"
+                style="width: 390px; right: -400px;">
+                <div style="display: flex;" class="sidenav-content"><a
+                        data-activates="6A63855D-1798-4B47-85FC-6F9660891CC9"
+                        class="6A63855D-1798-4B47-85FC-6F9660891CC9 dropdown-button show-on-medium-and-down show-on-large"
+                        style="cursor: pointer; position: absolute; visibility: visible;"></a>
+                    <div class="side-nav__heading">
+                        <div class="side-nav__title">
+                            <div class="gwt-HTML"><h1>Send feedback</h1></div>
+                        </div>
+                    </div>
+                    <div class="side-nav__body">
+                        <div class="scroll-offset">
+                            <div>
+                                <div class="form-group">
+                                    <div class="input-field">
+                                        <div class="form-control input-field listbox-wrapper">
+                                            <div class="select-wrapper gwt-ListBox"><span class="caret">▼</span><input
+                                                    type="text" class="select-dropdown" readonly="true"
+                                                    data-activates="select-options-ee29ddbe-ee3e-79ec-d17d-734a0bd48eb1"
+                                                    value="Please Select"><select class="gwt-ListBox initialized"
+                                                                                  inside-origin="false">
+                                                <option value="-1">Please Select</option>
+                                                <option value="1">Question</option>
+                                                <option value="2">Issue</option>
+                                                <option value="3">Suggestion</option>
+                                                <option value="4">Other</option>
+                                            </select></div>
+                                            <label></label><span class="material-label"></span></div>
+                                        <label>TYPE</label></div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-field"><input type="text" id="gwt-debug-subject">
+                                        <label>Subject</label></div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-field"><textarea class="gwt-TextArea" rows="7"></textarea> <label>Ask
+                                        your question here:</label></div>
+                                </div>
+                                <div class="form-group"><label class="form-group__label">FILE ATTACHMENTS</label>
+                                    <div class="form-upload">
+                                        <div class="form-upload__attached" aria-hidden="true"
+                                             style="display: none;"></div>
+                                        <div class="btn-upload">
+                                            <form target="FormPanel_accounting_1" method="POST"
+                                                  enctype="multipart/form-data" action="/action/CreateAttachment"><input
+                                                    type="file" class="gwt-FileUpload" id="gwt-debug-btn-upload-2"
+                                                    name="attachmentFile0"><input type="hidden" name="sessionId"
+                                                                                  value="FREE$49913$4B36632D7614E098"><input
+                                                    type="hidden" name="multipleFiles" value="true"></form>
+                                            <div class="btn-upload__icon"><em class="ficon--attachment"></em></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="side-nav__footer">
+                        <button class="btn btn--primary"><span>Save</span></button>
+                        <button class="btn btn--default"><span>Close</span></button>
+                    </div>
+                </div>
+            </ul>
+        </div>
+        <div class="kpi-sidenav-overlay" style="display: none;"></div>
+        <div tabindex="0" style="height: 100%;"><input type="text" tabindex="-1" aria-hidden="true"
+                                                       style="opacity: 0; height: 1px; width: 1px; z-index: -1; overflow: hidden; position: absolute;">
+            <ul class="quick-add side-nav drawer right-aligned" id="9EF34188-AE42-4AF8-8379-D99DB6BE3D87"
+                style="width: 390px; right: -400px;">
+                <div style="display: flex;" class="sidenav-content"><a
+                        data-activates="9EF34188-AE42-4AF8-8379-D99DB6BE3D87"
+                        class="9EF34188-AE42-4AF8-8379-D99DB6BE3D87 dropdown-button show-on-medium-and-down show-on-large"
+                        style="cursor: pointer; position: absolute; visibility: visible;"></a>
+                    <div class="side-nav__heading">
+                        <div class="side-nav__title">
+                            <div class="side-nav__title-group">
+                                <svg class=" icon--bell">
+                                    <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#bell"></use>
+                                </svg>
+                                <span>43</span>
+                                <div class="gwt-HTML">&nbsp;</div>
+                                <span>Notifications</span></div>
+                            <div class="side-nav__title-group">
+                                <button class="btn-flat"><span>Clear All</span></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="side-nav__body has-scroll--vertical">
+                        <div class="scroll-offset">
+
+                        </div>
+                    </div>
+                    <div class="side-nav__footer">
+                        <button class="btn btn--default btn-block"><i class="ficon--menu"></i><span>View All</span>
+                        </button>
+                    </div>
+                </div>
+            </ul>
+        </div>
+    </div>
+    <div class="tooltip_templates" aria-hidden="true" style="display: none;"></div>
+</div>
+
+
+<!--START SUPERVISOR STRUCTURE MODAL-->
+
+<div class="modal-holder" id="orgchartSetup-modal--1" style="">
+    <div class="modal">
+        <div class="modal-wrapper form-compressed">
+            <div class="modal-header">
+                <h5 class="modal-title">Создать оргструктуру</h5>
+                <div class="close-x"><svg class=" icon--x"><use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#x"></use></svg></div>
+            </div>
+            <div class="modal-content">
+                <!-- Блок выбора цвета -->
+                <div class="colorPickBox">
+                    <div class="colorPickBox__preview" id="orgColorCurrent"></div>
+                    <div class="colorPickList form-control">
+                        <button type="button"
+                                class="colorPickItem active"
+                                style="--theme-color: #E5F4FF;"
+                                data-color="#E5F4FF"></button>
+                        <button type="button"
+                                class="colorPickItem"
+                                style="--theme-color: #FFE7D1;"
+                                data-color="#FFE7D1"></button>
+                        <button type="button"
+                                class="colorPickItem"
+                                style="--theme-color: #E9FBE0;"
+                                data-color="#E9FBE0"></button>
+                        <button type="button"
+                                class="colorPickItem"
+                                style="--theme-color: #ECE9FF;"
+                                data-color="#ECE9FF"></button>
+                        <button type="button"
+                                class="colorPickItem"
+                                style="--theme-color: #FFF2CC;"
+                                data-color="#FFF2CC"></button>
+                        <button type="button"
+                                class="colorPickItem"
+                                style="--theme-color: #FFE5F3;"
+                                data-color="#FFE5F3"></button>
+                        <button type="button"
+                                class="colorPickItem"
+                                style="--theme-color: #E9FBE0;"
+                                data-color="#E9FBE0"></button>
+                        <button type="button"
+                                class="colorPickItem"
+                                style="--theme-color: #E5F4FF;"
+                                data-color="#E5F4FF"></button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="form-group__label">Название</div>
+                    <div class="form-group__content"><input type="text" class="form-control" placeholder="Placeholder">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-group__label">Описание</div>
+                    <div class="form-group__content"><input type="text" class="form-control" placeholder="Placeholder">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer text-right">
+                <button class="btn btn--primary"><span>Создать</span></button>
+                <button class="btn btn--default"><span>Отмена</span></button>
+            </div>
+        </div>
+    </div>
+    <div class="lean-overlay" id="materialize-lean-overlay-1" ></div>
+</div>
+
+<!--END SUPERVISOR STRUCTURE MODAL-->
+
+
+<!--SCRIPTS-->
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>-->
+<script type="text/javascript" src="../WebContent/mainStyles/new-ui/js/jquery.min.js"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>-->
+<script type="text/javascript" src="../WebContent/mainStyles/new-ui/js/materialize-1.0.0.min.js"></script>
+
+<!--CURRENT PAGE SCRIPT-->
+<script src="static-orgchart-assets.js" defer /></script>
+
+<!--\ CURRENT PAGE SCRIPT-->
+</body>
+</html>

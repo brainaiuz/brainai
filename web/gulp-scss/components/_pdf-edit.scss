@@ -1,0 +1,188 @@
+.panel-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: -($panel-padding);
+  margin-right: -($panel-padding);
+  padding-left: $panel-padding;
+  padding-right: $panel-padding;
+
+  &:not(:last-child) {
+    padding-bottom: $panel-padding;
+  }
+
+  & + & {
+    border-top: 1px solid $panelBorderColor;
+    padding-top: $panel-padding;
+  }
+  &__dd {
+    .form-control {
+      max-width: 100%; //FF fix
+    }
+  }
+}
+.color-picker {
+  width: 20px;
+  height: 10px;
+  border-radius: $radius-basePlus;
+}
+
+
+
+//LAYOUT FOR PDF MONSTER
+.pdf-edit {
+  overflow-y: hidden;
+  height: 100%;
+  max-height: calc(100vh - 80px);
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+
+  > * {
+
+  }
+
+  aside {
+    overflow: auto;
+    flex: 0 0 40%;
+    display: flex;
+    flex-direction: column;
+    padding:  20px;
+    background-color: #fff;
+
+    .header-tabs {
+      flex-grow: 0;
+      margin-bottom: 20px;
+    }
+
+    .content-tabs {
+      .tab {
+        flex-grow: 0;
+        + .indicator + .tab,
+        + .tab {
+          max-width: 200px;
+        }
+        + .tab {
+          margin-left: 1px;
+        }
+        a {
+          position: relative;
+          display: flex;
+          align-items: center;
+          padding: 0 $tabsPadding-x;
+          &.active {
+            color: $text-color-base;
+          }
+          &:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            transition: left .25s ease, right .25s ease;
+            background-color: $color-accent-2;
+          }
+          &.active:after {
+            background-color: $link-color !important;
+          }
+        }
+      }
+
+    }
+
+    .pdf-edit-switcher,
+    .content-tabs {
+      margin-bottom: 30px;
+    }
+
+    .pdf-edit-switcher {
+      .btn.active {
+        background-color: $button-color-lightgrey;
+        &:hover {
+          color: inherit;
+        }
+      }
+    }
+  }
+
+  &__header {
+    flex-grow: 0;
+  }
+  &__body {
+    flex-grow: 1;
+  }
+  &__footer {
+    flex-grow: 0;
+  }
+
+  main {
+    overflow: auto;
+    max-height: 100%;
+    ::-webkit-scrollbar {
+      /*display: block;*/
+    }
+    flex-grow: 1;
+    padding: 0 0 0 20px;
+  }
+}
+.pdf-preview {
+  display: flex;
+  flex-direction: column;
+  margin: 0 !important;
+  padding-left: 20px;
+  padding-right: 20px;
+  //max-height: 842px;
+  height: 297mm;
+  //height: 842px;
+  //height: 82.3vh;
+  //width: 43.5vw;
+  //max-width: 595px;
+  width: 210mm;
+  //width: 595px;
+  background-color: #fff;
+  transform-origin: top left;
+  @media screen and (max-device-height: 900px) {
+    transform: scale(0.81);
+  }
+  @media screen and (max-device-height: 768px) {
+    transform: scale(0.895);
+    .left-menu-open & {
+      transform: scale(0.73);
+    }
+  }
+  @media screen and (max-device-height: 667px) {
+  }
+  iframe {
+    border: none;
+  }
+  &__header {
+    flex: 0 0 95px;
+    //background-color: rgba(red, .3);
+    iframe {
+      height: auto !important;
+    }
+  }
+  &__body {
+    position: relative;
+    flex-grow: 1;
+    //background-color: rgba(green, .3);
+    iframe {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: auto;
+      min-height: 100%;
+    }
+  }
+  &__footer {
+    flex: 0 0 95px;
+    //background-color: rgba(blue, .3);
+
+    iframe {
+      height: 100px !important;
+    }
+  }
+}

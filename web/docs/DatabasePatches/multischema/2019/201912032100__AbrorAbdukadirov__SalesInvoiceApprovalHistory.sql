@@ -1,0 +1,3 @@
+insert into myupdatetype (code, description, parentid) values ('SALES_INVOICE_MANAGER_REJECT',     'Records when user has rejected sales invoice',     (select id from myupdatetype where code='SALES_INVOICE'));
+insert into myupdatetype (code, description, parentid) values ('SALES_INVOICE_MANAGER_APPROVE',    'Records when user has approved sales invoice',    (select id from myupdatetype where code='SALES_INVOICE'));
+insert into myupdatetype (code, description, parentid) values ('SALES_INVOICE_SUBMITTED_TO_MANAGER',  'Records when user has submitted sales invoice to manager',   (select id from myupdatetype where code='SALES_INVOICE'));

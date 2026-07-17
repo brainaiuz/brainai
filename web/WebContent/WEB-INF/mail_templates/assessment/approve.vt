@@ -1,0 +1,13 @@
+## Assessment approve notification. See: EdsMessageManager.sendAssessmentApproveNotification
+## $assessment - EdsAssessment
+## $date - current date
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head><body><p>Dear $employeeAssessment.employee.getName(),</p>
+<p>Please be advised that $employeeAssessment.assessment.reviewer.getName() has initiated an employee appraisal for you on $initDate. This appraisal has been reviewed and approved by $employeeAssessment.assessment.reviewer.getName()</p>
+<p>The PDF version of the employee appraisal is attached for your attention.</p>
+<p>Click <a href="$host/Hrms.html?link=$link" title="View assessment" target="_blank">here</a> to view the appraisal.</p>
+<p>* If you are not able to click on the link, you can copy and paste the following address into your web browser: </p>
+<p><span style="color: #0033FF">$host/Hrms.html?link=$link</span></p>
+</body></html>

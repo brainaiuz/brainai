@@ -1,0 +1,721 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Message Center User</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--CSS-->
+    <link rel="stylesheet" href="../WebContent/mainStyles/new-ui/css/materialize.css">
+</head>
+
+<body class="frame__body fitted-content has-page-opers left-menu-open">
+<div class="frame has-scroll--vertical has-tabs">
+    <div class="frame__header">
+        <div aria-hidden="true" class="frame__header__item-2" style="display: none;">
+            <div class="dropdown-select--arrow dropdown-kit--below dropdown-kit--edge-in"></div>
+        </div>
+        <div aria-hidden="true" class="frame__header__item-3" style="display: none;">
+            <div style="display:none" class="dropdown-select--arrow dropdown-kit--below dropdown-kit--edge-in"><a href="javascript:void(0);" class="btn gwt-uid-67 dropdown-button" data-activates="gwt-uid-67">
+                <ul id="gwt-uid-67" class="email-account dropdown-content"></ul>
+            </a></div>
+        </div>
+        <div class="header-tabs">
+            <ul class="tabs">
+                <li class="tab"><a href="#"><span title="Bank Accounts">Bank Accounts</span></a></li>
+                <div class="indicator" style="right: 993.864px; left: 107.156px;"></div>
+                <li class="tab"><a href="#" class="active"><span title="Comparison">Comparison</span><i class="close"></i></a></li>
+                <li class="indicator" style="left: 121px; right: 1314px;"></li><li class="indicator" style="left: 121px; right: 1315px;"></li></ul>
+        </div>
+        <div class="user-menu">
+            <div aria-hidden="true" class="frame__user__trial" style="display: none;">
+                <div class="trial-informer"><span></span>
+                    <button class="btn btn--trial"><span>Upgrade</span></button>
+                </div>
+            </div>
+            <div class="user-menu-dynamic">
+                <div class="user-menu-item" data-delay="350" data-position="bottom"
+                     data-tooltip-id="8b0c411f-101a-4044-acc5-9c811fad5026" data-tooltip="Timer"><a
+                        class="button-collapse"><span class="user-menu-item__icon"><svg class="icon--clock">
+                                    <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#clock"></use>
+                                </svg><span class="badge" aria-hidden="true" style="display: none;"></span></span></a>
+                </div>
+                <div class="user-menu-item" data-delay="350" data-position="bottom"
+                     data-tooltip-id="ca4170a8-c9e6-48d7-aea0-d1b4263bf863" data-tooltip="Call"><a
+                        class="button-collapse"><span class="user-menu-item__icon"><svg class="icon--phone">
+                                    <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#phone"></use>
+                                </svg><span class="badge" aria-hidden="true" style="display: none;"></span></span></a>
+                </div>
+            </div>
+            <div class="user-menu-item"><a class="button-collapse" data-delay="350" data-position="bottom"
+                                           data-tooltip-id="fcae765f-b147-ca82-49cc-2697869d98da"
+                                           data-tooltip="Notifications"><span class="user-menu-item__icon"> <svg
+                    class="icon--bell">
+                                <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#bell"></use>
+                            </svg><span class="badge">1</span></span> </a></div>
+            <div class="user-menu-item"><a class="button-collapse" data-delay="350" data-position="bottom"
+                                           data-tooltip-id="1aec85c3-229b-9909-c2ba-b3a68ee54346" data-tooltip="Emails"><span
+                    class="user-menu-item__icon"><svg class="icon--mail">
+                                <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#mail"></use>
+                            </svg><span class="badge" aria-hidden="true" style="display: none;"></span></span></a></div>
+            <div class="user-menu-item"><a class="button-collapse" data-delay="350" data-position="bottom" data-tooltip-id="6fc79d96-50b6-88f3-6a3a-59ef18882540" data-tooltip="Settings"><span class="icon-settings"></span>
+                <svg class="icon--settings">
+                    <use href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#settings"></use>
+                </svg>
+            </a></div>
+        </div>
+    </div>
+    <div class="frame__modules">
+        <div class="main-modules">
+            <div>
+                <div class="user-profile"><a class="user-profile__menu dropdown-button"> <span class="user-profile-img"> <img alt="" src="../WebContent/mainStyles/new-ui/images/kpilogo.svg"> </span> </a></div>
+            </div>
+            <ul>
+                <li class="main-modules__item main-modules__item--workspace"><a href="Workspace.html">
+                    <svg class="icon--home">
+                        <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#home"></use>
+                    </svg>
+                    <span></span> </a></li>
+                <li class="main-modules__item main-modules__item--accounting"><a>
+                    <svg class="icon--accounting">
+                        <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#accounting"></use>
+                    </svg>
+                    <span>Accounts</span></a></li>
+                <li class="main-modules__item--active main-modules__item main-modules__item--sales"><a>
+                    <svg class="icon--sales">
+                        <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#sales"></use>
+                    </svg>
+                    <span>Sales</span></a></li>
+                <li class="main-modules__item main-modules__item--humans"><a>
+                    <svg class="icon--humans">
+                        <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#humans"></use>
+                    </svg>
+                    <span>Humans</span></a></li>
+                <li class="main-modules__item main-modules__item--projects"><a>
+                    <svg class="icon--projects">
+                        <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#projects"></use>
+                    </svg>
+                    <span>Projects</span></a></li>
+                <li class="main-modules__item main-modules__item--payroll"><a>
+                    <svg class="icon--payroll">
+                        <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#payroll"></use>
+                    </svg>
+                    <span>Payroll</span></a></li>
+                <li class="main-modules__item main-modules__item--reports"><a>
+                    <svg class="icon--reporting">
+                        <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#reporting"></use>
+                    </svg>
+                    <span>Reports</span></a></li>
+                <li class="main-modules__item main-modules__item--docs"><a>
+                    <svg class="icon--documents">
+                        <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#documents"></use>
+                    </svg>
+                    <span>Docs</span></a></li>
+            </ul>
+            <div class="kpi-modules-overlay" style="display: none;"></div>
+        </div>
+        <div class="frame__modules__footer"><a class="left-menu-trigger"><i class="ficon--chevron-right"></i></a></div>
+    </div>
+    <div class="frame__nav">
+        <div>
+            <ul class="prof-comp-list dropdown-content">
+                <li><a tabindex="0" class="status--active" href="#"><span class="prof-comp-list__check"><span
+                        class="gwt-RadioButton"><input type="radio" name="lay_comp" value="on" tabindex="0"><label></label></span></span><span class="prof-comp-list__text">Companies in Free Database </span><span
+                        class="prof-comp-list__mark"><i></i></span></a></li>
+                <li><a tabindex="0" class="status--active active"><span class="prof-comp-list__check"><span
+                        class="gwt-RadioButton"><input type="radio" name="lay_comp" value="on" tabindex="0"
+                                                       checked=""><label for="gwt-uid-96"></label></span></span><span
+                        class="prof-comp-list__text">Khasan's Corporation LTD</span><span
+                        class="prof-comp-list__mark"><i></i></span></a></li>
+            </ul>
+        </div>
+        <ul class="dropdown-content">
+            <li><a tabindex="0" href="#">
+                <svg class="icon--plus">
+                    <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#plus"></use>
+                </svg>
+                <span>Lead</span></a></li>
+            <li><a tabindex="0" href="#">
+                <svg class="icon--plus">
+                    <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#plus"></use>
+                </svg>
+                <span>Multiple Leads</span></a></li>
+            <li><a tabindex="0" href="#">
+                <svg class="icon--plus">
+                    <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#plus"></use>
+                </svg>
+                <span>Opportunity</span></a></li>
+            <li><a tabindex="0" href="#">
+                <svg class="icon--plus">
+                    <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#plus"></use>
+                </svg>
+                <span>RFQ</span></a></li>
+            <li><a tabindex="0" href="#">
+                <svg class="icon--plus">
+                    <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#plus"></use>
+                </svg>
+                <span>Company</span></a></li>
+            <li><a tabindex="0" href="#">
+                <svg class="icon--plus">
+                    <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#plus"></use>
+                </svg>
+                <span>Contact</span></a></li>
+            <li><a tabindex="0" href="#">
+                <svg class="icon--plus">
+                    <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#plus"></use>
+                </svg>
+                <span>Multiple Contacts</span></a></li>
+            <li><a tabindex="0" href="#">
+                <svg class="icon--plus">
+                    <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#plus"></use>
+                </svg>
+                <span>Campaign</span></a></li>
+            <li><a tabindex="0" href="#">
+                <svg class="icon--plus">
+                    <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#plus"></use>
+                </svg>
+                <span>Case ID</span></a></li>
+            <li><a tabindex="0" href="#">
+                <svg class="icon--plus">
+                    <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#plus"></use>
+                </svg>
+                <span>Solution</span></a></li>
+        </ul>
+        <div class="frame__nav__body">
+            <div class="frame__nav-title">
+                <h3>Sales</h3>
+                <a tabindex="0" class="btn--circle btn-small btn--success frame__header__create-new dropdown-button"
+                   href="#" data-activates="frame__header__create-new">
+                    <svg class="icon--plus">
+                        <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#plus"></use>
+                    </svg>
+                </a>
+            </div>
+            <ul class="main-directories collapsible-accordion main-directories--sales collapsible">
+                <li class="main-dir__dashboard active">
+                    <div tabindex="0" class="collapsible-header active"><a tabindex="-1"><span>Dashboards</span></a> </div>
+                    <div class="collapsible-body" style="display: block; padding-top: 0px; margin-top: 0px; padding-bottom: 0px; margin-bottom: 0px;">
+                        <ul>
+                            <li><a tabindex="0" href="#"><span>All statistics</span></a></li>
+                            <li class="active"><a tabindex="0" href="#"><span>Case activities</span></a></li>
+                            <li><a tabindex="0" href="#"><span>Case statistics</span></a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="main-dir__crmwelcome">
+                    <div tabindex="0" class="collapsible-header"><a tabindex="-1"><span>Sales</span></a> </div>
+                    <div class="collapsible-body" style="display: none;">
+                        <ul>
+                            <li><a tabindex="0" title="Leads"><span>Leads</span></a><a
+                                    class="btn--circle btn-small btn--success">
+                                <svg class="icon--plus">
+                                    <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#plus"></use>
+                                </svg>
+                            </a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="main-dir__accountlist_2">
+                    <div tabindex="0" class="collapsible-header"><a tabindex="-1"><span>Customer Service</span></a> </div>
+                    <div class="collapsible-body" style="">
+                        <ul>
+                            <li><a tabindex="0" title="Cases"><span>Cases</span></a><a
+                                    class="btn--circle btn-small btn--success">
+                                <svg class="icon--plus">
+                                    <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#plus"
+                                         xlink:href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#plus"></use>
+                                </svg>
+                            </a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="main-dir__emailmarketing">
+                    <div tabindex="0" class="collapsible-header"><a tabindex="-1"><span>Marketing</span></a> </div>
+                    <div class="collapsible-body" style="">
+                        <ul>
+                            <li><a tabindex="0" title="Mailing List"><span>Mailing List</span></a><a
+                                    class="btn--circle btn-small btn--success">
+                                <svg class="icon--plus">
+                                    <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#plus"
+                                         xlink:href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#plus"></use>
+                                </svg>
+                            </a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="page-opers">
+        <div class="page-opers__nav page-nav">
+            <div class="page-nav__tabs">
+                <ul class="tabs">
+                    <li class="tab"><a tabindex="0" href="#operTab1" class="">Summary<span></span></a></li>
+                    <li class="tab"><a tabindex="0" href="#operTab2" >Activities<span></span></a></li>
+                    <li class="tab"><a tabindex="0" href="#operTab3" >Emails<span></span></a></li>
+                    <li class="tab"><a tabindex="0" href="#operTab3" >Tasks<span></span></a></li>
+                    <li class="tab"><a tabindex="0" href="#operTab3" >Cases<span></span></a></li>
+                    <li class="tab"><a tabindex="0" href="#operTab3" >Sales Quotes<span></span></a></li>
+                    <li class="tab"><a tabindex="0" href="#operTab4" class="active">Whatsapp<span></span></a></li>
+                    <li class="indicator" style="left: 0px; right: 336px;"></li><li class="indicator" style="left: 0px; right: 396px;"></li></ul>
+            </div>
+        </div>
+    </div>
+    <div class="frame__content frame__content scrollbar-external_wrapper">
+        <div class="frame__content__body scrollbar-external">
+            <div class="whiteBGR">
+                <div class="workarea" id="workarea">
+                    <div class="fullChat">
+                        <div class="fullChat__list">
+                            <ul class="tabs tabs--indicator">
+                                <li class="tab"><a href="#">All chats</a></li>
+                                <li class="tab"><a href="#">My chats</a></li>
+                                <li class="tab"><a href="#">Unassigned chats</a></li>
+                            </ul>
+
+                            <div class="fullChat__search">
+                                <div class="simpleGwt-ComboBox">
+                                    <input type="text" class="gwt-SuggestBox form-control">
+                                    <span class="caret" style="display: inline;"></span>
+                                    <span class="simpleGwt-ComboBox__reset close" style="display: inline;"></span>
+                                </div>
+                            </div>
+
+                            <ul class="chatList">
+                                <li class="chatUser">
+                                    <div class="chatUser__icon">
+                                        <img src="https://placehold.co/200" alt="avatar">
+                                    </div>
+                                    <div class="chatUser__txt">
+                                        <h5>Munir Yam</h5>
+                                        <span>Срочно нужно исправить. Клиент просит</span>
+                                    </div>
+                                    <div class="chatUser__act">
+                                        <div class="chatUser__time">
+                                            10:55 AM
+                                        </div>
+                                        <div class="chatUser__inf">
+                                            <svg class="icon--check">
+                                                <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#check"></use>
+                                            </svg>
+                                            <div class="badge">15</div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="chatUser selected">
+                                    <div class="chatUser__icon">
+                                        <img src="https://placehold.co/200" alt="avatar">
+                                    </div>
+                                    <div class="chatUser__txt">
+                                        <h5>Yashin Muhamedjanov Muhammadalli Ogli Ibn Mustafo</h5>
+                                        <span>
+                                Na dev server zaydite. Tam yest fayli kotorie. Povroryu ewo raz - Na dev server zaydite. Tam yest fayli kotorie. Eto ne shutki, eto dlinniy text
+                            </span>
+                                    </div>
+                                    <div class="chatUser__act">
+                                        <div class="chatUser__time">
+                                            12:30 PM
+                                        </div>
+                                        <div class="chatUser__inf">
+                                            <svg class="icon--double-check">
+                                                <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#double-check"></use>
+                                            </svg>
+                                            <div class="badge">21</div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="chatUser">
+                                    <div class="chatUser__icon">
+                                        <img src="https://placehold.co/200" alt="avatar">
+                                    </div>
+                                    <div class="chatUser__txt">
+                                        <h5>Asadbek Anvarbekov DS Registrator</h5>
+                                        <span>Thank you. <i>I just want to make a mixin to create similar elements with standard suffixes</i></span>
+                                    </div>
+                                    <div class="chatUser__act">
+                                        <div class="chatUser__time">
+                                            22:45 PM
+                                        </div>
+                                        <div class="chatUser__inf">
+                                            <svg class="icon--check">
+                                                <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#check"></use>
+                                            </svg>
+                                            <div class="badge">05</div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="chatUser">
+                                    <div class="chatUser__icon">
+                                        <img src="https://placehold.co/200" alt="avatar">
+                                    </div>
+                                    <div class="chatUser__txt">
+                                        <h5>Stanislav M.</h5>
+                                        <span>Сегодня прийти не могу...</span>
+                                    </div>
+                                    <div class="chatUser__act">
+                                        <div class="chatUser__time">
+                                            12:00 PM
+                                        </div>
+                                        <div class="chatUser__inf">
+                                            <svg class="icon--check">
+                                                <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#check"></use>
+                                            </svg>
+                                            <div class="badge">1</div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="fullChat__chat">
+                            <div class="chat">
+                                <div class="chat__contact">
+                                    <div class="contactBar">
+                                        <h5 class="contactBar__name">
+                                            Yashin Muhamedjanov
+                                        </h5>
+                                        <sup class="contactBar__inf">
+                                            Last seen recently
+                                        </sup>
+                                    </div>
+                                </div>
+                                <div class="chat__body">
+                                    <div class="msgTime">
+                                        Monday at 22:41
+                                    </div>
+                                    <div class="msg msg--from">
+                                        <span>Hey, man! What's up, I'm a sender of chat. My name is "From". I'm Your's contact</span>
+                                        <sub>
+                                            22:41
+                                            <svg class="icon--double-check">
+                                                <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#double-check"></use>
+                                            </svg>
+                                        </sub>
+                                    </div>
+                                    <div class="msg msg--to">
+                                        <span>Kid, where'd you come from?
+                                        BTW, my name is "To" my messages are on right side of the chat))</span>
+                                        <sub>
+                                            23:25
+                                            <svg class="icon--double-check">
+                                                <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#double-check"></use>
+                                            </svg>
+                                        </sub>
+                                    </div>
+                                    <div class="msg msg--from">
+                                        <span>We are To and From like the chat)) And I want to send you a seria of messages
+ and more, more text for example how will it looks on reply. Will it be truncated?</span>
+                                        <sub>
+                                            23:35
+                                            <svg class="icon--double-check">
+                                                <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#double-check"></use>
+                                            </svg>
+                                        </sub>
+                                    </div>
+                                    <div class="msg msg--from">
+                                        <span>Look. It has different view in seria of messages!</span>
+                                        <sub>
+                                            23:36
+                                            <svg class="icon--double-check">
+                                                <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#double-check"></use>
+                                            </svg>
+                                        </sub>
+                                    </div>
+                                    <div class="msg msg--from">
+                                        <span>Nice?</span>
+                                        <sub>
+                                            23:36
+                                            <svg class="icon--double-check">
+                                                <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#double-check"></use>
+                                            </svg>
+                                        </sub>
+                                    </div>
+                                    <div class="msg msg--from">
+                                        <span>I think it's too late. Good night</span>
+                                        <sub>
+                                            23:36
+                                            <svg class="icon--double-check">
+                                                <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#double-check"></use>
+                                            </svg>
+                                        </sub>
+                                    </div>
+                                    <div class="msgTime">
+                                        Yesterday at 09:14
+                                    </div>
+                                    <div class="msg msg--to">
+                                        <div class="msg msg--from">
+                                            <span>We are To and From like the chat)) And I want to send you a seria of messages
+ and more, more text for example how will it looks on reply. Will it be truncated?</span>
+                                        </div>
+                                        <span>Yeah. That's my reply</span>
+                                        <sub>
+                                            09:14
+                                            <svg class="icon--double-check">
+                                                <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#double-check"></use>
+                                            </svg>
+                                        </sub>
+                                    </div>
+                                    <div class="msg msg--img msg--from">
+                                        <span>
+                                            <img src= "https://unsplash.it/400/400" />
+                                        </span>
+                                        <span>Terrifying view, isn't it?</span>
+                                        <sub>
+                                            07:13
+                                            <svg class="icon--double-check">
+                                                <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#double-check"></use>
+                                            </svg>
+                                        </sub>
+                                    </div>
+                                    <div class="msg msg--from">
+                                        <div class="msg msg--to">
+                                            <span>Yeah. That's my reply</span>
+                                        </div>
+                                        <span>Good, and that's mine</span>
+                                        <sub>
+                                            11:14
+                                            <svg class="icon--double-check">
+                                                <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#double-check"></use>
+                                            </svg>
+                                        </sub>
+                                    </div>
+                                    <div class="msgTime">
+                                        Today at 07:12
+                                    </div>
+                                    <div class="msg msg--to">
+                                        <div class="msg msg--from">
+                                            <span>We are To and From like the chat)). And I want to send you a seria of messages</span>
+                                        </div>
+
+                                        <span>BTW This is the first message of the seria of messages from me</span>
+                                        <sub>
+                                            07:12
+                                            <svg class="icon--double-check">
+                                                <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#double-check"></use>
+                                            </svg>
+                                        </sub>
+                                    </div>
+                                    <div class="msg msg--to">
+                                        <span>And this is the second message from seria</span>
+                                        <sub>
+                                            07:12
+                                            <svg class="icon--double-check">
+                                                <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#double-check"></use>
+                                            </svg>
+                                        </sub>
+                                    </div>
+                                    <div class="msg msg--to">
+                                        <span>And this is the another message from seria</span>
+                                        <sub>
+                                            07:12
+                                            <svg class="icon--double-check">
+                                                <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#double-check"></use>
+                                            </svg>
+                                        </sub>
+                                    </div>
+                                    <div class="msg msg--img msg--to">
+                                        <span>
+                                            <img src= "https://unsplash.it/600/400" />
+                                        </span>
+                                        <sub>
+                                            07:13
+                                            <svg class="icon--double-check">
+                                                <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#double-check"></use>
+                                            </svg>
+                                        </sub>
+                                    </div>
+                                    <div class="msg msg--to">
+                                        <span>And this is the last</span>
+                                        <sub>
+                                            07:14
+                                            <svg class="icon--double-check">
+                                                <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#double-check"></use>
+                                            </svg>
+                                        </sub>
+                                    </div>
+
+                                    <div class="msg msg--img msg--to">
+                                        <div class="msg msg--img msg--from">
+                                            <span><img src= "https://unsplash.it/400/400" /></span>
+                                        </div>
+
+                                        <span>Heh this one 200x looks funny) That's my reply</span>
+                                        <sub>
+                                            07:15
+                                            <svg class="icon--double-check">
+                                                <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#double-check"></use>
+                                            </svg>
+                                        </sub>
+                                    </div>
+
+                                    <div class="msg msg--img msg--from">
+                                        <div class="msg msg--img msg--from">
+                                            <span><img src= "https://unsplash.it/600/400" /></span>
+                                        </div>
+                                        <span>This picture is also greate</span>
+                                        <sub>
+                                            07:18
+                                            <svg class="icon--double-check">
+                                                <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#double-check"></use>
+                                            </svg>
+                                        </sub>
+                                    </div>
+
+                                    <div class="msg msg--img msg--to">
+                                        <div class="msg msg--img msg--from">
+                                            <span><img src= "https://unsplash.it/600/400" /></span>
+                                            <span>This picture is also greate</span>
+                                        </div>
+
+                                        <span>Yes I shoot it on Weekend</span>
+                                        <sub>
+                                            07:15
+                                            <svg class="icon--double-check">
+                                                <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#double-check"></use>
+                                            </svg>
+                                        </sub>
+                                    </div>
+
+                                    <div class="msgTime">
+                                        Today at 15:14
+                                    </div>
+
+                                    <div class="msg msg--from">
+                                        <span>Send me the voice message, please</span>
+                                        <sub>
+                                            15:14
+                                            <svg class="icon--double-check">
+                                                <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#double-check"></use>
+                                            </svg>
+                                        </sub>
+                                    </div>
+
+
+                                    <div class="msg msg--from">
+                                        <div class="message stark">
+                                            <div class="typing typing-1"></div>
+                                            <div class="typing typing-2"></div>
+                                            <div class="typing typing-3"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="chat__act">
+                                    <div class="chatAct">
+                                        <div class="chatAct__act">
+                                            <button class="btn btn--icon">
+                                                <svg class="icon--paperClip">
+                                                    <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#paperclip"></use>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        <div class="chatAct__input">
+                                            <textarea rows="1" name="" class="form-control"
+                                                      placeholder="Type your message..."></textarea>
+                                        </div>
+
+                                        <div class="chatAct__act">
+                                            <button class="btn btn--icon">
+                                                <svg class="icon--">
+                                                    <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#user-plus"></use>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        <div class="chatAct__act">
+                                            <button class="btn btn--icon">
+                                                <svg class="icon--microphone">
+                                                    <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#microphone"></use>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fullChat__info">
+                            <div class="chatUser">
+                                <div class="chatUser__icon">
+                                    <img src="https://placehold.co/200" alt="avatar">
+                                </div>
+                                <div class="chatUser__txt">
+                                    <h5>Yashin Muhamedjanov</h5>
+                                </div>
+                            </div>
+
+                            <dl class="chatUserInfo">
+                                <dt>
+                                    <svg class="icon--phone">
+                                        <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#phone"></use>
+                                    </svg>
+                                </dt>
+                                <dd>
+                                    <h5>+998 99 123 54 16</h5>
+                                    <sup>Telephone</sup>
+                                </dd>
+
+                                <dt>
+                                    <svg class="icon--">
+                                        <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#work"></use>
+                                    </svg>
+                                </dt>
+                                <dd>
+                                    <h5>Sales manager</h5>
+                                    <sup>Work Status</sup>
+                                </dd>
+
+                                <dt>
+                                    <svg class="icon--">
+                                        <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#at"></use>
+                                    </svg>
+                                </dt>
+                                <dd>
+                                    <h5>@bestsalesever</h5>
+                                    <sup>username</sup>
+                                </dd>
+                            </dl>
+                            <div class="chatSource">
+                                <div class="chatSource__icon">
+                                    <svg class="icon--">
+                                        <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#picture"></use>
+                                    </svg>
+                                </div>
+                                <div class="chatSource__txt">
+                                    Media
+                                </div>
+                                <div class="chatSource__act">
+                                    <span>10</span>
+                                </div>
+                            </div>
+
+                            <div class="chatSource">
+                                <div class="chatSource__icon">
+                                    <svg class="icon--">
+                                        <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#music-note"></use>
+                                    </svg>
+                                </div>
+                                <div class="chatSource__txt">
+                                    Media
+                                </div>
+                                <div class="chatSource__act">
+                                    <span>10</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--SCRIPTS-->
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>-->
+<script type="text/javascript" src="../../WebContent/mainStyles/new-ui/js/jquery.min.js"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>-->
+<script type="text/javascript" src="../WebContent/mainStyles/new-ui/js/materialize-1.0.0.min.js"></script>
+<script src="static-html-examples.js" defer="">
+
+</script>
+
+</body>
+
+</html>

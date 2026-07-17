@@ -1,0 +1,36 @@
+.timesheet-cell-over {
+    background-color: #dddddd;
+}
+
+.timesheet-cell-sel {
+    background-color: #D9E1ED;
+}
+
+.header-color {
+    background-color: #eddcb1;
+}
+
+.statAttrib {
+    border-bottom: 1px solid #99bbe8;
+    text-indent: 3px;
+}
+
+.statAttrib dt, .statAttrib dd {
+    display: inline-block;
+}
+
+* + html .statAttrib dt, * + html .statAttrib dd {
+    display: inline;
+    zoom: 1;
+}
+
+.statAttrib dt {
+    font-weight: bold;
+    padding-right: 3px;
+}
+
+.statAttrib dd {
+    margin: 0;
+    margin-right: 40px;
+    padding: 2px;
+}

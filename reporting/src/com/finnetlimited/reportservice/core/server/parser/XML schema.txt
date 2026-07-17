@@ -1,0 +1,34 @@
+Краское описание структуры XML
+<report>
+    <view>
+        <title>Customer List</title>
+        <name>Customer List</name>
+        <category>client</category>
+        <sqlquery>
+            <select agregateFunc="distinct" agregateTotal="cl.*">
+                <table name="Client"  customFieldType="Contact" имя типа, для описка списка кастом полей по которым будет выводться поиск
+                    customFieldAlias="pcf" префикс для объявления таблицы кастом полей
+                    customFieldJoin="left join $.projectcustomfields pcf on t.projectcustomfieldsid = pcf.id" >  Запрос соединения с Custom Field Data Table
+
+                    <column name="t.name"       Название колонки
+                        title="Client Name"     Название для пользователя
+                        type="string"           Тип колонки
+                        formattype="string"     Тип форматирования значения колонки колонки
+                        lookupsql="select name from $.client cl where cl.deleted!=true AND (cl.invisible = false OR cl.invisible IS NULL)"
+                                                Запрос для выбора значения в фильтр ()
+
+                        />
+
+                </table>
+            </select>
+            <from>
+            Описывается сам запрос с указанием всех join
+                для соединения с Custom field требуется выдавать поле хранящее соединение с
+            </from>
+            <where>
+                <terms id="base" value="1=1"/>
+                <terms id="client" clientid="cl.id"/>
+            </where>
+        </sqlquery>
+    </view>
+</report>

@@ -1,0 +1,14 @@
+UPDATE "anv".reference SET description = 10, shortname='Candidate New status' where code = 'CANDIDATE_STATUS_NEW' and parentid = (SELECT id FROM "anv".reference where code = '_CANDIDATE_STATUS');
+UPDATE "anv".reference SET description = 20, shortname='Candidate Matched status' where code = 'CANDIDATE_STATUS_MATCHED' and parentid = (SELECT id FROM "anv".reference where code = '_CANDIDATE_STATUS');
+UPDATE "anv".reference SET description = 30, shortname='Candidate Shortlist status' where code = 'CANDIDATE_STATUS_SHORTLIST' and parentid = (SELECT id FROM "anv".reference where code = '_CANDIDATE_STATUS');
+UPDATE "anv".reference SET description = 35, shortname='Candidate Interview status' where code = 'CANDIDATE_STATUS_INTERVIEW' and parentid = (SELECT id FROM "anv".reference where code = '_CANDIDATE_STATUS');
+UPDATE "anv".reference SET description = 40, shortname='Candidate On hold status' where code = 'CANDIDATE_STATUS_ON_HOLD' and parentid = (SELECT id FROM "anv".reference where code = '_CANDIDATE_STATUS');
+UPDATE "anv".reference SET description = 45, shortname='Candidate Rejected status' where code = 'CANDIDATE_STATUS_REJECTED' and parentid = (SELECT id FROM "anv".reference where code = '_CANDIDATE_STATUS');
+UPDATE "anv".reference SET description = 50, shortname='Candidate Offer Made status' where code = 'CANDIDATE_STATUS_OFFER_MADE' and parentid = (SELECT id FROM "anv".reference where code = '_CANDIDATE_STATUS');
+UPDATE "anv".reference SET description = 60, shortname='Candidate Available status' where code = 'CANDIDATE_STATUS_AVAILABLE' and parentid = (SELECT id FROM "anv".reference where code = '_CANDIDATE_STATUS');
+UPDATE "anv".reference SET description = 55, shortname='Candidate Not Available status' where code = 'CANDIDATE_STATUS_NOT_AVAILABLE' and parentid = (SELECT id FROM "anv".reference where code = '_CANDIDATE_STATUS');
+UPDATE "anv".reference SET description = 75, shortname='Candidate Placed status' where code = 'CANDIDATE_STATUS_PLACED' and parentid = (SELECT id FROM "anv".reference where code = '_CANDIDATE_STATUS');
+UPDATE "anv".reference SET description = 65, shortname='Candidate Offer Declined status' where code = 'CANDIDATE_STATUS_OFFER_DECLINED' and parentid = (SELECT id FROM "anv".reference where code = '_CANDIDATE_STATUS');
+UPDATE "anv".reference SET description = 70, shortname='Candidate Offer Withdrawn status' where code = 'CANDIDATE_STATUS_OFFER_WITHDRAWN' and parentid = (SELECT id FROM "anv".reference where code = '_CANDIDATE_STATUS');
+UPDATE "anv".reference SET description = 100, shortname='Candidate Hired status' where code = 'CANDIDATE_STATUS_HIRED' and parentid = (SELECT id FROM "anv".reference where code = '_CANDIDATE_STATUS');
+UPDATE "anv".reference SET description = 80, shortname='Candidate Unqualified status' where code = 'CANDIDATE_STATUS_UNQUALIFIED' and parentid = (SELECT id FROM "anv".reference where code = '_CANDIDATE_STATUS');

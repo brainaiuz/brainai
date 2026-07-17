@@ -1,0 +1,232 @@
+/*PAGE-OPERS*/
+/*CONTENT TABS*/
+/*.page-nav__back span,*/
+
+
+
+.page-opers {
+  padding-right: $fixedPanelPadding;
+  &__actions {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.page-nav {
+  position: relative;
+  justify-content: flex-start;
+  height: $button-height;
+  >* {
+    height: 100% !important;
+  }
+  .tab {
+    a {
+      overflow: visible;
+      position: relative;
+      flex-direction: column-reverse;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 500;
+      text-decoration: none;
+    }
+  }
+  .page-nav__more {
+    .tab-label {
+      top: 50%;
+      margin-top: -7px;
+      left: auto;
+      right: 9px;
+      padding-top: 1px;
+      padding-bottom: 1px;
+      line-height: 1.3;
+    }
+  }
+  .tab-label {
+    position: absolute !important;
+    top: -10px;
+    left: 50%;
+    margin-left: -11px;
+    flex-grow: 0;
+  }
+}
+
+.page-nav__tabs {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  padding: 0;
+  border-radius: $radius-base;
+  border: $nav-tabs-border-width solid $nav-tabs-border-color;
+
+
+  .tabs {
+    //height: 100% !important;
+    justify-content: left;
+    align-items: center;
+    overflow: visible;
+    white-space: normal;
+    background-color: transparent;
+    >li {
+      height: 100% !important;
+      &:last-child {
+        @include border-right-radius($radius-base)
+      }
+    }
+
+    a {
+      position: relative;
+      display: block !important;
+      padding-top: 6px;
+      padding-bottom: 8px;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
+  .tab {
+    position: relative;
+    overflow: visible;
+    flex-grow: 0;
+    line-height: 1.2;
+    width: auto;
+    min-width: inherit;
+    white-space: nowrap;
+
+    &:not(:last-child) {
+      >a {
+        &:not(.active) {
+          &:before {
+            @include pageNavItemBefore;
+          }
+        }
+      }
+    }
+    > a > span {
+      line-height: 1.1;
+    }
+    a {
+      &:not(.active):hover {
+        color: #000;
+      }
+      > * {
+        position: relative;
+        z-index: 2; //added to use in the other places
+      }
+      &:after {
+        content: '';
+        position: absolute;
+        top: 1px;
+        bottom: 1px;
+        left: 50%;
+        right: 50%;
+        transition: left 0.2s ease, right 0.2s ease, background-color .2s ease;
+
+        .page-opers & {
+          z-index: -1; // work correctly only with .page-opers parrent (position: fixed)
+        }
+      }
+      &.active {
+        color: #fff !important;
+        cursor: default !important;
+        &:after {
+          top: -1px;
+          bottom: -1px;
+          left: -1px;
+          right: -1px;
+          opacity: 1;
+          background-color: #8d9ba8;
+        }
+      }
+    }
+  }
+  .indicator + .tab,
+  .tab:first-child {
+    a:after {
+      @include border-left-radius($radius-base)
+    }
+  }
+  .tab:last-child {
+    a:after {
+      right: -1px;
+      @include border-right-radius($radius-base)
+    }
+  }
+}
+
+.page-nav__more {
+  .dropdown-button {
+    span {
+      line-height: 1.1;
+    }
+    display: flex !important;
+    align-items: center;
+    box-shadow: none;
+    height: $button-height;
+    margin-right: -2px;
+    padding: 0 10px;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    &:hover {
+      background: #8d9ba8;
+      color: #fff !important;
+    }
+    i {
+      &:before {
+
+      }
+    }
+  }
+  display: none;
+  flex-grow: 0;
+  flex-shrink: 0;
+  align-items: flex-end;
+  .dropdown-button.active {
+    background: #8d9ba8;
+    color: #fff !important;
+    border-bottom-right-radius: 0;
+  }
+  .dropdown-content {
+    left: auto !important;
+    right: 0;
+    width: auto !important;
+    min-width: 147px;
+    top: 100% !important;
+    margin-left: -2px;
+    background-color: #8d9ba8;
+    border-color: #8d9ba8;
+    border-top-color: #8d9ba8;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    li {
+      &:after {
+        display: none;
+      }
+      a {
+        padding-right: 22px !important;
+        color: #fff;
+      }
+    }
+    a {
+      &:focus {
+        background-color: #828e9a;
+        color: #fff !important;
+      }
+      &:hover {
+        background-color: #828e9a;
+        color: #fff !important;
+      }
+    }
+  }
+}
+.page-nav--has-more {
+  .page-nav__more {
+    display: flex;
+  }
+}
+.tab-label {
+  display: inline-block;
+  padding: 4px 5px;
+  border-radius: $radius-basePlus;
+  font-size: 0.9em;
+  background-color: $color-accent-2;
+  color: #fff;
+}

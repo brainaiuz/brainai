@@ -1,0 +1,1 @@
+alter table "anv".leave_reason add saturday_is_working_day boolean;

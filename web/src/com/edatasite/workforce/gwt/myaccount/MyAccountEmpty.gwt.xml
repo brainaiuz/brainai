@@ -1,0 +1,3 @@
+<module>
+    <inherits name="com.edatasite.workforce.gwt.core.Core"/>
+</module>

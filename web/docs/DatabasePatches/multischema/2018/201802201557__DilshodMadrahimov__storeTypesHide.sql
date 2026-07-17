@@ -1,0 +1,1 @@
+UPDATE companysettings set enableUploadTypes='true;true;false;false;false';

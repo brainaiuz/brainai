@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+
+<p>Dear $hr,</p>
+
+<p>The department leader has not assessed all employees in the department. Employees not assessed:</p>
+
+    #foreach($teamName in $departmentEmployees.keySet())
+    <div><span style="font-size: 18px">Department:&nbsp;$teamName.getName()
+        &nbsp; Department leader: $teamName.getLeader().getName()</span>
+        <table border="0" width="100%" cellspacing="0" style="border: solid 1px #365F91;color:#365F91;margin-top:5px;">
+            <tr>
+                <td bgcolor="#FFFFFF"
+                    style="border: solid 1px #365F91;text-align:left; padding-left:30px;margin-top:10px;">
+                    <b>#</b>
+                </td>
+                <td bgcolor="#FFFFFF"
+                    style="border: solid 1px #365F91;text-align:left; padding-left:30px;margin-top:10px;">
+                    <b>Employee</b>
+                </td>
+            </tr>
+            #foreach($employee in $departmentEmployees.get($teamName))
+                <tr>
+                    <td bgcolor="#FFFFFF" style="border: solid 1pt; width:10px; ">$velocityCount</td>
+                    <td bgcolor="#FFFFFF" style="border: solid 1pt; width:150px; ">$employee.getName()</td>
+                </tr>
+            #end
+        </table>
+    </div>
+    <br/><br/>
+    #end
+
+<p>Click <a href="$host/Hrms.html?link=$link" title="View Timesheet Report">here</a>
+    to view assessed employes.</p>
+
+<p>* If you are not able to click on the link, you can instead copy and paste the following address in to your web
+    browser: </p>
+
+<p><span style="color: #0033FF">$host/Hrms.html?link=$link</span></p>
+
+</body>
+</html>

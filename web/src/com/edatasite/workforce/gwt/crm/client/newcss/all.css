@@ -1,0 +1,264 @@
+﻿.title-2, .subTitle {
+    color: #0d4372;
+}
+
+.title-2 {
+    font: bold 24px Arial, sans-serif;
+}
+
+.left {
+    float: left !important
+}
+
+img.left {
+    margin: 0 10px 10px 0;
+}
+
+.title.left, .btn.left {
+    margin-right: 10px;
+}
+
+.overHide {
+    overflow: hidden;
+}
+
+.sect {
+    margin-bottom: 10px;
+}
+
+.bothSect {
+    margin: 10px 30px;
+}
+
+.sortBar>li,
+.rangeLine>div,
+.titleStrip dt, .titleStrip dd,
+.rowItems *,
+.rateLine dd,
+.slideBtn, .slideBtn span,
+.keyOptArrow,
+.labelLine .row>label,
+.labelLine .row>.field,
+.labelLine .row>.fieldKey {
+    display: inline;
+    zoom: 1;
+}
+
+.halfSet-1 .pairDate {
+    min-width: 246px;
+}
+
+.fieldChooseReport>.left h3 {
+    display: block;
+    margin-bottom: 10px;
+    font: bold 14px Arial, sans-serif;
+    color: #242424;
+}
+
+.labelLine {
+    border: 0;
+}
+
+.labelLine .row {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.labelLine .addFieldSet {
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+}
+
+.labelLine .addFieldSet .addField {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    white-space: nowrap;
+
+}
+
+.labelLine .row>label,
+.labelLine .row>.gwt-HTML,
+.labelLine .row>.field {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.labelLine .row .fieldKey {
+    position: absolute;
+    margin-left: 3px;
+}
+
+.labelLine .row>label, .labelLine .row>.gwt-HTML {
+    width: 150px;
+    font: bold 12px Arial, sans-serif;
+}
+
+/*halim's change for add OpportunityView*/
+.data-grid {
+    margin-left: 0 !important;
+    width: 100%;
+}
+
+.data-grid table {
+    width: 100%;
+}
+
+.data-grid table tr td div {
+    width: 100%;
+}
+
+.data-grid > div {
+    min-height: 150px;
+}
+
+.oppor-subitems {
+    min-height: 40px;
+}
+
+.oppor-subitems>div:first-child {
+    visibility: visible !important;
+}
+
+.oppor-subitems>div:first-child>div {
+    position: relative !important;
+}
+
+.labelLine .row .addField {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    white-space: nowrap;
+    font: bold 12px Arial, sans-serif;
+    text-decoration: none;
+    color: #0e73ad;
+}
+
+.reachFullWidth table {
+    width: 100%
+}
+
+.contentBar {
+    padding: 0 10px;
+}
+
+.title, .title-2 {
+    margin: 15px 0 10px;
+    color: #016eb7; /* color:#0d4372; */
+}
+
+.title, .labelTitle {
+    font: bold 16px Arial, sans-serif;
+}
+
+.gwt-CheckBox * {
+    vertical-align: middle;
+}
+
+.sectTitle {
+    color: #0D4372;
+}
+
+/*** DL PAIRDATA ***/
+.pairDate {
+    font-size: 12px;
+}
+
+.pairDate dt, .pairDate dd {
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.pairDate dt {
+    float: left;
+    width: 50%;
+    color: #0d4372;
+    text-indent: 3px;
+}
+
+.pairDate dd {
+}
+
+.pairDate dd.odd {
+    background: #ebebeb;
+}
+
+/*** TABLE PAIRDATA ***/
+/* table */
+.pairDate {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.halfSet-1 /* table */.pairDate {
+    /* min-width:246px; */
+    width: 100%;
+}
+
+.pairDate th,
+.pairDate>tbody>tr>td:first-child,
+.labelLine .row>label:first-child,
+.labelLine .row>.gwt-HTML:first-child {
+    width: 142px;
+    padding-right: 3px;
+    padding-left: 5px;
+    font: bold 12px Arial, sans-serif;
+}
+
+/*** Start form labelInLine ***/
+
+.labelLine {
+    border: 0;
+}
+
+.labelLine .row {
+    position: relative;
+    margin-bottom: 10px;
+    font-size: 0;
+    letter-spacing: -3px;
+    white-space: nowrap;
+}
+
+.labelLine .row * {
+    letter-spacing: normal;
+    white-space: nowrap;
+}
+
+.labelLine .addFieldSet {
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+}
+
+.labelLine .row>label,
+.labelLine .row>.gwt-HTML,
+.labelLine .row>.field {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.labelLine .row .fieldKey {
+    margin-left: 5px;
+}
+
+.labelLine .row>.field {
+    position: relative;
+}
+
+.labelLine .addFieldSet .addField {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    white-space: nowrap;
+    font: bold 12px Arial, sans-serif;
+    color: #0e73ad;
+}
+
+.labelLine .addFieldSet .field {
+
+}
+
+.labelLine .addFieldSet .field .addField {
+    margin-bottom: -15px;
+}
+
+/*** End form labelInLine ***/

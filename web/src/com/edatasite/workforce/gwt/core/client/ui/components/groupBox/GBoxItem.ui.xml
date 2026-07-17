@@ -1,0 +1,10 @@
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:m="urn:import:gwt.material.design.client.ui"
+             xmlns:groupBox="urn:import:com.edatasite.workforce.gwt.core.client.ui.components.groupBox">
+             <m:MaterialPanel>
+                 <groupBox:GBoxLabel ui:field="gBoxItemLabel">
+                     <m:MaterialLabel ui:field="label"></m:MaterialLabel>
+                 </groupBox:GBoxLabel>
+                 <groupBox:GBoxComponent ui:field="component"></groupBox:GBoxComponent>
+             </m:MaterialPanel>
+</ui:UiBinder>

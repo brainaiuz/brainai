@@ -1,0 +1,2 @@
+update "anv".invoiceitem set fromtimesheet = (select COALESCE(isProjectBasedInvoice,false) from "anv".saleinvoice sinv where sinv.id = invoice_id);
+update "anv".invoiceitem set fromtimesheet = false where fromtimesheet is NULL;

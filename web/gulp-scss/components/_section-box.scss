@@ -1,0 +1,80 @@
+/*
+* New UI 2: Select Group
+*/
+.section-group{
+
+}
+.section-group:after{
+  content: '';
+  display: table;
+  clear: both;
+}
+
+/*
+* New UI 2: Select Box
+*/
+.section-box {
+  padding:rem(30px) $frameContentPadding;
+}
+.section-box:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+.section-box--collapsable{
+  padding-bottom:0;
+  margin-bottom: 20px;
+  position: relative;
+  -webkit-transition: all 0.1s ease-out 0s;
+  -moz-transition: all 0.1s ease-out 0s;
+  -ms-transition: all 0.1s ease-out 0s;
+  -o-transition: all 0.1s ease-out 0s;
+  transition: all 0.3s ease-out 0s;
+}
+.section-box--collapsable:after{
+  content: '';
+  display: table;
+  clear: both;
+  position: absolute;
+  width: 90%;
+  left: 5%;
+  height: 0;
+  opacity:1;
+  border-radius: $radius-basePlus;
+  box-shadow: 0 5px 20px -3px rgba(141, 155, 168, 0.48);
+  -webkit-transition: all 0.1s ease-out 0s;
+  -moz-transition: all 0.1s ease-out 0s;
+  -ms-transition: all 0.1s ease-out 0s;
+  -o-transition: all 0.1s ease-out 0s;
+  transition: all 0.2s ease-out 0s;
+}
+.section-box--collapse:after{
+  height: 13px;
+  opacity:1;
+}
+.section-box__collapsable-content{
+  border-bottom:1px solid $gray-new-light;
+}
+.section-box__footer{
+  display: flex;
+  justify-content: center;
+  padding:20px 0;
+}
+.invoice__options-section.section-box--collapse{
+  border-radius: $radius-basePlus;
+  box-shadow: 0 8px 20px -2px rgba(141, 155, 168, 0.43);
+  margin-bottom: 50px;
+}
+
+.section-box--collapse .section-box__collapsable-content{
+  display:none;
+}
+.section-box--no-bottom-gap{
+  padding-bottom:0px;
+}
+.section-box .group-box--separate-top{
+  margin-left:0px;
+  margin-right:0px;
+  padding-left:0px;
+  padding-right:0px;
+}

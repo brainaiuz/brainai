@@ -1,0 +1,104 @@
+{
+  "customBillToAddress": {
+    "rows": {
+      "TITLE": {
+        "COLUMN_NAME": "Title",
+        "COLUMN_VALUE": "Sunil Monthly parking fee-HDS Business Centre",
+        "TYPE": "TITLE"
+      },
+      "REPORTER": {
+        "COLUMN_NAME": "Reported by",
+        "COLUMN_VALUE": "Doniyor Makhkamov",
+        "TYPE": "REPORTER"
+      },
+      "APPROVER": {
+        "COLUMN_NAME": "Approver",
+        "COLUMN_VALUE": "Doniyor Makhkamov",
+        "TYPE": "APPROVER"
+      },
+      "SUPPLIER": {
+        "COLUMN_NAME": "Supplier:",
+        "COLUMN_VALUE": "KPI Software Inc",
+        "TYPE": "SUPPLIER"
+      }
+    }
+  },
+  "customNumberAndDatesTable": {
+    "rows": {
+      "EXP_DESCRIPTION": {
+        "COLUMN_NAME": "Report Description:",
+        "COLUMN_VALUE": "Monthly parking fee-HDS Business Centre",
+        "TYPE": "EXP_DESCRIPTION"
+      },
+      "PROJECT": {
+        "COLUMN_NAME": "Project Name:",
+        "COLUMN_VALUE": "Sample Project Name",
+        "TYPE": "PROJECT"
+      },
+      "EXP_NUMBER": {
+        "COLUMN_NAME": "Expense No.:",
+        "COLUMN_VALUE": "EX0410",
+        "TYPE": "EXP_NUMBER"
+      },
+      "START_DATE": {
+        "COLUMN_NAME": "Date",
+        "COLUMN_VALUE": "March 01, 2019",
+        "TYPE": "START_DATE"
+      },
+      "CURRENCY": {
+        "COLUMN_NAME": "",
+        "COLUMN_VALUE": "AED",
+        "TYPE": "CURRENCY"
+      },
+      "BASE_CURRENCY": {
+        "COLUMN_NAME": "",
+        "COLUMN_VALUE": "AED",
+        "TYPE": "BASE_CURRENCY"
+      }
+    }
+  },
+  "customProductTable": {
+    "header": {
+      "NAME": "Category",
+      "DESCRIPTION": "Description",
+      "QTY_HRS": "Units",
+      "UNIT_PRICE": "Cost per Unit",
+      "TAX_AMOUNT": "Tax",
+      "TOTAL_AMOUNT": "Total"
+    },
+    "rows": {
+      "0": {
+        "NAME": "Office Expenses",
+        "DESCRIPTION": "Monthly parking fee-HDS Business Centre",
+        "QTY_HRS": "1.00",
+        "UNIT_PRICE": "400.00",
+        "TAX_AMOUNT": "0.00",
+        "TOTAL_AMOUNT": "400.00"
+      }
+    }
+  },
+  "customTotalTable": {
+    "rows": {
+      "DUE_AMOUNT": {
+        "COLUMN_NAME": "Due Amount",
+        "COLUMN_VALUE": "400.00",
+        "TYPE": "DUE_AMOUNT"
+      },
+      "SUBTOTAL": {
+        "COLUMN_NAME": "Subtotal:",
+        "COLUMN_VALUE": "400.00",
+        "TYPE": "SUBTOTAL"
+      },
+      "TOTAL": {
+        "COLUMN_NAME": "Total:",
+        "COLUMN_VALUE": "5,148.45",
+        "TYPE": "TOTAL"
+      },
+      "TAX_TOTAL": {
+        "COLUMN_NAME": "Tax Total",
+        "COLUMN_VALUE": "0.00",
+        "TYPE": "TAX_TOTAL"
+      }
+    }
+  }
+}

@@ -1,0 +1,223 @@
+/*
+* New UI 2: Invoice table
+*/
+.invoice-width{
+    width:auto !important;
+}
+.invoice-width .sidebar{
+    display: none;
+}
+.invoice-block{
+    background-color: #F9FAFB;
+    padding-bottom: 0 !important;
+}
+
+/*__invoice table__*/
+.advanced-GridPanel .header-table-cell thead{
+    border-bottom:none;
+}
+.advanced-GridPanel .header-cell .gwt-Label {
+    text-transform: uppercase;
+    /*color:#536677;*/
+    color:#8D9BAB;
+    padding:10px 10px;
+    padding-top:0;
+    font-weight: normal;
+    font-size:11px;
+}
+
+.advanced-GridPanel .body-table-cell table.advanced-Grid,
+.advanced-GridPanel .header-table-cell table.advanced-Grid {
+    table-layout: fixed;
+}
+.advanced-GridPanel .invoice-products tbody{
+    outline:none;
+}
+.advanced-GridPanel .body-table-cell table.advanced-Grid{
+    border-collapse:separate;
+    border-spacing:0 5px;
+}
+.advanced-GridPanel  .body-table-cell .advanced-Grid>tbody>tr{
+    border-radius: 5px;
+    border:1px solid #E3E9F2;
+    background-color: white;
+}
+.advanced-GridPanel .body-table-cell .advanced-Grid .grid-column{
+    border-top:1px solid #E3E9F2;
+    border-bottom:1px solid #E3E9F2;
+}
+
+.advanced-GridPanel .body-table-cell .advanced-Grid>tbody>tr .grid-column:first-child{
+    border-top-left-radius:5px;
+    border-bottom-left-radius:5px;
+    border-left:1px solid #E3E9F2;
+}
+.advanced-GridPanel  .body-table-cell .advanced-Grid>tbody>tr .grid-column:last-child{
+    border-top-right-radius:5px;
+    border-bottom-right-radius:5px;
+    border-right:1px solid #E3E9F2;
+}
+.advanced-GridPanel .body-table-cell .advanced-Grid>tbody>tr .data-cell{
+    line-height: 40px;
+    min-height:40px;
+    position: relative;
+    /*padding-right: 1px;*/
+
+}
+
+.advanced-GridPanel .body-table-cell .advanced-Grid>tbody>tr .grid-column:not(:last-child) .data-cell:after{
+    content: '';
+    display: block;
+    border-right:1px solid #e8e8e8;
+    position: absolute;
+    top:5px;
+    bottom: 5px;
+    right:0;
+}
+.advanced-GridPanel .body-table-cell .advanced-Grid>tbody>tr .data-cell.active-cell:after{
+    content: none;
+}
+
+.advanced-GridPanel .body-table-cell .advanced-Grid>tbody>tr .data-cell .gwt-Label,
+.advanced-GridPanel .body-table-cell .advanced-Grid>tbody>tr .data-cell .gwt-TextBox,
+.advanced-GridPanel .body-table-cell .advanced-Grid>tbody>tr .data-cell .lookUp-Cell,
+.advanced-GridPanel .body-table-cell .advanced-Grid>tbody>tr .data-cell .cell-TextAreaLabel,
+.advanced-GridPanel .body-table-cell .advanced-Grid>tbody>tr .data-cell .gwt-SuggestBox,
+.advanced-GridPanel .body-table-cell .advanced-Grid>tbody>tr .data-cell .left-align-cell,
+.advanced-GridPanel .body-table-cell .advanced-Grid>tbody>tr .data-cell .gwt-HTML{
+    text-align: left !important;
+    padding-left:10px;
+    padding-right:0px;
+    color: #536677;
+}
+.advanced-GridPanel .body-table-cell .advanced-Grid>tbody>tr .data-cell .lookUp-Cell{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+.advanced-GridPanel .body-table-cell .advanced-Grid>tbody>tr .data-cell>*{
+    color: #536677;
+}
+.advanced-GridPanel .body-table-cell .advanced-Grid>tbody>tr .grid-column:first-child .data-cell{
+
+}
+.advanced-GridPanel .body-table-cell .advanced-Grid>tbody>tr .grid-column:last-child .data-cell{
+    border-right: 0;
+}
+.advanced-GridPanel .advanced-FocusPanel{
+    outline:none;
+}
+.advanced-GridPanel .body-table-cell .advanced-Grid>tbody>tr .data-cell .simpleGwt-ComboBox{
+    display: block;
+}
+.advanced-GridPanel .body-table-cell .advanced-Grid>tbody>tr .data-cell input[type='text']{
+    border:none;
+    width:100% !important;
+}
+.advanced-GridPanel .body-table-cell .advanced-Grid>tbody>tr .data-cell .gwt-ListBox {
+    border: none;
+}
+.advanced-GridPanel .body-table-cell .advanced-Grid>tbody>tr .data-cell .gwt-TextArea{
+    display:block;
+    width: 100%;
+    resize: vertical;
+}
+.advanced-GridPanel .body-table-cell .advanced-Grid>tbody tr.selected-row .data-cell .gwt-TextArea{
+    position: absolute;
+    top:0px;
+    left:1px;
+    right:1px;
+    bottom:0px;
+    z-index:2;
+    min-height: 40px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 0;
+    line-height:1.5;
+    width:100% !important;
+}
+.advanced-GridPanel th{
+    white-space: normal !important;
+}
+.advanced-GridPanel .data-cell .lookUp-Cell,
+.advanced-GridPanel .data-cell .gwt-HTML{
+    text-align: center !important;
+}
+.advanced-GridPanel .body-table-cell .data-cell .description-default-color{
+    border:none;
+}
+.advanced-GridPanel .body-table-cell .data-cell table{
+    width:100% !important;
+}
+.advanced-GridPanel .body-table-cell .data-cell .editable-cell__actions td{
+    text-align: center;
+    font-weight: bold;
+}
+.advanced-GridPanel .body-table-cell .data-cell .editable-cell__actions td:last-child{
+    text-align: right;
+    /*for disabled state button*/
+}
+.advanced-GridPanel .body-table-cell .data-cell .editable-cell__actions .ficon--plus{
+    color: #85CA40;
+    font-weight: bold;
+}
+
+.advanced-GridPanel .body-table-cell .advanced-Grid>tbody>tr .data-cell #gwt-debug-saleinvoicediscount-1{
+    padding:0 4px;
+}
+.advanced-GridPanel .cell-TextAreaLabel{
+    padding-left:5px;
+    padding-right:5px;
+    white-space: nowrap;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    height: 40px;
+}
+
+
+
+/* styles for advanced adtagrid. Shift it to theme.css  */
+
+.lookUp-Cell {
+    text-align: left !important;
+}
+
+.center-align-Cell {
+    text-align: center !important;
+}
+
+.right-align-Cell {
+    text-align: right !important;
+}
+
+.left-align-Cell {
+    text-align: left !important;
+}
+
+.advanced-Grid .data-cell div.gwt-Label, .advanced-Grid .data-cell div.gwt-HTML {
+    text-align: right;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.advanced-Grid .passive-cell {
+    padding: 0 10px;
+}
+
+.advanced-Grid>tbody>tr .passive-cell .lookUp-Cell {
+    padding-left: 0;
+}
+
+
+/*grid-column buttons*/
+
+.grid-column i.btn--icon {
+    border-radius: 0;
+}
+.grid-column .btn--icon.disabled {
+    background-color: transparent !important;
+    border-color: transparent !important;
+    opacity:.9;
+}

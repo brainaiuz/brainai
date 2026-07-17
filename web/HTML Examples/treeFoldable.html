@@ -1,0 +1,168 @@
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <title>
+        Foldable Tree Example
+    </title>
+    <link rel="stylesheet" href="../WebContent/googlegadget/select2.min.css">
+    <link rel="stylesheet" href="../WebContent/mainStyles/new-ui/css/materialize.css">
+    <!--    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />-->
+    <!--    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>-->
+
+</head>
+<body class="frame__body" style="overflow: auto;" data-new-gr-c-s-check-loaded="14.1264.0" data-gr-ext-installed="">
+<h2 class="text-center">Foldable Tree HTML</h2>
+<div class="container">
+    <ul class="treeFold">
+        <li class="treeFold__li">
+            <div class="treeFold__cur">
+                <span class="treeFold__toggle expandedElement" data-id="owner"></span>
+                <span class="treeFold__text">Компания</span>
+            </div>
+
+            <ul class="treeFold__childs">
+                <li class="treeFold__li">
+                    <div class="treeFold__cur">
+                        <span class="treeFold__toggle expandedElement" data-id="adm-division"></span>
+                        <span class="treeFold__text">
+                        <sup>7.</sup> БИЗНЕС ЭГАСИ БОШҚАРМАСИ
+                    </span>
+                    </div>
+
+                    <ul class="treeFold__childs">
+                        <li class="treeFold__li treeFold__li--disabled">
+                            <div class="treeFold__cur">
+                                <span class="treeFold__toggle treeFold__toggle--leaf" data-id="owners-office"></span>
+                                <span class="treeFold__text">
+                                <sup>21.</sup> Owner's office
+                            </span>
+                            </div>
+                        </li>
+
+                        <li class="treeFold__li">
+                            <div class="treeFold__cur">
+                                <span class="treeFold__toggle treeFold__toggle--leaf" data-id="assistant"></span>
+                                <span class="treeFold__text">
+                                <sup>21.1.</sup> ШАХСИЙ ЁРДАМЧИ ХИЗМАТИ
+                            </span>
+                            </div>
+                        </li>
+
+                        <!-- вложенный уровень -->
+                        <li class="treeFold__li">
+                            <div class="treeFold__cur">
+                                <span class="treeFold__toggle expandedElement" data-id="support-services"></span>
+                                <span class="treeFold__text">
+                                <sup>21.2.</sup> Сервисные службы
+                            </span>
+                            </div>
+
+                            <ul class="treeFold__childs">
+                                <li class="treeFold__li">
+                                    <div class="treeFold__cur">
+                                        <span class="treeFold__toggle treeFold__toggle--leaf" data-id="it-support"></span>
+                                        <span class="treeFold__text">
+                                        <sup>21.2.1.</sup> IT-поддержка
+                                    </span>
+                                    </div>
+                                </li>
+                                <li class="treeFold__li">
+                                    <div class="treeFold__cur">
+                                        <span class="treeFold__toggle treeFold__toggle--leaf" data-id="office-support"></span>
+                                        <span class="treeFold__text">
+                                        <sup>21.2.2.</sup> Офис-менеджмент
+                                    </span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="treeFold__li">
+                    <div class="treeFold__cur">
+                        <span class="treeFold__toggle" data-id="office-ceo"></span>
+                        <span class="treeFold__text">
+                        <sup>19.</sup> Office of the CEO
+                    </span>
+                    </div>
+
+                    <!-- ещё один уровень внутрь CEO Office -->
+                    <ul class="treeFold__childs">
+                        <li class="treeFold__li">
+                            <div class="treeFold__cur">
+                                <span class="treeFold__toggle treeFold__toggle--leaf" data-id="strategy"></span>
+                                <span class="treeFold__text">
+                                Strategy &amp; Analytics
+                            </span>
+                            </div>
+                        </li>
+                        <li class="treeFold__li">
+                            <div class="treeFold__cur">
+                                <span class="treeFold__toggle treeFold__toggle--leaf" data-id="communications"></span>
+                                <span class="treeFold__text">
+                                Corporate Communications
+                            </span>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+
+        <li class="treeFold__li">
+            <div class="treeFold__cur">
+                <span class="treeFold__toggle" data-id="ceo"></span>
+                <span class="treeFold__text">CEO</span>
+            </div>
+
+            <ul class="treeFold__childs">
+                <li class="treeFold__li">
+                    <div class="treeFold__cur">
+                        <span class="treeFold__toggle" data-id="adm-deputy"></span>
+                        <span class="treeFold__text">Deputy for Administrative Affairs</span>
+                    </div>
+
+                    <ul class="treeFold__childs">
+                        <li class="treeFold__li">
+                            <div class="treeFold__cur">
+                                <span class="treeFold__toggle treeFold__toggle--leaf" data-id="establishment"></span>
+                                <span class="treeFold__text">
+                                <sup>1.</sup> Establishment Division
+                            </span>
+                            </div>
+                        </li>
+                        <li class="treeFold__li">
+                            <div class="treeFold__cur">
+                                <span class="treeFold__toggle treeFold__toggle--leaf" data-id="personnel"></span>
+                                <span class="treeFold__text">
+                                <sup>1.</sup> Personnel Department
+                            </span>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+</div>
+
+
+<!--JS LIBS-->
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>-->
+<script type="text/javascript" src="../WebContent/mainStyles/new-ui/js/jquery.min.js"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>-->
+<script type="text/javascript" src="../WebContent/mainStyles/new-ui/js/materialize-1.0.0.min.js"></script>
+<script type="text/javascript" src="../WebContent/googlegadget/select2.min.js"></script>
+<!--\ JS LIBS-->
+<!--CUSTOM SCRIPTS-->
+<script src="static-html-examples.js" defer>
+    //see content to find tree-foldable script
+</script>
+<!--\ CUSTOM SCRIPTS-->
+
+<!--\CURRENT PAGE SCRIPT-->
+</body>
+</html>

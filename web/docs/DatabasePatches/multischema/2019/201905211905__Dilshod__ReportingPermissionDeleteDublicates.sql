@@ -1,0 +1,2 @@
+delete from "0".reportingpermission where code in (select code from (select id,replace(replace(code,'_'||replace('"0"','"',''),''),replace('"0"','"',''),'') code,name from "0".reportingpermission) foo group by code,name having count(id)>1);
+delete from "anv".reportingpermission where code in (select code from (select id,replace(replace(code,'_'||replace('"anv"','"',''),''),replace('"anv"','"',''),'') code,name from "anv".reportingpermission) foo group by code,name having count(id)>1);

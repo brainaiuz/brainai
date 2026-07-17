@@ -1,0 +1,10 @@
+
+services:
+  redis:
+    image: "${KPI_REDIS_IMAGE}"
+    container_name: "${KPI_REDIS_HOST}"
+    hostname: "${KPI_REDIS_HOST}"
+    ports:
+      - "${KPI_REDIS_PORT}:6379"
+    command: redis-server --maxmemory $KPI_REDIS_MAX_MEMORY --maxmemory-policy $KPI_REDIS_MAX_MEMORY_POLICY --appendonly yes # --requirepass $KPI_REDIS_PASS # Uncomment this and KPI_REDIS_PASS inside ../.env file if you want to set pass
+    restart: always

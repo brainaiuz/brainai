@@ -1,0 +1,13 @@
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:gb="urn:import:com.edatasite.workforce.gwt.core.client.ui.components"
+             xmlns:m="urn:import:gwt.material.design.client.ui"
+             xmlns:mh="urn:import:gwt.material.design.client.ui.html"
+             xmlns:g="urn:import:com.google.gwt.user.client.ui">
+    <g:HTMLPanel tag="div" styleName="reports-link-control reports-link-control--bright">
+        <mh:Div class="reports-link-control__name" ui:field="selectReport">
+            <mh:Span ui:field="reportName"></mh:Span>
+            <m:MaterialIcon styleName="ficon--arrow-right"></m:MaterialIcon>
+        </mh:Div>
+        <mh:Div styleName="figure-actions" ui:field="figureActions"/>
+    </g:HTMLPanel>
+</ui:UiBinder>

@@ -1,0 +1,667 @@
+/* ----------------------------------
+Reset
+---------------------------------*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent
+}
+
+#output {
+    position: relative;
+    padding-top: 30px;
+}
+
+.linkToEmail {
+    position: absolute;
+    right: 71px;
+    top: 10px;
+    font-size: 12px;
+}
+
+body {
+    line-height: 1
+}
+
+ol, ul {
+    list-style: none
+}
+
+blockquote, q {
+    quotes: none
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+    content: '';
+    content: none
+}
+
+:focus {
+    outline: 0
+}
+
+ins {
+    text-decoration: none
+}
+
+del {
+    text-decoration: line-through
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+body {
+    line-height: 1;
+    /*font-family: Arial, sans-serif;*/
+    background: none !important;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+#topContentContainer {
+    overflow: auto;
+}
+
+#topContentContainer > input {
+    position: absolute;
+    top: 6px;
+    right: 168px;
+}
+
+form {
+}
+
+.noteText {
+    color: #888;
+    font-size: 0.9em;
+}
+
+/*select {
+height: 25px;
+}*/
+
+#companys {
+    margin-top: 7;
+}
+
+#employeesList {
+    height: 130px;
+    overflow: auto;
+    margin-top: 8px;
+    width: 305px;
+}
+
+.selectBlock label.estimTime {
+    float: right;
+    margin: 12px 10px 0 0;
+}
+
+.assignee-item input[type="checkbox"], .assignee-item span.label {
+    float: left;
+}
+
+.assignee-item input[type="text"] {
+    float: right;
+    width: 50px !important;
+    margin: 4px 7px 0 5px !important;
+}
+
+.assignee-item {
+    overflow: auto;
+}
+
+.leftColumn, .rightColumn {
+    width: 48%;
+}
+
+.leftColumn {
+    float: left;
+}
+
+.rightColumn {
+    float: right;
+}
+
+#loadingKpi.loadingMask {
+    position: fixed;
+    z-index: 1003;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #000;
+    filter: alpha(opacity=75);
+    -moz-opacity: 0.75;
+    opacity: 0.75;
+    background: #111 url(loadingBar.gif) no-repeat 50% 50%;
+}
+
+#addLink {
+    position: absolute;
+    right: 5px;
+    top: 10;
+    font-weight: bold;
+    color: #77C33B
+}
+
+#addLink > a {
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: normal;
+    color: #1155CC;
+}
+
+#choosedLinks {
+    clear: left;
+}
+
+/* Start popup cover */
+.ui-dialog.ui-widget, body .ui-datepicker {
+    font-size: 12px !important;
+}
+
+.linkItem {
+    margin-bottom: 10px;
+}
+
+.linkItem > * {
+    padding: 0 3px;
+}
+
+.linkItem a {
+    color: #1155CC;
+}
+
+button.FormButton, input.FormButton {
+    display: block;
+    text-align: center;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+    float: left;
+    margin: 10px;
+    background: #1DABEA;
+}
+
+button.FormButton[disabled] {
+    background: #999 !important;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+    cursor: default;
+}
+
+button.FormButton, input.FormButton {
+    width: 150px;
+    height: 30px;
+    border: 0;
+    cursor: pointer;
+    background: none;
+    color: white;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+input.FormButton {
+    background: #1DABEA;
+    width: 117px;
+}
+
+.Blue {
+    background: #1DABEA !important;
+}
+
+.Blue:hover {
+    background: #4ac5fb !important;
+}
+
+.Green {
+    background: #5a9f23 !important;
+}
+
+.Green:hover {
+    background: #77c33b !important;
+}
+
+.Red {
+    background: #d64937 !important;
+}
+
+.Red:hover {
+    background: #ee7161 !important;
+}
+
+.clear {
+    clear: both;
+}
+
+.errorMessage {
+    background: #a23127;
+    -moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    padding: 5px 10px;
+    -moz-border-radius: 7px;
+    -khtml-border-radius: 7px;
+    border-radius: 7px;
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+#linkProject, #linkOther {
+    margin-top: 16px;
+}
+
+.labels {
+    width: 337px
+}
+
+.labels .desc {
+    float: left;
+    padding-top: 12px;
+}
+
+.desc {
+    margin-bottom: 5px;
+}
+
+.selectBlock {
+    margin: 15px 0;
+}
+
+.selectBlock input[type="text"] {
+    /*height: 22px;*/
+    line-height: 20px;
+    padding: 0 3px;
+    margin-left: 10px;
+}
+
+input[type=text], select, textarea {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border-radius: 4px;
+    line-height: 1.42857143;
+}
+
+input[type=text], select {
+    height: 24px;
+}
+
+select option {
+
+}
+
+.selectBlock select, .selectBlock textarea/* , .selectBlock option */, .selectBlock input[type="text"] {
+    display: block;
+    color: #555;
+    margin: 8px 0;
+    width: 100%;
+    border: 1px solid #ccc;
+    /* margin-left: 5px; */
+    font-size: 13px !important;
+    font: inherit;
+}
+
+input {
+    width: expression(this.type=='text' ? '300px' : '');
+}
+
+
+.selectBlock.labelLine > label,
+.selectBlock.labelLine > select,
+.selectBlock.labelLine > textarea,
+.selectBlock.labelLine > option,
+.selectBlock.labelLine > input[type="text"] {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 0;
+    margin-right: 5px;
+}
+
+.rowFields .labelLine.currencySelect {
+    white-space: nowrap;
+}
+
+.rowFields .labelLine.currencySelect > * {
+    margin-right: 1%;
+}
+
+.rowFields .labelLine.currencySelect select {
+    width: 23%;
+    min-width: 43px;
+}
+
+.rowFields .labelLine.currencySelect input[type="text"] {
+    width: 45%;
+}
+
+.taskNumbersInputs {
+    overflow: auto;
+    width: 306px;
+}
+
+.selectblock .tasknumbersinputs > input {
+    display: inline;
+}
+
+.selectBlock input.taskNum {
+    width: 163px;
+    font: inherit;
+
+}
+
+.selectBlock input.taskPref {
+    width: 55px;
+    float: left;
+    margin-right: 5px;
+}
+
+.selectBlock input.taskPost {
+    width: 55px;
+    float: right;
+    margin-right: 5px;
+}
+
+.selectBlock input[type="checkbox"] {
+    margin: 10px 0 0 10px;
+}
+
+.selectBlock span.label {
+    margin-top: 9px;
+    font-size: 13px;
+    margin-left: 10px;
+}
+
+.selectBlock label span {
+    color: #ff0000;
+}
+
+.selectBlock label {
+    font-size: 13px;
+    color: #505050;
+    font-weight: bold;
+    margin: 0 10px;
+}
+
+.selectBlock label[for="linkType"] {
+    /* float: left;
+    margin: 12px 10px;*/
+}
+
+#caseDescription {
+    width: 720px;
+}
+
+fieldset {
+    border-bottom: 1px dashed #c0c0c0;
+    margin: 10px 0;
+    padding: 0.35em 0 0.75em;
+}
+
+.footButtons {
+    clear: both;
+    margin-left: 30%;
+    text-align: center;
+}
+
+.removeLink, .addLink, .addEmailLinkFields, .removeEmailLinkFields {
+    margin-left: 10px;
+    /* margin-top: 8px; */
+    font-size: 0.8em;
+    text-decoration: none;
+    display: inline-block;
+    height: 11px;
+    line-height: 11px;
+    width: 11px;
+    padding: 3px;
+    border: 1px solid #ddd;
+    font-weight: bold;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.removeLinkText, .addLinkText {
+    margin-left: 3px;
+    font-size: 0.7em;
+    text-decoration: none;
+}
+
+.removeLink, .removeLink:visited, .removeEmailLinkFields, .removeEmailLinkFields:visited {
+    line-height: 7px;
+    color: #F00;
+}
+
+.removeLinkText, .removeLinkText:visited {
+    color: #F00;
+}
+
+.removeLink:hover, .removeLinkText:hover {
+    color: #f66;
+}
+
+.addLink, .addLink:visited, a.addLinkText, .addEmailLinkFields, a.addLinkText:visited, .addEmailLinkFields:visited {
+    color: #090;
+}
+
+.addLink:hover, .addLinkText:hover, .addEmailLinkFields:hover {
+    color: #77C33B;
+}
+
+.dropDowns .addEmailLinkFields, .dropDowns .removeEmailLinkFields {
+    /* margin-top: 8px; */
+}
+
+.totalvalue {
+    background-color: #3E77B7;
+    color: #FFFFFF;
+    font: 14px/20px Arial, sans-serif;
+    padding: 0 5px 0 10px;
+    text-align: right;
+    width: 207px;
+    border: 1px solid #f2f2f2;
+}
+
+.rowFields .selectBlock {
+    float: left;
+    width: 25%;
+    margin: 0;
+}
+
+.dropDowns .selectBlock {
+    width: 100%;
+    float: left;
+}
+
+.dropDowns .selectBlock > * {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.dropDowns .selectBlock > .select2-container {
+    max-width: 28%;
+    min-width: 249px;
+}
+
+.rowFields.halfFields .selectBlock {
+    width: 50%;
+}
+
+.rowFields.trioFields .selectBlock {
+    width: 33%;
+}
+
+.rowFields .selectBlock.labelLine {
+    /*   margin-top: 13px;  */
+}
+
+.rowFields .selectBlock.labelLine label#salesQuoteCurrencyValueLabel {
+    display: block;
+}
+
+.dropDowns .selectBlock select {
+    width: 25%;
+    /* float: left; */
+    margin-right: 5px;
+}
+
+.rowFields .selectblock textarea, .rowFields .selectblock option, .rowFields .selectblock input[type="text"] {
+    width: 90%;
+}
+
+/*### Start DROPLINE (Button MENU) ###*/
+
+.dropline {
+    position: relative;
+    min-height: 56px;
+    margin: 10px 10px 0;
+    padding: 0;
+    font-size: 0;
+}
+
+.dropline ul:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    border: 1px solid #3E77B7;
+}
+
+.dropline li {
+    display: inline-block;
+}
+
+.dropline li > a {
+    font-size: 14px;
+    margin-right: 3px;
+}
+
+.dropline li a {
+    display: block;
+    padding: 5px 17px;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+
+    text-decoration: none;
+    color: #383838;
+    background: #ddd;
+
+}
+
+.dropline li:hover > a, .dropline li:hover li > a {
+
+    background: #4AC5FB;
+
+    -webkit-transition: background .1s linear;
+    -moz-transition: background .1s linear;
+    transition: background .1s linear;
+}
+
+.dropline .cur > a, .dropline .cur:hover > a, .dropline .cur li > a, .dropline .cur li:hover > a, .dropline .cur:hover li > a {
+
+    background: #1DABEA;
+}
+
+.dropline li ul {
+    position: absolute;
+    top: -9999px;
+    left: 0;
+    right: 0; /* z -index:1; */
+    background: #f2f2f2;
+    padding-top: 6px;
+    z-index: 10;
+}
+
+.dropline .cur ul {
+    z-index: 0;
+}
+
+.dropline :hover ul {
+    z-index: 10;
+}
+
+.dropline li.cur ul, .dropline li:hover ul {
+    top: 24px;
+    /*width: 600px;*/
+}
+
+.dropline ul a {
+    color: #fff;
+    font-size: 12px;
+    margin-bottom: 3px;
+    -webkit-border-bottom-left-radius: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+    -moz-border-radius-bottomleft: 5px;
+    -moz-border-radius-bottomright: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+/* .dropline :hover ul a,
+,.dropline .cur ul a
+{
+height:14px;
+padding:5px 10px;
+} */
+
+.dropline .cur ul li a:hover, .dropline .cur > a, .dropline .cur .cursub > a, .dropline li ul li > a:hover {
+    background: #3E77B7;
+}
+
+.dropline a:hover, .dropline :hover > a {
+    color: #fff;
+}
+
+.dropline .cur > a, .dropline .cur .curSub > a, .dropline .cur ul a:hover {
+    color: #fff;
+}
+
+/* .dropline .cur ul a
+,.dropline :hover ul a {
+} */
+.dropline .cur > a, .dropline .cur .curSub > a {
+    cursor: default;
+}
+
+/*### End DROPLINE (Button MENU) ###*/
+
+.cTitlePanel {
+    font-size: 80%;
+    padding-top: 8px;
+    margin-bottom: 4px;
+    height: 25px;
+}
+
+.cTitleInner {
+    float: left;
+}
+
+.cIcon {
+    margin: 0 5px 0 3px;
+    vertical-align: bottom;
+}
+
+.cTitle {
+    color: #222;
+    font-weight: bold;
+}
+
+.cDesc {
+    color: #222;
+}
+

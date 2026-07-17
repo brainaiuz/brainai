@@ -1,0 +1,17 @@
+Index: src/com/edatasite/workforce/gwt/core/server/db/impl/MessageManagerImpl.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/com/edatasite/workforce/gwt/core/server/db/impl/MessageManagerImpl.java	(date 1440421290000)
++++ src/com/edatasite/workforce/gwt/core/server/db/impl/MessageManagerImpl.java	(date 1440421511000)
+@@ -506,7 +506,7 @@
+                         }
+                     }
+                     mailMessage.setFromUserFullName(emailSettings != null && emailSettings.getFromName() != null ? emailSettings.getFromName() : fromUserName);
+-                    mailMessage.setFromEmail(emailSettings.getEmail());
++                    mailMessage.setFromEmail((fromEmail == null && fromEmail.length() == 0) ? emailSettings.getEmail() : fromEmail);
+                     mailMessage.setSavedAsDraft(isDraft);
+                     mailMessage.setTrackerID(trackerID);
+                     tracker = emailFetchingManager.sendMessageOrSaveAsDraft(mailMessage);
+\ No newline at end of file

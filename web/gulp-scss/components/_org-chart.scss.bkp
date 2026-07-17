@@ -1,0 +1,810 @@
+//HRMS Organization Chart
+/*START ORG CHART*/
+
+
+//http://prntscr.com/j2uqpu
+$orgChartHeaderSize: 60px;
+$orgChartBorderColor: $color-base-1;
+$orgChartBorderColorDark: darken($color-base-1, 10%);
+$orgChartNodeMinWidth: 200px;
+$orgChartNodeMinHeight: 60px;
+$orgChartNextLevelPadding: 5px;
+//$orgChartBorderColorLight: blue;
+
+$childSectionBorder: #ddd;
+$rowSpacerHeight: 6px;
+
+//Common
+
+.ttree-dropbtn {
+  //background-color: #f2f5f7 !important;
+}
+
+.ttree-dropdown-content {
+  @extend .z-depth-2;
+  display: none;
+  position: absolute; // to fill all area with bg
+  z-index: 1;
+  bottom: 3px;
+  //margin-top: -3px;
+  @include border-bottom-radius($radius-base);
+  background-color: #fff;
+  //min-width: 140px;
+  font-size: 8px;
+  border: 1px solid $orgChartBorderColor;
+
+  .ttree-dropdown:hover & {
+    display: block;
+    @include border-top-radius($radius-base);
+    border-color: $color-base-1;
+  }
+
+  a {
+    color: black;
+    padding: 8px 6px;
+    text-decoration: none;
+    display: block;
+    white-space: nowrap;
+    background-repeat: no-repeat !important;
+    background-position: 3px 6px;
+
+    &:hover {
+    }
+  }
+
+}
+
+.ttree-wrapword {
+  //white-space: normal;
+}
+
+$color-department: rgb(128, 128, 128);
+
+.white-overlay .btn[style*="fixed;"] {
+  z-index: 99;
+}
+
+.orgChart {
+  margin: ($orgChartHeaderSize + 15px) 10px 10px;
+  //margin: $padding-y-base 10px 10px;
+
+  &__container {
+    //padding-top: 60px;
+    //position: absolute;
+    //left: 0;
+    //right: 0;
+    //top: 0;
+    //bottom: 0;
+  }
+
+  &__header {
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    top: $frameHeaderSize;
+    right: auto !important;
+    background-color: rgba(white, .8);
+    height: $orgChartHeaderSize;
+
+    > div + div {
+      padding-left: 10px;
+    }
+    .orgChart__switchView:last-child {
+      margin-left: auto;       //https://prnt.sc/1umfcl3
+    }
+
+    @media screen and (max-width: 1366px) {
+      //top: 89px;
+    }
+
+    &:after {
+      //content: '';
+      //display: table;
+      //clear: both;
+    }
+  }
+
+  &__switch {
+    //float: left;
+    display: flex;
+    align-items: baseline;
+  }
+
+  &__title {
+    line-height: 40px;
+    margin-left: 10px;
+  }
+
+  &__reset {
+    float: right;
+    position: static !important;
+  }
+
+  table {
+    border-collapse: initial;
+  }
+
+  td {
+    text-align: center;
+    vertical-align: top;
+    padding: 0;
+  }
+
+  .tlleft {
+    width: 9px;
+    border-left: 2px solid $orgChartBorderColor;
+  }
+
+  .bls2 {
+    border-left-width: 2px !important;
+  }
+
+  .tSame25 {
+    width: 25% !important;
+  }
+
+  &--1 .borderLeft {
+    //border-left: 2px solid $orgChartBorderColor;
+    //border-left: 2px solid lime;
+  }
+
+  &--2 .borderLeft {
+    border-left: 2px solid $orgChartBorderColor;
+  }
+
+  &--2 .borderLeft > table > tbody > tr {
+    > td:first-child {
+      //border-left: 2px solid lime;
+    }
+
+  }
+
+
+  .nextLevel {
+    position: relative;
+    padding: 0 $orgChartNextLevelPadding;
+  }
+
+  .rowSpacer {
+    height: $rowSpacerHeight;
+  }
+
+  .tbottom {
+    //border-bottom: 2px solid $orgChartBorderColor;
+    border-bottom: 2px solid $orgChartBorderColor;
+  }
+
+  .nextLevel.borderLeft {}
+
+  tr.nodes ~ tr:last-child > .nextLevel.borderLeft {
+    position: relative;
+    &:before {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      left: -2px;
+      bottom: 0;
+      width: 2px;
+      top: $orgChartNodeMinHeight / 2;
+      border-top-right-radius: 2px;
+      background: $body-bg;
+    }
+  }
+
+  .nextLevel.borderLeft .parentLines {
+    position: relative;
+    &:before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      margin-top: -1px;
+      left: -$orgChartNextLevelPadding;
+      width: 50%;
+      border-bottom-left-radius: 50%;
+      border-bottom: 2px solid $orgChartBorderColor;
+    }
+  }
+
+  .orgChart tr:last-child table tr:last-child > .nextLevel > table > tbody > .nodes .parentLines:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: -13px;
+    width: 4px;
+    background: #fff;
+    height: 10000px;
+    top: calc(50% + 1px);
+  }
+
+  .orgChart > table > tbody > tr > td > table > tbody > tr.nodes:first-child .parentLines:after {
+    display: none;
+  }
+
+  .orgChart > table > tbody > tr > td > table > tbody > tr.nodes:first-child .parentLines:before {
+    display: none;
+  }
+
+  .orgChart div.node.childrenLines {
+    width: 100%;
+    min-width: 100px;
+  }
+
+  .orgChart .parentLines:before {
+    top: 0.2px;
+    height: 1.6px;
+  }
+
+  .orgChart > table > tbody > tr:last-child .borderLeft, .orgChart > table > tbody > tr:last-child .tline {
+    border-color: rgb(206, 213, 219 / 50%) !important;
+  }
+
+  .orgChart > table > tbody > tr:last-child .parentLines:before {
+    background: rgb(206, 213, 219 / 50%) !important;
+  }
+
+  .orgChart div.node {
+    min-width: 220px;
+  }
+
+  .orgChart > table > tbody > tr:last-child .childrenLines {
+    width: 100%;
+    min-width: 150px;
+    max-width: 250px;
+  }
+
+  > table > tbody > tr > td {
+
+  }
+
+  &.orgChart--1 > table > tbody > tr > td {
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+
+  &.orgChart--1 td.node {
+    padding: 0 2px;
+  }
+
+  &.orgChart--2 > table > tbody > tr > td {
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+
+  &.orgChart--2 .nodeCell {
+    padding: 0 4px;
+  }
+
+  .interactive .hasChildren {
+    cursor: pointer;
+  }
+
+  .ttop {
+    border-top: 2px solid $orgChartBorderColor;
+  }
+
+  .tleft {
+    border-right: 1px solid $orgChartBorderColor;
+  }
+
+  .tright {
+    border-left: 1px solid $orgChartBorderColor;
+  }
+
+  tr.tlines {
+    td.tline {
+      width: 1px;
+      height: 9px;
+    }
+  }
+
+  h2, h3 {
+    font-weight: normal;
+  }
+
+  table {
+    //border-collapse: separate;
+    //border-spacing: 2px;
+  }
+
+  div.node {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    line-height: 1.2em;
+    border-radius: 8px;
+    background-color: #fff;
+    border-top: 3px solid $orgChartBorderColor;
+
+    h2, h3, h5, em {
+         line-height: 1.2;
+
+      &:hover {
+        overflow: visible;
+      }
+    }
+  }
+
+
+  .arrow-toggle {
+    > i {
+      width: 1.25em;
+      height: .25em;
+      display: inline-block;
+      position: relative;
+
+      &:before,&:after {
+        content: '';
+        position: absolute;
+        display: inline-block;
+        top: .5rm;
+        width: .75em;
+        height: .1em;
+        background-color: $orgChartBorderColorDark;
+        background-color: $link-color;
+        transition: all .2s ease;
+      }
+      &:before {
+        left: 0;
+        transform: rotate(45deg);
+      }
+
+      &:after {
+        right: 0;
+        transform: rotate(-45deg);
+      }
+    }
+
+    &.active > i,
+    &:hover > i {
+      &:before {
+        transform: rotate(-45deg);
+      }
+      &:after {
+        transform: rotate(45deg);
+      }
+    }
+  }
+
+  .count-left,
+  .count-right {
+    position: absolute;
+    bottom: 5px;
+    min-width: 35px;
+    font-size: .9em;
+    display: flex;
+    border: 1px solid $orgChartBorderColor;
+    padding: 0 5px;
+    align-items: center;
+    color: $text-muted;
+    border-radius: 2px;
+    text-align: center;
+
+    &:hover {
+      background: rgba($color-base-contrast, 0.7);
+    }
+    > span + i {
+      margin-left: 5px;
+    }
+  }
+  .count-left {
+    left: 6px;
+  }
+  .count-right {
+    right: 6px;
+  }
+
+  .orgChart .overhide {
+    //overflow: hidden;
+  }
+
+  .adjunct.node { // ToDo Need to Check
+    position: absolute;
+    margin-top: 8px;
+    margin-left: -110px;
+    width: 80px;
+    height: 40px;
+    background-color: white;
+  }
+
+  .adjunct-link { // ToDo Need to Check
+    display: inline-block;
+    position: absolute;
+    margin-left: -20px;
+    margin-top: 25px;
+    width: 20px;
+    border: 2px dashed #4f88bb;
+  }
+
+  //heading lines
+  > table > tbody >
+  .orgChart tr.tlines td.tline {
+    width: 1px;
+    height: 20px;
+  }
+
+  ul {
+    list-style-type: none;
+    position: relative;
+  }
+
+  li {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+  }
+
+  .circular-portrait {
+    flex: 1 0 auto;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    border-radius: $radius-base;
+    height: 50px;
+    width: 50px;
+
+    + div.overhide {
+      flex: 1 0 auto;
+      display: flex;
+      flex-direction: column;
+
+      h2, h3 {
+        flex: 1 0 auto;
+      }
+
+      em {
+        flex: 0 1 auto;
+      }
+    }
+
+    img {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      min-width: 30px;
+      min-height: 40px;
+      background: $orgChartBorderColor;
+      //background: $orgChartBorderColor url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAtCAMAAAANxBKoAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQ1IDc5LjE2MzQ5OSwgMjAxOC8wOC8xMy0xNjo0MDoyMiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTkgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkJGQTdCNzA3MUYyRTExRUFCNzczRDBCQUEzMkM3QzEwIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkJGQTdCNzA4MUYyRTExRUFCNzczRDBCQUEzMkM3QzEwIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6QkZBN0I3MDUxRjJFMTFFQUI3NzNEMEJBQTMyQzdDMTAiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6QkZBN0I3MDYxRjJFMTFFQUI3NzNEMEJBQTMyQzdDMTAiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4MlIa9AAABuVBMVEUmND+0ubxYYmqvtLclMz62ur0sOUS4vL8mMz+xtrm1ury1ubwrOEO3u763vL4qN0InNEAnNUAuO0ayt7pcZm6wtbihpqoqOEMoNUB8hIopN0IpNkGzt7qIj5QrOEQwPUe4vb8rOUS0ubuyt7lncHgqN0MoNUFjbXS2u70pNkKnrbCMk5gsOkVZY2s2QkwoNkE6RlCytrmtsrWDi5CepKhSXGVXYWl+how2Qk1sdXyorrF1foSeo6eiqKs4RE49SVOxtbiutLZpcnl0fIO4vL5VX2gnND9yeoFZY2xTXmY/S1VDTlgxPklsdX1veH+do6dPWWJ0fYOmrK+zuLoxPUiYn6MzP0p3f4aHjpR4gIdVYGiaoKSxtrhUXmdGUVtMV1+NlJhATFW6vsA5RU+nrK+SmZ2fpal+hYyboqYxPkijqKyhp6teaHBCTleBiI6qsLOJkJWqr7JUX2eOlZo0QEtocXhAS1WzuLtrdHuLk5eDipBncHc9SVKUm58kMj4lMz9ibHNNWGEjMT1BTFY5RVBPWmMzQEpHUlxveH4sOUV4gIZJVV5CTVewtLeorbBKVV6HjpOus7YtOkWNvKhkAAAB2klEQVR42tzV51MTQRgG8Dtvb6/X9EIS0ui9xALSlGIBFKwgFhTsvaKg0gQLsvmLycAY9o7sAjN+4vn8m51n7n13j8kfJsyR0lAtP6g2QGT87YUwCB9AQzCdrul40vrmY5cY208HjHfVmpKSUqz+Yjhv0LWabxEktJPJxKdHBlVnZxMcKkYoC0CKZup4DCOkV3wla2hfSeIYRf2rMaIOfo86jkY9cjtD1OCEhpzRrgGiFkO8SyubFlnn9uiXQXKTU+4m/HNyb9HrPltLk3tnGk9KDuxDv6so07khOLTeYlFmmTnuZzH8ofpLFUXbC1Ov5CJOotFFm7Yn9fDchLA9UM4jzPyInBZrSTomnu2crzc/P/TJvCy1XlTjdy57LbW0DhiXkmPK/W8Z8+5Nb/uzSND7WPbwoXy4lFbh3JlCBYn3/7y11Pi+rW9E9hQKCTVxY6+GDTlhZwGbeMXX/Iet9Py7ErsPQFGDtL67rRyH36AB4NYN55slVDq+ptumS2fLKhEp8gMVOnTwl8QRNacM9Tu0GNIQOfx1C9flV/0piu7eWA5gOvuXUqQQ9rWJaVCh0zDS1wCmmacJmSVHudcrYrrWXhk8Rk5dWxzi32TdYmgx4VH8p/0fvSXAADC6zlFwDMumAAAAAElFTkSuQmCC") no-repeat;
+
+    }
+  }
+
+  .ttree {
+    margin: 0;
+    padding: 10px;
+    text-align: left;
+
+    li {
+      position: relative;
+
+      .overhide {
+        //padding-left: 35px;
+      }
+
+      + li {
+        padding-top: 15px;
+      }
+    }
+
+    > li {
+      &::before {
+        content: '';
+        position: absolute;
+        border-left: 1px solid #8d9ba8;
+        width: 0;
+        left: 13px;
+        top: 0px;
+        bottom: 20px;
+      }
+
+      &:last-child {
+        /* hide line from the last of the first level list items */
+        &:before {
+        }
+      }
+    }
+
+    > li + li {
+      &[style*="padding:0px"] {
+        padding-top: 15px !important;
+      }
+    }
+
+    ul {
+      margin: 0 0 0 15px;
+      padding-left: 10px;
+
+      > li {
+        clear: both;
+        padding-top: 7px;
+        padding-bottom: 7px;
+
+
+        /* horizontal line on inner list items */
+        &::after {
+          content: '';
+          position: absolute;
+          border-top: 1px solid #8d9ba8;
+          top: 50%;
+          left: auto;
+          right: 100%;
+          width: 12px;
+          height: 0;
+        }
+
+      }
+
+
+    }
+
+    .circular-portrait {
+      position: relative;
+      float: left;
+      clear: left;
+      width: 30px;
+      height: 30px;
+      margin-right: 8px;
+
+      img {
+        position: relative;
+        z-index: 2;
+        //max-width: 100%;
+      }
+      //img[src$="no-photo.gif"] {opacity: 0;}
+      img[src="null"] {opacity: 0;}
+      &:after {
+        content: '';
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        border: 3px solid $color-base-contrast;
+        background-color: $color-base-contrast;
+      }
+    }
+
+    .overhide {
+      h5, em {
+      }
+
+      h5 {
+        margin: 0;
+        font-size: 1rem;
+        text-transform: none;
+
+        &:hover {
+        }
+      }
+    }
+  }
+}
+
+//Supervizer
+.orgChart--1 {
+  tr.nodes {
+    div.node {
+      width: 124px;
+      height: 141px;
+      padding: 9px 5px;
+    }
+  }
+
+  div.node {
+    h2 {
+      margin: 7px 0 0;
+      font-size: 1rem;
+      line-height: 1;
+
+      a {
+        font-size: rem(11px);
+        color: #4aa7e4;
+      }
+    }
+
+    h3 {
+      margin: 3px 0;
+      font-size: 1rem;
+    }
+
+    h3 i {
+      font-style: normal;
+    }
+
+    em {
+      display: block;
+      margin: rem(5px) 0 rem(5px);
+      font-size: 10px;
+      font-style: normal;
+      text-transform: lowercase;
+      line-height: 1;
+      color: $color-department;
+    }
+  }
+
+  .circular-portrait {
+    //flex: 0 0 40px;
+    //margin-right: 10px;
+
+    .orgChart__container & {
+      text-align: center;
+      //@extend .ficon--;
+      //@extend .ficon--org-chart;
+
+      i {
+        font-size: 24px;
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
+
+// \Superviser Structure
+
+//OrgChart
+
+.orgChart--2 {
+  text-align: center;
+  > table {
+    width: auto;
+    //min-width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+
+    > tbody {
+      > tr > td[colspan="2"] > table > tbody > tr.tlines,
+      > tr.tlines {
+        .tleft:not(.ttop),
+        .tright:not(.ttop) {
+          //border-left-color: $orgChartBorderColorDark;
+          //border-right-color: $orgChartBorderColorDark;
+        }
+        .ttop {
+          //border-top-color: $orgChartBorderColorDark;
+        }
+      }
+
+
+      > tr:not([class]) > td[colspan] > table > tbody {
+        > tr.tlines.v > td {
+          &.ttop {
+            //border-color: lime;
+          }
+        }
+      }
+    }
+
+    tbody > tr:not([class]) > td[colspan] > table > tbody {
+      > tr:last-child {
+        .borderLeft:before {
+
+        }
+      }
+    }
+  }
+
+
+  .tlines + tr {
+    > td[colspan="2"]:not(:last-child),
+    > td[colspan="2"] + td[colspan="2"]:last-child {
+      //position: relative;
+      &:before {
+        //content: '';
+        //position: absolute;
+        //top: -($rowSpacerHeight / 2);
+        //left: 1px;
+        //right: 1px;
+        //height: 15px;
+        //border-top: 1px dashed $childSectionBorder;
+        //border-left: 1px dashed $childSectionBorder;
+        //border-right: 1px dashed $childSectionBorder;
+      }
+      //outline: 1px dashed blue;
+    }
+  }
+
+
+
+
+  div.node {
+    //min-width: 190px;
+
+    > h2 {
+      font-size: rem(11px);
+      padding: 8px;
+      background: #8d9ba8;
+      color: #fff;
+      margin: 0;
+    }
+
+    em, i {
+      font-style: normal;
+      color: $color-department;
+    }
+
+    em {
+      padding-top: 5px;
+      font-size: 10px;
+      @include txtTruncate;
+    }
+  }
+
+  tr.nodes {
+    &:first-child {
+      div.node {
+        min-height: $orgChartNodeMinHeight;
+        min-width: $orgChartNodeMinWidth;
+        display: inline-flex;
+        align-items: center;
+        //height: 30px;
+        justify-content: space-between;
+
+        .ttree-wrapword {
+          display: flex;
+          flex-direction: column;
+          padding-top: 9px;
+          max-width: $orgChartNodeMinWidth - 20px;
+
+          h2 {
+            margin: 0;
+             font-size: rem(11px);
+            @include txtTruncate;
+          }
+        }
+
+        .ttree-dropdown {
+          display: flex;
+          margin: 0 45px 0px; //space for counters
+          align-self: stretch;
+          justify-content: center; //https://prnt.sc/qzbz9i
+          @include border-top-radius($radius-base);
+          &:hover {
+            background: pink;
+            background: rgba($color-base-0, 0.7);
+          }
+        }
+        .ttree-dropbtn {
+          position: relative;
+          //margin-bottom: 6px;
+          //padding: 0 5px;
+          //border: 1px solid $orgChartBorderColor;
+          //background: #fff;
+          //cursor: pointer;
+          //display: block;
+          //overflow: hidden;
+          //font-size: 16px;
+          //text-align: center;
+          //color: #000 !important;
+          //background: none !important;
+
+          //height: 35px;
+          //width: 36px;
+
+
+          &:before {
+            //@extend .ficon--;
+            //@extend .ficon--more-horiz;
+            content: "";
+            position: absolute;
+            top: 5px;
+            bottom: 5px;
+            left: 5px;
+            right: 5px;
+            position: absolute;
+            background: url(data:image/png;base64,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) center/contain no-repeat;
+          }
+        }
+      }
+    }
+  }
+}
+
+.orgChart--with-employes div.node {
+  min-width: 190px;
+}
+
+// \.orgChart--2

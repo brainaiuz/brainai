@@ -1,0 +1,417 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <style type="text/css">
+        body {
+            font-family: 'Arial', "Helvetica Neue", Helvetica, sans-serif;
+            font-weight: 300;
+            font-size: 9pt;
+            line-height: 1.4;
+        }
+
+        .table-header {
+            font-size: 9pt;
+            padding: 8px 6px;
+            border-bottom: 1px solid black;
+            font-weight: bold;
+            vertical-align: top;
+
+        }
+
+        .trial-balance__tmp-rowhead {
+            padding: 6px 4px;
+            font-size: 10pt;
+            font-weight: bold;
+        }
+
+        .trial-balance__tmp-totalrow .trial-balance__tmp-rowhead {
+            text-transform: uppercase;
+        }
+
+        .trial-balance__tmp-table td > div:not(.trial-balance__tmp-rowhead) {
+            margin-left: 12px;
+        }
+
+        .trial-balance__tmp-totalrow td {
+            border-bottom: 5px double #ced5db;
+            border-top: 1px solid #ced5db;
+            font-weight: bold;
+            font-size: 10pt;
+            margin-top: 6px;
+            margin-bottom: 6px;
+            font-size: 10px;
+        }
+
+        .vertical-gap {
+            line-height: 10px;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="trial-balance__tmp">
+    <img alt="images"
+         src="https://workforcetrack.s3.amazonaws.com/000000000000/public/65159/a2113e82-397f-49fd-a58a-cdf4f4b93dff?AWSAccessKeyId=AKIAIROQMC77E5UKWBWQ"
+         style="display: none;"/>
+    #if($itextGenericPdfData.companyData.companyName == 'KPI Software Inc' or
+    $itextGenericPdfData.companyData.companyLogoUrl == 'https://apps.kpi.com/customisation/kpi.com/images/kpilogo.png')
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl" style="width: 88px;display: none;"/>
+    #else
+    <img alt="logo kpi" src="$itextGenericPdfData.companyData.companyLogoUrl"
+         style="max-width: 100%; max-height: 100%; display: none;"/>
+    #end
+
+    #set($assetsTable = $itextGenericPdfData.customData.get('ASSETS'))
+    #set($liabTable = $itextGenericPdfData.customData.get('LIABILITIES'))
+    #set($equityTable = $itextGenericPdfData.customData.get('EQUITY'))
+    #set($expensesTable = $itextGenericPdfData.customData.get('EXPENSES'))
+    #set($revenueTable = $itextGenericPdfData.customData.get('REVENUE'))
+    #set($totalTable = $itextGenericPdfData.customData.get('TOTAL'))
+    #set($labels = $itextGenericPdfData.localizeLabels)
+
+    #set($accountLabel = $labels.get('ACCOUNT_LABEL'))
+    #set($beginningBalanceLabel = $labels.get('BEGINNING_BALANCE_LABEL'))
+    #set($debitLabel = $labels.get('DEBIT_LABEL'))
+    #set($creditLabel = $labels.get('CREDIT_LABEL'))
+    #set($endingBalanceLabel = $labels.get('ENDING_BALANCE_LABEL'))
+
+    <table cellpadding="0" cellspacing="0" style="font-weight: bold; font-size: 9pt;" width="100%">
+        <tr>
+            <td align="center" width="100%">$itextGenericPdfData.currentDate</td>
+        </tr>
+        <tr>
+            <td align="center">$itextGenericPdfData.extraData</td>
+        </tr>
+    </table>
+    <br/>
+
+    <table cellpadding="0" cellspacing="0" class="trial-balance__tmp-table" style="width:100%;">
+        <tr class="thead-tr">
+            <td class="table-header" style="text-align: left;" width="42%">$accountLabel</td>
+            <td class="table-header" style="text-align: right;" width="17%">$beginningBalanceLabel</td>
+            <td class="table-header" style="text-align: right;" width="12%">$debitLabel</td>
+            <td class="table-header" style="text-align: right;" width="12%">$creditLabel</td>
+            <td class="table-header" style="text-align: right;" width="17%">$endingBalanceLabel</td>
+        </tr>
+        <tr>
+            <td class="vertical-gap" colspan="5">&nbsp;</td>
+        </tr>
+        #if($assetsTable.rows.size() > 0)
+        #if($assetsTable.rows.size() == 1)
+        #foreach($row in $assetsTable.rows.values())
+        <tr>
+            <td>
+                <div class="trial-balance__tmp-rowhead">$assetsTable.name</div>
+            </td>
+            <td>
+                <div class="trial-balance__tmp-rowhead" style="text-align: right">$row.get('BEGINNET_BALANCE')</div>
+            </td>
+            <td>
+                <div class="trial-balance__tmp-rowhead" style="text-align: right">$row.get('DEBIT')</div>
+            </td>
+            <td>
+                <div class="trial-balance__tmp-rowhead" style="text-align: right">$row.get('CREDIT')</div>
+            </td>
+            <td>
+                <div class="trial-balance__tmp-rowhead" style="text-align: right">$row.get('ENDING_BALANCE')</div>
+            </td>
+        </tr>
+        #end
+        #else
+        <tr>
+            <td colspan="5">
+                <div class="trial-balance__tmp-rowhead">$assetsTable.name</div>
+            </td>
+        </tr>
+        #foreach($row in $assetsTable.rows.values())
+        <tr>
+            <td>
+                <div style="text-align: left;font-size: 8pt; padding:4px 4px;">
+                    #if($row.get('HAS_CHILD') == 'YES')
+                    #if($row.get('ACCOUNT_CODE') != '')
+                    <b>$row.get('ACCOUNT_NAME') ($row.get('ACCOUNT_CODE'))</b>
+                    #else
+                    <b>$row.get('ACCOUNT_NAME')</b>
+                    #end
+                    #else
+                    $row.get('ACCOUNT_NAME') ($row.get('ACCOUNT_CODE'))
+                    #end
+                </div>
+            </td>
+            <td>
+                <div style="text-align: right;font-size: 8pt; padding:4px 4px;">$row.get('BEGINNET_BALANCE')</div>
+            </td>
+            <td>
+                <div style="text-align: right;font-size: 8pt; padding:4px 4px;">$row.get('DEBIT')</div>
+            </td>
+            <td>
+                <div style="text-align: right;font-size: 8pt; padding:4px 4px;">$row.get('CREDIT')</div>
+            </td>
+            <td>
+                <div style="text-align: right;font-size: 8pt; padding:4px 4px;">$row.get('ENDING_BALANCE')</div>
+            </td>
+        </tr>
+        #end
+        #end
+        #end
+        #if($liabTable.rows.size() > 0)
+        #if($liabTable.rows.size() == 1)
+        #foreach($row in $liabTable.rows.values())
+        <tr>
+            <td>
+                <div class="trial-balance__tmp-rowhead">$liabTable.name</div>
+            </td>
+            <td>
+                <div class="trial-balance__tmp-rowhead" style="text-align: right">$row.get('BEGINNET_BALANCE')</div>
+            </td>
+            <td>
+                <div class="trial-balance__tmp-rowhead" style="text-align: right">$row.get('DEBIT')</div>
+            </td>
+            <td>
+                <div class="trial-balance__tmp-rowhead" style="text-align: right">$row.get('CREDIT')</div>
+            </td>
+            <td>
+                <div class="trial-balance__tmp-rowhead" style="text-align: right">$row.get('ENDING_BALANCE')</div>
+            </td>
+        </tr>
+        #end
+        #else
+        <tr>
+            <td colspan="5">
+                <div class="trial-balance__tmp-rowhead">$liabTable.name</div>
+            </td>
+        </tr>
+        #foreach($row in $liabTable.rows.values())
+        <tr>
+            <td>
+                <div style="text-align: left;font-size: 8pt; padding:4px 4px;">
+                    #if($row.get('HAS_CHILD') == 'YES')
+                    #if($row.get('ACCOUNT_CODE') != '')
+                    <b>$row.get('ACCOUNT_NAME') ($row.get('ACCOUNT_CODE'))</b>
+                    #else
+                    <b>$row.get('ACCOUNT_NAME')</b>
+                    #end
+                    #else
+                    $row.get('ACCOUNT_NAME') ($row.get('ACCOUNT_CODE'))
+                    #end
+                </div>
+            </td>
+            <td>
+                <div style="text-align: right;font-size: 8pt; padding:4px 4px;">$row.get('BEGINNET_BALANCE')</div>
+            </td>
+            <td>
+                <div style="text-align: right;font-size: 8pt; padding:4px 4px;">$row.get('DEBIT')</div>
+            </td>
+            <td>
+                <div style="text-align: right;font-size: 8pt; padding:4px 4px;">$row.get('CREDIT')</div>
+            </td>
+            <td>
+                <div style="text-align: right;font-size: 8pt; padding:4px 4px;">$row.get('ENDING_BALANCE')</div>
+            </td>
+        </tr>
+        #end
+        #end
+        #end
+        #if($equityTable.rows.size() > 0)
+        #if($equityTable.rows.size() == 1)
+        #foreach($row in $equityTable.rows.values())
+        <tr>
+            <td>
+                <div class="trial-balance__tmp-rowhead">$equityTable.name</div>
+            </td>
+            <td>
+                <div class="trial-balance__tmp-rowhead" style="text-align: right">$row.get('BEGINNET_BALANCE')</div>
+            </td>
+            <td>
+                <div class="trial-balance__tmp-rowhead" style="text-align: right">$row.get('DEBIT')</div>
+            </td>
+            <td>
+                <div class="trial-balance__tmp-rowhead" style="text-align: right">$row.get('CREDIT')</div>
+            </td>
+            <td>
+                <div class="trial-balance__tmp-rowhead" style="text-align: right">$row.get('ENDING_BALANCE')</div>
+            </td>
+        </tr>
+        #end
+        #else
+        <tr>
+            <td colspan="5">
+                <div class="trial-balance__tmp-rowhead">$equityTable.name</div>
+            </td>
+        </tr>
+        #foreach($row in $equityTable.rows.values())
+        <tr>
+            <td>
+                <div style="text-align: left;font-size: 8pt; padding:4px 4px;">
+                    #if($row.get('HAS_CHILD') == 'YES')
+                    #if($row.get('ACCOUNT_CODE') != '')
+                    <b>$row.get('ACCOUNT_NAME') ($row.get('ACCOUNT_CODE'))</b>
+                    #else
+                    <b>$row.get('ACCOUNT_NAME')</b>
+                    #end
+                    #else
+                    $row.get('ACCOUNT_NAME') ($row.get('ACCOUNT_CODE'))
+                    #end
+                </div>
+            </td>
+            <td>
+                <div style="text-align: right;font-size: 8pt; padding:4px 4px;">$row.get('BEGINNET_BALANCE')</div>
+            </td>
+            <td>
+                <div style="text-align: right;font-size: 8pt; padding:4px 4px;">$row.get('DEBIT')</div>
+            </td>
+            <td>
+                <div style="text-align: right;font-size: 8pt; padding:4px 4px;">$row.get('CREDIT')</div>
+            </td>
+            <td>
+                <div style="text-align: right;font-size: 8pt; padding:4px 4px;">$row.get('ENDING_BALANCE')</div>
+            </td>
+        </tr>
+        #end
+        #end
+        #end
+        #if($revenueTable.rows.size() > 0)
+        #if($revenueTable.rows.size() == 1)
+        #foreach($row in $revenueTable.rows.values())
+        <tr>
+            <td>
+                <div class="trial-balance__tmp-rowhead">$revenueTable.name</div>
+            </td>
+            <td>
+                <div class="trial-balance__tmp-rowhead" style="text-align: right">$row.get('BEGINNET_BALANCE')</div>
+            </td>
+            <td>
+                <div class="trial-balance__tmp-rowhead" style="text-align: right">$row.get('DEBIT')</div>
+            </td>
+            <td>
+                <div class="trial-balance__tmp-rowhead" style="text-align: right">$row.get('CREDIT')</div>
+            </td>
+            <td>
+                <div class="trial-balance__tmp-rowhead" style="text-align: right">$row.get('ENDING_BALANCE')</div>
+            </td>
+        </tr>
+        #end
+        #else
+        <tr>
+            <td colspan="5">
+                <div class="trial-balance__tmp-rowhead">$revenueTable.name</div>
+            </td>
+        </tr>
+        #foreach($row in $revenueTable.rows.values())
+        <tr>
+            <td>
+                <div style="text-align: left;font-size: 8pt; padding:4px 4px;">
+                    #if($row.get('HAS_CHILD') == 'YES')
+                    #if($row.get('ACCOUNT_CODE') != '')
+                    <b>$row.get('ACCOUNT_NAME') ($row.get('ACCOUNT_CODE'))</b>
+                    #else
+                    <b>$row.get('ACCOUNT_NAME')</b>
+                    #end
+                    #else
+                    $row.get('ACCOUNT_NAME') ($row.get('ACCOUNT_CODE'))
+                    #end
+                </div>
+            </td>
+            <td>
+                <div style="text-align: right;font-size: 8pt; padding:4px 4px;">$row.get('BEGINNET_BALANCE')</div>
+            </td>
+            <td>
+                <div style="text-align: right;font-size: 8pt; padding:4px 4px;">$row.get('DEBIT')</div>
+            </td>
+            <td>
+                <div style="text-align: right;font-size: 8pt; padding:4px 4px;">$row.get('CREDIT')</div>
+            </td>
+            <td>
+                <div style="text-align: right;font-size: 8pt; padding:4px 4px;">$row.get('ENDING_BALANCE')</div>
+            </td>
+        </tr>
+        #end
+        #end
+        #end
+        #if($expensesTable.rows.size() > 0)
+        #if($expensesTable.rows.size() == 1)
+        #foreach($row in $expensesTable.rows.values())
+        <tr>
+            <td>
+                <div class="trial-balance__tmp-rowhead">$expensesTable.name</div>
+            </td>
+            <td>
+                <div class="trial-balance__tmp-rowhead" style="text-align: right">$row.get('BEGINNET_BALANCE')</div>
+            </td>
+            <td>
+                <div class="trial-balance__tmp-rowhead" style="text-align: right">$row.get('DEBIT')</div>
+            </td>
+            <td>
+                <div class="trial-balance__tmp-rowhead" style="text-align: right">$row.get('CREDIT')</div>
+            </td>
+            <td>
+                <div class="trial-balance__tmp-rowhead" style="text-align: right">$row.get('ENDING_BALANCE')</div>
+            </td>
+        </tr>
+        #end
+        #else
+        <tr>
+            <td colspan="5">
+                <div class="trial-balance__tmp-rowhead">$expensesTable.name</div>
+            </td>
+        </tr>
+        #foreach($row in $expensesTable.rows.values())
+        <tr>
+            <td>
+                <div style="text-align: left;font-size: 8pt; padding:4px 4px;">
+                    #if($row.get('HAS_CHILD') == 'YES')
+                    #if($row.get('ACCOUNT_CODE') != '')
+                    <b>$row.get('ACCOUNT_NAME') ($row.get('ACCOUNT_CODE'))</b>
+                    #else
+                    <b>$row.get('ACCOUNT_NAME')</b>
+                    #end
+                    #else
+                    $row.get('ACCOUNT_NAME') ($row.get('ACCOUNT_CODE'))
+                    #end
+                </div>
+            </td>
+            <td>
+                <div style="text-align: right;font-size: 8pt; padding:4px 4px;">$row.get('BEGINNET_BALANCE')</div>
+            </td>
+            <td>
+                <div style="text-align: right;font-size: 8pt; padding:4px 4px;">$row.get('DEBIT')</div>
+            </td>
+            <td>
+                <div style="text-align: right;font-size: 8pt; padding:4px 4px;">$row.get('CREDIT')</div>
+            </td>
+            <td>
+                <div style="text-align: right;font-size: 8pt; padding:4px 4px;">$row.get('ENDING_BALANCE')</div>
+            </td>
+        </tr>
+        #end
+        #end
+        #end
+
+        #foreach($row in $totalTable.rows.values())
+        <tr class="vertical-gap">
+            <td colspan="5">&nbsp;</td>
+        </tr>
+        <tr class="trial-balance__tmp-totalrow">
+            <td>
+                <div class="trial-balance__tmp-rowhead" style="text-align: left; ">$row.get('ACCOUNT_CODE')</div>
+            </td>
+            <td>
+                <div style="text-align: right; font-size:10pt; padding:4px 4px;">$row.get('BEGINNET_BALANCE')</div>
+            </td>
+            <td>
+                <div style="text-align: right; font-size:10pt;  padding:4px 4px;">$row.get('DEBIT')</div>
+            </td>
+            <td>
+                <div style="text-align: right; font-size:10pt; padding:4px 4px;">$row.get('CREDIT')</div>
+            </td>
+            <td>
+                <div style="text-align: right; font-size:10pt;  padding:4px 4px;">$row.get('ENDING_BALANCE')</div>
+            </td>
+        </tr>
+        #end
+    </table>
+</div>
+
+</body>
+</html>

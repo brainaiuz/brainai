@@ -1,0 +1,45 @@
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:g="urn:import:com.google.gwt.user.client.ui"
+             xmlns:m="urn:import:gwt.material.design.client.ui"
+             xmlns:mhtml="urn:import:gwt.material.design.client.ui.html"
+>
+    <g:HTMLPanel ui:field="panel">
+
+        <m:MaterialCollapsible styleName="collapsible--arrows" ui:field="optionsContainer" visible="false">
+            <m:MaterialCollapsibleItem>
+                <m:MaterialCollapsibleHeader>
+                    <mhtml:Span ui:field="optionsContainerTitle"/>
+                </m:MaterialCollapsibleHeader>
+                <m:MaterialCollapsibleBody ui:field="optionsBodyContainer"/>
+            </m:MaterialCollapsibleItem>
+        </m:MaterialCollapsible>
+
+        <m:MaterialCollapsible styleName="collapsible--arrows" ui:field="customFieldContainer" visible="false">
+            <m:MaterialCollapsibleItem ui:field="customFieldContainerItem">
+                <m:MaterialCollapsibleHeader>
+                    <mhtml:Span ui:field="customFieldContainerTitle"/>
+                </m:MaterialCollapsibleHeader>
+                <m:MaterialCollapsibleBody ui:field="customFieldBodyContainer"/>
+            </m:MaterialCollapsibleItem>
+        </m:MaterialCollapsible>
+
+        <m:MaterialCollapsible styleName="collapsible--arrows" ui:field="addressFieldContainer" visible="false">
+            <m:MaterialCollapsibleItem>
+                <m:MaterialCollapsibleHeader>
+                    <mhtml:Span ui:field="addressFieldContainerTitle"/>
+                </m:MaterialCollapsibleHeader>
+                <m:MaterialCollapsibleBody ui:field="addressFieldBodyContainer"/>
+            </m:MaterialCollapsibleItem>
+        </m:MaterialCollapsible>
+
+        <m:MaterialCollapsible styleName="collapsible--arrows" ui:field="mailAddressFieldContainer" visible="false">
+            <m:MaterialCollapsibleItem>
+                <m:MaterialCollapsibleHeader>
+                    <mhtml:Span ui:field="mailAddressFieldContainerTitle"/>
+                </m:MaterialCollapsibleHeader>
+                <m:MaterialCollapsibleBody ui:field="mailAddressFieldBodyContainer"/>
+            </m:MaterialCollapsibleItem>
+        </m:MaterialCollapsible>
+
+    </g:HTMLPanel>
+</ui:UiBinder>

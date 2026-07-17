@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--CSS-->
+    <link rel="stylesheet" href="../WebContent/mainStyles/new-ui/css/materialize.css">
+    <!--JS-->
+    <script src="../WebContent/mainStyles/new-ui/js/jquery.min.js"></script>
+    <script src="../WebContent/mainStyles/new-ui/js/materialize-0.97.5.min.js"></script>
+    <script>
+        jQuery(document).ready(function(){
+            removeProgressPanel();
+        });
+    </script>
+</head>
+<body style="overflow: auto" >
+
+<div class="progress-panel progress-panel--remove-sample-data">
+    <div class="progress-panel__header">Sit tight! We are creating your account. Your will be redirected in a few seconds.</div>
+    <div class="progress-panel__steps">
+        <div class="progress-panel__step">
+            <div class="progress-panel__step-circle">
+                <i class="progress-panel__step-icon progress-panel__step-icon--success ficon--check-thin"></i>
+            </div>
+            <div>Reset Data</div>
+        </div>
+        <div class="progress-panel__step">
+            <div class="progress-panel__step-circle">
+                <i class="progress-panel__step-icon progress-panel__step-icon--success ficon--check-thin"></i>
+            </div>
+            <div>Basic Info</div>
+        </div>
+        <div class="progress-panel__step">
+            <div class="progress-panel__step-circle">
+                <i class="progress-panel__step-icon progress-panel__step-icon--success ficon--check-thin"></i>
+            </div>
+            <div>Set Up</div>
+        </div>
+    </div>
+
+    <div class="progress-panel__current-desc">
+        <div class="progress-panel__current-desc-item">Removing Your Data</div>
+        <div class="progress-panel__current-desc-item">Copying Basic Information</div>
+        <div class="progress-panel__current-desc-item">Creating Your Account</div>
+    </div>
+    <div class="cs-loader">
+        <div class="cs-loader-inner">
+            <i>	●</i>
+            <i>	●</i>
+            <i>	●</i>
+            <i>	●</i>
+            <i>	●</i>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

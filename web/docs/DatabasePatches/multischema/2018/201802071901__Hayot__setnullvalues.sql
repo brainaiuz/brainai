@@ -1,0 +1,1 @@
+update "anv".price_level set uniqueid = 'com.edatasite.workforce.core.domain.accounting.EdsPriceLevel' || id where uniqueid is null;

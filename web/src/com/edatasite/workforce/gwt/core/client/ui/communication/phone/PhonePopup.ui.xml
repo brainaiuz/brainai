@@ -1,0 +1,20 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+>
+
+        <g:HTMLPanel ui:field="dialPad" styleName="wg_dial__pad">
+            <div class="wg_dial__number">
+                <div class="wg_dial__number-input">
+                    <g:TextBox ui:field="phoneNumberInput"/>
+                </div>
+            </div>
+            <g:HTMLPanel ui:field="padButtons" styleName="wg_dial__pad-buttons">
+            </g:HTMLPanel>
+            <div class="wg_dial__pad-footer">
+                <g:HTMLPanel ui:field="dialText" styleName="wg_dial__text">
+                </g:HTMLPanel>
+            </div>
+
+        </g:HTMLPanel>
+
+</ui:UiBinder>

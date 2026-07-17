@@ -1,0 +1,2 @@
+update "anv".modelfield m set disableUpdate = (select distinct disableUpdate from modelfield where form_id = m.form_id and field_id = m.field_id);
+update "anv".modelfield set disableUpdate = false where disableUpdate is null;

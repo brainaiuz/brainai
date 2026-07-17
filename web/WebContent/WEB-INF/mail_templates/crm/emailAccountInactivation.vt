@@ -1,0 +1,18 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transational.dtd">
+<html xmlns="http://w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<p>Dear $USER,<br>
+<br>
+Please be informed that your Message Center email account <b>($EMAIL)</b> has been recently inactivated due to connection error to your mail server.<br>
+Kindly go to your Message Center and activate the email account.<br>
+Apologize for any incnveniences it may caused.</p>
+
+<p>Best Regards,<br/>
+kpi.com Support Team</p>
+
+</body>
+</html>

@@ -1,0 +1,155 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:tml='urn:import:com.edatasite.workforce.gwt.payroll.client.ui.view'>
+
+    <!--Start Content Place-->
+    <!-- <div class="contentPlaceHolder"> -->
+    <!-- <div class="contentPlaceCover"> -->
+    <g:HTMLPanel>
+        <div class="contentBar" style="padding:0 10px;">
+        <!-- <div class="contentScroll"> -->
+        <!-- ######################### START NEW CONTENT! ######################### -->
+
+            <div class="welcomePayroll">
+                <div class="scheme_wrapper">
+                    <tml:WelcomePayrollImagePanel ui:field="imagePanel"></tml:WelcomePayrollImagePanel>
+                    <div class="over_objects">
+                        <!--<a href="/" class="node_1_1"></a>-->
+
+                        <a href="/Hrms.html#hrmsMain|hrmsEmployeesList" target="_blank" class="node_left-1_1"></a>
+
+                        <g:Anchor addStyleNames="node_2_1" href='javascript:;' ui:field="salarySetUp1"/>
+                        <g:Anchor addStyleNames="node_2_2" href='javascript:;' ui:field="salarySetUp2"/>
+                        <g:Anchor addStyleNames="node_2_3" href='javascript:;' ui:field="salarySetUp3"/>
+                        <g:Anchor addStyleNames="node_2_4" href='javascript:;' ui:field="salarySetUp4"/>
+
+                        <!--<a href="/" class="node_2_1"></a>-->
+                        <!--<a href="/" class="node_2_2"></a>-->
+                        <!--<a href="/" class="node_2_3"></a>-->
+                        <!--<a href="/" class="node_2_4"></a>-->
+
+                        <g:Anchor addStyleNames="node_3_1" href='javascript:;' ui:field="payRun1"/>
+                        <g:Anchor addStyleNames="node_3_2" href='javascript:;' ui:field="payRun2"/>
+                        <!--<a href="/" class="node_3_1"></a>-->
+                        <!--<a href="/" class="node_3_2"></a>-->
+
+
+                        <!--<a href="/" class="node_4_1"></a>-->
+                        <!--<a href="/" class="node_4_2"></a>-->
+                        <!--<a href="/" class="node_4_3"></a>-->
+                        <!--<a href="/" class="node_4_4"></a>-->
+                    </div>
+                </div>
+
+
+                <!--<h2 class="title_legend">-->
+                    <!--<span class="title_legend_gap">Quick Reference Guide</span>-->
+                <!--</h2>-->
+
+
+                <!--<div class="refGuide group">-->
+                    <!--<div class="fieldset left">-->
+                        <!--<h3 class="fieldset_legend">RULE LIST</h3>-->
+                        <!--<h4 class="labelTitle">Start-up steps</h4>-->
+                        <!--<div class="fieldset_body">-->
+                            <!--<ol class="list">-->
+                                <!--<li>1) Fill up payroll settings of your employees</li>-->
+                                <!--<li>2) Add your payment and deduction categories</li>-->
+                                <!--<li>3) Generate payslips for your employees</li>-->
+                            <!--</ol>-->
+                        <!--</div>-->
+                    <!--</div>-->
+
+                    <!--<div class="refGuide_video fieldset right">-->
+                        <!--<h3 class="fieldset_legend">VIDEO</h3>-->
+
+                        <!--<h4 class="labelTitle">Guides</h4>-->
+                        <!--<div class="fieldset_body">-->
+                            <!--<div class="half-set">-->
+                                <!--<div class="half">-->
+                                    <!--<video src="" poster="payroll/images/videoPoster.png"></video>-->
+                                <!--</div>-->
+
+                                <!--<div class="half">-->
+                                    <!--<video src="" poster="payroll/images/videoPoster.png"></video>-->
+                                <!--</div>-->
+
+
+                                <!--<div class="half">-->
+                                    <!--<video src="" poster="payroll/images/videoPoster.png"></video>-->
+                                <!--</div>-->
+
+                                <!--<div class="half">-->
+                                    <!--<video src="" poster="payroll/images/videoPoster.png"></video>-->
+                                <!--</div>-->
+
+
+                                <!--<div class="half">-->
+                                    <!--<video src="" poster="payroll/images/videoPoster.png"></video>-->
+                                <!--</div>-->
+
+                                <!--<div class="half">-->
+                                    <!--<video src="" poster="payroll/images/videoPoster.png"></video>-->
+                                <!--</div>-->
+
+
+                                <!--<div class="half">-->
+                                    <!--<video src="" poster="payroll/images/videoPoster.png"></video>-->
+                                <!--</div>-->
+
+                                <!--<div class="half">-->
+                                    <!--<video src="" poster="payroll/images/videoPoster.png"></video>-->
+                                <!--</div>-->
+
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+
+                    <!--<div class="fieldset">-->
+                        <!--<h3 class="fieldset_legend">RULE LIST</h3>-->
+                        <!--<h4 class="labelTitle">Help Center</h4>-->
+                        <!--<div class="fieldset_body">-->
+                            <!--<ul class="list newLinks">-->
+                                <!--<li>-->
+                                    <!--<a href="/">Employee payroll settings</a>-->
+                                <!--</li>-->
+                                <!--<li>-->
+                                    <!--<a href="/">Payment and deduction categories</a>-->
+                                <!--</li>-->
+                                <!--<li>-->
+                                    <!--<a href="/">Payslip</a>-->
+                                <!--</li>-->
+                                <!--<li>-->
+                                    <!--<a href="/">Group payrun</a>-->
+                                <!--</li>-->
+                                <!--<li>-->
+                                    <!--<a href="/">End of Service Gratuity report</a>-->
+                                <!--</li>-->
+                                <!--<li>-->
+                                    <!--<a href="/">Employer settings</a>-->
+                                <!--</li>-->
+                                <!--<li>-->
+                                    <!--<a href="/">Pension schemes</a>-->
+                                <!--</li>-->
+                                <!--<li>-->
+                                    <!--<a href="/">Pension providers</a>-->
+                                <!--</li>-->
+                                <!--<li>-->
+                                    <!--<a href="/">End of Service Settings</a>-->
+                                <!--</li>-->
+                            <!--</ul>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!-- end .refGuide -->
+
+            </div>
+            <!-- ######################### END NEW CONTENT! ######################### -->
+
+            <!-- </div> End contentScroll -->
+        </div>
+        <!-- End contentBar -->
+    </g:HTMLPanel>
+
+    <!-- End </div>contentPlaceHolder -->
+</ui:UiBinder>

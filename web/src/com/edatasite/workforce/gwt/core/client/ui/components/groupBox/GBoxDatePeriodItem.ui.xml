@@ -1,0 +1,20 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:m="urn:import:gwt.material.design.client.ui"
+             xmlns:groupBox="urn:import:com.edatasite.workforce.gwt.core.client.ui.components.groupBox">
+    <g:HTMLPanel>
+        <g:HTMLPanel styleName="invoice__date">
+            <groupBox:GBoxLabel ui:field="startGBoxItemLabel">
+                <m:MaterialLabel ui:field="startLabel"></m:MaterialLabel>
+            </groupBox:GBoxLabel>
+            <groupBox:GBoxComponent ui:field="startComponent"></groupBox:GBoxComponent>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="invoice__due-date">
+            <groupBox:GBoxLabel ui:field="dueGBoxItemLabel">
+                <m:MaterialLabel ui:field="dueLabel"></m:MaterialLabel>
+            </groupBox:GBoxLabel>
+            <groupBox:GBoxComponent ui:field="dueComponent"></groupBox:GBoxComponent>
+        </g:HTMLPanel>
+    </g:HTMLPanel>
+</ui:UiBinder>

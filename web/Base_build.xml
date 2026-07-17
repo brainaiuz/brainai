@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<project name="Base" basedir=".">
+
+    <property name="gwtc.lib" value="..\gwtclib"/>
+    <property name="gwt.dir" value="..\war"/>
+    <property name="gwtcopt" value=" -XdisableCastChecking  -XdisableClassMetadata"/>
+    <property name="soyc" value="-soyc"/>
+    <property name="extra" value="-extra out\extra"/>
+
+
+    <path id="gwt.compiler.classpath">
+        <pathelement location="${basedir}/src"/>
+        <!--<pathelement location="../wfp/src"/>-->
+        <!--<pathelement location="../sf/src"/>-->
+        <!--<pathelement location="../bmt/src"/>-->
+        <!--<pathelement location="../cs/src"/>-->
+        <pathelement location="../reporting/src"/>
+        <!--        <pathelement location="../WfpWidgetContainer/src"/>-->
+        <!--        <pathelement location="../bin"/>-->
+        <fileset dir="${gwtc.lib}"/>
+        <pathelement location="../war/WEB-INF/classes"/>
+    </path>
+
+    <property name="user.agent" value=""/>
+    <property name="locale" value=""/>
+
+    <target name="MAIN">
+        <tstamp>
+            <format property="TODAY" pattern="dd-MM-yyyy"/>
+        </tstamp>
+        <property name="build.log.dir" location="../buildlogs"/>
+        <mkdir dir="${build.log.dir}"/>
+        <property name="build.log.filename" value="build_${TODAY}.log"/>
+        <record name="${build.log.dir}/${build.log.filename}"
+                loglevel="verbose" append="true"/>
+
+        <tstamp>
+            <format property="NOW" pattern="HH-mm-ss"/>
+        </tstamp>
+
+        <echo message="${basedir}/src"/>
+        <echo message="${line.separator}${line.separator}"/>
+        <echo message="${NOW}: Compiling ${permutation}${user.agent}${locale} section"/>
+
+        <java failonerror="true" fork="true" classname="com.google.gwt.dev.Compiler"
+              classpathref="gwt.compiler.classpath">
+            <arg line="-logLevel INFO -localWorkers 6 -sourceLevel 1.11 -war ${gwt.dir} ${gwtcopt} ${permutation}${user.agent}${locale}"/>
+            <jvmarg line="-Xms512M -Xmx10G"/>
+            <!--<jvmarg line="-javaagent:${basedir}/lib/others/lombok-1.18.2.jar=ECJ" />-->
+        </java>
+        <delete dir="../TempGWT/WEB-INF/deploy"/>
+    </target>
+    <!--
+    -draftCompile
+    -optimize
+    -->
+
+    <!--<target name="compileCOREClasses">
+
+        <javac destdir="${basedir}/bin" encoding="utf-8" includes="**" includeantruntime="false"
+               fork="false"
+               debug="on" debuglevel="lines,vars,source"
+               memoryinitialsize="512m"
+               memorymaximumsize="1024m">
+            <src path="${basedir}/src"/>
+            <classpath refid="project.class.path"/>
+        </javac>
+
+        <copy todir="${bin}">
+            <fileset dir="${basedir}/src">
+                <patternset refid="compiler.resources"/>
+                <patternset refid="ignored.files"/>
+                <type type="file"/>
+            </fileset>
+            <fileset dir="${basedir}/resources">
+                <patternset refid="compiler.resources"/>
+                <patternset refid="ignored.files"/>
+                <type type="file"/>
+            </fileset>
+        </copy>
+    </target>-->
+
+    <!--<target name="Generate_GWTCORE_JAR" >&lt;!&ndash;&ndash;&gt;
+        <jar destfile="${gwtc.lib}/kpi-gwtcore.jar">
+            <fileset dir="${basedir}/../bin">
+                <include name="com/edatasite/workforce/gwt/core/client/rpc/binding/**"/>
+                <exclude name="com/edatasite/workforce/gwt/core/server/**.class"/>
+            </fileset>
+            <fileset dir="${basedir}/src" includes="com/edatasite/workforce/gwt/core/client/rpc/binding/*.java"  excludes="com/edatasite/workforce/gwt/core/server/**.java"/>
+        </jar>
+    </target>-->
+</project>

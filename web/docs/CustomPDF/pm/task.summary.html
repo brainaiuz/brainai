@@ -1,0 +1,369 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Calibri, "Helvetica Neue", Helvetica, sans-serif;
+            font-size: 8.4pt;
+            color: #232020;
+        }
+
+        @media screen {
+            body {
+                max-width: 215mm;
+            }
+        }
+
+        @page {
+            size: 8.3in 11.7in;
+            margin: 93.6pt 0 24pt;
+            padding: 0;
+
+        @top-center {
+                content: element(header);
+            }
+        @bottom-left {
+                content: element(footer);
+            }
+            }
+
+            /*#footer {
+                height:18.4pt;
+                position: running(footer);
+            }*/
+
+        #header {
+            display: block;
+            padding-bottom: 2.6pt;
+            margin-bottom: 26pt;
+            background: #f7f7f7;
+            position: running(header);
+        }
+
+        #header table {
+            border-bottom: 1.2pt solid #fff;
+        }
+
+        #header td {
+            padding: 17.3pt 18pt 8.4pt;
+            vertical-align: middle;
+        }
+
+        #logo {
+            max-height: 38.6pt;
+            max-width: 200pt;
+        }
+
+        #header strong {
+            display: block;
+            margin-bottom: 1em;
+            font-size: 1.14em;
+            text-transform: uppercase;
+        }
+
+        #content /*,#footer*/
+        {
+            padding: 0 18pt;
+        }
+
+        .sect {
+            margin-bottom: 19.7pt;
+        }
+
+        .c {
+            text-align: center;
+        }
+
+        .baseData {
+        }
+
+        .titlePage {
+            padding: 0 0 13pt;
+            font-size: 1.657em;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .focusBox {
+            border: 1pt dashed #c5c5c5;
+            background: #fbfbfb;
+        }
+
+        .baseData {
+            font-weight: bold;
+        }
+
+        .baseData .baseDataFree, .baseDataFree {
+            font-weight: normal;
+        }
+
+        .nowrap {
+            white-space: nowrap;
+        }
+
+        table {
+            max-width: 100%;
+            background-color: transparent;
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        .zebra .odd>* {
+            background: #fbfbfb;
+        }
+
+        .register th, .register td {
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .register>tbody>tr>th, .register>tbody>tr>td {
+            padding: 7.7pt;
+        }
+
+        .register>tbody>tr>th, .register>tbody>tr>th>span {
+            white-space: nowrap;
+            color: #4c7ead;
+        }
+
+        .scriptPlace th, .scriptPlace td {
+            padding-top: 0 !important;
+        }
+
+        .scriptPlace th {
+            padding-right: 15.4pt !important;
+        }
+
+        .scriptPlace th span {
+            display: block;
+            margin-top: -1em;
+        }
+
+        .scriptPlace td {
+            text-align: center;
+        }
+
+        .bulletin th, .bulletin td {
+            padding-right: 8pt;
+            text-align: left;
+        }
+
+        .bulletin thead th {
+            padding-bottom: 2.2pt;
+            border-bottom: 1pt solid #d5d5d5;
+            font-size: 0.857em;
+            white-space: nowrap;
+            color: #747474;
+        }
+
+        .bulletin tbody tr:first-child td {
+            padding-top: 8.6pt;
+        }
+
+        .bulletin tbody td {
+            padding-top: 3.6pt;
+            padding-bottom: 3.6pt;
+        }
+
+    </style>
+</head>
+<body>
+<div id="header">
+    <table width="100%" cellpadding="0" cellspacing="0">
+        <tr>
+            <td>
+                <strong><!--MONTEX ELEKTRONIKA-->$itextGenericPdfData.companyData.companyName</strong>
+
+                <!--29 London road-->
+                #if($itextGenericPdfData.companyData.address!='')
+                $itextGenericPdfData.companyData.address
+                <br/>
+                #end
+                <!--London, br1 1dg-->
+                #if($itextGenericPdfData.companyData.city!='')
+                $itextGenericPdfData.companyData.city,
+                #end
+                #if($itextGenericPdfData.companyData.postCode!='')
+                $itextGenericPdfData.companyData.postCode,
+                #end
+                #if($itextGenericPdfData.companyData.country!='')
+                $itextGenericPdfData.companyData.country
+                <br/>
+                #end
+                #if($itextGenericPdfData.companyData.companyPhone!='')
+                $itextGenericPdfData.companyData.companyPhone
+                <br/>
+                #end
+                #if($itextGenericPdfData.companyData.companyEmail!='')
+                $itextGenericPdfData.companyData.companyEmail
+                #end
+            </td>
+            <td align="right">
+                <img id="logo" src="$itextGenericPdfData.companyData.companyLogoUrl" alt="image"/>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div id="content">
+    <h1 class="titlePage c">Radni nalog Br. -
+        $itextGenericPdfData.customData.get('TASK_NUMBER_TABLE').rows.get('TASK_NUMBER').get('NAME')</h1>
+
+    <table width="100%" class="register sect zebra">
+        <tbody>
+        <tr class="odd">
+            <th>Projekat*:</th>
+
+            <td class="baseData">
+                $itextGenericPdfData.customData.get('TASK_CONTENT_TABLE').rows.get('PROJECT_NAME').get('NAME')
+            </td>
+        </tr>
+
+        <tr class="even">
+            <th>Klijent:<br/></th>
+
+            <td class="baseData">
+                $itextGenericPdfData.customData.get('TASK_CONTENT_TABLE').rows.get('CLIENT_NAME').get('NAME')
+            </td>
+        </tr>
+
+        <tr class="odd">
+            <th>Naslov*:</th>
+
+            <td class="baseData">
+                $itextGenericPdfData.customData.get('TASK_CONTENT_TABLE').rows.get('TASK_NAME').get('NAME')
+            </td>
+        </tr>
+
+        <tr class="even">
+            <th>Detaljan opis:</th>
+
+            <td>
+                <p class="sect">
+                    $itextGenericPdfData.customData.get('TASK_CONTENT_TABLE').rows.get('TASK_DESCRIPTION').get('NAME')</p>
+                <table width="100%" class="bulletin">
+                    <thead>
+                    <tr>
+                        <th>Datum prijema*</th>
+                        <th>Rok zavrsetka*</th>
+                        <th>Prioritet*</th>
+                        <th>Status*</th>
+                    </tr>
+                    </thead>
+                    <tbody class="baseData">
+                    <tr>
+                        <td>
+                            $itextGenericPdfData.customData.get('TASK_CONTENT_TABLE').rows.get('TASK_START_DATE').get('NAME')
+                        </td>
+                        <td>
+                            $itextGenericPdfData.customData.get('TASK_CONTENT_TABLE').rows.get('TASK_DUE_DATE').get('NAME')
+                        </td>
+                        <td>
+                            $itextGenericPdfData.customData.get('TASK_CONTENT_TABLE').rows.get('TASK_PRIORITY').get('NAME')
+                        </td>
+                        <td>
+                            $itextGenericPdfData.customData.get('TASK_CONTENT_TABLE').rows.get('TASK_STATUS').get('NAME')
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+
+        <tr class="odd">
+            <th>
+                Zaduzenje za:
+            </th>
+
+            <td>
+                <table width="100%" class="bulletin">
+                    <thead>
+                    <tr>
+                        <th>Zaposleni</th>
+                        <th>Aktivnost</th>
+                        <th>Datum</th>
+                        <th>Utroseno vrijeme</th>
+                    </tr>
+                    </thead>
+                    <tbody class="baseData">
+                    #foreach($row in $itextGenericPdfData.customData.get('TASK_TIME_ENTRY_MEMBERS_TABLE').rows)
+                    <tr>
+                        <td class="nowrap">$row.get('EMPLOYEE_NAME')</td>
+                        <td class="baseDataFree">$row.get('EMPLOYEE_TASK_COMMENT')</td>
+                        <td class="nowrap">$row.get('EMPLOYEE_TASK_TIME_ENTRY_DATE')</td>
+                        <td class="nowrap">$row.get('EMPLOYEE_TIME_SPENT')</td>
+                    </tr>
+                    #end
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        #if($itextGenericPdfData.customData.get('NOTES_TABLE').rows.size()!=0)
+        <tr class="even">
+            <th>Napomene:</th>
+
+            <td>
+                <table width="100%" class="bulletin">
+                    <thead>
+                    <tr>
+                        <th>Postavljena od</th>
+                        <th>Datum</th>
+                        <th>Biljeska</th>
+                    </tr>
+                    </thead>
+                    <tbody class="baseData">
+                    #foreach($row in $itextGenericPdfData.customData.get('NOTES_TABLE').rows)
+                    <tr>
+                        <td class="nowrap">$row.get('NOTE_PUBLISHED_BY')</td>
+                        <td class="nowrap">$row.get('NOTE_DATE')</td>
+                        <td class="baseDataFree">$row.get('NOTE_SUBJECT')</td>
+                    </tr>
+                    #end
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        #end
+        #if($itextGenericPdfData.customData.get('ATTACHMENTS_TABLE').rows.size()!=0)
+        <tr class="odd">
+            <th>Dokumenti:</th>
+
+            <td>
+                <table width="100%" class="bulletin">
+                    <thead>
+                    <tr>
+                        <th>Naziv dokumenta</th>
+                    </tr>
+                    </thead>
+                    <tbody class="baseData">
+                    #foreach($row in $itextGenericPdfData.customData.get('ATTACHMENTS_TABLE').rows)
+                    <tr>
+                        <td class="nowrap"><a href="$row.get('FILE_DOWNLOAD_URL')">$row.get('FILE_NAME')</a></td>
+                    </tr>
+                    #end
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        #end
+        </tbody>
+    </table>
+
+    <table width="92%" style="margin:50pt 0 0 3em" class="register scriptPlace">
+        <tr>
+            <th><span style="color:#4C7EAD">Potpis:</span></th>
+            <td width="40%" align="right" class="baseData" style="border-top:1px solid #000;">Zaposleni</td>
+            <td width="20%"></td>
+            <td width="40%" class="baseData" style="border-top:1px solid #000;">Klijent</td>
+        </tr>
+    </table>
+</div>
+
+<!--<div id="footer">	</div>	-->
+</body>
+</html>

@@ -1,0 +1,92 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:m.html="urn:import:gwt.material.design.client.ui.html"
+             xmlns:m='urn:import:gwt.material.design.client.ui'>
+    <g:HTMLPanel ui:field="vatReturnPanel">
+        <section style="background-color=#fff;">
+            <div class="container">
+
+                <header>
+                    <div class="bordertext" ui:field="statusContainer">
+                        <p ui:field="statusText">Unfiled</p>
+                    </div>
+                    <div class="header-info">
+                        <div class="header-info-row">
+                            <p>Tax Period</p>
+                            <m.html:Paragraph ui:field="periodParagraph"/>
+                        </div>
+                        <div class="header-info-row">
+                            <p>Tax Basis</p>
+                            <p>: Accrual</p>
+                        </div>
+                    </div>
+                    <div class="header-button">
+                        <m:MaterialLink ui:field="markAsFile"/>
+                    </div>
+                </header>
+                <main>
+                    <div class="title-section">
+                        <h3 ui:field="companyName"/>
+                        <h1>VAT Return</h1>
+                        <m.html:Paragraph ui:field="periodAsReportTitle"/>
+                    </div>
+
+                    <!--SALES-->
+                    <div class="table-section">
+                        <h4>VAT on Sales and all other Outputs</h4>
+                        <div class="table">
+                            <table>
+                                <thead ui:field="salesThead">
+                                    <tr>
+                                        <th>BOX#</th>
+                                        <th>DESCRIPTION</th>
+                                        <th>TAXABLE AMOUNT</th>
+                                        <th>ADJUSTMENTS</th>
+                                        <th>TAX AMOUNT</th>
+                                    </tr>
+                                </thead>
+                                <tbody ui:field="salesTbody" />
+                            </table>
+                        </div>
+                    </div>
+
+                    <!--EXPENSES-->
+                    <div class="table-section">
+                        <h4>VAT on Expenses and all other Inputs</h4>
+                        <div class="table">
+                            <table>
+                                <thead ui:field="expenseThead">
+                                    <tr>
+                                        <th>BOX#</th>
+                                        <th>DESCRIPTION</th>
+                                        <th>TAXABLE AMOUNT</th>
+                                        <th>ADJUSTMENTS</th>
+                                        <th>TAX AMOUNT</th>
+                                    </tr>
+                                </thead>
+                                <tbody ui:field="expenseTbody"/>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!--NET-->
+                    <div class="table-section">
+                        <h4>Net VAT due</h4>
+                        <div class="table min-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>BOX#</th>
+                                        <th>DESCRIPTION</th>
+                                        <th>TAXABLE AMOUNT</th>
+                                    </tr>
+                                </thead>
+                                <tbody ui:field="netTbody"/>
+                            </table>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </section>
+    </g:HTMLPanel>
+</ui:UiBinder>

@@ -1,0 +1,283 @@
+/*body, html{*/
+/*overflow-y:auto;*/
+/*}*/
+
+.wfm-my-tabitem {
+    cursor: pointer;
+}
+
+.wfm-my-tabitem-l {
+    width: 3px;
+    padding-left: 3px;
+    height: 27px;
+}
+
+.my-tabitem-icon .wfm-my-tabitem-ml {
+    padding-left: 1px;
+    padding-right: 2px;
+    width: 16px;
+}
+
+.my-tabitem-close .wfm-my-tabitem-mr div {
+    visibility: hidden;
+    width: 12px;
+}
+
+.wfm-my-tabitem-over .wfm-my-tabitem-mr div, .wfm-my-tabitem-sel .wfm-my-tabitem-mr div {
+    visibility: visible;
+}
+
+.my-tabitem-secondary .wfm-my-tabitem-mr div, .wfm-my-tabitem-sel .wfm-my-tabitem-mr div {
+    visibility: visible;
+}
+
+.my-tabitem-close .wfm-my-tabitem-r div {
+    width: 5px;
+}
+
+.wfm-my-tabitem-c {
+    width: 100%;
+}
+
+.wfm-my-tabitem-r div {
+    width: 10px;
+}
+
+.wfm-my-tabitem-text {
+    display: block;
+    padding: 0 5px 0 3px;
+    color: #416AA3;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.my-tabitem-icon .wfm-my-tabitem-c {
+    text-align: left;
+    padding-left: 2px;
+}
+
+.my-tabitem-icon .wfm-my-tabitem-text {
+    padding: 0;
+    cursor: pointer;
+}
+
+.wfm-my-tabitem-over .wfm-my-tabitem-l {
+    background: url(themes/blue/tabs-orange.gif) no-repeat 0 -27px;
+}
+
+.wfm-my-tabitem-over .wfm-my-tabitem-ml, .wfm-my-tabitem-over .wfm-my-tabitem-c {
+    background: url(themes/blue/tabs-orange.gif) repeat-x 0 -81px;
+}
+
+.wfm-my-tabitem-over .wfm-my-tabitem-mr {
+    background: url(themes/blue/tabs-orange.gif) repeat-x 0 -81px;
+}
+
+.wfm-my-tabitem-over .wfm-my-tabitem-r {
+    background: url(themes/blue/tabs-orange.gif) no-repeat right -27px;
+}
+
+.wfm-my-tabitem-secondary .wfm-my-tabitem-l {
+    background: url(themes/blue/tabs-orange.gif) no-repeat 0 -27px;
+}
+
+.wfm-my-tabitem-secondary .wfm-my-tabitem-ml, .wfm-my-tabitem-secondary .wfm-my-tabitem-c {
+    background: url(themes/blue/tabs-orange.gif) repeat-x 0 -81px;
+}
+
+.wfm-my-tabitem-secondary .wfm-my-tabitem-mr {
+    background: url(themes/blue/tabs-orange.gif) repeat-x 0 -81px;
+}
+
+.wfm-my-tabitem-secondary .wfm-my-tabitem-r {
+    background: url(themes/blue/tabs-orange.gif) no-repeat right -27px;
+}
+
+.wfm-my-tabitem-sel .wfm-my-tabitem-text {
+    color: #15428B;
+}
+
+.wfm-my-tabitem-sel .wfm-my-tabitem-l {
+    background: url(themes/blue/tabs-orange.gif) no-repeat;
+}
+
+.wfm-my-tabitem-sel .wfm-my-tabitem-ml, .wfm-my-tabitem-sel .wfm-my-tabitem-c {
+    background: url(themes/blue/tabs-orange.gif) repeat-x 0 -54px;
+}
+
+.wfm-my-tabitem-sel .wfm-my-tabitem-mr {
+    background: url(themes/blue/tabs-orange.gif) repeat-x 0 -54px;
+}
+
+.wfm-my-tabitem-sel .wfm-my-tabitem-r {
+    background: url(themes/blue/tabs-orange.gif) no-repeat right 0;
+}
+
+.my-tbl {
+    border: 1px solid #99BBE8;
+    cursor: default;
+    background-color: white;
+    overflow: hidden;
+    -moz-outline: none;
+    -moz-user-focus: normal;
+}
+
+.my-toolbar {
+    background: url(themes/blue/bg.gif) 0 0 repeat-x;
+}
+
+.my-cpanel-frame .wfm-my-toolbar {
+    position: static;
+    background: url(themes/blue/bg.gif) repeat-x;
+    border: 1px solid #99BBE8;
+    border-bottom: none;
+}
+
+.wfm-my-tabfolder {
+    background-color: white;
+}
+
+.wfm-my-tabfolder-header {
+    background: url(themes/blue/tabs-orange.gif) repeat-x 0 -108px;
+    overflow: hidden;
+}
+
+.wfm-my-toolitem-disabled {
+    color: black;
+    cursor: default;
+}
+
+.wfm-my-toolitem-selected {
+    color: white;
+    height: 21px;
+}
+
+.wfm-my-toolitem-selected .wfm-my-toolitem-l {
+    background: url(themes/blue/tb-btn-sprite-orange.gif) no-repeat;
+}
+
+.wfm-my-toolitem-selected .wfm-my-toolitem-ml, .wfm-my-toolitem-selected .wfm-my-toolitem-c {
+    background: url(themes/blue/tb-btn-sprite-orange.gif) repeat-x 0 -42px;
+}
+
+.wfm-my-toolitem-selected .wfm-my-toolitem-ml, .wfm-my-toolitem-selected .wfm-my-toolitem-c {
+    background: url(themes/blue/tb-btn-sprite-orange.gif) repeat-x 0 -42px;
+}
+
+.wfm-my-toolitem-selected .wfm-my-toolitem-mr {
+    background: url(themes/blue/tb-btn-sprite-orange.gif) repeat-x 0 -42px;
+}
+
+.wfm-my-toolitem-selected .wfm-my-toolitem-r {
+    background: url(themes/blue/tb-btn-sprite-orange.gif) no-repeat 0 -21px;
+}
+
+.wfm-bug-report-style {
+    color: #97100a;
+}
+
+.feedback-icon {
+    background: url(icons/advertisement/icon-email_edit.png);
+    background-repeat: no-repeat;
+    width: 16px;
+}
+
+.wfm-icon-add-expense {
+    background-image: url(addexpense.gif);
+    height: 15px;
+}
+
+.wfm-mainBackground {
+/*background-color: #13649B;*/
+    background-image: url("gradient-bg-logo.jpg");
+    height: 53px;
+    background-repeat: repeat-x;
+}
+
+.wfm-my-toolbar {
+    background: url(bg.gif) 0 0 repeat-x;
+}
+
+.wfm-my-no-selection {
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+    -moz-outline: none;
+    -moz-user-focus: normal;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+}
+
+html, body, div, pre, form, fieldset, input, th, td {
+    /*font-family: Tahoma, Verdana, Geneva, Arial, Helvetica, sans-serif;*/
+    font-size: 11px;
+    margin: 0;
+    padding: 0;
+}
+
+.wfm-my-toolitem-text {
+    padding: 0 3px;
+    white-space: nowrap;
+}
+
+.wfm-my-toolitem-seperator {
+    background: url(split.gif) no-repeat 50% 50%;
+    border: 0 none;
+    cursor: default;
+    font-size: 1px;
+    height: 21px;
+    overflow: hidden;
+    width: 4px;
+}
+
+.wfm-my-toolitem-l div, .wfm-my-toolitem-r div {
+    width: 3px;
+}
+
+.wfm-my-toolitem-ml {
+    width: 18px;
+    text-align: center;
+}
+
+.wfm-my-toolitem-c {
+    padding: 0 3px;
+}
+
+.wfm-my-toolitem-mr div {
+    background: transparent url(btn-arrow.gif) no-repeat scroll 0 3px;
+    width: 12px;
+    height: 21px;
+}
+
+.wfm-my-toolitem-split div {
+    background: transparent url(btn-arrow.gif) no-repeat 0 -47px;
+    width: 12px;
+    height: 21px;
+}
+
+.wfm-my-toolitem-over .wfm-my-toolitem-l {
+    background: url(themes/blue/tb-btn-sprite.gif) no-repeat;
+}
+
+.wfm-my-toolitem-over .wfm-my-toolitem-ml, .wfm-my-toolitem-over .wfm-my-toolitem-c {
+    background: url(themes/blue/tb-btn-sprite.gif) repeat-x 0 -42px;
+}
+
+.wfm-my-toolitem-over .wfm-my-toolitem-ml, .wfm-my-toolitem-over .wfm-my-toolitem-c {
+    background: url(themes/blue/tb-btn-sprite.gif) repeat-x 0 -42px;
+}
+
+.wfm-my-toolitem-over .wfm-my-toolitem-mr {
+    background: url(themes/blue/tb-btn-sprite.gif) repeat-x 0 -42px;
+}
+
+.wfm-my-toolitem-over .wfm-my-toolitem-r {
+    background: url(themes/blue/tb-btn-sprite.gif) no-repeat 0 -21px;
+}
+
+.wfm-my-toolitem-over {
+    height: 21px;
+    cursor: pointer;
+}

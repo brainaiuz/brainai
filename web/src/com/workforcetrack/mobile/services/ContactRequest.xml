@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<WFTRequest>
+    <header>
+        <username>i.s.kandar0887@gmail.com</username>
+        <password>123</password>
+        <companyID>35564</companyID>
+        <service>LoginService</service>
+        <method>login</method>
+        <version>1</version>
+        <client>iPhone test</client>
+        <deviceType>IPhone</deviceType>
+        <deviceToken>2423232</deviceToken>
+    </header>
+
+
+</WFTRequest>
+

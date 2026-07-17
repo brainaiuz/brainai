@@ -1,0 +1,60 @@
+<report>
+    <view>
+        <title>Survey Responses</title>
+        <name>Survey Responses</name>
+        <category>survey</category>
+        <sqlquery>
+            <select agregateFunc="distinct">
+                <!--  Please only enter type property {'number' or 'date or clock' }   -->
+                <table name="Survey">
+                    <column name="t.name" title="Survey Name" type="string" formattype="string"/>
+                    <column name="t.text" title="Question" type="string" formattype="string"/>
+                    <column name="t.answer" title="Answer" type="string" formattype="string"/>
+                    <column name="t.respondent" title="Respondent Name" type="string" formattype="string"/>
+                    <column name="t.username" title="Respondent Email" type="string" formattype="string"/>
+                    <column name="t.start_date" title="Date of submission" type="date" formattype="date"/>
+                    <column name="t.ip_address" title="IP Address" type="string" formattype="string"/>
+                    <column name="t.submission_status" title="Submission Status" type="string" formattype="string"/>
+                    <column name="t.survey_status" title="Survey Status" type="string" formattype="string"/>
+                </table>
+            </select>
+            <from>
+                (
+                SELECT s.id as surveyID, s.name,
+                u.id as esduser_id,
+                se.text,
+                array_to_string(array_agg(case when cha.id is not null then (case when chlv.id is null then
+                cha.value_text when chlv.is_editable=false then chlv.name
+                else chlv.name || ' ' || cha.value_text end) when lv.id is null then sa.value_text when
+                lv.is_editable=false then lv.name else lv.name || ' ' || sa.value_text end), ', ') as answer,
+                u.firstname || ' ' || u.lastname as respondent,
+                u.username as username,
+                sr.start_date as start_date,
+                sr.ip_adress as ip_address,
+                sr.status as submission_status,
+                s.status as survey_status,
+                se.id as questionid,
+                se.order as questionorder
+                FROM
+                (select survey_resp.* from "$".bmt_survey_response survey_resp WHERE survey_resp.status != 'DELETED') sr
+                left join "$".bmt_survey_response chsr on sr.id=chsr.parent_id
+                inner join (select survey.* from "$".bmt_survey survey where survey.status != 'DELETED') s on
+                sr.survey_id = s.id
+                inner join "$".bmt_survey_answer sa on sa.response_id=sr.id OR sa.response_id=chsr.id
+                inner join "$".bmt_survey_elem se on sa.elem_id = se.id
+                left join "$".bmt_list_value lv on sa.list_value_id = lv.id
+
+                left join "$".bmt_survey_answer cha on sa.id=cha.parent_id
+                left join "$".bmt_list_value chlv on cha.list_value_id = chlv.id
+
+                left join "$".myUser u on u.id=sr.respondent_id
+                group by s.id,
+                s.name,u.id,se.text,u.firstname,u.lastname,u.username,sr.start_date,sr.ip_adress,sr.status,s.status,se.id,se.order
+                order by s.id, se.order) t
+            </from>
+            <where>
+                <terms id="base" value="1=1"/>
+            </where>
+        </sqlquery>
+    </view>
+</report>

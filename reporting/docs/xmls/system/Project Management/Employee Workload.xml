@@ -1,0 +1,50 @@
+<report>
+    <view>
+        <title>Employee Workload</title>
+        <name>Employee Workload</name>
+        <category>task</category>
+        <sqlquery>
+            <select>
+                <table name="Task">
+                    <column name="t.fullname" title="Employee Name" type="string" formattype="string"/>
+                    <column name="t.projectinvolved" title="Projects Involved" type="number" formattype="number"/>
+                    <column name="t.taskinvolved" title="Tasks Involved" type="number" formattype="number"/>
+                    <column name="t.totaltime" title="Hours Worked" type="number" formattype="number"/>
+                    <column name="t.percent" title="% Tasks Completed" type="number" formattype="percent"/>
+                </table>
+            </select>
+            <from>(select distinct (coalesce(mu.firstname,'') ||' '|| coalesce(mu.lastname,'')) as fullname,pi.projectinvolved,ti.taskinvolved,ts.totaltime,
+                coalesce(CAST(to_char((tc.totalcompleted/ti.taskinvolved),'990.99') AS real),0) as percent from  "$".myuser mu
+                left join
+                (select te.employeeid,count(pe.id) as projectinvolved from "$".teamemployee te
+                left join "$".projectemployee pe on pe.employeedepartmentid = te.id
+                where te.isdeleted is not true and pe.isdeleted is not true  group by te.employeeid) pi on mu.id = pi.employeeid
+                left join
+                (select te.employeeid,count(emtk.id) as taskinvolved from "$".teamemployee te left join "$".projectemployee pe on pe.employeedepartmentid = te.id
+                left join "$".employeetask emtk on pe.id = emtk.projectemployeeid
+                where te.isdeleted is not true and pe.isdeleted is not true  group by te.employeeid ) ti on mu.id=ti.employeeid
+                left join
+                (select te.employeeid,sum(timesheet.timespent) as totaltime from "$".teamemployee te left join "$".projectemployee pe on pe.employeedepartmentid = te.id
+                left join "$".employeetask emtk on pe.id = emtk.projectemployeeid
+                left join "$".timesheet timesheet on emtk.taskid = timesheet.taskid
+                where te.isdeleted is not true and pe.isdeleted is not true  group by te.employeeid ) ts on mu.id=ts.employeeid
+                left join
+                (select te.employeeid,sum(task.percent) as totalcompleted from "$".teamemployee te left join "$".projectemployee pe on pe.employeedepartmentid = te.id
+                left join "$".employeetask emtk on pe.id = emtk.projectemployeeid
+                left join "$".task task on emtk.taskid = task.id
+                where te.isdeleted is not true and pe.isdeleted is not true  group by te.employeeid ) tc on mu.id=tc.employeeid
+
+                where mu.deleted is not true and mu.active is true
+                ) t
+            </from>
+            <where>
+                <terms id="base" value="1=1"/>
+                <terms id="client" clientid="t.clientid"/>
+                <!--<terms id="userid" userid="t.assigneeid" company="t.companyid" />
+                    <terms id="managerid" userid="t.managerid" company="t.companyid" />
+                    <terms id="leaderid" userid="t.leaderid" company="t.companyid" />
+                    <terms id="admin" company="t.companyid" />-->
+            </where>
+        </sqlquery>
+    </view>
+</report>

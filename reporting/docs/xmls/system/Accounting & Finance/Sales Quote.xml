@@ -1,0 +1,44 @@
+<report>
+    <view>
+        <title>Quotes List</title>
+        <name>Quotes List</name>
+        <category>quotes</category>
+        <sqlquery>
+            <select agregateFunc="distinct">
+                <!--  Please only enter type property {'number' or 'date or clock' }   -->
+                <table name="Quotes">
+                    <column name="slqt.id" title="id" type="number" formattype="hidden"/>
+                    <column name="cl.Name" title="Client Name" type="string" formattype="string"
+                            filterwidgettype="dropdown"/>
+                    <column name="qt.exchangeRate" title="Exchange Rate" type="string" formattype="string"/>
+                    <column name="qt.number" title="Quote Number" type="string" formattype="string"
+                            filterwidgettype="checkbox"/>
+                    <column name="qt.invoicedate" title="Quote Date" type="date" formattype="date"/>
+                    <column name="qt.duedate" title="Valid Until" type="date" formattype="date"/>
+                    <column name="qt.total" title="Total" type="number" formattype="money"/>
+                    <column name="qt.discount" title="Discount" type="number" formattype="money"/>
+                </table>
+                <table name="Product">
+                    <column name="it.name" title="Product Name" type="string" formattype="string"/>
+                </table>
+                <table name="Currency">
+                    <column name="cu.name" title="Currency" type="string" formattype="string"/>
+                </table>
+                <table name="Status">
+                    <column name="rf.name" title="Status" type="string" formattype="string"/>
+                </table>
+            </select>
+            <from>"$".salequote slqt
+                left join "$".quote qt on qt.id = slqt.id
+                left join "$".quoteItem qit on qit.quote_id = qt.id
+                left join "$".item it on it.id = qit.item_id
+                left join currency cu on cu.id = qt.currency_id
+                left join reference rf on rf.id = qt.status_id
+                left join "$".crmaccount cl on cl.id = slqt.client_id
+            </from>
+            <where>
+                <terms id="base" value="qt.status_id NOT IN (535,536)"/> <!--318,and cl.deleted != true"-->
+            </where>
+        </sqlquery>
+    </view>
+</report>

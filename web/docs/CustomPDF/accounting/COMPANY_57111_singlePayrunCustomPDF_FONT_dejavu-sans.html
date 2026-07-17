@@ -1,0 +1,330 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style type="text/css">
+        @page {
+            size: 8.3in 11.7in;
+            margin: 140px 30px 100px 30px;
+            padding: 0;
+
+            @top-center {
+                content: element(header);
+            }
+            @bottom-left {
+                content: element(footer);
+            }
+        }
+
+        #header {
+            display: block;
+            font-size: 10px;
+            position: running(header);
+        }
+
+        #footer {
+            margin: 20px 10px;
+            display: block;
+            position: running(footer);
+        }
+
+        #pagenumber:before {
+            content: counter(page);
+        }
+
+        #pagecount:before {
+            content: counter(pages);
+        }
+
+        body {
+            font-family: DejaVu Sans;
+        }
+
+        b, p, td, span, caption, hr, h1, h2, h3, h4, h5 {
+            font-family: DejaVu Sans;
+        }
+
+        table {
+            -fs-table-paginate: paginate;
+        }
+
+        body {
+            font-family: DejaVu Sans
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+
+    </style>
+</head>
+<body>
+#set($curSymbol = $itextGenericPdfData.baseInvoice.currency)
+#set($payments = $itextGenericPdfData.baseInvoice.customProductTable.rows.values())
+#set($deductions = $itextGenericPdfData.baseInvoice.customNumberAndDatesTable.rows.values())
+#set($expenses = $itextGenericPdfData.baseInvoice.customExpenseTable.rows.values())
+#set($overtimeData = $itextGenericPdfData.baseInvoice.customPOTable.rows.values())
+#set($headerData = $itextGenericPdfData.baseInvoice.customBillToAddress.header)
+#set($periodString = $itextGenericPdfData.baseInvoice.termsConditionsName)
+#set($employeeName=$headerData.get('NAME'))
+#set($employeeNumber=$headerData.get('Number'))
+#set($processedDate=$headerData.get('PROCESSED_DATE'))
+#set($period=$headerData.get('PAYMENT_PERIOD'))
+#set($paymentMethod=$headerData.get('PAYMENT_METHOD'))
+#set($approver=$headerData.get('APPROVER'))
+#set($approveDate=$headerData.get('APPROVED_DATE'))
+#set($wpsNo=$headerData.get('WPS_NO'))
+#set($reference=$headerData.get('REFERENCE'))
+#set($rejectionNote=$headerData.get('REJECT'))
+<!-- company-->
+#set($company=$itextGenericPdfData.companyData.companyName)
+#set($address=$itextGenericPdfData.companyData.address)
+#set($city=$itextGenericPdfData.companyData.city)
+#set($country=$itextGenericPdfData.companyData.country)
+#set($postCode=$itextGenericPdfData.companyData.postCode)
+#set($companyPhone=$itextGenericPdfData.companyData.companyPhone)
+#set($fax=$itextGenericPdfData.companyData.fax)
+#set($companyEmail=$itextGenericPdfData.companyData.companyEmail)
+
+<div id="header">
+    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+            <td width="40%" align="left">
+                <b style="font-size: 14px;">$company</b><br/>
+                #if($address!='')
+                $address<br/>
+                #end
+                #if($city!='')
+                $city #end
+                #if($postCode!='')
+                , $postCode
+                #end
+                <br/>
+                #if($country != '')
+                $country
+                #end
+            </td>
+            <td width="60%" align="right"><img src="$itextGenericPdfData.companyData.companyLogoUrl"/></td>
+        </tr>
+    </table>
+</div>
+<div style="font-size:10px;">
+    <table width="100%" border="0" align="left" cellpadding="0" cellspacing="0" >
+        <tr>
+            <td width="45%"  rowspan="10" style="vertical-align:top;" align="left">
+                <span style="font-size:14px;font-weight:bold; padding-left:15px">PAYSLIP</span>
+            </td>
+        </tr>
+        <tr >
+            <td align="left">
+                <b>EMPLOYEE NAME</b>
+            </td>
+            <td  align="left">
+                <b>APPROVER</b>
+            </td>
+            <td  align="left">
+                <b>PERIOD</b>
+            </td>
+        </tr>
+        <tr>
+            <td align="left">
+                $employeeName
+            </td>
+            <td align="left">
+                $approver
+            </td>
+            <td align="left">
+                $period
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                &#160;
+            </td>
+        </tr>
+        <tr>
+            <td  align="left">
+                <b>PROCESS DATE</b>
+            </td>
+            <td align="left">
+                <b>APPROVE DATE</b>
+            </td>
+            <td align="left">
+                <b>PAYMENT METHOD</b>
+            </td>
+        </tr>
+
+        <tr>
+            <td align="left">
+                $processedDate
+            </td>
+            <td align="left">
+                $approveDate
+            </td>
+            <td align="left">
+                $paymentMethod
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                &#160;
+            </td>
+        </tr>
+        <tr>
+            <td align="left">
+                <b>EMPLOYEE NUMBER</b>
+            </td>
+            <td  align="left">
+                <b>WPS NO</b>
+            </td>
+            <td  align="left">
+                <b>REF.</b>
+            </td>
+        </tr>
+        <tr>
+            <td align="left">
+                #if($employeeNumber != '')
+                $employeeNumber
+                #end
+            </td>
+            <td align="left">
+                $wpsNo
+            </td>
+            <td align="left">
+                $reference
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                &#160;
+            </td>
+        </tr>
+    </table>
+</div>
+<div width="100%" style="padding-top:100px; font-size:10px">
+    <!-- allowances table -->
+    <table style="padding-top:40px; line-height:2" width="45%" border="0" align="left" cellpadding="0" cellspacing="0">
+        <tr width="100%">
+            <td   style="color:#000000; border-bottom: 1px solid #000000" width="50%" align="left"><b>PAYMENTS</b></td>
+            <td    style="color:#000000; border-bottom: 1px solid #000000" width="50%" align="right"><b>AMOUNT</b></td>
+        </tr>
+        #foreach($row in $payments)
+        <tr>
+            <td>
+                $row.get('PAYMENT_')
+            </td>
+            <td>
+                <div align="right">
+                    <nobr>
+                        $row.get('AMOUNTS')
+                    </nobr>
+                </div>
+            </td>
+        </tr>
+        #end
+    </table>
+    <!-- deductions table -->
+    #if($deductions.size()>0)
+    <table style="padding-top:40px; line-height:2" width="45%" border="0" align="right" cellpadding="0" cellspacing="0">
+        <tr>
+            <td  style="color:#000000; border-bottom: 1px solid #000000"  width="50%" align="left"><b>DEDUCTIONS</b></td>
+            <td style="color:#000000; border-bottom: 1px solid #000000"  width="50%"><div align="right"><b>AMOUNT</b></div></td>
+        </tr>
+        #foreach($row in $deductions)
+        <tr>
+            <td>
+                $row.get('DEDUCTIONS')
+            </td>
+            <td>
+                <div align="right">
+                    <nobr>
+                        $row.get('AMOUNTS')
+                    </nobr>
+                </div>
+            </td>
+        </tr>
+        #end
+    </table>
+    #end
+</div>
+
+
+<div style="clear:both"></div>
+
+
+<table width="45%" border="0" align="left" cellpadding="0" cellspacing="0" style="margin-top:40px; font-size:10px; line-height:2">
+    #foreach($row in $itextGenericPdfData.baseInvoice.customTotalTable.rows.values())
+
+
+    #set($addPayment=$row.get('ADDITIONAL_PAYMENT'))
+
+
+    #set($grossPay=$row.get('TOTAL_GROSS_PAY'))
+
+
+    #set($deductions=$row.get('DEDUCTIONS'))
+
+
+    #set($total=$row.get('TOTAL'))
+
+
+    #end
+    <tr >
+        <td style="color:#000000; border-bottom: 1px solid #000000" colspan="2">
+            <b>TOTALS THIS PERIOD</b>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            Total Gross Pay
+        </td>
+        <td>
+            <div align="right">
+                $grossPay
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Deductions
+        </td>
+        <td>
+            <div align="right">
+                $deductions
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Total
+        </td>
+        <td>
+            <div align="right">
+                <nobr>
+                    $total
+                </nobr>
+            </div>
+        </td>
+    </tr>
+</table>
+
+
+
+<div style="clear:both"></div>
+
+#if($periodString != '')
+<div align="left" style="margin-top:20px;font-size:9px;font-style: italic;">
+    $periodString
+</div>
+#end
+
+
+<div id="footer" style="font-size:10px">
+    <table width="100%" align="center">
+
+    </table>
+</div>
+
+</body>
+</html>

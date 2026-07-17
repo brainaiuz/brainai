@@ -1,0 +1,45 @@
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:g="urn:import:com.google.gwt.user.client.ui"
+             xmlns:w="urn:import:com.edatasite.workforce.gwt.core.client.ui"
+             xmlns:mhtml="urn:import:gwt.material.design.client.ui.html">
+    <g:HTMLPanel ui:field="panel">
+        <g:HTMLPanel styleName="form-group">
+            <mhtml:Label ui:field="projectLabel" styleName="form-group__label"/>
+            <g:HTMLPanel ui:field="projectDiv"/>
+        </g:HTMLPanel>
+        <g:HTMLPanel styleName="form-group form-group--inline">
+            <g:HTMLPanel styleName="form-group__item">
+                <mhtml:Label ui:field="numberLabel" styleName="form-group__label"/>
+                <g:HTMLPanel ui:field="numberDiv"/>
+            </g:HTMLPanel>
+            <g:HTMLPanel styleName="form-group__item">
+                <mhtml:Label ui:field="statusLabel" styleName="form-group__label"/>
+                <g:HTMLPanel ui:field="statusDiv"/>
+            </g:HTMLPanel>
+        </g:HTMLPanel>
+        <g:HTMLPanel styleName="form-group">
+            <mhtml:Label ui:field="nameLabel" styleName="form-group__label"/>
+            <g:TextBox ui:field="name"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group">
+            <mhtml:Label ui:field="descriptionLabel" styleName="form-group__label"/>
+            <w:TextArea2 width="100%" ui:field="description"/>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel styleName="form-group form-group--inline">
+            <g:HTMLPanel styleName="form-group__item">
+                <mhtml:Label ui:field="startDateLabel" styleName="form-group__label"/>
+                <w:DatePicker ui:field="startDate"/>
+            </g:HTMLPanel>
+            <g:HTMLPanel styleName="form-group__item">
+                <mhtml:Label ui:field="dueDateLabel" styleName="form-group__label"/>
+                <w:DatePicker ui:field="dueDate"/>
+            </g:HTMLPanel>
+        </g:HTMLPanel>
+        <g:HTMLPanel styleName="form-group">
+            <mhtml:Label ui:field="assigneeLabel" styleName="form-group__label"/>
+            <g:HTMLPanel ui:field="assignee"/>
+        </g:HTMLPanel>
+    </g:HTMLPanel>
+</ui:UiBinder>

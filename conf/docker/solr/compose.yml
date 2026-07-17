@@ -1,0 +1,16 @@
+
+services:
+  solr:
+    deploy:
+      resources:
+        limits:
+          memory: 1568m
+    image: "${KPI_SOLR_IMAGE}"
+    container_name: "${KPI_SOLR_HOST}"
+    hostname: "${KPI_SOLR_HOST}"
+    ports:
+      - "${KPI_SOLR_PORT}:8983"
+    environment:
+      - SOLR_JAVA_MEM=-Xms512m -Xmx1568m
+      - SOLR_TIMEZONE=GMT
+    restart: always

@@ -1,0 +1,5 @@
+<module>
+    <inherits name="com.edatasite.workforce.gwt.project.ProjectEmpty"/>
+    <inherits name="com.edatasite.workforce.gwt.workstream.WorkstreamEmpty"/>
+    <inherits name="com.edatasite.workforce.gwt.timesheet.TimesheetEmpty"/>
+</module>

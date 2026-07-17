@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body><p>Dear $name,</p><br/>
+
+<p>We would like to inform you that your account has been activated.</p>
+
+<p>Your user name: $userName.</p>
+
+<p>Your password: &lt;encrypted&gt; (hidden for security reasons)</p>
+
+<p>In order to access your account please <a href="$HOST">click here</a><br/>
+    (or copy/paste and go to following link in your web browser: $HOST</p>
+
+
+<p>Thank you for your interest in our product.</p>
+
+</body>
+</html>

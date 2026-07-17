@@ -1,0 +1,230 @@
+<div class="contentBar file--invoice_settings" style="padding:0 10px;">
+    <style>
+        .reachFullWidth table {
+            border: none !important;
+        }
+    </style>
+
+    <!-- Invoice information -->
+    <ul class="collapsible--panels collapsible--arrows-left collapsible collapsible--gwt required" data-collapsible="expandable">
+        <li class="slideDown-box group active">
+            <div class="collapsible-header active" onclick="var myclick=this.parentElement;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls; } var myclick=this;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls; }">
+                <a style="cursor: pointer;"><span>$$label:INVOICE_DETAILS$$</span></a>
+            </div>
+            <div class="collapsible-body">
+                <div class="grid-row">
+                    <div class="col-6">
+                        <!--<div class="form-group">-->
+                        <!--&lt;!&ndash;<div class="form-group__label">$$label:INVOICE_TYPE$$</div>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<div class="form-group__content">$$input:INVOICE_TYPE$$</div>&ndash;&gt;-->
+                        <!--</div>-->
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:PAYMENT_DUE$$</div>
+                            <div class="form-group__content">$$input:PAYMENT_DUE$$</div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:SQ_VALID$$</div>
+                            <div class="form-group__content">$$input:SQ_VALID$$</div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:PO_VALID$$</div>
+                            <div class="form-group__content">$$input:PO_VALID$$</div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:PDF_EXCEL_LOCALIZATION$$</div>
+                            <div class="form-group__content">$$input:PDF_EXCEL_LOCALIZATION$$</div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:DUE_DATE_OPTIONS$$</div>
+                            <div class="form-group__content">$$input:DUE_DATE_OPTIONS$$</div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:CONVERT_PURCHASE_INVOICE_DATE_TYPE$$</div>
+                            <div class="form-group__content">$$input:CONVERT_PURCHASE_INVOICE_DATE_TYPE$$</div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="grid-row margin-top">
+                            <div class="col-6 offset-4">$$label:PROGRESS_INVOICING$$</div>
+                            <div class="col-2">$$input:PROGRESS_INVOICING$$</div>
+                        </div>
+                        <div class="grid-row margin-top">
+                            <div class="col-6 offset-4">$$label:CONVERT_SQ_TO_SI$$</div>
+                            <div class="col-2">$$input:CONVERT_SQ_TO_SI$$</div>
+                        </div>
+                        <div class="grid-row margin-top">
+                            <div class="col-6 offset-4">$$label:PI_AND_CN_NUMBERING$$</div>
+                            <div class="col-2">$$input:PI_AND_CN_NUMBERING$$</div>
+                        </div>
+                        <div class="grid-row margin-top">
+                            <div class="col-6 offset-4">$$label:EXPAND_PRODUCT_GROUP$$</div>
+                            <div class="col-2">$$input:EXPAND_PRODUCT_GROUP$$</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+
+        <!--Bank account information-->
+        <li class="slideDown-box group">
+            <div class="collapsible-header" onclick="var myclick=this.parentElement;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls;} var myclick=this;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls; }">
+                <a style="cursor: pointer;"><span>$$label:BANK_ACCOUNT_INFORMATION$$</span></a>
+            </div>
+            <div class="collapsible-body">
+                <div class="grid-row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:ACCOUNTS$$</div>
+                            <div class="form-group__content">$$input:ACCOUNTS$$</div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:BANK_ACCOUNT$$</div>
+                            <div class="form-group__content">$$input:BANK_ACCOUNT$$</div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:DEFAULT_PAYMENT_ACCOUNT$$</div>
+                            <div class="form-group__content">$$input:DEFAULT_PAYMENT_ACCOUNT$$</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+
+        <!-- Pdf naming -->
+        <li class="slideDown-box group">
+            <div class="collapsible-header" onclick="var myclick=this.parentElement;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls;} var myclick=this;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls; }">
+                <a style="cursor: pointer;"><span>$$label:PDF_NAMING$$</span></a>
+            </div>
+            <div class="collapsible-body">
+                <div class="grid-row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:INVOICE_PDF_NAMING_TABLE$$</div>
+                            <div class="form-group__content">$$input:INVOICE_PDF_NAMING_TABLE$$</div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:SALES_RECEIPT_PDF_NAMING_TABLE$$</div>
+                            <div class="form-group__content">$$input:SALES_RECEIPT_PDF_NAMING_TABLE$$</div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:SALES_ORDER_PDF_NAMING_TABLE$$</div>
+                            <div class="form-group__content">$$input:SALES_ORDER_PDF_NAMING_TABLE$$</div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:PURCHASE_ORDER_PDF_NAMING_TABLE$$</div>
+                            <div class="form-group__content">$$input:PURCHASE_ORDER_PDF_NAMING_TABLE$$</div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:CUSTOMER_PDF_NAMING_TABLE$$</div>
+                            <div class="form-group__content">$$input:CUSTOMER_PDF_NAMING_TABLE$$</div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-group__label">$$label:SUPPLIER_PDF_NAMING_TABLE$$</div>
+                            <div class="form-group__content">$$input:SUPPLIER_PDF_NAMING_TABLE$$</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+
+        <li class="slideDown-box group">
+            <div class="collapsible-header" onclick="var myclick=this.parentElement;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls;} var myclick=this;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls; }">
+                <a style="cursor: pointer;"><span>$$label:INTRODUCTION$$</span></a>
+            </div>
+            <div class="collapsible-body">
+                <div class="column">
+                    <h5 class="custom-form-item__dt">$$label:SI_INTRODUCTION$$</h5>
+                    <div class="field">
+                        $$input:SI_INTRODUCTION$$
+                    </div>
+                </div>
+
+                <div class="column">
+                    <h5 class="custom-form-item__dt">$$label:SQ_INTRODUCTION$$</h5>
+                    <div class="field">
+                        $$input:SQ_INTRODUCTION$$
+                    </div>
+                </div>
+
+                <div class="column">
+                    <h5 class="custom-form-item__dt">$$label:SO_INTRODUCTION$$</h5>
+                    <div class="field">
+                        $$input:SO_INTRODUCTION$$
+                    </div>
+                </div>
+
+                <div class="column">
+                    <h5 class="custom-form-item__dt">$$label:RFQ_INTRODUCTION$$</h5>
+                    <div class="field">
+                        $$input:RFQ_INTRODUCTION$$
+                    </div>
+                </div>
+            </div>
+        </li>
+
+        <li class="slideDown-box group">
+            <div class="collapsible-header" onclick="var myclick=this.parentElement;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls;} var myclick=this;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls; }">
+                <a style="cursor: pointer;"><span>$$label:TERMS_PAYMENT_INTRODUCTION$$</span></a>
+            </div>
+            <div class="collapsible-body file--Invoice_settings">
+                <div class="column">
+                    <h5 class="custom-form-item__dt">$$label:SI_TERMS_INTRODUCTION$$</h5>
+                    <div class="field">
+                        $$input:SI_TERMS_INTRODUCTION$$
+                    </div>
+                </div>
+
+                <div class="column">
+                    <h5 class="custom-form-item__dt">$$label:SQ_TERMS_INTRODUCTION$$</h5>
+                    <div class="field">
+                        $$input:SQ_TERMS_INTRODUCTION$$
+                    </div>
+                </div>
+
+                <div class="column">
+                    <h5 class="custom-form-item__dt">$$label:SO_TERMS_INTRODUCTION$$</h5>
+                    <div class="field">
+                        $$input:SO_TERMS_INTRODUCTION$$
+                    </div>
+                </div>
+
+                <div class="column">
+                    <h5 class="custom-form-item__dt">$$label:PO_TERMS_INTRODUCTION$$</h5>
+                    <div class="field">
+                        $$input:PO_TERMS_INTRODUCTION$$
+                    </div>
+                </div>
+
+                <div class="column">
+                    <h5 class="custom-form-item__dt">$$label:PI_TERMS_INTRODUCTION$$</h5>
+                    <div class="field">
+                        $$input:PI_TERMS_INTRODUCTION$$
+                    </div>
+                </div>
+
+                <div class="column">
+                    <h5 class="custom-form-item__dt">$$label:RFQ_TERMS_INTRODUCTION$$</h5>
+                    <div class="field">
+                        $$input:RFQ_TERMS_INTRODUCTION$$
+                    </div>
+                </div>
+            </div>
+        </li>
+
+        <li class="slideDown-box group">
+            <div class="collapsible-header" onclick="var myclick=this.parentElement;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls;} var myclick=this;if(myclick &amp;&amp; myclick.className);{var cls=myclick.className;if(cls.indexOf('active')>=0){cls=cls.replace('active','');}else{cls+=' active';}myclick.className=cls; }">
+                <a style="cursor: pointer;"><span>$$label:COMPANY_LOGO$$</span></a>
+            </div>
+            <div class="collapsible-body">
+                <div class="one-column">
+                    <div class="column">
+                        <h5 class="custom-form-item__dt">$$label:COMPANY_LOGO$$</h5>
+                        <div class="field">
+                            $$input:COMPANY_LOGO$$
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>

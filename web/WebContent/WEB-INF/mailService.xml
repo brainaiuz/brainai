@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean name="prefMailerJob" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+        <property name="jobClass" value="com.edatasite.workforce.mail.PrefBaseJob"/>
+        <property name="durability" value="true"/>
+        <!--<property name="concurrent" value="false"/>-->
+    </bean>
+
+    <bean name="nonPrefMailerJob" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+        <property name="jobClass" value="com.edatasite.workforce.mail.NonPrefBaseJob"/>
+        <property name="durability" value="true"/>
+        <!--<property name="concurrent" value="false"/>-->
+    </bean>
+
+    <bean name="workflowMailerJob" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+        <property name="jobClass" value="com.edatasite.workforce.mail.WorkflowBaseJob"/>
+        <property name="durability" value="true"/>
+        <!--<property name="concurrent" value="false"/>-->
+    </bean>
+
+    <bean name="smsSenderJob" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+        <property name="jobClass" value="com.edatasite.workforce.mail.SmsSenderBaseJob"/>
+        <property name="durability" value="true"/>
+        <!--<property name="concurrent" value="false"/>-->
+    </bean>
+    <bean name="tcScheduledTaskJob" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+        <property name="jobClass" value="com.edatasite.workforce.mail.TcScheduledTaskBaseJob"/>
+        <property name="durability" value="true"/>
+        <!--<property name="concurrent" value="false"/>-->
+    </bean>
+
+    <bean name="baseMailer" abstract="true" class="com.edatasite.workforce.mail.BaseMailerService">
+        <property name="messageManager" ref="messageManager"/>
+        <property name="blackListManager" ref="blackListManager"/>
+    </bean>
+
+    <bean name="smsSender" class="com.edatasite.workforce.mail.SmsSenderService">
+    </bean>
+
+    <bean name="tcScheduledTasker" class="com.edatasite.workforce.mail.TCScheduledTaskerService">
+    </bean>
+
+    <bean name="prefMailer" class="com.edatasite.workforce.mail.PreferredMailerService" parent="baseMailer"/>
+
+    <bean name="nonPrefMailer" class="com.edatasite.workforce.mail.NonPreferredMailerService" parent="baseMailer"/>
+
+    <bean name="workflowMailer" class="com.edatasite.workforce.mail.WorkflowMailerService" parent="baseMailer"/>
+
+
+    <!-- Specifing the trigger to invoke the Job -->
+    <bean name="prefMailerTrigger" id="prefMailerTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerFactoryBean">
+        <property name="jobDetail" ref="prefMailerJob"/>
+        <property name="startDelay" value="30000"/>
+        <property name="repeatInterval" value="10000"/>
+    </bean>
+
+    <bean name="nonPrefMailerTrigger" id="nonPrefMailerTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerFactoryBean">
+        <property name="jobDetail" ref="nonPrefMailerJob"/>
+        <property name="startDelay" value="40000"/>
+        <property name="repeatInterval" value="10000"/>
+    </bean>
+
+    <bean name="workflowMailerTrigger" id="workflowMailerTrigger"
+          class="org.springframework.scheduling.quartz.SimpleTriggerFactoryBean">
+        <property name="jobDetail" ref="workflowMailerJob"/>
+        <property name="startDelay" value="40000"/>
+        <property name="repeatInterval" value="60000"/>
+    </bean>
+
+    <bean name="smsSenderTrigger" id="smsSenderTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerFactoryBean">
+        <property name="jobDetail" ref="smsSenderJob"/>
+        <property name="startDelay" value="40000"/>
+        <property name="repeatInterval" value="10000"/>
+    </bean>
+
+    <bean name="tcScheduledTaskTrigger" id="tcScheduledTaskTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerFactoryBean">
+        <property name="jobDetail" ref="tcScheduledTaskJob"/>
+        <property name="startDelay" value="40000"/>
+        <property name="repeatInterval" value="60000"/>
+    </bean>
+
+</beans>

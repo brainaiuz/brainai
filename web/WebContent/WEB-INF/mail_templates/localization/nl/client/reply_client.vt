@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head><body>
+Beste $CLIENTNAME,<br/>
+
+<p>
+U bent recentelijk toegevoegd aan $COMPANY&#180;s $productName klantenbestand en hiervoor is een account aangemaakt op $productName (<a href="$HOST">$HOST</a>).
+</br>Het is ons opgevallen dat u dit account nog niet geactiveerd heeft, indien u problemen of hinder ondervindt bij het activeren neem dan gerust contact met ons op.
+</p>
+
+<p>
+Om uw account te activeren kun u <a href="$HOST/auth/account?uid=$uid&cid=$companyid&sid=$serviceid">hier</a> klikken.
+U kunt binnen enkele minuten met $productName aan de slag.
+<br/>
+(of kopieer de volgende link naar uw web browser: $HOST/auth/account?uid=$uid&cid=$companyid&sid=$serviceid).
+</p>
+<p>
+
+</p>
+
+<p>Met vriendelijke groet,
+<br/>
+<br/>
+$productName support team
+</p>
+$companyInfo
+</body></html>

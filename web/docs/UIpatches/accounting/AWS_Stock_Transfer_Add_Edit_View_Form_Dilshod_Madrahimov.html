@@ -1,0 +1,58 @@
+<div>
+    <div class="contentBar tool-invoice c-block invoice-width">
+        <div class="contentScroll">
+            <table class="bindContent" cellpadding="0" cellspacing="0">
+                <tbody>
+                <tr>
+                    <td class="mainBar2">
+                        <div class="invoice-block">
+                            <div class="sect clear group" style="margin-bottom: 20px">
+                                <div class="invoice-title">
+                                    $$label:title$$
+                                </div>
+                            </div>
+                            <div class="sect group">
+                                <div class="lineItem">
+                                    $$label:name$$
+                                    $$input:name$$
+                                </div>
+                                <div class="lineItem">
+                                    $$label:date$$
+                                    $$input:date$$
+                                </div>
+                            </div>
+
+                            <div class="sect">
+                                $$input:itemtable$$
+                            </div>
+
+                            <div class="invoice-btns-row sect clear" style="text-align:center !important">
+                                <div class="invoice-btn-save">
+                                    $$input:saveButton$$
+                                </div>
+                                <div class="invoice-btn-approve">
+                                    $$input:closeButton$$
+                                </div>
+                                <div class="invoice-btn-pdf">
+                                    $$input:pdfVersionButton$$
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <!-- End  col -->
+                    <td class="sidebar">
+                        <div class="inv-OptBar">
+                            <div class="optBarBlock invoice-attachments">
+                                $$label:attachments$$
+                                $$input:attachments$$
+                                $$input:uploadbutton$$
+                            </div>
+
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

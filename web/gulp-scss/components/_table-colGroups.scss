@@ -1,0 +1,104 @@
+$groupBorderShift: $tableCellPadding-x;
+
+.table-groupCol {
+  width: auto;
+  table-layout: auto;
+  .pageContent_reporting .reporting-table-container .table-wrapper & {
+    margin-top: 14px;
+  }
+}
+
+
+.groupMarkRow {
+  > th {
+    background: #fff;
+    cursor: default !important;
+    border-bottom: 1px solid $body-bg;
+
+    &.groupCol:first-child:before {
+      left: $firstCellLeftPadding;
+    }
+  }
+
+  .groupCol {
+    position: relative;
+
+    //&:after,
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 2px;
+      left: $groupBorderShift;
+      right: $groupBorderShift;
+      border: 1px dashed $text-color-base;
+      border-bottom: 1px solid transparent;
+    }
+
+    &--start {
+      text-align: right;
+    }
+    &--end { //ToDo Check if it can be deleted
+      border-right: 1px dashed #1D252C;
+      &:after {
+        content:'';
+      }
+      .pageContent_reporting & {
+        border-left: 1px solid transparent !important;
+      }
+    }
+  }
+  &.collapsed {
+    .groupCol--start {
+      //border-right: 1px dashed #1D252C;
+    }
+  }
+
+  .plusMinus {
+    &:before,
+    &:after {
+      background-color: $text-muted;
+    }
+  }
+}
+.groupMarkRow__opt {
+  position: relative;
+  z-index: 1;
+  top: -15px;
+  margin-left: $groupBorderShift;
+  margin-right: $groupBorderShift;
+  width: auto !important;
+  max-width: none !important;
+  background: $color-base-1;
+  color: $text-muted;
+
+  .groupCol--start & {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    padding-left: 5px;
+    //left: 50%;
+    //transform: translateX(-50%);
+    background: #fff;
+
+    .plusMinus {
+      background-color: rgba(#000, .08);
+      margin: 0 5px !important;
+
+      &:hover {
+        background-color: rgba(#000, .2) !important;
+      }
+    }
+  }
+}
+
+.groupCol {
+  &:not(.groupCol--start) {
+    background-color: rgba(lightskyblue, 0.05);
+  }
+}
+
+.groupMarkRow.collapsed .groupCol:not(.groupCol--start),
+.groupCol--off {
+  display: none;
+}

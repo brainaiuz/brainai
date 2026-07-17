@@ -1,0 +1,86 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:m.html="urn:import:gwt.material.design.client.ui.html"
+             xmlns:f='urn:import:com.edatasite.workforce.gwt.core.client.ui.components.form'>
+
+    <g:HTMLPanel>
+        <div class="content-box content-box--white">
+            <div class="width-limiter">
+                <div class="">
+                    <div class="grid-row">
+                        <div class="col-6">
+                            <f:FormGroup ui:field="pnlCustomer"/>
+                            <f:FormGroup ui:field="amount"/>
+                        </div>
+                        <div class="col-6">
+                            <div class="grid-row">
+                                <div class="col-6">
+                                    <f:FormGroup ui:field="pnlFromDate"/>
+                                </div>
+                                <div class="col-6">
+                                    <f:FormGroup ui:field="pnlToDate"/>
+                                </div>
+                            </div>
+                            <f:FormGroup ui:field="pnlTaxRate"/>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <m.html:Div class="cellBasedWidget-mod" ui:field="pnlDataGrid"/>
+
+            <div class="devider-h"></div>
+
+            <div class="section-box__content">
+                <div class="group-box group-box--equal-hw">
+                    <m.html:Div class="group-box__title" ui:field="invoiceTypeLabel"/>
+                    <div class="group-box__items">
+                        <div class="group-box__item">
+                            <m.html:Div class="card-box" ui:field="wrapperDetailedInvoice">
+                                <m.html:Paragraph ui:field="pnlDetailedInvoice"/>
+                                <m.html:Paragraph class="card-box__description" ui:field="pnlDetailedInvoiceDesc"/>
+                            </m.html:Div>
+                        </div>
+                        <div class="group-box__item">
+                            <m.html:Div class="card-box card-box--dark" ui:field="wrapperGrouppedByAssignee">
+                                <m.html:Paragraph ui:field="pnlgroupByAssignees"/>
+                                <m.html:Paragraph class="card-box__description" ui:field="pnlGroupByAssigneesDesc"/>
+                            </m.html:Div>
+                        </div>
+                        <div class="group-box__item box-bg--2">
+                            <m.html:Div class="card-box card-box--dark" ui:field="wrapperGrouppedByTask">
+                                <m.html:Paragraph ui:field="pnlGroupedByTask"/>
+                                <m.html:Paragraph class="card-box__description" ui:field="pnlGroupedByTaskDesc"/>
+                            </m.html:Div>
+                        </div>
+                        <div class="group-box__item box-bg--2">
+                            <m.html:Div class="card-box card-box--dark" ui:field="wrapperGrouppedByProject">
+                                <m.html:Paragraph ui:field="pnlGroupedByProject"/>
+                                <m.html:Paragraph class="card-box__description" ui:field="pnlGroupedByProjectDesc"/>
+                            </m.html:Div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="section-box box-bg--1">
+                <div class="section-box__content">
+
+                    <div class="group-box group-box--width-free group-box--gap-large">
+                        <m.html:Div class="group-box__title" ui:field="fieldsToNameLabel"/>
+                        <m.html:Div class="group-box__items" ui:field="pnlFieldsToNameContainer"/>
+                    </div>
+
+                    <div class="group-box group-box--width-free group-box--gap-large">
+                        <m.html:Div class="group-box__title" ui:field="fieldsToDescLabel"/>
+                        <m.html:Div class="group-box__items" ui:field="pnlFieldsToDescContainer"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </g:HTMLPanel>
+</ui:UiBinder>

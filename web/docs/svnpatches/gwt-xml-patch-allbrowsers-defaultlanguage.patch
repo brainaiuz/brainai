@@ -1,0 +1,209 @@
+Index: src/com/edatasite/workforce/gwt/account/Account.gwt.xml
+===================================================================
+--- src/com/edatasite/workforce/gwt/account/Account.gwt.xml	(revision 4948)
++++ src/com/edatasite/workforce/gwt/account/Account.gwt.xml	(working copy)
+@@ -3,7 +3,7 @@
+ 	<entry-point
+ 		class='com.edatasite.workforce.gwt.account.client.Account' />
+ 
+-	<set-property name="user.agent" value="ie6"/>
++	<!--<set-property name="user.agent" value="ie6"/>-->
+     <!--<set-property name="user.agent" value="gecko"/>-->
+     <!--<set-property name="user.agent" value="gecko1_8"/>-->
+     <set-property name="locale" value="default"/>
+Index: src/com/edatasite/workforce/gwt/assessment/Assessment.gwt.xml
+===================================================================
+--- src/com/edatasite/workforce/gwt/assessment/Assessment.gwt.xml	(revision 4948)
++++ src/com/edatasite/workforce/gwt/assessment/Assessment.gwt.xml	(working copy)
+@@ -3,7 +3,7 @@
+      <entry-point
+ 		class='com.edatasite.workforce.gwt.assessment.client.Assessment' />
+     
+-	<set-property name="user.agent" value="ie6"/>
++	<!--<set-property name="user.agent" value="ie6"/>-->
+     <!--<set-property name="user.agent" value="gecko"/>-->
+     <!--<set-property name="user.agent" value="gecko1_8"/>-->
+     <set-property name="locale" value="default"/>
+Index: src/com/edatasite/workforce/gwt/assessment/AssessmentMain.gwt.xml
+===================================================================
+--- src/com/edatasite/workforce/gwt/assessment/AssessmentMain.gwt.xml	(revision 4948)
++++ src/com/edatasite/workforce/gwt/assessment/AssessmentMain.gwt.xml	(working copy)
+@@ -4,7 +4,7 @@
+     <inherits name='com.edatasite.workforce.gwt.employee.Employee' />
+         
+  	<stylesheet src="Assessment.css" />
+-    <set-property name="user.agent" value="ie6"/>
+-    <set-property name="user.agent" value="gecko1_8"/>
++    <!--<set-property name="user.agent" value="ie6"/>-->
++    <!--<set-property name="user.agent" value="gecko1_8"/>-->
+     <set-property name="locale" value="default"/>
+ </module>
+Index: src/com/edatasite/workforce/gwt/availability/Availability.gwt.xml
+===================================================================
+--- src/com/edatasite/workforce/gwt/availability/Availability.gwt.xml	(revision 4948)
++++ src/com/edatasite/workforce/gwt/availability/Availability.gwt.xml	(working copy)
+@@ -5,7 +5,7 @@
+             class='com.edatasite.workforce.gwt.availability.client.Availability'/>
+     <stylesheet src="Availability.css"/>
+     
+-	<set-property name="user.agent" value="ie6"/>
++	<!--<set-property name="user.agent" value="ie6"/>-->
+     <!--<set-property name="user.agent" value="gecko"/>-->
+     <!--<set-property name="user.agent" value="gecko1_8"/>-->
+     <set-property name="locale" value="default"/>
+Index: src/com/edatasite/workforce/gwt/dashboard/Dashboard.gwt.xml
+===================================================================
+--- src/com/edatasite/workforce/gwt/dashboard/Dashboard.gwt.xml	(revision 4948)
++++ src/com/edatasite/workforce/gwt/dashboard/Dashboard.gwt.xml	(working copy)
+@@ -3,7 +3,7 @@
+     <entry-point
+             class='com.edatasite.workforce.gwt.dashboard.client.Dashboard'/>
+ 
+-	<set-property name="user.agent" value="ie6"/>
++	<!--<set-property name="user.agent" value="ie6"/>-->
+     <!--<set-property name="user.agent" value="gecko"/>-->
+     <!--<set-property name="user.agent" value="gecko1_8"/>-->
+     <set-property name="locale" value="default"/>
+Index: src/com/edatasite/workforce/gwt/expenses/Expenses.gwt.xml
+===================================================================
+--- src/com/edatasite/workforce/gwt/expenses/Expenses.gwt.xml	(revision 4948)
++++ src/com/edatasite/workforce/gwt/expenses/Expenses.gwt.xml	(working copy)
+@@ -10,7 +10,7 @@
+     <entry-point
+ 		class='com.edatasite.workforce.gwt.expenses.client.Expenses' />
+     
+-	<set-property name="user.agent" value="ie6"/>
++	<!--<set-property name="user.agent" value="ie6"/>-->
+     <!--<set-property name="user.agent" value="gecko"/>-->
+     <!--<set-property name="user.agent" value="gecko1_8"/>-->
+     <set-property name="locale" value="default"/>
+Index: src/com/edatasite/workforce/gwt/gettingstarted/GettingStarted.gwt.xml
+===================================================================
+--- src/com/edatasite/workforce/gwt/gettingstarted/GettingStarted.gwt.xml	(revision 4948)
++++ src/com/edatasite/workforce/gwt/gettingstarted/GettingStarted.gwt.xml	(working copy)
+@@ -5,7 +5,7 @@
+ 	<entry-point class='com.edatasite.workforce.gwt.gettingstarted.client.GettingStarted' />
+ 	<stylesheet src="Main.css" />
+ 	
+-	<set-property name="user.agent" value="ie6"/>
++	<!--<set-property name="user.agent" value="ie6"/>-->
+     <!--<set-property name="user.agent" value="gecko"/>-->
+     <!--<set-property name="user.agent" value="gecko1_8"/>-->
+     <set-property name="locale" value="default"/>
+Index: src/com/edatasite/workforce/gwt/googlecalendar/GoogleCalendar.gwt.xml
+===================================================================
+--- src/com/edatasite/workforce/gwt/googlecalendar/GoogleCalendar.gwt.xml	(revision 4948)
++++ src/com/edatasite/workforce/gwt/googlecalendar/GoogleCalendar.gwt.xml	(working copy)
+@@ -3,7 +3,7 @@
+     <entry-point class='com.edatasite.workforce.gwt.googlecalendar.client.GoogleCalendar'/>
+     <!--<inherits name='eu.future.earth.gwt.FtrGwtDate'/>-->
+ 
+-	<set-property name="user.agent" value="ie6"/>
++	<!--<set-property name="user.agent" value="ie6"/>-->
+     <!--<set-property name="user.agent" value="gecko"/>-->
+     <!--<set-property name="user.agent" value="gecko1_8"/>-->
+     <set-property name="locale" value="default"/>
+Index: src/com/edatasite/workforce/gwt/googlecontacts/GoogleContacts.gwt.xml
+===================================================================
+--- src/com/edatasite/workforce/gwt/googlecontacts/GoogleContacts.gwt.xml	(revision 4948)
++++ src/com/edatasite/workforce/gwt/googlecontacts/GoogleContacts.gwt.xml	(working copy)
+@@ -3,7 +3,7 @@
+     <entry-point class='com.edatasite.workforce.gwt.googlecontacts.client.GoogleContacts'/>
+     <stylesheet src='GoogleContacts.css' />
+ 
+-	<set-property name="user.agent" value="ie6"/>
++	<!--<set-property name="user.agent" value="ie6"/>-->
+     <!--<set-property name="user.agent" value="gecko"/>-->
+     <!--<set-property name="user.agent" value="gecko1_8"/>-->
+     <set-property name="locale" value="default"/>
+Index: src/com/edatasite/workforce/gwt/googledocuments/GoogleDocuments.gwt.xml
+===================================================================
+--- src/com/edatasite/workforce/gwt/googledocuments/GoogleDocuments.gwt.xml	(revision 4948)
++++ src/com/edatasite/workforce/gwt/googledocuments/GoogleDocuments.gwt.xml	(working copy)
+@@ -3,7 +3,7 @@
+     <entry-point class='com.edatasite.workforce.gwt.googledocuments.client.GoogleDocuments'/>
+     <stylesheet src='GoogleDocuments.css' />
+ 
+-	<set-property name="user.agent" value="ie6"/>
++	<!--<set-property name="user.agent" value="ie6"/>-->
+     <!--<set-property name="user.agent" value="gecko"/>-->
+     <!--<set-property name="user.agent" value="gecko1_8"/>-->
+     <set-property name="locale" value="default"/>
+Index: src/com/edatasite/workforce/gwt/invoice/Invoice.gwt.xml
+===================================================================
+--- src/com/edatasite/workforce/gwt/invoice/Invoice.gwt.xml	(revision 4948)
++++ src/com/edatasite/workforce/gwt/invoice/Invoice.gwt.xml	(working copy)
+@@ -4,7 +4,7 @@
+     <entry-point class='com.edatasite.workforce.gwt.invoice.client.Invoice'/>
+     <stylesheet src="Invoice.css"/>
+     
+-    <set-property name="user.agent" value="ie6"/>
++    <!--<set-property name="user.agent" value="ie6"/>-->
+     <!--<set-property name="user.agent" value="gecko1_8"/>-->
+     <set-property name="locale" value="default"/>
+ 
+Index: src/com/edatasite/workforce/gwt/oneoffassessment/OneOffAssessment.gwt.xml
+===================================================================
+--- src/com/edatasite/workforce/gwt/oneoffassessment/OneOffAssessment.gwt.xml	(revision 4948)
++++ src/com/edatasite/workforce/gwt/oneoffassessment/OneOffAssessment.gwt.xml	(working copy)
+@@ -6,7 +6,7 @@
+ 		class='com.edatasite.workforce.gwt.oneoffassessment.client.OneOffAssessment' />
+ 	<!--<stylesheet src="Assessment.css" />-->
+ 
+-	<set-property name="user.agent" value="ie6"/>
++	<!--<set-property name="user.agent" value="ie6"/>-->
+     <!--<set-property name="user.agent" value="gecko"/>-->
+     <!--<set-property name="user.agent" value="gecko1_8"/>-->
+     <set-property name="locale" value="default"/>
+Index: src/com/edatasite/workforce/gwt/payroll/Payroll.gwt.xml
+===================================================================
+--- src/com/edatasite/workforce/gwt/payroll/Payroll.gwt.xml	(revision 4948)
++++ src/com/edatasite/workforce/gwt/payroll/Payroll.gwt.xml	(working copy)
+@@ -7,7 +7,7 @@
+     <entry-point
+ 		class='com.edatasite.workforce.gwt.payroll.client.Payroll' />
+     
+-	<set-property name="user.agent" value="ie6"/>
++	<!--<set-property name="user.agent" value="ie6"/>-->
+     <!--<set-property name="user.agent" value="gecko"/>-->
+     <!--<set-property name="user.agent" value="gecko1_8"/>-->
+     <set-property name="locale" value="default"/>
+Index: src/com/edatasite/workforce/gwt/pm/PM.gwt.xml
+===================================================================
+--- src/com/edatasite/workforce/gwt/pm/PM.gwt.xml	(revision 4948)
++++ src/com/edatasite/workforce/gwt/pm/PM.gwt.xml	(working copy)
+@@ -22,7 +22,7 @@
+     <stylesheet src='Core.css'/>
+     <stylesheet src='PM.css'/>
+ 
+-	<set-property name="user.agent" value="ie6"/>
++	<!--<set-property name="user.agent" value="ie6"/>-->
+     <!--<set-property name="user.agent" value="gecko"/>-->
+     <!--<set-property name="user.agent" value="gecko1_8"/>-->
+     <set-property name="locale" value="default"/>
+Index: src/com/edatasite/workforce/gwt/profile/Profile.gwt.xml
+===================================================================
+--- src/com/edatasite/workforce/gwt/profile/Profile.gwt.xml	(revision 4948)
++++ src/com/edatasite/workforce/gwt/profile/Profile.gwt.xml	(working copy)
+@@ -5,7 +5,7 @@
+     <inherits name='com.edatasite.workforce.gwt.invoice.Invoice'/>
+     <entry-point class='com.edatasite.workforce.gwt.profile.client.Profile'/>
+ 
+-	<set-property name="user.agent" value="ie6"/>
++	<!--<set-property name="user.agent" value="ie6"/>-->
+     <!--<set-property name="user.agent" value="gecko"/>-->
+     <!--<set-property name="user.agent" value="gecko1_8"/>-->
+     <set-property name="locale" value="default"/>
+Index: src/com/edatasite/workforce/gwt/signup/SignUp.gwt.xml
+===================================================================
+--- src/com/edatasite/workforce/gwt/signup/SignUp.gwt.xml	(revision 4948)
++++ src/com/edatasite/workforce/gwt/signup/SignUp.gwt.xml	(working copy)
+@@ -4,7 +4,7 @@
+     <entry-point
+             class='com.edatasite.workforce.gwt.signup.client.SignUp'/>
+ 
+-	<set-property name="user.agent" value="ie6"/>
++	<!--<set-property name="user.agent" value="ie6"/>-->
+     <!--<set-property name="user.agent" value="gecko"/>-->
+     <!--<set-property name="user.agent" value="gecko1_8"/>-->
+     <set-property name="locale" value="default"/>

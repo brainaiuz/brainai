@@ -1,0 +1,493 @@
+$rem-baseline: 12px; //override non project web/node_modules/sass-rem/_rem.scss
+
+//COLORS
+//base colors
+$white: #fff;
+$gray: #eceff3;
+$gray-light: #f5f7f9;
+$gray-lighter: #fbfbfc; //frame__nav
+$gray-middle: #ced5db;
+$gray-dark: #8d9ba8;
+$gray-new: #eceff4;
+$gray-new-light: #e8e8e8; //group-box border //kanban widget border
+$gray-darkest: #536677;
+$gray-middle-2: #C4D0DA;
+$gray-mutted: #aaa;
+//$refferColor: #556575;
+$black-base:  #1D252C;  // #1D252C used for panels "notifications"
+$black-light: #2D3A45; // base text-color
+$frameModulesBg: #354049;
+
+$blue: #1071e3;
+$green: #2bbf57;
+$blue-light: #06658a;
+$gray-folder:#8f9ba6;
+$orange:#fba800;
+
+$warning-color: $orange;
+$danger-color: #de2f2f;
+$error-color: $danger-color;
+$success-color: $green;
+$alert-clor: #ce6060;
+$matched-color: #D8FFE8;
+$success2-color:#85ca40;
+$gray-border: #dbdbdb;
+
+//modules colors
+$color-added: $success-color;
+$color-accounts: #5003b0;
+$color-humans: #0270F1;
+$color-sales: $success-color;
+$color-projects: #ed6f01;
+$color-payroll: #0da88c;
+$color-reports: #da4443;
+$color-docs: #03a7ea;
+$color-dashboard: #0413A8;
+$color-setup-reporting: #ff5a93;
+
+$color-cat--heigh: $warning-color;
+$color-edited: $warning-color;
+$color-approved: $blue;
+$color-deleted: $error-color;
+$color-expired: $error-color;
+$color-wg-dim: $gray-border;
+
+//$color-leave: #c3d9ff;
+//$color-leave: #99beff;
+$color-leave:#6aa0ff;
+$color-currentDay: #dceafb;
+
+//COLOR SCHEME
+$color-base-contrast: $gray-light !default; //user-menu, header
+$color-base-0: $gray !default; //body bg #ECEFF3
+$color-base-0-contrast: darken(desaturate(adjust-hue($color-base-0, 4), 0.13), 3.53) !default; //wodget row hover
+$color-base-1: $gray-middle !default; //btn--default, #CED5DB
+$color-base-2: $gray-dark !default; //active tabs, some icons #8D9BA8
+$bg-sideNav: #e5e8ee;
+
+$color-accent-1: $blue !default; //active buttons "save"
+$color-accent-2: $gray-darkest !default; // text color and accents -> tabs labels
+
+//base els colors
+$body-bg: $gray !default;
+$text-color-base: $black-base !default;
+$text-color-light: $color-base-2 !default;
+$text-muted: $gray-mutted;
+$link-color: $blue  !default;
+//$link-hover-color: darken($link-color, 10%) !default;
+$link-hover-color: $blue !default;
+
+$tooltip-bg: $black-base !default;
+$tooltip-contour: $black-base !default;
+
+$tableDelimiter: #dbe3ea;
+
+// Backdrop defaults
+$backdrop-color-default: $gray-dark; // #8d9ba8
+$backdrop-opacity-default: 0.5;
+$backdrop-transition-default: opacity .3s ease-in-out;
+
+
+//MARGINS
+//spacing PLAASE - U CAN USE BOOTSTRAP SPACING UTILITIES https://getbootstrap.com/docs/4.0/utilities/spacing/
+$m-base: rem(20px);
+$m-md: rem(20px);
+$m-sm: rem(10px);
+$m-lg: rem(30px);
+
+
+//COMMON LAYOUT sizes VARIABLES
+$padding-x-base: rem(20px) !default; //20px
+$padding-x-half: $padding-x-base / 2; //$gridGutterSingle
+$padding-y-base: rem(15px) !default; //15px
+$padding-x-big: rem(30px) !default; //30px
+$sidenavPadding-x: rem(25px); //25px
+$sidenavPadding-y: $padding-x-big; //30px
+$frameContentPadding: $padding-x-base;
+$tabsPadding-x: $frameContentPadding;
+$contentAboveSpace: $frameContentPadding;
+$fixedPanelPadding: $padding-y-base;
+$customFormTopPadding: rem(20px);
+//the gap between the horizontal row of elements
+$btnsRowGap: $padding-x-half;
+
+$radius-base: 3px !default;
+$radius-basePlus: 5px !default;
+$radius-big: 10px !default;
+$modalRadius: $radius-big;
+
+$frameNavBg: #fff;
+$frameNavSize: rem(217px);
+$frameModulesSize: rem(85px);
+$frameModulesSizeOpen: rem(85px);
+$frameModulesFooter: 70px;
+
+$frameHelpPos-right: ($frameContentPadding - rem(10px));
+$frameHelpPos-bottom: ($frameContentPadding - rem(10px));
+
+$operPanelElsMargin-x: 15px;
+
+//Layout PANELS SIZES - SEE BELOW!
+$scrollSize: 6px;
+
+//FONTS
+$baseFontSize: $rem-baseline;
+$roboto-font-path: "../fonts/roboto/" !default;
+$fonticons-font-path: "../fonts/font-icons/" !default;
+
+$baseFontFamily: "Roboto", sans-serif;
+
+//SIDENAV
+$sidenav-padding-right: 15px !default; // used for sideNav.fixed
+$sidenav-item-height: auto !default;
+$sidenav-bg-color: $bg-sideNav !default;
+
+
+//GENERIC CONTROLS (input..)
+$formGroupMargin: 1.8rem;
+
+$color-form-control: $text-color-base !default;
+
+$input-focus-color: $color-accent-2 !default;
+//$input-bg-color: #fff !default;
+$input-error-color: $error-color !default;
+$input-success-color: $success-color !default;
+$input-disabled-color: lighten($color-form-control, 45%);
+$input-disabled-bg: $color-base-contrast !default;
+
+$control-padding-x: .769230rem !default;
+$control-text-color: $text-color-base !default;
+$control-border-width: rem(1px);
+$control-border-color: $gray-middle-2 !default;
+$control-border-color-hover: $color-accent-2 !default;
+$control-border-radius: $radius-base;
+$control-font-size: 1rem;
+$contol-placeholder-color: $color-base-2;
+$input-btn-line-height: 1.64;
+$filter-border-color: $control-border-color; //reporting filters
+$control-caret-color: $gray-dark;
+
+$hero-input-bg: #F7F9FA;
+
+$input-group-addon-color: $color-form-control !default;
+$input-group-addon-bg: $gray-light !default;
+$input-group-addon-border-color: $control-border-color !default;
+
+$checkbox-size: rem(12px);
+$checkbox-size-lg: rem(18px);
+$todo-checkbox-size: $checkbox-size-lg;
+$radioPoint: ($checkbox-size / 3);
+$radioPoint-lg: ($checkbox-size-lg / 3);
+
+$checkbox-indicator-color: #000; //#a7a7a7
+$checkbox-border-color: darken( desaturate( adjust-hue( $color-base-0, -214deg ), 23 ), 29 ); //#a7a7a7
+$checkbox-bg-active: #fdd850;
+$checkbox-bg-active-disabled: #e0c45b;
+$checkbox-bg-disabled: #e6e6e6;
+$checkbox-bg-darken: #ecad3b;
+$checkbox-bg-table: #deb316;
+
+//$drag-edit-coolor: #e5c600;
+$drag-edit-coolor: $checkbox-bg-active;
+
+
+
+/// BUTTONS SIZES
+$btn-border-width: $control-border-width; //1px
+$button-height: 2.5rem !default; //30px (12px - denominator) get rid of this variable because it is not used in .btn selector
+//$button-line-height: ($button-height - ($btn-border-width * 2)) !default; //border-width
+$button-padding-y: .375rem !default;
+$button-padding-x: 1.333rem !default;
+$button-font-size-shared: 1.3rem !default;
+$button-small-icon-font-size: 1.1rem !default;
+$button-large-icon-font-size: 1.6rem !default;
+
+$input-height: $button-height !default;
+$input-height-inner: ($control-font-size * $input-btn-line-height) + ($button-padding-y * 2) !default;
+//$input-height: ($input-height-inner + 0.166666rem) !default; //2.61667rem
+$control-height-noBorder: $button-height - $control-border-width * 2;
+
+//$button-height-small: 40px;
+//$button-line-height-small: $button-height-small;
+
+$button-height-small: rem(25px) !default;
+$button-line-height-small: $button-height-small !default;
+$button-font-size-small: 1rem !default;
+
+$button-height-medium: 2.9166rem !default; //35px
+$button-line-height-medium: $button-height-medium !default;
+$button-font-size-medium: 1.1rem !default;
+
+$button-height-large: 3.846153rem !default; //46px
+$button-line-height-large: $button-height-large !default;
+$button-font-size-large: 1.3rem !default;
+
+
+
+/// BUTTONS COLORS
+$button-color-primary: $color-accent-1 !default; //#007de7
+$button-color-primary-hover:  darken($button-color-primary  , 10) !default;
+$button-border-color-primary: $button-color-primary !default;
+
+$button-color-success: $success-color !default; //#73CF19
+$button-color-success-hover: darken($button-color-success, 10) !default;
+$button-border-color-success: $button-color-success !default;
+
+$button-color-danger: $danger-color !default; //#73CF19
+$button-color-danger-hover: darken($danger-color, 10%) !default;
+$button-border-color-danger: $button-color-danger !default;
+
+
+$button-color-trial: #faf2e2 !default;
+$button-border-color-trial: #ece0c7 !default;
+$button-text-color-trial: #C0850C !default;
+
+//$button-color-feedback: #e3ecf9 !default;
+//$button-border-color-feedback: #bfd6f5 !default;
+//$button-text-color-feedback: #0F71E3 !default;
+
+$button-color-new: #e5f4eb !default;
+$button-border-color-new: #c1e6cd !default;
+$button-text-color-new: $success-color !default;
+//$button-text-color-chat: #1F9241 !default;
+
+$button-color-remove: $color-deleted !default;
+$button-color-remove-hover: darken($color-deleted, 10) !default;
+$button-border-remove: $button-color-remove !default;
+
+$button-text-color-remove-light: $color-deleted !default;
+$button-color-remove-light: rgba($button-text-color-remove-light, .10) !default;
+$button-border-color-remove-light: rgba($button-text-color-remove-light, .25) !default;
+
+$button-color-secondary: $color-accent-2 !default; //#536677
+$button-color-secondary-hover: #4c5d6d !default;
+$button-border-color-secondary: $button-color-secondary !default;
+
+$button-color-lightgrey: $color-base-contrast !default; //#f6f7f9
+$button-color-lightgrey-hover: #eceef2 !default;
+$button-border-lightgrey: $button-color-lightgrey !default;
+
+$button-color-darkgrey: $color-base-2; //#8d9ba8
+$button-color-darkgrey-hover: darken( desaturate( adjust-hue( $button-color-darkgrey, -4deg ), 5.67), 3.53);
+$button-border-darkgrey: $button-color-darkgrey;
+
+//$button-color-default: $gray-light !default;
+//$button-border-color-default: $color-base-1 !default;
+//$button-border-color-default-hover: $color-base-2 !default;
+
+$button-color-default: $button-color-darkgrey !default;
+$button-text-color-default: #fff !default;
+$button-border-color-default: $button-border-darkgrey !default;
+$button-border-color-default-hover: $button-color-darkgrey-hover !default;
+
+$button-border-color: transparent !default;
+$button-color-disabled: #9F9F9F !default;
+
+$button-bg-color-disabled: #DFDFDF !default;
+$button-border-color-disabled: darken($button-bg-color-disabled, 2%) !default;
+$button-text-color: $color-form-control !default;
+//$button-text-color-hover: $button-text-color !default;
+$button-text-color-hover: currentColor !default;
+
+
+//DRAG TILES
+$quickAdd-tile-height: 40px;
+$dragTileHeight: $button-height-medium;
+$dragTileGripWIdth: $dragTileHeight;
+$customFormAsideWIdth: rem(340px);
+$radius-tile: $radius-base;
+$bg-tile: rgba(255, 255, 255, .6);
+
+/// DROPDOWN
+$dropdown-bg-color: #fff !default; //=@mixin dropdown-content-style
+$dropdown-hover-bg-color: rgba(236, 239, 243, 0.22) !default;
+$dropdown-hover-bg-color--primary: darken($color-accent-1, 4%) !default;
+$dropdown-item-height: 2.5rem !default; //30px
+$dropdown-line-height: 1.4 !default; //40px
+$dropdown-content-padding-x: 1.230769rem !default; //16px
+$dropdown-content-padding-y: 0.6923rem !default; //9px
+$dropdown-border-color: darken($color-base-0, 7%) !default;
+$dropdown-caret-width: rem(30px);
+
+//Dropdown triangle sign
+$triangleSize: 13px;
+$triangleSizeInner: $triangleSize;
+$triangleSpaceBetween: 2px;
+$triangleSpace: $triangleSize + $triangleSpaceBetween;
+$trianglePosLeft: $triangleSpace;
+$triangleShift: $triangleSize - $triangleSpaceBetween;
+
+/// COLLAPSIBLE
+$collapsible-height: 0 !default;
+$collapsible-header-color: transparent !default;
+$collapsible-border-color: $color-base-1 !default;
+
+
+// Switches
+$switch-bg-color: $color-base-2;
+$switch-checked-lever-bg: $success-color;
+$switch-unchecked-bg: #fff;
+$switch-unchecked-lever-bg: $color-base-1;
+
+
+/// TABS
+$tabs-text-color: $color-accent-2 !default;
+
+
+/// GLOBAL
+// Media Query Ranges
+$small-screen-up: 601px !default;
+$medium-screen-up: 993px !default;
+$large-screen-up: 1281px !default;
+$small-screen: 600px !default;
+$medium-screen: 992px !default;
+$large-screen: 1280px !default;
+$largePlus-screen: 1440px !default;
+
+$medium-and-up: "only screen and (min-width : #{$medium-screen-up})" !default;
+$large-and-up: "only screen and (min-width : #{$large-screen-up})" !default;
+$small-and-down: "only screen and (max-width : #{$small-screen})" !default;
+$medium-and-down: "only screen and (max-width : #{$medium-screen})" !default;
+$large-and-down: "only screen and (max-width : #{$large-screen})" !default;
+$largePlus-and-down: "only screen and (max-width : #{$largePlus-screen})" !default;
+$medium-only: "only screen and (min-width : #{$small-screen-up}) and (max-width : #{$medium-screen})" !default;
+
+
+// Grid Variables
+//$num-cols: 12 !default;
+$gutter-width: 1.5rem !default; //used for collapsible margins
+$element-top-margin: $gutter-width/3 !default;
+$element-bottom-margin: ($gutter-width*2)/3 !default;
+
+
+/// TOASTS
+$toast-height: 48px !default;
+$toast-color: #323232 !default;
+$toast-text-color: #fff !default;
+
+
+/// TYPOGRAPHY
+$off-black: rgba(0, 0, 0, 0.87) !default;
+// Header Styles
+$h1-fontsize: 4.2rem !default;
+$h2-fontsize: 3.56rem !default;
+$h3-fontsize: 2.92rem !default;
+$h4-fontsize: 2.28rem !default;
+$h5-fontsize: 1.64rem !default;
+$h6-fontsize: 1rem !default;
+
+// New ui 2 font sizes
+
+$fontsize-1: 1.083rem !default;  // 13px
+$fontsize-2: 1.25rem !default;   // 15px
+$fontsize-3: 1.4166rem !default; // 17px
+$fontsize-4: 1.4833rem !default; // 18px
+$fontsize-5: 1.6667rem !default; // 20px
+
+$fontsizes: (
+        1: 1.083rem,
+        2: 1.25rem,
+        3: 1.4166rem,
+        4: 1.4833rem
+) !default;
+
+
+// Flowtext
+//$range : $large-screen - $small-screen !default; // Need for flow-text
+//$intervals: 20 !default;
+//$interval-size: $range / $intervals !default;
+
+
+// Quickly modify global styling by enabling or disabling optional features.
+$enable-rounded:  true !default;
+
+$bigPanelBoxShadow: 5px 8px 10px 0px rgba(213, 213, 213, 0.431373); // settings > approval process
+$popupBoxShadow: 0 5px 11px 0 rgba(0, 0, 0, 0.05), 0 4px 15px 0 rgba(0, 0, 0, 0.03);
+$gwtPopupPanel-padding: $padding-y-base;
+//PANELS MIXINS
+$leftBar-transition: .15s ease-in-out;
+@mixin pageOpersPanel ($pt: $fixedPanelPadding, $pb: $fixedPanelPadding, $pl:$padding-x-base,$mah:$pageOpersHeight) {
+  top: ($frameHeaderSize);
+  padding-left: $pl;
+  padding-top: $pt;
+  padding-bottom: $pb;
+  max-height: $mah;
+  background: #fff;
+}
+
+//PANELS SIZES
+$panel-padding: rem($padding-x-base * 1.25);
+$panel-padding-sm: rem($padding-x-base * .75);
+
+$frameHeaderSize: rem(40px);
+$userProfileItemHeight: rem(45px);
+$frameInfoSize: rem(60px);
+$titleBarSize: $frameHeaderSize;
+$contentHeight: ($frameHeaderSize + $frameContentPadding);
+$oneRowPanelHeight: ($input-height + ($fixedPanelPadding * 2)); //5rem = 60px
+$pageOpersHeight: $oneRowPanelHeight;
+$reportingFiltersSpace: $pageOpersHeight + $frameHeaderSize;
+
+$spaceHolder-operPanel: ($frameHeaderSize + $oneRowPanelHeight);  //openPanel paddings + controls height
+
+
+//TABLE SIZES
+//$theadHeight: 56px; // there are files which override so I make rules match https://i.imgur.com/cGHaQwY.png
+$theadHeight: 32px;
+$tableCellHeight: $button-height;
+$tableCellPadding-y: 2px;
+$tableCellPadding-x: 8px;
+$tableCellPadding-x--sm: $tableCellPadding-x / 2;
+$theadBaseFontSize: 9px;
+$theadBaseFontSize-sm: $theadBaseFontSize * .9;
+$timesheetAbsPosition: $frameInfoSize; // 60px
+$theadBg: $gray-light;
+$theadShadow: 0 1px 2px 0 $tableDelimiter;
+$theadShadowPseudoEl: 0 2px 2px 0 $tableDelimiter;
+$theadShadowInset: inset -1px 1px 2px 0 $tableDelimiter;
+//$theadShadowInset--open: inset 0 -3px 0 0px #fff, inset 0 2px 5px 0 $tableDelimiter;
+//$theadShadowInset--closed: inset 0 -3px 0 0px #f6f7f9, inset 0 2px 5px 0 $tableDelimiter;
+$firstCellLeftPadding: 29px;
+//.table_tree
+$treeIndent-1: rem(50px);
+$treeIndent-2: rem(64px);
+$treeIndendQuotient: ($treeIndent-2 - $treeIndent-1);
+$treeThikRow: ($tableCellHeight * 1.3);
+$treegrossRow: ($treeThikRow * 1.25);
+$plusMinusSize: ($tableCellHeight *.4);
+$plusMinusSizeSecont: ($plusMinusSize *.8);
+
+// REPORTING
+$item-active-border: darken($color-base-0, 10%); //reporting-create chart-view
+
+/* Progress Bar */
+$progress-bar-color: $color-accent-2 !default;
+
+//TABLES COLORS
+$selectedRowColor: #fef5d4;
+$highlightedRowColor: $color-base-contrast;
+
+//Widgets Sizes
+$widgetTitleFontSize: rem(13px);
+
+
+//PANEL BLOCK
+$panelBorderColor: $gray-middle-2;
+
+
+//MAIN DIRECTORIES MENU
+$main-dir-padding: rem(20px);
+$main-dir-item-padding: rem(6px);
+$main-dir-item-margin: rem(4px);
+$main-dir-btn-offset-right: rem(3px);
+
+
+$featuresListMainPadding: 30px;
+
+//WIDGETs VARS
+//$widget-heading-height: rem(61px);
+$widget-heading-height: rem(51px);
+
+//VARIABLES THAT DEPEND FROM OTHER LIB
+@import "../components/grid/grid"; //bootstrap-4 grid system
+$gridGutterSingle: ($grid-gutter-width / 2);

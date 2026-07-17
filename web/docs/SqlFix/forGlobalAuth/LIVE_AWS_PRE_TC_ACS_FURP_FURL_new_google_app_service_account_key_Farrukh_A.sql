@@ -1,0 +1,2 @@
+update hostbasedsetting set "marketplaceServiceAccount"='All:marketplace-service-account@kpicom-179915.iam.gserviceaccount.com',
+	"marketplacePrivateKey"='All:/mnt/webapps/projects/app.workforcetrack.com/ROOT/WEB-INF/marketplace/kpicom-8dcc78d17fc6.p12' where hostname = 'app.kpi.com';

@@ -1,0 +1,7 @@
+<module rename-to="hrms">
+    <inherits name='com.edatasite.workforce.gwt.core.Core'/>
+    <inherits name='com.edatasite.workforce.gwt.hrms.HRMSMain'/>
+    <inherits name="com.edatasite.workforce.gwt.Localization_properties"></inherits>
+    <inherits name="com.google.gwt.user.Debug"/>
+    <entry-point class='com.edatasite.workforce.gwt.hrms.client.Hrms'/>
+</module>

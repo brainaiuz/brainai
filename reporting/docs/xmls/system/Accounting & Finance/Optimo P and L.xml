@@ -1,0 +1,77 @@
+<report>
+    <view>
+        <title>Optimo P and L</title>
+        <name>Optimo P and L</name>
+        <category>Optimo P and L</category>
+        <sqlquery>
+            <select>
+                <table name="Optimo P and L table">
+                    <column name="regdatetime" title="Transaction Date" type="date" formattype="date"
+                            customdateformat="dd Mon, yyyy"/>
+                    <column name="amount" title="Amount" type="number" formattype="money"/>
+                    <column name="accname " title="Account Name" type="string" formattype="string"/>
+                    <column name="stype " title="Type" type="string" formattype="string"/>
+                    <column name="product" title="Product" type="string" formattype="string" />
+                    <column name="points" title="Points" type="number" formattype="number"/>
+                    <column name="qty" title="Quantity" type="number" formattype="money"/>
+                </table>
+            </select>
+            <from>(
+                select r.regdatetime, r.amount, r.accname, r.stype, r.product, coalesce(r.points, 1) points, r.qty qty
+                from ( select tran.journaldate regdatetime, (invi.unitPrice * invi.qty) amount, 'Gross Sales' as accname, 'REVENUE' as stype, it.name product, icf.double_value1 points, invi.qty qty
+                from "$".transaction tran
+                join "$".invoicepayments invpay on tran.invoicepaymentid = invpay.id
+                join "$".invoice inv on inv.id = invpay.invoiceid
+                join "$".invoiceitem invi on invi.invoice_id = inv.id
+                join "$".item it on it.id = invi.item_id
+                left join "$".itemcustomfields icf on it.itemcustomfieldsid=icf.id
+                where  invpay.type='RECEIVABLE' and tran.deleted is not true
+                and invpay.deleted is not true
+
+                union
+
+                select tran.journaldate regdatetime, invpay.amount amount, 'Merch.Payment' as accname, 'REVENUE' as stype, '' product, 1 points,  0 qty
+                from "$".transaction tran
+                join "$".invoicepayments invpay on tran.invoicepaymentid = invpay.id
+                where invpay.type='PAYABLE' and tran.deleted is not true and invpay.deleted is not true
+
+                union
+
+                select tran.journaldate regdatetime, istock.quantity as amount, 'Pieces Sold' as accname, 'REVENUE' as stype, '' product, 1 points, 0 qty
+                from "$".transaction tran
+                join "$".item_stock istock on tran.id = istock.transactionid
+                where istock.transaction_code='OUT' and tran.deleted is not true
+
+                union
+
+                select tran.journaldate regdatetime, eitem.subtotal, a.name as accname, 'DEBITS' as stype, '' product, 1 points, 0 qty
+                from "$".transaction tran
+                join "$".expenseReport ex on tran.expenseReportid = ex.id
+                join "$".expense eitem on ex.id = eitem.reportId
+                join "$".account a on eitem.accountId = a.id
+                where tran.deleted is not true
+
+                union all
+
+                select x.regdatetime , x.debit, ac.name as accname, 'DEBITS' as stype, '' product, 1 points, 0 qty
+                from (select  max(tran.journaldate) regdatetime, sum(tItem.debit) debit,tItem.accountid
+                from "$".transaction tran
+                join "$".invoice inv on inv.id=tran.invoiceid
+                join "$".transactionItem tItem on tran.id=tItem.transactionid
+                where tran.deleted is not true and tItem.debit is not null
+                and inv.type='RECEIVABLE'
+                group by tran.id,tItem.accountid ) x
+                join "$".account ac on ac.id=x.accountid
+                where  ac.key is null and x.debit > 0
+
+                ) r
+
+                ) t
+            </from>
+            <where>
+                <terms id="base" value="1=1"/>
+                <!-- <terms id="userid" userid="" company="t.company_id"/> <terms id="managerid" userid="" company="t.company_id"/> <terms id="leaderid" userid="" company="t.company_id"/> <terms id="admin" company="t.company_id"/>-->
+            </where>
+        </sqlquery>
+    </view>
+</report>

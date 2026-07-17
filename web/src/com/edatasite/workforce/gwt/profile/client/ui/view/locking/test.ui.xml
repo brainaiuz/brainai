@@ -1,0 +1,10 @@
+<div class="grid-row margin-top">
+    <div class="col-6">
+        <div class="gwt-HTML"></div>
+    </div>
+    <div class="col-2 offset-4">
+        <div class="switch">
+
+        </div>
+    </div>
+</div>

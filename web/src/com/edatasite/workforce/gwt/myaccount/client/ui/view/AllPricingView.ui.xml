@@ -1,0 +1,394 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:m='urn:import:gwt.material.design.client.ui'>
+    <g:HTMLPanel addStyleNames="aePricing international pricePage">
+        <!--<g:HTMLPanel addStyleNames="packFormWrap" ui:field="header">-->
+        <!--<g:HTMLPanel addStyleNames="pay-now-style12" ui:field="headerDIV"/>-->
+        <!--</g:HTMLPanel>-->
+
+        <div class="hgroup">
+            <h1 class="page-title">PRICE PLANS THAT SUIT EVERYONE</h1>
+            <h4 class="page-sub-title">Affordable. Flexible. Refundable.</h4>
+        </div>
+<div class="priceTable">
+    <div class="priceTable-infoHeader" ui:field="infoHeader">
+        <table>
+            <colgroup>
+                <col width="18%"/>
+                <col width=""/>
+                <col width="20%"/>
+                <col width="20%"/>
+                <col width="18%"/>
+            </colgroup>
+            <thead>
+                <tr>
+                    <td>
+                        <div class="page-nav">
+                            <div class="page-nav__tabs">
+                                <m:MaterialTab ui:field="monthYearTab"></m:MaterialTab>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="pricePage-descriptionText">Customize the plan that you
+                            want and fits your budget.
+                        </div>
+                    </td>
+                    <td colspan="3">
+                        <div class="pricePage-descriptionText">Smartly devised plans bundled for companies big and
+                            small. Take advantage of all 5 apps
+                            with unlimited functionality and save money with a nice discount of up to 50%.
+                        </div>
+                    </td>
+                </tr>
+            </thead>
+        </table>
+    </div>
+    <div class="priceTable-plansHeader" ui:field="plansHeader">
+        <table>
+            <colgroup>
+                <col width="18%"/>
+                <col width=""/>
+                <col width="20%"/>
+                <col width="20%"/>
+                <col width="18%"/>
+            </colgroup>
+            <thead>
+                <tr>
+                    <td>
+                        <div class="priceTable-header">Plan</div>
+                    </td>
+                    <td>
+                        <div class="priceTable-header">Select</div>
+                    </td>
+                    <td>
+                        <div class="priceTable-header">Bronze</div>
+                    </td>
+                    <td>
+                        <div class="priceTable-header">Silver</div>
+                    </td>
+                    <td>
+                        <div class="priceTable-header">Gold</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <span class="priceTable-price">$</span>
+                        <span class="priceTable-price" ui:field="customPriceLabel"></span>
+                        <span class="priceTable-pricePeriod" ui:field="customPeriod"></span>
+                    </td>
+                    <td>
+                        <span class="priceTable-price">$</span>
+                        <span class="priceTable-price" ui:field="bronzePriceLabel"></span>
+                        <span class="priceTable-pricePeriod" ui:field="bronzePeriod"></span>
+                    </td>
+                    <td>
+                        <span class="priceTable-price">$</span>
+                        <span class="priceTable-price" ui:field="silverPriceLabel"></span>
+                        <span class="priceTable-pricePeriod" ui:field="silverPeriod"></span>
+                    </td>
+                    <td>
+                        <span class="priceTable-price">$</span>
+                        <span class="priceTable-price" ui:field="goldPriceLabel"></span>
+                        <span class="priceTable-pricePeriod" ui:field="goldPeriod"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <div class="btn btn--success" ui:field="customBuyNow">Buy now</div>
+                    </td>
+                    <td>
+                        <div class="btn btn--success" ui:field="bronzeBuyNow">Buy now</div>
+                    </td>
+                    <td>
+                        <div class="btn btn--success" ui:field="silverBuyNow">Buy now</div>
+                    </td>
+                    <td>
+                        <div class="btn btn--success" ui:field="goldBuyNow">Buy now</div>
+                    </td>
+                </tr>
+            </thead>
+        </table>
+    </div>
+    <div>
+        <table>
+            <colgroup>
+                <col width="18%"/>
+                <col width=""/>
+                <col width="20%"/>
+                <col width="20%"/>
+                <col width="18%"/>
+            </colgroup>
+            <tbody>
+                <tr>
+                    <td>
+                        <b>Full users *</b>
+                    </td>
+                    <td>
+                        <div class="plusMinusNumber">
+                            <span class="minus-btn" ui:field="customDecreaseUser"></span>
+                            <input class="priceTable-number plusMinusNumber-num" value="0" ui:field="customUserCount"></input>
+                            <span class="plus-btn" ui:field="customIncreaseUser"></span>
+                        </div>
+                    </td>
+                    <td>
+                        <span class="priceTable-number">5</span>
+                    </td>
+                    <td>
+                        <span class="priceTable-number">10</span>
+                    </td>
+                    <td>
+                        <span class="priceTable-number">25</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <b>Limited users **</b>
+                    </td>
+                    <td>
+                        <div class="plusMinusNumber">
+                            <span class="minus-btn" ui:field="essCustomDecreaseUser"></span>
+                            <input class="priceTable-number plusMinusNumber-num" value="0" ui:field="essCustomUserCount"></input>
+                            <span class="plus-btn" ui:field="essCustomIncreaseUser"></span>
+                        </div>
+                    </td>
+                    <td>
+                        <span class="priceTable-number">50</span>
+                    </td>
+                    <td>
+                        <span class="priceTable-number">100</span>
+                    </td>
+                    <td>
+                        <span class="priceTable-number">250</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span ui:field="customAccountsLabel"></span>
+                    </td>
+                    <td>
+                        <span class="gwt-CheckBox">
+                            <input type="checkbox" tabindex="-1" ui:field="customAccounts"/>
+                            <label><span></span></label>
+                        </span>
+                    </td>
+                    <td>
+                        <span class="gwt-CheckBox">
+                            <input type="checkbox" tabindex="-1" disabled="disabled" checked="checked"/>
+                            <label><span></span></label>
+                        </span>
+                    </td>
+                    <td>
+                        <span class="gwt-CheckBox">
+                            <input type="checkbox" tabindex="-1" disabled="disabled" checked="checked"/>
+                            <label><span></span></label>
+                        </span>
+                    </td>
+                    <td>
+                        <span class="gwt-CheckBox">
+                            <input type="checkbox" tabindex="-1" disabled="disabled" checked="checked"/>
+                            <label><span></span></label>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span ui:field="customSalesLabel"></span>
+                    </td>
+                    <td>
+                        <span class="gwt-CheckBox">
+                            <input type="checkbox" tabindex="-1" ui:field="customSales"/>
+                            <label><span></span></label>
+                        </span>
+                    </td>
+                    <td>
+                        <span class="gwt-CheckBox">
+                            <input type="checkbox" tabindex="-1" disabled="disabled" checked="checked"/>
+                            <label><span></span></label>
+                        </span>
+                    </td>
+                    <td>
+                        <span class="gwt-CheckBox">
+                            <input type="checkbox" tabindex="-1" disabled="disabled" checked="checked"/>
+                            <label><span></span></label>
+                        </span>
+                    </td>
+                    <td>
+                        <span class="gwt-CheckBox">
+                            <input type="checkbox" tabindex="-1" disabled="disabled" checked="checked"/>
+                            <label><span></span></label>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span ui:field="customHumansLabel"></span>
+                    </td>
+                    <td>
+                        <span class="gwt-CheckBox">
+                            <input type="checkbox" tabindex="-1" ui:field="customHumans"/>
+                            <label><span></span></label>
+                        </span>
+                    </td>
+                    <td>
+                        <span class="gwt-CheckBox">
+                            <input type="checkbox" tabindex="-1" disabled="disabled" checked="checked"/>
+                            <label><span></span></label>
+                        </span>
+                    </td>
+                    <td>
+                        <span class="gwt-CheckBox">
+                            <input type="checkbox" tabindex="-1" disabled="disabled" checked="checked"/>
+                            <label><span></span></label>
+                        </span>
+                    </td>
+                    <td>
+                        <span class="gwt-CheckBox">
+                            <input type="checkbox" tabindex="-1" disabled="disabled" checked="checked"/>
+                            <label><span></span></label>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span ui:field="customProjectsLabel"></span>
+                    </td>
+                    <td>
+                        <span class="gwt-CheckBox">
+                            <input type="checkbox" tabindex="-1" ui:field="customProjects"/>
+                            <label><span></span></label>
+                        </span>
+                    </td>
+                    <td>
+                        <span class="gwt-CheckBox">
+                            <input type="checkbox" tabindex="-1" disabled="disabled" checked="checked"/>
+                            <label><span></span></label>
+                        </span>
+                    </td>
+                    <td>
+                        <span class="gwt-CheckBox">
+                            <input type="checkbox" tabindex="-1" disabled="disabled" checked="checked"/>
+                            <label><span></span></label>
+                        </span>
+                    </td>
+                    <td>
+                        <span class="gwt-CheckBox">
+                            <input type="checkbox" tabindex="-1" disabled="disabled" checked="checked"/>
+                            <label><span></span></label>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span ui:field="payrollLabel"></span>
+                    </td>
+                    <td>
+                        <span class="gwt-CheckBox">
+                            <input type="checkbox" tabindex="-1" ui:field="customDocuments"/>
+                            <label><span></span></label>
+                        </span>
+                    </td>
+                    <td>
+                        <span class="gwt-CheckBox">
+                            <input type="checkbox" tabindex="-1" disabled="disabled" checked="checked"/>
+                            <label><span></span></label>
+                        </span>
+                    </td>
+                    <td>
+                        <span class="gwt-CheckBox">
+                            <input type="checkbox" tabindex="-1" disabled="disabled" checked="checked"/>
+                            <label><span></span></label>
+                        </span>
+                    </td>
+                    <td>
+                        <span class="gwt-CheckBox">
+                            <input type="checkbox" tabindex="-1" disabled="disabled" checked="checked"/>
+                            <label><span></span></label>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td ui:field="documentsLabel">
+
+                    </td>
+                    <td>
+                        <span class="gwt-CheckBox">
+                            <input type="checkbox" tabindex="-1" disabled="disabled" checked="checked"/>
+                            <label><span></span></label>
+                        </span>
+                    </td>
+                    <td>
+                        <span class="gwt-CheckBox">
+                            <input type="checkbox" tabindex="-1" disabled="disabled" checked="checked"/>
+                            <label><span></span></label>
+                        </span>
+                    </td>
+                    <td>
+                        <span class="gwt-CheckBox">
+                            <input type="checkbox" tabindex="-1" disabled="disabled" checked="checked"/>
+                            <label><span></span></label>
+                        </span>
+                    </td>
+                    <td>
+                        <span class="gwt-CheckBox">
+                            <input type="checkbox" tabindex="-1" disabled="disabled" checked="checked"/>
+                            <label><span></span></label>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td ui:field="reportsLabel">
+
+                    </td>
+                    <td>
+                        <span class="gwt-CheckBox">
+                            <input type="checkbox" tabindex="-1" disabled="disabled" checked="checked"/>
+                            <label><span></span></label>
+                        </span>
+                    </td>
+                    <td>
+                        <span class="gwt-CheckBox">
+                            <input type="checkbox" tabindex="-1" disabled="disabled" checked="checked"/>
+                            <label><span></span></label>
+                        </span>
+                    </td>
+                    <td>
+                        <span class="gwt-CheckBox">
+                            <input type="checkbox" tabindex="-1" disabled="disabled" checked="checked"/>
+                            <label><span></span></label>
+                        </span>
+                    </td>
+                    <td>
+                        <span class="gwt-CheckBox">
+                            <input type="checkbox" tabindex="-1" disabled="disabled" checked="checked"/>
+                            <label><span></span></label>
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+        <div class="pricePage-description">
+            <p>
+                <b>* Only $10/app/month</b>
+            </p>
+            <p class="pricePage-descriptionText">
+                Full User license has complete functionality in all selected apps – view, inquire, edit, administer. You
+                can define the access and roles for each Full User individually for any particular app. Recommended for
+                managers and executives involved in daily operations.
+            </p>
+        </div>
+        <div class="pricePage-description">
+            <p>
+                <b>** From $1/app/month</b>
+            </p>
+            <p class="pricePage-descriptionText">Limited User license is a lower-cost alternative for extending the
+                app functionality to employees or contractors who only need to perform certain tasks – view and inquire.
+                Any permissions of each Limited User can be set up individually for any app.
+            </p>
+        </div>
+    </g:HTMLPanel>
+</ui:UiBinder>

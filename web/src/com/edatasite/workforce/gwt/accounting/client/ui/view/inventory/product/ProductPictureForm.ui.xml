@@ -1,0 +1,31 @@
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:g="urn:import:com.google.gwt.user.client.ui"
+             xmlns:mhtml="urn:import:gwt.material.design.client.ui.html"
+             xmlns:kpi="urn:import:com.edatasite.workforce.gwt.core.client.ui">
+    <g:HTMLPanel addStyleNames="form-group">
+        <mhtml:Label class="form-group__label" ui:field="attachmmentsUploadLabel" text="ATTACHMENTS UPLOAD"/>
+
+        <div class="form-upload">
+
+            <mhtml:Div class="form-upload__attached" ui:field="uploadedFilesContainer"/>
+
+            <mhtml:Div class="btn-upload" ui:field="attachButtonContainer">
+                <kpi:WfmFormPanel action="/action/CreateProductPicturesHandler" method="POST" ui:field="form"
+                                  encoding="multipart/form-data">
+                    <g:FileUpload debugId="btn-upload-2" ui:field="uploadFile"/>
+                </kpi:WfmFormPanel>
+
+                <mhtml:Div class="btn-upload__icon">
+                    <mhtml:Italic class="ficon--attachment" ui:field="uploadBtnIcon"/>
+                </mhtml:Div>
+            </mhtml:Div>
+
+            <mhtml:Div class="btn-upload btn-upload--ai" ui:field="aiEnhanceButton">
+                <mhtml:Div class="btn-upload__icon">
+                    <mhtml:Italic class="ficon--star"/>
+                </mhtml:Div>
+            </mhtml:Div>
+
+        </div>
+    </g:HTMLPanel>
+</ui:UiBinder>

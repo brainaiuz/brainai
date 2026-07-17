@@ -1,0 +1,154 @@
+.mainTable {
+    padding: 10px;
+}
+
+.topTableStyle {
+    height: 80px;
+    margin: 5px 15px 15px 10px;
+    width: 96%;
+}
+
+.top-l {
+    background: url(crm/icons/welcome/left-bcg.jpg) no-repeat;
+    width: 6px;
+}
+
+.top-c {
+    background: url(crm/icons/welcome/bcg.jpg) repeat-x;
+}
+
+.top-r {
+    background: url(crm/icons/welcome/right-bcg.jpg) no-repeat;
+    width: 6px;
+}
+
+.topCenter {
+    margin-left: 5px;
+    padding: 0 0 8px 0;
+}
+
+.welcomeTitle {
+    color: #1F4F8F;
+    /*font-family: tahoma, verdana, helvetica;*/
+    font-size: 12px;
+}
+
+.topText {
+    /*font-family: tahoma, verdana, helvetica;*/
+    font-size: 12px;
+}
+
+    /* START general styles */
+.guideCover {
+    position:relative;
+    padding:10px;
+    font-size:12px;
+    /*font-family:Arial;*/
+    color:#1f4f8f;
+}
+.prodLink {
+    position:absolute;
+    font-weight:bold;
+    color:#1f4f8f;
+    text-decoration:none;
+    text-align:center;
+    text-shadow:0 1px 0 rgba(255, 255, 255, 0.5);
+    max-width: 96px;
+}
+.noProdLink {
+    position:absolute;
+    color:#1f4f8f;
+    text-decoration:none;
+    text-align:center;
+    text-shadow:0 1px 0 rgba(255, 255, 255, 0.5);
+    max-width: 96px;
+}
+.prodLink a {
+    text-decoration:none !important;
+}
+.prodLink:hover {
+    text-decoration:underline;
+}
+    /* END general styles */
+
+
+.crmCover{
+    width: 870px;
+    height: 360px;
+    background: url(crm/icons/welcome/bg_crm_cover.png) no-repeat 0 0;
+}
+
+.crmLink-1 {
+    left: 10px;
+    top: 7px;
+}
+
+.crmLink-2 {
+    left: 61px;
+    top: 175px;
+}
+
+.crmLink-3 {
+    left: 167px;
+    top: 3px;
+}
+
+.crmLink-4 {
+    left: 200px;
+    top: 231px;
+}
+
+.crmLink-5 {
+    left: 369px;
+    top: 40px;
+}
+
+.crmLink-6 {
+    left: 344px;
+    top: 237px;
+}
+
+.crmLink-7 {
+    left: 483px;
+    top: 2px;
+}
+
+.crmLink-8 {
+    left: 471px;
+    top: 189px;
+}
+
+.crmLink-9 {
+    left: 488px;
+    top: 310px;
+}
+
+.crmLink-10 {
+    left: 613px;
+    top: 222px;
+}
+
+.crmLink-11 {
+    right: 191px;
+    top: 334px;
+}
+
+.crmLink-12 {
+    right: 18px;
+    top: 5px;
+}
+
+.crmLink-13 {
+    right: 16px;
+    top: 95px;
+}
+
+.crmLink-14 {
+    right: 17px;
+    top: 182px;
+}
+
+.crmLink-15 {
+    right: 14px;
+    top: 274px;
+}

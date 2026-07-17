@@ -1,0 +1,353 @@
+/*EUGENIY CLEANING*/
+/**** operpanel ****/
+.operPanel {
+  display: flex;
+  justify-content: space-between;
+
+  > :only-child {
+    width: 100%;
+  }
+
+  .has-page-opers.has-operPanel & {
+    padding-top: 0; //https://prnt.sc/opwn2g
+  }
+
+  .searchForm {
+    min-width: 45px;
+    &.active {
+      min-width: 194px;
+    }
+    &:not(.active) {
+      &:before { //Experemental
+        //content: "";
+        //position: absolute;
+        //bottom: 0;
+        //left: 0;
+        //right: 0;
+        //border-bottom: 1px solid #ccc;
+      }
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+
+    .gwt-CheckBox label > span {
+      margin-left: rem(6px);
+      text-indent: 0; //https://prnt.sc/sohtt4
+    }
+    td > .form-control { // http://prntscr.com/lmvwxu
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+    .showAllCheckBox {
+      width: auto;
+    }
+  }
+
+  &__settings {
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    padding-left: rem(10px);
+
+    &-container {
+      display: flex;
+    }
+    .icon--barChart.active {
+      transform: rotate(90deg);
+    }
+    > *:last-child {
+      .btn--icon {
+        margin-right: 8px;
+      }
+    }
+  }
+
+  //.filter-group
+  &__btn-groups {
+    display: flex;
+    align-items: center;
+    .filter-group {
+      display: flex;
+    }
+  }
+  .pseudoSelect {
+    position: relative;
+    bottom: -1px;
+    margin: 0 7px 0 ($operPanelElsMargin-x + 7px);
+    padding: 4px 0 4px 8px;
+    border: 1px solid #9597ac;
+    border-radius: $control-border-radius;
+    .curValue {
+      max-width: 260px;
+      border-color: transparent;
+      em {
+        @include txtTruncate();
+      }
+      &:before {
+        right: 5px;
+      }
+    }
+  }
+  .listingPanelPseudoSelect {
+    min-width: 124px;
+  }
+}
+
+.operPanel__btn-groups,
+.operPanel__advanced-filter,
+.operPanel__settings,
+.operPanel__actions {
+  > * + * {
+    margin-left: $operPanelElsMargin-x;
+  }
+}
+.operPanel__btn-groups {
+  .btn {
+    border-color: transparent;
+  }
+}
+
+.operPanel__advanced-filter {
+  display: inline-flex;
+  align-items: center;
+  + table[style*="75%"] { //https://prnt.sc/r1btvx
+    .listbox-wrapper[style*="margin-left: -7px"] {
+      margin-left: 10px !important;
+    }
+  }
+}
+
+/* icon in option inside dropdown block */
+.filters-account-reports,
+.operPanel,
+.attendanceReport__filters {
+  .menu-bar {
+    ul.dropdown-content {
+      width: auto !important;
+      padding: 0 !important;
+    }
+    > .dropdown-button {
+      &:before {
+        //margin-top: rem(-$triangleSize);
+      }
+      &:after {
+        //margin-top: rem(-($triangleSize - 2));
+      }
+    }
+  }
+}
+
+//.operPanel
+.menu-bar {
+  > ul.dropdown-content {
+    &.hoverable {
+      z-index: 1;
+    }
+  }
+  .dropdown-content li > .java-wrap > a [class*=ficon--],
+  .dropdown-content li > a [class*=ficon--] {
+    font-size: 1.4rem;
+  }
+
+  ul.dropdown-content {
+    &:not(.active) {
+      transform: scale(0);
+    }
+    &.active {
+      transform: scale(1);
+    }
+
+    > li > ul {
+      position: absolute !important;
+      top: 0 !important;
+      left: 100% !important;
+      margin: 0 0 0 1px;
+    }
+    &.dropdown-content--2 {
+      margin-left: -10px;
+    }
+  }
+}
+
+// EMAIL ACCOUNT SELECT MENU
+.email-account {
+  background-color: #fff !important; //to prevent dropdown-select--arrow -> :hover on <li>
+  cursor: default;
+
+  &.dropdown-content {
+    overflow: visible;
+    left: auto !important;
+  }
+
+  > li {
+    &:hover {
+      background-color: inherit !important;
+      cursor: default;
+    }
+  }
+
+  &__heading {
+    @include make-container();
+    border-bottom: 1px solid $color-base-0;
+
+    .grid-row {
+      flex-wrap: nowrap;
+    }
+
+    a {
+      @include link($color-base-2);
+      border-top: rem(4px) solid transparent;
+      padding-top: rem(11px);
+      padding-bottom: rem(15px);
+
+      &:hover {
+        border-top-color: $success-color;
+      }
+    }
+  }
+  &__body {
+    @include make-container();
+    .grid-row {
+      border-bottom: 1px solid $color-base-0;
+      padding-top: rem(12px);
+      padding-bottom: rem(12px);
+      cursor: pointer;
+      flex-wrap: nowrap;
+    }
+  }
+  &__text {
+    text-align: left;
+    color: $color-base-2;
+
+    .email-account__current > & {
+      color: $text-color-base;
+      font-weight: 500;
+    }
+  }
+  &__footer {
+    .btn-large {
+      display: block;
+      //padding-top: 15px;
+      //padding-bottom: 15px;
+      border-radius: 0;
+      font-weight: 500;
+
+      &:hover {
+        background-color: $color-base-contrast;
+      }
+    }
+  }
+}
+
+.email-account__toggle {
+  @extend .ficon--;
+  @extend .ficon--arrow-right;
+  color: $color-accent-2;
+  opacity: 0;
+  @include base-transition(opacity);
+
+}
+
+.email-account__body .grid-row:hover {
+  background-color: $color-base-contrast;
+  .email-account__toggle {
+    opacity: 1;
+  }
+}
+
+//[class*="email-account-status--"]
+.email-account__text {
+  position: relative;
+  &:before {
+    content: '';
+    display: inline-block;
+    margin-right: 5px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: $color-base-2;
+
+    .email-account-status--active & {
+      background-color: $success-color;
+    }
+  }
+}
+
+// \ EMAIL ACCOUNT SELECT MENU
+
+
+
+//REPORTING PANELS
+/*Reporting fix*/
+.rsrcUtlzLayout__filters,
+.filters-account-reports {
+  padding-top: $fixedPanelPadding !important;
+  padding-bottom: $fixedPanelPadding !important;
+
+  top: $frameHeaderSize;
+
+  .group-box__item {
+    position: relative;
+    margin-bottom: 0;
+    &.invoice__date-due-date {
+      > div {
+        position: relative;
+      }
+    }
+  }
+  .group-box__item-label {
+    position: absolute;
+    z-index: 9;
+    top: -3px;
+    left: $control-padding-x;
+    text-indent: 0;
+    min-height: auto;
+    height:  7px;
+    line-height: 1;
+    font-size: .65rem;
+    background-color: #fff;
+    color: #000;
+
+    .material-label:not(:empty) {
+      padding: 0 3px;
+    }
+  }
+  .group-box__item-content {
+    .form-control {
+      border: none;
+    }
+  }
+  .devider-h {
+    display: none;
+  }
+}
+
+.timesheet__container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  > .group-box {
+    position: relative; //http://prntscr.com/lnwrcn
+    z-index: 9;
+  }
+  > .group-box--side-out {
+    margin-right: 0;
+  }
+  .group-box__item {
+    margin-bottom: 0;
+  }
+}
+
+
+//TIMESHEET FILTER PANEL
+.TimesheetFilterPanel__checkbox {
+  margin-top: 0 !important; //https://prnt.sc/sbmlu7
+  &.gwt-CheckBox label > span {
+    text-indent: 0;
+    padding-left: 10px;
+  }
+}

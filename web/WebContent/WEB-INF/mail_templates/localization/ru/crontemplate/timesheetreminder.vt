@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+
+<p>Дорогой $username,</p>
+
+<p>Пожалуйста, примите к сведению что следующие работники не заполнили расписание для $time:</p>
+    #foreach($teamName in $timesheets.keySet())
+    <div><span style="font-size: 18px">Отдел:&nbsp;$teamName </span>
+        <table border="0" width="100%" cellspacing="0"
+               style="border: solid 1px #365F91;color:#365F91;margin-top:5px;">
+            <tr>
+                <td bgcolor="#FFFFFF"
+                    style="border: solid 1px #365F91;text-align:left; padding-left:30px;margin-top:10px;">
+                    <b>Сотрудник</b>
+                </td>
+                #foreach($day in $days)
+                    <td bgcolor="#FFFFFF" style="border: solid 1px #365F91;width:50px;text-align:center;">
+                        <b>$day</b>
+                    </td>
+                #end
+                #if($isWeeklyOrMonthly == 'true')
+                    <td bgcolor="#FFFFFF" style="border: solid 1px #365F91;width:50px;text-align:center;">
+                        <b>Общий</b>
+                    </td>
+                #end
+            </tr>
+            #foreach($timesheet in $timesheets.get($teamName))
+                <tr>
+                    <td bgcolor="#FFFFFF"
+                        style="border: solid 1pt; width:150px; ">$timesheet.getEmployeeName()</td>
+                    #foreach($time in $timesheet.getDayAndTimeL())
+                        <td bgcolor="#FFFFFF"
+                            style="border: solid 1pt; width:50px;text-align:center; font-color:#000000;">$time.getDescription()</td>
+                    #end
+                    #if($isWeeklyOrMonthly == 'true')
+                        <td bgcolor="#FFFFFF"
+                            style="border: solid 1pt; width:50px;text-align:center; font-color:#000000;">
+                            <b>$timesheet.getTotalTime()</b>
+                        </td>
+                    #end
+                </tr>
+
+            #end
+        </table>
+    </div>
+    <br/><br/>
+    #end
+
+<p>Нажмите <a href="$host/Dashboard.html?link=$link" title="Посмотреть расписание отчета">здесь</a>
+    для просмотра отчета Расписания.</p>
+
+<p>* Если Вы не можете нажать на ссылку, Вы можете скопировать и вставить следующий адрес в Ваш веб браузер: </p>
+
+<p><span style="color: #0033FF">$host/Dashboard.html?link=$link</span></p>
+
+</body>
+</html>

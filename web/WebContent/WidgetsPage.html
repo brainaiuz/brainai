@@ -1,0 +1,1270 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--//Todo Remove This Unusable File-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=8">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta name="gwt:property" content="locale=en">
+    <meta http-equiv="P3P" content='policyref="/w3c/p3p.xml", CP="NOI DSP COR PSA PSAa OUR IND COM NAV STA"'>
+    <script type="text/javascript">
+        document.elementsByName = function (aName) {
+            var listOfElements = document.getElementsByName(aName); // Replace aName with the name you're looking for
+            // IE hack, because it doesn't properly support getElementsByName
+            if (listOfElements.length === 0) { // If IE, which hasn't returned any elements
+                var listOfElements = [];
+                var spanList = document.getElementsByTagName('*'); // If all the elements are the same type of tag, enter it here (e.g.: SPAN)
+                for (var i = 0; i < spanList.length; i++) {
+                    if (spanList[i].getAttribute('name') === aName) {
+                        listOfElements.push(spanList[i]);
+                    }
+                }
+            }
+            return listOfElements;
+        }
+    </script>
+    <title>
+        Widgets Page HTML Components
+    </title>
+    <script type="text/javascript">
+        var showContextMenu = true;
+        document.oncontextmenu = function () {
+            temp = showContextMenu;
+            showContextMenu = true;
+            return temp;
+        }
+        var setShowContextMenu = function (bool) {
+            showContextMenu = bool;
+        }
+    </script>
+    <link rel="shortcut icon" href="/customisation/kpi.com/images/favicon.ico?v=2" type="image/x-icon"/>
+    <link rel=stylesheet href="mainStyles/Core1.cache.css?v=1525151976247" type="text/css">
+    <link rel="P3Pv1" href="/w3c/p3p.xml">
+    <link rel="apple-touch-icon" href="/mobile_sources/images/apple-touch-icon.png" type="image/x-icon">
+    <!--[if lte IE 7]>
+    <link rel="stylesheet" href="/mainStyles/ie/ie7-andLeft.css" type="text/css"/>
+    <![endif]-->
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="/mainStyles/ie/ie8-andLeft.css" type="text/css"/>
+    <![endif]-->
+    <script type="text/javascript" src="/mainStyles/js/jquery-3.2.1.min.js"></script>
+    <link rel=stylesheet type=text/css href="/mainStyles/ltr.css">
+    <link rel="stylesheet" href="/mainStyles/js/grid/css/gridstack.min.css" type="text/css"/>
+    <script src="/mainStyles/js/jquery-ui.min.js" type="application/javascript"></script>
+    <script src="/mainStyles/js/grid/lodash.min.js" type="application/javascript"></script>
+    <script src="/mainStyles/js/grid/gridstack.min.js" type="application/javascript"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JHFJELYCR7"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-JHFJELYCR7');
+    </script>
+    <script src="/mainStyles/js/grid/gridstack.jQueryUI.min.js" type="application/javascript"></script>
+    <link rel="stylesheet" href="/mainStyles/new-ui/css/materialize.css?v=1525151976247">
+    <link rel="stylesheet" href="/mainStyles/new-ui/css/kpitables.css?v=1525151976247">
+    <link rel="stylesheet" href="/mainStyles/new-ui/css/temp.css?v=1525151976247">
+    <link rel="stylesheet" href="/mainStyles/new-ui/css/theme.css?v=1525151976247">
+    <link rel="stylesheet" href="/mainStyles/new-ui/css/invoice.css?v=1525151976247">
+    <link rel="stylesheet" href="/mainStyles/new-ui/css/KanbanDND.css?v=1525151976247">
+    <link rel="stylesheet" href="/mainStyles/new-ui/css/dynamictable.css?v=1525151976247">
+    <link rel="stylesheet" href="/mainStyles/reporting/reporting.css" type="text/css"/>
+    <link rel="stylesheet" href="/mainStyles/new-ui/css/transition.css">
+    <link rel="stylesheet" href="/mainStyles/new-ui/css/dashboard.grid.css?v=1525151976247">
+    <link rel="stylesheet" href="/mainStyles/new-ui/css/recurringWidget.css?v=1525151976247">
+    <style>
+        h5 {
+            margin-top: 30px;
+        }
+        .container-buttons {
+            padding: 10px;
+        }
+        .container-buttons h6 {
+            margin: 0 0 10px;
+        }
+        .container-buttons .btn {
+            margin-bottom: 15px;
+        }
+
+        .test-icons-container {
+            /*columns: 2;*/
+            columns: 200px auto;
+            column-gap: 1rem;
+        }
+        .test-icons-container > div {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        .test-icons-container [class*="ficon--"] {
+            font-size: 2.5rem;
+        }
+    </style>
+</head>
+<body class="frame__body" style="overflow: auto;">
+<h2 class="text-center">HTML Components</h2>
+<div class="container" style="padding: 5%; background-color: #fff;">
+    <div class="container-buttons mb-3">
+        <h5>Colors of Buttons</h5>
+        <div style="">
+            <button class="btn">button class="btn"</button>
+            <a href="#" class="btn">a href="#" class="btn"</a>
+            <!--<button class="btn btn&#45;&#45;grey">class="btn btn&#45;&#45;grey"</button>-->
+            <button class="btn btn--lightgrey">class="btn btn--lightgrey"</button>
+            <a href="#" class="btn btn--darkgrey">class="btn btn--darkgrey"</a>
+            <button class="btn btn--default">class="btn btn--default"</button>
+            <button class="btn btn--white">class="btn btn--white"</button>
+            <button class="btn btn--primary">class="btn btn--primary"</button>
+            <button class="btn btn--success">class="btn btn--success"</button>
+            <button class="btn btn--success disabled">class="btn btn--success disabled"</button>
+        </div>
+    </div>
+    <div class="container-buttons mb-3" style="background: #f6f7f9">
+        <h6>other bg</h6>
+        <div class="mb-4">
+            <button class="btn btn--success"><span>New</span></button>
+            <button class="btn btn--success hasicon--right"><span>New</span><i class="ficon--keyboard-arrow-down"></i>
+            </button>
+            <button class="btn btn--default"><span>Action</span></button>
+            <button class="btn btn--default hasicon--right"><span>Action</span><i
+                    class="ficon--keyboard-arrow-down"></i></button>
+            <button type="button" class="btn btn--default"><span>Continue</span></button>
+            <button class="btn btn--success"><span>Login</span></button>
+            <button class="btn btn--success"><span>Sign up now</span></button>
+            <button type="button" class="btn btn--primary"><span>Save</span></button>
+            <button type="button" class="btn btn--primary hasicon--right"><span>Save &amp; New</span><i
+                    class="ficon--keyboard-arrow-down"></i></button>
+            <button type="button" class="btn btn--primary hasicon--right"><span>Save &amp; Send</span><i
+                    class="ficon--keyboard-arrow-down"></i></button>
+            <button type="button" class="btn btn--primary"><span>Submit for Approval </span></button>
+            <button type="button" class="btn btn--primary"><span>Approve</span></button>
+            <button type="button" class="btn btn--primary"><span>Approve &amp; Email </span></button>
+            <button type="button" class="btn btn--primary"><span>Build</span></button>
+            <button type="button" class="btn btn--default"><span>Cancel</span></button>
+            <button type="button" class="btn btn--default"><span>Close</span></button>
+            <button type="button" class="btn btn--default"><span>Delete</span></button>
+            <button type="button" class="btn btn--default"><span>Draft</span></button>
+            <button type="button" class="btn btn--default"><span>PDF</span></button>
+            <button type="button" class="btn btn--secondary"><span>Test btn--secondary</span></button>
+            <button type="button" class="btn btn--success"><span>Update</span></button>
+            <button type="button" class="btn btn--success">Continue</button>
+            <div class="btn btn--default hasicon--right"><span>Actions</span><i class="ficon--keyboard-arrow-down"></i>
+            </div>
+        </div>
+    </div>
+    <div class="container-buttons mb-3">
+        <h5>Buttons</h5>
+        <div class="mb-4">
+            <button class="btn btn--success"><span>New</span></button>
+            <button class="btn btn--success hasicon--right"><span>New</span><i class="ficon--keyboard-arrow-down"></i>
+            </button>
+            <button class="btn btn--default"><span>Action</span></button>
+            <button class="btn btn--default hasicon--right"><span>Action</span><i
+                    class="ficon--keyboard-arrow-down"></i></button>
+            <button type="button" class="btn btn--default"><span>Continue</span></button>
+            <button class="btn btn--success"><span>Login</span></button>
+            <button class="btn btn--success"><span>Sign up now</span></button>
+            <button type="button" class="btn btn--primary"><span>Save</span></button>
+            <button type="button" class="btn btn--primary hasicon--right"><span>Save &amp; New</span><i
+                    class="ficon--keyboard-arrow-down"></i></button>
+            <button type="button" class="btn btn--primary hasicon--right"><span>Save &amp; Send</span><i
+                    class="ficon--keyboard-arrow-down"></i></button>
+            <button type="button" class="btn btn--primary"><span>Submit for Approval </span></button>
+            <button type="button" class="btn btn--primary"><span>Approve</span></button>
+            <button type="button" class="btn btn--primary"><span>Approve &amp; Email </span></button>
+            <button type="button" class="btn btn--primary"><span>Build</span></button>
+            <button type="button" class="btn btn--default"><span>Cancel</span></button>
+            <button type="button" class="btn btn--default"><span>Close</span></button>
+            <button type="button" class="btn btn--default"><span>Delete</span></button>
+            <button type="button" class="btn btn--default"><span>Draft</span></button>
+            <button type="button" class="btn btn--default"><span>PDF</span></button>
+            <button type="button" class="btn btn--secondary"><span>Test btn--secondary</span></button>
+            <button type="button" class="btn btn--success"><span>Update</span></button>
+            <button type="button" class="btn btn--success">Continue</button>
+            <div class="btn btn--default hasicon--right"><span>Actions</span><i class="ficon--keyboard-arrow-down"></i>
+            </div>
+        </div>
+    </div>
+    <div class="container-buttons mb-3" style="background: #ebeef2">
+        <h6>other bg</h6>
+        <div class="mb-4">
+            <button class="btn btn--success"><span>New</span></button>
+            <button class="btn btn--success hasicon--right"><span>New</span><i class="ficon--keyboard-arrow-down"></i>
+            </button>
+            <button class="btn btn--default"><span>Action</span></button>
+            <button class="btn btn--default hasicon--right"><span>Action</span><i
+                    class="ficon--keyboard-arrow-down"></i></button>
+            <button type="button" class="btn btn--default"><span>Continue</span></button>
+            <button class="btn btn--success"><span>Login</span></button>
+            <button class="btn btn--success"><span>Sign up now</span></button>
+            <button type="button" class="btn btn--primary"><span>Save</span></button>
+            <button type="button" class="btn btn--primary hasicon--right"><span>Save &amp; New</span><i
+                    class="ficon--keyboard-arrow-down"></i></button>
+            <button type="button" class="btn btn--primary hasicon--right"><span>Save &amp; Send</span><i
+                    class="ficon--keyboard-arrow-down"></i></button>
+            <button type="button" class="btn btn--primary"><span>Submit for Approval </span></button>
+            <button type="button" class="btn btn--primary"><span>Approve</span></button>
+            <button type="button" class="btn btn--primary"><span>Approve &amp; Email </span></button>
+            <button type="button" class="btn btn--primary"><span>Build</span></button>
+            <button type="button" class="btn btn--default"><span>Cancel</span></button>
+            <button type="button" class="btn btn--default"><span>Close</span></button>
+            <button type="button" class="btn btn--default"><span>Delete</span></button>
+            <button type="button" class="btn btn--default"><span>Draft</span></button>
+            <button type="button" class="btn btn--default"><span>PDF</span></button>
+            <button type="button" class="btn btn--secondary"><span>Test btn--secondary</span></button>
+            <button type="button" class="btn btn--success"><span>Update</span></button>
+            <button type="button" class="btn btn--success">Continue</button>
+            <div class="btn btn--default hasicon--right"><span>Actions</span><i class="ficon--keyboard-arrow-down"></i>
+            </div>
+            <button class="btn btn--success btn--toggle-off"><i class="ficon--remove-circle"></i> btn--success
+                btn--toggle-off
+            </button>
+            <button class="btn btn--success btn--toggle-on"><i class="ficon--remove-circle"></i> btn--success
+                btn--toggle-on
+            </button>
+        </div>
+    </div>
+    <h5>Split Button</h5>
+    <div class="btns-group text-right">
+        <div class="btn-group dropdown-split dropdown-split--open">
+            <button type="button" class="btn btn--default">
+                Download PDF
+            </button>
+            <div class="btn-group dropdown-split__toggle">
+                <button type="button" class="dropdown-button btn btn--default">
+                    <i class="ficon--more-horiz"></i>
+                </button>
+                <ul class="dropdown-content">
+                    <li><a href="#!">Global Microsoft LLC</a></li>
+                    <li><a href="#!">Goandgo Limited</a></li>
+                    <li><a href="#!">Boolavka company by Gucci</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="btn-group dropdown-split dropdown-split--open">
+            <button type="button" class="btn btn--primary">
+                Save
+            </button>
+            <div class="btn-group dropdown-split__toggle">
+                <button type="button" class="dropdown-button btn btn--primary">
+                    <i class="ficon--more-horiz"></i>
+                </button>
+                <ul class="dropdown-content">
+                    <li><a href="#!">Save &amp; New</a></li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            <button type="button" class="btn btn--default" id="gwt-debug-sales_quote_viewsaveButton" style=""><span>Draft</span>
+            </button>
+        </div>
+        <button type="button" class="btn btn--default" id="gwt-debug-sales_quote_viewsaveSaleOrderButton"
+                aria-hidden="true" style="display: none;"><span>Save</span></button>
+        <div id="gwt-debug-sales_quote_viewsaveAndApprove" class="btn-group dropdown-split dropdown-split--top">
+            <button type="button" class="btn btn--primary"><span>Save &amp; Approve</span></button>
+            <div class="btn-group dropdown-split__toggle">
+                <button type="button" class="btn btn--primary  hasicon--left dropdown-button"
+                        data-activates="gwt-uid-151"><i class="ficon--more-horiz"></i></button>
+                <ul id="gwt-uid-151" class="dropdown-content">
+                    <li style="display: block;"><a style="cursor: pointer;"><span>Approve &amp; Email</span></a></li>
+                </ul>
+            </div>
+        </div>
+        <button type="button" class="btn btn--default" id="gwt-debug-sales_quote_viewsubmitToManagerButton"
+                aria-hidden="true" style="display: none;"><span>Submit for Approval</span></button>
+        <button type="button" class="btn btn--default" id="gwt-debug-sales_quote_viewpdfVersionButton">
+            <span>PDF Version</span></button>
+        <div id="gwt-debug-sales_quote_viewsaveAndApprove2" class="btn-group dropdown-split dropdown-split--top">
+            <button type="button" class="btn btn--primary"><span>Save &amp; Approve</span></button>
+            <div class="btn-group dropdown-split__toggle">
+                <button type="button" class="btn btn--primary  hasicon--left dropdown-button"
+                        data-activates="gwt-uid-150"><i class="ficon--more-horiz"></i></button>
+                <ul id="gwt-uid-1502" class="dropdown-content">
+                    <li style="display: block;"><a style="cursor: pointer;"><span>Approve &amp; Email</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <h5>Listing Table Action Button</h5>
+    <div class="gwt-ScrollTable">
+        <table class="dataTable"
+               style="width: 0px; margin: 0px; border: 0px; table-layout: fixed; padding-top: 0 !important;">
+            <tbody>
+            <tr>
+                <td>
+                    <a class="action-listing ficon--more-horiz" href="javascript:;"></a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <h5>Switcher</h5>
+    <div class="mb-3">
+        <div class="switch">
+            <label>
+                <span class="switch__label--left">Swicher label</span>
+                <input type="checkbox" checked/>
+                <span class="lever"></span>
+                <span></span>
+            </label>
+        </div>
+    </div>
+    <div class="panel-body" style="display: flex; flex-wrap: wrap;">
+        <div style="">
+            <h5 class="clear">Form Upload 1</h5>
+            <div class="form-upload">
+                <div class="form-upload__attached">
+                    <div class="btn-upload">
+                        <input id="btn-upload_indicator" type="file">
+                        <label class="btn-upload__icon" for="btn-upload_indicator">
+                            <i class="ficon--attachment"></i>
+                        </label>
+                        <div class="btn-upload__indicator active">
+                            <span>73% Uploading</span>
+                            <i class="close"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-upload btn-upload--plus">
+                    <input id="btn-plus-3" type="file">
+                    <label class="btn-upload__icon" for="btn-plus-3">
+                        <i class="ficon--plus"></i>
+                    </label>
+                </div>
+            </div>
+            <br>
+            <form class="form-upload">
+                <div class="form-upload__attached">
+                    <div class="btn-uploaded-group">
+                        <div class="btn-uploaded btn-uploaded--has-control">
+                            <div class="btn-uploaded__control">
+                                <div class="control control--checkbox">
+                                    <input type="checkbox" checked="checked">
+                                    <span class="control__indicator"></span>
+                                </div>
+                            </div>
+                            <i class="ficon--file-excel"></i>
+                            <i class="close"></i>
+                        </div>
+                        <span class="btn-uploaded__title tooltipped" data-position="top"
+                              data-tooltip="Some title of uploaded file">Some title of uploaded file</span>
+                    </div>
+                    <div class="btn-uploaded">
+                        <div class="btn-uploaded__control">
+                            <div class="control control--radio">
+                                <input type="radio" name="raz"/>
+                                <span class="control__indicator"></span>
+                            </div>
+                        </div>
+                        <i class="ficon--file-pdf"></i>
+                        <i class="close"></i>
+                    </div>
+                    <div class="btn-uploaded-group">
+                        <div class="btn-uploaded">
+                            <div class="btn-uploaded__control">
+                                <div class="control control--radio">
+                                    <input type="radio" name="raz"/>
+                                    <span class="control__indicator"></span>
+                                </div>
+                            </div>
+                            <i class="ficon--file-word"></i>
+                            <i class="close"></i>
+                        </div>
+                        <span class="btn-uploaded__title tooltipped" data-position="top"
+                              data-tooltip="Some title of uploaded file">Some title of uploaded file</span>
+                    </div>
+                    <div class="btn-uploaded">
+                        <div class="btn-uploaded__control">
+                            <div class="control control--radio">
+                                <input type="radio" name="raz"/>
+                                <span class="control__indicator"></span>
+                            </div>
+                        </div>
+                        <i class="ficon--file-outlook"></i>
+                        <i class="close"></i>
+                    </div>
+                    <div class="btn-uploaded">
+                        <div class="btn-uploaded__control">
+                            <div class="control control--radio">
+                                <input type="radio" name="raz"/>
+                                <span class="control__indicator"></span>
+                            </div>
+                        </div>
+                        <i class="ficon--attachment"></i>
+                        <i class="close"></i>
+                    </div>
+                </div>
+                <div class="btn-upload btn-upload--plus">
+                    <input id="btn-plus2" type="file">
+                    <label class="btn-upload__icon" for="btn-plus2">
+                        <i class="ficon--plus"></i>
+                    </label>
+                </div>
+            </form>
+        </div>
+        <div style="padding-left: 20px;">
+            <h5 class="clear">Form Upload 2</h5>
+            <form action="" class="form-upload">
+                <div class="form-upload__attached">
+                    <div class="btn-uploaded-img btn-uploaded--has-control">
+                        <div class="btn-uploaded__control">
+                            <div class="control control--checkbox">
+                                <input type="checkbox" checked="checked"/>
+                                <span class="control__indicator"></span>
+                            </div>
+                        </div>
+                        <img src="https://placeimg.com/220/120/architecture"/>
+                        <i class="close"></i>
+                    </div>
+                </div>
+                <div class="btn-upload btn-upload--plus">
+                    <input id="btn-plus3" type="file">
+                    <label class="btn-upload__icon" for="btn-plus2">
+                        <i class="ficon--plus"></i>
+                    </label>
+                </div>
+            </form>
+        </div>
+        <div style="padding-left: 20px;">
+            <div class="wg_notes__add"><a class="wg_notes__add-btn"><i class="ficon--plus"></i></a><span
+                    class="wg_notes__add-label">Write A Note</span></div>
+        </div>
+        <h5>TEST</h5>
+        <div class="btn btn--default hasicon--left"><i class="ficon--file-excel"></i><span>Export As</span></div>
+    </div>
+</div>
+<div class="container" style="padding: 5%">
+    <h5>Icons Buttons</h5>
+    <div>
+        <a class="btn btn--icon btn--white" title="PDF">
+            <i class="ficon--file-pdf"></i>
+        </a>
+        <a class="btn btn--icon btn--white" title="">
+            <i class="ficon--edit" style="cursor: pointer;"></i>
+        </a>
+        <a class="btn btn--icon btn--white" title="">
+            <i class="ficon--trash"></i>
+        </a>
+        <a class="btn btn--icon btn--white" title="">
+            <i class="ficon--settings"></i>
+        </a>
+        <a class="btn btn--icon btn--white" title="">
+            <i class="ficon--equalizer"></i>
+        </a>
+        <a class="btn btn--icon btn--white" title="">
+            <i class="ficon--filter"></i>
+        </a>
+        <a class="btn btn--icon btn--white" title="">
+            <i class="ficon--repeat"></i>
+        </a>
+        <a class="btn btn--icon btn--white" title="">
+            <i class="ficon--download-cloud"></i>
+        </a>
+    </div>
+</div>
+<div class="container" style="padding: 5%;">
+    <h2 class="text-center">Custom Forms</h2>
+    <div style="background-color: #fff;">
+    </div>
+</div>
+<div class="container" style="padding: 5%;">
+    <h2 class="text-center">icons</h2>
+    <div class="test-icons-container">
+            <div>
+                <span class="ficon--file-text2"></span>
+                <span class="mls"> ficon--file-text2</span>
+            </div>
+
+            <div>
+                <span class="ficon--lock"></span>
+                <span class="mls"> ficon--lock</span>
+            </div>
+
+            <div>
+                <span class="ficon--mute"></span>
+                <span class="mls"> ficon--mute</span>
+            </div>
+
+            <div>
+                <i class="ficon--sms"></i>
+                <span class="mls"> ficon--sms</span>
+            </div>
+
+            <div>
+                <i class="ficon--calendar2"></i>
+                <span class="mls"> ficon--calendar2</span>
+            </div>
+
+            <div>
+                <i class="ficon--info2"></i>
+                <span class="mls"> ficon--info2</span>
+            </div>
+
+            <div>
+                  <span class="ficon--check-circle">
+                  </span>
+                <span class="mls"> ficon--check-circle</span>
+            </div>
+            <div>
+                  <span class="ficon--minimize-bold">
+                  </span>
+                <span class="mls"> ficon--minimize-bold</span>
+            </div>
+            <div>
+                  <span class="ficon--paid">
+                  </span>
+                <span class="mls"> ficon--paid</span>
+            </div>
+            <div>
+                  <span class="ficon--report-favorit">
+                  </span>
+                <span class="mls"> ficon--report-favorit</span>
+            </div>
+            <div>
+                  <span class="ficon--report-favorite">
+                  </span>
+                <span class="mls"> ficon--report-favorite</span>
+            </div>
+            <div>
+                  <span class="ficon--report-recruitment">
+                  </span>
+                <span class="mls"> ficon--report-recruitment</span>
+            </div>
+            <div>
+                  <span class="ficon--report-timesheet">
+                  </span>
+                <span class="mls"> ficon--report-timesheet</span>
+            </div>
+            <div>
+                  <span class="ficon--report-task">
+                  </span>
+                <span class="mls"> ficon--report-task</span>
+            </div>
+            <div>
+                  <span class="ficon--report-projects">
+                  </span>
+                <span class="mls"> ficon--report-projects</span>
+            </div>
+            <div>
+                  <span class="ficon--report-leave-requests">
+                  </span>
+                <span class="mls"> ficon--report-leave-requests</span>
+            </div>
+            <div>
+                  <span class="ficon--report-issues">
+                  </span>
+                <span class="mls"> ficon--report-issues</span>
+            </div>
+            <div>
+                  <span class="ficon--report-employee-details">
+                  </span>
+                <span class="mls"> ficon--report-employee-details</span>
+            </div>
+            <div>
+                  <span class="ficon--completed">
+                  </span>
+                <span class="mls"> ficon--completed</span>
+            </div>
+            <div>
+                  <span class="ficon--approved">
+                  </span>
+                <span class="mls"> ficon--approved</span>
+            </div>
+            <div>
+                  <span class="ficon--recieved">
+                  </span>
+                <span class="mls"> ficon--recieved</span>
+            </div>
+            <div>
+                  <span class="ficon--check-double">
+                  </span>
+                <span class="mls"> ficon--check-double</span>
+            </div>
+            <div>
+                  <span class="ficon--converted">
+                  </span>
+                <span class="mls"> ficon--converted</span>
+            </div>
+            <div>
+                  <span class="ficon--assigned">
+                  </span>
+                <span class="mls"> ficon--assigned</span>
+            </div>
+            <div>
+                  <span class="ficon--user-check">
+                  </span>
+                <span class="mls"> ficon--user-check</span>
+            </div>
+            <div>
+                  <span class="ficon--terminated">
+                  </span>
+                <span class="mls"> ficon--terminated</span>
+            </div>
+            <div>
+                  <span class="ficon--rejected">
+                  </span>
+                <span class="mls"> ficon--rejected</span>
+            </div>
+            <div>
+                  <span class="ficon--thumb-down">
+                  </span>
+                <span class="mls"> ficon--thumb-down</span>
+            </div>
+            <div>
+                  <span class="ficon--edited">
+                  </span>
+                <span class="mls"> ficon--edited</span>
+            </div>
+            <div>
+                  <span class="ficon--import">
+                  </span>
+                <span class="mls"> ficon--import</span>
+            </div>
+            <div>
+                  <span class="ficon--uploaded">
+                  </span>
+                <span class="mls"> ficon--uploaded</span>
+            </div>
+            <div>
+                  <span class="ficon--submited">
+                  </span>
+                <span class="mls"> ficon--submited</span>
+            </div>
+            <div>
+                  <span class="ficon--waiting">
+                  </span>
+                <span class="mls"> ficon--waiting</span>
+            </div>
+            <div>
+                  <span class="ficon--phone2">
+                  </span>
+                <span class="mls"> ficon--phone2</span>
+            </div>
+            <div>
+                  <span class="ficon--at">
+                  </span>
+                <span class="mls"> ficon--at</span>
+            </div>
+            <div>
+                  <span class="ficon--report-focus-oncustomer">
+                  </span>
+                <span class="mls"> ficon--report-focus-oncustomer</span>
+            </div>
+            <div>
+                  <span class="ficon--report-custom">
+                  </span>
+                <span class="mls"> ficon--report-custom</span>
+            </div>
+            <div>
+                  <span class="ficon--report-tax">
+                  </span>
+                <span class="mls"> ficon--report-tax</span>
+            </div>
+            <div>
+                  <span class="ficon--report-fin-statement">
+                  </span>
+                <span class="mls"> ficon--report-fin-statement</span>
+            </div>
+            <div>
+                  <span class="ficon--reset">
+                  </span>
+                <span class="mls"> ficon--reset</span>
+            </div>
+            <div>
+                  <span class="ficon--plus-lg">
+                  </span>
+                <span class="mls"> ficon--plus-lg</span>
+            </div>
+            <div>
+                  <span class="ficon--view-kanban">
+                  </span>
+                <span class="mls"> ficon--view-kanban</span>
+            </div>
+            <div>
+                  <span class="ficon--view-list">
+                  </span>
+                <span class="mls"> ficon--view-list</span>
+            </div>
+            <div>
+                  <span class="ficon--org-chart">
+                  </span>
+                <span class="mls"> ficon--org-chart</span>
+            </div>
+            <div>
+                  <span class="ficon--file-csv">
+                  </span>
+                <span class="mls"> ficon--file-csv</span>
+            </div>
+            <div>
+                  <span class="ficon--star">
+                  </span>
+                <span class="mls"> ficon--star</span>
+            </div>
+            <div>
+                  <span class="ficon--mask-trapeze">
+                  </span>
+                <span class="mls"> ficon--mask-trapeze</span>
+            </div>
+            <div>
+                  <span class="ficon--office365">
+                  </span>
+                <span class="mls"> ficon--office365</span>
+            </div>
+            <div>
+                  <span class="ficon--calc">
+                  </span>
+                <span class="mls"> ficon--calc</span>
+            </div>
+            <div>
+                  <span class="ficon--wallet-bold">
+                  </span>
+                <span class="mls"> ficon--wallet-bold</span>
+            </div>
+            <div>
+                  <span class="ficon--bar-chart-bold">
+                  </span>
+                <span class="mls"> ficon--bar-chart-bold</span>
+            </div>
+            <div>
+                  <span class="ficon--users-bold">
+                  </span>
+                <span class="mls"> ficon--users-bold</span>
+            </div>
+            <div>
+                  <span class="ficon--user-bold">
+                  </span>
+                <span class="mls"> ficon--user-bold</span>
+            </div>
+            <div>
+                  <span class="ficon--server-bold">
+                  </span>
+                <span class="mls"> ficon--server-bold</span>
+            </div>
+            <div>
+                  <span class="ficon--projects-bold">
+                  </span>
+                <span class="mls"> ficon--projects-bold</span>
+            </div>
+            <div>
+                  <span class="ficon--folder-bold">
+                  </span>
+                <span class="mls"> ficon--folder-bold</span>
+            </div>
+            <div>
+                  <span class="ficon--flag-bold">
+                  </span>
+                <span class="mls"> ficon--flag-bold</span>
+            </div>
+            <div>
+                  <span class="ficon--flag">
+                  </span>
+                <span class="mls"> ficon--flag</span>
+            </div>
+            <div>
+                  <span class="ficon--menu-thin">
+                  </span>
+                <span class="mls"> ficon--menu-thin</span>
+            </div>
+            <div>
+                  <span class="ficon--filter-bold">
+                  </span>
+                <span class="mls"> ficon--filter-bold</span>
+            </div>
+            <div>
+                  <span class="ficon--check-thin">
+                  </span>
+                <span class="mls"> ficon--check-thin</span>
+            </div>
+            <div>
+                  <span class="ficon--camera">
+                  </span>
+                <span class="mls"> ficon--camera</span>
+            </div>
+            <div>
+                  <span class="ficon--bell">
+                  </span>
+                <span class="mls"> ficon--bell</span>
+            </div>
+            <div>
+                  <span class="ficon--trial">
+                  </span>
+                <span class="mls"> ficon--trial</span>
+            </div>
+            <div>
+                  <span class="ficon--check">
+                  </span>
+                <span class="mls"> ficon--check</span>
+            </div>
+            <div>
+                  <span class="ficon--list-open">
+                  </span>
+                <span class="mls"> ficon--list-open</span>
+            </div>
+            <div>
+                  <span class="ficon--settings">
+                  </span>
+                <span class="mls"> ficon--settings</span>
+            </div>
+            <div>
+                  <span class="ficon--edit">
+                  </span>
+                <span class="mls"> ficon--edit</span>
+            </div>
+            <div>
+                  <span class="ficon--settings-bold">
+                  </span>
+                <span class="mls"> ficon--settings-bold</span>
+            </div>
+            <div>
+                  <span class="ficon--customize">
+                  </span>
+                <span class="mls"> ficon--customize</span>
+            </div>
+            <div>
+                  <span class="ficon--dashboard">
+                  </span>
+                <span class="mls"> ficon--dashboard</span>
+            </div>
+            <div>
+                  <span class="ficon--layout">
+                  </span>
+                <span class="mls"> ficon--layout</span>
+            </div>
+            <div>
+                  <span class="ficon--calendar">
+                  </span>
+                <span class="mls"> ficon--calendar</span>
+            </div>
+            <div>
+                  <span class="ficon--download-cloud">
+                  </span>
+                <span class="mls"> ficon--download-cloud</span>
+            </div>
+            <div>
+                  <span class="ficon--tag-down">
+                  </span>
+                <span class="mls"> ficon--tag-down</span>
+            </div>
+            <div>
+                  <span class="ficon--order-accending">
+                  </span>
+                <span class="mls"> ficon--order-accending</span>
+            </div>
+            <div>
+                  <span class="ficon--trash">
+                  </span>
+                <span class="mls"> ficon--trash</span>
+            </div>
+            <div>
+                  <span class="ficon--file-excel">
+                  </span>
+                <span class="mls"> ficon--file-excel</span>
+            </div>
+            <div>
+                  <span class="ficon--file-outlook">
+                  </span>
+                <span class="mls"> ficon--file-outlook</span>
+            </div>
+            <div>
+                  <span class="ficon--file-pp">
+                  </span>
+                <span class="mls"> ficon--file-pp</span>
+            </div>
+            <div>
+                  <span class="ficon--file-word">
+                  </span>
+                <span class="mls"> ficon--file-word</span>
+            </div>
+            <div>
+                  <span class="ficon--file-plus">
+                  </span>
+                <span class="mls"> ficon--file-plus</span>
+            </div>
+            <div>
+                  <span class="ficon--log-in">
+                  </span>
+                <span class="mls"> ficon--log-in</span>
+            </div>
+
+
+            <div>
+                  <span class="ficon--file-html">
+                  </span>
+                <span class="mls"> ficon--file-html</span>
+            </div>
+            <div>
+                  <span class="ficon--file-txt">
+                  </span>
+                <span class="mls"> ficon--file-txt</span>
+            </div>
+            <div>
+                  <span class="ficon--file-vcard">
+                  </span>
+                <span class="mls"> ficon--file-vcard</span>
+            </div>
+
+
+            <div>
+                  <span class="ficon--users">
+                  </span>
+                <span class="mls"> ficon--users</span>
+            </div>
+            <div>
+                  <span class="ficon--copy">
+                  </span>
+                <span class="mls"> ficon--copy</span>
+            </div>
+            <div>
+                  <span class="ficon--remove-circle">
+                  </span>
+                <span class="mls"> ficon--remove-circle</span>
+            </div>
+            <div>
+                  <span class="ficon--add-circle">
+                  </span>
+                <span class="mls"> ficon--add-circle</span>
+            </div>
+            <div>
+                  <span class="ficon--timer">
+                  </span>
+                <span class="mls"> ficon--timer</span>
+            </div>
+            <div>
+                  <span class="ficon--textsms">
+                  </span>
+                <span class="mls"> ficon--textsms</span>
+            </div>
+            <div>
+                  <span class="ficon--phone">
+                  </span>
+                <span class="mls"> ficon--phone</span>
+            </div>
+            <div>
+                  <span class="ficon--chevrons-right">
+                  </span>
+                <span class="mls"> ficon--chevrons-right</span>
+            </div>
+            <div>
+                  <span class="ficon--chevrons-left">
+                  </span>
+                <span class="mls"> ficon--chevrons-left</span>
+            </div>
+            <div>
+                  <span class="ficon--chevron-right">
+                  </span>
+                <span class="mls"> ficon--chevron-right</span>
+            </div>
+            <div>
+                  <span class="ficon--chevron-left">
+                  </span>
+                <span class="mls"> ficon--chevron-left</span>
+            </div>
+            <div>
+                  <span class="ficon--download">
+                  </span>
+                <span class="mls"> ficon--download</span>
+            </div>
+            <div>
+                  <span class="ficon--arrow-right">
+                  </span>
+                <span class="mls"> ficon--arrow-right</span>
+            </div>
+            <div>
+                  <span class="ficon--sent">
+                  </span>
+                <span class="mls"> ficon--sent</span>
+            </div>
+            <div>
+                  <span class="ficon--arrow-left">
+                  </span>
+                <span class="mls"> ficon--arrow-left</span>
+            </div>
+            <div>
+                  <span class="ficon--refunded">
+                  </span>
+                <span class="mls"> ficon--refunded</span>
+            </div>
+            <div>
+                  <span class="ficon--minus">
+                  </span>
+                <span class="mls"> ficon--minus</span>
+            </div>
+            <div>
+                  <span class="ficon--plus">
+                  </span>
+                <span class="mls"> ficon--plus</span>
+            </div>
+            <div>
+                  <span class="ficon--plus-circle">
+                  </span>
+                <span class="mls"> ficon--plus-circle</span>
+            </div>
+            <div>
+                  <span class="ficon--minus-circle">
+                  </span>
+                <span class="mls"> ficon--minus-circle</span>
+            </div>
+            <div>
+                  <span class="ficon--repeat">
+                  </span>
+                <span class="mls"> ficon--repeat</span>
+            </div>
+            <div>
+                  <span class="ficon--filter">
+                  </span>
+                <span class="mls"> ficon--filter</span>
+            </div>
+            <div>
+                  <span class="ficon--search">
+                  </span>
+                <span class="mls"> ficon--search</span>
+            </div>
+            <div>
+                  <span class="ficon--save">
+                  </span>
+                <span class="mls"> ficon--save</span>
+            </div>
+            <div>
+                  <span class="ficon--menu">
+                  </span>
+                <span class="mls"> ficon--menu</span>
+            </div>
+            <div>
+                  <span class="ficon--close">
+                  </span>
+                <span class="mls"> ficon--close</span>
+            </div>
+            <div>
+                  <span class="ficon--cancel">
+                  </span>
+                <span class="mls"> ficon--cancel</span>
+            </div>
+            <div>
+                  <span class="ficon--unfold-more">
+                  </span>
+                <span class="mls"> ficon--unfold-more</span>
+            </div>
+            <div>
+                  <span class="ficon--mail-outline">
+                  </span>
+                <span class="mls"> ficon--mail-outline</span>
+            </div>
+            <div>
+                  <span class="ficon--keyboard-backspace">
+                  </span>
+                <span class="mls"> ficon--keyboard-backspace</span>
+            </div>
+            <div>
+                  <span class="ficon--keyboard-arrow-up">
+                  </span>
+                <span class="mls"> ficon--keyboard-arrow-up</span>
+            </div>
+            <div>
+                  <span class="ficon--keyboard-arrow-right">
+                  </span>
+                <span class="mls"> ficon--keyboard-arrow-right</span>
+            </div>
+            <div>
+                  <span class="ficon--keyboard-arrow-down">
+                  </span>
+                <span class="mls"> ficon--keyboard-arrow-down</span>
+            </div>
+            <div>
+                  <span class="ficon--info">
+                  </span>
+                <span class="mls"> ficon--info</span>
+            </div>
+
+
+            <div>
+                  <span class="ficon--equalizer">
+                  </span>
+                <span class="mls"> ficon--equalizer</span>
+            </div>
+
+
+            <div>
+                  <span class="ficon--inbox">
+                  </span>
+                <span class="mls"> ficon--inbox</span>
+            </div>
+            <div>
+                  <span class="ficon--drawer">
+                  </span>
+                <span class="mls"> ficon--drawer</span>
+            </div>
+            <div>
+                  <span class="ficon--globe">
+                  </span>
+                <span class="mls"> ficon--globe</span>
+            </div>
+            <div>
+                  <span class="ficon--file-audio">
+                  </span>
+                <span class="mls"> ficon--file-audio</span>
+            </div>
+            <div>
+                  <span class="ficon--file-video">
+                  </span>
+                <span class="mls"> ficon--file-video</span>
+            </div>
+            <div>
+                  <span class="ficon--file-zip">
+                  </span>
+                <span class="mls"> ficon--file-zip</span>
+            </div>
+            <div>
+                  <span class="ficon--file-text">
+                  </span>
+                <span class="mls"> ficon--file-text</span>
+            </div>
+            <div>
+                  <span class="ficon--mail">
+                  </span>
+                <span class="mls"> ficon--mail</span>
+            </div>
+            <div>
+                  <span class="ficon--attachment">
+                  </span>
+                <span class="mls"> ficon--attachment</span>
+            </div>
+            <div>
+                  <span class="ficon--play">
+                  </span>
+                <span class="mls"> ficon--play</span>
+            </div>
+            <div>
+                  <span class="ficon--eject">
+                  </span>
+                <span class="mls"> ficon--eject</span>
+            </div>
+            <div>
+                  <span class="ficon--file-pdf">
+                  </span>
+                <span class="mls"> ficon--file-pdf</span>
+            </div>
+
+
+            <div>
+                  <span class="ficon--file-code-o">
+                  </span>
+                <span class="mls"> ficon--file-code-o</span>
+            </div>
+            <div>
+                  <span class="ficon--toggle-on">
+                  </span>
+                <span class="mls"> ficon--toggle-on</span>
+            </div>
+            <div>
+                  <span class="ficon--file-img">
+                  </span>
+                <span class="mls"> ficon--file-img</span>
+            </div>
+
+            <h5>additional</h5>
+        <div>
+            <i class="ficon--more-horiz"></i>
+            <span class="mls"> ficon--more-horiz</span>
+        </div>
+
+        <div>
+            <i class="ficon--more-vert"></i>
+            <span class="mls"> ficon--more-horiz</span>
+        </div>
+
+        <div>
+            <i class="ficon--exclamation"></i>
+            <span class="mls"> ficon--exclamation</span>
+        </div>
+
+        <div>
+            <i class="ficon--order-descending"></i>
+            <span class="mls"> ficon--order-descending</span>
+        </div>
+
+        <div>
+            <i class="ficon--upload"></i>
+            <span class="mls"> ficon--upload</span>
+        </div>
+
+        <div>
+            <i class="ficon--equalizer"></i>
+            <span class="mls"> ficon--equalizer</span>
+        </div>
+
+    </div>
+</div>
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+
+        $('.dropdown-button').dropdown();
+
+        $('.btn[class*="btn--toggle-"]').click(function () {
+            $(this).toggleClass('btn--toggle-on btn--toggle-off');
+        });
+
+    });
+
+
+    function itemonmouseover(id, page) {
+        var pa = document.getElementById(id);
+
+        if (pa == null) return;
+        pa.onmouseover = function () {
+            if (pa.className.indexOf("wfm-my-toolitem-selected wfm-my-toolitem-disabled") === -1)
+                pa.className = "wfm-my-toolitem-over";
+        };
+        pa.onmouseout = function () {
+            if (pa.className.indexOf("wfm-my-toolitem-selected wfm-my-toolitem-disabled") === -1)
+                pa.className = "wfm-my-toolitem wfm-my-no-selection";
+        };
+        pa.onclick = function () {
+            if (pa.className.indexOf("wfm-my-toolitem-selected wfm-my-toolitem-disabled") === -1)
+                document.location = page;
+        };
+    }
+
+    itemonmouseover("ws-item", "Workspace.html");
+    itemonmouseover("pm-item", "ProjectManagement.html");
+    itemonmouseover("hrms-item", "Hrms.html");
+    itemonmouseover("acc-item", "Accounting.html");
+    /*itemonmouseover("website-item", "Website.html");*/
+    itemonmouseover("payr-item", "Payroll.html");
+    itemonmouseover("doc-item", "Documents.html");
+    itemonmouseover("crm-item", "Crm.html");
+    itemonmouseover("dash-item", "Dashboard.html");
+    itemonmouseover("set-item", "Settings.html");
+    itemonmouseover("myacc-item", "Myaccount.html");
+    itemonmouseover("my-22", "logout.html");
+
+    setTimeout("showRefreshMessage()", 60000);
+
+    function showRefreshMessage() {
+        var pageLoadVar = document.getElementById("pageload");
+        var loaderAnim = document.getElementById("loaderAnim");
+
+        if (pageLoadVar !== undefined)
+            pageLoadVar.style.display = 'block';
+        if (loaderAnim !== undefined)
+            loaderAnim.style.display = 'none;';
+    }
+
+    function contentScroll(contentStyleName, parentStyle) {
+        $(parentStyle + ' ' + contentStyleName).scrollbar({
+            "autoUpdate": true,
+            "autoScrollSize": true,
+            "scrollx": $(parentStyle + ' .external-scroll_x'),
+            "scrolly": $(parentStyle + ' .external-scroll_y')
+        });
+    }
+
+</script>
+<script src="/mainStyles/new-ui/js/frame_affix.js" type="application/javascript"></script>
+<!--<script type="text/javascript" src="/mainStyles/new-ui/js/jquery.scrollbar.min.js"></script>-->
+<script type="text/javascript" src="/mainStyles/new-ui/js/highcharts.js"></script>
+<script type="text/javascript" src="/mainStyles/new-ui/js/highcharts-3d.js"></script>
+<script type="text/javascript" src="/mainStyles/new-ui/js/cylinder.js"></script>
+<script type="text/javascript" src="/mainStyles/new-ui/js/modules/funnel.js"></script>
+<script type="text/javascript" src="/mainStyles/new-ui/js/materialize-0.97.5.min.js"></script>
+</body>
+</html>

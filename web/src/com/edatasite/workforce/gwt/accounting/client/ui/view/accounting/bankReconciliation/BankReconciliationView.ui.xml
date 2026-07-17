@@ -1,0 +1,11 @@
+<!-- BankReconciliationView.ui.xml -->
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:g="urn:import:com.google.gwt.user.client.ui">
+    <g:HTMLPanel>
+        <g:HTMLPanel ui:field="contentPanel" styleName="content-panel">
+            <!-- Bu joyga child view'lar qo‘shiladi -->
+        </g:HTMLPanel>
+        <g:Button ui:field="nextButton" text="Next" styleName="next-button"/>
+        <g:Button ui:field="prevButton" text="Previous" styleName="prev-button" visible="false"/>
+    </g:HTMLPanel>
+</ui:UiBinder>

@@ -1,0 +1,1 @@
+insert into pdfreference (code, name) values ('RFQ', 'Request for Quote');

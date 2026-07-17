@@ -1,0 +1,119 @@
+body {
+    /*font-family: arial,verdana,tomato,sans-serif;*/
+    font-style: normal;
+    font-variant: normal;
+    color: #004B79;
+}
+
+.main-form {
+    width: 400px;
+    height: auto;
+}
+
+.form-legend {
+    border: 1px solid #7f9db9;
+}
+
+hr {
+    border-bottom: 1px solid #7f9db9;
+    border-top: 1px solid white;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+
+}
+
+.thankyou {
+    width: 300px;
+    color: #004B79;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+    border: 1px dashed #7f9db9;
+}
+
+/*Contact Us page styles -- begin*/
+#style-body {
+    color: #6B6B6B;
+    font: 0.75em / 1.2 Tahoma, Arial, Helvetica, sans-serif;
+    min-height: 100%;
+    position: relative;
+}
+
+#main {
+    overflow: hidden;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.privacy-height {
+    height: 2288px;
+}
+
+.terms-height {
+    height: 2788px;
+}
+
+.breadcrumb {
+    padding-bottom: 0.5em;
+}
+
+.contact-us-title {
+    color: #003B62;
+    font-size: 2em;
+    margin-bottom: 14px;
+}
+
+.contact-us {
+    border-top: 1px solid #CCCCCC;
+    padding-top: 23px;
+}
+
+.contact-us li {
+    float: left;
+    padding: 7px 0 0 60px;
+    width: 250px;
+}
+
+.contact-us li h3 {
+    color: #146593;
+    font: bold 15px Tahoma;
+}
+
+.contact-us dt {
+    clear: left;
+    color: #4C4C4C;
+    float: left;
+    font: bold 13px / 18px Tahoma;
+    margin-right: 5px;
+}
+
+.contact-us dd {
+    font-size: 13.5px;
+    line-height: 18px;
+}
+
+.contact-us-1 {
+    background-position: 0 0;
+    margin-bottom: 15px;
+}
+
+.contact-us-2 {
+    background-position: 0 -108px;
+}
+
+.contact-us-3 {
+    background-position: 0 -216px;
+}
+
+.contact-us-1, .contact-us-2, .contact-us-3 {
+    background-image: url("../images/mark-contact-us.png");
+    background-repeat: no-repeat;
+}
+
+.clear {
+    clear: both;
+    display: block;
+}
+
+/*Contact Us page styles -- end*/

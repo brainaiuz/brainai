@@ -1,0 +1,4 @@
+<module rename-to="webforms">
+    <inherits name='com.edatasite.workforce.gwt.webforms.WebForms'/>
+    <inherits name="com.edatasite.workforce.gwt.Localization_properties"></inherits>
+</module>

@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body><p>Beste $recipient.getName(),</p>
+
+<p>$user.getName() heeft Project $project.name bijgewerkt op $date.<br/>
+    Project details zijn als volgt:</p>
+
+<p>Project Manager: $project.manager.getName()<br/>
+    Projectnummer: $project.number <br/>
+
+<p>Klik <a href="$host/ProjectManagement.html?link=$link" title="View project">hier</a> om het project te bekijken</p>
+
+<p>Als u niet op de link kunt klikken, kopieer dan de volgende regel naar uw web browser: </p>
+
+<p><span style="color: #0033FF">$host/ProjectManagement.html?link=$link</span></p>
+</body>
+</html>

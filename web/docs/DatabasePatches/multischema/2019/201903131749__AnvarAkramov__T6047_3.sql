@@ -1,0 +1,1 @@
+UPDATE permission SET sorder=(select sorder from permission where code='HRMS_ANNUAL_ALLOWANCE' LIMIT 1), parent= (select id from permission where code='HRMS_ATTENDANCE_TRACKING_TAB' LIMIT 1) WHERE code='HRMS_ANNUAL_LEAVE_BALANCE_REPORT';

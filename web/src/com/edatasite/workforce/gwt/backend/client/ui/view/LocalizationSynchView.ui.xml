@@ -1,0 +1,38 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+    <g:HTMLPanel>
+
+        <table cellpadding="15" cellspacing="10">
+            <tbody>
+                <tr>
+                    <td width="10%" style="vertical-align: top;">
+                        Import to database from csv file
+                    </td>
+                    <td width="90%" style="vertical-align: top;">
+                        <g:Button ui:field="importUpload">Import File</g:Button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td width="10%" style="vertical-align: top;">
+                        Export to database from resource file
+                    </td>
+                    <td width="90%" style="vertical-align: top;">
+                        <g:Button ui:field="updateDatabase">Update Datebase</g:Button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td width="10%" style="vertical-align: top;">
+                        Import to resource from database
+                    </td>
+                    <td width="90%" style="vertical-align: top;">
+                        <g:Button ui:field="updateResource">Update Resource</g:Button>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+
+    </g:HTMLPanel>
+</ui:UiBinder>

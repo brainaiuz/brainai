@@ -1,0 +1,338 @@
+/***************
+     CHECKBOXES and RADIO
+***************/
+
+//Example
+//<label class="control control--checkbox">
+//  <input type="checkbox" name="" id="" />
+//  <span class="control__indicator"></span>
+//  <span class="control__description">Label Text</span>
+//</label>
+.gwt-CheckBox.x-form-invalid { //moved from invoice.scss Mirisoev fix
+  border: none !important;
+  label:before {
+    border: $control-border-width solid $danger-color;
+  }
+}
+
+.gwt-CheckBox * {
+  //vertical-align: middle;
+}
+.gwt-CheckBox > * {
+  vertical-align: middle;
+}
+
+.gwt-CheckBox,
+.gwt-RadioButton,
+.control {
+  position: relative;
+  display: inline-block;
+  //min-height: ($checkbox-size + rem(3px)); //to fit 17px height
+  min-height: ($checkbox-size);
+  padding-left: ($checkbox-size + 0.5rem);
+  .gwt-ScrollTable &,
+  .table & {
+    padding-left: $checkbox-size;
+  }
+
+  .controls-lg &,
+  .widget--todo & {
+    min-height: $todo-checkbox-size; // http://prntscr.com/mzfqaw
+  }
+
+  .payment-gateway-panel__option & {
+    min-height: ($checkbox-size);
+  }
+
+  input {
+    z-index: 1;
+    opacity: 0;
+  }
+}
+
+.gwt-RadioButton input,
+.gwt-RadioButton label:before,
+.gwt-CheckBox input,
+.gwt-CheckBox label:before,
+.control input,
+.control__indicator:before {
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  margin-top: -($checkbox-size / 2);
+  left: 0;
+  height: $checkbox-size;
+  width: $checkbox-size;
+  cursor: pointer;
+
+  .payment-gateway-panel__option & {
+    margin-top: -($checkbox-size-lg / 2);
+    height: $checkbox-size-lg;
+    width: $checkbox-size-lg;
+  }
+
+  .controls-lg &,
+  .widget--todo & {
+    margin-top: -($checkbox-size-lg / 2);
+    // http://prntscr.com/mzfqaw
+  }
+}
+
+.gwt-CheckBox label,
+.gwt-RadioButton label,
+.control__indicator {
+  vertical-align: middle;
+  display: inline-flex;
+  align-items: center;
+
+  &:before {
+    content: " ";
+    border-radius: rem(3px);
+    background: #fff;
+    border: 1px solid $checkbox-border-color;
+
+    .dataTable & {
+      background-color: #f9fafc;
+      border-color: $color-base-1;
+    }
+    .dataTable tr.highlighted td:hover & {
+      border-color: $gray-dark;
+    }
+    .headerTable & {
+      //background-color: transparent;
+      border-color: $gray-dark;
+    }
+    .payment-gateway-panel__option &,
+    .controls-lg &,
+    .widget--todo & {
+      width: $todo-checkbox-size;
+      height: $todo-checkbox-size;
+      border-radius: 50%;
+    }
+  }
+
+  > span {
+    //text-indent: 10px;
+  }
+}
+
+.gwt-RadioButton label,
+.control--radio .control__indicator {
+  &:before {
+    border-radius: 50%;
+  }
+}
+
+.gwt-CheckBox label > span,
+.gwt-RadioButton label > span,
+.control__indicator + * {
+  //margin-left: rem(6px);
+  //text-indent: rem(6px);
+  .quick-add.side-nav & {}
+  padding-left: rem(6px);
+}
+
+.gwt-CheckBox.has-text label,
+.gwt-RadioButton.has-text label {
+  padding-left: rem(12px);
+}
+
+/* Hover and focus states */
+//.control:hover input ~ .control__indicator:before,
+//.control input:focus ~ .control__indicator:before {}
+
+/* Checked state */
+.gwt-CheckBox input:checked ~ label:before,
+.gwt-RadioButton input:checked ~ label:before,
+.control input:checked ~ .control__indicator:before {
+  background: $checkbox-bg-active !important;
+  border-color: $checkbox-bg-active !important;
+
+  .payment-gateway-panel__option & {
+    background: $checkbox-bg-darken !important;
+    border-color: $checkbox-bg-darken !important;
+  }
+
+  .dataTable tr & {
+    border-color: $checkbox-bg-table !important;
+    background-color: $checkbox-bg-table !important;
+  }
+
+  .controls-lg &,
+  .widget--todo & {
+    background-color: $color-base-2 !important;
+    border-color: $color-base-2 !important;
+  }
+}
+
+/* Hover state whilst checked */
+.gwt-CheckBox:hover input:not([disabled]):checked ~ label:before,
+.gwt-CheckBox input:checked:focus ~ .label:before,
+.gwt-RadioButton:hover input:not([disabled]):checked ~ label:before,
+.gwt-RadioButton input:checked:focus ~ .label:before,
+.control:hover input:not([disabled]):checked ~ .control__indicator:before,
+.control input:checked:focus ~ .control__indicator:before {
+  background: $checkbox-bg-active !important;
+  border-color: $checkbox-bg-active !important;
+
+  .payment-gateway-panel__option & {
+    background: #ecad3b !important;
+    border-color: #ecad3b !important;
+  }
+
+  .controls-lg &,
+  .widget--todo & {
+    background: $color-base-2 !important;
+    border-color: $color-base-2 !important;
+  }
+}
+
+/* Disabled state */
+.gwt-RadioButton input:disabled ~ label,
+.gwt-CheckBox input:disabled ~ label,
+.control input:disabled ~ .control__indicator {
+
+}
+
+.gwt-RadioButton input:disabled ~ label,
+.gwt-CheckBox input:disabled ~ label,
+.control input:disabled ~ .control__indicator {
+  &:before {
+    opacity: .6;
+    pointer-events: none;
+    background: $checkbox-bg-disabled !important;
+  }
+  > span {
+    color: $text-color-light;
+  }
+}
+
+.gwt-RadioButton input:disabled:checked ~ label:before,
+.gwt-CheckBox input:disabled:checked ~ label:before,
+.control input:disabled:checked ~ .control__indicator:before {
+  background: $checkbox-bg-active !important;
+
+  .controls-lg &,
+  .widget--todo & {
+    background-color: $color-base-2 !important;
+  }
+}
+
+.gwt-RadioButton input:disabled ~ label:after,
+.gwt-CheckBox input:disabled ~ label:after,
+.control input:disabled ~ .control__indicator:after {
+  opacity: .4;
+}
+
+/* Check mark - tick */
+.gwt-CheckBox label:after,
+.gwt-RadioButton label:after,
+.control__indicator:after {
+  @extend .ficon--;
+  @extend .ficon--check:before;
+  position: absolute;
+  display: none;
+  font-weight: 300;
+  font-size: 0.95rem;
+  line-height: 1;
+  //top: rem(4px);
+  top: 50%;
+  margin-top:-.5em;
+  left: -0.15em;
+  color: $checkbox-indicator-color;
+
+  .dataTable & {
+    color: white;
+  }
+
+
+  .controls-lg &,
+  .widget--todo & {
+    @extend .ficon--check-thin:before;
+    top: rem(8px);
+    left: rem(1px);
+    color: #fff;
+    font-size: rem(13px);
+  }
+}
+
+.gwt-RadioButton label:after,
+.control--radio .control__indicator:after {
+  content: '' !important;
+  width: $radioPoint;
+  height: $radioPoint;
+  border-radius: 50%;
+  background: $checkbox-indicator-color;
+  font-size: 0 !important;
+  top: 50%;
+  left: ($radioPoint);
+  margin-top: -($radioPoint / 2);
+
+  .payment-gateway-panel__option & {
+    left: $radioPoint-lg;
+    width: $radioPoint-lg;
+    height: $radioPoint-lg;
+    margin-top: -($radioPoint-lg / 2);
+    background: #fff;
+  }
+}
+
+/* Show check mark */
+.gwt-CheckBox input:checked ~ label:after,
+.gwt-RadioButton input:checked ~ label:after,
+.control input:checked ~ .control__indicator:after {
+  display: block;
+}
+
+/***************
+     CHECKBOXES and RADIO
+***************/
+
+.check-list {
+  > .control {
+    display: block;
+
+    + .gwt-CheckBox,
+    + .control {
+      margin-top: rem(10px);
+    }
+  }
+}
+
+
+.gwt-RadioButton + .gwt-RadioButton {
+  .default-width & {
+    margin-left: 10px; //http://prntscr.com/lyvtik
+  }
+}
+
+table.options-row { //https://prnt.sc/rbt6mx
+  .form-group__content > & {
+    height:  $button-height;
+  }
+  td + td {
+    padding-left: 10px;
+  }
+}
+
+.table-checkbox { //https://prnt.sc/r7c9hu
+  height: $input-height;
+
+  &__label {
+    margin-left: 10px;
+  }
+}
+
+.matched-vacancies { //https://prnt.sc/sjnteh
+  height: $input-height;
+}
+
+.controlsLine {
+  display: inline-flex;
+  align-items: center;
+  > * {
+    + * {
+      margin-left: $padding-x-base;
+    }
+  }
+}

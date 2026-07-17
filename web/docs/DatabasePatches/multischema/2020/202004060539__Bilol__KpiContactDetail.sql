@@ -1,0 +1,1 @@
+insert into kpicontactdetails(demourl, phonenumber, countrycode) values ('https://calendly.com/kpi_uz/uzb','+998 555 020 222','UZ');

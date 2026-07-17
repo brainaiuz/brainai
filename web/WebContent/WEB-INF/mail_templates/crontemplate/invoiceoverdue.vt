@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+
+<p>Dear $username,</p>
+
+<p>Please, be informed that the following invoices are overdue:</p>
+
+<table border="0" width="100%" cellspacing="0" style="border: solid 1px #365F91;color:#365F91;margin-top:20px;">
+    <tr>
+        <td bgcolor="#FFFFFF" style="border: solid 1px #365F91;width:50px;text-align:center;"><b>Invoice Number</b></td>
+        <td bgcolor="#FFFFFF" style="border: solid 1px #365F91;width:50px;text-align:center;"><b>Invoice Date</b></td>
+        <td bgcolor="#FFFFFF" style="border: solid 1px #365F91;width:50px;text-align:center;"><b>Due Date</b></td>
+        <td bgcolor="#FFFFFF" style="border: solid 1px #365F91;width:50px;text-align:center;"><b>Client</b></td>
+        <td bgcolor="#FFFFFF" style="border: solid 1px #365F91;width:50px;text-align:center;"><b>Total <br/>($baseCurrencyName)</b></td>
+        <td bgcolor="#FFFFFF" style="border: solid 1px #365F91;width:50px;text-align:center;"><b>Total</b></td>
+        <td bgcolor="#FFFFFF" style="border: solid 1px #365F91;width:50px;text-align:center;"><b>Paid Amount</b></td>
+        <td bgcolor="#FFFFFF" style="border: solid 1px #365F91;width:50px;text-align:center;"><b>&nbsp;&nbsp;&nbsp;&nbsp;</b></td>
+    </tr>
+    #foreach($invoice in $invoices)
+    <tr>
+        <td bgcolor="#FFFFFF" style="border: solid 1pt; width:50px;text-align:left; font-color:#000000;">$invoice.getInvoiceNumber()</td>
+        <td bgcolor="#FFFFFF" style="border: solid 1pt; width:50px;text-align:center; font-color:#000000;">$invoice.getInvoiceDateAsString()</td>
+        <td bgcolor="#FFFFFF" style="border: solid 1pt; width:50px;text-align:center; font-color:#000000;">$invoice.getDueDateAsString()</td>
+        <td bgcolor="#FFFFFF" style="border: solid 1pt; width:50px;text-align:left; font-color:#000000;">$invoice.getClientName()</td>
+        <td bgcolor="#FFFFFF" style="border: solid 1pt; width:50px;text-align:right; font-color:#000000;">$invoice.getTotalAsString()</td>
+        <td bgcolor="#FFFFFF" style="border: solid 1pt; width:50px;text-align:right; font-color:#000000;">$invoice.getTotalInInvoiceAsString()</td>
+        <td bgcolor="#FFFFFF" style="border: solid 1pt; width:50px;text-align:right; font-color:#000000;">$invoice.getPaymentsAsString()</td>
+        <td bgcolor="#FFFFFF" style="border: solid 1pt; width:50px;text-align:center; font-color:#000000;"><a href="$host/Accounting.html?link=$invoice.getInvoiceURL()" title="View Overdue Invoice">Review</a></td>
+    </tr>
+    #end
+</table>
+<p>Click <a href="$host/Accounting.html?link=$link" title="View Overdue Invoices List">here</a>
+to view your overdue invoices list.</p>
+<p>* If you are not able to click on the link, you can instead copy and paste the following address in to your web browser: </p>
+<p><span style="color: #0033FF">$host/Accounting.html?link=$link</span></p>
+
+</body>
+</html>

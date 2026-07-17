@@ -1,0 +1,173 @@
+.side-nav.trmnlAtt {
+  width: 720px !important;
+}
+
+// =========================================================================
+// Terminal Attendance > sideNav > head basic layout
+// =========================================================================
+.trmnlAtt-head { //.side-nav__heading
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: $sidenavPadding-x;
+  padding-bottom: $sidenavPadding-y; //the same with top
+
+  background: linear-gradient(to bottom,
+          $gray-middle-2 0%,
+          $gray-middle-2 50%,
+          transparent 50%,
+          transparent 100%
+  );
+
+  $trmnlAttAvaSize: rem(140px);
+
+  &__ava { //.avatar
+    flex-shrink: 0;
+    height: $trmnlAttAvaSize;
+  }
+
+  &__txt {
+    flex: 1;
+    height: 100%; // Важно для правильной работы grid
+    // Используем grid для контроля высоты
+    display: grid;
+    grid-template-rows: 1fr 1fr; // Две строки равной высоты
+  }
+}
+// End sideNav > head basic layout
+// =========================================================================
+
+// =========================================================================
+// Terminal Attendance > sideNav > head > person block
+// =========================================================================
+.trmnlAtt-head__person {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: $sidenavPadding-x;
+  padding-top: $padding-y-base; //15px
+}
+.trmnlAtt-head__nameGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.trmnlAtt-head__name {
+  font-size: $h5-fontsize;
+  font-weight: 600;
+  color: $black-base;
+  line-height: 1.1;
+}
+.trmnlAtt-head__pos {
+  font-size: $fontsize-1; // 1.083rem
+  color: $text-color-light; // $gray-dark по системе
+}
+
+// Date block
+.trmnlAtt-date {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: 6px;
+
+  padding: 4px 10px;
+  background: rgba($white, 0.6);
+  border-radius: $radius-basePlus; // 5px
+
+  // Компактные стили для элементов внутри
+  &__icon {
+    display: flex;
+    align-items: center;
+    line-height: 0;
+
+    svg {
+      width: 14px;  // Чуть больше, чем в viewBox для лучшей читаемости
+      height: 14px;
+      color: $black-base; // Цвет для currentColor
+
+      // Убираем возможные проблемы с clip-path, если он мешает отображению
+      clip-path: none !important;
+    }
+  }
+
+  &__text {
+    font-size: $fontsize-1;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+}
+// End sideNav > head >  person block
+// =========================================================================
+
+
+// =========================================================================
+// Terminal Attendance > sideNav > head > statistic block
+// =========================================================================
+.trmnlAtt-head__stats {
+  display: flex;
+  justify-content: flex-start;
+  gap: rem(40px);
+  padding: $padding-x-base 0 0;
+
+  position: relative;
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: -1 * $sidenavPadding-x;
+    width: 100%;
+    border-top: 1px solid #fff;
+  }
+}
+
+//Start statistica block
+.trmnlAtt-statItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  &__txt {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__lbl {
+    color: $text-color-light;
+    letter-spacing: 0.5px;
+  }
+
+  &__val {
+    font-size: $fontsize-4; //18px;
+    font-weight: 700;
+    color: $black-base;
+  }
+}
+
+.trmnlAtt-stat-icon {
+  display: flex;
+  align-items: center;
+
+  svg {
+    width: 42px;
+    height: 42px;
+  }
+
+  &--1 svg {
+    color: $success-color
+  }
+  &--2 svg {
+    color: #FF8D28
+  }
+  &--3 {
+    color: $danger-color //#FF383C
+  }
+}
+
+//End sideNav > head > statistic block
+// =========================================================================
+
+
+
+
+.trmnlAtt-pdf-btn {
+  margin-top: $m-lg;
+}

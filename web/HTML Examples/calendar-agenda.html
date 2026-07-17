@@ -1,0 +1,1207 @@
+<!doctype html>
+<html class="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>KPI New Forms</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="../WebContent/mainStyles/new-ui/images/favicon.png"/>
+    <!--CSS-->
+    <link rel="stylesheet" href="../WebContent/mainStyles/new-ui/css/materialize.css">
+</head>
+<body class="frame__body has-operPanel" toast="bottom-right">
+<!--Import jQuery before materialize.js-->
+<script type="text/javascript" src="../WebContent/mainStyles/new-ui/js/jquery.min.js"></script>
+<!--<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>-->
+<!--<script type="text/javascript" src="../../web/WebContent/mainStyles/new-ui/js/materialize-0.97.5.min.js"></script>-->
+<!--slide-nav-->
+<script type="text/javascript" src="js/sideNav.js"></script>
+
+<!-- CUSTOM SCROLL-->
+<!--<script type="text/javascript" src="../../web/WebContent/mainStyles/new-ui/js/jquery.scrollbar.min.js"></script>-->
+<!-- \ CUSTOM SCROLL-->
+
+<div class="frame has-scroll--vertical">
+    <div class="frame__header">
+        <div aria-hidden="true" class="frame__header__item-2" style="display: none;">
+            <div class="dropdown-select--arrow dropdown-kit--below dropdown-kit--edge-in"></div>
+        </div>
+        <div aria-hidden="true" class="frame__header__item-3" style="display: none;">
+            <div style="display:none" class="dropdown-select--arrow dropdown-kit--below dropdown-kit--edge-in"><a
+                    style="margin-top:5px;" href="javascript:void(0);" class="btn gwt-uid-67 dropdown-button"
+                    data-activates="gwt-uid-67">
+                <ul id="gwt-uid-67" class="email-account dropdown-content"></ul>
+            </a></div>
+        </div>
+        <div class="header-tabs">
+            <ul class="tabs" style="width: 100%;">
+                <li class="tab"><a href="#dashboard" style="cursor: pointer;" class=""><span
+                        title="Dashboard">Dashboard</span></a></li>
+                <div class="indicator" style="right: 993.864px; left: 107.156px;"></div>
+                <li class="tab"><a href="#saleinvoiceadd" style="cursor: pointer;" class="active"><span
+                        title="Add Sales Invoice">Add Sales Invoice</span><i class="close"></i></a></li>
+            </ul>
+        </div>
+        <div class="user-menu">
+            <div aria-hidden="true" class="frame__user__trial" style="display: none;">
+                <div class="trial-informer"><span></span>
+                    <button class="btn btn--trial"><span>Upgrade</span></button>
+                </div>
+            </div>
+            <div class="user-menu-dynamic">
+                <div class="user-menu-item" data-delay="350" data-position="bottom"
+                     data-tooltip-id="8b0c411f-101a-4044-acc5-9c811fad5026" data-tooltip="Timer"><a
+                        class="button-collapse" style="cursor: pointer;"><span class="user-menu-item__icon"><svg
+                        class=" icon--clock"><use
+                        href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#clock"></use></svg><span
+                        class="badge" aria-hidden="true" style="display: none;"></span></span></a></div>
+                <div class="user-menu-item" data-delay="350" data-position="bottom"
+                     data-tooltip-id="ca4170a8-c9e6-48d7-aea0-d1b4263bf863" data-tooltip="Call"><a
+                        class="button-collapse" style="cursor: pointer;"><span class="user-menu-item__icon"><svg
+                        class=" icon--phone"><use
+                        href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#phone"></use></svg><span
+                        class="badge" aria-hidden="true" style="display: none;"></span></span></a></div>
+            </div>
+            <div class="user-menu-item" style="">
+                <a class="button-collapse" style="cursor: pointer;" data-delay="350"
+                   data-position="bottom"
+                   data-tooltip-id="fcae765f-b147-ca82-49cc-2697869d98da"
+                   data-tooltip="Notifications"><span class="user-menu-item__icon">
+                    <svg class=" icon--bell"><use
+                            href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#bell"></use></svg><span
+                        class="badge" style="">1</span></span>
+                </a>
+            </div>
+            <div class="user-menu-item" style=""><a class="button-collapse" style="cursor: pointer;" data-delay="350"
+                                                    data-position="bottom"
+                                                    data-tooltip-id="1aec85c3-229b-9909-c2ba-b3a68ee54346"
+                                                    data-tooltip="Emails"><span class="user-menu-item__icon"><svg
+                    class=" icon--mail"><use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#mail"></use></svg><span
+                    class="badge" aria-hidden="true" style="display: none;"></span></span></a></div>
+            <div class="user-menu-item"><a class="button-collapse" style="cursor: pointer;" data-delay="350"
+                                           data-position="bottom" data-tooltip-id="6fc79d96-50b6-88f3-6a3a-59ef18882540"
+                                           data-tooltip="Settings"><span class="icon-settings"></span>
+                <svg class=" icon--settings">
+                    <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#settings"></use>
+                </svg>
+            </a></div>
+        </div>
+    </div>
+
+    <div class="frame__modules">
+        <div class="frame__nav">
+            <div></div>
+            <ul id="frame__header__create-new" class="dropdown-content">
+                <li style="display: block;"><a href="/Hrms.html#singleemployee|add/add/FROM_HRMS"
+                                               style="cursor: pointer;">
+                    <svg class=" icon--plus">
+                        <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#plus"></use>
+                    </svg>
+                    <span>Employee</span></a></li>
+                <li style="display: block;"><a href="/Hrms.html#availability|add/add" style="cursor: pointer;">
+                    <svg class=" icon--plus">
+                        <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#plus"></use>
+                    </svg>
+                    <span>Leave Request</span></a></li>
+                <li style="display: block;"><a href="/Hrms.html#vacancy|add/add" style="cursor: pointer;">
+                    <svg class=" icon--plus">
+                        <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#plus"></use>
+                    </svg>
+                    <span>Add Vacancy</span></a></li>
+                <li style="display: block;"><a href="/Hrms.html#candidate|add/add" style="cursor: pointer;">
+                    <svg class=" icon--plus">
+                        <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#plus"></use>
+                    </svg>
+                    <span>Add Candidate</span></a></li>
+                <li style="display: block;"><a href="/Hrms.html#news|add/add" style="cursor: pointer;">
+                    <svg class=" icon--plus">
+                        <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#plus"></use>
+                    </svg>
+                    <span>Company News</span></a></li>
+                <li style="display: block;"><a href="/Hrms.html#benefitRequest|add/add" style="cursor: pointer;">
+                    <svg class=" icon--plus">
+                        <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#plus"></use>
+                    </svg>
+                    <span>Benefit Request</span></a></li>
+            </ul>
+            <div class="scroll-wrapper frame__nav__scroll" style="position: relative;">
+                <div class="frame__nav__scroll scroll-content scroll-scrolly_visible"
+                     style="height: auto; margin-bottom: 0px; margin-right: 0px; max-height: 667px;">
+                    <div class="frame__nav-title"><h3>Humans</h3><a
+                            class="btn--circle btn-small btn--success frame__header__create-new dropdown-button"
+                            href="#" data-activates="frame__header__create-new" style="cursor: pointer;">
+                        <svg class=" icon--plus">
+                            <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg?v=jpHMxQL#plus"></use>
+                        </svg>
+                    </a></div>
+                    <ul class="main-directories collapsible-accordion main-directories--humans collapsible">
+                        <li class="main-dir__hrmsmain active" style="cursor: pointer;">
+                            <div class="collapsible-header active"><a style="cursor: pointer;"><span>Company</span></a>
+                            </div>
+                            <div class="collapsible-body" style="display: block;">
+                                <ul>
+                                    <li class="active" style="display: block;"><a title="Employees List"
+                                                                                  style="cursor: pointer;"><span>Employees List</span></a><a
+                                            class="btn--circle btn-small btn--success">
+                                        <svg class=" icon--plus">
+                                            <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#plus"></use>
+                                        </svg>
+                                    </a></li>
+                                    <li style="display: block;"><a title="Employee Docs" style="cursor: pointer;"><span>Employee Docs</span></a><a
+                                            class="btn--circle btn-small btn--success">
+                                        <svg class=" icon--plus">
+                                            <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#plus"
+                                                 xlink:href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#plus"></use>
+                                        </svg>
+                                    </a></li>
+                                    <li style="display: block;"><a title="Company Docs" style="cursor: pointer;"><span>Company Docs</span></a><a
+                                            class="btn--circle btn-small btn--success">
+                                        <svg class=" icon--plus">
+                                            <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#plus"
+                                                 xlink:href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#plus"></use>
+                                        </svg>
+                                    </a></li>
+                                    <li style="display: block;"><a title="Benefit Requests"
+                                                                   style="cursor: pointer;"><span>Benefit Requests</span></a><a
+                                            class="btn--circle btn-small btn--success">
+                                        <svg class=" icon--plus">
+                                            <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#plus"
+                                                 xlink:href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#plus"></use>
+                                        </svg>
+                                    </a></li>
+                                    <li style="display: block;"><a title="Meeting Minutes"
+                                                                   style="cursor: pointer;"><span>Meeting Minutes</span></a><a
+                                            class="btn--circle btn-small btn--success">
+                                        <svg class=" icon--plus">
+                                            <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#plus"
+                                                 xlink:href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#plus"></use>
+                                        </svg>
+                                    </a></li>
+                                    <li style="display: block;"><a title="Certificates" style="cursor: pointer;"><span>Certificates</span></a><a
+                                            class="btn--circle btn-small btn--success">
+                                        <svg class=" icon--plus">
+                                            <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#plus"
+                                                 xlink:href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#plus"></use>
+                                        </svg>
+                                    </a></li>
+                                    <li style="display: block;"><a title="Incidents" style="cursor: pointer;"><span>Incidents</span></a><a
+                                            class="btn--circle btn-small btn--success">
+                                        <svg class=" icon--plus">
+                                            <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#plus"
+                                                 xlink:href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#plus"></use>
+                                        </svg>
+                                    </a></li>
+                                    <li style="display: block;"><a title="Supervisor Structure"
+                                                                   style="cursor: pointer;"><span>Supervisor Structure</span></a>
+                                    </li>
+                                    <li style="display: block;"><a title="Organization Chart"
+                                                                   style="cursor: pointer;"><span>Organization Chart</span></a>
+                                    </li>
+                                    <li style="display: block;"><a title="Notifications" style="cursor: pointer;"><span>Notifications</span></a>
+                                    </li>
+                                    <li style="display: block;"><a title="Company News" style="cursor: pointer;"><span>Company News</span></a><a
+                                            class="btn--circle btn-small btn--success">
+                                        <svg class=" icon--plus">
+                                            <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#plus"
+                                                 xlink:href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#plus"></use>
+                                        </svg>
+                                    </a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="main-dir__employee" style="cursor: pointer;">
+                            <div class="collapsible-header"><a style="cursor: pointer;"><span>Employee</span></a></div>
+                            <div class="collapsible-body">
+                                <ul>
+                                    <li style="display: block;"><a title="Employee Profile"
+                                                                   style="cursor: pointer;"><span>Employee Profile</span></a>
+                                    </li>
+                                    <li style="display: block;"><a title="Leave Requests"
+                                                                   style="cursor: pointer;"><span>Leave Requests</span></a><a
+                                            class="btn--circle btn-small btn--success">
+                                        <svg class=" icon--plus">
+                                            <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#plus"></use>
+                                        </svg>
+                                    </a></li>
+                                    <li style="display: block;"><a title="Benefit Requests"
+                                                                   style="cursor: pointer;"><span>Benefit Requests</span></a><a
+                                            class="btn--circle btn-small btn--success">
+                                        <svg class=" icon--plus">
+                                            <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#plus"></use>
+                                        </svg>
+                                    </a></li>
+                                    <li style="display: block;"><a title="Expenses" style="cursor: pointer;"><span>Expenses</span></a><a
+                                            class="btn--circle btn-small btn--success">
+                                        <svg class=" icon--plus">
+                                            <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#plus"></use>
+                                        </svg>
+                                    </a></li>
+                                    <li style="display: block;"><a title="Cash Advance" style="cursor: pointer;"><span>Cash Advance</span></a><a
+                                            class="btn--circle btn-small btn--success">
+                                        <svg class=" icon--plus">
+                                            <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#plus"></use>
+                                        </svg>
+                                    </a></li>
+                                    <li style="display: block;"><a title="Payslips" style="cursor: pointer;"><span>Payslips</span></a>
+                                    </li>
+                                    <li style="display: block;"><a title="Documents" style="cursor: pointer;"><span>Documents</span></a><a
+                                            class="btn--circle btn-small btn--success">
+                                        <svg class=" icon--plus">
+                                            <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#plus"></use>
+                                        </svg>
+                                    </a></li>
+                                    <li style="display: block;"><a title="Dependents" style="cursor: pointer;"><span>Dependents</span></a><a
+                                            class="btn--circle btn-small btn--success">
+                                        <svg class=" icon--plus">
+                                            <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#plus"></use>
+                                        </svg>
+                                    </a></li>
+                                    <li style="display: block;"><a title="Goals"
+                                                                   style="cursor: pointer;"><span>Goals</span></a><a
+                                            class="btn--circle btn-small btn--success">
+                                        <svg class=" icon--plus">
+                                            <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#plus"></use>
+                                        </svg>
+                                    </a></li>
+                                    <li style="display: block;"><a title="Incidents" style="cursor: pointer;"><span>Incidents</span></a><a
+                                            class="btn--circle btn-small btn--success">
+                                        <svg class=" icon--plus">
+                                            <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#plus"></use>
+                                        </svg>
+                                    </a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="main-dir__availability" style="cursor: pointer;">
+                            <div class="collapsible-header"><a style="cursor: pointer;"><span>Attendance</span></a>
+                            </div>
+                            <div class="collapsible-body">
+                                <ul>
+                                    <li style="display: block;"><a title="My Attendance" style="cursor: pointer;"><span>My Attendance</span></a><a
+                                            class="btn--circle btn-small btn--success">
+                                        <svg class=" icon--plus">
+                                            <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#plus"></use>
+                                        </svg>
+                                    </a></li>
+                                    <li style="display: block;"><a title="Attendance Tracking" style="cursor: pointer;"><span>Attendance Tracking</span></a>
+                                    </li>
+                                    <li style="display: block;"><a title="Leave Requests"
+                                                                   style="cursor: pointer;"><span>Leave Requests</span></a><a
+                                            class="btn--circle btn-small btn--success">
+                                        <svg class=" icon--plus">
+                                            <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#plus"></use>
+                                        </svg>
+                                    </a></li>
+                                    <li style="display: block;"><a title="Attendance Report"
+                                                                   style="cursor: pointer;"><span>Attendance Report</span></a>
+                                    </li>
+                                    <li style="display: block;"><a title="Annual Leave Report" style="cursor: pointer;"><span>Annual Leave Report</span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="main-dir__recruitment" style="cursor: pointer;">
+                            <div class="collapsible-header"><a style="cursor: pointer;"><span>Recruitment</span></a>
+                            </div>
+                            <div class="collapsible-body">
+                                <ul>
+                                    <li style="display: block;"><a title="Vacancies" style="cursor: pointer;"><span>Vacancies</span></a><a
+                                            class="btn--circle btn-small btn--success">
+                                        <svg class=" icon--plus">
+                                            <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#plus"></use>
+                                        </svg>
+                                    </a></li>
+                                    <li style="display: block;"><a title="Candidates" style="cursor: pointer;"><span>Candidates</span></a><a
+                                            class="btn--circle btn-small btn--success">
+                                        <svg class=" icon--plus">
+                                            <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#plus"></use>
+                                        </svg>
+                                    </a></li>
+                                    <li style="display: block;"><a title="Shortlists" style="cursor: pointer;"><span>Shortlists</span></a><a
+                                            class="btn--circle btn-small btn--success">
+                                        <svg class=" icon--plus">
+                                            <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#plus"></use>
+                                        </svg>
+                                    </a></li>
+                                    <li style="display: block;"><a title="Placements" style="cursor: pointer;"><span>Placements</span></a><a
+                                            class="btn--circle btn-small btn--success">
+                                        <svg class=" icon--plus">
+                                            <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#plus"></use>
+                                        </svg>
+                                    </a></li>
+                                    <li style="display: block;"><a title="Activities" style="cursor: pointer;"><span>Activities</span></a><a
+                                            class="btn--circle btn-small btn--success">
+                                        <svg class=" icon--plus">
+                                            <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#plus"></use>
+                                        </svg>
+                                    </a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="main-dir__goal" style="cursor: pointer;">
+                            <div class="collapsible-header"><a style="cursor: pointer;"><span>Goal Management</span></a>
+                            </div>
+                            <div class="collapsible-body">
+                                <ul>
+                                    <li style="display: block;"><a title="Personal Goals"
+                                                                   style="cursor: pointer;"><span>Personal Goals</span></a><a
+                                            class="btn--circle btn-small btn--success">
+                                        <svg class=" icon--plus">
+                                            <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#plus"></use>
+                                        </svg>
+                                    </a></li>
+                                    <li style="display: block;"><a title="Department Goals"
+                                                                   style="cursor: pointer;"><span>Department Goals</span></a><a
+                                            class="btn--circle btn-small btn--success">
+                                        <svg class=" icon--plus">
+                                            <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#plus"></use>
+                                        </svg>
+                                    </a></li>
+                                    <li style="display: block;"><a title="Project Goals" style="cursor: pointer;"><span>Project Goals</span></a><a
+                                            class="btn--circle btn-small btn--success">
+                                        <svg class=" icon--plus">
+                                            <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#plus"></use>
+                                        </svg>
+                                    </a></li>
+                                    <li style="display: block;"><a title="Business Goals"
+                                                                   style="cursor: pointer;"><span>Business Goals</span></a><a
+                                            class="btn--circle btn-small btn--success">
+                                        <svg class=" icon--plus">
+                                            <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#plus"></use>
+                                        </svg>
+                                    </a></li>
+                                    <li style="display: block;"><a title="Company Goals" style="cursor: pointer;"><span>Company Goals</span></a><a
+                                            class="btn--circle btn-small btn--success">
+                                        <svg class=" icon--plus">
+                                            <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#plus"></use>
+                                        </svg>
+                                    </a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="main-dir__onboarding" style="cursor: pointer;">
+                            <div class="collapsible-header"><a style="cursor: pointer;"><span>Onboarding</span></a>
+                            </div>
+                            <div class="collapsible-body">
+                                <ul>
+                                    <li style="display: block;"><a title="Onboarding Steps"
+                                                                   style="cursor: pointer;"><span>Onboarding Steps</span></a><a
+                                            class="btn--circle btn-small btn--success">
+                                        <svg class=" icon--plus">
+                                            <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#plus"></use>
+                                        </svg>
+                                    </a></li>
+                                    <li style="display: block;"><a title="Onboarding Periods"
+                                                                   style="cursor: pointer;"><span>Onboarding Periods</span></a><a
+                                            class="btn--circle btn-small btn--success">
+                                        <svg class=" icon--plus">
+                                            <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#plus"></use>
+                                        </svg>
+                                    </a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="external-scroll_y scroll-y scroll-scrolly_visible">
+                <div class="scroll-element_outer">
+                    <div class="scroll-element_size"></div>
+                    <div class="scroll-element_track"></div>
+                    <div class="scroll-bar" style="height: 636px; top: 0px;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="main-modules">
+            <div class="">
+                <div class="user-profile">
+                    <a class="user-profile__menu dropdown-button" style="cursor: pointer;">
+                    <span class="user-profile-img" style="background-image:url('https://wfmtest.s3.amazonaws.com/000000000000/public/49913/static/df49791b-664e-4536-88be-3aa86ccf79b4?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1570109243&amp;Signature=%2FQ70lDJFDal57C0TNvse6PA1g9s%3D');">
+                    <img src="https://wfmtest.s3.amazonaws.com/000000000000/public/49913/static/df49791b-664e-4536-88be-3aa86ccf79b4?AWSAccessKeyId=AKIAJJMKLWOMZUSCJLUQ&amp;Expires=1570109243&amp;Signature=%2FQ70lDJFDal57C0TNvse6PA1g9s%3D"/>
+                    </span>
+                    </a>
+                </div>
+            </div>
+            <ul>
+                <li class="main-modules__item main-modules__item--workspace"><a href="Workspace.html" style="cursor: pointer;">
+                    <svg class=" icon--home">
+                        <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#home"></use>
+                    </svg>
+                    <span></span></a></li>
+                <li class="main-modules__item main-modules__item--accounting"><a style="cursor: pointer;">
+                    <svg class=" icon--accounting">
+                        <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#accounting"></use>
+                    </svg>
+                    <span>Accounts</span></a></li>
+                <li class="main-modules__item main-modules__item--sales"><a style="cursor: pointer;">
+                    <svg class=" icon--sales">
+                        <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#sales"></use>
+                    </svg>
+                    <span>Sales</span></a></li>
+                <li class="main-modules__item--active main-modules__item main-modules__item--humans"><a
+                        style="cursor: pointer;">
+                    <svg class=" icon--humans">
+                        <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#humans"></use>
+                    </svg>
+                    <span>Humans</span></a></li>
+                <li class="main-modules__item main-modules__item--projects"><a style="cursor: pointer;">
+                    <svg class=" icon--projects">
+                        <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#projects"></use>
+                    </svg>
+                    <span>Projects</span></a></li>
+                <li class="main-modules__item main-modules__item--payroll"><a style="cursor: pointer;">
+                    <svg class=" icon--payroll">
+                        <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#payroll"></use>
+                    </svg>
+                    <span>Payroll</span></a></li>
+                <li class="main-modules__item main-modules__item--reports"><a style="cursor: pointer;">
+                    <svg class=" icon--reporting">
+                        <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#reporting"></use>
+                    </svg>
+                    <span>Reports</span></a></li>
+                <li class="main-modules__item main-modules__item--docs"><a style="cursor: pointer;">
+                    <svg class=" icon--documents">
+                        <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#documents"></use>
+                    </svg>
+                    <span>Docs</span></a></li>
+            </ul>
+            <div class="kpi-modules-overlay" style="display: none;"></div>
+        </div>
+        <div class="frame__modules__footer"><a class="left-menu-trigger" style="cursor: pointer;"><i
+                class="ficon--chevron-right"></i></a></div>
+    </div>
+
+
+    <div class="operPanel__wrapper">
+        <div class="operPanel--header operPanel">
+            <div class="operPanel__actions">
+                <div id="gwt-debug-hrmsEmployeesList_new_button_id"><span><div class="btn btn--new btn--circle"><svg
+                        class="icon--plus"><use
+                        href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#plus"></use></svg></div></span>
+                </div>
+                <div class="searchForm"><span class="searchForm__btn" id="gwt-debug-search_button"><svg
+                        class=" icon--search"><use
+                        href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#search"></use></svg></span><span
+                        class="searchForm__control"><input type="text" maxlength="255" class="form-control"
+                                                           autocomplete="off" id="gwt-debug-searchBox"
+                                                           placeholder="Search"></span><span class="searchForm__x"><svg
+                        class=" icon--x"><use
+                        href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#x"></use></svg></span><i
+                        class="ficon--chevron-left material-icons" aria-hidden="true"
+                        style="cursor: pointer; display: none;"></i></div>
+                <div class="operPanel__btn-groups">
+                    <div class="filter-group"><span class="btn btn--icon" id="gwt-debug-filter_button" data-delay="350"
+                                                    data-position="top"
+                                                    data-tooltip-id="bc862e34-d353-8f86-1423-88b22f0f27af"
+                                                    data-tooltip="Filter"><svg class=" icon--filter"><use
+                            href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#filter"></use></svg></span>
+                        <div class="optGroupCover pseudoSelect" aria-hidden="true" style="width: 150px; display: none;">
+                            <span class="curValue"><em>Please Select</em></span>
+                            <ul>
+                                <li>Please Select</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <span class="btn btn--icon" id="reset_button" data-delay="350" data-position="top"
+                          data-tooltip-id="c2b5064f-8955-cfeb-52a4-325866f3f8ab" data-tooltip="Reset"><svg
+                            class=" icon--repeat"><use
+                            href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#repeat"></use></svg></span><span
+                        class="btn btn--icon" id="reload_button" data-delay="350" data-position="top"
+                        data-tooltip-id="8b649e78-1c39-5263-4078-f2839d1a64d8" data-tooltip="Refresh"><svg
+                        class=" icon--rotateCw"><use
+                        href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#rotateCw"></use></svg></span>
+                    <div class="btn-group dropdown-kit--arrow--below menu-bar"><a href="#"
+                                                                                  class="btn btn--icon gwt-uid-102 dropdown-button"
+                                                                                  id="gwt-debug-import_export_button_id"
+                                                                                  data-activates="gwt-uid-102"
+                                                                                  data-delay="350" data-position="top"
+                                                                                  data-tooltip-id="1b955dd7-c32e-3e22-0171-034ba69eba48"
+                                                                                  data-tooltip="Import/Export"
+                                                                                  style="cursor: pointer;">
+                        <svg class=" icon--downloadCloud">
+                            <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#downloadCloud"></use>
+                        </svg>
+                        <ul id="gwt-uid-102" class="dropdown-content--2 dropdown-content">
+                            <li style="display: block;"><a style="cursor: pointer;"><i id="gwt-debug-import_button_id"
+                                                                                       class="ficon--upload hasicon--left material-icons"
+                                                                                       style="cursor: pointer;"></i><span>Import</span></a>
+                            </li>
+                            <li style="display: block;">
+                                <div class="java-wrap"><a id="gwt-debug-pdf_button" data-activates="gwt-uid-98"
+                                                          style="cursor: pointer;"><i
+                                        class="ficon--file-pdf hasicon--left material-icons"
+                                        style="cursor: pointer;"></i><span>PDF</span></a>
+                                    <ul id="gwt-uid-98" class="hoverable dropdown-content">
+                                        <li style="display: block;"><a
+                                                style="cursor: pointer;"><span>Portrait</span></a></li>
+                                        <li style="display: block;"><a
+                                                style="cursor: pointer;"><span>Landscape</span></a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li style="display: block;"><a id="gwt-debug-excel_button" style="cursor: pointer;"><i
+                                    class="ficon--file-excel hasicon--left material-icons" style="cursor: pointer;"></i><span>Excel</span></a>
+                            </li>
+                        </ul>
+                    </a></div>
+                    <div style="display: none;"></div>
+                </div>
+                <div class="operPanel__advanced-filter" aria-hidden="true" style="display: none;"></div>
+            </div>
+            <div class="operPanel__settings">
+                <div class="paging-group opers-2 operPanel--paging">
+                    <div class="pagingStat__wrapper"><a id="gwt-debug-total_link_id" data-activates="gwt-uid-103"
+                                                        class="gwt-uid-103 dropdown-button" style="cursor: pointer;">
+                        <div class="gwt-HTML pagingStat"></div>
+                        <ul id="gwt-uid-103" class="dropdown-content">
+                            <li style="display: block;"><a id="gwt-debug-newest_page_id" style="cursor: pointer;"><span>Newest</span></a>
+                            </li>
+                            <li style="display: block;"><a aria-hidden="true" id="gwt-debug-oldest_page_id"
+                                                           style="cursor: pointer; display: none;"><span>Oldest</span></a>
+                            </li>
+                        </ul>
+                    </a></div>
+                    <ul class="paging">
+                        <li id="gwt-debug-prevpage_id" class="paging__prevpage"><a class="btn btn--white btn--icon"
+                                                                                   style="cursor: pointer;">
+                            <svg class=" icon--chevronLeft">
+                                <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#chevronLeft"></use>
+                            </svg>
+                        </a></li>
+                        <li id="gwt-debug-current_page_id" class="paging__currentpage">
+                            <input type="text" maxlength="255" class="form-control" autocomplete="off" dir="ltr" style="width: 3em; text-align: right;" value="1" />
+                        </li>
+                        <li id="gwt-debug-nextPage_id" class="paging__nextpage"><a class="btn btn--white btn--icon"
+                                                                                   style="cursor: pointer;">
+                            <svg class=" icon--chevronRight">
+                                <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#chevronRight"></use>
+                            </svg>
+                        </a></li>
+                        <li>
+                            <div class="errorMessage"></div>
+                        </li>
+                    </ul>
+                </div>
+                <div class=""><span class="btn btn--icon" id="gwt-debug-customise_button" data-delay="350"
+                                    data-position="top" data-tooltip-id="71d9b4d2-9846-eab9-4c7c-c73032853169"
+                                    data-tooltip="Customize"><svg class=" icon--sliders"><use
+                        href="../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#sliders"></use></svg></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="frame__content scrollbar-external_wrapper">
+        <div class="frame__content__body scrollbar-external">
+            <div class="whiteBGR">
+                <div class="workarea" id="workarea">
+                    <div class="operPanel__wrapper"><div class="operPanel--header operPanel"><div class="operPanel__actions"><div><span><div class="btn btn--new btn--circle"><svg class="icon--plus"><use href="mainStyles/new-ui/icons/sprite__panels.svg?v=3.1.0#plus"></use></svg></div></span></div><div class="operPanel__btn-groups"><div class="btn-group"><a class="btn--icon" data-delay="350" data-position="bottom" data-tooltip-id="6d3062d4-9411-dd11-2c73-3816f8e46f4f" data-tooltip="Previous" style="cursor: pointer;"><svg class=" icon--chevronLeft"><use href="mainStyles/new-ui/icons/sprite__panels.svg?v=3.1.0#chevronLeft"></use></svg></a><button class="btn btn--white" data-delay="350" data-position="bottom" data-tooltip-id="d022e821-a6e0-de57-874d-a465c9836514" data-tooltip="Today"><span>Today</span></button><a class="btn--icon" data-delay="350" data-position="bottom" data-tooltip-id="6ecfd90c-6919-9f8a-e8d7-9c5d360a6fc8" data-tooltip="Next" style="cursor: pointer;"><svg class=" icon--chevronRight"><use href="mainStyles/new-ui/icons/sprite__panels.svg?v=3.1.0#chevronRight"></use></svg></a></div></div><span>November 2019</span><a class="btn--icon" data-delay="350" data-position="bottom" data-tooltip-id="7c72d6b3-8e70-51a7-84ee-e80d6525d19e" data-tooltip="Refresh" style="cursor: pointer;"><svg class=" icon--rotateCw"><use href="mainStyles/new-ui/icons/sprite__panels.svg?v=3.1.0#rotateCw"></use></svg></a></div><div class="operPanel__settings"><div class="pg_google__tabs"><table cellspacing="0" cellpadding="0" class="gwt-DecoratedTabBar" role="tablist"><tbody><tr><td align="left" height="100%" class="gwt-TabBarFirst-wrapper" style="vertical-align: bottom;"><div class="gwt-TabBarFirst" style="white-space: normal; height: 100%;">&nbsp;</div></td><td align="left" class="gwt-TabBarItem-wrapper" style="vertical-align: bottom;"><table cellspacing="0" cellpadding="0" class="gwt-TabBarItem"><tbody><tr class="tabTop"><td class="tabTopLeft"><div class="tabTopLeftInner"></div></td><td class="tabTopCenter"><div class="tabTopCenterInner"></div></td><td class="tabTopRight"><div class="tabTopRightInner"></div></td></tr><tr class="tabMiddle"><td class="tabMiddleLeft"><div class="tabMiddleLeftInner"></div></td><td class="tabMiddleCenter"><div class="tabMiddleCenterInner"><div tabindex="0" role="tab"><input type="text" tabindex="-1" aria-hidden="true" style="opacity: 0; height: 1px; width: 1px; z-index: -1; overflow: hidden; position: absolute;"><div class="gwt-Label" style="white-space: nowrap;">Day</div></div></div></td><td class="tabMiddleRight"><div class="tabMiddleRightInner"></div></td></tr></tbody></table></td><td align="left" class="gwt-TabBarItem-wrapper" style="vertical-align: bottom;"><table cellspacing="0" cellpadding="0" class="gwt-TabBarItem"><tbody><tr class="tabTop"><td class="tabTopLeft"><div class="tabTopLeftInner"></div></td><td class="tabTopCenter"><div class="tabTopCenterInner"></div></td><td class="tabTopRight"><div class="tabTopRightInner"></div></td></tr><tr class="tabMiddle"><td class="tabMiddleLeft"><div class="tabMiddleLeftInner"></div></td><td class="tabMiddleCenter"><div class="tabMiddleCenterInner"><div tabindex="0" role="tab"><input type="text" tabindex="-1" aria-hidden="true" style="opacity: 0; height: 1px; width: 1px; z-index: -1; overflow: hidden; position: absolute;"><div class="gwt-Label" style="white-space: nowrap;">Week</div></div></div></td><td class="tabMiddleRight"><div class="tabMiddleRightInner"></div></td></tr></tbody></table></td><td align="left" class="gwt-TabBarItem-wrapper" style="vertical-align: bottom;"><table cellspacing="0" cellpadding="0" class="gwt-TabBarItem"><tbody><tr class="tabTop"><td class="tabTopLeft"><div class="tabTopLeftInner"></div></td><td class="tabTopCenter"><div class="tabTopCenterInner"></div></td><td class="tabTopRight"><div class="tabTopRightInner"></div></td></tr><tr class="tabMiddle"><td class="tabMiddleLeft"><div class="tabMiddleLeftInner"></div></td><td class="tabMiddleCenter"><div class="tabMiddleCenterInner"><div tabindex="0" role="tab"><input type="text" tabindex="-1" aria-hidden="true" style="opacity: 0; height: 1px; width: 1px; z-index: -1; overflow: hidden; position: absolute;"><div class="gwt-Label" style="white-space: nowrap;">Month</div></div></div></td><td class="tabMiddleRight"><div class="tabMiddleRightInner"></div></td></tr></tbody></table></td><td align="left" class="gwt-TabBarItem-wrapper gwt-TabBarItem-wrapper-selected" style="vertical-align: bottom;"><table cellspacing="0" cellpadding="0" class="gwt-TabBarItem gwt-TabBarItem-selected"><tbody><tr class="tabTop"><td class="tabTopLeft"><div class="tabTopLeftInner"></div></td><td class="tabTopCenter"><div class="tabTopCenterInner"></div></td><td class="tabTopRight"><div class="tabTopRightInner"></div></td></tr><tr class="tabMiddle"><td class="tabMiddleLeft"><div class="tabMiddleLeftInner"></div></td><td class="tabMiddleCenter"><div class="tabMiddleCenterInner"><div tabindex="0" role="tab"><input type="text" tabindex="-1" aria-hidden="true" style="opacity: 0; height: 1px; width: 1px; z-index: -1; overflow: hidden; position: absolute;"><div class="gwt-Label" style="white-space: nowrap;">Agenda</div></div></div></td><td class="tabMiddleRight"><div class="tabMiddleRightInner"></div></td></tr></tbody></table></td><td align="left" width="100%" class="gwt-TabBarRest-wrapper" style="vertical-align: bottom;"><div class="gwt-TabBarRest" style="white-space: normal; height: 100%;">&nbsp;</div></td></tr></tbody></table></div><div><span class="btn btn--icon" data-delay="350" data-position="top" data-tooltip-id="1c0e4ab9-1077-252e-6436-3a445ac0dafb" data-tooltip="Customize"><svg class="icon--sliders"><use href="mainStyles/new-ui/icons/sprite__panels.svg?v=3.1.0#sliders"></use></svg></span></div></div></div></div>
+
+                    <div class="agenda widget--updates-links">
+                        <div class="agenda__header">
+                            SCHEDULE
+                        </div>
+
+                        <ul class="updates-list updates-list--agenda collapsible" data-collapsible="expandable">
+                            <li class="" style="cursor: pointer;">
+                                <div class="collapsible-header"><h3><span>2019-09-17</span></h3></div>
+                                <div class="collapsible-body"
+                                     style="display: none; padding-top: 0px; margin-top: 0px; padding-bottom: 0px; margin-bottom: 0px;">
+                                    <div class="updates-row">
+                                        <div class="updates-row__time"><span>2:36 PM</span><span
+                                                class="updates-row__time-point"></span></div>
+                                        <div class="updates-row__text">
+                                            <div class="updates-row__title"><i
+                                                    class="ficon--assigned"></i><span>Member Assigned</span></div>
+                                            <div class="updates-row__info"><span>Shajalal Khatri was assigned as a member to "P0015 - Duraflame" project by Rinum May</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="updates-row">
+                                        <div class="updates-row__time"><span>2:36 PM</span><span
+                                                class="updates-row__time-point"></span></div>
+                                        <div class="updates-row__text">
+                                            <div class="updates-row__title"><i
+                                                    class="ficon--assigned"></i><span>Member Assigned</span></div>
+                                            <div class="updates-row__info"><span>Caroline Kisha was assigned as a member to "P0015 - Duraflame" project by Rinum May</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="active" style="cursor: pointer;">
+                                <div class="collapsible-header active"><h3><span>2019-09-17</span></h3></div>
+                                <div class="collapsible-body"
+                                     style="display: block; padding-top: 0px; margin-top: 0px; padding-bottom: 0px; margin-bottom: 0px;">
+                                    <div class="updates-row updates-row--passed">
+                                        <div class="updates-row__time"><span>01:00 AM</span><span
+                                                class="updates-row__time-point"></span></div>
+                                        <div class="updates-row__text">
+                                            <div class="updates-row__title"><i class="ficon--assigned"></i><span>Member Assigned</span>
+                                            </div>
+                                            <div class="updates-row__info"><span>Shajalal Khatri was assigned as a member to "P0015 - Duraflame" project by Rinum May</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="updates-row updates-row--passed">
+                                        <div class="updates-row__time"><span>02:00 AM</span><span
+                                                class="updates-row__time-point"></span></div>
+                                        <div class="updates-row__text">
+                                            <div class="updates-row__title"><i class="ficon--assigned"></i><span>Member Assigned</span>
+                                            </div>
+                                            <div class="updates-row__info"><span>Caroline Kisha was assigned as a member to "P0015 - Duraflame" project by Rinum May</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="updates-row updates-row--passed">
+                                        <div class="updates-row__time"><span>03:00 AM</span><span
+                                                class="updates-row__time-point"></span></div>
+                                        <div class="updates-row__text">
+                                            <div class="updates-row__title"><i class="ficon--assigned"></i><span>Member Assigned</span>
+                                            </div>
+                                            <div class="updates-row__info"><span>Abel Nasataya was assigned as a member to "P0014 - Crusader" project by Rinum May</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="updates-row updates-row--passed">
+                                        <div class="updates-row__time"><span>04:00 AM</span><span
+                                                class="updates-row__time-point"></span></div>
+                                        <div class="updates-row__text">
+                                            <div class="updates-row__title"><i class="ficon--assigned"></i><span>Member Assigned</span>
+                                            </div>
+                                            <div class="updates-row__info"><span>Austin Nolan was assigned as a member to "P0014 - Crusader" project by Rinum May</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="updates-row updates-row--passed">
+                                        <div class="updates-row__time"><span>05:00 AM</span><span
+                                                class="updates-row__time-point"></span></div>
+                                        <div class="updates-row__text">
+                                            <div class="updates-row__title"><i class="ficon--assigned"></i><span>Member Assigned</span>
+                                            </div>
+                                            <div class="updates-row__info"><span>Kim Soo was assigned as a member to "P0014 - Crusader" project by Rinum May</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="updates-row updates-row--passed">
+                                        <div class="updates-row__time"><span>06:00 AM</span><span
+                                                class="updates-row__time-point"></span></div>
+                                        <div class="updates-row__text">
+                                            <div class="updates-row__title"><i class="ficon--assigned"></i><span>Member Assigned</span>
+                                            </div>
+                                            <div class="updates-row__info"><span>Eunseo Chua was assigned as a member to "P0014 - Crusader" project by Rinum May</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="updates-row">
+                                        <div class="updates-row__time"><span>07:00 AM</span><span
+                                                class="updates-row__time-point"></span></div>
+                                        <div class="updates-row__text">
+                                            <div class="updates-row__title"><i class="ficon--assigned"></i><span>Member Assigned</span>
+                                            </div>
+                                            <div class="updates-row__info"><span>Piolo Pascual was assigned as a member to "P0014 - Crusader" project by Rinum May</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="updates-row">
+                                        <div class="updates-row__time"><span>08:00 AM</span><span
+                                                class="updates-row__time-point"></span></div>
+                                        <div class="updates-row__text">
+                                            <div class="updates-row__title"><i class="ficon--assigned"></i><span>Member Assigned</span>
+                                            </div>
+                                            <div class="updates-row__info"><span>Shaji Ahuja was assigned as a member to "P0014 - Crusader" project by Rinum May</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="updates-row">
+                                        <div class="updates-row__time"><span>09:00 AM</span><span
+                                                class="updates-row__time-point"></span></div>
+                                        <div class="updates-row__text">
+                                            <div class="updates-row__title"><i class="ficon--assigned"></i><span>Member Assigned</span>
+                                            </div>
+                                            <div class="updates-row__info"><span>Shajalal Khatri was assigned as a member to "P0014 - Crusader" project by Rinum May</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="updates-row">
+                                        <div class="updates-row__time"><span>10:00 AM</span><span
+                                                class="updates-row__time-point"></span></div>
+                                        <div class="updates-row__text">
+                                            <div class="updates-row__title"><i class="ficon--assigned"></i><span>Member Assigned</span>
+                                            </div>
+                                            <div class="updates-row__info"><span>Sophia Ava was assigned as a member to "P0014 - Crusader" project by Rinum May</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="updates-row">
+                                        <div class="updates-row__time"><span>11:00 AM</span><span
+                                                class="updates-row__time-point"></span></div>
+                                        <div class="updates-row__text">
+                                            <div class="updates-row__title"><i class="ficon--assigned"></i><span>Member Assigned</span>
+                                            </div>
+                                            <div class="updates-row__info"><span>Elijah Lucas was assigned as a member to "P0014 - Crusader" project by Rinum May</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="updates-row">
+                                        <div class="updates-row__time"><span>12:00 AM</span><span
+                                                class="updates-row__time-point"></span></div>
+                                        <div class="updates-row__text">
+                                            <div class="updates-row__title"><i class="ficon--assigned"></i><span>Member Assigned</span>
+                                            </div>
+                                            <div class="updates-row__info"><span>Benjamin Alves was assigned as a member to "P0014 - Crusader" project by Rinum May</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="updates-row">
+                                        <div class="updates-row__time"><span>01:00 PM</span><span
+                                                class="updates-row__time-point"></span></div>
+                                        <div class="updates-row__text">
+                                            <div class="updates-row__title"><i class="ficon--assigned"></i><span>Member Assigned</span>
+                                            </div>
+                                            <div class="updates-row__info"><span>Lyold Godinez was assigned as a member to "P0014 - Crusader" project by Rinum May</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="updates-row">
+                                        <div class="updates-row__time"><span>02:00 PM</span><span
+                                                class="updates-row__time-point"></span></div>
+                                        <div class="updates-row__text">
+                                            <div class="updates-row__title"><i class="ficon--assigned"></i><span>Member Assigned</span>
+                                            </div>
+                                            <div class="updates-row__info"><span>Mario Escario was assigned as a member to "P0014 - Crusader" project by Rinum May</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="updates-row">
+                                        <div class="updates-row__time"><span>03:00 PM</span><span
+                                                class="updates-row__time-point"></span></div>
+                                        <div class="updates-row__text">
+                                            <div class="updates-row__title"><i class="ficon--assigned"></i><span>Member Assigned</span>
+                                            </div>
+                                            <div class="updates-row__info"><span>Jang Geun was assigned as a member to "P0014 - Crusader" project by Rinum May</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="updates-row">
+                                        <div class="updates-row__time"><span>04:00 PM</span><span
+                                                class="updates-row__time-point"></span></div>
+                                        <div class="updates-row__text">
+                                            <div class="updates-row__title"><i class="ficon--assigned"></i><span>Member Assigned</span>
+                                            </div>
+                                            <div class="updates-row__info"><span>Juji Hyeong was assigned as a member to "P0014 - Crusader" project by Rinum May</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="updates-row">
+                                        <div class="updates-row__time"><span>05:00 PM</span><span
+                                                class="updates-row__time-point"></span></div>
+                                        <div class="updates-row__text">
+                                            <div class="updates-row__title"><i class="ficon--assigned"></i><span>Member Assigned</span>
+                                            </div>
+                                            <div class="updates-row__info"><span>Johnloyd Cruz was assigned as a member to "P0014 - Crusader" project by Rinum May</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="updates-row">
+                                        <div class="updates-row__time"><span>06:00 PM</span><span
+                                                class="updates-row__time-point"></span></div>
+                                        <div class="updates-row__text">
+                                            <div class="updates-row__title"><i class="ficon--assigned"></i><span>Member Assigned</span>
+                                            </div>
+                                            <div class="updates-row__info"><span>Minjun Hajun was assigned as a member to "P0014 - Crusader" project by Rinum May</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="updates-row">
+                                        <div class="updates-row__time"><span>07:00 PM</span><span
+                                                class="updates-row__time-point"></span></div>
+                                        <div class="updates-row__text">
+                                            <div class="updates-row__title"><i class="ficon--assigned"></i><span>Member Assigned</span>
+                                            </div>
+                                            <div class="updates-row__info"><span>Liam Mason was assigned as a member to "P0014 - Crusader" project by Rinum May</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <div class="agenda__footer">
+                            <button class="btn btn-large btn-block text-center">Load More</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="external-scroll_x">
+            <div class="scroll-element_outer">
+                <div class="scroll-element_size"></div>
+                <div class="scroll-element_track"></div>
+                <div class="scroll-bar"></div>
+            </div>
+        </div>
+
+        <div class="external-scroll_y">
+            <div class="scroll-element_outer">
+                <div class="scroll-element_size"></div>
+                <div class="scroll-element_track"></div>
+                <div class="scroll-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="quick-add__wrapper" style="display: none;">
+        <div class="kpi-sidenav-overlay" style="display: flex;"></div>
+        <ul class="quick-add user-menu-settings side-nav drawer right-aligned" id="80E47377-3DDB-49E2-882E-1FA46F2DB5B5"
+            style="width: 390px; right: 0px;">
+            <li style="display: block;">
+                <div class="side-nav-close" style="">
+                    <svg class=" icon--x">
+                        <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#x"></use>
+                    </svg>
+                </div>
+            </li>
+            <div class="sidenav-content" style="display: flex;"><a data-activates="80E47377-3DDB-49E2-882E-1FA46F2DB5B5"
+                                                                   class="80E47377-3DDB-49E2-882E-1FA46F2DB5B5 dropdown-button show-on-medium-and-down show-on-large"
+                                                                   style="cursor: pointer; position: absolute; visibility: visible;"></a>
+                <div class="side-nav__heading">
+                    <div class="side-nav__title">
+                        <div class="side-nav__title-group"><span>Settings</span></div>
+                    </div>
+                </div>
+                <div class="side-nav__body">
+                    <div class="scroll-offset">
+                        <div>
+                            <ul class="collapsible">
+                                <li class="main-dir__profilesettings item-open">
+                                    <div class="collapsible-header"><a style="cursor: pointer;"><span>Profile  </span></a>
+                                    </div>
+                                    <div class="collapsible-body item-open">
+                                        <ul>
+                                            <li><a href="https://dev.kpi.com/Settings.html#profileSettings|profile"
+                                                   style="cursor: pointer;"><span>Profile</span></a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="main-dir__usercredential item-open">
+                                    <div class="collapsible-header"><a
+                                            style="cursor: pointer;"><span>User Credentials</span></a></div>
+                                    <div class="collapsible-body item-open">
+                                        <ul>
+                                            <li><a href="https://dev.kpi.com/Settings.html#userCredential|credentials"
+                                                   style="cursor: pointer;"><span>User Credentials</span></a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="main-dir__accountingsettings item-open">
+                                    <div class="collapsible-header"><a style="cursor: pointer;"><span>Accounts</span></a>
+                                    </div>
+                                    <div class="collapsible-body item-open">
+                                        <ul>
+                                            <li>
+                                                <a href="https://dev.kpi.com/Settings.html#accountingSettings|invoiceSettings"
+                                                   style="cursor: pointer;"><span>Invoice Settings</span></a></li>
+                                            <li>
+                                                <a href="https://dev.kpi.com/Settings.html#accountingSettings|financialSettings"
+                                                   style="cursor: pointer;"><span>Financial Settings</span></a></li>
+                                            <li>
+                                                <a href="https://dev.kpi.com/Settings.html#accountingSettings|accounttypesettings"
+                                                   style="cursor: pointer;"><span>Account Numbering</span></a></li>
+                                            <li>
+                                                <a href="https://dev.kpi.com/Settings.html#accountingSettings|productnumberingsettings"
+                                                   style="cursor: pointer;"><span>Numbering Settings</span></a></li>
+                                            <li><a href="https://dev.kpi.com/Settings.html#accountingSettings|texes"
+                                                   style="cursor: pointer;"><span>Tax Rates</span></a></li>
+                                            <li><a href="https://dev.kpi.com/Settings.html#accountingSettings|exrates"
+                                                   style="cursor: pointer;"><span>Currency Rates</span></a></li>
+                                            <li>
+                                                <a href="https://dev.kpi.com/Settings.html#accountingSettings|priceLevelList"
+                                                   style="cursor: pointer;"><span>Price Levels</span></a></li>
+                                            <li><a href="https://dev.kpi.com/Settings.html#accountingSettings|terms"
+                                                   style="cursor: pointer;"><span>Terms</span></a></li>
+                                            <li><a href="https://dev.kpi.com/Settings.html#accountingSettings|discountList"
+                                                   style="cursor: pointer;"><span>Discounts</span></a></li>
+                                            <li>
+                                                <a href="https://dev.kpi.com/Settings.html#accountingSettings|unitmeasurementsList"
+                                                   style="cursor: pointer;"><span>Measurements</span></a></li>
+                                            <li>
+                                                <a href="https://dev.kpi.com/Settings.html#accountingSettings|productCategoriesList"
+                                                   style="cursor: pointer;"><span>Product Categories</span></a></li>
+                                            <li><a href="https://dev.kpi.com/Settings.html#accountingSettings|brandsList"
+                                                   style="cursor: pointer;"><span>Brands</span></a></li>
+                                            <li>
+                                                <a href="https://dev.kpi.com/Settings.html#accountingSettings|shippintMethod"
+                                                   style="cursor: pointer;"><span>Shipping Methods</span></a></li>
+                                            <li>
+                                                <a href="https://dev.kpi.com/Settings.html#accountingSettings|paymentmethodlist"
+                                                   style="cursor: pointer;"><span>Payment Methods</span></a></li>
+                                            <li><a href="https://dev.kpi.com/Settings.html#accountingSettings|accountList"
+                                                   style="cursor: pointer;"><span>Chart of Accounts</span></a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="main-dir__workflowsettings">
+                                    <div class="collapsible-header"><a style="cursor: pointer;"><span>Automation</span></a>
+                                    </div>
+                                    <div class="collapsible-body">
+                                        <ul>
+                                            <li>
+                                                <a href="https://dev.kpi.com/Settings.html#workflowSettings|workflowRuleList"
+                                                   style="cursor: pointer;"><span>Rules</span></a></li>
+                                            <li>
+                                                <a href="https://dev.kpi.com/Settings.html#workflowSettings|workflowActivitiesList"
+                                                   style="cursor: pointer;"><span>Upcoming Activities</span></a></li>
+                                            <li><a href="https://dev.kpi.com/Settings.html#workflowSettings|approvalProcess"
+                                                   style="cursor: pointer;"><span>Approval process</span></a></li>
+                                            <li><a href="https://dev.kpi.com/Settings.html#workflowSettings|systemMessages"
+                                                   style="cursor: pointer;"><span>Workflow Notifications</span></a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="side-nav__footer"></div>
+            </div>
+        </ul>
+    </div>
+
+    <div>
+        <div class="kpi-sidenav-overlay" style="display: none;"></div>
+        <div tabindex="0" style="height: 100%;"><input type="text" tabindex="-1" aria-hidden="true"
+                                                       style="opacity: 0; height: 1px; width: 1px; z-index: -1; overflow: hidden; position: absolute;">
+            <ul class="quick-add side-nav drawer right-aligned" id="6A63855D-1798-4B47-85FC-6F9660891CC9"
+                style="width: 390px; right: -400px;">
+                <div style="display: flex;" class="sidenav-content"><a
+                        data-activates="6A63855D-1798-4B47-85FC-6F9660891CC9"
+                        class="6A63855D-1798-4B47-85FC-6F9660891CC9 dropdown-button show-on-medium-and-down show-on-large"
+                        style="cursor: pointer; position: absolute; visibility: visible;"></a>
+                    <div class="side-nav__heading">
+                        <div class="side-nav__title">
+                            <div class="gwt-HTML"><h1>Send feedback</h1></div>
+                        </div>
+                    </div>
+                    <div class="side-nav__body">
+                        <div class="scroll-offset">
+                            <div>
+                                <div class="form-group">
+                                    <div class="input-field">
+                                        <div class="form-control input-field listbox-wrapper">
+                                            <div class="select-wrapper gwt-ListBox"><span class="caret">▼</span><input
+                                                    type="text" class="select-dropdown" readonly="true"
+                                                    data-activates="select-options-ee29ddbe-ee3e-79ec-d17d-734a0bd48eb1"
+                                                    value="Please Select"><select class="gwt-ListBox initialized"
+                                                                                  inside-origin="false">
+                                                <option value="-1">Please Select</option>
+                                                <option value="1">Question</option>
+                                                <option value="2">Issue</option>
+                                                <option value="3">Suggestion</option>
+                                                <option value="4">Other</option>
+                                            </select></div>
+                                            <label></label><span class="material-label"></span></div>
+                                        <label>TYPE</label></div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-field"><input type="text" id="gwt-debug-subject">
+                                        <label>Subject</label></div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-field"><textarea class="gwt-TextArea" rows="7"></textarea> <label>Ask
+                                        your question here:</label></div>
+                                </div>
+                                <div class="form-group"><label class="form-group__label">FILE ATTACHMENTS</label>
+                                    <div class="form-upload">
+                                        <div class="form-upload__attached" aria-hidden="true"
+                                             style="display: none;"></div>
+                                        <div class="btn-upload">
+                                            <form target="FormPanel_accounting_1" method="POST"
+                                                  enctype="multipart/form-data" action="/action/CreateAttachment"><input
+                                                    type="file" class="gwt-FileUpload" id="gwt-debug-btn-upload-2"
+                                                    name="attachmentFile0"><input type="hidden" name="sessionId"
+                                                                                  value="FREE$49913$4B36632D7614E098"><input
+                                                    type="hidden" name="multipleFiles" value="true"></form>
+                                            <div class="btn-upload__icon"><em class="ficon--attachment"></em></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="side-nav__footer">
+                        <button class="btn btn--primary"><span>Save</span></button>
+                        <button class="btn btn--default"><span>Close</span></button>
+                    </div>
+                </div>
+            </ul>
+        </div>
+        <div class="kpi-sidenav-overlay" style="display: none;"></div>
+        <div tabindex="0" style="height: 100%;"><input type="text" tabindex="-1" aria-hidden="true"
+                                                       style="opacity: 0; height: 1px; width: 1px; z-index: -1; overflow: hidden; position: absolute;">
+            <ul class="quick-add side-nav drawer right-aligned" id="9EF34188-AE42-4AF8-8379-D99DB6BE3D87"
+                style="width: 390px; right: -400px;">
+                <div style="display: flex;" class="sidenav-content"><a
+                        data-activates="9EF34188-AE42-4AF8-8379-D99DB6BE3D87"
+                        class="9EF34188-AE42-4AF8-8379-D99DB6BE3D87 dropdown-button show-on-medium-and-down show-on-large"
+                        style="cursor: pointer; position: absolute; visibility: visible;"></a>
+                    <div class="side-nav__heading">
+                        <div class="side-nav__title">
+                            <div class="side-nav__title-group">
+                                <svg class=" icon--bell">
+                                    <use href="../../WebContent/mainStyles/new-ui/icons/sprite__panels.svg#bell"></use>
+                                </svg>
+                                <span>43</span>
+                                <div class="gwt-HTML">&nbsp;</div>
+                                <span>Notifications</span></div>
+                            <div class="side-nav__title-group">
+                                <button class="btn-flat"><span>Clear All</span></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="side-nav__body has-scroll--vertical">
+                        <div class="scroll-offset">
+                            <div class="alert-block alert-block--accounts">
+                                <div class="alert-block__heading"><span class="alert-block__cat">Accounts</span><span
+                                        class="alert-block__date">Jan 08 | 06.45</span><i class="close material-icons"
+                                                                                          style="cursor: pointer;"></i>
+                                </div>
+                                <div class="alert-block__body"><a class="alert-block__title"
+                                                                  href="/Accounting.html#expenseReports|previewReport/524/EXPENSE_VIEW/ACCOUNTING"
+                                                                  style="cursor: pointer;"><span>Your expense claim has been approved</span></a>
+                                    <div class="alert-block__author">Thomas Weigelt</div>
+                                </div>
+                            </div>
+                            <div class="alert-block alert-block--accounts">
+                                <div class="alert-block__heading"><span class="alert-block__cat">Accounts</span><span
+                                        class="alert-block__date">Jan 08 | 06.45</span><i class="close material-icons"
+                                                                                          style="cursor: pointer;"></i>
+                                </div>
+                                <div class="alert-block__body"><a class="alert-block__title"
+                                                                  href="/Accounting.html#expenseReports|previewReport/524/EXPENSE_VIEW/ACCOUNTING"
+                                                                  style="cursor: pointer;"><span>Expense claim is waiting for your approval</span></a>
+                                    <div class="alert-block__author">Thomas Weigelt</div>
+                                </div>
+                            </div>
+                            <div class="alert-block alert-block--accounts">
+                                <div class="alert-block__heading"><span class="alert-block__cat">Accounts</span><span
+                                        class="alert-block__date">Jan 08 | 06.46</span><i class="close material-icons"
+                                                                                          style="cursor: pointer;"></i>
+                                </div>
+                                <div class="alert-block__body"><a class="alert-block__title"
+                                                                  href="/Accounting.html#expenseReports|previewReport/525/EXPENSE_VIEW/ACCOUNTING"
+                                                                  style="cursor: pointer;"><span>Your expense claim has been approved</span></a>
+                                    <div class="alert-block__author">Thomas Weigelt</div>
+                                </div>
+                            </div>
+                            <div class="alert-block alert-block--accounts">
+                                <div class="alert-block__heading"><span class="alert-block__cat">Accounts</span><span
+                                        class="alert-block__date">Jan 08 | 06.46</span><i class="close material-icons"
+                                                                                          style="cursor: pointer;"></i>
+                                </div>
+                                <div class="alert-block__body"><a class="alert-block__title"
+                                                                  href="/Accounting.html#expenseReports|previewReport/525/EXPENSE_VIEW/ACCOUNTING"
+                                                                  style="cursor: pointer;"><span>Expense claim is waiting for your approval</span></a>
+                                    <div class="alert-block__author">Thomas Weigelt</div>
+                                </div>
+                            </div>
+                            <div class="alert-block alert-block--accounts">
+                                <div class="alert-block__heading"><span class="alert-block__cat">Accounts</span><span
+                                        class="alert-block__date">Jan 08 | 06.46</span><i class="close material-icons"
+                                                                                          style="cursor: pointer;"></i>
+                                </div>
+                                <div class="alert-block__body"><a class="alert-block__title"
+                                                                  href="/Accounting.html#expenseReports|previewReport/526/EXPENSE_VIEW/ACCOUNTING"
+                                                                  style="cursor: pointer;"><span>Your expense claim has been approved</span></a>
+                                    <div class="alert-block__author">Thomas Weigelt</div>
+                                </div>
+                            </div>
+                            <div class="alert-block alert-block--accounts">
+                                <div class="alert-block__heading"><span class="alert-block__cat">Accounts</span><span
+                                        class="alert-block__date">Jan 08 | 06.46</span><i class="close material-icons"
+                                                                                          style="cursor: pointer;"></i>
+                                </div>
+                                <div class="alert-block__body"><a class="alert-block__title"
+                                                                  href="/Accounting.html#expenseReports|previewReport/526/EXPENSE_VIEW/ACCOUNTING"
+                                                                  style="cursor: pointer;"><span>Expense claim is waiting for your approval</span></a>
+                                    <div class="alert-block__author">Thomas Weigelt</div>
+                                </div>
+                            </div>
+                            <div class="alert-block alert-block--accounts">
+                                <div class="alert-block__heading"><span class="alert-block__cat">Accounts</span><span
+                                        class="alert-block__date">Jan 09 | 06.35</span><i class="close material-icons"
+                                                                                          style="cursor: pointer;"></i>
+                                </div>
+                                <div class="alert-block__body"><a class="alert-block__title"
+                                                                  href="/Accounting.html#expenseReports|previewReport/530/EXPENSE_VIEW/ACCOUNTING"
+                                                                  style="cursor: pointer;"><span>Your expense claim has been approved</span></a>
+                                    <div class="alert-block__author">Thomas Weigelt</div>
+                                </div>
+                            </div>
+                            <div class="alert-block alert-block--accounts">
+                                <div class="alert-block__heading"><span class="alert-block__cat">Accounts</span><span
+                                        class="alert-block__date">Jan 09 | 06.35</span><i class="close material-icons"
+                                                                                          style="cursor: pointer;"></i>
+                                </div>
+                                <div class="alert-block__body"><a class="alert-block__title"
+                                                                  href="/Accounting.html#expenseReports|previewReport/530/EXPENSE_VIEW/ACCOUNTING"
+                                                                  style="cursor: pointer;"><span>Expense claim is waiting for your approval</span></a>
+                                    <div class="alert-block__author">Thomas Weigelt</div>
+                                </div>
+                            </div>
+                            <div class="alert-block alert-block--accounts">
+                                <div class="alert-block__heading"><span class="alert-block__cat">Accounts</span><span
+                                        class="alert-block__date">Jan 09 | 06.36</span><i class="close material-icons"
+                                                                                          style="cursor: pointer;"></i>
+                                </div>
+                                <div class="alert-block__body"><a class="alert-block__title"
+                                                                  href="/Accounting.html#expenseReports|previewReport/531/EXPENSE_VIEW/ACCOUNTING"
+                                                                  style="cursor: pointer;"><span>Your expense claim has been approved</span></a>
+                                    <div class="alert-block__author">Thomas Weigelt</div>
+                                </div>
+                            </div>
+                            <div class="alert-block alert-block--accounts">
+                                <div class="alert-block__heading"><span class="alert-block__cat">Accounts</span><span
+                                        class="alert-block__date">Jan 09 | 06.36</span><i class="close material-icons"
+                                                                                          style="cursor: pointer;"></i>
+                                </div>
+                                <div class="alert-block__body"><a class="alert-block__title"
+                                                                  href="/Accounting.html#expenseReports|previewReport/531/EXPENSE_VIEW/ACCOUNTING"
+                                                                  style="cursor: pointer;"><span>Expense claim is waiting for your approval</span></a>
+                                    <div class="alert-block__author">Thomas Weigelt</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="side-nav__footer">
+                        <button class="btn btn--default btn-block"><i class="ficon--menu"></i><span>View All</span>
+                        </button>
+                    </div>
+                </div>
+            </ul>
+        </div>
+    </div>
+    <div class="tooltip_templates" aria-hidden="true" style="display: none;"></div>
+</div>
+
+
+<!--SCRIPTS-->
+
+<script>
+    jQuery(document).ready(function () {
+        jQuery('.scrollbar-external').scrollbar({
+            "autoScrollSize": true,
+            "scrollx": $('.external-scroll_x'),
+            "scrolly": $('.external-scroll_y'),
+//	 "onScroll": $(this).addClass('scrollActivated')
+        });
+
+        $('.left-menu-trigger').click(function () {
+            $('body').toggleClass('left-menu-open left-menu-closed')
+        });
+    });
+</script>
+</body>
+</html>

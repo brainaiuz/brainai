@@ -1,0 +1,1 @@
+ant MessageCenter -f ./web/AutoCompile.xml

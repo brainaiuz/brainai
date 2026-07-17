@@ -1,0 +1,13 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:m.html='urn:import:gwt.material.design.client.ui.html'
+             xmlns:grid='urn:import:com.edatasite.workforce.gwt.core.client.ui.components.dashboard'>
+
+    <g:HTMLPanel addStyleNames="dashboard__container dashboard__container--edit">
+        <m.html:Div class="dashboard__header margin-bottom fixed-content" ui:field="header"/>
+
+        <div class="dashboard__content dashboard__content--edit">
+            <grid:GridStackPanel ui:field="gridStackPanel"></grid:GridStackPanel>
+        </div>
+    </g:HTMLPanel>
+</ui:UiBinder>

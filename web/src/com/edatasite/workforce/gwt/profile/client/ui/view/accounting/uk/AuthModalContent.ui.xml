@@ -1,0 +1,85 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:components="urn:import:com.edatasite.workforce.gwt.core.client.ui.components">
+    <g:HTMLPanel>
+        <div class="vat-modal-row">
+            <div class="vat-modal-column-large">
+                <div class="vat-modal-item">
+                    <h6 class="vat-modal-inner-heading">
+                        <strong>Step 1:</strong>
+                        Before you go HMRC and
+                        authorize kpi, ensure that you have:
+                    </h6>
+                    <ul class="vat-modal-list">
+                        <li>
+                            Signed up for MTD VAT with HRMC
+                        </li>
+                        <li>
+                            Received the confirmation email from HMRC to use a software solution to file the VAT
+                            returns
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="vat-modal-item">
+                    <h6 class="vat-modal-inner-heading">
+                        <strong>Step 2:</strong>
+                        Select your role.
+                    </h6>
+
+                    <div class="form-group">
+                        <g:HTMLPanel styleName="form-group__content" ui:field="adminContainer">
+                        </g:HTMLPanel>
+                    </div>
+
+                    <div class="form-group">
+                        <g:HTMLPanel styleName="form-group__content" ui:field="agentContainer">
+                        </g:HTMLPanel>
+
+                        <g:HTMLPanel ui:field="ARNContainer">
+                            <div class="gwt-HTML">
+                                <div class="form-group__label">Agent Registration Number (ARN)</div>
+                            </div>
+                            <div class="form-group__content">
+                                <g:TextBox styleName="form-control default-width" ui:field="arnBox"/>
+                            </div>
+                        </g:HTMLPanel>
+                    </div>
+                </div>
+            </div>
+            <div class="vat-modal-column-small">
+                <h6 class="vat-modal-inner-heading">
+                    <strong>Note</strong>
+                </h6>
+                <ul class="vat-modal-list">
+                    <li>
+                        MTD is not available for the Annual Accounting scheme yet. So you cannot file your
+                        annual
+                        returns to HMRC through kpi
+                    </li>
+                    <li>
+                        The due dates and the ffrequency of your VAT returns and payments will not be changed.
+                    </li>
+                    <li>
+                        After your’ve signed up, you cannot use HMRC’s VAT online service to file your VAT
+                        returns.
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="vat-conditions-area">
+            <div class="form-group">
+                <div class="form-group__content">
+                    <components:KpiCheckBox ui:field="vatConfirmationBox"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-group__content">
+                    <components:KpiCheckBox ui:field="termsAndConditionsBox"/>
+                </div>
+            </div>
+        </div>
+    </g:HTMLPanel>
+</ui:UiBinder>

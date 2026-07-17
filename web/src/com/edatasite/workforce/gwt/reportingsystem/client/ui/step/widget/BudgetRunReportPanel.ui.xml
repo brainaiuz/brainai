@@ -1,0 +1,70 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:mh="urn:import:gwt.material.design.client.ui.html"
+             xmlns:mw="urn:import:gwt.material.design.client.ui"
+             xmlns:sb="urn:import:com.edatasite.workforce.gwt.core.client.ui.splitButton"
+>
+    <g:HTMLPanel styleName="pageContent_reporting bt_area">
+        <div class="operPanel__wrapper">
+            <div class="operPanel--header operPanel">
+                <mh:Div styleName="operPanel__actions">
+                    <mh:Div styleName="btn btn--default hasicon-left show-hide-create-report-btn"
+                            ui:field="hideShowOptionsButton"></mh:Div>
+                    <mh:Div styleName="btn btn--default " ui:field="hideDetailsButton"></mh:Div>
+                </mh:Div>
+                <div class="operPanel__settings">
+                    <mh:Div styleName="btn btn--primary" ui:field="runReportButtonForMember"></mh:Div>
+                    <sb:SplitButton ui:field="splitButton" itemWidth="120" btnStyleType="btn btn--primary"
+                                    directionTop="false"></sb:SplitButton>
+                    <mh:Div class="pagingStat__wrapper" ui:field="totalPanel">
+                    </mh:Div>
+                    <ul class="paging">
+                        <li class="paging__prevpage" ui:field="previous">
+                            <a class="btn btn--white btn--icon" style="cursor: pointer;">
+                                <i class="ficon--chevron-left material-icons" style="cursor: pointer;"></i>
+                            </a>
+                        </li>
+                        <li class="paging__currentpage">
+                            <g:IntegerBox ui:field="current"/>
+                        </li>
+                        <li class="paging__nextpage" ui:field="next">
+                            <a class="btn btn--white btn--icon" style="cursor: pointer;">
+                                <i class="ficon--chevron-right material-icons" style="cursor: pointer;"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <div class="errorMessage"></div>
+                        </li>
+                    </ul>
+                    <mh:Div ui:field="customizePanel">
+                    </mh:Div>
+                </div>
+            </div>
+        </div>
+        <div class="create-report">
+            <div class="panel follow_h_scroll">
+                <mh:Div class="panel__heading">
+                    <mw:MaterialTab styleName="tabs tabs--high" ui:field="tabs"></mw:MaterialTab>
+                    <mh:Div styleName="btn btn--primary" ui:field="runReportButton"></mh:Div>
+                </mh:Div>
+
+                <div id="inv_form_header" class="panel__body">
+                    <div id="inv_moreoptions">
+
+                        <mh:Div ui:field="filterContent"/>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="textPanel clearfix delimit_top">
+                <mh:Div ui:field="chartContainer"/>
+                <mh:Div ui:field="kpiWidgetContainer"/>
+                <div class="reporting-table-container tf-wrapper" ui:field="content"/>
+            </div>
+
+        </div>
+        <g:HTMLPanel ui:field="exportPanel" styleName="hide"></g:HTMLPanel>
+    </g:HTMLPanel>
+</ui:UiBinder>

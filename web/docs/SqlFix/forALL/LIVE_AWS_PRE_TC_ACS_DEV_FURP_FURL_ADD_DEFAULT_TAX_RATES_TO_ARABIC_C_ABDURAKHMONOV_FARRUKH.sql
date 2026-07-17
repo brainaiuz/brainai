@@ -1,0 +1,18 @@
+﻿-- CREATE FUNCTION defaulttaxrates() RETURNS void
+-- AS $func$
+-- DECLARE cr record;
+--
+-- BEGIN
+--
+-- FOR cr IN (select distinct c.* from country c WHERE c.code in ('SA', 'AE', 'QA', 'BH', 'KW', 'OM') )
+-- LOOP
+--
+-- INSERT INTO vattemplate(name,countryid,taxtype) VALUES('VAT Tax',cr.id, 1);
+-- INSERT INTO vattemplatecomponent(name,rate,vattemplateid) VALUES('VAT',5,(select id from vattemplate where name='VAT Tax' and countryid=cr.id and taxtype=1));
+--
+-- END LOOP;
+--
+-- END;
+-- $func$ LANGUAGE plpgsql;
+--
+-- select defaulttaxrates();

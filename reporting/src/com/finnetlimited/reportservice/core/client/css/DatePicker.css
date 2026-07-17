@@ -1,0 +1,120 @@
+.gwt-DateBox input {
+    width: 8em;
+}
+
+.dateBoxFormatError {
+    background: #ffcccc;
+    font-size: 11px;
+}
+
+.dateBoxPopup {
+    font-size:11px;
+}
+
+.gwt-DatePicker {
+    border: 1px solid #004B79;
+    cursor: default;
+    font-size: 11px;
+}
+
+.gwt-DatePicker td,
+    .datePickerMonthSelector td:focus {
+    outline: none ;
+    font-size: 11px;
+}
+
+.datePickerDays {
+    width: 100%;
+    background: white;
+    font-size: 11px;
+}
+
+.datePickerDay,
+    .datePickerWeekdayLabel,
+    .datePickerWeekendLabel {
+    font-size: 75%;
+    text-align: center;
+    padding: 4px;
+    outline: none;
+    font-size: 11px;
+}
+
+.datePickerWeekdayLabel,
+    .datePickerWeekendLabel {
+    background: #004B79;
+    padding: 0 4px 2px;
+    cursor: default;
+    color:#F0E68C;
+    font-size: 11px;
+}
+
+.datePickerDay {
+    padding: 4px;
+    cursor: hand;
+    cursor: pointer;
+    font-size:11px;
+    font-size: 11px;
+}
+
+.datePickerDayIsToday {
+    border: 1px solid black;
+    padding: 3px;
+    font-size: 11px;
+}
+
+.datePickerDayIsWeekend {
+    background: #EEEEEE;
+    font-size: 11px;
+}
+
+.datePickerDayIsFiller {
+    color: #888888;
+    font-size: 11px;
+}
+
+.datePickerDayIsValue {
+    background: #004B79;
+    font-size: 11px;
+    color:white;
+}
+
+.datePickerDayIsDisabled {
+    color: #AAAAAA;
+    font-style: italic;
+    font-size: 11px;
+}
+
+.datePickerDayIsHighlighted {
+    background: #F0E68C;
+    font-size: 11px;
+}
+
+.datePickerDayIsValueAndHighlighted {
+    background: #bbddd9;
+    font-size: 11px;
+}
+
+.datePickerMonthSelector {
+    background: #004B79;
+    width: 100%;
+    font-size: 11px;
+}
+
+td.datePickerMonth {
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    font-size: 11px;
+    font-weight: bold;
+    color: white;
+}
+
+.datePickerPreviousButton,
+    .datePickerNextButton {
+    font-size: 150%;
+    line-height: 1em;
+    color: white;
+    cursor: hand;
+    cursor: pointer;
+    padding: 0 4px;
+}

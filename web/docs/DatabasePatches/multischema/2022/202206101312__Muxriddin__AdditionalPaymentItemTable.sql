@@ -1,0 +1,88 @@
+delete from "anv".itemtable_settings where section = 'ADDITIONAL_PAYMENT_ITEM';
+insert into "anv".itemtable_settings (section, settingsjsondata) values ('ADDITIONAL_PAYMENT_ITEM',
+    '[
+	{
+		"aliasName": "EMPLOYEE",
+		"changed": false,
+		"clickable": true,
+		"code": "EMPLOYEE",
+		"disabled": false,
+		"hasDefault": false,
+		"minValue": 0,
+		"order": 0,
+		"required": true,
+		"selected": true,
+		"title": "Employee",
+		"width": 25
+	},
+	{
+    "aliasName": "BASIC_SALARY",
+		"changed": false,
+		"clickable": false,
+		"code": "BASIC_SALARY",
+		"disabled": false,
+		"hasDefault": false,
+		"minValue": 0,
+		"order": 1,
+		"required": true,
+		"selected": true,
+		"title": "Basic Salary",
+		"width": 15
+	},
+	{
+    "aliasName": "PERCENTAGE",
+		"changed": false,
+		"clickable": false,
+		"code": "PERCENTAGE",
+		"disabled": false,
+		"hasDefault": false,
+		"minValue": 0,
+		"order": 3,
+		"required": true,
+		"selected": true,
+		"title": "Percentage",
+		"width": 15
+	},
+	{
+		"aliasName": "AMOUNT",
+		"changed": false,
+		"clickable": false,
+		"code": "AMOUNT",
+		"disabled": false,
+		"hasDefault": false,
+		"minValue": 0,
+		"order": 4,
+		"required": true,
+		"selected": true,
+		"title": "Amount",
+		"width": 15
+	},
+	{
+		"aliasName": "CATEGORY",
+		"changed": false,
+		"clickable": false,
+		"code": "CATEGORY",
+		"disabled": false,
+		"hasDefault": false,
+		"minValue": 0,
+		"order": 5,
+		"required": false,
+		"selected": true,
+		"title": "Category",
+		"width": 15
+	},
+	{
+		"aliasName": "PAYMENT_DATE",
+		"changed": false,
+		"clickable": false,
+		"code": "PAYMENT_DATE",
+		"disabled": false,
+		"hasDefault": false,
+		"minValue": 0,
+		"order": 6,
+		"required": false,
+		"selected": true,
+		"title": "Payment Date",
+		"width": 15
+	}
+]');

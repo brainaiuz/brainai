@@ -1,0 +1,14 @@
+package com.edatasite.workforce.gwt.core.server.db.customfields;
+
+import com.edatasite.workforce.core.domain.EdsItemCustomFields;
+import com.edatasite.workforce.gwt.core.server.db.Manager;
+
+/**
+ * User: Dilsh0d
+ * Email: dilshod.toj@gmail.com
+ * Date: 11-Nov-2010
+ * Time: 17:16:50
+ */
+public interface ItemCFManager extends Manager<EdsItemCustomFields> {
+    Object getCustomFieldValue(Integer objectID, String columnCode);
+}

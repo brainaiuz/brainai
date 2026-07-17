@@ -1,0 +1,1 @@
+update usageplan set storage=10 where storage < 10;

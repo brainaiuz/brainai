@@ -1,0 +1,207 @@
+.mainTable {
+    padding: 10px;
+}
+    /* START general styles */
+.guideCover {
+    position:relative;
+    padding:10px;
+    font-size:12px;
+    /*font-family:Arial;*/
+    color:#1f4f8f;
+}
+.prodLink {
+    position:absolute;
+    font-weight:bold;
+    color:#1f4f8f;
+    text-decoration:none;
+    text-align:center;
+    text-shadow:0 1px 0 rgba(255, 255, 255, 0.5);
+    max-width: 95px;
+}
+.noProdLink {
+    position:absolute;
+    color:#1f4f8f;
+    text-decoration:none;
+    text-align:center;
+    text-shadow:0 1px 0 rgba(255, 255, 255, 0.5);
+    max-width: 95px;
+}
+.prodLink a {
+    text-decoration:none !important;
+}
+.prodLink:hover {
+    text-decoration:underline;
+}
+    /* END general styles */
+
+.payrollCover {
+    width:708px;
+    height:293px;
+    background:url(payroll/images/welcome/bg_arabic_payroll_cover.png) no-repeat 0 0;
+    float:left;
+}
+.payrollLink-1 {
+     font-size: 11px;
+     left:155px;
+     top: 15px;
+}
+.payrollLink-2 {
+    left:28px;
+    top: 111px;
+}
+.payrollLink-3 {
+    left: 149px;
+    top: 148px;
+}
+.payrollLink-4 {
+    left: 275px;
+    top: 113px;
+}
+.payrollLink-5 {
+    font-size: 11px;
+    font-weight: normal;
+    left: 395px;
+    top: 114px;
+}
+.payrollLink-6 {
+    font-size: 11px;
+    font-weight: normal;
+    left: 515px;
+    top: 109px;
+}
+.payrollLink-7 {
+    top:114px;
+    left:640px;
+}
+.payrollLink-8 {
+    left: 458px;
+    top: 225px;
+}
+.payrollLink-9 {
+    left: 333px;
+    top: 223px;
+}
+.payrollLink-1-1 {
+    left: 370px;
+    top: 21px;
+}
+.payrollLink-2-1 {
+    left: 100px;
+    top: 252px;
+}
+.payrollLink-3-1 {
+    left: 380px;
+    top: 252px;
+}
+.payrollLink-4-1 {
+    left: 647px;
+    top: 246px;
+}
+
+    /*BEGIN Payroll Form-Reports styles */
+.payrollFormCover{
+    height: 266px;
+    width: 490px;
+    background:url(payroll/images/welcome/bg_arabic_form_reports_cover.png) no-repeat 0 0;
+}
+
+.payrolFormLink-1 {
+    font-size: 20px;
+    max-width: 160px;
+    left: 107px;
+    top: 12px;
+}
+
+.payrolFormLink-2 {
+    right: 111px;
+    top: 106px;
+    font-size:20px;
+    max-width: 160px;
+}
+
+.payrolFormLink-3 {
+    left: 58px;
+    top: 248px;
+    font-size:20px;
+    max-width: 160px;
+}
+
+.payrolFormLink-4 {
+    font-size: 20px;
+    right: 87px;
+    max-width: 160px;
+    top: 236px;
+}
+    /*END Payroll Form-Reports styles */
+
+    /*BEGIN Payroll Setting styles */
+.payrollSettingsCover{
+    height: 402px;
+    width: 781px;
+    background:url(payroll/images/welcome/bg_payroll_settings_cover.png) no-repeat 0 0;
+}
+.payrollSettingsCoverArabic{
+    height: 402px;
+    width: 781px;
+    background:url(payroll/images/welcome/bg_payroll_settings_cover2.png) no-repeat 0 0;
+}
+.payrollSettingsLink-1 {
+    left: 34px;
+    top: 10px;
+}
+.payrollSettingsLink-2 {
+    left: 311px;
+    top: 108px;
+}
+.payrollSettingsLink-3 {
+    right: 170px;
+    top: 17px;
+}
+.payrollSettingsLink-4{
+    left: 43px;
+    top: 158px;
+}
+.payrollSettingsLink-5{
+    left: 313px;
+    top: 249px;
+}
+.payrollSettingsLink-6{
+    right: 115px;
+    top: 245px;
+}
+.payrollSettingsLink-7 {
+    left: 55px;
+    top: 390px;
+}
+.payrollSettingsLink-8 {
+    left: 315px;
+    top: 382px;
+}
+.payrollSettingsLink-9 {
+    right: 165px;
+    top: 390px;
+}
+.payrollSettingsLink-1-1 {
+    left: 70px;
+    top: 150px;
+}
+.payrollSettingsLink-2-1 {
+    left: 330px;
+    top: 14px;
+}
+.payrollSettingsLink-3-1 {
+    right: 102px;
+    top: 153px;
+}
+.payrollSettingsLink-7-1{
+    left: 76px;
+    top: 253px;
+}
+.payrollSettingsLink-8-1{
+    left: 325px;
+    top: 378px;
+}
+.payrollSettingsLink-9-1{
+    right: 110px;
+    top: 256px;
+}

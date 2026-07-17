@@ -1,0 +1,156 @@
+.mainTable {
+    padding: 10px;
+}
+
+.topTableStyle {
+    height: 80px;
+    margin: 5px 15px 15px 10px;
+    /*width: 96%;*/
+    float: left;
+}
+
+.top-l {
+    background: url(crm/icons/welcome/left-bcg.jpg) no-repeat;
+    width: 6px;
+}
+
+.top-c {
+    background: url(crm/icons/welcome/bcg.jpg) repeat-x;
+}
+
+.top-r {
+    background: url(crm/icons/welcome/right-bcg.jpg) no-repeat;
+    width: 6px;
+}
+
+.topCenter {
+    margin-left: 5px;
+    padding: 0 0 8px 0;
+}
+
+.welcomeTitle {
+    color: #1F4F8F;
+    /*font-family: tahoma, verdana, helvetica;*/
+    font-size: 12px;
+}
+
+.topText {
+    /*font-family: tahoma, verdana, helvetica;*/
+    font-size: 12px;
+}
+    /* START general styles */
+.guideCover {
+    position:relative;
+    padding:10px;
+    font-size:12px;
+    /*font-family:Arial;*/
+    color:#1f4f8f;
+}
+.prodLink {
+    position:absolute;
+    font-weight:bold;
+    color:#1f4f8f;
+    text-decoration:none;
+    text-align:center;
+    text-shadow:0 1px 0 rgba(255, 255, 255, 0.5);
+    max-width: 120px;
+}
+.noProdLink {
+    position:absolute;
+    color:#1f4f8f;
+    text-decoration:none;
+    text-align:center;
+    text-shadow:0 1px 0 rgba(255, 255, 255, 0.5);
+    max-width: 120px;
+}
+.prodLink a {
+    text-decoration:none !important;
+}
+.prodLink:hover {
+    text-decoration:underline;
+}
+    /* END general styles */
+
+
+.crmCover {
+    width: 784px;
+    height: 346px;
+    background: url(crm/icons/welcome/bg_arabic_crm_cover.png) no-repeat 0 0;
+    float: left;
+}
+
+.crmLink-1 {
+    left: 62px;
+    top: 14px;
+}
+
+.crmLink-2 {
+    max-width: 100px;
+    left: 41px;
+    top: 206px;
+}
+
+.crmLink-3 {
+    left: 194px;
+    top: 13px;
+}
+
+.crmLink-4 {
+    left: 197px;
+    top: 216px
+}
+
+.crmLink-5 {
+    left: 333px;
+    top: 48px;
+}
+
+.crmLink-6 {
+    left: 313px;
+    top: 216px;
+}
+
+.crmLink-7 {
+    left: 433px;
+    top: 12px;
+}
+
+.crmLink-8 {
+    left:422px;
+    top: 178px;
+}
+
+.crmLink-9 {
+    left: 439px;
+    top: 284px;
+}
+
+.crmLink-10 {
+    left: 588px;
+    top: 214px;
+}
+
+.crmLink-11 {
+    left:586px;
+    top: 315px;
+}
+
+.crmLink-12 {
+    left: 728px;
+    top: 13px;
+}
+
+.crmLink-13 {
+    left: 718px;
+    top: 104px;
+}
+
+.crmLink-14 {
+    left: 730px;
+    top:187px;
+}
+
+.crmLink-15 {
+    left:731px;
+    top: 283px;
+}

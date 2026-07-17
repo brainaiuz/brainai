@@ -1,0 +1,1 @@
+update "anv".model set viewname = 'ScheduledCourse' where formid = 'SCHEDULED_COURSE_FORM';

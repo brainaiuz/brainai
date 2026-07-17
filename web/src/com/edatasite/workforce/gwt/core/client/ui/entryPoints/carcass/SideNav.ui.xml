@@ -1,0 +1,24 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:k='urn:import:com.edatasite.workforce.gwt.core.client.ui'
+             xmlns:m='urn:import:gwt.material.design.client.ui'
+             xmlns:mh='urn:import:gwt.material.design.client.ui.html'
+>
+
+    <mh:Div addStyleNames="frame__nav">
+        <mh:Div ui:field="companiesDiv">
+        </mh:Div>
+        <m:MaterialDropDown class="dropdown-content" activator="frame__header__create-new" belowOrigin="true" ui:field="addNewMenuList"/>
+        <g:HTMLPanel styleName="frame__nav__body" ui:field="content">
+            <!--Start user-profile__menu block-->
+            <!--End user-profile__menu block-->
+            <mh:Div styleName="frame__nav-title" ui:field="navTitle">
+                <m:html.Heading size="H3" ui:field="menuTitle"></m:html.Heading>
+                <m:MaterialLink href="#" styleName="btn--circle btn-small btn--success" activates="frame__header__create-new" ui:field="addNewMenu">
+
+                </m:MaterialLink>
+            </mh:Div>
+            <m:MaterialCollapsible ui:field="sideNavItems" class="main-directories collapsible collapsible-accordion"/>
+        </g:HTMLPanel>
+    </mh:Div>
+</ui:UiBinder>

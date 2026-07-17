@@ -1,0 +1,12 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /></head>
+<body>
+<p>Dear ${managername},</p>
+Please be advised that ${creator} has submitted a Payslip to ${employee} for your attention on ${date}
+Click here to view the Payslip where you can approve or reject it.
+<p>Click <a href="${url}" title="View payslip">here</a>  to view the Payslip where you can approve or reject it.</p>
+Once you approve or reject the Payslip ${employee} will receive email notification about its status.
+<p>Your Sincerely,</p>
+<p>${creator}</p>
+<p>${companyname}</p>

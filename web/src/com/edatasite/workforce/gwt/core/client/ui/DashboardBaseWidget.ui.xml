@@ -1,0 +1,14 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+    <g:HTMLPanel styleName="widget" ui:field="mainPanel">
+        <g:HTMLPanel styleName="widget-heading" ui:field="headerPanel">
+            <g:HTMLPanel styleName="widget-row widget-row-head" ui:field="headerRow">
+                <g:HTMLPanel styleName="widget__title" ui:field="title"/>
+                <g:HTMLPanel styleName="widget-heading__dropdown" ui:field="filterPanel"/>
+                <g:HTMLPanel styleName="widget-heading__actions" ui:field="actionPanel">
+                </g:HTMLPanel>
+            </g:HTMLPanel>
+        </g:HTMLPanel>
+        <g:HTMLPanel styleName="widget-body" ui:field="contentPanel"/>
+    </g:HTMLPanel>
+</ui:UiBinder>

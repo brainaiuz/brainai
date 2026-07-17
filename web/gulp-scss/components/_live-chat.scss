@@ -1,0 +1,122 @@
+
+//SUPPORT CALL and CHAT
+.live-chat_indicator, .live-call_indicator { //ToDo Check - Are we using it?
+  overflow: visible;
+  position: relative;
+  display: block !important;
+  text-align: left;
+  box-shadow: none !important;
+}
+
+.support-feedback-popup__support-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px !important;
+  margin: -41px auto 11px;
+  padding: 10px !important;
+  border-radius: 100%;
+  //content: url(/mainStyles/new-ui/images/livechat.svg);
+  background-color: $success-color;
+
+  .dropdown-content > li > & { /* strong selector to override padding */
+    padding: 10px !important;
+  }
+
+  .ficon--phone {
+    font-size: 24px !important;
+    color: #fff;
+  }
+
+  .live-chat_indicator &, .live-call_indicator & {
+    height: 40px !important;
+    width: 40px !important;
+    padding: 5px !important;
+    margin: 0 auto;
+  }
+
+  .live-chat_indicator & {
+    background-color: $button-color-success;
+  }
+}
+
+.live-chat_indicator {
+  //content: url("/mainStyles/new-ui/images/livechat.svg");
+
+  span.d-block {
+    margin-top: 10px;
+  }
+
+  &.dropdown-button {
+    &:before {
+      margin-right: -8px;
+    }
+    &:after {
+      margin-right: -7px;
+    }
+  }
+}
+
+.support-feedback-popup {
+  width: 220px !important;
+  overflow-y: visible !important;
+  overflow: visible !important;
+  left: 100% !important;
+  right: auto !important;
+  margin-left: 21px !important;
+  margin-top: -20px !important;
+
+  &__header {
+    font-size: 16px;
+    font-weight: bold;
+    color: $success2-color !important;
+  }
+
+  &__content {
+    display: block;
+    text-align: center !important;
+    padding: 17px;
+    font-size: 13px;
+
+    p {
+      margin: 10px 0;
+    }
+
+    a {
+      color: #00A8EA;
+      font-weight: bold;
+    }
+    &:hover {
+      background-color: inherit !important;
+    }
+  }
+}
+
+
+.cal-popup {
+  background-color: white;
+  border-radius: $radius-basePlus;
+  padding: 15px;
+  @extend .z-depth-2;
+
+  table {
+    border-collapse: separate;
+    border-spacing: 3px;
+  }
+  .gwt-cal {
+    border-radius: 0;
+
+    > * {
+      background-color: white !important;
+      color: $color-accent-2;
+      border-radius: 0 !important;
+    }
+  }
+  .close-button {
+    position: absolute;
+    right: 15px;
+    z-index: 1;
+    top: 15px;
+  }
+}

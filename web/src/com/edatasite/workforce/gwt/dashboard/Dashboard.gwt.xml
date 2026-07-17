@@ -1,0 +1,10 @@
+<module rename-to="dashboard">
+    <inherits name='com.edatasite.workforce.gwt.core.Core'/>
+    <inherits name='com.edatasite.workforce.gwt.chart.Chart'/>
+    <inherits name='com.edatasite.workforce.gwt.dashboard.DashboardMain'/>
+    <inherits name="com.edatasite.workforce.gwt.reportingsystem.ReportingSystemMain"/>
+
+    <inherits name="com.edatasite.workforce.gwt.Localization_properties"></inherits>
+    <entry-point class='com.edatasite.workforce.gwt.dashboard.client.Dashboard'/>
+
+</module>

@@ -1,0 +1,53 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:groupBox="urn:import:com.edatasite.workforce.gwt.core.client.ui.components.groupBox">
+    <g:HTMLPanel ui:field="exportPanel">
+        <div class="fixed-filters-panel-wrapper">
+            <groupBox:SectionBoxPanel ui:field="headerPanel"/>
+        </div>
+        <g:HTMLPanel styleName="balance-sheet__wrapper container--largest" ui:field="table">
+            <div class="grid-row--largest">
+                <div class="col-6">
+                    <table class="balance-sheet">
+<!--                        <thead ui:field="paymentsHeader"/>-->
+                        <tbody>
+                            <tr>
+                                <td class="balance-sheet__nested" colspan="2" ui:field="paymentsBody"/>
+                            </tr>
+                        </tbody>
+<!--                        <tfoot ui:field="paymentsFooter"/>-->
+                    </table>
+                </div>
+                <div class="col-6">
+                    <table align="right" class="balance-sheet">
+<!--                        <thead ui:field="deductionsHeader"/>-->
+                        <tbody>
+                            <tr>
+                                <td class="balance-sheet__nested" colspan="2" ui:field="deductionsBody"/>
+                            </tr>
+                        </tbody>
+<!--                        <tfoot ui:field="deductionsFooter"/>-->
+                    </table>
+                </div>
+            </div>
+            <div class="col-12">
+                <table class="balance-sheet">
+                    <tfoot ui:field="footer"/>
+                </table>
+            </div>
+            <div class="col-6">
+                <table align="right" class="balance-sheet">
+                    <tbody>
+                        <tr>
+                            <td class="balance-sheet__nested" colspan="2" ui:field="employerContributionBody"/>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </g:HTMLPanel>
+        <g:HTMLPanel styleName="section-box box-bg--1" ui:field="noMessagePanel" visible="false">
+            <h6 ui:field="noResultMessage" style="text-align:center;"/>
+        </g:HTMLPanel>
+    </g:HTMLPanel>
+</ui:UiBinder>

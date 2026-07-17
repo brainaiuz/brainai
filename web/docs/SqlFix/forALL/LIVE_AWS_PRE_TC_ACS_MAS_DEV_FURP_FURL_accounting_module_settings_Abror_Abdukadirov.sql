@@ -1,0 +1,19 @@
+update permission set modulecode = 'ISSUE_TRACKING' where code = 'ACCOUNTING_ISSUE_LIST' and parent = (select id from permission where code = 'ACCOUNTING_ACCOUNTING_MENU');
+update permission set modulecode = 'CASE_MANAGEMENT' where code = 'ACCOUNTING_CASE_LIST' and parent = (select id from permission where code = 'ACCOUNTING_ACCOUNTING_MENU');
+update permission set modulecode = 'OPPORTUNITY_TRACKING' where code = 'ACCOUNTING_OPPORTUNITY_LIST' and parent = (select id from permission where code = 'ACCOUNTING_ACCOUNTING_MENU');
+
+update permission set modulecode = 'TASK_MANAGEMENT' where code = 'ACCOUNTING_TASK_LIST' and parent = (select id from permission where code = 'ACCOUNTING_ACCOUNTING_MENU');
+update permission set moduleCode = 'TASK_MANAGEMENT' where code = 'CRM_TASKS_LIST' and parent = (select id from permission where code = 'CRM_SALES_TAB');
+update permission set moduleCode = 'TASK_MANAGEMENT' where code = 'CRM_SEE_ALL_TASKS_LIST' and parent = (select id from permission where code = 'CRM_TASKS_LIST');
+update permission set moduleCode = 'TASK_MANAGEMENT' where code = 'CRM_TASKS_ADD' and parent = (select id from permission where code = 'CRM_TASKS_LIST');
+update permission set moduleCode = 'TASK_MANAGEMENT' where code = 'CRM_TASKS_ADD_MULTI' and parent = (select id from permission where code = 'CRM_TASKS_LIST');
+update permission set moduleCode = 'TASK_MANAGEMENT' where code = 'CRM_TASKS_EDIT' and parent = (select id from permission where code = 'CRM_TASKS_LIST');
+update permission set moduleCode = 'TASK_MANAGEMENT' where code = 'CRM_TASKS_REMOVE' and parent = (select id from permission where code = 'CRM_TASKS_LIST');
+update permission set moduleCode = 'TASK_MANAGEMENT' where code = 'CRM_TASK_LIST_MORE_BUTTON' and parent = (select id from permission where code = 'CRM_TASKS_LIST');
+update permission set moduleCode = 'TASK_MANAGEMENT' where code = 'CRM_TASKS_NOTES' and parent = (select id from permission where code = 'CRM_TASKS_LIST');
+update permission set moduleCode = 'TASK_MANAGEMENT' where code = 'CRM_TASKS_TIMER' and parent = (select id from permission where code = 'CRM_TASKS_LIST');
+update permission set moduleCode = 'TASK_MANAGEMENT' where code = 'CRM_TASKS_BUDGET' and parent = (select id from permission where code = 'CRM_TASKS_LIST');
+update permission set moduleCode = 'TASK_MANAGEMENT' where code = 'CRM_TASKS_DOCUMENTS' and parent = (select id from permission where code = 'CRM_TASKS_LIST');
+update permission set moduleCode = 'TASK_MANAGEMENT' where code = 'CRM_TASKS_COMMENTS' and parent = (select id from permission where code = 'CRM_TASKS_LIST');
+update permission set moduleCode = 'TASK_MANAGEMENT' where code = 'CRM_TASKS_ISSUE' and parent = (select id from permission where code = 'CRM_TASKS_LIST');
+update permission set moduleCode = 'TASK_MANAGEMENT' where code = 'CRM_TASKS_PDF_EXCEL_EXPORT' and parent = (select id from permission where code = 'CRM_TASKS_LIST');

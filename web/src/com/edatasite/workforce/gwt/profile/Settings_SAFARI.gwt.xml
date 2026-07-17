@@ -1,0 +1,4 @@
+<module rename-to="settings">
+    <inherits name='com.edatasite.workforce.gwt.profile.Settings'/>
+    <set-property name="user.agent" value="safari"/>
+</module>

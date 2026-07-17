@@ -1,0 +1,7 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+
+    <g:HTMLPanel styleName="panel-w-switch__container custom-form-grid">
+        <g:HTMLPanel styleName="grid-stack grid-stack-active" ui:field="mainPanel"></g:HTMLPanel>
+    </g:HTMLPanel>
+</ui:UiBinder>

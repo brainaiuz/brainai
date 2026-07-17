@@ -1,0 +1,260 @@
+<div>
+    <!--Start Content Place-->
+    <div>
+        <!-- <div class="contentPlaceCover"> -->
+        <div class="contentBar tool-invoice c-block invoice-width">
+            <div class="contentScroll">
+                <table class="bindContent" cellpadding="0" cellspacing="0">
+                    <tbody>
+                    <tr>
+                        <td class="mainBar">
+                            <div class="invoice-block">
+                                <div class="sect clear group">
+                                    <div class="invoice-customer">
+                                        $$label:crmaccount$$
+                                        $$input:crmaccount$$
+                                    </div>
+                                    <div class="invoice-project">
+                                        $$label:project$$
+                                        <div style="float:left">
+                                            $$input:project$$
+                                            $$input:applyproject$$
+                                        </div>
+                                    </div>
+                                    <div class="invoice-date">
+                                        $$label:date$$
+                                        $$input:date$$
+                                    </div>
+                                    <div class="invoice-date">
+                                        $$label:duedate$$
+                                        $$input:duedate$$
+                                    </div>
+                                    <div class="invoice-date">
+                                        $$label:canceldate$$
+                                        $$input:canceldate$$
+                                    </div>
+                                    <div class="invoice-customer">
+                                        $$label:manager$$
+                                        $$input:manager$$
+                                    </div>
+                                    <div class="invoice-customer">
+                                        $$label:customer$$
+                                        $$input:customer$$
+                                    </div>
+                                </div>
+                                <div class="sect clear group">
+                                    <div class="invoice-title">
+                                        $$label:title$$
+                                    </div>
+                                    <div class="invoice-copyfrom">
+                                        $$input:copyfrom$$
+                                    </div>
+                                    <div class="invoice-num">
+                                        $$label:number$$
+                                        $$input:number$$
+                                    </div>
+                                </div>
+                                <div class="sect clear group">
+                                    <div class="invoice-bill-to">
+                                        <div class="addresshead">
+                                            $$label:billaddress$$
+                                            $$input:billaddress$$
+                                            <div class="add-edit-links">
+                                                $$input:addbilladdress$$ $$input:editbilladdress$$
+                                            </div>
+                                        </div>
+                                        $$input:billaddressdata$$
+                                    </div>
+                                    <div class="invoice-ship-to">
+                                        <div class="addresshead">
+                                            $$label:mailaddress$$
+                                            $$input:mailaddress$$
+                                            <div class="add-edit-links">
+                                                $$input:addmailaddress$$ $$input:editmailaddress$$
+                                            </div>
+                                        </div>
+                                        $$input:mailaddressdata$$
+                                    </div>
+                                </div>
+                                <div style="padding: 10px 0 20px 0; overflow: hidden;">
+                                    <div class="invoice-ship-via">
+                                        $$label:shippingmethod$$
+                                        $$input:shippingmethod$$
+                                    </div>
+                                    <div class="invoice-reference">
+                                        $$label:pricelevel$$
+                                        $$input:pricelevel$$
+                                    </div>
+                                    <div class="invoice-amounts">
+                                        $$label:taxcalc$$
+                                        $$input:taxcalc$$
+                                    </div>
+                                    <div class="related-text" style="min-height:47px;margin-bottom:10px">
+                                        $$label:paymenttype$$
+                                        $$input:paymenttype$$
+                                    </div>
+                                    <div class="related-text">
+                                        $$label:receivedate$$
+                                        $$input:receivedate$$
+                                    </div>
+                                    <div class="related-text" style="min-height:47px;margin-bottom:10px">
+                                        $$label:paymentterm$$
+                                        $$input:paymentterm$$
+                                    </div>
+                                    <div class="related-text" style="min-height:47px;margin-bottom:10px">
+                                        $$label:shippingterm$$
+                                        $$input:shippingterm$$
+                                    </div>
+                                    <div class="invoice-reference" style="min-height:47px;margin-bottom:10px">
+                                        $$label:reference$$
+                                        $$input:reference$$
+                                    </div>
+                                    <div class="related-text" style="min-height:47px;margin-bottom:10px">
+                                        $$label:salequote$$
+                                        $$input:salequote$$
+                                    </div>
+                                </div>
+                                <div class="invoice-products clear">
+                                    $$input:itemtable$$
+                                </div>
+
+                                <div class="overall-discount">
+                                    $$input:overalldiscount$$
+                                </div>
+
+                                <div class="invoice-subtotal">
+                                    <span class="corner lt"></span>
+                                    <span class="corner rt"></span>
+                                    <span class="corner lb"></span>
+                                    <span class="corner rb"></span>
+                                    $$input:totalstable$$
+                                </div>
+                                <div class="invoice-payment-instructions">
+                                    $$label:instruction$$
+                                    $$input:instructionlist$$
+                                    $$input:instruction$$
+                                </div>
+
+                                <div class="invoice-paymentpanel" style="margin-top:30px;">
+                                    <div class="invoice-paymenthistory">
+                                        $$input:allhistorypanel$$
+                                    </div>
+                                </div>
+
+                                <div class="invoice-paymentpanel" style="margin-top:30px;">
+                                    <div class="invoice-paymenthistory">
+                                        $$input:maillinkpanel$$
+                                    </div>
+                                </div>
+
+                                <div class="invoice-btns-row">
+                                    <div class="invoice-btn-save">
+                                        $$input:saveButton$$
+                                    </div>
+                                    <div class="invoice-btn-save-approve">
+                                        $$input:saveAndApproveButton$$
+                                    </div>
+                                    <div class="invoice-btn-default">
+                                        $$input:rejectButton$$
+                                    </div>
+                                    <div class="invoice-btn-approve">
+                                        $$input:approveAndSendButton$$
+                                    </div>
+                                    <div class="invoice-btn-default">
+                                        $$input:submitToManagerButton$$
+                                    </div>
+                                    <div class="invoice-btn-default">
+                                        $$input:allocateButton$$
+                                    </div>
+                                    <div class="invoice-btn-default">
+                                        $$input:receiveButton$$
+                                    </div>
+                                    <div class="invoice-btn-default">
+                                        $$input:saveOrderButton$$
+                                    </div>
+                                    <div class="invoice-btn-default">
+                                        $$input:convertToInvoiceButton$$
+                                    </div>
+                                    <div class="invoice-btn-default">
+                                        $$input:closeButton$$
+                                    </div>
+                                    <div class="invoice-btn-pdf">
+                                        $$input:pdfVersionButton$$
+                                    </div>
+                                    <div class="invoice-btn-excel">
+                                        $$input:excelVersionButton$$
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <!-- End  col -->
+                        <td class="sidebar">
+                            <div class="inv-OptBar">
+                                <div class="optBarBlock pdftemplate">
+                                    $$label:pdftemplate$$
+                                    $$input:pdftemplate$$
+                                </div>
+                                <div class="optBarBlock">
+                                    <table class="">
+                                        <tbody>
+                                        <tr>
+                                            <td class="exRate" colspan="2">
+                                                $$input:currency$$
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                $$label:keepexchangerate$$
+                                            </td>
+                                            <td>
+                                                $$input:keepexchangerate$$
+                                            </td>
+                                        </tr>
+                                        <tr class="bankDetails">
+                                            <td>$$label:bank$$</td>
+                                            <td>$$input:bank$$</td>
+                                        </tr>
+                                        <tr class="bankDetails">
+                                            <td colspan="2">$$input:expensereportlink$$</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="optBarBlock invoice-customfields">
+                                    $$label:customfieldtitle$$
+                                    $$input:customfields$$
+                                </div>
+                                <div class="optBarBlock invoice-attachments">
+                                    $$label:attachments$$
+                                    $$input:attachments$$
+                                    $$input:uploadbutton$$
+                                </div>
+                                <div class="optBarBlock notes">
+                                    $$label:notes$$
+                                    $$input:notes$$
+                                    $$input:addnote$$
+                                </div>
+                                <div class="optBarBlock revisionhistory">
+                                    $$label:revisionhistory$$
+                                    $$input:revisionhistory$$
+                                </div>
+                                <div class="optBarBlock expenses">
+                                    $$label:allocationpanel$$
+                                    $$input:allocationpanel$$
+                                </div>
+                                <div class="optBarBlock assignserials">
+                                    $$input:assignSerialsButton$$
+                                </div>
+
+                            </div>
+                        </td>
+                        <!-- End  col -->
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- End contentBar -->
+    </div>
+    <!-- End contentPlaceCover -->
+</div>

@@ -1,0 +1,23 @@
+package com.edatasite.workforce.gwt.core.client.ui;
+
+import com.google.gwt.i18n.client.Constants;
+
+/**
+ * Created by IntelliJ IDEA.
+ * User: Marat
+ * Date: 13.03.12
+ * Time: 12:30
+ * To change this template use File | Settings | File Templates.
+ */
+public interface FeatureConstants extends Constants {
+    String CRM_LEAD_NEW_FEATURE = "CRM_LEAD_NEW_FEATURE";
+    String EXPENSE_CLAIM_BILL_TO = "EXPENSE_CLAIM_BILL_TO";
+    String CHART_OF_ACCOUNTS_HIDE_EMPY = "CHART_OF_ACCOUNTS_HIDE_EMPY";
+    String EXPENCE_CLAIM_RELATED_PO = "EXPENCE_CLAIM_RELATED_PO";
+    String SALES_QUOTE_PROGRESS_INVOICING = "SALES_QUOTE_PROGRESS_INVOICING";
+    String FIXED_ASSETS_DISPOSE = "FIXED_ASSETS_DISPOSE";
+    String FIXED_ASSETS_UPDATE_DEPRICATION = "FIXED_ASSETS_UPDATE_DEPRICATION";
+    String PRODUCT_SERVICES_PRODUCT_TYPE = "PRODUCT_SERVICES_PRODUCT_TYPE";
+    String CUSTOMER_CENTER_CLIENT_BALANCE = "CUSTOMER_CENTER_CLIENT_BALANCE";
+    String SUPPLIER_CENTER_SUPPLIER_BALANCE = "SUPPLIER_CENTER_SUPPLIER_BALANCE";
+}

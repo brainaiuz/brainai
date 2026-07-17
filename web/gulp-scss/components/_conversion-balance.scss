@@ -1,0 +1,63 @@
+.conversion-balance {
+
+  .table-header-column {
+    .editable-cell__actions {
+      margin-bottom: 7px;
+    }
+  }
+  &__aside {
+    padding-bottom: 10px;
+    padding-left: 30px;
+
+    &-wrapper {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    &-top {
+      flex: 0 0 auto;
+    }
+    &-bottom {
+      flex: 1 0 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .dropdown-split {
+      float: right;
+      margin-top: -7px;
+    }
+  }
+  &__bill {
+    td, th {
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+    th {
+      font-weight: 500;
+    }
+    td {
+      font-weight: bold;
+    }
+    tfoot {
+      tr > * {
+        position: relative;
+
+        &:before {
+          content: '';
+          position: absolute;
+          left: 2px;
+          right: 0;
+          height: 3px;
+          margin-top: -8px;
+          border-top: 1px dashed #1d252c;
+          border-bottom: 1px dashed #1d252c;
+        }
+      }
+      td, th {
+        padding-top: 12px;
+      }
+    }
+  }
+}
