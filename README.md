@@ -1,8 +1,3 @@
-# Kpi.com
-> Kpi.com, this is Online ERP Solution to manage your business,
-> [_More_](https://kpi.com).
-
-
 [[_TOC_]]
 ## Technologies Used 
 - JDK - version 17
@@ -27,7 +22,7 @@
 
 ## Setup Postgresql
 
-1) Ask from DevOps team to dump below schemas/databases for you from Kpi Dev Environment !
+1) Ask from DevOps team to dump below schemas/databases for you from  Dev Environment !
  - 0
  - public
  - 23039
